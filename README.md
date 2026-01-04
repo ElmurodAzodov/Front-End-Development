@@ -983,3 +983,501 @@
 ### 🎯 **Natija:** O'quvchi mustaqil real-world loyihani boshlang'ichdan production-ready holatga keltiradi.
 
 ---
+<img src="./Git and GitHub/gitandgithub.png" width="500" height="">
+
+# Git and GitHub
+
+## **Module 0 — Setup & Tooling**
+### 📚 Mavzular:
+- **Install Git** (Windows / macOS / Linux)
+- **Configure user**: `git config --global user.name` & `user.email`
+- **SSH keys vs HTTPS**: Generating SSH keys and adding to GitHub
+- **Git GUI clients**: SourceTree, GitKraken, GitHub Desktop
+- **IDE integrations**: VS Code Git features
+- **GitHub account setup**: Two-factor authentication (2FA), Personal Access Tokens (PATs)
+
+### 🎯 **Natija:** O'quvchi Git va GitHub muhitini xavfsiz va to'g'ri sozlaydi.
+
+---
+
+## **Module 1 — Git Basics**
+### 📚 Mavzular:
+- **What is VCS**: Git vs centralized VCS (SVN) concepts
+- **Repository lifecycle**: 
+  ```bash
+  git init
+  git clone <url>
+  ```
+- **.gitignore** file patterns
+- **Staging area**:
+  ```bash
+  git add <file>
+  git status
+  git diff
+  ```
+- **Commits**:
+  ```bash
+  git commit -m "message"
+  git commit --amend
+  ```
+- **Reading history**:
+  ```bash
+  git log
+  git show
+  git blame
+  ```
+
+### 🎯 **Natija:** O'quvchi lokal repozitoriya yaratadi, fayllarni kuzatadi va commitlarni boshqaradi.
+
+---
+
+## **Module 2 — Branching & Merging (Core)**
+### 📚 Mavzular:
+- **Branch concept**:
+  ```bash
+  git branch
+  git checkout <branch>
+  git switch <branch>
+  ```
+- **Branch naming conventions**:
+  - `feature/login-system`
+  - `bugfix/header-issue`
+  - `hotfix/production-bug`
+- **Merging**:
+  ```bash
+  git merge <branch>
+  ```
+  - Fast-forward vs 3-way merge
+- **Conflict resolution**:
+  - Conflict markers resolution
+  - Testing after merge
+- **Branching models**:
+  - Git Flow
+  - GitHub Flow
+  - Trunk-based development
+
+### 🎯 **Natija:** O'quvchi mustaqil branchlarda ishlaydi va xavfsiz birlashtiradi.
+
+---
+
+## **Module 3 — Remote Repositories (GitHub)**
+### 📚 Mavzular:
+- **Remotes**:
+  ```bash
+  git remote add origin <url>
+  git remote -v
+  git fetch
+  git pull
+  git push origin main
+  ```
+- **Forks vs clones**: Upstream remote workflow
+- **Tracking branches**:
+  ```bash
+  git branch -u origin/main
+  ```
+- **Git pull strategies**:
+  ```bash
+  git pull --rebase
+  git pull --merge
+  ```
+- **Working with GitHub**:
+  - Creating repositories
+  - README.md best practices
+  - LICENSE files
+  - .gitignore templates
+
+### 🎯 **Natija:** O'quvchi GitHub bilan ishlaydi, remote push/pull va fork workflow'ni biladi.
+
+---
+
+## **Module 4 — Rewriting History (Carefully)**
+### 📚 Mavzular:
+- **Rebasing**:
+  ```bash
+  git rebase -i HEAD~3
+  ```
+  - Squash commits
+  - Reorder commits
+  - Edit commit messages
+- **Reset types**:
+  ```bash
+  git reset --soft HEAD~1
+  git reset --mixed HEAD~1
+  git reset --hard HEAD~1
+  ```
+- **Revert vs Reset**:
+  ```bash
+  git revert <commit-hash>    # Safe for shared history
+  git reset <commit-hash>     # Local history only
+  ```
+- **Cherry-pick**:
+  ```bash
+  git cherry-pick <commit-hash>
+  ```
+
+### 🎯 **Natija:** O'quvchi commit tarixini tozalaydi va xatoliklarni xavfsiz tuzatadi.
+
+---
+
+## **Module 5 — Stashing, Tags & Releases**
+### 📚 Mavzular:
+- **Stashing**:
+  ```bash
+  git stash
+  git stash list
+  git stash apply
+  git stash pop
+  git stash branch <name>
+  ```
+- **Tags**:
+  ```bash
+  git tag v1.0.0                    # Lightweight tag
+  git tag -a v1.0.0 -m "Release"   # Annotated tag
+  git tag --sign v1.0.0            # Signed tag (GPG)
+  ```
+- **Semantic Versioning** (semver):
+  - `MAJOR.MINOR.PATCH`
+  - `1.2.3`
+- **GitHub Releases**:
+  - Creating releases
+  - Release notes
+  - Asset attachments
+
+### 🎯 **Natija:** O'quvchi vaqtinchalik o'zgarishlarni saqlaydi va versiyalashni boshqaradi.
+
+---
+
+## **Module 6 — Recovery & Diagnostics**
+### 📚 Mavzular:
+- **Reflog** (recovery tool):
+  ```bash
+  git reflog
+  git reset --hard HEAD@{1}
+  ```
+- **Finding regressions**:
+  ```bash
+  git bisect start
+  git bisect bad
+  git bisect good <commit>
+  git bisect reset
+  ```
+- **Cleaning workspace**:
+  ```bash
+  git clean -n    # Dry run
+  git clean -f    # Force remove untracked
+  ```
+- **Maintenance**:
+  ```bash
+  git gc          # Garbage collection
+  git prune       # Remove unreachable objects
+  ```
+
+### 🎯 **Natija:** O'quvchi muammolarni aniqlaydi va yo'qolgan ishlarni tiklaydi.
+
+---
+
+## **Module 7 — Git Internals (Conceptual)**
+### 📚 Mavzular:
+- **Git Objects Model**:
+  - Blobs (file contents)
+  - Trees (directories)
+  - Commits (metadata)
+  - Refs (branches/tags)
+- **HEAD pointer**: Current branch reference
+- **Index structure**: Staging area
+- **Packfiles**: Compression mechanism
+- **Why Git is fast**: Content-addressable storage
+
+### 🎯 **Natija:** O'quvchi Git qanday ishlashini ichidan tushunadi va murakkab holatlarni yengillashtiradi.
+
+---
+
+## **Module 8 — Collaboration on GitHub (PR Workflow)**
+### 📚 Mavzular:
+- **Pull Request workflow**:
+  1. Fork repository
+  2. Create feature branch
+  3. Make changes and commit
+  4. Push to fork
+  5. Create PR
+  6. Review process
+  7. Merge strategies:
+     ```bash
+     # Merge commit
+     git merge --no-ff feature
+     
+     # Squash merge
+     git merge --squash feature
+     
+     # Rebase merge
+     git rebase main
+     ```
+- **Code review best practices**:
+  - Meaningful comments
+  - Request changes
+  - Approve with suggestions
+- **Draft PRs**: Work in progress
+- **PR templates**: Standardized descriptions
+- **Protected branches**: Require reviews, status checks
+
+### 🎯 **Natija:** O'quvchi jamoa bilan professional PR asosida hamkorlik qiladi.
+
+---
+
+## **Module 9 — GitHub Features & Modern Workflows**
+### 📚 Mavzular:
+- **Issues & Projects**:
+  - Labels, milestones, assignees
+  - Project boards (Kanban)
+  - Task lists in issues
+- **GitHub Actions basics**:
+  ```yaml
+  name: CI Pipeline
+  on: [push]
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - run: npm install
+        - run: npm test
+  ```
+- **Dependabot**: Dependency updates
+- **Security alerts**: Vulnerability scanning
+- **GitHub Pages**: Static site hosting
+  ```yaml
+  # .github/workflows/deploy.yml
+  - name: Deploy
+    uses: peaceiris/actions-gh-pages@v3
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: ./dist
+  ```
+
+### 🎯 **Natija:** O'quvchi GitHub imkoniyatlaridan foydalangan holda loyiha avtomatlashtiradi va boshqaradi.
+
+---
+
+## **Module 10 — Security & Signing**
+### 📚 Mavzular:
+- **Authentication methods**:
+  - SSH keys (recommended)
+  - HTTPS with PATs
+- **Commit signing**:
+  ```bash
+  # GPG signing
+  git config commit.gpgsign true
+  
+  # SSH signing (Git 2.34+)
+  git config gpg.format ssh
+  ```
+- **GitHub Secrets**: Encrypted environment variables
+- **Security configurations**:
+  - CODEOWNERS file
+  - Branch protection rules
+  - Required status checks
+  - 2FA enforcement
+- **Organization security**:
+  - Team permissions
+  - Repository access levels
+
+### 🎯 **Natija:** O'quvchi xavfsiz repozitoriya amaliyotlarini joriy etadi.
+
+---
+
+## **Module 11 — Monorepos, Submodules & LFS**
+### 📚 Mavzular:
+- **Monorepos**:
+  - Pros and cons
+  - Tooling: pnpm workspaces, Nx, Lerna
+  ```json
+  // package.json (workspace)
+  {
+    "workspaces": ["packages/*"]
+  }
+  ```
+- **Git submodules**:
+  ```bash
+  git submodule add <url> <path>
+  git submodule update --init --recursive
+  ```
+  - Pitfalls and solutions
+- **Git LFS** (Large File Storage):
+  ```bash
+  git lfs install
+  git lfs track "*.psd"
+  git add .gitattributes
+  ```
+  - Use cases: images, videos, binaries
+  - Storage limitations
+
+### 🎯 **Natija:** O'quvchi katta loyihalar va katta fayllar bilan ishlash strategiyasini biladi.
+
+---
+
+## **Module 12 — Advanced Strategies & Best Practices**
+### 📚 Mavzular:
+- **Commit message conventions**:
+  ```
+  feat: add user authentication
+  fix: resolve header alignment issue
+  chore: update dependencies
+  docs: update README
+  ```
+  - Conventional Commits specification
+  - Automatic changelog generation
+- **Branch naming**:
+  ```
+  feature/user-profile
+  bugfix/login-error
+  hotfix/production-crash
+  release/v1.2.0
+  ```
+- **Atomic commits**: One logical change per commit
+- **Small PRs**: Focused, reviewable changes
+- **Performance optimizations**:
+  ```bash
+  git clone --depth 1 <url>      # Shallow clone
+  git sparse-checkout init       # Partial checkout
+  git gc --aggressive           # Optimize repository
+  ```
+
+### 🎯 **Natija:** O'quvchi jamoaviy kod bazasini tartib bilan saqlaydi va samarali ishlaydi.
+
+---
+
+## **Module 13 — Automation & CI/CD with GitHub Actions (Practical)**
+### 📚 Mavzular:
+- **Complete CI/CD pipeline**:
+  ```yaml
+  name: CI/CD Pipeline
+  on:
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main]
+  
+  jobs:
+    lint:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+        - run: npm ci
+        - run: npm run lint
+    
+    test:
+      needs: lint
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+        - run: npm ci
+        - run: npm test
+    
+    deploy:
+      needs: test
+      if: github.ref == 'refs/heads/main'
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - run: npm run build
+        - uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./dist
+  ```
+- **Matrix builds**: Multiple OS/Node versions
+- **Caching dependencies**:
+  ```yaml
+  - uses: actions/cache@v3
+    with:
+      path: node_modules
+      key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+  ```
+- **Release automation**:
+  - Semantic version tagging
+  - Automatic GitHub Releases
+  - Changelog generation
+
+### 🎯 **Natija:** O'quvchi CI/CD pipeline yozadi va loyihani avtomatik deploy qiladi.
+
+---
+
+## **Module 14 — Code Review, Governance & Teaming**
+### 📚 Mavzular:
+- **Effective code review checklist**:
+  - ✅ Code quality
+  - ✅ Security considerations
+  - ✅ Test coverage
+  - ✅ Documentation
+  - ✅ Performance impact
+- **CODEOWNERS file**:
+  ```
+  # .github/CODEOWNERS
+  *.js @frontend-team
+  /docs/ @docs-team
+  /api/ @backend-team
+  ```
+- **Branch protection rules**:
+  - Require PR approvals
+  - Require status checks
+  - Require linear history
+- **GitHub Teams**:
+  - Organization structure
+  - Team permissions
+  - Repository access
+- **Documentation**:
+  - CONTRIBUTING.md
+  - PULL_REQUEST_TEMPLATE.md
+  - ISSUE_TEMPLATE.md
+
+### 🎯 **Natija:** O'quvchi code review jarayonini boshqaradi va jamoani tartibga soladi.
+
+---
+
+## **Module 15 — Real-World Projects & Assessments**
+### 🏆 **Mini Projects:**
+
+#### **Project 1: Personal Portfolio with CI/CD**
+- Create portfolio website
+- Set up GitHub Pages
+- Implement CI/CD pipeline
+- Automated deployment
+```bash
+# Expected structure
+portfolio/
+├── .github/workflows/deploy.yml
+├── src/
+├── package.json
+└── README.md
+```
+
+#### **Project 2: Team Collaboration Workflow**
+- Fork a repository
+- Create feature branch
+- Implement feature
+- Create PR with reviews
+- Address review comments
+- Merge to main
+
+#### **Project 3: Full CI/CD Pipeline**
+- Test automation
+- Build process
+- Deployment to multiple environments
+- Release automation
+- Monitoring setup
+
+#### **Final Exam: Complete Repository Lifecycle**
+1. **Feature development** with proper branching
+2. **PR creation** with template
+3. **Code review** process simulation
+4. **Conflict resolution** scenario
+5. **Merge strategies** implementation
+6. **Release creation** with semantic versioning
+7. **Deployment** to staging/production
+8. **Recovery scenario**: Broken merge fix
+
+### 🎯 **Natija:** O'quvchi real jamoaviy repozitoriyada to'liq ishlaydi va muammolarni hal qiladi.
+
+---
