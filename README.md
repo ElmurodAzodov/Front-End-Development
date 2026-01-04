@@ -732,3 +732,254 @@
 ### 🎯 **Natija:** Professional, maintainable Bootstrap projects
 
 ---
+<img src="./JavaScript/js.png" width="200" height="">
+
+# JavaScript - Programming Language
+
+## **Course Structure Overview**
+- **Duration:** 12–16 weeks (adjustable)
+- **Flow:** Beginner → Intermediate → Advanced → Projects / Exam
+- **Each module:** Theory + Live Examples + Exercises + Mini-project
+
+---
+
+## **Module 0 — Setup & Tools**
+### 📚 Mavzular:
+- **Editor & extensions** (VS Code, Live Server, Prettier, ESLint)
+- **Browser devtools** (Console, Sources, Network, Performance)
+- **Node.js & npm basics** (node, npm init, npx)
+- **Using CDN vs local scripts**
+
+### 🎯 **Natija:** O'quvchi ishlab chiqish muhitini sozlaydi, konsol va paket menejerlarini ishlata oladi.
+
+---
+
+## **Module 1 — JavaScript Fundamentals**
+### 📚 Mavzular:
+- **What is JS;** environments: Browser vs Node.js
+- **console methods** (log, warn, error, table)
+- **Variables:** let, const, var; scope (global, block, function)
+- **Data types:** Number, String, Boolean, Null, Undefined, Symbol, BigInt
+- **Operators:** arithmetic, assignment, comparison, logical, ternary, typeof
+- **Type conversion & coercion**
+
+### 🎯 **Natija:** O'quvchi JS asoslarini, o'zgaruvchilar va turlarni tushunadi hamda konsolda diagnostika qiladi.
+
+---
+
+## **Module 2 — Numbers & Math**
+### 📚 Mavzular:
+- **Number methods:** parseInt, parseFloat, Number.isNaN, Number.isFinite
+- **Formatting:** toFixed, toPrecision
+- **Math object:** Math.sqrt, floor, ceil, round, trunc, pow, abs, min, max, random, sign
+- **Handling floats & precision issues**
+
+### 🎯 **Natija:** Raqamlar bilan ishonchli ishlaydi va Math utilitilarini qo'llaydi.
+
+---
+
+## **Module 3 — Strings & Regular Expressions**
+### 📚 Mavzular:
+- **String core:** length, indexing, charAt, charCodeAt
+- **Manipulation:** slice, substring, substr, replace, replaceAll, split, join
+- **Search & checks:** indexOf, includes, startsWith, endsWith, search, match
+- **Case & trim:** toUpperCase, toLowerCase, trim, trimStart, trimEnd, repeat, padStart, padEnd
+- **Template literals,** interpolation, multi-line strings
+- **Regular Expressions:** syntax, flags, test, exec, common patterns (email, phone, validation)
+
+### 🎯 **Natija:** O'quvchi matnni manipulyatsiya qiladi va regex bilan validatsiya qilishi mumkin.
+
+---
+
+## **Module 4 — Dates & Time**
+### 📚 Mavzular:
+- **Date constructor,** parsing dates, timestamps
+- **Get methods:** getFullYear, getMonth, getDate, getDay, getHours, getMinutes, getSeconds
+- **Formatting dates,** timezones basics, libraries mention (dayjs / date-fns)
+
+### 🎯 **Natija:** Vaqt va sana bilan ishlaydi, vaqtni formatlash va pars qilishni biladi.
+
+---
+
+## **Module 5 — Arrays (Complete)**
+### 📚 Mavzular:
+- **Array creation,** indexing, length property
+- **Mutating methods:** push, pop, shift, unshift, splice, sort, reverse
+- **Non-mutating methods:** slice, concat, join
+- **Iteration:** for, for...of, forEach
+- **Functional methods:** map, filter, reduce, find, findIndex, some, every
+- **Modern helpers:** flat, flatMap, at, copyWithin, fill
+- **Spread operator,** destructuring arrays, Array.from, Array.isArray
+
+### 🎯 **Natija:** Murakkab array operatsiyalarini va ES6 array patternlarini ishlata oladi.
+
+---
+
+## **Module 6 — Functions & Scope**
+### 📚 Mavzular:
+- **Function declaration** vs expression vs arrow functions
+- **Parameters,** rest ...args, default parameters
+- **Return values,** immediately-invoked function expressions (IIFE)
+- **Closures,** lexical scope, hoisting
+- **`this`** in functions and arrow functions
+- **Higher-order functions,** currying, function composition
+
+### 🎯 **Natija:** Funktsiyalarni professional darajada yozadi, closure va scope'ni tushunadi.
+
+---
+
+## **Module 7 — Objects & Object Patterns**
+### 📚 Mavzular:
+- **Object literals,** property access (obj.prop, obj['prop'])
+- **Shorthand properties,** computed property names
+- **Methods,** `this`, method binding (bind, call, apply)
+- **Object utilities:** Object.keys, values, entries, assign, freeze, seal
+- **Deep vs shallow copy** (structuredClone / JSON / spread)
+
+### 🎯 **Natija:** Obyekt bilan ishlash, kontekstni boshqarish va obyekt utilitilaridan foydalanishni biladi.
+
+---
+
+## **Module 8 — Classes & OOP**
+### 📚 Mavzular:
+- **ES6 class syntax,** constructor, prototype, methods
+- **Inheritance** (extends, super)
+- **Encapsulation patterns** (private fields #, closures)
+- **Mixins & composition** vs classical inheritance
+
+### 🎯 **Natija:** Sinflar va OOP printsiplarini qo'llaydi, konstruktor va merosxo'rlikni tushunadi.
+
+---
+
+## **Module 9 — Modules & Tooling**
+### 📚 Mavzular:
+- **ES Modules:** export / import (named vs default)
+- **Dynamic imports** (`import()`) and code-splitting concepts
+- **npm packages,** semantic versioning, package.json scripts
+- **Bundlers & dev servers** overview: Vite / Webpack / Parcel (concept level)
+- **Linters & formatters:** ESLint, Prettier; configuring scripts
+
+### 🎯 **Natija:** Katta loyihalarda modul tizimi va tooling'ni boshqaradi.
+
+---
+
+## **Module 10 — Asynchronous JavaScript**
+### 📚 Mavzular:
+- **Callbacks** and callback hell (problems)
+- **Promises:** constructor, then, catch, finally
+- **async / await** pattern, error handling with try/catch
+- **Promise utilities:** Promise.all, race, allSettled, any
+
+### 🎯 **Natija:** Asinxron kodni toza va nazorat qilinadigan usulda yozadi.
+
+---
+
+## **Module 11 — HTTP & Fetch / Axios**
+### 📚 Mavzular:
+- **HTTP basics:** methods (GET, POST, PUT, DELETE), status codes, headers, JSON body
+- **Fetch API:** fetch, response parsing (`.json()`), error handling
+- **Axios:** usage and advantages, interceptors
+- **Handling CORS** basics and common issues
+
+### 🎯 **Natija:** API bilan muloqot qiladi va ma'lumotlarni yuklab/saqlaydi.
+
+---
+
+## **Module 12 — Browser APIs & BOM**
+### 📚 Mavzular:
+- **DOM vs BOM** overview
+- **Window,** location, history, navigator, screen APIs
+- **Clipboard API,** Geolocation, Fullscreen API, Visibility API, Web Storage events
+- **Intro to Canvas 2D** (basic drawing) and Web Audio (concepts)
+
+### 🎯 **Natija:** Brauzerning kengroq API'larini ishlatadi va interaktiv funksiyalar yarata oladi.
+
+---
+
+## **Module 13 — DOM Manipulation & Events (Deep)**
+### 📚 Mavzular:
+- **Selecting elements:** querySelector, querySelectorAll, live vs static lists
+- **Creating, inserting, cloning, removing nodes** (createElement, append, insertBefore, replaceChild)
+- **innerHTML vs textContent** vs safe DOM updates
+- **Event handling:** addEventListener, passive listeners, event delegation, capturing vs bubbling
+- **Event object:** preventDefault, stopPropagation, target, currentTarget
+
+### 🎯 **Natija:** DOM va events bilan samarali va xavfsiz ishlaydi.
+
+---
+
+## **Module 14 — Forms, Validation & Accessibility**
+### 📚 Mavzular:
+- **Form elements,** input attributes, validation APIs (checkValidity, setCustomValidity)
+- **Regex validation,** constraint validation, progressive enhancement
+- **ARIA basics:** roles, aria-label, aria-hidden; keyboard accessibility tips
+- **Accessible error messages** and focus management
+
+### 🎯 **Natija:** Formalarni to'liq validatsiyalash va kirish uchun qulay qilishni biladi.
+
+---
+
+## **Module 15 — Storage & State Management**
+### 📚 Mavzular:
+- **localStorage, sessionStorage, cookies** — use-cases & limitations
+- **Serialization** (JSON.stringify / JSON.parse)
+- **Simple client-side state patterns** (pub/sub, module-scoped state)
+- **Introduction to IndexedDB** / local DB concepts (overview)
+
+### 🎯 **Natija:** Brauzerda ma'lumot saqlash va oddiy state boshqaruvini amalga oshiradi.
+
+---
+
+## **Module 16 — Error Handling, Debugging & Testing**
+### 📚 Mavzular:
+- **Error types,** try/catch/finally, throwing errors, custom Error classes
+- **Debugging** with breakpoints, stepping, watch expressions, performance profiling
+- **Unit testing basics** with Jest / Vitest: writing tests, mocks, assertions
+- **Basic E2E testing** mention (Playwright / Cypress)
+
+### 🎯 **Natija:** Xatolarni topadi, test yozadi va kod sifatini oshiradi.
+
+---
+
+## **Module 17 — Performance & Security**
+### 📚 Mavzular:
+- **Performance:** reflow/repaint, minimizing layout thrash, lazy-loading, debouncing, throttling
+- **Resource optimization:** image optimization, code-splitting, caching strategies
+- **Security basics:** XSS, CSRF concepts, sanitization, Content Security Policy (CSP) overview
+
+### 🎯 **Natija:** Sahifa tezligini oshiradi va asosiy xavfsizlik tahdidlaridan himoyalaydi.
+
+---
+
+## **Module 18 — Modern Patterns & Advanced Topics**
+### 📚 Mavzular:
+- **Functional programming patterns** in JS (pure functions, immutability)
+- **Reactive programming intro** (observables concept)
+- **State immutability,** structural sharing, shallow vs deep equality
+- **Introduction to TypeScript** (why, basic types, migration path) — optional but recommended
+- **Web Components basics** (Custom Elements, Shadow DOM) — overview
+
+### 🎯 **Natija:** Zamonaviy kod yozish uslublarini tushunadi va TypeScriptga o'tishga tayyor bo'ladi.
+
+---
+
+## **Module 19 — Tooling, Workflow & Deployment**
+### 📚 Mavzular:
+- **Build & deploy basics** (Netlify, Vercel, static hosting)
+- **CI basics** (GitHub Actions example)
+- **Versioning & release process** (semantic versioning)
+
+### 🎯 **Natija:** Loyihani ishlab chiqishdan production'ga chiqarishgacha bosqichlarni biladi.
+
+---
+
+## **Module 20 — Final Projects & Assessment**
+### 🏆 **Final Projects:**
+1. **Project A:** Interactive CRUD app (forms, localStorage, validation, modular code)
+2. **Project B:** API-driven app (fetch/axios, pagination, caching)
+3. **Project C:** Mini game (Tic-Tac-Toe or Memory) with score/save feature
+4. **Final exam:** build a small full-featured SPA (HTML/CSS/JS) or present React migration plan
+
+### 🎯 **Natija:** O'quvchi mustaqil real-world loyihani boshlang'ichdan production-ready holatga keltiradi.
+
+---
