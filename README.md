@@ -326,3 +326,409 @@
 54. **Common mistakes** to avoid
 
 ---
+<img src="./SASS/sass.png" width="200" height="">
+
+# SASS – Syntactically Awesome Stylesheets
+
+## **Module 1. Introduction to SASS**
+### 📚 Mavzular:
+1. **What is SASS & why we use it**
+2. **SASS vs CSS** (advantages and features)
+3. **How to install & setup SASS**
+   - npm installation
+   - CLI setup
+   - VS Code extensions (Live SASS Compiler)
+4. **SASS file structure** (`.scss` vs `.sass` syntax)
+5. **Compiling SASS to CSS**
+   - Watch mode
+   - Auto-compile
+   - Production builds
+
+### 🎯 **Natija:** O'quvchi SASSni ishga tushira oladi
+
+---
+
+## **Module 2. Variables & Constants**
+### 📚 Mavzular:
+6. **SASS variables**
+   ```scss
+   $primary-color: #3498db;
+   $font-stack: 'Roboto', sans-serif;
+   $spacing-unit: 16px;
+   ```
+7. **Using variables for**
+   - Colors, fonts, spacing
+   - Breakpoints, z-indexes
+8. **Global variables & :root integration**
+   ```scss
+   :root {
+     --primary-color: #{$primary-color};
+   }
+   ```
+9. **Nested variables & maps**
+   ```scss
+   $colors: (
+     "primary": #3498db,
+     "secondary": #2ecc71,
+     "danger": #e74c3c
+   );
+   ```
+
+### 🎯 **Natija:** Kodni reusable va maintainable qilish
+
+---
+
+## **Module 3. Nesting & Partials**
+### 📚 Mavzular:
+10. **Nesting selectors**
+    ```scss
+    .navbar {
+      background: $primary-color;
+      
+      .nav-item {
+        padding: 10px;
+        
+        &:hover {
+          background: darken($primary-color, 10%);
+        }
+      }
+    }
+    ```
+11. **Avoiding over-nesting** (max 3 levels)
+12. **Partials** (`_header.scss`, `_buttons.scss`, `_variables.scss`)
+13. **Modern import system**
+    ```scss
+    // Old (deprecated)
+    @import 'variables';
+    
+    // New (recommended)
+    @use 'variables' as *;
+    @forward 'buttons';
+    ```
+
+### 🎯 **Natija:** Tizimli va modul CSS
+
+---
+
+## **Module 4. Mixins & Functions**
+### 📚 Mavzular:
+14. **Mixins for reusable code**
+    ```scss
+    @mixin button($color, $size: 'medium') {
+      background: $color;
+      border: none;
+      border-radius: 4px;
+      padding: map-get($button-sizes, $size);
+      cursor: pointer;
+      
+      &:hover {
+        background: darken($color, 10%);
+      }
+    }
+    ```
+15. **Using @include**
+    ```scss
+    .btn-primary {
+      @include button($primary-color, 'large');
+    }
+    ```
+16. **Built-in functions**
+    ```scss
+    lighten($color, 20%)
+    darken($color, 15%)
+    rgba($color, 0.5)
+    percentage(1/4)
+    ```
+17. **Conditional statements**
+    ```scss
+    @mixin theme($mode: 'light') {
+      @if $mode == 'light' {
+        background: white;
+        color: black;
+      } @else {
+        background: black;
+        color: white;
+      }
+    }
+    ```
+
+### 🎯 **Natija:** Professional UI components yaratish
+
+---
+
+## **Module 5. Loops & Control Directives**
+### 📚 Mavzular:
+18. **Loops**
+    ```scss
+    // @for loop
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        width: percentage($i/12);
+      }
+    }
+    
+    // @each loop
+    @each $key, $color in $colors {
+      .text-#{$key} {
+        color: $color;
+      }
+    }
+    ```
+19. **Generating classes dynamically**
+20. **Using loops for**
+    - Grid systems
+    - Spacing utilities
+    - Responsive classes
+
+### 🎯 **Natija:** Code repetition kamayadi, scalable CSS
+
+---
+
+## **Module 6. Extend / Inheritance**
+### 📚 Mavzular:
+21. **@extend directive**
+    ```scss
+    .button-base {
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    
+    .btn-primary {
+      @extend .button-base;
+      background: $primary-color;
+    }
+    ```
+22. **Placeholder selectors**
+    ```scss
+    %button-base {
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    
+    .btn-primary {
+      @extend %button-base;
+      background: $primary-color;
+    }
+    ```
+23. **Combining with mixins**
+
+### 🎯 **Natija:** DRY (Don't Repeat Yourself) prinsipiga mos
+
+---
+
+## **Module 7. Modular & Component-Based SASS**
+### 📚 Mavzular:
+24. **Structure for big projects**
+    ```
+    src/scss/
+    ├── abstracts/
+    │   ├── _variables.scss
+    │   ├── _mixins.scss
+    │   └── _functions.scss
+    ├── base/
+    │   ├── _reset.scss
+    │   └── _typography.scss
+    ├── components/
+    │   ├── _buttons.scss
+    │   ├── _cards.scss
+    │   └── _navbar.scss
+    ├── layout/
+    │   ├── _header.scss
+    │   └── _footer.scss
+    └── main.scss
+    ```
+25. **Component-based architecture**
+26. **Themes & color palettes**
+27. **Dark/Light mode switch**
+    ```scss
+    [data-theme="dark"] {
+      @include dark-theme;
+    }
+    ```
+
+### 🎯 **Natija:** React va modern frontend tayyorlik
+
+---
+
+## **Module 8. SASS + CSS Animations**
+### 📚 Mavzular:
+28. **Using SASS variables in keyframes**
+    ```scss
+    $animation-duration: 0.3s;
+    
+    @keyframes slide-in {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    
+    .element {
+      animation: slide-in $animation-duration ease;
+    }
+    ```
+29. **Parametric animations via mixins**
+    ```scss
+    @mixin fade-in($duration: 0.5s) {
+      animation: fade-in $duration ease;
+    }
+    ```
+30. **Reusable transitions & hover effects**
+
+### 🎯 **Natija:** Professional, maintainable animations
+
+---
+<img src="./Bootstrap/bootstrap.png" width="200" height="">
+
+# Bootstrap
+
+## **Module 1. Introduction & Setup**
+### 📚 Mavzular:
+1. **What is Bootstrap & why we use it**
+2. **Version 5/6 differences** (Bootstrap 5 is current)
+3. **Including Bootstrap**
+   - CDN method
+   - npm installation
+4. **Basic folder & project setup**
+5. **Integrating with SASS** (custom builds)
+
+### 🎯 **Natija:** Bootstrapni ishga tushira oladi
+
+---
+
+## **Module 2. Grid System (Core of Bootstrap)**
+### 📚 Mavzular:
+6. **Containers**
+   - `.container` (responsive fixed-width)
+   - `.container-fluid` (full width)
+7. **Rows & Columns**
+   ```html
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6 col-sm-12">
+         <!-- Content -->
+       </div>
+     </div>
+   </div>
+   ```
+8. **Auto-layout & flex utilities**
+   ```html
+   <div class="row">
+     <div class="col">Auto width</div>
+     <div class="col-6">Fixed width</div>
+   </div>
+   ```
+9. **Responsive design**
+   - Breakpoints: xs, sm, md, lg, xl, xxl
+   - Responsive utilities
+
+### 🎯 **Natija:** Har qanday layout yaratish
+
+---
+
+## **Module 3. Typography & Utilities**
+### 📚 Mavzular:
+11. **Text utilities**
+    - `.text-center`, `.text-primary`
+    - `.fs-1` to `.fs-6` (font sizes)
+12. **Background utilities**
+    - `.bg-primary`, `.bg-light`
+13. **Spacing utilities**
+    - Margin: `m-1` to `m-5`, `mx-auto`
+    - Padding: `p-1` to `p-5`
+14. **Display utilities**
+    - `.d-flex`, `.d-grid`, `.d-none`
+    - Responsive: `.d-md-block`
+15. **Flex utilities**
+    - `.justify-content-center`
+    - `.align-items-start`
+
+### 🎯 **Natija:** Tez va toza styling
+
+---
+
+## **Module 4. Components**
+### 📚 Mavzular:
+16. **Buttons & badges**
+    ```html
+    <button class="btn btn-primary">
+      Primary Button
+      <span class="badge bg-secondary">4</span>
+    </button>
+    ```
+17. **Cards & card groups**
+    ```html
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Card content</p>
+      </div>
+    </div>
+    ```
+18. **Navbar & dropdowns**
+19. **Forms & input groups**
+20. **Modals & popovers**
+
+### 🎯 **Natija:** Real-world UI elementlari
+
+---
+
+## **Module 5. Bootstrap JS Plugins**
+### 📚 Mavzular:
+21. **Collapse / Accordion**
+    ```html
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+      </div>
+    </div>
+    ```
+22. **Carousel**
+23. **Modal behavior**
+24. **Tooltips & Popovers**
+25. **Integration with Vanilla JS**
+
+### 🎯 **Natija:** Interactive UI tayyorlash
+
+---
+
+## **Module 6. Advanced Bootstrap & Best Practices**
+### 📚 Mavzular:
+26. **Customizing Bootstrap via SASS**
+    ```scss
+    // Custom variables
+    $primary: #ff6b6b;
+    $font-family-base: 'Inter', sans-serif;
+    
+    // Import Bootstrap
+    @import "bootstrap/scss/bootstrap";
+    ```
+27. **Creating themes**
+    ```scss
+    .custom-theme {
+      --bs-primary: #ff6b6b;
+      --bs-body-font-family: 'Inter', sans-serif;
+    }
+    ```
+28. **Utility-first mindset**
+29. **Responsive & accessible components**
+30. **Avoiding CSS conflicts**
+    ```css
+    /* Specificity */
+    .btn.btn-custom {
+      /* Your custom styles */
+    }
+    ```
+
+### 🎯 **Natija:** Professional, maintainable Bootstrap projects
+
+---
