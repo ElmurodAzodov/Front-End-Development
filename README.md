@@ -1,8 +1,8 @@
-# Front-End Development
+<h1 align="center" style="font-size: 70px;">Front-End Development</h1>
 
-<img src="./HTML/html.png" width="200" height="">
+<img src="./HTML/html.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
-# HTML – HyperText Markup Language
+<h1 align="center">HTML – HyperText Markup Language</h1>
 
 ## **Module 1. HTML Basics (Absolute Zero)**
 ### 📚 Mavzular:
@@ -129,9 +129,9 @@
 ### 🎯 **Natija:** JS & React'ga erkin o'tish
 
 ---
-<img src="./CSS/css.png" width="200" height="">
+<img src="./CSS/css.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
-# CSS – Cascading Style Sheets
+<h1 align="center">CSS – Cascading Style Sheets</h1>
 
 ## **Module 1. CSS Fundamentals (HTML bilan parallel)**
 ### 📚 Mavzular:
@@ -326,9 +326,9 @@
 54. **Common mistakes** to avoid
 
 ---
-<img src="./SASS/sass.png" width="200" height="">
+<img src="./SASS/sass.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
-# SASS – Syntactically Awesome Stylesheets
+<h1 align="center">SASS – Syntactically Awesome Stylesheets</h1>
 
 ## **Module 1. Introduction to SASS**
 ### 📚 Mavzular:
@@ -580,9 +580,9 @@
 ### 🎯 **Natija:** Professional, maintainable animations
 
 ---
-<img src="./Bootstrap/bootstrap.png" width="200" height="">
+<img src="./Bootstrap/bootstrap.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
-# Bootstrap
+<h1 align="center">Bootstrap</h1>
 
 ## **Module 1. Introduction & Setup**
 ### 📚 Mavzular:
@@ -732,9 +732,9 @@
 ### 🎯 **Natija:** Professional, maintainable Bootstrap projects
 
 ---
-<img src="./JavaScript/js.png" width="200" height="">
+<img src="./JavaScript/js.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
-# JavaScript - Programming Language
+<h1 align="center">JavaScript - Programming Language</h1>
 
 ## **Course Structure Overview**
 - **Duration:** 12–16 weeks (adjustable)
@@ -983,9 +983,9 @@
 ### 🎯 **Natija:** O'quvchi mustaqil real-world loyihani boshlang'ichdan production-ready holatga keltiradi.
 
 ---
-<img src="./Git and GitHub/gitandgithub.png" width="500" height="">
+<img src="./Git and GitHub/gitandgithub.png" width="500" height="" style="display: block; margin: 70px auto;" />
 
-# Git and GitHub
+<h1 align="center">Git and GitHub</h1>
 
 ## **Module 0 — Setup & Tooling**
 ### 📚 Mavzular:
@@ -1479,5 +1479,760 @@ portfolio/
 8. **Recovery scenario**: Broken merge fix
 
 ### 🎯 **Natija:** O'quvchi real jamoaviy repozitoriyada to'liq ishlaydi va muammolarni hal qiladi.
+
+---
+<img src="./React/react.png" width="200" style="display: block; margin: 70px auto;" />
+
+
+<h1 align="center">REACT - MODERN WEB DEVELOPMENT</h1>
+
+## **Course Overview**
+- **Recommended duration:** 12–20 weeks (beginner → advanced → projects)
+- **Workflow:** Vite + npm/pnpm + ESLint + Prettier + GitHub Actions
+- **Focus:** React 18+, Hooks, Performance, Accessibility, Testing, TypeScript readiness, Production workflows
+
+---
+
+## **Module 0 — Environment & First App**
+### 📚 Mavzular:
+- **Installing Node.js** & package managers (npm / pnpm / yarn)
+- **Create a new app:**
+  ```bash
+  npm create vite@latest my-app -- --template react
+  # or
+  npx create-react-app my-app (legacy)
+  ```
+- **Project structure:**
+  ```
+  my-app/
+  ├── src/
+  │   ├── App.jsx
+  │   ├── main.jsx
+  │   └── index.css
+  ├── public/
+  ├── package.json
+  └── vite.config.js
+  ```
+- **Package.json scripts:**
+  ```json
+  {
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+  }
+  ```
+- **React 18 features:**
+  ```jsx
+  import { createRoot } from 'react-dom/client';
+  import { StrictMode } from 'react';
+  
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi React dev muhitini sozlaydi, yangi app yaratadi va run/deploy jarayonini tushunadi.
+
+---
+
+## **Module 1 — JSX, Components & Props**
+### 📚 Mavzular:
+- **JSX syntax & rules:**
+  ```jsx
+  const element = <h1>Hello, {name}!</h1>;
+  const condition = isLoggedIn && <Welcome />;
+  const result = score > 60 ? <Passed /> : <Failed />;
+  ```
+- **Function components:**
+  ```jsx
+  // Arrow function
+  const Button = ({ children, onClick }) => {
+    return <button onClick={onClick}>{children}</button>;
+  };
+  
+  // Regular function
+  function Card({ title, content }) {
+    return (
+      <div className="card">
+        <h2>{title}</h2>
+        <p>{content}</p>
+      </div>
+    );
+  }
+  ```
+- **Props & children:**
+  ```jsx
+  const UserProfile = ({ name, age = 25, children }) => {
+    return (
+      <div>
+        <h2>{name} - {age} years</h2>
+        {children}
+      </div>
+    );
+  };
+  ```
+- **Component composition:**
+  ```jsx
+  const App = () => (
+    <Layout>
+      <Header />
+      <Main>
+        <Sidebar />
+        <Content />
+      </Main>
+      <Footer />
+    </Layout>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi komponentlar yaratadi, props va children orqali data oqimini boshqaradi.
+
+---
+
+## **Module 2 — State & Events (Core Hooks)**
+### 📚 Mavzular:
+- **useState hook:**
+  ```jsx
+  import { useState } from 'react';
+  
+  const Counter = () => {
+    const [count, setCount] = useState(0);
+    const [user, setUser] = useState({ name: '', age: 0 });
+    
+    // Functional update
+    const increment = () => setCount(prev => prev + 1);
+    
+    return (
+      <div>
+        <p>Count: {count}</p>
+        <button onClick={increment}>Increment</button>
+      </div>
+    );
+  };
+  ```
+- **Event handling:**
+  ```jsx
+  const Form = () => {
+    const [input, setInput] = useState('');
+    
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log('Submitted:', input);
+    };
+    
+    return (
+      <form onSubmit={handleSubmit}>
+        <input 
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter text"
+        />
+        <button type="submit">Submit</button>
+      </form>
+    );
+  };
+  ```
+- **Form validation:**
+  ```jsx
+  const [errors, setErrors] = useState({});
+  const validate = () => {
+    const newErrors = {};
+    if (!email) newErrors.email = 'Email required';
+    if (!password) newErrors.password = 'Password required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi komponent ichidagi interaktivlikni va form handlerlarni yozadi.
+
+---
+
+## **Module 3 — Effects, Refs & Lifecycle**
+### 📚 Mavzular:
+- **useEffect hook:**
+  ```jsx
+  import { useState, useEffect } from 'react';
+  
+  const DataFetcher = () => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+      let isMounted = true;
+      
+      const fetchData = async () => {
+        try {
+          const response = await fetch('https://api.example.com/data');
+          const result = await response.json();
+          if (isMounted) {
+            setData(result);
+            setLoading(false);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+      
+      fetchData();
+      
+      return () => {
+        isMounted = false; // Cleanup
+      };
+    }, []); // Empty array = run once
+    
+    if (loading) return <div>Loading...</div>;
+    return <div>{JSON.stringify(data)}</div>;
+  };
+  ```
+- **useRef hook:**
+  ```jsx
+  const FocusInput = () => {
+    const inputRef = useRef(null);
+    
+    useEffect(() => {
+      inputRef.current?.focus();
+    }, []);
+    
+    return <input ref={inputRef} placeholder="Auto-focused" />;
+  };
+  ```
+- **Cleanup & dependencies:**
+  ```jsx
+  useEffect(() => {
+    const timer = setInterval(() => {
+      console.log('Tick');
+    }, 1000);
+    
+    return () => clearInterval(timer); // Cleanup
+  }, []);
+  ```
+
+### 🎯 **Natija:** O'quvchi side-effects va DOM referencelarini to'g'ri boshqaradi.
+
+---
+
+## **Module 4 — Advanced Hooks & Performance**
+### 📚 Mavzular:
+- **useMemo & useCallback:**
+  ```jsx
+  const ExpensiveComponent = ({ items, filter }) => {
+    // Memoize expensive calculation
+    const filteredItems = useMemo(() => {
+      return items.filter(item => item.includes(filter));
+    }, [items, filter]);
+    
+    // Memoize function
+    const handleClick = useCallback(() => {
+      console.log('Clicked:', filteredItems);
+    }, [filteredItems]);
+    
+    return (
+      <div>
+        {filteredItems.map(item => (
+          <div key={item}>{item}</div>
+        ))}
+        <button onClick={handleClick}>Log Items</button>
+      </div>
+    );
+  };
+  ```
+- **React.memo:**
+  ```jsx
+  const MemoizedButton = React.memo(({ onClick, children }) => {
+    console.log('Button rendered');
+    return <button onClick={onClick}>{children}</button>;
+  });
+  ```
+- **useLayoutEffect:**
+  ```jsx
+  const MeasureElement = () => {
+    const ref = useRef();
+    const [size, setSize] = useState({ width: 0, height: 0 });
+    
+    useLayoutEffect(() => {
+      if (ref.current) {
+        const { width, height } = ref.current.getBoundingClientRect();
+        setSize({ width, height });
+      }
+    }, []);
+    
+    return <div ref={ref}>Size: {size.width}x{size.height}</div>;
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi performans muammolarini aniqlaydi va kamaytiradi.
+
+---
+
+## **Module 5 — State Management & Patterns**
+### 📚 Mavzular:
+- **Context API:**
+  ```jsx
+  // ThemeContext.jsx
+  import { createContext, useContext, useState } from 'react';
+  
+  const ThemeContext = createContext();
+  
+  export const ThemeProvider = ({ children }) => {
+    const [theme, setTheme] = useState('light');
+    
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
+    
+    return (
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    );
+  };
+  
+  export const useTheme = () => useContext(ThemeContext);
+  
+  // App.jsx
+  const App = () => (
+    <ThemeProvider>
+      <Header />
+      <Main />
+    </ThemeProvider>
+  );
+  
+  // Header.jsx
+  const Header = () => {
+    const { theme, toggleTheme } = useTheme();
+    return (
+      <header className={`header-${theme}`}>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      </header>
+    );
+  };
+  ```
+- **useReducer:**
+  ```jsx
+  const todoReducer = (state, action) => {
+    switch (action.type) {
+      case 'ADD_TODO':
+        return [...state, action.payload];
+      case 'REMOVE_TODO':
+        return state.filter(todo => todo.id !== action.payload);
+      default:
+        return state;
+    }
+  };
+  
+  const TodoApp = () => {
+    const [todos, dispatch] = useReducer(todoReducer, []);
+    
+    return (
+      <div>
+        <button onClick={() => dispatch({
+          type: 'ADD_TODO',
+          payload: { id: Date.now(), text: 'New Todo' }
+        })}>
+          Add Todo
+        </button>
+      </div>
+    );
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi component tree bo'ylab holatni samarali boshqaradi va to'g'ri pattern tanlaydi.
+
+---
+
+## **Module 6 — Routing & Navigation**
+### 📚 Mavzular:
+- **React Router v6:**
+  ```jsx
+  // main.jsx
+  import { BrowserRouter } from 'react-router-dom';
+  
+  createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  
+  // App.jsx
+  import { Routes, Route, Link, Navigate } from 'react-router-dom';
+  
+  const App = () => (
+    <div>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/dashboard">Dashboard</Link>
+      </nav>
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+  ```
+- **Nested routes:**
+  ```jsx
+  const Dashboard = () => (
+    <div>
+      <h1>Dashboard</h1>
+      <Routes>
+        <Route index element={<DashboardHome />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+      </Routes>
+    </div>
+  );
+  ```
+- **Lazy loading:**
+  ```jsx
+  import { lazy, Suspense } from 'react';
+  
+  const About = lazy(() => import('./pages/About'));
+  
+  const App = () => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <About />
+    </Suspense>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi SPA routingni to'liq amalga oshiradi va lazy-loading orqali performans yaxshilaydi.
+
+---
+
+## **Module 7 — Data Fetching & Async Patterns**
+### 📚 Mavzular:
+- **Custom fetch hook:**
+  ```jsx
+  const useFetch = (url) => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+      const controller = new AbortController();
+      
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url, { 
+            signal: controller.signal 
+          });
+          const result = await response.json();
+          setData(result);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            setError(err.message);
+          }
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      fetchData();
+      
+      return () => controller.abort();
+    }, [url]);
+    
+    return { data, loading, error };
+  };
+  ```
+- **React Query (TanStack Query):**
+  ```jsx
+  import { useQuery, useMutation, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+  
+  const queryClient = new QueryClient();
+  
+  const UsersList = () => {
+    const { data, isLoading, error } = useQuery({
+      queryKey: ['users'],
+      queryFn: () => fetch('/api/users').then(res => res.json())
+    });
+    
+    if (isLoading) return <div>Loading...</div>;
+    return <div>{JSON.stringify(data)}</div>;
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi API bilan ishlaydi, caching va background updates implementatsiya qiladi.
+
+---
+
+## **Module 8 — Forms & Validation (Advanced)**
+### 📚 Mavzular:
+- **React Hook Form:**
+  ```jsx
+  import { useForm } from 'react-hook-form';
+  import { yupResolver } from '@hookform/resolvers/yup';
+  import * as yup from 'yup';
+  
+  const schema = yup.object({
+    name: yup.string().required('Name is required'),
+    email: yup.string().email().required('Email is required'),
+    age: yup.number().positive().integer().min(18).required(),
+  });
+  
+  const Form = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm({
+      resolver: yupResolver(schema)
+    });
+    
+    const onSubmit = (data) => console.log(data);
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('name')} />
+        {errors.name && <span>{errors.name.message}</span>}
+        
+        <input {...register('email')} />
+        {errors.email && <span>{errors.email.message}</span>}
+        
+        <button type="submit">Submit</button>
+      </form>
+    );
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi murakkab formalarni ishonchli va accessible qilib yaratadi.
+
+---
+
+## **Module 9 — Styling Strategies**
+### 📚 Mavzular:
+- **CSS Modules:**
+  ```css
+  /* Button.module.css */
+  .button {
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .button:hover {
+    background: #0056b3;
+  }
+  ```
+  ```jsx
+  import styles from './Button.module.css';
+  
+  const Button = ({ children }) => (
+    <button className={styles.button}>{children}</button>
+  );
+  ```
+- **Styled Components:**
+  ```jsx
+  import styled from 'styled-components';
+  
+  const StyledButton = styled.button`
+    padding: 12px 24px;
+    background: ${props => props.primary ? '#007bff' : '#6c757d'};
+    color: white;
+    border: none;
+    border-radius: 4px;
+    
+    &:hover {
+      background: ${props => props.primary ? '#0056b3' : '#545b62'};
+    }
+  `;
+  
+  const Button = ({ primary, children }) => (
+    <StyledButton primary={primary}>{children}</StyledButton>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi loyiha uchun to'g'ri styling yondashuvini tanlaydi va theme yaratadi.
+
+---
+
+## **Module 10 — Component Architecture & Patterns**
+### 📚 Mavzular:
+- **Compound Components:**
+  ```jsx
+  const Accordion = ({ children }) => {
+    const [openIndex, setOpenIndex] = useState(null);
+    
+    return React.Children.map(children, (child, index) =>
+      React.cloneElement(child, {
+        isOpen: index === openIndex,
+        onToggle: () => setOpenIndex(index === openIndex ? null : index)
+      })
+    );
+  };
+  
+  const AccordionItem = ({ title, children, isOpen, onToggle }) => (
+    <div>
+      <button onClick={onToggle}>{title}</button>
+      {isOpen && <div>{children}</div>}
+    </div>
+  );
+  
+  // Usage
+  <Accordion>
+    <AccordionItem title="Section 1">Content 1</AccordionItem>
+    <AccordionItem title="Section 2">Content 2</AccordionItem>
+  </Accordion>
+  ```
+
+### 🎯 **Natija:** O'quvchi qayta ishlatiladigan, testable va accessible komponentlar dizayn qiladi.
+
+---
+
+## **Module 11 — Code-Splitting, Suspense & Server-Side Rendering**
+### 📚 Mavzular:
+- **Lazy loading patterns:**
+  ```jsx
+  const Home = lazy(() => import('./pages/Home'));
+  const About = lazy(() => import('./pages/About'));
+  
+  const App = () => (
+    <Suspense fallback={<LoadingSpinner />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Suspense>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi code-splitting, SSR/SSG konseptlarini tushunadi va haqiqiy ilovada qo'llaydi.
+
+---
+
+## **Module 12 — Testing React Apps**
+### 📚 Mavzular:
+- **React Testing Library:**
+  ```jsx
+  // Button.test.jsx
+  import { render, screen, fireEvent } from '@testing-library/react';
+  import Button from './Button';
+  
+  test('button click calls onClick', () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+    
+    fireEvent.click(screen.getByText('Click me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+  ```
+- **Mocking API calls:**
+  ```jsx
+  import { rest } from 'msw';
+  import { setupServer } from 'msw/node';
+  
+  const server = setupServer(
+    rest.get('/api/users', (req, res, ctx) => {
+      return res(ctx.json([{ id: 1, name: 'John' }]));
+    })
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi komponent va integratsion testlar yozadi va CI ga qo'shadi.
+
+---
+
+## **Module 13 — Accessibility (a11y)**
+### 📚 Mavzular:
+- **Accessible components:**
+  ```jsx
+  const AccessibleButton = ({ onClick, children }) => (
+    <button
+      onClick={onClick}
+      aria-label={typeof children === 'string' ? children : undefined}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClick();
+          e.preventDefault();
+        }
+      }}
+    >
+      {children}
+    </button>
+  );
+  ```
+
+### 🎯 **Natija:** O'quvchi barcha foydalanuvchilar uchun kirish imkoniyati yuqori bo'lgan ilovalar yaratadi.
+
+---
+
+## **Module 15 — TypeScript with React**
+### 📚 Mavzular:
+- **TypeScript components:**
+  ```tsx
+  interface ButtonProps {
+    children: React.ReactNode;
+    onClick: () => void;
+    variant?: 'primary' | 'secondary';
+    disabled?: boolean;
+  }
+  
+  const Button: React.FC<ButtonProps> = ({
+    children,
+    onClick,
+    variant = 'primary',
+    disabled = false
+  }) => {
+    return (
+      <button
+        onClick={onClick}
+        className={`btn-${variant}`}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    );
+  };
+  ```
+
+### 🎯 **Natija:** O'quvchi React + TypeScript yordamida robust code yozadi va tip-safetyni tushunadi.
+
+---
+
+## **Module 19 — Projects & Laboratory Exam**
+### 🏆 **Final Projects:**
+
+#### **Project 1: Todo App (Beginner)**
+```jsx
+// Features:
+- CRUD operations
+- LocalStorage persistence
+- Filtering (All/Active/Completed)
+- Form validation
+- Unit tests
+```
+
+#### **Project 2: Dashboard (Intermediate)**
+```jsx
+// Features:
+- Authentication (mock)
+- API integration
+- Pagination & search
+- Charts & data visualization
+- React Query caching
+- Responsive design
+```
+
+#### **Project 3: E-commerce (Advanced)**
+```jsx
+// Features:
+- Product catalog
+- Shopping cart
+- Checkout flow
+- Payment integration (mock)
+- User authentication
+- Order history
+- Admin panel
+- SSR with Next.js
+```
+
+### 🎯 **Natija:** O'quvchi real ilovalarni mustaqil yaratadi, code review va deployment tajribasiga ega bo'ladi.
 
 ---
