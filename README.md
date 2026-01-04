@@ -1,6 +1,6 @@
 <h1 align="center" style="font-size: 70px;">Front-End Development</h1>
 
-<img src="./HTML/html.png" width="200" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./HTML/html.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">HTML – HyperText Markup Language</h1>
 
@@ -129,7 +129,7 @@
 ### 🎯 **Natija:** JS & React'ga erkin o'tish
 
 ---
-<img src="./CSS/css.png" width="200" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./CSS/css.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">CSS – Cascading Style Sheets</h1>
 
@@ -326,7 +326,7 @@
 54. **Common mistakes** to avoid
 
 ---
-<img src="./SASS/sass.png" width="200" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./SASS/sass.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">SASS – Syntactically Awesome Stylesheets</h1>
 
@@ -580,7 +580,7 @@
 ### 🎯 **Natija:** Professional, maintainable animations
 
 ---
-<img src="./Bootstrap/bootstrap.png" width="200" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./Bootstrap/bootstrap.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">Bootstrap</h1>
 
@@ -732,7 +732,7 @@
 ### 🎯 **Natija:** Professional, maintainable Bootstrap projects
 
 ---
-<img src="./JavaScript/js.png" width="200" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./JavaScript/js.png" width="200" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">JavaScript - Programming Language</h1>
 
@@ -983,7 +983,7 @@
 ### 🎯 **Natija:** O'quvchi mustaqil real-world loyihani boshlang'ichdan production-ready holatga keltiradi.
 
 ---
-<img src="./Git and GitHub/gitandgithub.png" width="500" height="" style="display: block; margin: 70px auto;" align="center" />
+<img src="./Git and GitHub/gitandgithub.png" width="500" height="" style="display: block; margin: 70px auto;" />
 
 <h1 align="center">Git and GitHub</h1>
 
@@ -1481,7 +1481,7 @@ portfolio/
 ### 🎯 **Natija:** O'quvchi real jamoaviy repozitoriyada to'liq ishlaydi va muammolarni hal qiladi.
 
 ---
-<img src="./React/react.png" width="200" style="display: block; margin: 70px auto;" align="center" />
+<img src="./React/react.png" width="200" style="display: block; margin: 70px auto;" />
 
 
 <h1 align="center">REACT - MODERN WEB DEVELOPMENT</h1>
