@@ -908,3 +908,283 @@ Jadval elementlarini ishlatishda:
 4. `colspan` va `rowspan` murakkab jadval tuzishda juda foydali.
 
 ---
+
+
+# 📚 Modul 5: Forms (Formalar) – 1.5 dars
+
+## 1. `<form>` tegi
+
+### Nazariya:
+
+HTML formasi foydalanuvchidan ma’lumot to‘plash va serverga yuborish uchun ishlatiladi.
+**Asosiy atributlar:**
+
+* `action` – ma’lumot yuboriladigan manzil (URL)
+* `method` – yuborish usuli (`GET` yoki `POST`)
+* `enctype` – yuborish shakli (`multipart/form-data` fayl uchun, `application/x-www-form-urlencoded` standart)
+
+### Dastur:
+
+```html
+<form action="/submit.php" method="post">
+    <label for="name">Ismingiz:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <button type="submit">Yuborish</button>
+</form>
+```
+
+**Izoh:**
+
+* `label` – foydalanuvchi interfeysi uchun muhim, `for` atributi input bilan bog‘lanadi.
+* `name` – serverga yuborilgan ma’lumot kalit sifatida ishlatiladi.
+
+---
+
+## 2. Input turlari (`<input>`)
+
+### Nazariya:
+
+`<input>` formadagi asosiy element bo‘lib, turli turdagi ma’lumotlarni qabul qiladi.
+
+| `type`   | Tavsif                           |
+| -------- | -------------------------------- |
+| text     | Oddiy matn                       |
+| password | Parol                            |
+| email    | Email manzil (validatsiya bilan) |
+| number   | Raqam                            |
+| tel      | Telefon raqami                   |
+| url      | Web-sayt manzili                 |
+| date     | Sana                             |
+| checkbox | Belgilash katakchasi             |
+| radio    | Radioknopka (bir variant)        |
+| file     | Fayl yuklash                     |
+| hidden   | Ko‘rinmaydigan input             |
+| submit   | Yuborish tugmasi                 |
+| reset    | Formani tozalash                 |
+| button   | Oddiy tugma                      |
+
+### Dastur:
+
+```html
+<form action="/submit.php" method="post">
+    <label for="username">Foydalanuvchi:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Parol:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="age">Yosh:</label>
+    <input type="number" id="age" name="age" min="1" max="100">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label>
+        <input type="checkbox" name="subscribe"> Yangiliklarga obuna bo‘lish
+    </label>
+
+    <button type="submit">Yuborish</button>
+    <button type="reset">Tozalash</button>
+</form>
+```
+
+**Izoh:**
+
+* `required` – input majburiy.
+* `min` va `max` – raqamlar uchun chegaralar.
+
+---
+
+## 3. Radiobutton va checkbox
+
+### Nazariya:
+
+* **Radiobutton** – bir guruhdan faqat bitta variantni tanlash.
+* **Checkbox** – bir nechta variantni tanlash mumkin.
+
+### Dastur:
+
+```html
+<form>
+    <p>Jinsingiz:</p>
+    <label><input type="radio" name="gender" value="male"> Erkak</label>
+    <label><input type="radio" name="gender" value="female"> Ayol</label>
+
+    <p>Qiziqishlaringiz:</p>
+    <label><input type="checkbox" name="hobby" value="sports"> Sport</label>
+    <label><input type="checkbox" name="hobby" value="music"> Musiqa</label>
+    <label><input type="checkbox" name="hobby" value="reading"> Kitob o‘qish</label>
+</form>
+```
+
+**Izoh:**
+
+* Radiobuttonlarda `name` bir xil bo‘lishi shart, shunda faqat bitta variant tanlanadi.
+* Checkboxlar bir nechta qiymat yuboradi.
+
+---
+
+## 4. `<select>` va `<option>` (Tanlovlar)
+
+### Nazariya:
+
+Dropdown menyular uchun ishlatiladi.
+
+### Dastur:
+
+```html
+<label for="country">Mamlakatingiz:</label>
+<select id="country" name="country">
+    <option value="">Tanlang</option>
+    <option value="uz">O‘zbekiston</option>
+    <option value="us">AQSh</option>
+    <option value="uk">Buyuk Britaniya</option>
+</select>
+```
+
+**Izoh:**
+
+* `value` – serverga yuborilgan qiymat.
+* Bo‘sh option – foydalanuvchini tanlov qilishga majbur qiladi.
+
+---
+
+## 5. `<textarea>` (Matn maydoni)
+
+### Nazariya:
+
+Uzoq matn kiritish uchun ishlatiladi.
+
+### Dastur:
+
+```html
+<label for="message">Xabar:</label>
+<textarea id="message" name="message" rows="5" cols="40" placeholder="Xabaringizni yozing..."></textarea>
+```
+
+**Izoh:**
+
+* `rows` va `cols` – ko‘rinish o‘lchami.
+* Placeholder – foydalanuvchiga maslahat ko‘rsatadi.
+
+---
+
+## 6. Fayl yuklash (`<input type="file">`)
+
+### Nazariya:
+
+Foydalanuvchi faylni serverga yuborishi mumkin.
+
+### Dastur:
+
+```html
+<form action="/upload.php" method="post" enctype="multipart/form-data">
+    <label for="photo">Rasm yuklash:</label>
+    <input type="file" id="photo" name="photo" accept="image/*">
+    <button type="submit">Yuborish</button>
+</form>
+```
+
+**Izoh:**
+
+* `enctype="multipart/form-data"` – fayl yuborish uchun majburiy.
+* `accept` – qabul qilinadigan fayl turlarini belgilaydi.
+
+---
+
+## 7. Formani yuborish va reset
+
+### Nazariya:
+
+* `submit` – formani yuboradi
+* `reset` – formadagi barcha inputlarni boshlang‘ich holatga qaytaradi
+
+### Dastur:
+
+```html
+<button type="submit">Yuborish</button>
+<button type="reset">Tozalash</button>
+```
+
+---
+
+## 8. Amaliy sahifa namunasi
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt Formasi</title>
+    <style>
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea, select, button {
+            padding: 8px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Kontakt Formasi</h1>
+    <form action="/submit.php" method="post" enctype="multipart/form-data">
+        <label for="name">Ism:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="gender">Jins:</label>
+        <input type="radio" name="gender" value="male"> Erkak
+        <input type="radio" name="gender" value="female"> Ayol
+
+        <label for="hobby">Qiziqishlar:</label>
+        <input type="checkbox" name="hobby" value="music"> Musiqa
+        <input type="checkbox" name="hobby" value="sports"> Sport
+        <input type="checkbox" name="hobby" value="reading"> Kitob
+
+        <label for="country">Mamlakat:</label>
+        <select id="country" name="country">
+            <option value="">Tanlang</option>
+            <option value="uz">O‘zbekiston</option>
+            <option value="us">AQSh</option>
+            <option value="uk">Buyuk Britaniya</option>
+        </select>
+
+        <label for="message">Xabar:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Xabaringizni yozing..."></textarea>
+
+        <label for="photo">Rasm yuklash:</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <button type="submit">Yuborish</button>
+        <button type="reset">Tozalash</button>
+    </form>
+</body>
+</html>
+```
+
+---
+
+## ✅ Muhim eslatmalar:
+
+1. **`name` atributi** – serverga yuboriladigan ma’lumot kaliti.
+2. **`required`** – foydalanuvchi majburiy maydonni to‘ldirmasa, yuborilmaydi.
+3. **`type="email"` yoki `type="number"`** – brauzer avtomatik validatsiya qiladi.
+4. **`enctype="multipart/form-data"`** – fayl yuborish uchun majburiy.
+5. Formani foydalanuvchi uchun **tushunarli va qulay** qilish juda muhim.
+
+---
