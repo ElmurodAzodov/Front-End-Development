@@ -1188,3 +1188,265 @@ Foydalanuvchi faylni serverga yuborishi mumkin.
 5. Formani foydalanuvchi uchun **tushunarli va qulay** qilish juda muhim.
 
 ---
+
+# 📚 Modul 6: Semantic HTML – 1 dars
+
+## 1. Semantic HTML nima?
+
+### Nazariya:
+
+**Semantic HTML** – bu **ma’noli** (semantic) teglar yordamida sahifa tuzilishini belgilashdir.
+
+* Foydalanuvchilar va brauzerlar uchun ma’lumotni tushunishni osonlashtiradi.
+* SEO (qidiruv tizimlari) va accessibility (screen readerlar) uchun juda muhim.
+
+**Misol:**
+
+```html
+<!-- Non-semantic -->
+<div id="header">Mening sayt sarlavhasi</div>
+<div id="nav">Navigatsiya</div>
+<div id="main">Asosiy kontent</div>
+<div id="footer">Footer</div>
+
+<!-- Semantic -->
+<header>Mening sayt sarlavhasi</header>
+<nav>Navigatsiya</nav>
+<main>Asosiy kontent</main>
+<footer>Footer</footer>
+```
+
+**Izoh:**
+
+* Semantic teglar sahifani **mantiqiy bloklarga** ajratadi.
+* `<div>` va `<span>` umumiy konteyner, lekin semantik ma’no bermaydi.
+
+---
+
+## 2. Asosiy Semantic teglar
+
+| Teg            | Ma’nosi / Tavsifi                                         |
+| -------------- | --------------------------------------------------------- |
+| `<header>`     | Sahifa yoki bo‘lim sarlavhasi                             |
+| `<nav>`        | Navigatsiya menyusi                                       |
+| `<main>`       | Asosiy kontent (faqat bitta bo‘lishi kerak)               |
+| `<footer>`     | Sahifa yoki bo‘lim oxiri                                  |
+| `<section>`    | Tarkibiy bo‘lim, mavzuga qarab ajratiladi                 |
+| `<article>`    | Mustaqil maqola, blog post, yangilik                      |
+| `<aside>`      | Yon panel, qo‘shimcha ma’lumot, reklama                   |
+| `<figure>`     | Rasm yoki diagramma, odatda `<figcaption>` bilan ishlaydi |
+| `<figcaption>` | Rasm yoki diagramma sarlavhasi                            |
+| `<mark>`       | Matnda ta’kidlangan qism                                  |
+| `<time>`       | Sana yoki vaqt ko‘rsatish                                 |
+| `<details>`    | Ochiladigan bo‘lim (accordion)                            |
+| `<summary>`    | `<details>` tegi uchun sarlavha                           |
+
+---
+
+## 3. `<header>`, `<footer>`, `<nav>`, `<main>`
+
+### Dastur:
+
+```html
+<header>
+    <h1>Sayt sarlavhasi</h1>
+    <p>Web saytga xush kelibsiz!</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Bosh sahifa</a></li>
+        <li><a href="about.html">Biz haqimizda</a></li>
+        <li><a href="contact.html">Aloqa</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2>Yangiliklar</h2>
+        <p>Bu yerda eng so‘nggi yangiliklar joylashadi.</p>
+    </section>
+    <aside>
+        <h3>Qo‘shimcha ma’lumot</h3>
+        <p>Reklama yoki qo‘shimcha kontent.</p>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2024 Mening saytim. Barcha huquqlar himoyalangan.</p>
+</footer>
+```
+
+**Izoh:**
+
+* `<main>` faqat bir marta ishlatiladi.
+* `<aside>` – asosiy kontentdan tashqari qo‘shimcha ma’lumot.
+* `<nav>` – faqat navigatsiya uchun.
+
+---
+
+## 4. `<section>` va `<article>`
+
+### Nazariya:
+
+* `<section>` – mavzuga qarab ajratilgan bo‘lim.
+* `<article>` – mustaqil tarkib (blog, yangilik, maqola).
+
+### Dastur:
+
+```html
+<main>
+    <section>
+        <h2>Texnologiya yangiliklari</h2>
+        <article>
+            <h3>AI sohasidagi yangilik</h3>
+            <p>Sun’iy intellekt haqida maqola.</p>
+        </article>
+        <article>
+            <h3>Veb dizayn trendlar</h3>
+            <p>2026 yil uchun veb dizayn trendlari.</p>
+        </article>
+    </section>
+
+    <section>
+        <h2>Sport yangiliklari</h2>
+        <article>
+            <h3>Futbol chempionati</h3>
+            <p>Jahon chempionatining natijalari.</p>
+        </article>
+    </section>
+</main>
+```
+
+**Izoh:**
+
+* Har bir `<article>` mustaqil bo‘lishi kerak, uni boshqa sahifaga olib ketish mumkin bo‘ladi.
+* `<section>` – mavzularni guruhlash.
+
+---
+
+## 5. `<figure>` va `<figcaption>`
+
+### Nazariya:
+
+Rasm yoki diagrammalarni semantik tarzda qo‘shish uchun.
+
+### Dastur:
+
+```html
+<figure>
+    <img src="nature.jpg" alt="Tabiat manzarasi" width="300">
+    <figcaption>Tabiat manzarasi</figcaption>
+</figure>
+```
+
+**Izoh:**
+
+* `<figcaption>` rasm uchun tavsif beradi.
+* SEO va accessibility uchun muhim.
+
+---
+
+## 6. Qo‘shimcha semantik teglar
+
+### Misol:
+
+```html
+<p>Bugungi sana: <time datetime="2026-01-15">15-yanvar 2026</time></p>
+
+<details>
+    <summary>Ko‘proq ma’lumot</summary>
+    <p>Bu bo‘lim foydalanuvchi ochganda ko‘rinadi.</p>
+</details>
+
+<p>Matn ichida <mark>ta’kidlangan so‘z</mark> ishlatiladi.</p>
+```
+
+**Izoh:**
+
+* `<time>` – mashina o‘qiy oladigan sana.
+* `<details>` – ochiladigan bo‘lim, accordion kabi ishlaydi.
+* `<mark>` – matnda muhim qismni ta’kidlaydi.
+
+---
+
+## 7. Amaliy sahifa namunasi
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Misoli</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header, nav, main, footer, aside, section, article, figure { margin-bottom: 20px; }
+        nav ul { list-style: none; padding: 0; display: flex; gap: 10px; }
+        nav a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mening Saytim</h1>
+    <p>Web dasturlash darslari</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">Bosh sahifa</a></li>
+        <li><a href="#">Yangiliklar</a></li>
+        <li><a href="#">Kontakt</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2>Yangiliklar</h2>
+        <article>
+            <h3>HTML 2026 yangiliklari</h3>
+            <p>HTML5 va semantic teglar haqida maqola.</p>
+            <figure>
+                <img src="html.jpg" alt="HTML rasmi" width="200">
+                <figcaption>HTML logo</figcaption>
+            </figure>
+        </article>
+
+        <article>
+            <h3>CSS trendlar</h3>
+            <p>2026 yil CSS dizayn trendlari.</p>
+        </article>
+    </section>
+
+    <aside>
+        <h3>Qo‘shimcha ma’lumot</h3>
+        <p>Web dizayn bo‘yicha tavsiyalar.</p>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Mening Saytim. Barcha huquqlar himoyalangan.</p>
+</footer>
+
+</body>
+</html>
+```
+
+---
+
+## ✅ Muhim eslatmalar:
+
+1. Semantic HTML sahifani **mantiqiy va tushunarli** qiladi.
+2. SEO va accessibility uchun juda muhim.
+3. Har doim:
+
+   * `<header>` – sarlavha
+   * `<nav>` – navigatsiya
+   * `<main>` – asosiy kontent
+   * `<footer>` – footer
+   * `<section>` va `<article>` – tarkibni guruhlash
+   * `<aside>` – qo‘shimcha ma’lumot
+4. `<figure>` va `<figcaption>` – rasmni tavsiflash.
+
+---
