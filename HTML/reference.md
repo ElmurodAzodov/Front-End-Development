@@ -611,3 +611,300 @@ my-website/
 2. **`target="_blank"`** - yangi oynada ochiladi, xavfsizlik uchun `rel="noopener noreferrer"` qo'shing
 3. **Media formatlari** - JPEG (fotolar), PNG (shaffoflik), SVG (vektor), WebP (zamonaviy)
 4. **Fayl hajmi** - veb uchun rasmlarni siqish (compress) qilish muhim
+
+---
+
+# 📚 Modul 4: Jadval va Ma’lumotlar (Tables & Data)
+
+## 1. `<table>` tegi
+
+### Nazariya:
+
+HTML’da **jadval** ma’lumotlarni qat’iy qator va ustunlarda ko‘rsatish uchun ishlatiladi.
+
+**Asosiy teglar:**
+
+* `<table>` – jadvalni yaratadi
+* `<tr>` – jadval qatori (table row)
+* `<th>` – sarlavha ustuni (table header)
+* `<td>` – oddiy ma’lumot hujayrasi (table data)
+* `<caption>` – jadval sarlavhasi
+
+### Dastur:
+
+```html
+<table border="1">
+    <caption>Talabalar ro'yxati</caption>
+    <tr>
+        <th>Ism</th>
+        <th>Yosh</th>
+        <th>Fakultet</th>
+    </tr>
+    <tr>
+        <td>Ali</td>
+        <td>20</td>
+        <td>Matematika</td>
+    </tr>
+    <tr>
+        <td>Vali</td>
+        <td>21</td>
+        <td>Fizika</td>
+    </tr>
+    <tr>
+        <td>Gulbahor</td>
+        <td>19</td>
+        <td>Informatika</td>
+    </tr>
+</table>
+```
+
+**Izoh:**
+
+* `<caption>` – jadval nomi ko‘rinadi.
+* `<th>` – odatda qalin (bold) va markazlashtirilgan matn bilan ko‘rsatiladi.
+* `<td>` – normal ma’lumot hujayrasi.
+
+---
+
+## 2. Jadval atributlari va styling
+
+### Nazariya:
+
+HTML jadvaliga turli atributlar bilan **ko‘rinish va tartib** berish mumkin.
+
+**Muhim atributlar:**
+
+* `border` – chekka qalinligi
+* `cellpadding` – hujayra ichidagi bo‘sh joy
+* `cellspacing` – hujayralar orasidagi bo‘sh joy
+* `width`/`height` – o‘lcham
+* CSS orqali: `border-collapse`, `text-align`, `background-color`, `color`
+
+### Dastur:
+
+```html
+<table border="1" cellpadding="10" cellspacing="5" style="border-collapse: collapse; width: 80%; text-align: center;">
+    <caption>Fakultetlar reytingi</caption>
+    <tr style="background-color: lightgray;">
+        <th>№</th>
+        <th>Fakultet</th>
+        <th>O‘quvchilar soni</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Matematika</td>
+        <td>120</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Fizika</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Informatika</td>
+        <td>150</td>
+    </tr>
+</table>
+```
+
+**Izoh:**
+
+* `cellpadding="10"` – hujayra ichidagi matn bilan chekka orasini 10px qiladi.
+* `cellspacing="5"` – hujayralar orasidagi bo‘sh joy 5px.
+* `border-collapse: collapse;` – chekkalarni birlashtirib, chiroyli ko‘rinish beradi.
+
+---
+
+## 3. `<thead>`, `<tbody>`, `<tfoot>`
+
+### Nazariya:
+
+Jadvalni semantik jihatdan bo‘lish uchun ishlatiladi.
+
+* `<thead>` – sarlavha qatori
+* `<tbody>` – asosiy ma’lumotlar
+* `<tfoot>` – jadval oxiridagi yakuniy qatorlar (hisob-kitob, summalar)
+
+### Dastur:
+
+```html
+<table border="1" style="border-collapse: collapse; width: 60%;">
+    <caption>Mahsulotlar narxi</caption>
+    <thead>
+        <tr>
+            <th>Mahsulot</th>
+            <th>Narxi (so'm)</th>
+            <th>Miqdori</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Olma</td>
+            <td>5000</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Banan</td>
+            <td>8000</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Uzum</td>
+            <td>12000</td>
+            <td>3</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Jami</td>
+            <td>–</td>
+            <td>18</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+**Izoh:**
+
+* `<tfoot>` odatda hisob-kitoblar yoki yakuniy ma’lumotlar uchun ishlatiladi.
+* `<thead>` va `<tfoot>` sahifa bo‘ylab jadval scroll qilinsa ham markazda qoladi.
+
+---
+
+## 4. Ustunlar va qatorlarni birlashtirish
+
+### Nazariya:
+
+Jadvalning hujayralarini **birlashtirish** mumkin:
+
+* `colspan` – ustunlarni birlashtiradi
+* `rowspan` – qatorlarni birlashtiradi
+
+### Dastur:
+
+```html
+<table border="1" style="border-collapse: collapse; width: 50%; text-align: center;">
+    <tr>
+        <th rowspan="2">Ism</th>
+        <th colspan="2">Baholar</th>
+    </tr>
+    <tr>
+        <th>Matematika</th>
+        <th>Fizika</th>
+    </tr>
+    <tr>
+        <td>Ali</td>
+        <td>85</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td>Vali</td>
+        <td>78</td>
+        <td>88</td>
+    </tr>
+</table>
+```
+
+**Izoh:**
+
+* `rowspan="2"` – “Ism” ustuni ikki qatorni qamrab oladi.
+* `colspan="2"` – “Baholar” sarlavhasi ikkita ustunni qamrab oladi.
+
+---
+
+## 5. Amaliy qo‘llanma
+
+### Nazariya:
+
+Jadval elementlarini ishlatishda:
+
+1. Har bir jadvalga `<caption>` qo‘shish tavsiya etiladi.
+2. Sarlavhalar `<th>` orqali aniqlanishi kerak.
+3. Hujayralarni to‘g‘ri `colspan` va `rowspan` bilan birlashtirish mumkin.
+4. CSS orqali dizayn berish – ranglar, chegara va o‘lchamlar.
+
+### Misol sahifa:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadval Misoli</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            caption-side: top;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Talabalar baholari</caption>
+        <thead>
+            <tr>
+                <th>Ism</th>
+                <th>Matematika</th>
+                <th>Fizika</th>
+                <th>Informatika</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ali</td>
+                <td>85</td>
+                <td>90</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>Vali</td>
+                <td>78</td>
+                <td>88</td>
+                <td>82</td>
+            </tr>
+            <tr>
+                <td>Gulbahor</td>
+                <td>92</td>
+                <td>85</td>
+                <td>89</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>O‘rtacha</td>
+                <td>85</td>
+                <td>87.7</td>
+                <td>88.7</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
+```
+
+---
+
+✅ **Muhim eslatmalar:**
+
+1. Jadval ma’lumotlarni **toza va tushunarli** ko‘rsatishi kerak.
+2. CSS bilan rang va chegaralarni sozlash tavsiya etiladi.
+3. `thead`, `tbody`, `tfoot` bilan semantik tuzilma yanada qulayroq bo‘ladi.
+4. `colspan` va `rowspan` murakkab jadval tuzishda juda foydali.
+
+---
