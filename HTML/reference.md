@@ -1189,6 +1189,242 @@ Foydalanuvchi faylni serverga yuborishi mumkin.
 
 ---
 
+# 🔹 `<input>` atributlari – to‘liq qo‘llanma
+
+---
+
+## 1️⃣ `type`
+
+Inputning **turini** belgilaydi.
+
+```html
+<input type="text">
+```
+
+🔸 Eng ko‘p ishlatiladigan `type`lar:
+
+| Type     | Vazifasi           |
+| -------- | ------------------ |
+| text     | Oddiy matn         |
+| password | Parol (yashirin)   |
+| email    | Email kiritish     |
+| number   | Raqam              |
+| tel      | Telefon raqam      |
+| radio    | Bitta tanlash      |
+| checkbox | Bir nechta tanlash |
+| date     | Sana               |
+| file     | Fayl yuklash       |
+| submit   | Yuborish tugmasi   |
+| reset    | Tozalash           |
+| button   | Oddiy tugma        |
+| hidden   | Yashirin input     |
+
+---
+
+## 2️⃣ `name`
+
+Serverga yuboriladigan **nom** (juda muhim).
+
+```html
+<input type="text" name="username">
+```
+
+📌 `name` bo‘lmasa, ma’lumot yuborilmaydi.
+
+---
+
+## 3️⃣ `value`
+
+Input ichidagi **boshlang‘ich qiymat**.
+
+```html
+<input type="text" value="Ali">
+```
+
+---
+
+## 4️⃣ `placeholder`
+
+Foydalanuvchiga **ko‘rsatma matn**.
+
+```html
+<input type="text" placeholder="Ismingizni kiriting">
+```
+
+---
+
+## 5️⃣ `id`
+
+Elementni **aniqlash** uchun (label bilan bog‘lashda ishlatiladi).
+
+```html
+<input type="text" id="ism">
+<label for="ism">Ism</label>
+```
+
+---
+
+## 6️⃣ `required`
+
+Majburiy to‘ldirilishini belgilaydi.
+
+```html
+<input type="email" required>
+```
+
+📌 Bo‘sh qoldirilsa yuborilmaydi.
+
+---
+
+## 7️⃣ `readonly`
+
+Faqat o‘qish mumkin, o‘zgartirib bo‘lmaydi.
+
+```html
+<input type="text" value="Admin" readonly>
+```
+
+---
+
+## 8️⃣ `disabled`
+
+Butunlay **o‘chirilgan** input.
+
+```html
+<input type="text" disabled>
+```
+
+📌 Serverga ham yuborilmaydi.
+
+---
+
+## 9️⃣ `maxlength`
+
+Eng ko‘p belgilar soni.
+
+```html
+<input type="text" maxlength="10">
+```
+
+---
+
+## 🔟 `min` va `max`
+
+Raqam yoki sana chegarasi.
+
+```html
+<input type="number" min="18" max="60">
+```
+
+---
+
+## 1️⃣1️⃣ `step`
+
+Qadam bilan o‘zgarish (number uchun).
+
+```html
+<input type="number" step="5">
+```
+
+---
+
+## 1️⃣2️⃣ `checked`
+
+Radio yoki checkbox **belgilangan holat**.
+
+```html
+<input type="checkbox" checked>
+```
+
+---
+
+## 1️⃣3️⃣ `autofocus`
+
+Sahifa ochilganda avtomatik tanlanadi.
+
+```html
+<input type="text" autofocus>
+```
+
+---
+
+## 1️⃣4️⃣ `autocomplete`
+
+Brauzer eslab to‘ldirsin yoki yo‘q.
+
+```html
+<input type="text" autocomplete="off">
+```
+
+---
+
+## 1️⃣5️⃣ `pattern`
+
+Regex orqali **tekshirish**.
+
+```html
+<input type="text" pattern="[A-Za-z]+">
+```
+
+📌 Faqat harflar qabul qiladi.
+
+---
+
+## 1️⃣6️⃣ `multiple`
+
+Bir nechta fayl tanlash (file uchun).
+
+```html
+<input type="file" multiple>
+```
+
+---
+
+## 1️⃣7️⃣ `accept`
+
+Qaysi fayl turlari qabul qilinadi.
+
+```html
+<input type="file" accept=".jpg,.png">
+```
+
+---
+
+## 1️⃣8️⃣ `size`
+
+Inputning ko‘rinadigan uzunligi.
+
+```html
+<input type="text" size="30">
+```
+
+---
+
+## 1️⃣9️⃣ `form`
+
+Input qaysi formaga tegishli ekanini ko‘rsatadi.
+
+```html
+<input type="text" form="myForm">
+```
+
+---
+
+## 2️⃣0️⃣ `list`
+
+`datalist` bilan bog‘lash.
+
+```html
+<input list="cars">
+
+<datalist id="cars">
+  <option value="BMW">
+  <option value="Audi">
+</datalist>
+```
+
+---
+
 # 📚 Modul 6: Semantic HTML – 1 dars
 
 ## 1. Semantic HTML nima?
