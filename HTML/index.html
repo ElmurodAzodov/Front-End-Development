@@ -246,5 +246,371 @@
         <td>88</td>
       </tr>
     </table>
+
+    <table border="1" style="border-collapse: collapse">
+      <caption>
+        <h1>COURSES</h1>
+      </caption>
+      <tr>
+        <th>№</th>
+        <th>VIDEO</th>
+        <th>COURSE NAME</th>
+        <th>PLATFORM</th>
+        <th>VIDEO TITLE</th>
+        <th>DURATION</th>
+        <th>INSTRUCTOR</th>
+        <th>LINK</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>
+          <!-- <iframe width="300" height="250" src="https://www.youtube.com/embed/G3e-cpL7ofc?si=YLvuGPGThm2s-RUK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+          <iframe
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/HGTJBPNC-Gw?si=bXqO3_arf3Cku0oK"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </td>
+        <td>HTML & CSS</td>
+        <td>YouTube</td>
+        <td>HTML & CSS Full Course for free</td>
+        <td>4:02:42</td>
+        <td>Bro Code</td>
+        <td>
+          <a href="https://youtu.be/HGTJBPNC-Gw?si=rlvlyw5ecB65H3mc">▶️</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <iframe
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/pQN-pnXPaVg?si=1Yk9Z2kz1b0Yk8jE"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </td>
+        <td>HTML & CSS</td>
+        <td>YouTube</td>
+        <td>HTML Full Course - Build a Website Tutorial</td>
+        <td>2:02:31</td>
+        <td>freeCodeCamp.org</td>
+        <td>
+          <a href="https://youtu.be/pQN-pnXPaVg?si=V1f6Yk1b1KJ3v1oF">▶️</a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>
+          <iframe
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/UB1O30fR-EE?si=U1j6bX1jX0J3K2oM"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </td>
+        <td>HTML & CSS</td>
+        <td>YouTube</td>
+        <td>HTML Tutorial for Beginners: HTML Crash Course</td>
+        <td>1:00:41</td>
+        <td>Programming with Mosh</td>
+        <td>
+          <a href="https://youtu.be/UB1O30fR-EE?si=V1j6Yk1jX0J3K2oM">▶️</a>
+        </td>
+      </tr>
+    </table>
+    <hr />
+
+    <h1 style="text-align: center; color: green">Forms</h1>
+
+    <form action="/submit" method="post">
+      <label for="name">Ismingiz:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email manzilingiz:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="password">Parolingiz:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
+
+      <label for="age">Yoshingiz:</label><br />
+      <input type="number" id="age" name="age" min="1" max="120" /><br /><br />
+
+      <label for="bio">O'zingiz haqida qisqacha:</label><br />
+      <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br /><br />
+
+      <input type="submit" value="Yuborish" />
+      <input type="reset" value="Tozalash" />
+    </form>
+
+    <form>
+      <p>Jinsingiz:</p>
+      <label><input type="radio" name="gender" value="male" /> Erkak</label>
+      <label><input type="radio" name="gender" value="female" /> Ayol</label>
+
+      <p>Qiziqishlaringiz:</p>
+      <label><input type="checkbox" name="hobby" value="sports" /> Sport</label>
+      <label><input type="checkbox" name="hobby" value="music" /> Musiqa</label>
+      <label
+        ><input type="checkbox" name="hobby" value="reading" /> Kitob
+        o‘qish</label
+      >
+    </form>
+
+    <label for="country">Mamlakatingiz:</label>
+    <select id="country" name="country">
+      <option value="">Tanlang</option>
+      <option value="uz">O‘zbekiston</option>
+      <option value="us">AQSh</option>
+      <option value="uk">Buyuk Britaniya</option>
+    </select>
+
+    <label for="message">Xabar:</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      cols="40"
+      placeholder="Xabaringizni yozing..."
+    ></textarea>
+
+    <h1>Ro‘yxatdan o‘tish formasi</h1>
+
+    <form
+      action="server.php"
+      method="post"
+      autocomplete="on"
+      enctype="multipart/form-data"
+    >
+      <!-- Shaxsiy ma'lumotlar -->
+      <fieldset>
+        <legend>Shaxsiy ma'lumotlar</legend>
+
+        <label for="fname">Ism:</label><br />
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Ismingizni kiriting"
+          required
+          minlength="3"
+          maxlength="20"
+        /><br /><br />
+
+        <label for="lname">Familiya:</label><br />
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="Familiyangiz"
+          required
+        /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@mail.com"
+          required
+        /><br /><br />
+
+        <label for="password">Parol:</label><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minlength="6"
+        /><br /><br />
+
+        <label for="age">Yosh:</label><br />
+        <input
+          type="number"
+          id="age"
+          name="age"
+          min="10"
+          max="100"
+        /><br /><br />
+
+        <label for="birth">Tug‘ilgan sana:</label><br />
+        <input type="date" id="birth" name="birthdate" /><br /><br />
+
+        <label for="time">Qulay vaqt:</label><br />
+        <input type="time" id="time" name="time" /><br /><br />
+      </fieldset>
+
+      <br />
+
+      <!-- Aloqa -->
+      <fieldset>
+        <legend>Aloqa ma'lumotlari</legend>
+
+        <label for="phone">Telefon:</label><br />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+998901234567"
+          pattern="\+998[0-9]{9}"
+        /><br /><br />
+
+        <label for="website">Shaxsiy sayt:</label><br />
+        <input
+          type="url"
+          id="website"
+          name="website"
+          placeholder="https://example.com"
+        /><br /><br />
+      </fieldset>
+
+      <br />
+
+      <!-- Jins -->
+      <fieldset>
+        <legend>Jins</legend>
+
+        <input type="radio" id="male" name="gender" value="male" checked />
+        <label for="male">Erkak</label><br />
+
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Ayol</label><br />
+      </fieldset>
+
+      <br />
+
+      <!-- Qiziqishlar -->
+      <fieldset>
+        <legend>Qiziqishlar</legend>
+
+        <input type="checkbox" id="sport" name="interest[]" value="sport" />
+        <label for="sport">Sport</label><br />
+
+        <input type="checkbox" id="music" name="interest[]" value="music" />
+        <label for="music">Musiqa</label><br />
+
+        <input
+          type="checkbox"
+          id="programming"
+          name="interest[]"
+          value="programming"
+        />
+        <label for="programming">Dasturlash</label><br />
+      </fieldset>
+
+      <br />
+
+      <!-- Select -->
+      <label for="country">Davlat:</label><br />
+      <select id="country" name="country">
+        <option value="">Tanlang</option>
+        <option value="uz">O‘zbekiston</option>
+        <option value="kz">Qozog‘iston</option>
+        <option value="ru">Rossiya</option>
+        <option value="usa">AQSH</option>
+      </select>
+
+      <br /><br />
+
+      <!-- Datalist -->
+      <label for="city">Shahar:</label><br />
+      <input list="cities" id="city" name="city" />
+      <datalist id="cities">
+        <option value="Toshkent"></option>
+        <option value="Samarqand"></option>
+        <option value="Buxoro"></option>
+        <option value="Andijon"></option>
+      </datalist>
+
+      <br /><br />
+
+      <!-- Range -->
+      <label for="level">Bilim darajasi:</label><br />
+      <input type="range" id="level" name="level" min="0" max="10" />
+
+      <br /><br />
+
+      <!-- Color -->
+      <label for="color">Sevimli rang:</label><br />
+      <input type="color" id="color" name="color" />
+
+      <br /><br />
+
+      <!-- File -->
+      <label for="file">Rasm yuklash:</label><br />
+      <input type="file" id="file" name="image" accept="image/*" />
+
+      <br /><br />
+
+      <!-- Textarea -->
+      <label for="about">O‘zingiz haqingizda:</label><br />
+      <textarea
+        id="about"
+        name="about"
+        rows="5"
+        cols="40"
+        placeholder="Izoh yozing..."
+      ></textarea>
+
+      <br /><br />
+
+      <!-- Hidden -->
+      <input type="hidden" name="user_id" value="12345" />
+
+      <!-- Readonly va Disabled -->
+      <label>Login:</label><br />
+      <input type="text" value="admin123" readonly /><br /><br />
+
+      <input type="text" value="o‘chirilgan" disabled />
+
+      <br /><br />
+
+      <!-- Buttons -->
+      <button type="submit">Yuborish</button>
+      <button type="reset">Tozalash</button>
+      <input type="button" value="Oddiy tugma" />
+    </form>
   </body>
 </html>
