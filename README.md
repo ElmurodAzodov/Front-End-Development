@@ -133,197 +133,289 @@
 
 <h1 align="center">CSS – Cascading Style Sheets</h1>
 
-## **Module 1. CSS Fundamentals (HTML bilan parallel)**
-### 📚 Mavzular:
-1. **What is CSS & how it works**
-2. **CSS syntax & rules**
-3. **Ways to add CSS**
-   - Inline styles
-   - Internal/Embedded styles
-   - External stylesheets
-4. **CSS cascade, inheritance & specificity** (asosiy tushuncha)
-5. **CSS reset vs normalize**
+## 🟢 **Module 1: CSS Basics (Absolute Zero)**
 
-### 🎯 **Natija:** HTML elementlarini mustaqil style qila olish
+### 📚 Topics:
 
----
+* What is CSS & why it exists
+* How browsers read CSS
+* CSS syntax: selector, property, value
+* Ways to write CSS: Inline, Internal, External
+* Comments in CSS
+* Selectors deep dive: Ancestors, Children, Sibling, Attribute, Adjacent
 
-## **Module 2. Selectors & Core Styling**
-### 📚 Mavzular:
-6. **Basic selectors**
-   - Type selectors
-   - Class selectors
-   - ID selectors
-   - Grouping selectors
-7. **Combinators**
-   - Descendant (` `)
-   - Child (`>`)
-   - Adjacent sibling (`+`)
-   - General sibling (`~`)
-8. **Attribute selectors**
-9. **Modern selectors**
-   - `:not()`
-   - `:is()`
-   - `:where()`
+### 💡 Project Ideas:
 
-### 🎯 **Natija:** To'g'ri va professional selector yozish
+* Style a personal profile page using all basic selectors
+* Create an “About Me” card with colors, text-transform, and spacing
+* Mini mock exam: style HTML elements one by one
 
 ---
 
-## **Module 3. Text, Colors & Backgrounds**
-### 📚 Mavzular:
-10. **Color systems**
-    - HEX, RGB, RGBA
-    - HSL, HSLA
-    - Modern colors (oklch - concept level)
-11. **Text styling**
-    - Alignment, transform, decoration
-    - Spacing, line-height
-    - Text shadows
-12. **Backgrounds**
-    - Background images
-    - Gradients (linear, radial)
+## 🟢 **Module 2: Colors, Backgrounds & Text**
 
-### 🎯 **Natija:** O'qiladigan va chiroyli UI
+### 📚 Topics:
+
+* Color formats: hex, rgb/rgba, hsl
+* Background: color, image, position, size, repeat, attachment
+* Gradients: linear-gradient, radial-gradient
+* Text styling: text-align, line-height, letter-spacing, word-spacing, text-transform, text-decoration
+
+### 💡 Project Ideas:
+
+* Hero section with gradient background
+* Typography card with text spacing, decoration, and hover effects
 
 ---
 
-## **Module 4. Box Model & Sizing**
-### 📚 Mavzular:
-13. **Box model**
-    - Content
-    - Padding
-    - Border
-    - Margin
-14. **Margin & padding** (shorthand notation)
-15. **Width, height, min/max** properties
-16. **`box-sizing: border-box`** (essential!)
-17. **Overflow** (hidden, scroll, auto)
+## 🟢 **Module 3: Borders, Box Model & Sizing**
 
-### 🎯 **Natija:** Layout buzilmasdan ishlashi
+### 📚 Topics:
 
----
+* Borders: width, style (solid, dashed, groove, ridge, inset, outset), color
+* Border-radius
+* Box model: content, padding, border, margin
+* box-sizing
+* Width, height, max/min width/height, units (px, %, em/rem, vw/vh)
 
-## **Module 5. Borders, Shadows & Effects**
-### 📚 Mavzular:
-18. **Border styles & radius**
-19. **Box-shadow & text-shadow**
-20. **Hover states** (`:hover` pseudo-class)
-21. **Basic transitions** (hover effects)
+### 💡 Project Ideas:
 
-### 🎯 **Natija:** Interaktiv elementlar
+* Pricing table or card component with shadows and padding
+* Build a layout with proper margins, borders, and box-sizing
 
 ---
 
-## **Module 6. Typography (Professional Level)**
-### 📚 Mavzular:
-22. **Font-family & font stacks**
-23. **Google Fonts** integration
-24. **Units**
-    - Absolute: px
-    - Relative: em, rem, %
-    - Viewport: vw, vh
-25. **Responsive typography**
-26. **Accessibility basics** (font & contrast)
+## 🟢 **Module 4: Display, Float, Overflow & Lists**
 
-### 🎯 **Natija:** Professional dizayn hissi
+### 📚 Topics:
 
----
+* Display: block, inline, inline-block, none
+* Visibility
+* Float & clear / clearfix
+* Overflow: hidden, auto, scroll
+* Lists & tables with :nth-child(odd/even)
+* ::-webkit-scrollbar customization
 
-## **Module 7. Layout Systems (ENG MUHIM QISM)**
-### 📚 Mavzular:
-27. **Display types**
-    - block, inline, inline-block
-    - none, flex, grid
-28. **Positioning**
-    - static, relative
-    - absolute, fixed
-    - sticky
-29. **Flexbox (FULL MODULE)**
-    - Flex container properties
-    - Flex item properties
-    - Axes, alignment, justification
-    - Real-world layouts
-30. **CSS Grid**
-    - Grid container properties
-    - Grid columns, rows, gaps
-    - Grid template areas
-    - Responsive grids
+### 💡 Project Ideas:
 
-### 🎯 **Natija:** Har qanday layoutni qila olish
+* Photo gallery with floated images and clearfix
+* Scrollable content box with hidden/auto scrollbars
+* Styled table with zebra stripes using nth-child
 
 ---
 
-## **Module 8. Forms, Lists & Tables**
-### 📚 Mavzular:
-31. **Lists styling** (custom bullets, markers)
-32. **Tables & `:nth-child()`**
-33. **Forms styling** (inputs, buttons, labels)
-34. **Form states** (focus, checked, disabled)
+## 🟢 **Module 5: Fonts & Typography**
 
-### 🎯 **Natija:** Real web sahifa elementlari
+### 📚 Topics:
 
----
+* Fonts: family, style, variant, weight, size
+* Relative units: em/rem, viewport width (vw)
+* Google Fonts integration
 
-## **Module 9. Pseudo-Classes & Elements**
-### 📚 Mavzular:
-35. **State pseudo-classes**
-    - `:hover`, `:focus`, `:active`
-    - `:visited`, `:checked`
-36. **Structural pseudo-classes**
-    - `:first-child`, `:last-child`
-    - `:nth-child()`
-37. **Pseudo-elements**
-    - `::before`, `::after`
-    - `::first-letter`, `::first-line`
+### 💡 Project Ideas:
 
-### 🎯 **Natija:** Murakkab UI effektlar
+* Blog article with professional typography
+* Quote card or testimonial layout
 
 ---
 
-## **Module 10. Responsive Design**
-### 📚 Mavzular:
-38. **Media queries** (breakpoints)
-39. **Mobile-first approach**
-40. **Responsive layouts** (flexible grids)
-41. **Responsive images** (`srcset`, `picture`)
+## 🟢 **Module 6: Positioning & Layering**
 
-### 🎯 **Natija:** Telefon, planshet, desktop
+### 📚 Topics:
 
----
+* Position types: static, relative, absolute, fixed, sticky
+* Top / right / bottom / left
+* z-index, stacking context
 
-## **Module 11. Transforms, Transitions & Animations**
-### 📚 Mavzular:
-42. **Transforms (2D)**
-    - translate, rotate, scale, skew
-43. **Transitions & timing functions**
-44. **CSS animations**
-    - `@keyframes`
-    - Animation properties
-45. **Micro-interactions** (button effects, loading animations)
+### 💡 Project Ideas:
 
-### 🎯 **Natija:** Zamonaviy UI harakati
+* Floating “Back to Top” button
+* Modal popup with overlay and z-index control
 
 ---
 
-## **Module 12. Modern CSS (React & SASS Ready)**
-### 📚 Mavzular:
-46. **CSS Variables** (`:root`, `var()`)
-47. **Theme switching** (dark/light mode)
-48. **Component-based CSS mindset**
-49. **BEM naming convention**
-50. **CSS for React components** (CSS Modules, styled-components)
+## 🟢 **Module 7: Flexbox**
 
-### 🎯 **Natija:** React va SASS'ga tayyorlik
+### 📚 Topics:
+
+* Flex container, flex-direction, justify-content, align-items, align-content
+* Gap, flex-wrap, flex-grow / shrink / basis
+* Align-self
+
+### 💡 Project Ideas:
+
+* Responsive navigation bar using flexbox
+* Team member card grid with flexible alignment
 
 ---
 
-## **Module 13. Performance & Best Practices**
-### 📚 Mavzular:
-51. **Clean CSS structure** (organization patterns)
-52. **Avoiding layout shift** (CLS optimization)
-53. **Maintainable CSS** (scalability)
-54. **Common mistakes** to avoid
+## 🟢 **Module 8: Grid Layout**
+
+### 📚 Topics:
+
+* Grid basics, grid-template-columns / rows
+* Gap, grid-area & template-areas
+* Auto-fit / auto-fill, minmax()
+
+### 💡 Project Ideas:
+
+* Magazine-style homepage layout
+* Responsive photo gallery using grid
+
+---
+
+## 🟢 **Module 9: Responsive Design & Container Queries**
+
+### 📚 Topics:
+
+* Mobile-first approach
+* Media queries & breakpoints
+* Responsive images & typography
+* Container queries (@container, container-type)
+
+### 💡 Project Ideas:
+
+* Fully responsive landing page
+* Card component responsive to container width
+* Convert a desktop layout to mobile-friendly
+
+---
+
+## 🟢 **Module 10: Pseudo-classes & Pseudo-elements**
+
+### 📚 Topics:
+
+* Pseudo-classes: :hover, :focus, :focus-visible, :active, :checked, :disabled, :valid/:invalid, :nth-child()
+* Pseudo-elements: ::before, ::after, ::placeholder, ::selection, ::marker, ::first-letter
+
+### 💡 Project Ideas:
+
+* Interactive buttons and form inputs
+* Custom bullets and list styles using pseudo-elements
+
+---
+
+## 🟢 **Module 11: Transitions, 2D & 3D Transforms**
+
+### 📚 Topics:
+
+* Transitions: property, duration, timing-function, delay (ease, ease-in, ease-out, ease-in-out, linear, cubic-bezier)
+* 2D transforms: translate(x, y), scale(x, y), rotate(deg), skew(x, y)
+* 3D transforms: rotateX/Y/Z, perspective, transform-style: preserve-3d
+
+### 💡 Project Ideas:
+
+* Animate cards or buttons with 2D transforms & transitions
+* 3D cube or flip card using perspective and rotateX/Y
+
+---
+
+## 🟢 **Module 12: Animations**
+
+### 📚 Topics:
+
+* @keyframes, animation-name
+* Duration, delay, iteration-count, direction, fill-mode, timing-function
+
+### 💡 Project Ideas:
+
+* Loading spinner with keyframes
+* Banner animation: slide-in text, fade effects
+* Shake effect for invalid form input
+
+---
+
+## 🟢 **Module 13: Filters, Shadows & Effects**
+
+### 📚 Topics:
+
+* Filters: blur, grayscale, brightness, contrast
+* Opacity & backdrop-filter
+* Box-shadow & inset shadows
+* Text-shadow & outline
+
+### 💡 Project Ideas:
+
+* Frosted glass card effect
+* Image hover filters with transitions
+* Beautiful buttons with shadows & ::before
+
+---
+
+## 🟢 **Module 14: CSS Variables & Modern Functions**
+
+### 📚 Topics:
+
+* :root, creating & using variables
+* Theme colors, dark/light mode logic
+* calc(), clamp(), min(), max()
+
+### 💡 Project Ideas:
+
+* Theme switcher (dark/light mode)
+* Fluid typography & responsive layout using clamp() & calc()
+
+---
+
+## 🟢 **Module 15: Forms & UI Components**
+
+### 📚 Topics:
+
+* Styled inputs & patterns
+* Form animations, invalid input shake effect
+* Custom checkboxes, radio buttons, select dropdowns
+
+### 💡 Project Ideas:
+
+* Login/Auth form UI
+* Contact form with animated validation
+* Dropdown menu with hover effects
+
+---
+
+## 🟢 **Module 16: Accessibility (A11y)**
+
+### 📚 Topics:
+
+* :focus-visible
+* prefers-reduced-motion
+* prefers-color-scheme
+* Color contrast & accessible UI states
+
+### 💡 Project Ideas:
+
+* Fully accessible form with keyboard focus
+* Theme-aware UI respecting user preferences
+
+---
+
+## 🟢 **Module 17: CSS Architecture & Best Practices**
+
+### 📚 Topics:
+
+* BEM methodology
+* Reusable components & utility classes
+* @layer & scalable CSS structure
+* Maintainable CSS mindset
+
+### 💡 Project Ideas:
+
+* Component library using BEM & utility classes
+* Medium-scale project with layered CSS
+
+---
+
+## 🟢 **Module 18: Final Projects**
+
+### 💡 Project Ideas:
+
+* Responsive Navbar
+* Auth Forms UI
+* Landing Page
+* Dashboard UI
+* Portfolio Website
+* UI Components Pack
+* Combined layouts with 2D/3D animations
 
 ---
 <img src="./SASS/sass.png" width="200" height="" style="display: block; margin: 70px auto;" />
