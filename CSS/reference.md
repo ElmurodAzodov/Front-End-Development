@@ -1,4 +1,233 @@
 
+# 📚 Module 1: CSS Basics (Absolute Zero)
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# **CSS & its Basics**
+
+## 1️⃣ What is CSS & Why it exists?
+
+**CSS (Cascading Style Sheets)** — bu **HTML elementlarni ko‘rinishini boshqarish uchun ishlatiladigan til**.
+
+* CSS **HTMLni dizayn qilish** imkonini beradi: rang, font, o‘lcham, joylashuv va boshqalar.
+* Sababi: HTML faqat **strukturani** belgilaydi, dizayn emas. CSS esa **vizual ko‘rinish va layoutni** yaratadi.
+
+📌 Misol:
+
+```html
+<p>Salom Dunyo</p>
+```
+
+Agar siz CSS ishlatmasangiz, bu matn **oddiy qora matn** ko‘rinadi.
+CSS bilan:
+
+```css
+p {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+```
+
+Natija: **qizil, katta va qalin matn**
+
+---
+
+## 2️⃣ How browsers read CSS
+
+1. **HTML parse**: Browser HTML faylni o‘qiydi va DOM (Document Object Model) yaratadi
+2. **CSS parse**: Browser CSSni o‘qiydi va har bir elementga qaysi styles tegishli ekanini aniqlaydi
+3. **Render tree**: DOM + CSS → sahifa ko‘rinishi
+4. **Painting & layout**: Oxir-oqibat elementlar ekranda chiziladi
+
+---
+
+## 3️⃣ CSS Syntax: Selector, Property, Value
+
+```css
+selector {
+  property: value;
+}
+```
+
+### Misol:
+
+```css
+p {
+  color: blue;       /* property = color, value = blue */
+  font-size: 18px;
+}
+```
+
+* **Selector** → qaysi elementga qo‘llanadi (`p`)
+* **Property** → qaysi xususiyatni o‘zgartirish (`color`, `font-size`)
+* **Value** → qiymat (`blue`, `18px`)
+
+---
+
+## 4️⃣ Ways to write CSS
+
+### 4.1 Inline CSS
+
+HTML elementning **ichida style atributi bilan** yoziladi
+
+```html
+<p style="color:red; font-size:20px;">Salom</p>
+```
+
+❌ Kam ishlatiladi, chunki **style boshqaruvi qiyin**
+
+---
+
+### 4.2 Internal CSS
+
+HTML faylning `<head>` qismida `<style>` teg bilan
+
+```html
+<head>
+<style>
+p {
+  color: green;
+  font-size: 18px;
+}
+</style>
+</head>
+```
+
+✅ Oson, kichik sahifalar uchun
+
+---
+
+### 4.3 External CSS
+
+Alohida `.css` fayl yaratib, HTMLga `<link>` bilan ulash
+
+```html
+<link rel="stylesheet" href="style.css">
+```
+
+```css
+/* style.css */
+p {
+  color: purple;
+  font-size: 18px;
+}
+```
+
+✅ Eng toza va katta loyihalar uchun
+
+---
+
+## 5️⃣ Comments in CSS
+
+* CSSda **kommentariya**: `/* ... */`
+* Kod ichida izoh yozish uchun
+
+```css
+/* Bu qizil matn uchun style */
+p {
+  color: red;
+}
+```
+
+❌ `//` ishlamaydi (faqat JSda ishlaydi)
+
+---
+
+## 6️⃣ Selectors Deep Dive
+
+### 6.1 Ancestor (descendant) selector
+
+* **Farzand yoki undan keyingi elementni tanlaydi**
+
+```css
+div p {
+  color: blue;
+}
+```
+
+* Har qanday `<div>` ichidagi `<p>` ko‘k rangda bo‘ladi
+
+---
+
+### 6.2 Child selector (`>`)
+
+* Faqat **bevosita farzand elementni tanlaydi**
+
+```css
+div > p {
+  color: red;
+}
+```
+
+* `<div><p>...</p></div>` → qizil
+* `<div><section><p></p></section></div>` → ishlamaydi (chuqur farzand emas)
+
+---
+
+### 6.3 Sibling selectors
+
+#### 6.3.1 Adjacent sibling (`+`)
+
+* **Darhol keyingi element**ni tanlaydi
+
+```css
+h1 + p {
+  color: green;
+}
+```
+
+* `<h1></h1><p></p>` → ishlaydi
+* `<h1></h1><div></div><p></p>` → ishlamaydi
+
+#### 6.3.2 General sibling (`~`)
+
+* **Keyingi barcha sibling elementlar**ni tanlaydi
+
+```css
+h1 ~ p {
+  color: purple;
+}
+```
+
+* `<h1></h1><p></p><p></p>` → ikkalasi ham ishlaydi
+
+---
+
+### 6.4 Attribute selector
+
+```css
+a[target="_blank"] {
+  color: orange;
+}
+```
+
+* Faqat `target="_blank"` atributi bo‘lgan `<a>` elementlari
+
+```css
+input[type="text"] {
+  border: 1px solid #000;
+}
+```
+
+* Faqat matn inputlarini tanlaydi
+
+---
+
+### 6.5 Combining selectors
+
+```css
+div.highlight > p:first-child {
+  color: red;
+}
+```
+
+* `div` klassi `highlight` bo‘lsa
+* Faqat birinchi `<p>` farzandni tanlaydi
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
 # 📚 Module 2: Colors, Backgrounds & Text
 ---
 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
@@ -2554,5 +2783,727 @@ div {
 * Yashirish, **joyni saqlab qolish kerak bo‘lsa** → `visibility: hidden`
 * Ota qiymatini olish → `inherit`
 * Jadval qatorlarini yo‘qotish → `collapse`
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# CSS `float` va `clear` / `clearfix`
+
+---
+
+## 1️⃣ `float` nima?
+
+`float` — elementni **yon tomonga surish** va **matn yoki boshqa inline elementlar bilan yonma-yon turishini** ta’minlaydi.
+
+### Qiymatlari:
+
+1. `left` → elementni **chapga** suradi
+2. `right` → elementni **o‘ngga** suradi
+3. `none` → default, **float ishlamaydi**
+
+---
+
+### 1.1 Float misol
+
+```html
+<div class="container">
+  <div class="box">A</div>
+  <div class="box">B</div>
+</div>
+```
+
+```css
+.box {
+  width: 100px;
+  height: 100px;
+  background: coral;
+  float: left;  /* chapga surildi */
+  margin: 10px;
+}
+```
+
+📌 Natija:
+
+```
+[A] [B]
+```
+
+➡ `float: left` elementlarni **yonma-yon** qiladi, yangi qatorda boshlamaydi.
+
+---
+
+### 1.2 Float bilan matn
+
+```html
+<img src="https://via.placeholder.com/80" class="img">
+<p>Bu matn suratning yonida oqadi. Lorem ipsum dolor sit amet...</p>
+```
+
+```css
+.img {
+  float: left;
+  margin-right: 10px;
+}
+```
+
+📌 Natija:
+
+* Matn **rasmning yonida oqadi**, surat chapda turadi.
+
+---
+
+## 2️⃣ `clear` nima?
+
+`clear` — **float elementlardan keyin yangi qatordan boshlash**ni belgilaydi.
+
+### Qiymatlari:
+
+1. `left` → chapdagi float elementdan keyin
+2. `right` → o‘ngdagi float elementdan keyin
+3. `both` → har ikki tomondagi floatdan keyin
+4. `none` → default, floatga e’tibor qilmaydi
+
+---
+
+### 2.1 Clear misol
+
+```html
+<div class="float-box">A</div>
+<div class="float-box">B</div>
+<div class="clear-box">Bu yangi qatorda</div>
+```
+
+```css
+.float-box {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  margin: 5px;
+}
+
+.clear-box {
+  clear: both;
+  background: orange;
+  height: 50px;
+}
+```
+
+📌 Natija:
+
+```
+[A] [B]
+[Bu yangi qatorda]
+```
+
+➡ `clear: both` barcha float elementlardan keyin yangi qatorda boshlaydi.
+
+---
+
+## 3️⃣ Float bilan container muammosi
+
+### Muammo:
+
+* Float elementlar **container balandligini egallamaydi**
+* Natija: container **0 balandlikda** ko‘rinadi
+
+```html
+<div class="container">
+  <div class="float-box">A</div>
+  <div class="float-box">B</div>
+</div>
+```
+
+```css
+.container {
+  background: lightblue;
+}
+.float-box {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: coral;
+}
+```
+
+📌 Natija: `container` **ko‘rinmaydi**, faqat float boxlar ko‘rinadi.
+
+---
+
+## 4️⃣ `clearfix` (floatni tozalash)
+
+### Maqsad:
+
+* Container **float elementlarni o‘z ichiga olishi** uchun ishlatiladi.
+
+### Standart clearfix:
+
+```css
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+```
+
+### Misol:
+
+```html
+<div class="container clearfix">
+  <div class="float-box">A</div>
+  <div class="float-box">B</div>
+</div>
+```
+
+```css
+.container {
+  background: lightblue;
+  padding: 10px;
+}
+
+.float-box {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: coral;
+  margin: 5px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+```
+
+📌 Natija:
+
+* `container` **float elementlarni o‘z ichiga oladi**, balandlik ko‘rinadi.
+* Visual tartib buzilmaydi.
+
+---
+
+## 5️⃣ Qisqa xulosa
+
+| Xususiyat | Maqsad                                                     |
+| --------- | ---------------------------------------------------------- |
+| float     | Elementni **chap/ongga suradi**, yonma-yon turadi          |
+| clear     | Float elementdan keyin **yangi qatorda boshlash**          |
+| clearfix  | Containerni **float elementlarni o‘z ichiga olishi** uchun |
+
+---
+
+## 6️⃣ Ko‘p uchraydigan xatolar
+
+❌ Containerga float berilmagan deb o‘ylash
+
+❌ Clear ishlatmasdan float bilan containerga background berish
+
+❌ Float elementlarni faqat o‘lcham uchun ishlatish (layout uchun eski usul)
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+
+# CSS `overflow`
+
+---
+
+## 1️⃣ `overflow` nima?
+
+`overflow` — elementning **ichidagi kontent (matn, rasmlar, bolalar elementlar) o‘z konteyner balandligi yoki kengligidan oshib ketganda** nima bo‘lishini belgilaydi.
+
+❗ Asosiy vazifa: **kontentni qirqish, scroll qilish yoki yashirish**.
+
+---
+
+## 2️⃣ Qiymatlari
+
+1. `visible` → default, kontent **tashqariga chiqadi**
+2. `hidden` → kontent **yashiriladi**, scroll yo‘q
+3. `scroll` → **har doim scroll** paydo bo‘ladi
+4. `auto` → **kerak bo‘lsa scroll** paydo bo‘ladi
+5. `inherit` → ota elementdan meros oladi
+
+---
+
+## 3️⃣ `overflow: visible`
+
+### Xususiyati:
+
+* Kontent konteynerdan oshsa ham **hech narsa qilmaydi**, tashqariga chiqadi
+
+### Misol:
+
+```html
+<div class="box">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent...
+</div>
+```
+
+```css
+.box {
+  width: 200px;
+  height: 100px;
+  background: lightblue;
+  overflow: visible;
+}
+```
+
+📌 Natija:
+
+* Matn **boxdan tashqariga chiqadi**, qirqilmaydi
+
+---
+
+## 4️⃣ `overflow: hidden`
+
+### Xususiyati:
+
+* Kontent **qirqiladi**, tashqariga chiqmaydi
+* Scroll paydo bo‘lmaydi
+
+### Misol:
+
+```html
+<div class="box">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent...
+</div>
+```
+
+```css
+.box {
+  width: 200px;
+  height: 100px;
+  background: lightgreen;
+  overflow: hidden;
+}
+```
+
+📌 Natija:
+
+* Faqat **100px balandlikdagi** matn ko‘rinadi
+* Qolgan matn **ko‘rinmaydi**
+* Scroll yo‘q
+
+---
+
+## 5️⃣ `overflow: scroll`
+
+### Xususiyati:
+
+* Scroll **har doim paydo bo‘ladi**, kontent oshmasa ham
+* Foydalanuvchi **scroll qilib** ko‘rishi mumkin
+
+### Misol:
+
+```css
+.box {
+  width: 200px;
+  height: 100px;
+  background: lightcoral;
+  overflow: scroll;
+}
+```
+
+📌 Natija:
+
+* Kichik matn bo‘lsa ham **scroll bar ko‘rinadi**
+
+---
+
+## 6️⃣ `overflow: auto` ⭐ ENG KO‘P ISHLATILADI
+
+### Xususiyati:
+
+* Scroll **faqat kerak bo‘lsa paydo bo‘ladi**
+
+### Misol:
+
+```css
+.box {
+  width: 200px;
+  height: 100px;
+  background: lightyellow;
+  overflow: auto;
+}
+```
+
+📌 Natija:
+
+* Agar matn konteynerdan oshsa → **scroll paydo bo‘ladi**
+* Agar matn sig‘sa → scroll **yo‘q**
+
+---
+
+## 7️⃣ `overflow-x` va `overflow-y`
+
+* `overflow-x` → **gorizontal scroll**
+* `overflow-y` → **vertikal scroll**
+
+```css
+.box {
+  width: 200px;
+  height: 100px;
+  overflow-x: auto; /* faqat gorizontal scroll */
+  overflow-y: hidden; /* vertikal qirqish */
+}
+```
+
+---
+
+## 8️⃣ Taqqoslash jadvali
+
+| overflow | Qirqish | Scroll           |
+| -------- | ------- | ---------------- |
+| visible  | ❌       | ❌                |
+| hidden   | ✅       | ❌                |
+| scroll   | ✅       | ✅ (doimo)        |
+| auto     | ✅       | ✅ (kerak bo‘lsa) |
+
+---
+
+## 9️⃣ Eng ko‘p uchraydigan xatolar
+
+❌ `hidden` scroll paydo bo‘ladi deb o‘ylash
+❌ `scroll` kerak bo‘lmasa ham scroll yo‘q deb o‘ylash
+❌ `overflow` faqat matn uchun ishlaydi deb tushunish (har qanday element uchun ishlaydi)
+
+---
+
+## 10️⃣ Qisqa xulosa
+
+* **Matn tashqariga chiqsa yashirish** → `hidden`
+* **Scroll kerak bo‘lsa** → `auto`
+* **Scroll har doim paydo bo‘lsin** → `scroll`
+* **Tashqariga chiqish normal** → `visible`
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+
+# CSS `:nth-child(odd/even)` bilan Lists & Tables
+
+---
+
+## 1️⃣ `:nth-child` nima?
+
+`:nth-child()` — **elementning ota containeridagi tartib raqamiga asoslanib** uni tanlash imkonini beradi.
+
+* `(odd)` → **toq raqamdagi elementlar**
+* `(even)` → **juft raqamdagi elementlar**
+
+❗ Index 1-dan boshlanadi!
+
+---
+
+## 2️⃣ Lists (ro‘yxatlar) bilan misol
+
+### HTML:
+
+```html
+<ul>
+  <li>Olma</li>
+  <li>Banan</li>
+  <li>Gilos</li>
+  <li>Anor</li>
+  <li>Apelsin</li>
+</ul>
+```
+
+---
+
+### Odd / Even bilan rang berish
+
+```css
+li:nth-child(odd) {
+  background-color: lightblue;
+}
+
+li:nth-child(even) {
+  background-color: lightgreen;
+}
+```
+
+📌 Natija:
+
+* 1, 3, 5 → lightblue
+* 2, 4 → lightgreen
+
+```
+[Olma]   lightblue
+[Banan]  lightgreen
+[Gilos]  lightblue
+[Anor]   lightgreen
+[Apelsin] lightblue
+```
+
+---
+
+### Qiziqarli misol: faqat odd li matnini qalin qilish
+
+```css
+li:nth-child(odd) {
+  font-weight: bold;
+}
+```
+
+📌 Natija: 1,3,5 raqamli elementlar **qalin** bo‘ladi.
+
+---
+
+## 3️⃣ Tables bilan misol
+
+### HTML:
+
+```html
+<table border="1">
+  <tr><td>1</td><td>A</td></tr>
+  <tr><td>2</td><td>B</td></tr>
+  <tr><td>3</td><td>C</td></tr>
+  <tr><td>4</td><td>D</td></tr>
+  <tr><td>5</td><td>E</td></tr>
+</table>
+```
+
+---
+
+### Odd / Even qatorlarni rang berish
+
+```css
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #d9edf7;
+}
+```
+
+📌 Natija:
+
+```
+Tr1 → #f2f2f2
+Tr2 → #d9edf7
+Tr3 → #f2f2f2
+Tr4 → #d9edf7
+Tr5 → #f2f2f2
+```
+
+➡ Jadvalda **zebra striping** (alternativ ranglash) hosil bo‘ladi.
+
+---
+
+### 3.1 Columns uchun `nth-child`
+
+Agar siz **har juft yoki toq ustunni** ranglamoqchi bo‘lsangiz:
+
+```css
+td:nth-child(odd) {
+  background-color: #ffe6e6;
+}
+
+td:nth-child(even) {
+  background-color: #e6ffe6;
+}
+```
+
+📌 Natija:
+
+* Ustunlar **juft/toq** ranglanadi, qatordan qat’iy nazar
+
+---
+
+## 4️⃣ Qo‘shimcha misollar
+
+1. 3-ga bo‘linadigan elementlar:
+
+```css
+li:nth-child(3n) {
+  color: red;
+}
+```
+
+* Har 3-element qizil bo‘ladi: 3,6,9…
+
+2. Odd + hover:
+
+```css
+li:nth-child(odd):hover {
+  background-color: yellow;
+}
+```
+
+* Toq element ustiga **hover** qilinganida **rang o‘zgaradi**
+
+---
+
+## 5️⃣ Taqqoslash
+
+| Selector           | Maqsad                                   |
+| ------------------ | ---------------------------------------- |
+| `:nth-child(odd)`  | Toq raqamli elementlarni tanlaydi        |
+| `:nth-child(even)` | Juft raqamli elementlarni tanlaydi       |
+| `:nth-child(3n)`   | 3-ga bo‘linadigan elementlar             |
+| `:nth-child(3n+1)` | 3 bo‘linadigan elementlardan +1 (1,4,7…) |
+
+---
+
+## 6️⃣ Eng ko‘p uchraydigan xatolar
+
+❌ `nth-child` element turini emas, **tartib raqamni** hisoblaydi
+❌ Index 0 dan boshlanadi deb o‘ylash (haqiqiyida 1 dan)
+❌ `nth-of-type` bilan aralashtirib yuborish
+
+---
+
+## 7️⃣ Qisqa xulosa
+
+* Lists va Tables uchun **zebra striping** yoki turli ranglar yaratish
+* Odd / Even → **toq / juft elementlar**
+* Odd + hover → interaktiv effekt yaratish
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# CSS `::-webkit-scrollbar`
+
+---
+
+## 1️⃣ `::-webkit-scrollbar` nima?
+
+* `::-webkit-scrollbar` — **brauzer scroll barini moslashtirish** imkonini beradigan **pseudo-element**.
+* Faqat **Webkit brauzerlarda ishlaydi** (Chrome, Safari, Edge, Opera).
+* Scroll barning **barcha qismlarini** o‘zgartirish mumkin.
+
+---
+
+## 2️⃣ Scroll barning asosiy qismlari
+
+| Pseudo-element               | Maqsad                                             |
+| ---------------------------- | -------------------------------------------------- |
+| `::-webkit-scrollbar`        | Scroll barning **butun konteyneri**                |
+| `::-webkit-scrollbar-track`  | Scroll barning **fondi / yo‘li**                   |
+| `::-webkit-scrollbar-thumb`  | Scroll barning **harakatlanuvchi qismini (thumb)** |
+| `::-webkit-scrollbar-button` | Scroll bar tugmalari (yuqori/past)                 |
+| `::-webkit-scrollbar-corner` | Gorizontal + vertikal kesishgan burchak            |
+
+---
+
+## 3️⃣ Asosiy misol
+
+### HTML:
+
+```html
+<div class="box">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  Curabitur sit amet massa eget metus facilisis...
+  (ko‘p matn, scroll paydo bo‘lishi uchun)
+</div>
+```
+
+---
+
+### CSS:
+
+```css
+.box {
+  width: 300px;
+  height: 150px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Scroll barning o‘zi */
+.box::-webkit-scrollbar {
+  width: 12px;    /* gorizontal scroll uchun height */
+  height: 12px;   /* vertikal scroll uchun width */
+}
+
+/* Scroll track */
+.box::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 6px;
+}
+
+/* Scroll thumb */
+.box::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Hover qilingan thumb */
+.box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+```
+
+📌 Natija:
+
+* Scroll bar **yumaloq burchakli**, track va thumb ranglari sozlangan
+* Hover qilinganida **thumb rangi qorayadi**
+
+---
+
+## 4️⃣ Scroll barni vertikal + gorizontal ajratish
+
+* `width` → vertikal scroll
+* `height` → gorizontal scroll
+
+```css
+.box::-webkit-scrollbar {
+  width: 10px;   /* vertikal */
+  height: 8px;   /* gorizontal */
+}
+```
+
+---
+
+## 5️⃣ Scroll barni **butunlay yashirish**
+
+```css
+.box::-webkit-scrollbar {
+  display: none;
+}
+```
+
+📌 Natija: Scroll bar **ko‘rinmaydi**, lekin **scroll funksiyasi ishlaydi** (mouse wheel yoki touch bilan)
+
+---
+
+## 6️⃣ Scroll barni **maxsus dizayn**
+
+```css
+.box::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #eee, #ccc);
+}
+
+.box::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #999, #333);
+  border-radius: 10px;
+  border: 2px solid #fff; /* thumb atrofida border */
+}
+```
+
+📌 Natija: Scroll bar **gradientli va yanada estetik ko‘rinadi**
+
+---
+
+## 7️⃣ Qisqa xulosa
+
+* `::-webkit-scrollbar` → **scroll bar container**
+* `::-webkit-scrollbar-track` → **track / yo‘l**
+* `::-webkit-scrollbar-thumb` → **harakatlanuvchi qism**
+* `hover` → thumb rangini o‘zgartirish mumkin
+* `width` va `height` → scroll bar o‘lchami
+* Scroll barni **butunlay yashirish** ham mumkin
+
+---
+
+❗ Muhim:
+
+* Faqat Webkit brauzerlarda ishlaydi
+* Firefox uchun `scrollbar-width` va `scrollbar-color` ishlatiladi, lekin biz shu mavzu doirasida faqat Webkit ko‘rsatdik
 
 ---
