@@ -2363,3 +2363,196 @@ span {
 * **Yashirish** → `none`
 
 ---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# CSS `visibility`
+
+## `visibility` nima?
+
+`visibility` — **element ko‘rinadimi yoki ko‘rinmaydimi**, lekin **sahifadagi joyi saqlanib qoladimi** yo‘qmi — shuni boshqaradi.
+
+❗ Eng muhim farq:
+
+* `visibility` → **joy qoladi**
+* `display: none` → **joy ham yo‘qoladi**
+  (bu yerda faqat tushunish uchun aytildi, boshqa mavzuga o‘tmaymiz)
+
+---
+
+## `visibility` qiymatlari
+
+Biz faqat **rasmiy va ishlatiladigan** qiymatlarni ko‘ramiz:
+
+1. `visible`
+2. `hidden`
+3. `collapse`
+4. `inherit`
+
+---
+
+## 1️⃣ `visibility: visible`
+
+### Xususiyati:
+
+* Element **ko‘rinadi**
+* Bu **default** holat
+
+### Misol:
+
+```html
+<p class="text">Salom Dunyo</p>
+```
+
+```css
+.text {
+  visibility: visible;
+}
+```
+
+➡ Element odatdagidek ko‘rinadi
+
+---
+
+## 2️⃣ `visibility: hidden` ⭐ ENG MUHIM
+
+### Xususiyati:
+
+* Element **ko‘rinmaydi**
+* **Joyini saqlab qoladi**
+* Foydalanuvchi uni ko‘rmaydi, lekin joy bo‘sh qoladi
+
+### Misol:
+
+```html
+<div class="box">A</div>
+<div class="box hide">B</div>
+<div class="box">C</div>
+```
+
+```css
+.box {
+  width: 80px;
+  height: 80px;
+  background: lightblue;
+  display: inline-block;
+}
+
+.hide {
+  visibility: hidden;
+}
+```
+
+📌 Natija:
+
+```
+[A] [   ] [C]
+```
+
+➡ `B` yo‘q, lekin uning joyi bor
+
+---
+
+## 3️⃣ `visibility: collapse`
+
+### Xususiyati:
+
+* Asosan **jadval (`table`) elementlari** uchun ishlatiladi
+* Oddiy `div`larda deyarli **ta’siri yo‘q**
+
+### Jadval misoli:
+
+```html
+<table border="1">
+  <tr class="row">
+    <td>1</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+</table>
+```
+
+```css
+.row {
+  visibility: collapse;
+}
+```
+
+➡ Birinchi qator yo‘qoladi va **joy ham egallamaydi**
+
+❗ Oddiy elementlarda:
+
+```css
+div {
+  visibility: collapse;
+}
+```
+
+➡ `hidden` kabi ishlaydi
+
+---
+
+## 4️⃣ `visibility: inherit`
+
+### Xususiyati:
+
+* Ota elementdan `visibility` qiymatini **meros oladi**
+
+### Misol:
+
+```html
+<div class="parent">
+  <span class="child">Matn</span>
+</div>
+```
+
+```css
+.parent {
+  visibility: hidden;
+}
+
+.child {
+  visibility: inherit;
+}
+```
+
+➡ Ikkalasi ham ko‘rinmaydi, joy bor
+
+---
+
+## Juda muhim solishtirish
+
+| Xususiyat             | visible | hidden |
+| --------------------- | ------- | ------ |
+| Ko‘rinadimi           | ✅       | ❌      |
+| Joy egallaydimi       | ✅       | ✅      |
+| Sichqoncha bosiladimi | ❌       | ❌      |
+
+❗ `visibility: hidden` bo‘lgan element **bosilmaydi**
+
+---
+
+## Qachon `visibility` ishlatiladi?
+
+* Elementni **vaqtincha yashirish**
+* Layout buzilmasligi kerak bo‘lsa
+* Animatsiya yoki holat almashtirishda
+
+---
+
+## Eng ko‘p xatolar
+
+❌ `visibility: hidden` joyni yo‘q qiladi deb o‘ylash
+❌ `collapse` ni oddiy `div`da ishlatish
+
+---
+
+## Qisqa xulosa
+
+* Yashirish, **joyni saqlab qolish kerak bo‘lsa** → `visibility: hidden`
+* Ota qiymatini olish → `inherit`
+* Jadval qatorlarini yo‘qotish → `collapse`
+
+---
