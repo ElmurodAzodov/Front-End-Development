@@ -1836,7 +1836,7 @@ input {
 ---
 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
 ---
-# 📐 CSS O‘LCHAMLAR — 100% TO‘LIQ QO‘LLANMA
+# 📐 CSS O‘LCHAMLAR
 
 ---
 
@@ -2103,5 +2103,263 @@ html {
 ✅ Full ekran → `vh / vw`
 
 ✅ Barqaror dizayn → `box-sizing: border-box`
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# 📚 Module 4: Display, Float, Overflow & Lists
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+
+# CSS `display` xossasi
+
+## `display` nima?
+
+`display` — **HTML element sahifada qanday ko‘rinishda joylashishini** belgilaydi.
+
+Oddiy qilib aytganda:
+
+* element **yangi qatordan boshlansinmi**
+* **yonma-yon tursinmi**
+* **o‘lcham olsinmi**
+* **umuman ko‘rinmasinmi**
+
+bularning barchasini `display` hal qiladi.
+
+---
+
+## Eng asosiy `display` turlari
+
+Biz **faqat quyidagilarni** ko‘ramiz:
+
+1. `block`
+2. `inline`
+3. `inline-block`
+4. `none`
+5. `inherit`
+6. `initial`
+
+---
+
+## 1️⃣ `display: block`
+
+### Xususiyatlari:
+
+* Har doim **yangi qatordan** boshlanadi
+* **Butun qatorni egallaydi**
+* `width` va `height` ishlaydi
+* `margin` va `padding` to‘liq ishlaydi
+
+### Default (o‘zi block bo‘lgan) elementlar:
+
+`div`, `p`, `h1–h6`, `section`, `article`
+
+### Misol:
+
+```html
+<div class="box">1</div>
+<div class="box">2</div>
+```
+
+```css
+.box {
+  display: block;
+  width: 200px;
+  height: 50px;
+  background: lightblue;
+  margin: 10px;
+}
+```
+
+📌 Natija:
+
+```
+[ 1         ]
+[ 2         ]
+```
+
+➡ Har biri alohida qatorda
+
+---
+
+## 2️⃣ `display: inline`
+
+### Xususiyatlari:
+
+* **Yangi qatordan boshlanmaydi**
+* Faqat **ichidagi matncha joy egallaydi**
+* `width` va `height` **ishlamaydi**
+* `margin-top/bottom` ishlamaydi
+* `padding` faqat yon tomondan seziladi
+
+### Default inline elementlar:
+
+`span`, `a`, `b`, `i`
+
+### Misol:
+
+```html
+<span class="text">Salom</span>
+<span class="text">Dunyo</span>
+```
+
+```css
+.text {
+  display: inline;
+  width: 200px;   /* ishlamaydi */
+  height: 50px;   /* ishlamaydi */
+  background: yellow;
+}
+```
+
+📌 Natija:
+
+```
+Salom Dunyo
+```
+
+---
+
+## 3️⃣ `display: inline-block`  ⭐ ENG MUHIM
+
+### Xususiyatlari:
+
+* Elementlar **yonma-yon turadi**
+* `width` va `height` **ishlaydi**
+* `margin` va `padding` **to‘liq ishlaydi**
+* `block + inline` ning aralashmasi
+
+### Misol:
+
+```html
+<div class="card">A</div>
+<div class="card">B</div>
+<div class="card">C</div>
+```
+
+```css
+.card {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: coral;
+  margin: 10px;
+}
+```
+
+📌 Natija:
+
+```
+[A] [B] [C]
+```
+
+➡ Yonma-yon + o‘lcham bor
+
+---
+
+## 4️⃣ `display: none`
+
+### Xususiyatlari:
+
+* Element **butunlay yo‘q bo‘ladi**
+* Sahifada **joy ham egallamaydi**
+* Brauzer uni **umuman chizmaydi**
+
+### Misol:
+
+```html
+<p>Bu ko‘rinadi</p>
+<p class="hide">Bu ko‘rinmaydi</p>
+```
+
+```css
+.hide {
+  display: none;
+}
+```
+
+📌 Natija:
+
+* Ikkinchi `<p>` umuman yo‘q
+
+❗ Muhim:
+`display: none` ≠ `visibility: hidden`
+(biz `visibility` mavzusiga kirmaymiz)
+
+---
+
+## 5️⃣ `display: inherit`
+
+### Xususiyati:
+
+* Ota (parent) elementdan `display` ni **meros qilib oladi**
+
+### Misol:
+
+```html
+<div class="parent">
+  <span class="child">Matn</span>
+</div>
+```
+
+```css
+.parent {
+  display: block;
+}
+
+.child {
+  display: inherit;
+}
+```
+
+➡ `child` ham `block` bo‘ladi
+
+---
+
+## 6️⃣ `display: initial`
+
+### Xususiyati:
+
+* Elementni **brauzerning asl holatiga** qaytaradi
+
+### Misol:
+
+```css
+span {
+  display: initial;
+}
+```
+
+➡ `span` yana `inline` bo‘ladi
+
+---
+
+## Taqqoslash jadvali (MUHIM)
+
+| display turi | Yangi qator | width/height | Yonma-yon |
+| ------------ | ----------- | ------------ | --------- |
+| block        | ✅           | ✅            | ❌         |
+| inline       | ❌           | ❌            | ✅         |
+| inline-block | ❌           | ✅            | ✅         |
+| none         | ❌           | ❌            | ❌         |
+
+---
+
+## Eng ko‘p uchraydigan xatolar
+
+❌ `inline` ga `width` berish
+❌ `inline` elementni baland qilaman deb o‘ylash
+❌ `display: none` joy egallaydi deb o‘ylash
+
+---
+
+## Qisqa xulosa
+
+* **Katta bloklar** → `block`
+* **Matn ichida** → `inline`
+* **Kartochkalar, tugmalar** → `inline-block`
+* **Yashirish** → `none`
 
 ---
