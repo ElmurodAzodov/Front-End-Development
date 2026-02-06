@@ -3507,3 +3507,500 @@ li:nth-child(odd):hover {
 * Firefox uchun `scrollbar-width` va `scrollbar-color` ishlatiladi, lekin biz shu mavzu doirasida faqat Webkit ko‘rsatdik
 
 ---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# 📚 **Module 5: Fonts & Typography**
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# **CSS Fonts**
+
+CSS font xossalari **matn ko‘rinishini** boshqaradi.
+
+---
+
+## 1️⃣ `font-family`
+
+* Qaysi shrift ishlatilishini belgilaydi
+* **Seriya (generic family)**: `serif`, `sans-serif`, `monospace`, `cursive`, `fantasy`, `system-ui`
+* Ko‘p shrift yozib, fallback qilish mumkin
+
+### Misol:
+
+```css
+p {
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+```
+
+📌 Natija:
+
+* Agar Arial mavjud bo‘lmasa → Helvetica
+* Hech biri yo‘q → brauzer default sans-serif ishlatiladi
+
+---
+
+## 2️⃣ `font-style`
+
+* Matnni **odatiy, italik yoki oblique** qiladi
+
+### Qiymatlar:
+
+* `normal` → default, oddiy
+* `italic` → egilgan italik
+* `oblique` → biroz egilgan, italikga o‘xshash
+
+### Misol:
+
+```css
+p.normal {
+  font-style: normal;
+}
+
+p.italic {
+  font-style: italic;
+}
+
+p.oblique {
+  font-style: oblique;
+}
+```
+
+📌 Natija: Matn **normal, italic, oblique** ko‘rinadi
+
+---
+
+## 3️⃣ `font-variant`
+
+* Matnning kichik kapital (small caps) ko‘rinishini belgilaydi
+
+### Qiymatlar:
+
+* `normal` → oddiy
+* `small-caps` → kichik harflar katta harf ko‘rinishida
+
+### Misol:
+
+```css
+p.normal {
+  font-variant: normal;
+}
+
+p.small {
+  font-variant: small-caps;
+}
+```
+
+📌 Natija:
+
+* `small-caps` → `hello` → `HELLO` tarzida, lekin kichik hajmda
+
+---
+
+## 4️⃣ `font-weight`
+
+* Matn **qalinligini** belgilaydi
+
+### Qiymatlar:
+
+* `normal` → 400 (default)
+* `bold` → 700
+* `lighter` → ota elementdan yengilroq
+* `bolder` → ota elementdan qalinroq
+* 100 → 900 (100→eng yupqa, 900→eng qalin)
+
+### Misol:
+
+```css
+p.normal {
+  font-weight: normal;
+}
+
+p.bold {
+  font-weight: bold;
+}
+
+p.heavy {
+  font-weight: 900;
+}
+```
+
+📌 Natija: Matn **yupqa → qalin → juda qalin**
+
+---
+
+## 5️⃣ `font-size`
+
+* Matn **o‘lchamini** belgilaydi
+* Qiymat birliklari: `px`, `em`, `rem`, `%`, `vh`
+
+### Misol:
+
+```css
+p.small {
+  font-size: 12px;
+}
+
+p.medium {
+  font-size: 16px;
+}
+
+p.large {
+  font-size: 24px;
+}
+```
+
+📌 Natija: Matn kichik, o‘rta va katta o‘lchamda ko‘rinadi
+
+---
+
+## 6️⃣ `font` shorthand property
+
+* Barcha font xossalarini **bir qatorda** yozish mumkin:
+
+```css
+p {
+  font: italic small-caps bold 20px "Arial", sans-serif;
+}
+```
+
+* Tartib:
+
+```
+font-style font-variant font-weight font-size/line-height font-family
+```
+
+📌 Misol natija:
+
+* Matn **italic, small-caps, bold, 20px, Arial**
+
+---
+
+## 7️⃣ Taqqoslash jadvali
+
+| Property     | Example               | Natija         |
+| ------------ | --------------------- | -------------- |
+| font-family  | `"Arial", sans-serif` | Shrift turi    |
+| font-style   | `italic`              | Egilgan matn   |
+| font-variant | `small-caps`          | Kichik kapital |
+| font-weight  | `bold` / `900`        | Qalinlik       |
+| font-size    | `16px` / `1.2em`      | Matn hajmi     |
+
+---
+
+## ✅ Qisqa xulosa
+
+* `font-family` → shrift turi
+* `font-style` → italic/oblique/normal
+* `font-variant` → small-caps
+* `font-weight` → matn qalinligi
+* `font-size` → matn hajmi
+* `font` → shorthand barcha xossalarni birga yozish
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# **CSS Relative Units**
+
+Relative units — **element o‘lchamini boshqa elementga yoki viewportga bog‘lab beradigan birliklar**.
+
+---
+
+## 1️⃣ `em` unit
+
+* **Joriy elementning `font-size` ga nisbatan** ishlaydi
+* 1em = **ota elementning font-size qiymati**
+
+### Misol:
+
+```css
+body {
+  font-size: 16px;
+}
+
+p {
+  font-size: 2em; /* 2 * 16px = 32px */
+}
+```
+
+📌 Natija: `<p>` matni **32px** bo‘ladi
+
+### 1.1 Nested elementda:
+
+```css
+div {
+  font-size: 20px;
+}
+
+p {
+  font-size: 1.5em; /* 1.5 * 20px = 30px */
+}
+```
+
+* `<p>` font **div font-size ga bog‘liq**
+
+---
+
+## 2️⃣ `rem` unit
+
+* **Root element (`<html>`) font-size ga nisbatan ishlaydi**
+* 1rem = `<html>` elementning font-size
+
+### Misol:
+
+```css
+html {
+  font-size: 16px;
+}
+
+p {
+  font-size: 2rem; /* 2 * 16px = 32px */
+}
+```
+
+📌 Natija: `<p>` **32px**, ota elementdan mustaqil
+
+✅ Foydasi: **nested elementlarda font o‘lchami tushib ketmaydi**
+
+---
+
+### Em vs Rem
+
+| Unit | Relative to              | Notes                                  |
+| ---- | ------------------------ | -------------------------------------- |
+| em   | parent element font-size | Nested bo‘lsa o‘lcham kaskad bo‘ladi   |
+| rem  | root `<html>` font-size  | Nested bo‘lsa ham bir xil, predictable |
+
+---
+
+## 3️⃣ Viewport width (`vw`)
+
+* **Viewport (brauzer oynasi) kengligiga nisbatan** o‘lchov beradi
+* 1vw = **viewport width 1%**
+
+### Misol:
+
+```css
+h1 {
+  font-size: 5vw;
+}
+```
+
+📌 Natija:
+
+* Agar brauzer kengligi 1000px → font-size = 50px
+* Agar brauzer kengligi 500px → font-size = 25px
+
+✅ Foydasi: **responsive matn va layout yaratishda**
+
+---
+
+### 3.1 Mix em/rem + vw
+
+```css
+p {
+  font-size: calc(1rem + 1vw);
+}
+```
+
+* Root font + viewport ga qarab font kattalashadi
+* Responsive va moslashuvchan dizayn uchun ishlatiladi
+
+---
+
+## 4️⃣ Amaliy misol
+
+```html
+<div class="box">
+  <p>Bu paragraph em bilan</p>
+  <p>Bu paragraph rem bilan</p>
+  <h1>Viewport width font</h1>
+</div>
+```
+
+```css
+html {
+  font-size: 16px;
+}
+
+.box p:first-child {
+  font-size: 2em;  /* parent elementga nisbatan */
+}
+
+.box p:last-child {
+  font-size: 2rem; /* root html ga nisbatan */
+}
+
+h1 {
+  font-size: 5vw;  /* viewport kengligiga nisbatan */
+}
+```
+
+📌 Natija:
+
+* 1-paragraph → ota element font-size ga bog‘liq
+* 2-paragraph → root font-size ga bog‘liq
+* h1 → oynaning kengligiga moslashadi
+
+---
+
+## 5️⃣ Qisqa xulosa
+
+| Unit | Relative to      | Use case                    |
+| ---- | ---------------- | --------------------------- |
+| em   | parent font-size | Nested responsive text      |
+| rem  | root font-size   | Predictable font size       |
+| vw   | viewport width   | Responsive headings, layout |
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
+# **Google Fonts Integration**
+
+Google Fonts — **brauzerda ishlatish uchun bepul shriftlar to‘plami**. Siz ularni HTML yoki CSS orqali loyihangizga qo‘shishingiz mumkin.
+
+---
+
+## 1️⃣  Google Fonts ishlatish usullari
+
+### 1.1 Link orqali HTML `<head>` ga qo‘shish (External CSS)
+
+1. Google Fonts saytiga kiring: [https://fonts.google.com](https://fonts.google.com)
+2. Istalgan shriftni tanlang, masalan: `Roboto`
+3. Embed → `<link>` tagini oling:
+
+```html
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+```
+
+* `wght@400;700` → shriftning **normal (400) va bold (700)** qalinliklari
+* `display=swap` → brauzer shrift yuklanmasa fallback ko‘rsatadi
+
+---
+
+### 1.2 CSS `@import` orqali
+
+```css
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
+❌ Ogohlantirish: Link orqali ishlatish tezroq, `@import` sekinroq yuklanadi
+
+---
+
+## 2️⃣ Font-family bilan ishlatish
+
+```css
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* bold shrift */
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* normal shrift */
+}
+```
+
+📌 Natija:
+
+* Body va paragraph → normal Roboto
+* H1 → bold Roboto
+
+---
+
+## 3️⃣ Google Fonts variantlari
+
+* `wght` → font-weight (100…900)
+* `ital` → italic variant
+* `display` → fallback strategy
+
+### Misol italic + weight:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+```
+
+* 0,400 → normal 400
+* 0,700 → normal 700
+* 1,400 → italic 400
+
+---
+
+## 4️⃣ Fallback fonts
+
+* Har doim **generic fallback** yozing, agar shrift yuklanmasa:
+
+```css
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+```
+
+---
+
+## 5️⃣ Amaliy misol
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Fonts Example</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Salom Dunyo!</h1>
+  <p>Bu Google Fonts bilan yozilgan matn.</p>
+</body>
+</html>
+```
+
+📌 Natija:
+
+* H1 → **bold Roboto**
+* P → **normal Roboto**
+* Agar Roboto yuklanmasa → fallback `sans-serif`
+
+---
+
+## ✅ Qisqa xulosa
+
+1. Google Fonts → **veb shriftlarni yuklash va ishlatish**
+2. Ikki asosiy usul:
+
+   * HTML `<link>`
+   * CSS `@import`
+3. Fallback shriftlarni yozish **majburiy**
+4. `font-weight` va `font-style` variantlarini Google Fonts URL orqali sozlash mumkin
+
+---
+🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴
+---
