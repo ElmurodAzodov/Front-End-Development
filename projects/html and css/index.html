@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Creative Portfolio</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+      }
+
+      .bg {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.3)
+        );
+        padding: 60px 30px;
+      }
+
+      .profile {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+        border-radius: 25px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.35),
+          rgba(255, 255, 255, 0.1)
+        );
+        backdrop-filter: blur(10px);
+      }
+
+      .profile h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .profile h2 {
+        text-align: center;
+        color: #ddd;
+        margin-bottom: 30px;
+        font-weight: normal;
+      }
+
+      .cards {
+        display: flex;
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .card {
+        flex: 1;
+        padding: 25px;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        background: linear-gradient(
+          to bottom right,
+          rgba(255, 255, 255, 0.25),
+          rgba(255, 255, 255, 0.05)
+        );
+        color: white;
+      }
+
+      .card h3 {
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        line-height: 1.6;
+      }
+
+      .cta {
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 35px;
+        border-radius: 30px;
+        border: 2px solid white;
+        text-decoration: none;
+        color: white;
+        background: linear-gradient(to right, #7f00ff, #e100ff);
+      }
+
+      .btn:hover {
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="profile">
+        <h1>Elmurod</h1>
+        <h2>Frontend Developer</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>About Me</h3>
+            <p>
+              Zamonaviy web interfeyslar yaratishga qiziqaman. Minimal dizayn va
+              toza kodni yoqtiraman.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Skills</h3>
+            <p>
+              HTML, CSS, JavaScript, Responsive Design, Gradient & Layout
+              techniques.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Goals</h3>
+            <p>
+              Kuchli frontend developer bo‘lish va real loyihalarda ishlash.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a href="#" class="btn">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
