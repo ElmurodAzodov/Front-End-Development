@@ -1,834 +1,1851 @@
-# 📚 **FRONTEND DEVELOPMENT BO'YICHA TO'LIQ O'QUV REJASI**
+# 📚 **2026 FRONTEND ROADMAP (0 dan 100% gacha to'liq reja)**
 
-<p align="center">
-  <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" width="300" />
-</p>
-
----
-
-## 📋 **MAZMUNI**
-
-1. [HTML](#-1-html-hypertext-markup-language)
-2. [CSS](#-2-css-cascading-style-sheets)
-3. [SASS](#-3-sass-syntactically-awesome-stylesheets)
-4. [Bootstrap](#-4-bootstrap)
-5. [Tailwind CSS](#-5-tailwind-css)
-6. [JavaScript](#-6-javascript)
-7. [Git va GitHub](#-7-git-va-github)
-8. [React](#-8-react)
-9. [Qo'shimcha Zamonaviy Texnologiyalar](#-9-qoşimcha-zamonaviy-texnologiyalar)
-10. [Yakuniy Loyihalar](#-10-yakuniy-loyihalar)
+> **7 oy, haftada 3 kun × 2 soat = 84 soat**  
+> **TypeScript, Next.js, AI Tools bilan to'liq 2026 standarti**
 
 ---
 
-## 🌐 **1. HTML (HyperText Markup Language)**
-
-### *Modul 1: HTML Asoslari (0 dan boshlab)*
-- HTML nima va web qanday ishlaydi
-- HTML document strukturasi (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
-- VS Code sozlash va Live Server
-- Kommentariyalar
-- HTML validatsiya (W3C Validator)
-
-### *Modul 2: Matn va Kontent Elementlari*
-- Headinglar (h1-h6) va SEO asoslari
-- Paragraph va line breaks
-- Inline elementlar (strong, em, mark, small, span)
-- Ro'yxatlar (ordered, unordered, description)
-- HTML entities (&nbsp;, &lt;, &gt;)
-- Iqtiboslar (blockquote, q, cite)
-
-### *Modul 3: Linklar va Media*
-- Anchor tag (`<a>`) va attributlar (target, download, rel)
-- Rasmlar (`<img>` - src, alt, width, height)
-- Responsive images (srcset, sizes, picture)
-- Audio va video
-- Favicon
-- SVG integratsiya (inline, img, background)
-
-### *Modul 4: Jadvallar*
-- Table strukturasi (table, thead, tbody, tfoot)
-- Colspan va rowspan
-- Jadval accessibility (scope, caption)
-
-### *Modul 5: Formalar (ENG MUHIM)*
-- Form strukturasi (`<form>`)
-- Input turlari (text, email, password, number, date, file, range, color, tel, url)
-- Radio, checkbox, select, textarea, datalist
-- Labels va accessibility
-- Fieldset va legend
-- HTML5 validation (required, pattern, minlength)
-- Form submission (GET vs POST, enctype)
-
-### *Modul 6: Semantic HTML*
-- Semantic taglar (header, nav, main, section, article, aside, footer)
-- Figure va figcaption
-- Time va mark
-- SEO va screen reader asoslari
-- Microdata va Schema.org
-
-### *Modul 7: Accessibility (A11y)*
-- Alt text va labels
-- ARIA asoslari (roles, properties)
-- Keyboard navigation (tabindex, focus)
-- Skip links
-- Accessibility testing (Lighthouse, axe)
-
-### *Modul 8: Performance*
-- Clean HTML strukturasi
-- Div soup dan qochish
-- Image optimization (lazy loading)
-- Preconnect va dns-prefetch
-
-### *Modul 9: HTML + JavaScript*
-- Data attributes (data-*)
-- HTML structure for DOM manipulation
-- HTML mindset for React
+# 🗓 **1-OY: MODERN HTML, CSS & TAILWIND (12 soat)**
 
 ---
 
-## 🎨 **2. CSS (Cascading Style Sheets)**
+## STAGE 1 — HTML5 Fundamentals (2026)
+**Goal** - Create semantic, accessible web pages with modern HTML.
 
-### *Modul 1: CSS Asoslari*
-- CSS nima va qanday ishlaydi
-- CSS syntax (selector, property, value)
-- Inline, Internal, External CSS
-- Kommentariyalar
-- Selectors (element, class, id, universal, combinators)
-- Attribute selectors ([type="text"])
-- Pseudo-classes (:hover, :focus, :first-child, :nth-child)
-- Pseudo-elements (::before, ::after)
-- Specificity & Cascade
-- Inheritance (inherit, initial)
+### 📌 Topics (2 soat)
+- **Document Structure**
+  - `<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`
+  - Meta tags: charset, viewport, theme-color, description
+  - `<title>`, `<base>`, `<link>`, `<script>`
 
-### *Modul 2: Ranglar va Fonlar*
-- Color formats (hex, rgb, rgba, hsl, hsla)
-- Background (color, image, position, size, repeat)
-- Multiple backgrounds
-- Gradients (linear, radial, conic)
+- **Text Elements**
+  - Headings `<h1>` to `<h6>` (proper hierarchy)
+  - Paragraphs `<p>`, line break `<br>`, horizontal rule `<hr>`
+  - Bold `<b>`, italic `<i>`, emphasis `<em>`, strong `<strong>`
+  - `<mark>`, `<small>`, `<del>`, `<ins>`, `<sub>`, `<sup>`
 
-### *Modul 3: Matn Styling*
-- text-align, line-height, letter-spacing
-- text-transform, text-decoration
-- text-shadow, text-indent
-- white-space, word-break
+- **Lists**
+  - Unordered `<ul>` + `<li>`
+  - Ordered `<ol>` + `<li>` (type, start, reversed)
+  - Description lists `<dl>`, `<dt>`, `<dd>`
 
-### *Modul 4: Border va Box Model*
-- Border (width, style, color)
-- Border-radius
-- Box model (content, padding, border, margin)
-- Box-sizing (content-box vs border-box)
-- Width, height, min/max width/height
-- CSS Units (px, %, em, rem, vw, vh, ch, ex)
-- aspect-ratio
+- **Links & Navigation**
+  - Anchor `<a>` with href, target, rel
+  - Absolute vs relative paths
+  - Email links `mailto:`, phone links `tel:`
+  - Jump links (id + #)
 
-### *Modul 5: Display va Float*
-- Display (block, inline, inline-block, none)
-- Float va clear
-- Clearfix texnikasi
-- Overflow (hidden, auto, scroll)
-- List styling
+- **Images**
+  - `<img>` with src, alt, width, height, loading="lazy"
+  - Responsive images with `srcset` and `sizes`
+  - `<picture>` element + `<source>`
+  - Modern formats: AVIF, WebP 2.0
 
-### *Modul 6: Fontlar*
-- Font properties (family, style, weight, size)
-- @font-face (custom fonts)
-- Google Fonts
-- font-display
-- Variable fonts
-- System fonts stack
+- **Tables**
+  - `<table>`, `<tr>`, `<td>`, `<th>`
+  - `colspan`, `rowspan`
+  - `<thead>`, `<tbody>`, `<tfoot>`, `<caption>`
 
-### *Modul 7: Positioning*
-- Position (static, relative, absolute, fixed, sticky)
-- Top, right, bottom, left
-- Z-index va stacking context
+- **Semantic HTML5 (2026)**
+  - `<header>`, `<footer>`, `<nav>`, `<main>`
+  - `<section>`, `<article>`, `<aside>`, `<figure>`
+  - `<details>`, `<summary>`, `<time>`
+  - `<search>` element (new!)
+  - `<dialog>` element (modal windows)
+  - Popover API (`popover` attribute, JS-free popups)
 
-### *Modul 8: Flexbox (TO'LIQ)*
-- Flex container (flex-direction, flex-wrap, justify-content, align-items, align-content, gap)
-- Flex items (flex-grow, flex-shrink, flex-basis, align-self, order)
-- Flexbox patterns (centering, sticky footer, equal height, card grids)
-
-### *Modul 9: Grid Layout (TO'LIQ)*
-- Grid container (grid-template-columns, grid-template-rows, grid-template-areas, gap)
-- Grid items (grid-column, grid-row, grid-area)
-- Functions (repeat(), minmax(), fit-content(), min(), max(), clamp())
-- auto-fit vs auto-fill
-- Subgrid
-
-### *Modul 10: Responsive Design*
-- Mobile-first approach
-- Media queries (min-width, max-width, orientation)
-- Responsive images (srcset, sizes)
-- Responsive typography (clamp())
-- Container queries (@container)
-- Viewport meta tag
-- Feature queries (@supports)
-
-### *Modul 11: Pseudo-classes (CHUQUR)*
-- Dynamic (:hover, :active, :focus, :focus-visible, :focus-within)
-- Structural (:root, :empty, :first-child, :last-child)
-- nth-child variations
-- Form states (:checked, :disabled, :valid, :invalid)
-
-### *Modul 12: Transitions va Transforms*
-- Transition properties (property, duration, timing-function, delay)
-- 2D transforms (translate, scale, rotate, skew)
-- 3D transforms (rotateX/Y/Z, perspective)
-- transform-origin
-- will-change
-
-### *Modul 13: Animations*
-- @keyframes
-- Animation properties (name, duration, timing-function, delay, iteration-count, direction, fill-mode, play-state)
-- Step animations
-
-### *Modul 14: Filters va Effects*
-- Filters (blur, brightness, contrast, grayscale, hue-rotate, invert, opacity, saturate, sepia, drop-shadow)
-- backdrop-filter (frosted glass)
-- box-shadow, text-shadow
-- blend-modes (mix-blend-mode, background-blend-mode)
-- clip-path
-
-### *Modul 15: CSS Variables*
-- Custom properties (--variable)
-- Scope va inheritance
-- var() fallback
-- Updating with JavaScript
-- Dark/light mode logic
-- calc(), min(), max(), clamp()
-
-### *Modul 16: Modern Functions*
-- Color functions (rgb(), hsl(), hwb(), lch())
-- Trigonometric functions (sin, cos, tan)
-- env() (safe area insets)
-
-### *Modul 17: CSS Architecture*
-- BEM methodology
-- Utility-first CSS
-- @layer
-- CSS file organization
-- CSS linting (Stylelint)
+- **Accessibility (a11y) Basics**
+  - Alt text for images
+  - ARIA labels and landmarks
+  - Keyboard navigation
+  - WCAG 2.2 principles
 
 ---
 
-## 🔧 **3. SASS (Syntactically Awesome Stylesheets)**
+## STAGE 2 — Modern Forms & Multimedia
+**Goal** - Build interactive, validated forms with latest HTML features.
 
-### *Modul 1: SASS Asoslari*
-- SASS nima va nima uchun kerak
-- SASS vs CSS
-- Installation (npm, CLI)
-- .scss vs .sass syntax
-- Compiling (watch mode, sourcemaps)
+### 📌 Topics (2 soat)
+- **Form Structure**
+  - `<form>` with action, method (GET/POST)
+  - `<fieldset>`, `<legend>` for grouping
+  - `<label>` and proper association
 
-### *Modul 2: Variables*
-- $variables
-- Variable scope (global vs local)
-- !default flag
-- Maps ($colors: ("primary": blue))
-- Lists
+- **Input Types (all)**
+  - text, password, email, tel, url, number
+  - checkbox, radio, file
+  - date, datetime-local, month, week, time
+  - color, range, hidden
+  - submit, reset, button, image
 
-### *Modul 3: Nesting va Partials*
-- Nesting selectors
-- & parent selector
-- Over-nesting dan qochish
-- Partials (_filename.scss)
-- @use vs @import
-- @forward
+- **Form Elements**
+  - `<select>` + `<option>` (dropdowns)
+  - `<textarea>` (multi-line text)
+  - `<datalist>` (autocomplete suggestions)
+  - `<output>` (calculation results)
+  - `<progress>`, `<meter>`
 
-### *Modul 4: Mixins va Functions*
-- @mixin yaratish
-- @include ishlatish
-- Arguments va default values
-- @content (content blocks)
-- Built-in functions (lighten, darken, saturate, mix)
-- Custom @function
+- **Form Attributes**
+  - placeholder, required, disabled, readonly
+  - autofocus, autocomplete
+  - pattern (regex validation)
+  - min, max, step (for numbers/dates)
+  - multiple (file upload, select)
+  - accept (file types)
 
-### *Modul 5: Control Directives*
-- @if, @else if, @else
-- @for loop (through vs to)
-- @each loop (lists va maps)
-- @while loop
+- **Modern Form Features**
+  - Constraint Validation API
+  - Custom validation messages
+  - :valid / :invalid pseudo-classes
 
-### *Modul 6: Extend/Inheritance*
-- @extend
-- Placeholder selectors (%)
+- **Multimedia**
+  - `<audio>` with controls, autoplay, loop
+  - `<video>` with poster, tracks (subtitles)
+  - `<iframe>` for embedding (YouTube, Maps)
+  - `<embed>`, `<object>` (legacy)
 
-### *Modul 7: Modular Architecture*
-- 7-1 pattern (abstracts, vendors, base, components, layout, pages, themes)
-- Component-based SASS
-- Theme management
-
----
-
-## 📱 **4. Bootstrap**
-
-### *Modul 1: Setup*
-- Bootstrap 5 (no jQuery)
-- CDN vs npm
-- Bootstrap Icons
-
-### *Modul 2: Grid System*
-- Containers (container, container-fluid, container-{breakpoint})
-- Rows va columns
-- Responsive breakpoints (xs, sm, md, lg, xl, xxl)
-- Column ordering (order)
-- Offset
-
-### *Modul 3: Utilities*
-- Text utilities (text-center, text-primary, fs-1, fw-bold)
-- Background utilities (bg-primary, bg-gradient)
-- Spacing (m-0, p-3, mx-auto)
-- Display (d-flex, d-none, d-md-block)
-- Flex utilities (justify-content, align-items)
-- Sizing (w-100, h-50)
-
-### *Modul 4: Components*
-- Buttons (btn, btn-primary, btn-outline, btn-lg)
-- Badges
-- Cards (card, card-body, card-title)
-- Navbar (navbar, navbar-expand, dropdown)
-- Forms (form-control, form-select, form-check)
-- Input groups
-- Alerts
-- Modals
-- Spinners
-- Progress bars
-- List groups
-- Pagination
-
-### *Modul 5: JavaScript Plugins*
-- Collapse/Accordion
-- Carousel
-- Tooltips
-- Popovers
-- Tabs
-
-### *Modul 6: Customization*
-- SASS variables override
-- Creating themes
-- Utility-first mindset
+- **Microdata & SEO**
+  - Schema.org basics
+  - Open Graph meta tags (Facebook)
+  - Twitter Cards
 
 ---
 
-## 🌪️ **5. Tailwind CSS**
+## STAGE 3 — CSS Fundamentals (Modern)
+**Goal** - Master CSS selectors, properties, and box model.
 
-### *Modul 1: Asoslar*
-- Utility-first CSS philosophy
-- Installation (npm, CDN)
-- Configuration (tailwind.config.js)
-- PostCSS setup
+### 📌 Topics (2 soat)
+- **CSS Integration**
+  - Inline styles (avoid)
+  - Internal `<style>` tag
+  - External CSS files (best practice)
+  - @import (vs link)
 
-### *Modul 2: Core Concepts*
-- Utility classes (p-4, text-center, bg-blue-500)
-- Responsive design (sm:, md:, lg:)
-- Hover/focus states (hover:bg-blue-700)
-- Dark mode (dark:bg-gray-800)
+- **Selectors (Deep Dive)**
+  - Universal `*`
+  - Element (tag) selector
+  - Class `.class` (most used)
+  - ID `#id` (use sparingly)
+  - Grouping `,` (multiple selectors)
+  - Descendant (space) `.parent .child`
+  - Child `>` (direct child)
+  - Adjacent sibling `+` (immediate after)
+  - General sibling `~` (all after)
+  - Attribute `[type="text"]`, `[href^="https"]`
 
-### *Modul 3: Customization*
-- Theme extension (colors, fonts, spacing)
-- Custom utilities
-- @apply directive
-- Plugins (forms, typography, aspect-ratio)
+- **Colors & Values**
+  - Named colors (transparent, currentColor)
+  - HEX (#RRGGBB, #RGB)
+  - RGB / RGBA (alpha channel)
+  - HSL / HSLA (hue, saturation, lightness)
+  - **Modern**: oklch(), oklab() (2025+)
 
-### *Modul 4: Advanced*
-- PurgeCSS / content configuration
-- JIT mode
-- Integration with React
-- Tailwind UI components
+- **Units**
+  - Absolute: px, pt, cm, mm, in
+  - Relative: %, em, rem, vw, vh
+  - **New**: svh, lvh, dvh (dynamic viewport)
+  - ch (character width), ex (x-height)
 
----
+- **Text Styling**
+  - font-family (web-safe, custom fonts)
+  - font-size, font-weight, font-style
+  - text-align, text-decoration, text-transform
+  - line-height, letter-spacing, word-spacing
+  - text-shadow, text-indent
+  - white-space, word-break, overflow-wrap
 
-## ⚡ **6. JavaScript**
-
-### *Modul 0: Setup*
-- VS Code extensions
-- Browser DevTools (Console, Sources, Network)
-- Node.js va npm basics
-- JavaScript in HTML (async, defer)
-
-### *Modul 1: Fundamentals*
-- console methods (log, warn, error, table, time)
-- Variables (let, const, var)
-- Data types (Number, String, Boolean, Null, Undefined, Symbol, BigInt)
-- Operators (arithmetic, comparison, logical, ternary)
-- Type conversion (explicit vs implicit)
-- Truthy & falsy values
-
-### *Modul 2: Numbers*
-- Number methods (parseInt, parseFloat, toFixed)
-- Math object (floor, ceil, round, random, max, min)
-- Precision issues (0.1 + 0.2)
-
-### *Modul 3: Strings*
-- String methods (length, slice, substring, replace, split, join)
-- Search (indexOf, includes, startsWith, endsWith)
-- Template literals
-- Regular Expressions (test, exec, match, replace)
-
-### *Modul 4: Dates*
-- Date object
-- Get/set methods
-- Formatting (toLocaleDateString, Intl.DateTimeFormat)
-- Date calculations
-
-### *Modul 5: Arrays (TO'LIQ)*
-- Array creation (literal, Array.of, Array.from)
-- Mutating methods (push, pop, shift, unshift, splice, sort, reverse)
-- Non-mutating (slice, concat, join)
-- Iteration (forEach, for...of)
-- Search (indexOf, find, findIndex, includes)
-- Functional (map, filter, reduce, some, every)
-- Spread operator, rest, destructuring
-
-### *Modul 6: Functions*
-- Function declaration vs expression vs arrow
-- Parameters (default, rest)
-- IIFE
-- Closures
-- Scope (global, function, block)
-- Hoisting
-- this keyword
-- call, apply, bind
-- Higher-order functions
-- Pure functions
-
-### *Modul 7: Objects*
-- Object literals
-- Property access
-- Object methods (keys, values, entries, assign, freeze)
-- Getters/setters
-- Prototypes
-- Deep vs shallow copy
-- Destructuring
-
-### *Modul 8: Classes (OOP)*
-- ES6 class syntax
-- Constructor
-- Methods
-- Static methods
-- Private fields (#)
-- Inheritance (extends, super)
-- instanceof
-
-### *Modul 9: Modules*
-- ES Modules (export, import)
-- Named vs default exports
-- Dynamic imports
-- CommonJS (Node.js)
-- npm packages
-
-### *Modul 10: Asynchronous JavaScript*
-- Callbacks
-- Callback hell
-- Promises (then, catch, finally)
-- Promise methods (all, race, allSettled, any)
-- async/await
-- Error handling (try/catch)
-- Event Loop (call stack, task queue, microtask)
-
-### *Modul 11: HTTP & Fetch*
-- HTTP methods (GET, POST, PUT, DELETE)
-- Status codes
-- Fetch API
-- Axios
-- Error handling
-- AbortController
-- CORS
-
-### *Modul 12: Browser APIs*
-- Window object
-- Location, History, Navigator
-- Geolocation API
-- Clipboard API
-- Fullscreen API
-- Page Visibility API
-
-### *Modul 13: DOM Manipulation*
-- Selecting elements (querySelector, getElementById)
-- Traversing (parent, children, nextSibling)
-- Creating/inserting elements
-- innerHTML vs textContent
-- Attributes vs properties
-- classList
-- Style manipulation
-
-### *Modul 14: Events*
-- addEventListener
-- Event object (target, currentTarget)
-- preventDefault, stopPropagation
-- Event delegation
-- Event capturing vs bubbling
-- Custom events
-
-### *Modul 15: Forms*
-- Form elements
-- Form events (submit, change, input)
-- HTML5 validation
-- Custom validation
-- FormData API
-
-### *Modul 16: Storage*
-- localStorage, sessionStorage
-- Cookies
-- IndexedDB (basic)
-- JSON.stringify/parse
-
-### *Modul 17: Error Handling*
-- Error types
-- try/catch/finally
-- throw
-- Custom errors
-
-### *Modul 18: Modern Features (ES2020+)*
-- Nullish coalescing (??)
-- Optional chaining (?.)
-- Promise.allSettled
-- globalThis
-- at() method
-- Top-level await
-
-### *Modul 19: Advanced Patterns*
-- Generators (function*, yield)
-- Iterators (Symbol.iterator)
-- Proxies
-- WeakMap, WeakSet
-- Web Workers
-- Service Workers
-- WebSockets
-
-### *Modul 20: Testing*
-- Unit testing (Jest/Vitest)
-- Assertions
-- Mocks
-- TDD concept
+- **Box Properties**
+  - width, height, min/max dimensions
+  - border (width, style, color)
+  - padding (individual, shorthand)
+  - margin (individual, shorthand)
+  - box-sizing: content-box vs border-box
 
 ---
 
-## 🔄 **7. Git va GitHub**
+## STAGE 4 — Box Model, Background & Borders
+**Goal** - Control spacing and visual effects precisely.
 
-### *Modul 1: Setup*
-- Git installation
-- Configuration (user.name, user.email)
-- SSH keys vs HTTPS
-- GitHub account
+### 📌 Topics (2 soat)
+- **Box Model Deep Dive**
+  - Content box (actual content)
+  - Padding box (inner spacing)
+  - Border box (border around padding)
+  - Margin box (outer spacing)
+  - Margin collapse (when margins combine)
+  - Negative margins (overlapping)
 
-### *Modul 2: Git Basics*
-- git init, git clone
-- git add, git commit
-- git status, git log
-- git diff
-- .gitignore
+- **Background Properties**
+  - background-color
+  - background-image (url, gradients)
+  - background-repeat (repeat, no-repeat, space, round)
+  - background-position (px, %, keywords)
+  - background-size (cover, contain, auto)
+  - background-attachment (scroll, fixed, local)
+  - background (shorthand)
+  - Multiple backgrounds (comma-separated)
 
-### *Modul 3: Branching*
-- git branch, git checkout, git switch
-- Branch naming conventions
-- git merge (fast-forward vs 3-way)
-- Conflict resolution
+- **Gradients**
+  - Linear gradients (to right, 45deg)
+  - Radial gradients (circle, ellipse)
+  - Conic gradients (color wheels)
+  - Repeating gradients
 
-### *Modul 4: Remote Repositories*
-- git remote add
-- git push, git pull, git fetch
-- Fork vs clone
-- Upstream workflow
+- **Borders & Outlines**
+  - border-radius (rounded corners)
+  - border-image (image borders)
+  - outline vs border (outline doesn't affect box model)
+  - box-shadow (x, y, blur, spread, color)
 
-### *Modul 5: Rewriting History*
-- git rebase (interactive)
-- git reset (soft, mixed, hard)
-- git revert
-- git cherry-pick
-
-### *Modul 6: Stashing & Tags*
-- git stash
-- git tag (lightweight vs annotated)
-- Semantic versioning
-- GitHub Releases
-
-### *Modul 7: Collaboration*
-- Pull Request workflow
-- Code review
-- Merge strategies (merge, squash, rebase)
-- PR templates
-
-### *Modul 8: GitHub Features*
-- Issues
-- Projects (Kanban)
-- GitHub Actions basics
-- GitHub Pages
-- Dependabot
-- Security alerts
-
-### *Modul 9: Advanced*
-- Git hooks (Husky)
-- Conventional commits
-- Git LFS
-- Monorepos
-- Submodules
+- **Logical Properties (Modern)**
+  - margin-block, margin-inline
+  - padding-block, padding-inline
+  - border-block, border-inline
+  - inset (top/left/right/bottom combined)
 
 ---
 
-## ⚛️ **8. React**
+## STAGE 5 — Layout & Positioning
+**Goal** - Control element positioning and display behavior.
 
-### *Modul 0: Setup*
-- Node.js
-- Vite (create-vite)
-- Project structure
-- npm scripts
-- ESLint + Prettier
+### 📌 Topics (2 soat)
+- **Display Property**
+  - block (full width, new line)
+  - inline (content width, same line)
+  - inline-block (inline + box properties)
+  - none (removed from layout)
+  - visibility: hidden (hidden but occupies space)
 
-### *Modul 1: JSX va Komponentlar*
-- JSX rules
-- Functional components
-- Props
-- Children prop
-- Keys in lists
-- PropTypes
+- **Position Property**
+  - static (default, not positioned)
+  - relative (relative to normal position)
+  - absolute (relative to nearest positioned ancestor)
+  - fixed (relative to viewport)
+  - sticky (relative + fixed hybrid)
+  - z-index (stacking order)
 
-### *Modul 2: State va Events*
-- useState hook
-- Event handling
-- Forms (controlled components)
-- Form validation
+- **Overflow**
+  - visible (content overflows)
+  - hidden (clipped)
+  - scroll (always show scrollbars)
+  - auto (scrollbars only when needed)
+  - overflow-x, overflow-y
 
-### *Modul 3: Effects va Lifecycle*
-- useEffect
-- Cleanup functions
-- Dependency array
-- useLayoutEffect
-- useRef (DOM references, mutable values)
+- **Float & Clear**
+  - float: left/right (wrap text around)
+  - clear: both/left/right (prevent wrapping)
+  - Clearfix hack (contain floats)
 
-### *Modul 4: Custom Hooks*
-- Rules of hooks
-- useLocalStorage
-- useFetch
-- useDebounce
-- useToggle
-- useMediaQuery
+- **CSS Cascade & Specificity**
+  - Importance: !important > inline > ID > class > element
+  - Specificity calculator
+  - @layer for managing cascade
 
-### *Modul 5: Advanced Hooks*
-- useMemo
-- useCallback
-- React.memo
-- useReducer
-- useImperativeHandle
-- useDebugValue
-
-### *Modul 6: Context API*
-- createContext
-- Provider
-- useContext
-- Context + useReducer pattern
-
-### *Modul 7: Routing (React Router v6)*
-- BrowserRouter
-- Routes, Route
-- Link, NavLink
-- useParams, useNavigate
-- Nested routes (Outlet)
-- Protected routes
-- Lazy loading (React.lazy, Suspense)
-
-### *Modul 8: State Management*
-- **Zustand** (simple)
-- **Redux Toolkit** (advanced)
-- **Jotai** (atomic)
-
-### *Modul 9: Data Fetching*
-- TanStack Query (React Query)
-- useQuery, useMutation
-- Query invalidation
-- Pagination (useInfiniteQuery)
-- Optimistic updates
-
-### *Modul 10: Forms (Advanced)*
-- React Hook Form
-- Validation with Yup/Zod
-- Controlled vs uncontrolled
-- File uploads
-- Multi-step forms
-
-### *Modul 11: Styling in React*
-- CSS Modules
-- Styled Components
-- Emotion
-- Tailwind CSS
-
-### *Modul 12: Patterns*
-- Compound components
-- Render props
-- HOC (Higher-Order Components)
-- Container/Presentational
-
-### *Modul 13: Performance*
-- Code splitting
-- Virtualization (react-window)
-- useTransition
-- useDeferredValue
-- Profiler API
-
-### *Modul 14: Testing*
-- React Testing Library
-- Unit tests
-- Integration tests
-- Mocking API calls
-- Snapshot tests
-
-### *Modul 15: TypeScript with React*
-- Typing props
-- Typing events
-- Typing hooks
-- Generic components
-- TypeScript + Context
-
-### *Modul 16: Next.js*
-- Why Next.js (SSR, SSG)
-- File-based routing
-- Data fetching (getStaticProps, getServerSideProps)
-- API routes
-- Image optimization
-- Middleware
-- Deployment (Vercel)
-
-### *Modul 17: React 18 Features*
-- Automatic batching
-- Concurrent rendering
-- useId
-- useSyncExternalStore
-- useInsertionEffect
-
-### *Modul 18: Security*
-- XSS prevention
-- dangerouslySetInnerHTML
-- DOMPurify
-- CSRF protection
-- CSP headers
-
-### *Modul 19: Deployment*
-- Environment variables
-- Vercel deployment
-- Netlify deployment
-- GitHub Pages
-- Docker containerization
-- CI/CD with GitHub Actions
-
-### *Modul 20: Performance Monitoring*
-- Web Vitals
-- Lighthouse
-- Error tracking (Sentry)
+- **CSS Nesting (2025+)**
+  - Native nesting with `&` selector
+  - Nesting media queries
 
 ---
 
-## 🚀 **9. Qo'shimcha Zamonaviy Texnologiyalar**
+## STAGE 6 — Flexbox Mastery
+**Goal** - Create flexible, responsive layouts with Flexbox.
 
-### *Modul 21: React Native (Mobile)*
-- Expo setup
-- Core components
-- Navigation
-- Device APIs
-- Publishing
+### 📌 Topics (2 soat)
+- **Flex Container Properties**
+  - display: flex (block-level) / inline-flex
+  - flex-direction: row, row-reverse, column, column-reverse
+  - flex-wrap: wrap, nowrap, wrap-reverse
+  - flex-flow (shorthand for direction + wrap)
+  - justify-content: flex-start, flex-end, center, space-between, space-around, space-evenly
+  - align-items: stretch, flex-start, flex-end, center, baseline
+  - align-content (multi-line alignment)
 
-### *Modul 22: PWA (Progressive Web Apps)*
-- Web App Manifest
-- Service Workers
-- Offline support
-- Push notifications
+- **Flex Item Properties**
+  - order (rearrange visually)
+  - flex-grow (proportion of available space)
+  - flex-shrink (proportion to shrink)
+  - flex-basis (initial size before growing)
+  - flex (shorthand: grow shrink basis)
+  - align-self (override align-items)
 
-### *Modul 23: TypeScript (Chuqur)*
-- Interfaces vs Types
-- Generics
-- Utility types
-- Declaration files
+- **Practical Patterns**
+  - Navigation bars
+  - Card layouts
+  - Centering (perfectly centered)
+  - Sticky footer
+  - Holy Grail layout
 
-### *Modul 24: GraphQL*
-- Apollo Client
-- Queries, Mutations
-- Caching
-
-### *Modul 25: State Management (Redux Toolkit)*
-- Store setup
-- Slices
-- Async thunks
-- RTK Query
-
-### *Modul 26: Testing (E2E)*
-- Playwright
-- Cypress
-- Test automation
+- **Flexbox vs Grid (when to use what)**
 
 ---
 
-## 🏆 **10. Yakuniy Loyihalar**
+## STAGE 7 — CSS Grid Mastery
+**Goal** - Build 2D layouts with modern Grid features.
 
-### *Loyiha 1: Todo App (Boshlang'ich)*
-- CRUD operations
-- LocalStorage
-- Filtering
-- Unit tests
+### 📌 Topics (2 soat)
+- **Grid Container**
+  - display: grid / inline-grid
+  - grid-template-columns, grid-template-rows
+  - grid-template-areas (named areas)
+  - gap (row-gap, column-gap)
 
-### *Loyiha 2: Weather App (O'rta)*
-- API integration
-- Geolocation
-- Error handling
-- Responsive design
+- **Track Sizing**
+  - px, %, fr units (fractional units)
+  - repeat() function
+  - minmax() (dynamic sizing)
+  - auto-fill vs auto-fit
+  - Masonry layout (new!)
 
-### *Loyiha 3: E-commerce Site (Kuchli)*
-- Product catalog
-- Shopping cart
+- **Item Placement**
+  - grid-column: start / end
+  - grid-row: start / end
+  - grid-area (with template areas or line numbers)
+  - span keyword
+
+- **Alignment**
+  - justify-items (inline axis)
+  - align-items (block axis)
+  - justify-content (container inline)
+  - align-content (container block)
+  - place-items (shorthand)
+
+- **Advanced Grid**
+  - Subgrid (display: subgrid)
+  - Nested grids
+  - Grid with auto-flow (dense packing)
+  - Implicit vs explicit grids
+
+---
+
+# 🗓 **2-OY: ADVANCED CSS & TYPESCRIPT START (12 soat)**
+
+---
+
+## STAGE 8 — Responsive Design (2026)
+**Goal** - Make websites work perfectly on all devices.
+
+### 📌 Topics (2 soat)
+- **Viewport Meta Tag**
+  - `<meta name="viewport" content="width=device-width, initial-scale=1">`
+
+- **Media Queries**
+  - @media (min-width: 768px) {}
+  - @media (max-width: 480px) {}
+  - @media (orientation: landscape/portrait)
+  - @media (prefers-color-scheme: dark/light)
+  - @media (hover: hover/none)
+  - Logical operators: and, not, only, comma (or)
+
+- **Container Queries (NEW!)**
+  - @container (min-width: 300px) {}
+  - container-type: inline-size
+  - container-name
+  - Style queries (@container style(--theme: dark))
+
+- **Mobile-First Approach**
+  - Base styles for mobile
+  - Min-width media queries for larger screens
+
+- **Responsive Units**
+  - %, vw, vh, vmin, vmax
+  - rem, em for typography
+  - clamp() for fluid typography
+
+- **Responsive Images**
+  - max-width: 100% (fluid images)
+  - srcset and sizes attributes
+  - <picture> element with art direction
+
+- **Responsive Typography**
+  - Fluid typography with clamp()
+  - Viewport units for headings
+
+---
+
+## STAGE 9 — Advanced CSS & Animations
+**Goal** - Add interactivity and visual flair.
+
+### 📌 Topics (2 soat)
+- **Pseudo-classes**
+  - :hover, :active, :focus, :focus-within
+  - :first-child, :last-child, :nth-child()
+  - :nth-of-type(), :only-child
+  - :not(), :empty, :is(), :where()
+  - :checked, :disabled, :required, :valid, :invalid
+
+- **Pseudo-elements**
+  - ::before, ::after (content property)
+  - ::first-letter, ::first-line
+  - ::selection, ::placeholder, ::marker
+
+- **CSS Variables (Custom Properties)**
+  - --variable-name
+  - var() function
+  - Fallback values
+  - Dynamic theming with JS
+
+- **Transitions**
+  - transition-property
+  - transition-duration
+  - transition-timing-function (ease, linear, cubic-bezier)
+  - transition-delay
+  - transition (shorthand)
+
+- **Transforms**
+  - translate(), translateX(), translateY()
+  - rotate(), rotateX(), rotateY(), rotateZ()
+  - scale(), scaleX(), scaleY()
+  - skew(), skewX(), skewY()
+  - matrix() (all-in-one)
+  - transform-origin
+
+- **Animations**
+  - @keyframes (from/to or percentages)
+  - animation-name, animation-duration
+  - animation-timing-function
+  - animation-iteration-count
+  - animation-direction (normal, reverse, alternate)
+  - animation-fill-mode (none, forwards, backwards, both)
+  - animation (shorthand)
+
+- **Scroll-driven Animations (NEW!)**
+  - animation-timeline: scroll()
+  - @scroll-timeline
+  - View transitions API
+
+---
+
+## STAGE 10 — TypeScript Fundamentals (Zero to Hero)
+**Goal** - Write type-safe code from day 1 (no pure JS).
+
+### 📌 Topics (2 soat)
+- **Why TypeScript?**
+  - Static typing benefits
+  - Compilation to JavaScript
+  - TypeScript vs JavaScript
+
+- **Setup**
+  - npm install -g typescript
+  - tsc --init (tsconfig.json)
+  - Compiling with tsc
+  - VS Code integration
+
+- **Basic Types**
+  - string, number, boolean
+  - array: `string[]` or `Array<number>`
+  - tuple: `[string, number]`
+  - enum: `enum Color { Red, Green, Blue }`
+  - any, unknown, never, void
+
+- **Type Annotations**
+  - Variables: `let name: string = "John"`
+  - Functions: `function add(a: number, b: number): number {}`
+  - Return types, void
+
+- **Interfaces**
+  - `interface Person { name: string; age: number }`
+  - Optional properties: `age?: number`
+  - Readonly properties: `readonly id: number`
+  - Extending interfaces
+
+- **Type Aliases**
+  - `type ID = string | number`
+  - Union types: `string | null`
+  - Intersection types: `A & B`
+
+- **Type Assertions**
+  - `as` keyword: `const input = document.getElementById('input') as HTMLInputElement`
+  - Angle bracket syntax (not in JSX)
+
+- **Literal Types**
+  - `let direction: "up" | "down" | "left" | "right"`
+
+---
+
+## STAGE 11 — TypeScript Advanced & Modern JS
+**Goal** - Master TypeScript generics and modern JavaScript.
+
+### 📌 Topics (2 soat)
+- **Generics**
+  - Generic functions: `<T>(arg: T): T`
+  - Generic interfaces
+  - Constraints: `extends`
+  - Default types
+
+- **Utility Types**
+  - `Partial<T>` (all optional)
+  - `Required<T>` (all required)
+  - `Pick<T, K>` (subset of properties)
+  - `Omit<T, K>` (exclude properties)
+  - `Record<K, T>` (key-value pairs)
+  - `ReturnType<T>` (function return type)
+  - `Parameters<T>` (function parameters)
+
+- **Type Guards**
+  - `typeof` (primitive types)
+  - `instanceof` (class instances)
+  - `in` operator (property check)
+  - User-defined type guards: `is`
+
+- **Discriminated Unions**
+  - Common property with literal types
+  - Exhaustive checking with `never`
+
+- **ES2024-2025 Features**
+  - Temporal API (new date/time)
+  - `Object.groupBy()`, `Map.groupBy()`
+  - `Promise.withResolvers()`
+  - `Array.prototype.findLast()`
+  - Records & Tuples (stage 3)
+  - Decorators (stage 3)
+
+- **Modules (ESM)**
+  - `import` / `export`
+  - Default vs named exports
+  - Dynamic imports: `import()`
+
+---
+
+## STAGE 12 — Functions & Scope (TypeScript)
+**Goal** - Write reusable, type-safe functions.
+
+### 📌 Topics (2 soat)
+- **Function Declarations**
+  - Parameter types, return types
+  - Optional parameters: `param?: type`
+  - Default parameters: `param = 10`
+
+- **Rest Parameters**
+  - `...args: number[]`
+
+- **Function Overloads**
+  - Multiple call signatures
+
+- **Arrow Functions**
+  - Type annotations for arrow functions
+  - `this` in arrow vs regular
+
+- **Scope**
+  - Global scope
+  - Function scope
+  - Block scope (let, const)
+  - Lexical scope
+
+- **Closures**
+  - Definition and practical use
+  - Factory functions
+  - Private variables pattern
+
+- **this in TypeScript**
+  - Typing `this` parameter
+  - `this` in callbacks
+
+- **Async/Await**
+  - `Promise<T>` types
+  - `async function` return type
+  - Error handling with try/catch
+
+---
+
+## STAGE 13 — Arrays & Tuples (TypeScript)
+**Goal** - Manipulate collections with type safety.
+
+### 📌 Topics (2 soat)
+- **Array Creation**
+  - `let arr: number[] = [1, 2, 3]`
+  - `let arr: Array<string> = ['a', 'b']`
+  - `Array.from()`, `Array.of()`
+  - ReadonlyArray / `readonly` modifier
+
+- **Array Properties**
+  - length
+  - index access: `arr[0]`
+
+- **Basic Methods**
+  - push, pop, shift, unshift
+  - splice, slice
+  - concat, join
+  - indexOf, lastIndexOf, includes
+
+- **Iteration Methods (Typed)**
+  - forEach: `(item: T, index: number) => void`
+  - map: `(item: T) => U` returns `U[]`
+  - filter: returns same type array
+  - reduce: accumulator typing
+  - some, every (boolean returns)
+  - find, findIndex
+
+- **Sorting**
+  - sort with compare function
+  - reverse
+
+- **Tuples**
+  - `let tuple: [string, number] = ['hello', 42]`
+  - Optional tuple elements: `[string, number?]`
+  - Labeled tuples: `[x: number, y: number]`
+  - Rest elements in tuples
+
+- **Destructuring**
+  - Array destructuring: `const [first, second] = arr`
+  - Skipping elements: `const [first, , third] = arr`
+  - Rest with destructuring
+
+---
+
+## STAGE 14 — Objects & Records (TypeScript)
+**Goal** - Work with key-value data structures.
+
+### 📌 Topics (2 soat)
+- **Object Types**
+  - Inline type: `{ name: string; age: number }`
+  - Interface vs Type
+  - Index signature: `[key: string]: any`
+
+- **Object Methods**
+  - `Object.keys()`, `Object.values()`, `Object.entries()`
+  - `Object.assign()`
+  - `Object.freeze()`, `Object.seal()`
+
+- **Spread Operator**
+  - `{ ...obj, newProp: value }`
+  - Shallow copy
+
+- **Optional Chaining**
+  - `obj?.prop?.nested`
+  - `obj?.[key]`
+
+- **Nullish Coalescing**
+  - `const value = obj.prop ?? defaultValue`
+
+- **Maps vs Objects**
+  - `Map<K, V>` (any key type)
+  - `new Map()`, `set`, `get`, `has`, `delete`
+  - Iteration: `for (let [key, value] of map)`
+
+- **Sets**
+  - `Set<T>` (unique values)
+  - `add`, `has`, `delete`, `size`
+  - Union, intersection, difference
+
+- **Records**
+  - `Record<string, number>` type
+  - `Record<Keys, Type>`
+
+---
+
+## STAGE 15 — Error Handling & Debugging
+**Goal** - Handle errors gracefully and debug effectively.
+
+### 📌 Topics (2 soat)
+- **try/catch/finally**
+  - `try { riskyCode() } catch (error) {} finally {}`
+  - Typing error in catch (unknown type)
+
+- **Throw**
+  - `throw new Error('message')`
+  - Custom error classes
+
+- **Error Types**
+  - Error, SyntaxError, TypeError, RangeError
+  - Custom error class extending Error
+
+- **Debugging Tools**
+  - console.log, console.error, console.table
+  - console.time / console.timeEnd
+  - debugger statement
+  - Browser DevTools (Sources tab)
+
+- **Debugging in VS Code**
+  - Breakpoints
+  - Watch variables
+  - Call stack
+
+---
+
+# 🗓 **3-OY: DOM, BROWSER APIS & AI TOOLS (12 soat)**
+
+---
+
+## STAGE 16 — DOM Manipulation with TypeScript
+**Goal** - Select and modify HTML elements safely.
+
+### 📌 Topics (2 soat)
+- **DOM Tree**
+  - Document Object Model concept
+  - Nodes vs Elements
+
+- **Selecting Elements (Type-safe)**
+  - `document.getElementById('id')` → `HTMLElement | null`
+  - `document.querySelector('.class')` → `Element | null`
+  - `document.querySelectorAll('.class')` → `NodeListOf<Element>`
+  - Type assertion: `as HTMLInputElement`
+
+- **Traversing DOM**
+  - parentElement, parentNode
+  - children, childNodes
+  - firstElementChild, lastElementChild
+  - nextElementSibling, previousElementSibling
+  - Type guards for element types
+
+- **Manipulating Content**
+  - innerHTML (careful with XSS)
+  - innerText, textContent
+  - outerHTML
+
+- **Manipulating Attributes**
+  - getAttribute, setAttribute, removeAttribute
+  - hasAttribute
+  - dataset (data-* attributes) with types
+
+- **Manipulating Classes**
+  - classList.add(), remove(), toggle(), contains()
+  - className (string)
+
+- **Manipulating Styles**
+  - element.style.property (camelCase)
+  - getComputedStyle()
+
+- **Creating Elements**
+  - createElement with type: `document.createElement('div')`
+  - createTextNode
+  - appendChild, append, prepend
+  - insertBefore, insertAdjacentElement
+  - removeChild, remove
+  - cloneNode
+
+---
+
+## STAGE 17 — Events (Modern + TypeScript)
+**Goal** - Handle user interactions with type safety.
+
+### 📌 Topics (2 soat)
+- **Event Listeners**
+  - `addEventListener(event, handler, options)`
+  - `removeEventListener`
+  - Event handler types: `(e: MouseEvent) => void`
+
+- **Event Object Types**
+  - MouseEvent: clientX, clientY, button
+  - KeyboardEvent: key, code, ctrlKey, shiftKey
+  - InputEvent: data, inputType
+  - FocusEvent: relatedTarget
+  - DragEvent, TouchEvent
+
+- **Mouse Events**
+  - click, dblclick
+  - mousedown, mouseup
+  - mousemove, mouseenter, mouseleave
+  - mouseover, mouseout
+
+- **Keyboard Events**
+  - keydown, keyup
+  - preventDefault() for form submission
+
+- **Form Events**
+  - submit, reset
+  - change, input
+  - focus, blur
+
+- **Window Events**
+  - load, DOMContentLoaded
+  - resize, scroll
+  - beforeunload
+
+- **Event Flow**
+  - Event bubbling (default)
+  - Event capturing (useCapture = true)
+  - stopPropagation(), stopImmediatePropagation()
+  - preventDefault()
+
+- **Event Delegation**
+  - Pattern with type guards
+  - `e.target instanceof HTMLElement`
+
+- **Custom Events**
+  - `new CustomEvent<T>('event', { detail: data })`
+  - dispatchEvent
+  - Listening with typed detail
+
+---
+
+## STAGE 18 — Browser APIs (Modern)
+**Goal** - Work with modern browser capabilities.
+
+### 📌 Topics (2 soat)
+- **Fetch API (Typed)**
+  - `fetch(url)` → `Promise<Response>`
+  - `response.json()` → `Promise<T>`
+  - `response.text()`, `response.blob()`
+  - POST requests with body
+  - Headers, options
+  - Error handling (network errors vs HTTP errors)
+
+- **AbortController**
+  - Cancel fetch requests
+  - Timeout implementation
+
+- **Web Storage API**
+  - localStorage: `setItem`, `getItem`, `removeItem`, `clear`
+  - sessionStorage (tab-specific)
+  - Storage event (cross-tab communication)
+  - JSON serialization with types
+
+- **Geolocation API**
+  - `navigator.geolocation.getCurrentPosition()`
+  - `watchPosition()`
+  - Position and error types
+
+- **History API**
+  - `history.pushState()`, `replaceState()`
+  - `popstate` event
+  - SPA routing basics
+
+- **Web Workers**
+  - Off-thread computation
+  - Message passing
+
+- **Canvas API**
+  - Getting context: `getContext('2d')`
+  - Drawing shapes, text, images
+  - Animation loop
+
+- **WebSockets**
+  - `new WebSocket(url)`
+  - onopen, onmessage, onclose, onerror
+  - send(), close()
+
+- **Intersection Observer**
+  - Lazy loading images
+  - Infinite scroll
+  - Animation triggers
+
+- **Resize Observer**
+  - Detect element size changes
+
+- **Mutation Observer**
+  - Watch DOM changes
+
+---
+
+## STAGE 19 — AI Tools Integration (2026 MUST-HAVE!)
+**Goal** - Use AI tools to supercharge development.
+
+### 📌 Topics (2 soat)
+- **Cursor IDE**
+  - Setup and configuration
+  - AI chat with code context
+  - Code generation with Cmd+K
+  - Tab completion (Copilot alternative)
+
+- **GitHub Copilot**
+  - Installation in VS Code
+  - Code suggestions
+  - Generating functions from comments
+  - Test generation
+
+- **Prompt Engineering**
+  - Writing clear, specific prompts
+  - Context window optimization
+  - Iterative prompting
+  - Common patterns
+
+- **V0.dev (Vercel)**
+  - Generating UI from text prompts
+  - Exporting React components
+  - Customizing generated code
+
+- **Claude / ChatGPT for Development**
+  - Debugging with AI
+  - Code review
+  - Refactoring assistance
+  - Documentation generation
+
+- **Ethics & Best Practices**
+  - When to use AI vs manual coding
+  - Understanding generated code
+  - Security considerations
+
+---
+
+## STAGE 20 — Git & GitHub (Professional)
+**Goal** - Version control for real-world projects.
+
+### 📌 Topics (2 soat)
+- **Git Configuration**
+  - `git config --global user.name`, `user.email`
+  - `git config --list`
+  - `git --version`
+
+- **Repository**
+  - `git init` (local)
+  - `git clone <url>` (remote)
+  - `.gitignore` file (Node, React patterns)
+
+- **Basic Workflow**
+  - `git status` (check changes)
+  - `git add <file>` / `git add .`
+  - `git commit -m "message"`
+  - `git commit -am` (add + commit tracked files)
+  - `git log` (history), `git log --oneline --graph`
+
+- **Branching Strategy**
+  - `git branch` (list branches)
+  - `git branch <name>` (create)
+  - `git checkout <branch>` / `git switch <branch>`
+  - `git checkout -b <name>` (create + switch)
+  - `git merge <branch>` (merge into current)
+  - Merge conflicts (resolution)
+
+- **Remote Repositories**
+  - `git remote add origin <url>`
+  - `git push -u origin main` (first push)
+  - `git push` (subsequent)
+  - `git pull` (fetch + merge)
+  - `git fetch` (download without merge)
+
+- **Undoing Changes**
+  - `git reset` (unstage)
+  - `git reset --hard` (discard changes)
+  - `git revert` (safe undo)
+  - `git stash` (temporary save)
+
+- **GitHub Features**
+  - Pull requests
+  - Code review
+  - Issues and projects
+  - Actions (CI/CD basics)
+  - Pages (static hosting)
+
+---
+
+# 🗓 **4-OY: TAILWIND, SHADCN/UI & REACT 19 (12 soat)**
+
+---
+
+## STAGE 21 — TailwindCSS v4 Mastery
+**Goal** - Build beautiful UIs rapidly with utility classes.
+
+### 📌 Topics (2 soat)
+- **Setup**
+  - npm installation with Vite
+  - `tailwind.config.js` configuration
+  - `@tailwind` directives in CSS
+  - PostCSS setup
+
+- **Core Concepts**
+  - Utility-first philosophy
+  - Mobile-first responsive prefixes
+  - Hover, focus, active states
+  - Dark mode with `dark:` variant
+  - Arbitrary values: `w-[32rem]`
+
+- **Layout Utilities**
+  - Container, width, height (`w-`, `h-`)
+  - Padding, margin (`p-`, `m-`, `px-`, `py-`)
+  - Display (`block`, `inline-block`, `flex`, `grid`, `hidden`)
+  - Position (`static`, `fixed`, `absolute`, `relative`, `sticky`)
+  - Top/right/bottom/left (`inset-`, `top-`)
+
+- **Flexbox Utilities**
+  - `flex`, `flex-row`, `flex-col`
+  - `flex-wrap`, `flex-nowrap`
+  - `justify-start`, `justify-center`, `justify-between`
+  - `items-start`, `items-center`, `items-stretch`
+  - `grow`, `shrink`, `basis`
+
+- **Grid Utilities**
+  - `grid`, `grid-cols-3`, `grid-rows-2`
+  - `col-span-2`, `row-span-1`
+  - `gap-4`, `gap-x-2`, `gap-y-2`
+
+- **Typography**
+  - `font-sans`, `font-serif`, `font-mono`
+  - `text-xs` to `text-9xl`
+  - `font-thin` to `font-black`
+  - `text-left`, `text-center`, `text-right`
+  - `tracking-tighter` to `tracking-widest`
+  - `leading-3` to `leading-10`
+
+- **Colors & Backgrounds**
+  - Text colors: `text-red-500`, `text-blue-600`
+  - Background: `bg-gray-100`, `bg-gradient-to-r`
+  - Border colors: `border-green-300`
+  - Opacity: `bg-black/50`
+
+- **Borders & Shadows**
+  - `border`, `border-2`, `border-t`
+  - `rounded`, `rounded-lg`, `rounded-full`
+  - `shadow`, `shadow-md`, `shadow-xl`
+
+- **Customization**
+  - Custom colors in config
+  - Custom fonts
+  - Plugins (forms, typography)
+  - `@apply` directive in CSS
+
+- **Container Queries in Tailwind**
+  - `@container` utility
+  - `@lg:flex` variants
+
+---
+
+## STAGE 22 — shadcn/ui + Radix UI (2026 Standard)
+**Goal** - Build accessible, beautiful UIs with copy-paste components.
+
+### 📌 Topics (2 soat)
+- **What is shadcn/ui?**
+  - Not a library, but copy-paste components
+  - Based on Radix UI primitives
+  - Styled with TailwindCSS
+
+- **Setup**
+  - `npx shadcn-ui@latest init`
+  - Configuration options
+  - Adding components: `npx shadcn-ui add button`
+
+- **Core Components**
+  - Button, Card, Badge
+  - Input, Label, Form
+  - Dialog, Alert Dialog
+  - Dropdown Menu
+  - Tabs, Accordion
+  - Sheet (slide-over panels)
+  - Toast notifications
+
+- **Forms with shadcn**
+  - Form components
+  - Validation integration
+  - Error handling
+
+- **Theming**
+  - CSS variables for theming
+  - Dark mode setup
+  - Custom colors
+  - Typography scale
+
+- **Radix UI Primitives**
+  - Headless components
+  - Accessibility built-in
+  - Composition pattern
+
+- **Building Custom Components**
+  - Extending shadcn/ui
+  - Creating your own component library
+
+---
+
+## STAGE 23 — React 19 + TypeScript Fundamentals
+**Goal** - Build type-safe React components.
+
+### 📌 Topics (2 soat)
+- **React 19 Overview**
+  - React 19 new features
+  - Server Components (concept)
+  - React Compiler (auto-memoization)
+  - Actions API
+
+- **Setup with Vite**
+  - `npm create vite@latest my-app -- --template react-ts`
+  - Project structure
+  - npm install, npm run dev
+
+- **JSX with TypeScript**
+  - JSX syntax
+  - `{}` embedding expressions
+  - JSX vs HTML differences
+  - Fragments: `<></>` or `<Fragment>`
+
+- **Functional Components**
+  - Component definition: `const App: React.FC = () => {}`
+  - Props interface
+  - Children prop type: `React.ReactNode`
+
+- **Props**
+  - Passing data
+  - Destructuring with types
+  - Default props
+  - `children` typing
+
+- **Conditional Rendering**
+  - if statements
+  - && operator (short-circuit)
+  - ternary operator
+  - Conditional classes
+
+- **Lists & Keys**
+  - `array.map()` rendering
+  - key prop (importance, best practices)
+  - Index as key (when acceptable)
+
+- **Styling Options**
+  - Inline styles with React.CSSProperties
+  - CSS Modules
+  - TailwindCSS with React
+  - shadcn/ui components
+
+---
+
+## STAGE 24 — React Hooks (with TypeScript)
+**Goal** - Master all React hooks with proper typing.
+
+### 📌 Topics (2 soat)
+- **useState**
+  - Type inference vs explicit typing
+  - `useState<string>('')`
+  - Union types for state
+  - Complex state with interfaces
+  - Functional updates
+
+- **useEffect**
+  - Side effects
+  - Dependency array (typing doesn't matter)
+  - Cleanup function
+  - Mount, update, unmount
+  - Common patterns
+
+- **useRef**
+  - `useRef<HTMLDivElement>(null)`
+  - DOM refs (with initial null)
+  - Mutable refs for values
+  - Ref vs state
+
+- **useReducer**
+  - Action types with discriminated unions
+  - Typing state and actions
+  - When to use over useState
+
+- **useContext**
+  - Creating typed context
+  - `createContext<Type | null>(null)`
+  - Provider typing
+  - Custom hook for context
+
+- **useMemo**
+  - Memoizing values
+  - Dependency array
+  - When to use (React Compiler reduces need)
+
+- **useCallback**
+  - Memoizing functions
+  - Dependency array
+  - Performance optimization
+
+- **Custom Hooks**
+  - Creating reusable logic
+  - Generic custom hooks
+  - Returning typed values
+  - Examples: `useLocalStorage`, `useFetch`
+
+---
+
+## STAGE 25 — React 19 New Hooks & Features
+**Goal** - Use latest React 19 features.
+
+### 📌 Topics (2 soat)
+- **useActionState (NEW!)**
+  - Form handling with pending states
+  - Typing action results
+  - Progressive enhancement
+
+- **useFormStatus (NEW!)**
+  - Access form pending state
+  - Optimistic UI updates
+
+- **useOptimistic (NEW!)**
+  - Optimistic updates pattern
+  - Rollback on error
+
+- **use() Hook (NEW!)**
+  - Using promises in components
+  - Using context conditionally
+  - Suspense integration
+
+- **Server Components**
+  - Concept and benefits
+  - "use client" directive
+  - When to use client vs server
+
+- **React Compiler**
+  - Automatic memoization
+  - No more useMemo/useCallback needed (sometimes)
+
+- **Actions API**
+  - `<form action={action}>`
+  - Server Actions (with Next.js)
+
+---
+
+## STAGE 26 — Forms & Validation (Modern Stack)
+**Goal** - Build type-safe forms with validation.
+
+### 📌 Topics (2 soat)
+- **React Hook Form**
+  - `useForm` hook with TypeScript
+  - `register` with typing
+  - `handleSubmit` typed
+  - Form values interface
+
+- **Form Validation with Zod**
+  - Zod schema creation
+  - Type inference: `z.infer<typeof schema>`
+  - zodResolver for React Hook Form
+
+- **React Hook Form + shadcn/ui**
+  - Integrating with shadcn form components
+  - Error display patterns
+
+- **Controlled vs Uncontrolled**
+  - When to use each
+  - Performance considerations
+
+- **Complex Forms**
+  - Nested fields
+  - Dynamic fields (add/remove)
+  - Multi-step forms
+
+- **File Uploads**
+  - File input handling
+  - Preview images
+  - Upload to server
+
+---
+
+## STAGE 27 — State Management (Zustand + TanStack Query)
+**Goal** - Manage client and server state properly.
+
+### 📌 Topics (2 soat)
+- **Zustand (Client State)**
+  - `create` store with TypeScript
+  - Store interface
+  - Actions and selectors
+  - Middleware (persist, devtools)
+  - Slices pattern for large stores
+
+- **TanStack Query (React Query v5)**
+  - Setup with TypeScript
+  - `useQuery` with query keys
+  - `useMutation` for modifications
+  - Query invalidation
+  - Pagination and infinite scroll
+  - Optimistic updates
+
+- **When to use each**
+  - Zustand: UI state, theme, auth
+  - TanStack Query: Server data, caching
+
+- **Alternative: Context + useReducer**
+  - For simple apps
+
+---
+
+# 🗓 **5-OY: NEXT.JS 15+ FULLSTACK (12 soat)**
+
+---
+
+## STAGE 28 — Next.js 15+ App Router Fundamentals
+**Goal** - Build production-ready fullstack apps.
+
+### 📌 Topics (2 soat)
+- **Next.js 15+ Features**
+  - Turbopack (fast bundling)
+  - React 19 integration
+  - App Router (default)
+
+- **Project Setup**
+  - `create-next-app@latest` with TypeScript
+  - Project structure
+  - `next.config.js` configuration
+
+- **Routing (App Router)**
+  - File-based routing
+  - Pages: `page.tsx`
+  - Layouts: `layout.tsx` (nested)
+  - Templates: `template.tsx`
+  - Loading UI: `loading.tsx`
+  - Error UI: `error.tsx`
+  - Not found: `not-found.tsx`
+
+- **Dynamic Routes**
+  - `[id]/page.tsx`
+  - Catch-all routes: `[...slug]/page.tsx`
+  - Optional catch-all: `[[...slug]]/page.tsx`
+
+- **Route Groups**
+  - `(marketing)/about/page.tsx` (no route segment)
+
+- **Linking**
+  - `next/link` component
+  - `useRouter` hook
+  - Programmatic navigation
+
+---
+
+## STAGE 29 — Server Components & Data Fetching
+**Goal** - Master Server Components and data patterns.
+
+### 📌 Topics (2 soat)
+- **Server Components (Default)**
+  - Async components
+  - Direct database access
+  - No useState/useEffect
+  - Benefits: smaller bundle, faster
+
+- **Client Components**
+  - `"use client"` directive
+  - When to use (interactivity, hooks)
+  - Performance implications
+
+- **Data Fetching in Server Components**
+  - `async function Page() { const data = await fetch() }`
+  - Fetch with caching
+  - Database queries (Prisma, Drizzle)
+
+- **Next.js Caching (NEW!)**
+  - `"use cache"` directive
+  - `cacheLife` profiles
+  - `cacheTag`, `revalidateTag`
+  - `revalidatePath`
+
+- **Static vs Dynamic**
+  - Static generation (SSG)
+  - Dynamic rendering (SSR)
+  - Incremental Static Regeneration (ISR)
+
+- **Metadata & SEO**
+  - `generateMetadata` function
+  - `metadata` object
+  - Open Graph images
+  - Sitemap, robots.txt
+
+---
+
+## STAGE 30 — Server Actions & Mutations
+**Goal** - Handle form submissions and data mutations.
+
+### 📌 Topics (2 soat)
+- **Server Actions**
+  - `"use server"` directive
+  - Inline vs separate file
+  - Form actions: `<form action={action}>`
+  - Typing form data
+
+- **Mutations with Server Actions**
+  - Database mutations
+  - Revalidation
+  - Error handling
+
+- **Validation with Server Actions**
+  - Zod validation
+  - Error display
+  - Progressive enhancement
+
+- **useActionState (React 19)**
+  - Pending states
+  - Return values
+
+- **useOptimistic**
+  - Immediate UI updates
+  - Rollback on error
+
+---
+
+## STAGE 31 — Authentication & Database
+**Goal** - Add auth and database to Next.js apps.
+
+### 📌 Topics (2 soat)
+- **Authentication Options**
+  - NextAuth.js / Auth.js v5
+  - Clerk (easier)
+  - Supabase Auth
+
+- **NextAuth.js Setup**
+  - `@auth/core` + `@auth/nextjs`
+  - Providers (Google, GitHub, Email)
+  - Session handling
+  - Middleware for protected routes
+
+- **Database Integration**
+  - **Supabase** (PostgreSQL + realtime)
+  - **Prisma** ORM (Type-safe)
+  - **Drizzle ORM** (Lightweight)
+
+- **Prisma Setup**
+  - Schema definition
+  - Migrations
+  - Type-safe queries
+
+- **CRUD Operations**
+  - Creating, reading, updating, deleting
+  - Relations
+  - Filtering, pagination
+
+- **Edge vs Serverless**
+  - Edge runtime (fast, limited)
+  - Serverless (Node.js)
+
+---
+
+## STAGE 32 — Next.js Advanced Patterns
+**Goal** - Optimize Next.js applications.
+
+### 📌 Topics (2 soat)
+- **Image Optimization**
+  - `next/image` component
+  - AVIF/WebP formats
+  - Responsive images
+  - Priority loading
+
+- **Font Optimization**
+  - `next/font`
+  - Variable fonts
+  - Google Fonts integration
+
+- **Middleware**
+  - `middleware.ts`
+  - Request rewriting
+  - Authentication checks
+  - Internationalization
+
+- **API Routes**
+  - `route.ts` in App Router
+  - Typed responses
+  - Request validation
+
+- **Internationalization (i18n)**
+  - next-intl setup
+  - Routing with locales
+  - Translations
+
+- **Analytics & Monitoring**
+  - Vercel Analytics
+  - Core Web Vitals (INP, LCP, CLS)
+  - Sentry for error tracking
+
+---
+
+# 🗓 **6-OY: ADVANCED UI & TESTING (12 soat)**
+
+---
+
+## STAGE 33 — Advanced shadcn/ui Patterns
+**Goal** - Build custom, production-ready UIs.
+
+### 📌 Topics (2 soat)
+- **Customizing shadcn/ui**
+  - Modifying generated components
+  - Extending with new variants
+  - Component composition
+
+- **Data Tables**
+  - TanStack Table (React Table)
+  - Sorting, filtering, pagination
+  - Column visibility
+
+- **Forms with shadcn/ui**
+  - Complex forms
+  - Multi-step wizards
+  - File upload with preview
+
+- **Charts & Graphs**
+  - Recharts / Tremor
+  - Data visualization
+  - Responsive charts
+
+- **Notifications**
+  - **Sonner** / **React Hot Toast** ✅
+  - Toast patterns (success, error, loading)
+  - Custom toast components
+
+---
+
+## STAGE 34 — Animations with Framer Motion
+**Goal** - Add smooth animations to React apps.
+
+### 📌 Topics (2 soat)
+- **Framer Motion Basics**
+  - `motion` components
+  - `animate`, `initial`, `exit`
+  - Transition properties
+
+- **Gestures**
+  - whileHover, whileTap, whileDrag
+  - Drag constraints
+
+- **Scroll Animations**
+  - `useScroll`, `useTransform`
+  - Scroll-triggered animations
+
+- **AnimatePresence**
+  - Exit animations
+  - Route transitions
+
+- **Layout Animations**
+  - `layout` prop
+  - Shared layout animations
+
+---
+
+## STAGE 35 — Testing (Vitest + Playwright)
+**Goal** - Write reliable tests for production apps.
+
+### 📌 Topics (2 soat)
+- **Vitest (Unit Testing)**
+  - Setup with React
+  - `describe`, `it`, `expect`
+  - Mocking functions
+  - Coverage reports
+
+- **React Testing Library**
+  - Rendering components
+  - Queries (getBy, findBy, queryBy)
+  - User events (`@testing-library/user-event`)
+  - Testing hooks
+
+- **Playwright (E2E Testing)**
+  - Browser automation
+  - Page navigation
+  - Assertions
+  - Visual testing
+
+- **Test Patterns**
+  - Component testing
+  - Integration testing
+  - Mocking API calls
+
+- **CI/CD Integration**
+  - GitHub Actions for tests
+  - Pre-commit hooks
+
+---
+
+## STAGE 36 — Performance Optimization
+**Goal** - Optimize React/Next.js applications.
+
+### 📌 Topics (2 soat)
+- **Core Web Vitals**
+  - Largest Contentful Paint (LCP)
+  - Interaction to Next Paint (INP) - NEW!
+  - Cumulative Layout Shift (CLS)
+
+- **React Performance**
+  - React Compiler (auto-optimization)
+  - Code splitting with `lazy()`
+  - `Suspense` boundaries
+  - Virtual lists (react-window)
+
+- **Next.js Performance**
+  - Partial Prerendering (PPR)
+  - Streaming
+  - Edge runtime
+
+- **Bundle Analysis**
+  - `@next/bundle-analyzer`
+  - Reducing bundle size
+
+- **Lighthouse**
+  - Auditing tools
+  - Fixing common issues
+
+---
+
+## STAGE 37 — Real-time Features
+**Goal** - Add real-time capabilities.
+
+### 📌 Topics (2 soat)
+- **WebSockets in React**
+  - `useWebSocket` custom hook
+  - Connection management
+  - Reconnection logic
+
+- **Supabase Realtime**
+  - Database subscriptions
+  - Presence
+  - Broadcast
+
+- **Pusher**
+  - Channels and events
+  - Client integration
+
+- **Server-Sent Events**
+  - EventSource API
+  - Streaming responses
+
+---
+
+# 🗓 **7-OY: AI, PROJECTS & DEPLOYMENT (12 soat)**
+
+---
+
+## STAGE 38 — Vercel AI SDK (2026 MUST-HAVE!)
+**Goal** - Add AI features to applications.
+
+### 📌 Topics (2 soat)
+- **Vercel AI SDK Setup**
+  - `npm install ai`
+  - Provider setup (OpenAI, Anthropic, Google)
+
+- **useChat Hook**
+  - Streaming chat responses
+  - Message history
+  - Typing indicators
+
+- **useCompletion Hook**
+  - Text completion
+  - Streaming responses
+
+- **AI Components**
+  - `AI` provider
+  - `useAIState`, `useUIState`
+
+- **Tool Calling**
+  - Function calling
+  - Structured output
+
+- **RAG (Retrieval Augmented Generation)**
+  - Embeddings
+  - Vector search (pgvector, Pinecone)
+
+---
+
+## STAGE 39 — Project 1: Fullstack Blog Platform
+**Goal** - Build production-ready blog with all features.
+
+### 📌 Features (2 soat)
+- Next.js 15+ App Router
+- TypeScript everywhere
+- shadcn/ui for components
+- MDX for blog posts
+- Database (Supabase/Prisma)
+- Authentication (NextAuth.js)
+- Comments with Server Actions
+- Search with AI
+- SEO optimized
+- Dark mode
+- **React Hot Toast** for notifications
+- Deployment to Vercel
+
+---
+
+## STAGE 40 — Project 2: E-Commerce with AI
+**Goal** - Build modern e-commerce platform.
+
+### 📌 Features (2 soat)
+- Product catalog (TanStack Query)
+- Shopping cart (Zustand)
+- Checkout flow
 - Authentication
-- Checkout
-- Payment integration
-
-### *Loyiha 4: Admin Dashboard (Advanced)*
-- Charts (Recharts)
-- Data tables
-- User management
-- Real-time updates
-- Role-based access
-
-### *Loyiha 5: Full-stack Next.js App (Senior)*
-- Next.js + TypeScript
-- Database (Prisma)
-- Authentication (NextAuth)
-- API routes
-- Deployment
+- Admin dashboard
+- AI product recommendations
+- Semantic search with embeddings
+- Real-time inventory (Supabase)
+- Payment (Stripe basics)
+- Order history
+- **Sonner** for toasts
+- Performance optimized
 
 ---
 
-## 📊 **Umumiy Statistika**
+## STAGE 41 — Project 3: AI Chat Application
+**Goal** - Build ChatGPT-like application.
 
-| Texnologiya | Modullar | Daraja |
-|-------------|----------|--------|
-| HTML | 9 | 100% |
-| CSS | 17 | 100% |
-| SASS | 7 | 100% |
-| Bootstrap | 6 | 100% |
-| Tailwind | 4 | 100% |
-| JavaScript | 20 | 100% |
-| Git/GitHub | 9 | 100% |
-| React | 20 | 100% |
-| Qo'shimcha | 6 | 100% |
-
----
-
-<p align="center">
-  <b>Jami modullar: 98 ta</b><br>
-  <b>📅 Taxminiy vaqt: 12-18 oy</b><br>
-  <b>🎯 Natija: Senior Frontend Developer</b>
-</p>
-
-<p align="center">
-  <img src="https://media.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif" width="200" />
-</p>
-
-<p align="center">
-  <b>🔥 Bu reja bilan siz:</b><br>
-  ✅ HTML, CSS, JavaScript ni mukammal o'rganasiz<br>
-  ✅ React va zamonaviy frameworklarni egallaysiz<br>
-  ✅ Real loyihalar yaratasiz<br>
-  ✅ Senior darajasiga yetasiz<br>
-  ✅ Bozorda talabgir mutaxassis bo'lasiz
-</p>
+### 📌 Features (2 soat)
+- Vercel AI SDK
+- Multiple AI models (OpenAI, Claude)
+- Streaming responses
+- Message persistence (database)
+- File uploads (images, PDFs)
+- Tool calling (weather, calculator)
+- RAG with user documents
+- Authentication
+- Conversation history
+- Share conversations
+- Admin panel for usage tracking
 
 ---
 
-<p align="center">
-  <i>© Frontend Development Full Roadmap</i>
-</p>
+## STAGE 42 — Deployment & DevOps
+**Goal** - Deploy and monitor applications.
+
+### 📌 Topics (2 soat)
+- **Vercel Deployment**
+  - Connecting Git repository
+  - Environment variables
+  - Custom domains
+  - Preview deployments
+  - Automatic HTTPS
+
+- **Environment Configuration**
+  - `.env.local`, `.env.production`
+  - Type-safe env variables (zod)
+
+- **CI/CD with GitHub Actions**
+  - Running tests on push
+  - Linting
+  - Deployment to Vercel
+
+- **Monitoring**
+  - Vercel Analytics
+  - Sentry error tracking
+  - Logging
+
+- **Analytics**
+  - Google Analytics
+  - Plausible (privacy-focused)
+
+- **A/B Testing**
+  - Feature flags
+  - Split testing
+
+---
+
+## STAGE 43 — Portfolio & Job Preparation
+**Goal** - Showcase work and land a job.
+
+### 📌 Topics (2 soat)
+- **Portfolio Website**
+  - Build with Next.js
+  - Showcase 3 projects
+  - Live demos
+  - GitHub links
+  - Contact form
+
+- **GitHub Profile Optimization**
+  - Clean README for each project
+  - Pinned repositories
+  - Contribution graph
+  - Profile README
+
+- **Resume Preparation**
+  - Frontend skills section
+  - Project descriptions (with technologies)
+  - GitHub/Portfolio links
+
+- **Interview Preparation**
+  - Common frontend questions
+  - React/Next.js questions
+  - TypeScript questions
+  - System design basics
+  - Coding challenges (LeetCode easy/medium)
+
+- **Job Search Strategy**
+  - Where to find jobs (LinkedIn, HH, Upwork)
+  - Networking
+  - Freelance platforms
+
+---
+
+## STAGE 44 — Next Steps & Career Growth
+**Goal** - Plan continuous learning.
+
+### 📌 Topics (2 soat)
+- **TypeScript Advanced**
+  - Advanced generics
+  - Template literal types
+  - Conditional types
+
+- **Backend for Frontend**
+  - Node.js basics
+  - Express.js
+  - tRPC (end-to-end typesafe APIs)
+
+- **Mobile Development**
+  - React Native Expo
+  - NativeWind (Tailwind for RN)
+
+- **Desktop Applications**
+  - Tauri (Rust + web)
+  - Electron
+
+- **Monorepos**
+  - Turborepo
+  - pnpm workspaces
+
+- **WebAssembly**
+  - Rust + WASM
+  - AssemblyScript
+
+- **GraphQL**
+  - Apollo Client
+  - GraphQL Yoga
+
+- **Community Involvement**
+  - Open source contributions
+  - Technical writing
+  - Conference talks
+
+---
+
+# 📊 **HAFTALIK TAQSIMOT (JAMI 44 STAGE)**
+
+| Oy | Hafta | STAGE | Mavzular |
+|-----|-------|-------|----------|
+| **1** | 1 | 1-2 | HTML5 + Forms |
+| | 2 | 3-4 | CSS Basics + Box Model |
+| | 3 | 5-6 | Layout + Flexbox |
+| | 4 | 7 | CSS Grid |
+| **2** | 5 | 8-9 | Responsive + Advanced CSS |
+| | 6 | 10-11 | TypeScript Basic + Advanced |
+| | 7 | 12-13 | Functions + Arrays |
+| | 8 | 14-15 | Objects + Error Handling |
+| **3** | 9 | 16-17 | DOM + Events |
+| | 10 | 18-19 | Browser APIs + AI Tools |
+| | 11 | 20 | Git & GitHub |
+| | 12 | 21 | TailwindCSS |
+| **4** | 13 | 22 | shadcn/ui |
+| | 14 | 23-24 | React 19 + Hooks |
+| | 15 | 25-26 | React 19 New + Forms |
+| | 16 | 27 | Zustand + TanStack Query |
+| **5** | 17 | 28-29 | Next.js + Server Components |
+| | 18 | 30-31 | Server Actions + Auth |
+| | 19 | 32 | Next.js Advanced |
+| | 20 | 33 | Advanced shadcn/ui |
+| **6** | 21 | 34 | Framer Motion |
+| | 22 | 35 | Testing (Vitest + Playwright) |
+| | 23 | 36 | Performance |
+| | 24 | 37 | Real-time |
+| **7** | 25 | 38 | AI SDK |
+| | 26 | 39 | Project 1: Blog |
+| | 27 | 40 | Project 2: E-Commerce |
+| | 28 | 41-44 | Project 3: AI Chat + Portfolio |
+
+---
+
+# ✅ **2026 FRONTEND DEVELOPER CHECKLIST**
+
+```
+📋 7 oydan keyin bilishingiz kerak:
+
+【CORE (100%)】
+├── HTML5 (semantic, forms, multimedia)
+├── CSS3 (Flexbox, Grid, Container Queries)
+├── TailwindCSS v4
+├── TypeScript (generics, utility types)
+├── React 19 (hooks, server components)
+├── Next.js 15+ (App Router, Server Actions)
+├── shadcn/ui + Radix UI
+├── TanStack Query + Zustand
+└── Git + GitHub
+
+【ADVANCED (80%)】
+├── React Hook Form + Zod
+├── Framer Motion
+├── Vitest + Playwright
+├── Vercel AI SDK
+├── Authentication (NextAuth.js)
+├── Database (Supabase/Prisma)
+└── React Hot Toast / Sonner
+
+【PROJECTS】
+├── Fullstack Blog Platform
+├── E-Commerce with AI Search
+├── AI Chat Application
+└── Deployed on Vercel
+
+【JOB READY】
+├── Portfolio website
+├── GitHub with 3 projects
+├── Resume
+└── Interview preparation
+```
+
+---
