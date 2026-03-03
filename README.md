@@ -2,12 +2,12 @@
 
 ---
 
-## 🗓 **HTML & CSS ASOSLARI**
+## HTML & CSS BASICS
 
 ### STAGE 1 — HTML Fundamentals
-**Goal** - Create structured web pages with semantic markup.
+**Goal:** Create structured web pages with semantic markup.
 
-#### 📌 Topics
+#### Topics
 - **Document Structure**
   - `<!DOCTYPE html>`
   - `<html>`, `<head>`, `<body>`
@@ -42,9 +42,9 @@
 ---
 
 ### STAGE 2 — Forms & Multimedia
-**Goal** - Build interactive forms and embed media.
+**Goal:** Build interactive forms and embed media.
 
-#### 📌 Topics
+#### Topics
 - **Form Structure**
   - `<form>` with action, method
   - `<fieldset>`, `<legend>`
@@ -74,9 +74,9 @@
 ---
 
 ### STAGE 3 — CSS Basics
-**Goal** - Style elements with selectors and properties.
+**Goal:** Style elements with selectors and properties.
 
-#### 📌 Topics
+#### Topics
 - **CSS Integration**
   - Inline styles
   - Internal `<style>`
@@ -119,9 +119,9 @@
 ---
 
 ### STAGE 4 — Box Model & Background
-**Goal** - Understand element spacing and visual effects.
+**Goal:** Understand element spacing and visual effects.
 
-#### 📌 Topics
+#### Topics
 - **Box Model**
   - Content box
   - Padding box
@@ -147,9 +147,9 @@
 ---
 
 ### STAGE 5 — Layout Basics
-**Goal** - Control element positioning and display.
+**Goal:** Control element positioning and display.
 
-#### 📌 Topics
+#### Topics
 - **Display Property**
   - block
   - inline
@@ -175,9 +175,9 @@
 ---
 
 ### STAGE 6 — Flexbox
-**Goal** - Create flexible layouts with Flexbox.
+**Goal:** Create flexible layouts with Flexbox.
 
-#### 📌 Topics
+#### Topics
 - **Flex Container**
   - display: flex
   - flex-direction (row, column)
@@ -196,9 +196,9 @@
 ---
 
 ### STAGE 7 — CSS Grid
-**Goal** - Build 2D layouts with Grid.
+**Goal:** Build 2D layouts with Grid.
 
-#### 📌 Topics
+#### Topics
 - **Grid Container**
   - display: grid
   - grid-template-columns
@@ -223,12 +223,12 @@
 
 ---
 
-## 🗓 **ADVANCED CSS & JS START**
+## ADVANCED CSS & JAVASCRIPT
 
 ### STAGE 8 — Responsive Design
-**Goal** - Make websites work on all devices.
+**Goal:** Make websites work on all devices.
 
-#### 📌 Topics
+#### Topics
 - **Viewport Meta Tag**
 - **Media Queries**
   - @media min-width/max-width
@@ -246,9 +246,9 @@
 ---
 
 ### STAGE 9 — Advanced CSS
-**Goal** - Add interactivity and advanced styling.
+**Goal:** Add interactivity and advanced styling.
 
-#### 📌 Topics
+#### Topics
 - **Pseudo-classes**
   - :hover, :active, :focus
   - :first-child, :last-child
@@ -287,9 +287,9 @@
 ---
 
 ### STAGE 10 — JavaScript Fundamentals
-**Goal** - Write basic JavaScript programs.
+**Goal:** Write basic JavaScript programs.
 
-#### 📌 Topics
+#### Topics
 - **JavaScript Basics**
   - console.log()
   - Comments (//, /* */)
@@ -320,9 +320,9 @@
 ---
 
 ### STAGE 11 — Strings & Numbers
-**Goal** - Manipulate textual and numeric data.
+**Goal:** Manipulate textual and numeric data.
 
-#### 📌 Topics
+#### Topics
 - **String Methods**
   - length, toUpperCase(), toLowerCase()
   - indexOf(), lastIndexOf()
@@ -347,9 +347,9 @@
 ---
 
 ### STAGE 12 — Control Flow
-**Goal** - Control program execution.
+**Goal:** Control program execution.
 
-#### 📌 Topics
+#### Topics
 - **Conditional Statements**
   - if statement
   - if...else
@@ -367,9 +367,9 @@
 ---
 
 ### STAGE 13 — Functions
-**Goal** - Write reusable code blocks.
+**Goal:** Write reusable code blocks.
 
-#### 📌 Topics
+#### Topics
 - **Function Declaration**
   - function name() {}
   - Parameters vs arguments
@@ -398,9 +398,9 @@
 ---
 
 ### STAGE 14 — Arrays
-**Goal** - Store and manipulate collections.
+**Goal:** Store and manipulate collections.
 
-#### 📌 Topics
+#### Topics
 - **Array Creation**
   - Literal []
   - new Array()
@@ -435,9 +435,9 @@
 ---
 
 ### STAGE 15 — Objects
-**Goal** - Work with key-value pairs.
+**Goal:** Work with key-value pairs.
 
-#### 📌 Topics
+#### Topics
 - **Object Creation**
   - Literal {}
   - new Object()
@@ -465,12 +465,12 @@
 
 ---
 
-## 🗓 **DOM & BROWSER APIs**
+## DOM & BROWSER APIS
 
 ### STAGE 16 — DOM Manipulation
-**Goal** - Select and modify HTML elements.
+**Goal:** Select and modify HTML elements.
 
-#### 📌 Topics
+#### Topics
 - **Selecting Elements**
   - getElementById()
   - getElementsByClassName()
@@ -514,9 +514,9 @@
 ---
 
 ### STAGE 17 — Events
-**Goal** - Handle user interactions.
+**Goal:** Handle user interactions.
 
-#### 📌 Topics
+#### Topics
 - **Event Listeners**
   - addEventListener()
   - removeEventListener()
@@ -550,10 +550,10 @@
 
 ---
 
-### STAGE 18 — Advanced JS Concepts
-**Goal** - Understand core JavaScript mechanics.
+### STAGE 18 — Advanced JavaScript
+**Goal:** Understand core JavaScript mechanics.
 
-#### 📌 Topics
+#### Topics
 - **Hoisting**
   - Variable hoisting (var)
   - Function hoisting
@@ -586,9 +586,9 @@
 ---
 
 ### STAGE 19 — Storage & APIs
-**Goal** - Persist data and fetch external resources.
+**Goal:** Persist data and fetch external resources.
 
-#### 📌 Topics
+#### Topics
 - **Web Storage**
   - localStorage (setItem, getItem, removeItem, clear)
   - sessionStorage
@@ -612,12 +612,12 @@
 
 ---
 
-## 🗓 **GIT, TAILWIND & BOOTSTRAP**
+## GIT, TAILWIND & BOOTSTRAP
 
 ### STAGE 20 — Git Basics
-**Goal** - Version control for code.
+**Goal:** Version control for code.
 
-#### 📌 Topics
+#### Topics
 - **Configuration**
   - git config (user.name, user.email)
   - git --version
@@ -652,10 +652,10 @@
 
 ---
 
-### STAGE 21 — TailwindCSS Fundamentals
-**Goal** - Style rapidly with utility classes.
+### STAGE 21 — TailwindCSS
+**Goal:** Style rapidly with utility classes.
 
-#### 📌 Topics
+#### Topics
 - **Setup**
   - CDN installation
   - npm installation
@@ -705,9 +705,9 @@
 ---
 
 ### STAGE 22 — Bootstrap (Alternative)
-**Goal** - Learn component-based framework.
+**Goal:** Learn component-based framework.
 
-#### 📌 Topics
+#### Topics
 - **Grid System**
   - Container (container, container-fluid)
   - Row, columns (col-*, col-md-*)
@@ -728,12 +728,12 @@
 
 ---
 
-## 🗓 **REACT FUNDAMENTALS**
+## REACT FUNDAMENTALS
 
 ### STAGE 23 — React Basics
-**Goal** - Build component-based UIs.
+**Goal:** Build component-based UIs.
 
-#### 📌 Topics
+#### Topics
 - **Setup**
   - Vite + React
   - Project structure
@@ -768,9 +768,9 @@
 ---
 
 ### STAGE 24 — State & Hooks
-**Goal** - Manage component data and lifecycle.
+**Goal:** Manage component data and lifecycle.
 
-#### 📌 Topics
+#### Topics
 - **useState**
   - Declaring state
   - Updating state
@@ -799,12 +799,12 @@
 
 ---
 
-## 🗓 **ADVANCED REACT**
+## ADVANCED REACT
 
 ### STAGE 25 — React Router
-**Goal** - Handle navigation in SPAs.
+**Goal:** Handle navigation in SPAs.
 
-#### 📌 Topics
+#### Topics
 - **Setup**
   - react-router-dom
   - BrowserRouter
@@ -831,10 +831,10 @@
 
 ---
 
-### STAGE 26 — Global State
-**Goal** - Share state across components.
+### STAGE 26 — Global State Management
+**Goal:** Share state across components.
 
-#### 📌 Topics
+#### Topics
 - **Context API**
   - createContext
   - Provider pattern
@@ -845,16 +845,16 @@
   - Auth context
   - Shopping cart
 
-- **Performance**
+- **Performance Considerations**
   - Context splitting
   - Memoization
 
 ---
 
-### STAGE 27 — Performance
-**Goal** - Optimize React applications.
+### STAGE 27 — Performance Optimization
+**Goal:** Optimize React applications.
 
-#### 📌 Topics
+#### Topics
 - **useMemo**
   - Memoizing values
 
@@ -870,12 +870,12 @@
 
 ---
 
-## 🗓 **PROJECTS & DEPLOYMENT**
+## PROJECTS & DEPLOYMENT
 
 ### STAGE 28 — Project 1: Todo App
-**Goal** - Build full-featured todo application.
+**Goal:** Build full-featured todo application.
 
-#### 📌 Topics
+#### Topics Covered
 - CRUD operations
 - LocalStorage persistence
 - Filtering (all, active, completed)
@@ -883,24 +883,24 @@
 
 ---
 
-### STAGE 29 — Project 2: E-Commerce
-**Goal** - Build product catalog with cart.
+### STAGE 29 — Project 2: E-Commerce Site
+**Goal:** Build product catalog with shopping cart.
 
-#### 📌 Topics
+#### Topics Covered
 - Fake Store API integration
 - Product listing with filters
 - Product detail page
 - Shopping cart (Context)
-- Routing
+- Routing implementation
 
 ---
 
 ### STAGE 30 — Project 3: Weather App
-**Goal** - Build weather forecast app.
+**Goal:** Build weather forecast application.
 
-#### 📌 Topics
+#### Topics Covered
 - OpenWeatherMap API
-- Geolocation
+- Geolocation features
 - Search by city
 - Loading states
 - Error handling
@@ -908,28 +908,26 @@
 ---
 
 ### STAGE 31 — Deployment & Portfolio
-**Goal** - Showcase work to employers.
+**Goal:** Showcase work to employers.
 
-#### 📌 Topics
+#### Topics
 - **Deployment**
   - Netlify deployment
   - Vercel deployment
   - Environment variables
 
-- **GitHub**
+- **GitHub Best Practices**
   - Clean README
   - Live demo links
   - Project structure
 
-- **Portfolio**
+- **Portfolio Development**
   - Building portfolio site
   - Resume preparation
-  - Interview questions
+  - Interview questions practice
 
 - **Next Steps**
-  - TypeScript intro
+  - TypeScript introduction
   - Next.js overview
   - State management (Redux/Zustand)
-  - Testing basics
-
----
+  - Testing fundamentals
