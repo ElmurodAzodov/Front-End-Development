@@ -1919,3 +1919,993 @@ background: repeating-conic-gradient(parametrlar);
 <br>
 <br>
 <br>
+## Borders
+
+Borderlar element chegarasini belgilash, burchaklarni yumaloqlash, soyalar qo'shish imkonini beradi.
+
+### 1. border-radius
+
+Element burchaklarini yumaloqlash.
+
+#### Asosiy sintaksis:
+```css
+border-radius: qiymat;                    /* barcha burchaklar */
+border-radius: yuqori-chap yuqori-o'ng pastki-o'ng pastki-chap;
+border-radius: yuqori-chap (yuqori-o'ng+pastki-chap) pastki-o'ng;
+border-radius: yuqori-chap+pastki-o'ng yuqori-o'ng+pastki-chap;
+```
+
+**Dastur 1 - Bir xil radius**:
+```html
+<style>
+  .radius-box {
+    width: 200px;
+    height: 150px;
+    background: lightblue;
+    border: 2px solid blue;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+  }
+  
+  .r5 { border-radius: 5px; }
+  .r20 { border-radius: 20px; }
+  .r50 { border-radius: 50px; }
+  .r50p { border-radius: 50%; } /* aylana */
+</style>
+
+<div class="radius-box r5">5px</div>
+<div class="radius-box r20">20px</div>
+<div class="radius-box r50">50px</div>
+<div class="radius-box r50p">50% (aylana)</div>
+```
+
+**Dastur 2 - Har bir burchak alohida**:
+```html
+<style>
+  .corners {
+    width: 250px;
+    height: 150px;
+    background: lightgreen;
+    border: 2px solid green;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+  }
+  
+  .c1 { border-radius: 20px 10px 30px 5px; } /* yuqori-chap, yuqori-o'ng, pastki-o'ng, pastki-chap */
+  .c2 { border-radius: 30px 10px 30px 10px; }
+  .c3 { border-radius: 50px 20px; } /* yuqori-chap+pastki-o'ng, yuqori-o'ng+pastki-chap */
+  .c4 { border-radius: 30px 10px 5px; } /* yuqori-chap, yuqori-o'ng+pastki-chap, pastki-o'ng */
+</style>
+
+<div class="corners c1">20px 10px 30px 5px</div>
+<div class="corners c2">30px 10px 30px 10px</div>
+<div class="corners c3">50px 20px</div>
+<div class="corners c4">30px 10px 5px</div>
+```
+
+**Dastur 3 - Individual burchak xususiyatlari**:
+```html
+<style>
+  .individual {
+    width: 250px;
+    height: 150px;
+    background: lightcoral;
+    border: 2px solid red;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+  }
+  
+  .i1 {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .i2 {
+    border-top-left-radius: 50% 20px; /* gorizontal vertikal */
+    border-top-right-radius: 30px 50%;
+  }
+  
+  .i3 {
+    border-radius: 50px / 20px; /* gorizontal / vertikal */
+  }
+</style>
+
+<div class="individual i1">top-left:50px, top-right:30px, bottom-right:20px, bottom-left:10px</div>
+<div class="individual i2">ellips shaklidagi burchaklar</div>
+<div class="individual i3">50px/20px (gorizontal/vertikal)</div>
+```
+
+**Dastur 4 - Turli shakllar**:
+```html
+<style>
+  .shapes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px;
+  }
+  
+  .shape {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border: 2px solid #333;
+  }
+  
+  .circle { border-radius: 50%; }
+  .pill { width: 250px; border-radius: 75px; } /* kapsula shakli */
+  .leaf { border-radius: 50% 0 50% 0; }
+  .egg { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; } /* tuxum shakli */
+  .clipped { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+</style>
+
+<div class="shapes">
+  <div class="shape circle"></div>
+  <div class="shape pill"></div>
+  <div class="shape leaf"></div>
+  <div class="shape egg"></div>
+  <div class="shape clipped"></div>
+</div>
+```
+
+---
+
+### 2. border-image
+
+Rasmni border sifatida ishlatish.
+
+#### Asosiy sintaksis:
+```css
+border-image: source slice width outset repeat;
+```
+
+**Dastur 1 - Border-image asoslari**:
+```html
+<style>
+  .border-img-box {
+    width: 250px;
+    height: 150px;
+    margin: 30px;
+    border: 15px solid transparent;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+  }
+  
+  .img1 {
+    border-image: url('https://via.placeholder.com/30x30/ff0000/ffffff?text=+') 30 stretch;
+  }
+  
+  .img2 {
+    border-image: url('https://via.placeholder.com/30x30/0000ff/ffffff?text=+') 30 repeat;
+  }
+  
+  .img3 {
+    border-image: url('https://via.placeholder.com/30x30/00ff00/ffffff?text=+') 30 round;
+  }
+  
+  .img4 {
+    border-image: linear-gradient(45deg, red, blue) 30;
+  }
+</style>
+
+<div class="border-img-box img1">stretch</div>
+<div class="border-img-box img2">repeat</div>
+<div class="border-img-box img3">round</div>
+<div class="border-img-box img4">gradient</div>
+```
+
+**Dastur 2 - Border-image slice**:
+```html
+<style>
+  .slice-demo {
+    width: 250px;
+    height: 150px;
+    margin: 30px;
+    border: 20px solid transparent;
+    border-image: url('https://via.placeholder.com/60x60/ff0000/ffffff?text=+') 20 stretch;
+    display: inline-block;
+  }
+  
+  .slice1 { border-image-slice: 10; }
+  .slice2 { border-image-slice: 20; }
+  .slice3 { border-image-slice: 30; }
+  .slice4 { border-image-slice: 20 fill; } /* fill ichki qismni to'ldiradi */
+</style>
+
+<div class="slice-demo slice1">slice 10</div>
+<div class="slice-demo slice2">slice 20</div>
+<div class="slice-demo slice3">slice 30</div>
+<div class="slice-demo slice4">slice 20 fill</div>
+```
+
+**Dastur 3 - Border-image width**:
+```html
+<style>
+  .width-demo {
+    width: 250px;
+    height: 150px;
+    margin: 30px;
+    border: solid transparent;
+    border-image: url('https://via.placeholder.com/40x40/ff6b6b/ffffff?text=+') 30 stretch;
+    display: inline-block;
+  }
+  
+  .w1 { border-image-width: 10px; }
+  .w2 { border-image-width: 20px; }
+  .w3 { border-image-width: 30px; }
+  .w4 { border-image-width: 10px 20px; } /* yuqori/pastki chap/o'ng */
+</style>
+
+<div class="width-demo w1">width 10px</div>
+<div class="width-demo w2">width 20px</div>
+<div class="width-demo w3">width 30px</div>
+<div class="width-demo w4">width 10px 20px</div>
+```
+
+**Dastur 4 - Border-image misollari**:
+```html
+<style>
+  .border-examples {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .example {
+    width: 200px;
+    height: 150px;
+    margin: 20px;
+    border: 15px solid transparent;
+    text-align: center;
+    line-height: 150px;
+  }
+  
+  .photo-frame {
+    border-image: repeating-linear-gradient(45deg, gold 0px, gold 10px, #fff 10px, #fff 20px) 30;
+  }
+  
+  .dotted-border {
+    border-image: radial-gradient(circle, #333 30%, transparent 30%) 30 / 20px;
+  }
+  
+  .gradient-border {
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffd93d) 30;
+  }
+  
+  .pattern-border {
+    border-image: url('https://via.placeholder.com/50x50/4ecdc4/ffffff?text=+') 25 repeat;
+  }
+</style>
+
+<div class="border-examples">
+  <div class="example photo-frame">Foto ramka</div>
+  <div class="example dotted-border">Nuqtali border</div>
+  <div class="example gradient-border">Gradient border</div>
+  <div class="example pattern-border">Pattern border</div>
+</div>
+```
+
+---
+
+### 3. outline vs border
+
+`outline` - element tashqarisida chiziq, `border` dan farqlari.
+
+**Dastur 1 - Outline asoslari**:
+```html
+<style>
+  .compare-box {
+    width: 200px;
+    height: 100px;
+    margin: 40px;
+    background: lightblue;
+    display: inline-block;
+    text-align: center;
+    line-height: 100px;
+  }
+  
+  .border-box {
+    border: 5px solid red;
+  }
+  
+  .outline-box {
+    outline: 5px solid blue;
+  }
+  
+  .both-box {
+    border: 5px solid green;
+    outline: 5px solid orange;
+  }
+</style>
+
+<div class="compare-box border-box">border: 5px red</div>
+<div class="compare-box outline-box">outline: 5px blue</div>
+<div class="compare-box both-box">border + outline</div>
+```
+
+**Dastur 2 - Outline offset**:
+```html
+<style>
+  .offset-demo {
+    width: 200px;
+    height: 100px;
+    margin: 50px;
+    background: lightcoral;
+    border: 3px solid #333;
+    display: inline-block;
+    text-align: center;
+    line-height: 100px;
+  }
+  
+  .offset1 {
+    outline: 3px solid blue;
+    outline-offset: 5px;
+  }
+  
+  .offset2 {
+    outline: 5px dashed green;
+    outline-offset: 10px;
+  }
+  
+  .offset3 {
+    outline: 4px dotted red;
+    outline-offset: -5px; /* ichkariga */
+  }
+</style>
+
+<div class="offset-demo offset1">outline-offset: 5px</div>
+<div class="offset-demo offset2">outline-offset: 10px</div>
+<div class="offset-demo offset3">outline-offset: -5px</div>
+```
+
+**Dastur 3 - Border vs Outline farqlari**:
+```html
+<style>
+  .differences {
+    display: flex;
+    gap: 30px;
+    margin: 30px;
+  }
+  
+  .demo-box {
+    width: 200px;
+    height: 150px;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .border-demo {
+    border: 10px solid blue;
+    margin: 20px;
+  }
+  
+  .outline-demo {
+    outline: 10px solid red;
+    margin: 20px;
+  }
+  
+  .outline-inset {
+    outline: 10px solid green;
+    outline-offset: -15px;
+    margin: 20px;
+  }
+  
+  .highlight {
+    outline: 3px solid orange;
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="differences">
+  <div class="demo-box border-demo">
+    Border<br>
+    - Joy egallaydi<br>
+    - Barcha tomonlar<br>
+    - border-radius ta'sir qiladi
+  </div>
+  <div class="demo-box outline-demo">
+    Outline<br>
+    - Joy egallamaydi<br>
+    - Hamma tomon bir xil<br>
+    - border-radius ta'sir qilmaydi
+  </div>
+  <div class="demo-box outline-inset">
+    Outline offset<br>
+    - Manfiy qiymat<br>
+    - Ichkariga chizadi
+  </div>
+</div>
+
+<button class="highlight">Focus holatida outline</button>
+<p>Button focus bo'lganda outline ko'rinadi (accessibility uchun muhim)</p>
+```
+
+**Dastur 4 - Amaliy misollar**:
+```html
+<style>
+  .cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 200px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px;
+  }
+  
+  .card:focus {
+    outline: 3px solid #4ecdc4;
+    outline-offset: 2px;
+  }
+  
+  .input-group {
+    margin: 20px;
+  }
+  
+  .input-group input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    outline: none;
+  }
+  
+  .input-group input:focus {
+    border-color: #4ecdc4;
+    outline: 2px solid #4ecdc4;
+    outline-offset: 2px;
+  }
+  
+  .alert {
+    padding: 15px;
+    margin: 20px;
+    border-left: 5px solid red;
+    outline: 1px solid #ff6b6b;
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="cards">
+  <div class="card" tabindex="0">
+    <h3>Kartochka 1</h3>
+    <p>Focus uchun outline</p>
+  </div>
+  <div class="card" tabindex="0">
+    <h3>Kartochka 2</h3>
+    <p>Tab bilan tanlang</p>
+  </div>
+</div>
+
+<div class="input-group">
+  <input type="text" placeholder="Ismingiz">
+  <label>Input focus bo'lganda border va outline</label>
+</div>
+
+<div class="alert">
+  <strong>Diqqat!</strong> Xato yuz berdi. (border-left + outline)
+</div>
+```
+
+---
+
+### 4. box-shadow
+
+Elementga soya qo'shish.
+
+#### Asosiy sintaksis:
+```css
+box-shadow: h-offset v-offset blur spread color inset;
+/* h-offset: gorizontal siljish */
+/* v-offset: vertikal siljish */
+/* blur: xiralik (0 = aniq) */
+/* spread: yoyilish */
+/* color: rang */
+/* inset: ichki soya */
+```
+
+**Dastur 1 - Asosiy soyalar**:
+```html
+<style>
+  .shadow-box {
+    width: 150px;
+    height: 150px;
+    background: lightblue;
+    margin: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+    border: 1px solid blue;
+  }
+  
+  .s1 { box-shadow: 5px 5px 0px black; }
+  .s2 { box-shadow: 10px 10px 5px rgba(0,0,0,0.3); }
+  .s3 { box-shadow: 0px 5px 15px rgba(0,0,0,0.5); }
+  .s4 { box-shadow: -5px -5px 10px rgba(0,0,0,0.2); }
+</style>
+
+<div class="shadow-box s1">5px 5px 0</div>
+<div class="shadow-box s2">10px 10px 5px</div>
+<div class="shadow-box s3">0px 5px 15px</div>
+<div class="shadow-box s4">-5px -5px 10px</div>
+```
+
+**Dastur 2 - Spread va blur**:
+```html
+<style>
+  .spread-demo {
+    width: 150px;
+    height: 150px;
+    background: lightgreen;
+    margin: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+    border: 1px solid green;
+  }
+  
+  .sp1 { box-shadow: 0 0 0 5px rgba(0,0,0,0.3); } /* faqat spread */
+  .sp2 { box-shadow: 0 0 10px 5px rgba(0,0,0,0.3); } /* blur + spread */
+  .sp3 { box-shadow: 10px 10px 0 5px rgba(0,0,0,0.3); } /* offset + spread */
+  .sp4 { box-shadow: 0 0 20px 10px #ff6b6b; }
+</style>
+
+<div class="spread-demo sp1">spread 5px</div>
+<div class="spread-demo sp2">blur 10, spread 5</div>
+<div class="spread-demo sp3">offset + spread</div>
+<div class="spread-demo sp4">rangli spread</div>
+```
+
+**Dastur 3 - Ichki soya (inset)**:
+```html
+<style>
+  .inset-box {
+    width: 150px;
+    height: 150px;
+    background: lightcoral;
+    margin: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 150px;
+    border: 1px solid red;
+  }
+  
+  .i1 { box-shadow: inset 5px 5px 10px rgba(0,0,0,0.5); }
+  .i2 { box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+  .i3 { box-shadow: inset -5px -5px 10px rgba(255,255,255,0.8); }
+  .i4 { box-shadow: inset 0 0 0 5px rgba(0,0,0,0.2); }
+</style>
+
+<div class="inset-box i1">inset 5px 5px</div>
+<div class="inset-box i2">inset blur</div>
+<div class="inset-box i3">inset yorug'lik</div>
+<div class="inset-box i4">inset spread</div>
+```
+
+**Dastur 4 - Bir nechta soyalar**:
+```html
+<style>
+  .multi-shadow {
+    width: 200px;
+    height: 200px;
+    background: #f0f0f0;
+    margin: 50px;
+    box-shadow: 
+      5px 5px 0 red,
+      10px 10px 0 blue,
+      15px 15px 0 green,
+      20px 20px 0 purple;
+  }
+  
+  .multi-inset {
+    width: 200px;
+    height: 200px;
+    background: #f0f0f0;
+    margin: 50px;
+    box-shadow: 
+      inset 0 0 10px red,
+      inset 0 0 20px blue,
+      inset 0 0 30px green;
+  }
+  
+  .multi-mix {
+    width: 200px;
+    height: 200px;
+    background: white;
+    margin: 50px;
+    box-shadow: 
+      0 10px 20px rgba(0,0,0,0.2),
+      0 0 0 2px #ff6b6b,
+      inset 0 -5px 10px rgba(0,0,0,0.1);
+  }
+</style>
+
+<div class="multi-shadow"></div>
+<div class="multi-inset"></div>
+<div class="multi-mix"></div>
+```
+
+**Dastur 5 - Soya effektlari**:
+```html
+<style>
+  .effects {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px;
+  }
+  
+  .effect {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  .hover-shadow:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+  }
+  
+  .glow {
+    background: #4ecdc4;
+    box-shadow: 0 0 20px #4ecdc4;
+    animation: glow 2s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { box-shadow: 0 0 20px #4ecdc4; }
+    to { box-shadow: 0 0 40px #4ecdc4; }
+  }
+  
+  .neumorphism {
+    background: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 
+      20px 20px 60px #bebebe,
+      -20px -20px 60px #ffffff;
+  }
+  
+  .long-shadow {
+    background: #ff6b6b;
+    color: white;
+    box-shadow: 
+      5px 5px 0 #e05a5a,
+      10px 10px 0 #c14a4a,
+      15px 15px 0 #a23a3a,
+      20px 20px 0 #832a2a;
+  }
+  
+  .double-border {
+    box-shadow: 
+      0 0 0 5px #ffd93d,
+      0 0 0 10px #4ecdc4;
+  }
+</style>
+
+<div class="effects">
+  <div class="effect hover-shadow">Hover effekti</div>
+  <div class="effect glow">Glow effekti</div>
+  <div class="effect neumorphism">Neumorphism</div>
+  <div class="effect long-shadow">Long shadow</div>
+  <div class="effect double-border">Double border</div>
+</div>
+```
+
+---
+
+### Amaliy misollar
+
+**Misol 1 - Kartochka dizaynlari**:
+```html
+<style>
+  .card-showcase {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px;
+    background: #f5f5f5;
+  }
+  
+  .card-style {
+    width: 250px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+  }
+  
+  .card-1 {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    border-left: 5px solid #ff6b6b;
+  }
+  
+  .card-2 {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition: 0.3s;
+  }
+  
+  .card-2:hover {
+    outline-color: #4ecdc4;
+  }
+  
+  .card-3 {
+    border-radius: 50px 20px 50px 20px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 30;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .card-4 {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 
+      0 10px 30px rgba(102,126,234,0.4),
+      inset 0 -5px 10px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="card-showcase">
+  <div class="card-style card-1">Kartochka 1 - Chap border</div>
+  <div class="card-style card-2">Kartochka 2 - Hover outline</div>
+  <div class="card-style card-3">Kartochka 3 - Border image</div>
+  <div class="card-style card-4">Kartochka 4 - Gradient + soyalar</div>
+</div>
+```
+
+**Misol 2 - Tugmalar**:
+```html
+<style>
+  .button-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px;
+  }
+  
+  .btn-style {
+    padding: 15px 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-1 {
+    background: #4ecdc4;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 0 #2c7a78;
+  }
+  
+  .btn-1:active {
+    transform: translateY(5px);
+    box-shadow: none;
+  }
+  
+  .btn-2 {
+    background: #ff6b6b;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(255,107,107,0.4);
+  }
+  
+  .btn-2:hover {
+    box-shadow: 0 15px 30px rgba(255,107,107,0.6);
+    transform: translateY(-2px);
+  }
+  
+  .btn-3 {
+    background: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0 #333;
+  }
+  
+  .btn-3:active {
+    box-shadow: 2px 2px 0 #333;
+    transform: translate(3px, 3px);
+  }
+  
+  .btn-4 {
+    background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    outline: 2px solid transparent;
+  }
+  
+  .btn-4:focus {
+    outline-color: #4ecdc4;
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="button-group">
+  <button class="btn-style btn-1">3D tugma</button>
+  <button class="btn-style btn-2">Glow tugma</button>
+  <button class="btn-style btn-3">Retro tugma</button>
+  <button class="btn-style btn-4">Gradient tugma</button>
+</div>
+```
+
+**Misol 3 - Rasm ramkalari**:
+```html
+<style>
+  .frame-gallery {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px;
+  }
+  
+  .frame {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #f0f0f0, #ddd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .frame-1 {
+    border-radius: 20px;
+    box-shadow: 
+      0 0 0 10px white,
+      0 0 0 15px #ff6b6b,
+      0 20px 30px rgba(0,0,0,0.2);
+  }
+  
+  .frame-2 {
+    border: 10px solid transparent;
+    border-image: repeating-linear-gradient(45deg, gold, gold 10px, white 10px, white 20px) 30;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .frame-3 {
+    border-radius: 50% 20% 50% 20%;
+    border: 5px dashed #4ecdc4;
+    outline: 5px solid #ffd93d;
+    outline-offset: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .frame-4 {
+    border-radius: 15px;
+    box-shadow: 
+      inset 0 0 0 5px white,
+      inset 0 0 0 10px #4ecdc4,
+      0 10px 20px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="frame-gallery">
+  <div class="frame frame-1">Rasm 1</div>
+  <div class="frame frame-2">Rasm 2</div>
+  <div class="frame frame-3">Rasm 3</div>
+  <div class="frame frame-4">Rasm 4</div>
+</div>
+```
+
+**Misol 4 - Modal oyna**:
+```html
+<style>
+  .modal-demo {
+    width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 0 1px rgba(0,0,0,0.1);
+    border-top: 5px solid #4ecdc4;
+  }
+  
+  .modal-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .modal-content {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  .modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-btn.cancel {
+    background: #f0f0f0;
+    box-shadow: 2px 2px 0 #ddd;
+  }
+  
+  .modal-btn.confirm {
+    background: #4ecdc4;
+    color: white;
+    box-shadow: 0 5px 0 #2c7a78;
+  }
+  
+  .modal-btn.confirm:active {
+    transform: translateY(5px);
+    box-shadow: none;
+  }
+</style>
+
+<div class="modal-demo">
+  <div class="modal-header">Tasdiqlash</div>
+  <div class="modal-content">
+    Bu amalni bajarishni tasdiqlaysizmi? 
+    Ma'lumotlar o'chirilishi mumkin.
+  </div>
+  <div class="modal-footer">
+    <button class="modal-btn cancel">Bekor qilish</button>
+    <button class="modal-btn confirm">Tasdiqlash</button>
+  </div>
+</div>
+```
+
+---
+
+### Xususiyatlar jadvali
+
+| Xususiyat | Vazifasi | Sintaksis | Misol |
+|-----------|----------|-----------|-------|
+| `border-radius` | Burchaklarni yumaloqlash | `border-radius: qiymat;` | `border-radius: 10px 20px;` |
+| `border-image` | Rasmli border | `border-image: source slice width repeat;` | `border-image: url(img.jpg) 30 stretch;` |
+| `outline` | Tashqi chiziq | `outline: width style color;` | `outline: 2px solid red;` |
+| `outline-offset` | Outline masofasi | `outline-offset: qiymat;` | `outline-offset: 5px;` |
+| `box-shadow` | Soya | `box-shadow: h v blur spread color inset;` | `box-shadow: 5px 5px 10px black;` |
+
+### Muhim eslatmalar:
+
+1. **Border-radius**:
+   - `%` element o'lchamiga nisbatan
+   - `50%` aylana yaratadi
+   - `/` bilan gorizontal/vertikal farqli radius
+
+2. **Border-image**:
+   - Border `transparent` bo'lishi kerak
+   - `slice` rasmni qismlarga ajratadi
+   - `fill` ichki qismni to'ldiradi
+
+3. **Outline vs Border**:
+   - Outline joy egallamaydi
+   - Outline hamma tomon bir xil
+   - Outline border-radius ta'sir qilmaydi
+   - Outline focus holatida muhim (accessibility)
+
+4. **Box-shadow**:
+   - Bir nechta soyalar vergul bilan ajratiladi
+   - `inset` ichki soya yaratadi
+   - `spread` soyani kengaytiradi
+   - `blur` xiralik darajasi
