@@ -1195,3 +1195,727 @@ Bir nechta fon rasmlarini bir elementga qo'yish.
 <br>
 <br>
 <br>
+## Gradients
+
+Gradientlar - ikki yoki undan ortiq ranglar orasidagi silliq o'tishlar. CSS da gradientlar `background-image` yoki `background` orqali qo'llaniladi.
+
+### 1. Linear Gradients (Chiziqli gradient)
+
+Ranglar to'g'ri chiziq bo'ylab o'tadi.
+
+#### Asosiy sintaksis:
+```css
+background: linear-gradient(yo'nalish, rang1, rang2, ...);
+```
+
+**Dastur 1 - Yo'nalishlar**:
+```html
+<style>
+  .gradient-box {
+    width: 300px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+  }
+  
+  .to-right { background: linear-gradient(to right, red, blue); }
+  .to-left { background: linear-gradient(to left, red, blue); }
+  .to-bottom { background: linear-gradient(to bottom, red, blue); }
+  .to-top { background: linear-gradient(to top, red, blue); }
+  .to-bottom-right { background: linear-gradient(to bottom right, red, blue); }
+  .to-top-left { background: linear-gradient(to top left, red, blue); }
+</style>
+
+<div class="gradient-box to-right">to right (chapdan o'ngga)</div>
+<div class="gradient-box to-left">to left (o'ngdan chapga)</div>
+<div class="gradient-box to-bottom">to bottom (yuqoridan pastga)</div>
+<div class="gradient-box to-top">to top (pastdan yuqoriga)</div>
+<div class="gradient-box to-bottom-right">to bottom right</div>
+<div class="gradient-box to-top-left">to top left</div>
+```
+
+**Dastur 2 - Burchak graduslari**:
+```html
+<style>
+  .angle-box {
+    width: 300px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+  }
+  
+  .deg0 { background: linear-gradient(0deg, red, blue); }        /* yuqoriga */
+  .deg45 { background: linear-gradient(45deg, red, blue); }     /* diagonal */
+  .deg90 { background: linear-gradient(90deg, red, blue); }     /* o'ngga */
+  .deg135 { background: linear-gradient(135deg, red, blue); }   /* diagonal */
+  .deg180 { background: linear-gradient(180deg, red, blue); }   /* pastga */
+  .deg225 { background: linear-gradient(225deg, red, blue); }   /* diagonal */
+  .deg270 { background: linear-gradient(270deg, red, blue); }   /* chapga */
+  .deg360 { background: linear-gradient(360deg, red, blue); }   /* 0deg bilan bir xil */
+</style>
+
+<div class="angle-box deg0">0° (yuqoriga)</div>
+<div class="angle-box deg45">45°</div>
+<div class="angle-box deg90">90° (o'ngga)</div>
+<div class="angle-box deg135">135°</div>
+<div class="angle-box deg180">180° (pastga)</div>
+<div class="angle-box deg225">225°</div>
+<div class="angle-box deg270">270° (chapga)</div>
+<div class="angle-box deg360">360°</div>
+```
+
+**Dastur 3 - Bir nechta ranglar**:
+```html
+<style>
+  .multi-color {
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+  }
+  
+  .three-colors { background: linear-gradient(to right, red, yellow, blue); }
+  .four-colors { background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); }
+  .rainbow { background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
+</style>
+
+<div class="multi-color three-colors">Uch rang: qizil, sariq, ko'k</div>
+<div class="multi-color four-colors">Kamalak ranglari</div>
+<div class="multi-color rainbow">45° kamalak</div>
+```
+
+**Dastur 4 - Rang to'xtash nuqtalari (color stops)**:
+```html
+<style>
+  .stops-box {
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+  }
+  
+  .stops-1 { background: linear-gradient(to right, red 0%, blue 100%); }
+  .stops-2 { background: linear-gradient(to right, red 0%, yellow 50%, blue 100%); }
+  .stops-3 { background: linear-gradient(to right, red 20%, blue 80%); }
+  .stops-4 { background: linear-gradient(to right, red 30%, yellow 30%, blue 60%); }
+  .stops-5 { background: linear-gradient(to right, red 0%, red 50%, blue 50%, blue 100%); }
+</style>
+
+<div class="stops-box stops-1">red 0% - blue 100%</div>
+<div class="stops-box stops-2">red 0%, yellow 50%, blue 100%</div>
+<div class="stops-box stops-3">red 20% dan blue 80% gacha</div>
+<div class="stops-box stops-4">red 30% gacha, keyin yellow 30% dan blue 60% gacha</div>
+<div class="stops-box stops-5">red 0-50%, blue 50-100% (keskin o'tish)</div>
+```
+
+**Dastur 5 - Shaffof gradientlar**:
+```html
+<style>
+  .transparent-box {
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    border: 2px solid black;
+    background-image: repeating-linear-gradient(45deg, #ccc 0px, #ccc 10px, #eee 10px, #eee 20px);
+    position: relative;
+  }
+  
+  .transparent-box div {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .fade-top { background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8)); }
+  .fade-left { background: linear-gradient(to right, transparent, rgba(255,0,0,0.5)); }
+  .fade-multi { background: linear-gradient(45deg, transparent 30%, rgba(0,0,255,0.7) 70%); }
+</style>
+
+<div class="transparent-box">
+  <div class="fade-top"></div>
+</div>
+<p>Yuqoridan pastga shaffoflash</p>
+
+<div class="transparent-box">
+  <div class="fade-left"></div>
+</div>
+<p>Chapdan o'ngga qizil shaffof</p>
+
+<div class="transparent-box">
+  <div class="fade-multi"></div>
+</div>
+<p>Diagonal ko'k shaffof</p>
+```
+
+---
+
+### 2. Radial Gradients (Doiraviy gradient)
+
+Ranglar markazdan tashqariga doira yoki ellips shaklida tarqaladi.
+
+#### Asosiy sintaksis:
+```css
+background: radial-gradient(shakl o'lcham at pozitsiya, rang1, rang2, ...);
+```
+
+**Dastur 1 - Asosiy radial gradient**:
+```html
+<style>
+  .radial-box {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    display: inline-block;
+  }
+  
+  .circle-default { background: radial-gradient(red, blue); }
+  .circle-center { background: radial-gradient(circle at center, red, yellow, blue); }
+  .ellipse { background: radial-gradient(ellipse at center, red, yellow, blue); }
+  .circle-top-left { background: radial-gradient(circle at top left, red, blue); }
+  .circle-bottom-right { background: radial-gradient(circle at bottom right, red, blue); }
+</style>
+
+<div class="radial-box circle-default">circle default</div>
+<div class="radial-box circle-center">circle at center</div>
+<div class="radial-box ellipse">ellipse</div>
+<div class="radial-box circle-top-left">circle at top left</div>
+<div class="radial-box circle-bottom-right">circle at bottom right</div>
+```
+
+**Dastur 2 - Radial o'lchamlar**:
+```html
+<style>
+  .size-box {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    display: inline-block;
+  }
+  
+  .closest-side { background: radial-gradient(circle closest-side at 30% 30%, red, blue); }
+  .farthest-side { background: radial-gradient(circle farthest-side at 30% 30%, red, blue); }
+  .closest-corner { background: radial-gradient(circle closest-corner at 30% 30%, red, blue); }
+  .farthest-corner { background: radial-gradient(circle farthest-corner at 30% 30%, red, blue); }
+  .contain { background: radial-gradient(circle contain at 30% 30%, red, blue); }
+  .cover { background: radial-gradient(circle cover at 30% 30%, red, blue); }
+</style>
+
+<div class="size-box closest-side">closest-side</div>
+<div class="size-box farthest-side">farthest-side</div>
+<div class="size-box closest-corner">closest-corner</div>
+<div class="size-box farthest-corner">farthest-corner</div>
+<div class="size-box contain">contain</div>
+<div class="size-box cover">cover</div>
+```
+
+**Dastur 3 - Radial rang to'xtashlari**:
+```html
+<style>
+  .radial-stops {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    border: 2px solid black;
+    display: inline-block;
+  }
+  
+  .stops-1 { background: radial-gradient(red 10%, yellow 30%, blue 60%); }
+  .stops-2 { background: radial-gradient(circle, red, yellow, blue); }
+  .stops-3 { background: radial-gradient(circle at 30% 30%, red 0%, red 20%, yellow 20%, yellow 40%, blue 40%, blue 100%); }
+  .stops-4 { background: radial-gradient(ellipse at center, red 0%, transparent 50%); }
+</style>
+
+<div class="radial-stops stops-1">red 10%, yellow 30%, blue 60%</div>
+<div class="radial-stops stops-2">teng taqsimlangan</div>
+<div class="radial-stops stops-3">keskin o'tishlar</div>
+<div class="radial-stops stops-4">shaffof</div>
+```
+
+**Dastur 4 - Radial gradient misollari**:
+```html
+<style>
+  .radial-examples {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .example {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  
+  .sun { background: radial-gradient(circle, yellow, orange, red); }
+  .target { background: radial-gradient(circle, red 10%, white 10%, white 20%, red 20%, red 30%, white 30%, white 40%, red 40%); }
+  .spotlight { background: radial-gradient(circle at 30% 30%, white, #333); }
+  .metallic { background: radial-gradient(circle at 30% 30%, #fff, #aaa, #333); }
+</style>
+
+<div class="radial-examples">
+  <div class="example sun"></div>
+  <div class="example target"></div>
+  <div class="example spotlight"></div>
+  <div class="example metallic"></div>
+</div>
+```
+
+---
+
+### 3. Conic Gradients (Konus gradient)
+
+Ranglar markaz atrofida aylana bo'ylab tarqaladi.
+
+#### Asosiy sintaksis:
+```css
+background: conic-gradient(rang1, rang2, ...);
+```
+
+**Dastur 1 - Asosiy conic gradient**:
+```html
+<style>
+  .conic-box {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .conic-default { background: conic-gradient(red, yellow, blue); }
+  .conic-rainbow { background: conic-gradient(red, orange, yellow, green, blue, indigo, violet); }
+  .conic-start { background: conic-gradient(from 90deg, red, yellow, blue); }
+  .conic-position { background: conic-gradient(at 30% 30%, red, yellow, blue); }
+  .conic-start-position { background: conic-gradient(from 45deg at 30% 30%, red, yellow, blue); }
+</style>
+
+<div class="conic-box conic-default">default</div>
+<div class="conic-box conic-rainbow">kamalak</div>
+<div class="conic-box conic-start">from 90deg</div>
+<div class="conic-box conic-position">at 30% 30%</div>
+<div class="conic-box conic-start-position">from 45deg at 30% 30%</div>
+```
+
+**Dastur 2 - Conic rang to'xtashlari**:
+```html
+<style>
+  .conic-stops {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .pie-1 { background: conic-gradient(red 0deg 90deg, blue 90deg 180deg, green 180deg 270deg, yellow 270deg 360deg); }
+  .pie-2 { background: conic-gradient(red 0deg, red 90deg, blue 90deg, blue 180deg, green 180deg, green 270deg, yellow 270deg, yellow 360deg); }
+  .pie-3 { background: conic-gradient(red 0deg 120deg, blue 120deg 240deg, green 240deg 360deg); }
+  .pie-4 { background: conic-gradient(from 90deg, red 0deg 90deg, blue 90deg 180deg, green 180deg 270deg, yellow 270deg 360deg); }
+</style>
+
+<div class="conic-stops pie-1">to'rt qism</div>
+<div class="conic-stops pie-2">keskin o'tishlar</div>
+<div class="conic-stops pie-3">uch qism</div>
+<div class="conic-stops pie-4">from 90° bilan</div>
+```
+
+**Dastur 3 - Conic gradient misollari**:
+```html
+<style>
+  .conic-demos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .demo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  
+  .color-wheel { background: conic-gradient(red, magenta, blue, cyan, green, yellow, red); }
+  .pie-chart { background: conic-gradient(gold 0% 25%, silver 25% 50%, bronze 50% 75%, #333 75% 100%); }
+  .checkerboard { background: conic-gradient(#fff 0deg 90deg, #000 90deg 180deg, #fff 180deg 270deg, #000 270deg 360deg); background-size: 100px 100px; }
+  .sunburst { background: conic-gradient(yellow 0deg 10deg, orange 10deg 20deg, yellow 20deg 30deg, orange 30deg 40deg, yellow 40deg 50deg, orange 50deg 60deg, yellow 60deg 70deg, orange 70deg 80deg, yellow 80deg 90deg); }
+</style>
+
+<div class="conic-demos">
+  <div class="demo color-wheel"></div>
+  <div class="demo pie-chart"></div>
+  <div class="demo checkerboard"></div>
+  <div class="demo sunburst"></div>
+</div>
+```
+
+**Dastur 4 - Conic gradient bilan soat**:
+```html
+<style>
+  .clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(
+      red 0deg 30deg,
+      orange 30deg 60deg,
+      yellow 60deg 90deg,
+      green 90deg 120deg,
+      blue 120deg 150deg,
+      indigo 150deg 180deg,
+      violet 180deg 210deg,
+      red 210deg 240deg,
+      orange 240deg 270deg,
+      yellow 270deg 300deg,
+      green 300deg 330deg,
+      blue 330deg 360deg
+    );
+    border: 5px solid black;
+    position: relative;
+    margin: 20px;
+  }
+  
+  .clock::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+  }
+  
+  .clock::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 120px;
+    background: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%) rotate(0deg);
+    transform-origin: bottom;
+    animation: rotate 60s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from { transform: translate(-50%, -100%) rotate(0deg); }
+    to { transform: translate(-50%, -100%) rotate(360deg); }
+  }
+</style>
+
+<div class="clock"></div>
+<p>12 soatlik rangli soat</p>
+```
+
+---
+
+### 4. Repeating Gradients
+
+Gradientlarni takrorlash.
+
+#### Repeating-linear-gradient
+```css
+background: repeating-linear-gradient(parametrlar);
+```
+
+**Dastur 1 - Repeating-linear-gradient**:
+```html
+<style>
+  .repeat-box {
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid black;
+  }
+  
+  .repeat-stripes { background: repeating-linear-gradient(45deg, red 0px, red 10px, blue 10px, blue 20px); }
+  .repeat-horizontal { background: repeating-linear-gradient(to right, red 0px, red 20px, white 20px, white 40px); }
+  .repeat-vertical { background: repeating-linear-gradient(to bottom, red 0px, red 15px, blue 15px, blue 30px); }
+  .repeat-rainbow { background: repeating-linear-gradient(90deg, red 0px, red 20px, orange 20px, orange 40px, yellow 40px, yellow 60px, green 60px, green 80px, blue 80px, blue 100px); }
+</style>
+
+<div class="repeat-box repeat-stripes">45° chiziqlar</div>
+<div class="repeat-box repeat-horizontal">gorizontal chiziqlar</div>
+<div class="repeat-box repeat-vertical">vertikal chiziqlar</div>
+<div class="repeat-box repeat-rainbow">kamalak chiziqlari</div>
+```
+
+#### Repeating-radial-gradient
+```css
+background: repeating-radial-gradient(parametrlar);
+```
+
+**Dastur 2 - Repeating-radial-gradient**:
+```html
+<style>
+  .repeat-radial {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .radial-target { background: repeating-radial-gradient(circle, red 0px, red 10px, white 10px, white 20px); }
+  .radial-rings { background: repeating-radial-gradient(circle, blue 0px, blue 15px, lightblue 15px, lightblue 30px); }
+  .radial-burst { background: repeating-radial-gradient(circle at 30% 30%, yellow 0px, yellow 10px, orange 10px, orange 20px, red 20px, red 30px); }
+  .radial-ellipse { background: repeating-radial-gradient(ellipse, red 0px, red 20px, blue 20px, blue 40px); }
+</style>
+
+<div class="repeat-radial radial-target"></div>
+<div class="repeat-radial radial-rings"></div>
+<div class="repeat-radial radial-burst"></div>
+<div class="repeat-radial radial-ellipse"></div>
+```
+
+#### Repeating-conic-gradient
+```css
+background: repeating-conic-gradient(parametrlar);
+```
+
+**Dastur 3 - Repeating-conic-gradient**:
+```html
+<style>
+  .repeat-conic {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .conic-stripes { background: repeating-conic-gradient(red 0deg 10deg, blue 10deg 20deg); }
+  .conic-pie { background: repeating-conic-gradient(from 0deg, red 0deg 30deg, yellow 30deg 60deg, green 60deg 90deg); }
+  .conic-pinwheel { background: repeating-conic-gradient(from 45deg, #fff 0deg 15deg, #333 15deg 30deg); }
+  .conic-colorful { background: repeating-conic-gradient(red 0deg 20deg, orange 20deg 40deg, yellow 40deg 60deg, green 60deg 80deg, blue 80deg 100deg); }
+</style>
+
+<div class="repeat-conic conic-stripes"></div>
+<div class="repeat-conic conic-pie"></div>
+<div class="repeat-conic conic-pinwheel"></div>
+<div class="repeat-conic conic-colorful"></div>
+```
+
+---
+
+### Amaliy misollar
+
+**Misol 1 - Gradient buttonlar**:
+```html
+<style>
+  .gradient-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-1 { background: linear-gradient(to right, #ff416c, #ff4b2b); }
+  .btn-2 { background: linear-gradient(45deg, #11998e, #38ef7d); }
+  .btn-3 { background: radial-gradient(circle at 30% 30%, #4568DC, #B06AB3); }
+  .btn-4 { background: conic-gradient(from 90deg, #ff6b6b, #4ecdc4, #ff6b6b); }
+  .btn-5 { background: repeating-linear-gradient(45deg, #ff6b6b 0px, #ff6b6b 5px, #4ecdc4 5px, #4ecdc4 10px); }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="gradient-buttons">
+  <button class="btn btn-1">Linear 1</button>
+  <button class="btn btn-2">Linear 2</button>
+  <button class="btn btn-3">Radial</button>
+  <button class="btn btn-4">Conic</button>
+  <button class="btn btn-5">Repeating</button>
+</div>
+```
+
+**Misol 2 - Progress bar**:
+```html
+<style>
+  .progress-container {
+    width: 400px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  .progress-bar {
+    height: 30px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #4ecdc4, #556270);
+    background-size: 200% 100%;
+    animation: progress 2s infinite alternate;
+    width: 75%;
+  }
+  
+  @keyframes progress {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  .striped-progress {
+    height: 30px;
+    border-radius: 10px;
+    background: repeating-linear-gradient(45deg, #4ecdc4 0px, #4ecdc4 10px, #2c7a78 10px, #2c7a78 20px);
+    width: 60%;
+  }
+</style>
+
+<div class="progress-container">
+  <div class="progress-bar"></div>
+</div>
+<div class="progress-container">
+  <div class="striped-progress"></div>
+</div>
+```
+
+**Misol 3 - Gradient card**:
+```html
+<style>
+  .gradient-card {
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    margin: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .card-content {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .glass-card {
+    width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px;
+  }
+</style>
+
+<div class="gradient-card">
+  <div class="card-title">Gradient Card</div>
+  <div class="card-content">
+    Bu kartochka linear gradient bilan yaratilgan
+  </div>
+</div>
+
+<div class="glass-card">
+  <div class="card-title">Glassmorphism</div>
+  <div class="card-content">
+    Shisha effekti - radial gradient va blur
+  </div>
+</div>
+```
+
+**Misol 4 - Gradient background patterns**:
+```html
+<style>
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .pattern {
+    height: 150px;
+    border-radius: 10px;
+    border: 2px solid black;
+  }
+  
+  .pattern-1 { background: repeating-linear-gradient(45deg, #ff6b6b 0px, #ff6b6b 10px, #4ecdc4 10px, #4ecdc4 20px); }
+  .pattern-2 { background: repeating-radial-gradient(circle, #ffd93d 0px, #ffd93d 10px, #ff6b6b 10px, #ff6b6b 20px); }
+  .pattern-3 { background: repeating-conic-gradient(from 0deg, #95E1D3 0deg 10deg, #EAFFD0 10deg 20deg); }
+  .pattern-4 { background: linear-gradient(45deg, #f9ca24 25%, #f0932b 25%, #f0932b 50%, #f9ca24 50%, #f9ca24 75%, #f0932b 75%); background-size: 50px 50px; }
+  .pattern-5 { background: radial-gradient(circle at 30% 30%, #fff, #aaa); }
+  .pattern-6 { background: conic-gradient(from 90deg, #ff6b6b 0deg 90deg, #4ecdc4 90deg 180deg, #ffd93d 180deg 270deg, #95E1D3 270deg 360deg); }
+</style>
+
+<div class="pattern-grid">
+  <div class="pattern pattern-1"></div>
+  <div class="pattern pattern-2"></div>
+  <div class="pattern pattern-3"></div>
+  <div class="pattern pattern-4"></div>
+  <div class="pattern pattern-5"></div>
+  <div class="pattern pattern-6"></div>
+</div>
+```
+
+---
+
+### Gradient xususiyatlari jadvali
+
+| Gradient turi | Sintaksis | Asosiy parametrlar | Misol |
+|--------------|-----------|-------------------|-------|
+| Linear | `linear-gradient()` | yo'nalish, ranglar | `linear-gradient(to right, red, blue)` |
+| Radial | `radial-gradient()` | shakl, o'lcham, pozitsiya, ranglar | `radial-gradient(circle at center, red, blue)` |
+| Conic | `conic-gradient()` | boshlang'ich burchak, pozitsiya, ranglar | `conic-gradient(from 90deg, red, blue)` |
+| Repeating-linear | `repeating-linear-gradient()` | yo'nalish, ranglar (takrorlanuvchi) | `repeating-linear-gradient(45deg, red 0px 10px, blue 10px 20px)` |
+| Repeating-radial | `repeating-radial-gradient()` | shakl, ranglar (takrorlanuvchi) | `repeating-radial-gradient(circle, red 0px 10px, blue 10px 20px)` |
+| Repeating-conic | `repeating-conic-gradient()` | burchaklar (takrorlanuvchi) | `repeating-conic-gradient(red 0deg 10deg, blue 10deg 20deg)` |
+
+### Muhim eslatmalar:
+
+1. **Gradientlar rasm hisoblanadi** - `background-image` yoki `background` orqali qo'llaniladi
+2. **Yo'nalishlar**:
+   - `to right`, `to bottom`, `45deg` (linear)
+   - `circle at center`, `ellipse at top left` (radial)
+   - `from 90deg`, `at 30% 30%` (conic)
+
+3. **Rang to'xtash nuqtalari**:
+   - `red 0% 50%` - 0% dan 50% gacha qizil
+   - `yellow 50%` - 50% dan keyin sariq
+
+4. **Repeating gradientlar** aniq o'lchamlar bilan ishlaydi (px, deg)
+
+5. **Multiple gradients** bir elementda ishlatish mumkin:
+   ```css
+   background: linear-gradient(...), radial-gradient(...);
+   ```
+
+6. **Shaffoflik** uchun rgba() yoki transparent ishlatiladi
+
+7. **Performance** - gradientlar rasmga qaraganda tezroq yuklanadi
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
