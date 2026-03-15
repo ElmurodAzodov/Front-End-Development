@@ -5990,3 +5990,2184 @@ Production    (16-19) ████████████░ 2 oy
 - 📚 Blog with User Preferences
 
 ---
+## 🎯 STAGE 10 — Redux Toolkit (Advanced State Management)
+**Goal**: Master Redux Toolkit for complex state management in large-scale applications.
+**Time**: 25 soat | 12 dars
+
+#### 📚 Topics
+
+##### 10.1 📦 Introduction to Redux
+- 🤔 What is Redux?
+- 📜 History of Redux (Dan Abramov, 2015)
+- 🎯 Why Redux? (Problems it solves)
+- 🔄 Redux Principles:
+  - Single source of truth (one store)
+  - State is read-only
+  - Changes via pure functions (reducers)
+- 📊 When to Use Redux:
+  - Complex state logic
+  - Multiple components need same state
+  - State is updated frequently
+  - Large team collaboration
+- 🔄 Redux vs Context API:
+  - Performance (re-renders)
+  - DevTools
+  - Middleware
+  - Time-travel debugging
+
+##### 10.2 🔧 Redux Toolkit Overview
+- 📦 What is Redux Toolkit (RTK)?
+- 🎯 Problems with Traditional Redux:
+  - Boilerplate code
+  - Complex setup
+  - Many packages needed
+- ⚡ Redux Toolkit Features:
+  - configureStore (simplified store setup)
+  - createSlice (actions + reducers together)
+  - createAsyncThunk (async logic)
+  - createEntityAdapter (normalized state)
+  - RTK Query (data fetching)
+- 📥 Installation:
+  ```bash
+  npm install @reduxjs/toolkit react-redux
+  # or
+  yarn add @reduxjs/toolkit react-redux
+  ```
+
+##### 10.3 🏗️ Redux Store Setup
+- 📝 configureStore:
+  ```jsx
+  // store/store.js
+  import { configureStore } from '@reduxjs/toolkit'
+  
+  export const store = configureStore({
+    reducer: {
+      // reducers will go here
+    },
+    devTools: process.env.NODE_ENV !== 'production',
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: true,
+        immutableCheck: true
+      })
+  })
+  ```
+- 📦 Provider Setup:
+  ```jsx
+  // main.jsx
+  import React from 'react'
+  import ReactDOM from 'react-dom/client'
+  import { Provider } from 'react-redux'
+  import { store } from './store/store'
+  import App from './App'
+  
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+  ```
+
+##### 10.4 🍰 createSlice (The Heart of RTK)
+- 📝 Creating a Slice:
+  ```jsx
+  // features/counter/counterSlice.js
+  import { createSlice } from '@reduxjs/toolkit'
+  
+  const initialState = {
+    value: 0,
+    status: 'idle'
+  }
+  
+  const counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {
+      increment: (state) => {
+        state.value += 1  // Immer allows "mutating" syntax
+      },
+      decrement: (state) => {
+        state.value -= 1
+      },
+      incrementByAmount: (state, action) => {
+        state.value += action.payload
+      },
+      reset: (state) => {
+        state.value = 0
+      }
+    }
+  })
+  
+  // Export actions
+  export const { increment, decrement, incrementByAmount, reset } = counterSlice.actions
+  
+  // Export reducer
+  export default counterSlice.reducer
+  ```
+- 🔄 Immer.js Magic (immutable updates with mutable syntax)
+- 📦 Adding to Store:
+  ```jsx
+  // store/store.js
+  import counterReducer from '../features/counter/counterSlice'
+  
+  export const store = configureStore({
+    reducer: {
+      counter: counterReducer
+    }
+  })
+  ```
+
+##### 10.5 📥 Using Redux in Components
+- 📝 useSelector (reading state):
+  ```jsx
+  // components/Counter.jsx
+  import { useSelector, useDispatch } from 'react-redux'
+  import { increment, decrement, reset } from '../features/counter/counterSlice'
+  
+  function Counter() {
+    const count = useSelector((state) => state.counter.value)
+    const dispatch = useDispatch()
+    
+    return (
+      <div>
+        <h2>Count: {count}</h2>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+        <button onClick={() => dispatch(reset())}>Reset</button>
+      </div>
+    )
+  }
+  ```
+- 📦 Multiple Selectors:
+  ```jsx
+  const count = useSelector((state) => state.counter.value)
+  const status = useSelector((state) => state.counter.status)
+  const user = useSelector((state) => state.user.data)
+  ```
+- 🎯 Memoized Selectors:
+  ```jsx
+  import { createSelector } from '@reduxjs/toolkit'
+  
+  const selectCounter = (state) => state.counter
+  const selectDoubleCount = createSelector(
+    [selectCounter],
+    (counter) => counter.value * 2
+  )
+  
+  // In component
+  const doubleCount = useSelector(selectDoubleCount)
+  ```
+
+##### 10.6 🔄 Complex State with Multiple Slices
+- 📝 User Slice:
+  ```jsx
+  // features/user/userSlice.js
+  import { createSlice } from '@reduxjs/toolkit'
+  
+  const initialState = {
+    profile: null,
+    isLoading: false,
+    error: null
+  }
+  
+  const userSlice = createSlice({
+    name: 'user',
+    initialState,
+    reducers: {
+      setUser: (state, action) => {
+        state.profile = action.payload
+      },
+      setLoading: (state, action) => {
+        state.isLoading = action.payload
+      },
+      setError: (state, action) => {
+        state.error = action.payload
+      },
+      clearUser: (state) => {
+        state.profile = null
+        state.error = null
+      }
+    }
+  })
+  
+  export const { setUser, setLoading, setError, clearUser } = userSlice.actions
+  export default userSlice.reducer
+  ```
+- 📦 Cart Slice:
+  ```jsx
+  // features/cart/cartSlice.js
+  import { createSlice } from '@reduxjs/toolkit'
+  
+  const initialState = {
+    items: [],
+    totalQuantity: 0,
+    totalPrice: 0
+  }
+  
+  const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+      addToCart: (state, action) => {
+        const existingItem = state.items.find(item => item.id === action.payload.id)
+        
+        if (existingItem) {
+          existingItem.quantity += 1
+        } else {
+          state.items.push({ ...action.payload, quantity: 1 })
+        }
+        
+        state.totalQuantity += 1
+        state.totalPrice += action.payload.price
+      },
+      
+      removeFromCart: (state, action) => {
+        const item = state.items.find(item => item.id === action.payload)
+        if (item) {
+          state.totalQuantity -= item.quantity
+          state.totalPrice -= item.price * item.quantity
+          state.items = state.items.filter(item => item.id !== action.payload)
+        }
+      },
+      
+      updateQuantity: (state, action) => {
+        const { id, quantity } = action.payload
+        const item = state.items.find(item => item.id === id)
+        
+        if (item) {
+          const quantityDiff = quantity - item.quantity
+          state.totalQuantity += quantityDiff
+          state.totalPrice += item.price * quantityDiff
+          item.quantity = quantity
+        }
+      },
+      
+      clearCart: (state) => {
+        state.items = []
+        state.totalQuantity = 0
+        state.totalPrice = 0
+      }
+    }
+  })
+  
+  export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions
+  export default cartSlice.reducer
+  ```
+- 🏗️ Combined Store:
+  ```jsx
+  // store/store.js
+  import { configureStore } from '@reduxjs/toolkit'
+  import counterReducer from '../features/counter/counterSlice'
+  import userReducer from '../features/user/userSlice'
+  import cartReducer from '../features/cart/cartSlice'
+  
+  export const store = configureStore({
+    reducer: {
+      counter: counterReducer,
+      user: userReducer,
+      cart: cartReducer
+    }
+  })
+  ```
+
+##### 10.7 ⚡ Async Logic with createAsyncThunk
+- 📝 Basic createAsyncThunk:
+  ```jsx
+  // features/users/usersSlice.js
+  import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+  import axios from 'axios'
+  
+  export const fetchUsers = createAsyncThunk(
+    'users/fetchUsers',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+        return response.data
+      } catch (error) {
+        return rejectWithValue(error.response.data)
+      }
+    }
+  )
+  
+  export const createUser = createAsyncThunk(
+    'users/createUser',
+    async (userData, { rejectWithValue }) => {
+      try {
+        const response = await axios.post('/api/users', userData)
+        return response.data
+      } catch (error) {
+        return rejectWithValue(error.response.data)
+      }
+    }
+  )
+  
+  const initialState = {
+    users: [],
+    loading: false,
+    error: null,
+    currentUser: null
+  }
+  
+  const usersSlice = createSlice({
+    name: 'users',
+    initialState,
+    reducers: {
+      clearError: (state) => {
+        state.error = null
+      }
+    },
+    extraReducers: (builder) => {
+      builder
+        // fetchUsers
+        .addCase(fetchUsers.pending, (state) => {
+          state.loading = true
+          state.error = null
+        })
+        .addCase(fetchUsers.fulfilled, (state, action) => {
+          state.loading = false
+          state.users = action.payload
+        })
+        .addCase(fetchUsers.rejected, (state, action) => {
+          state.loading = false
+          state.error = action.payload
+        })
+        // createUser
+        .addCase(createUser.fulfilled, (state, action) => {
+          state.users.push(action.payload)
+        })
+    }
+  })
+  
+  export const { clearError } = usersSlice.actions
+  export default usersSlice.reducer
+  ```
+- 📦 Using Async Thunks in Components:
+  ```jsx
+  // components/UserList.jsx
+  import { useEffect } from 'react'
+  import { useSelector, useDispatch } from 'react-redux'
+  import { fetchUsers, clearError } from '../features/users/usersSlice'
+  
+  function UserList() {
+    const dispatch = useDispatch()
+    const { users, loading, error } = useSelector((state) => state.users)
+    
+    useEffect(() => {
+      dispatch(fetchUsers())
+    }, [dispatch])
+    
+    if (loading) return <div>Loading...</div>
+    if (error) return <div>Error: {error}</div>
+    
+    return (
+      <div>
+        <h2>Users</h2>
+        <ul>
+          {users.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  ```
+
+##### 10.8 🎯 Advanced createAsyncThunk Patterns
+- 📝 Thunk with Parameters:
+  ```jsx
+  export const fetchUserById = createAsyncThunk(
+    'users/fetchById',
+    async (userId, { rejectWithValue }) => {
+      try {
+        const response = await axios.get(`/api/users/${userId}`)
+        return response.data
+      } catch (error) {
+        return rejectWithValue(error.response.data)
+      }
+    }
+  )
+  
+  // In component
+  dispatch(fetchUserById(123))
+  ```
+- 📝 Multiple Async Operations:
+  ```jsx
+  export const updateUserWithPosts = createAsyncThunk(
+    'users/updateWithPosts',
+    async (userId, { dispatch, getState }) => {
+      // Get current state
+      const state = getState()
+      
+      // Dispatch multiple actions
+      await dispatch(fetchUserById(userId))
+      await dispatch(fetchUserPosts(userId))
+      
+      // Access updated state
+      const updatedState = getState()
+      return updatedState.users.currentUser
+    }
+  )
+  ```
+- 📝 Conditional Fetching:
+  ```jsx
+  export const fetchUsersIfNeeded = createAsyncThunk(
+    'users/fetchIfNeeded',
+    async (_, { getState }) => {
+      const state = getState()
+      
+      // Don't fetch if we already have users
+      if (state.users.users.length > 0) {
+        return state.users.users
+      }
+      
+      const response = await axios.get('/api/users')
+      return response.data
+    }
+  )
+  ```
+
+##### 10.9 🗃️ createEntityAdapter (Normalized State)
+- 📝 Setting up Entity Adapter:
+  ```jsx
+  // features/posts/postsSlice.js
+  import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
+  
+  // Create adapter
+  const postsAdapter = createEntityAdapter({
+    selectId: (post) => post.id,
+    sortComparer: (a, b) => b.date.localeCompare(a.date)
+  })
+  
+  const initialState = postsAdapter.getInitialState({
+    status: 'idle',
+    error: null
+  })
+  
+  export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+    const response = await axios.get('/api/posts')
+    return response.data
+  })
+  
+  const postsSlice = createSlice({
+    name: 'posts',
+    initialState,
+    reducers: {
+      addPost: postsAdapter.addOne,
+      updatePost: postsAdapter.updateOne,
+      removePost: postsAdapter.removeOne,
+      addManyPosts: postsAdapter.addMany
+    },
+    extraReducers: (builder) => {
+      builder
+        .addCase(fetchPosts.pending, (state) => {
+          state.status = 'loading'
+        })
+        .addCase(fetchPosts.fulfilled, (state, action) => {
+          state.status = 'succeeded'
+          postsAdapter.setAll(state, action.payload)
+        })
+        .addCase(fetchPosts.rejected, (state, action) => {
+          state.status = 'failed'
+          state.error = action.error.message
+        })
+    }
+  })
+  
+  // Export actions
+  export const { addPost, updatePost, removePost, addManyPosts } = postsSlice.actions
+  
+  // Export selectors
+  export const {
+    selectAll: selectAllPosts,
+    selectById: selectPostById,
+    selectIds: selectPostIds
+  } = postsAdapter.getSelectors((state) => state.posts)
+  
+  export default postsSlice.reducer
+  ```
+- 📦 Using Entity Adapter in Components:
+  ```jsx
+  import { useSelector, useDispatch } from 'react-redux'
+  import { selectAllPosts, fetchPosts } from '../features/posts/postsSlice'
+  
+  function PostsList() {
+    const dispatch = useDispatch()
+    const posts = useSelector(selectAllPosts)
+    const postStatus = useSelector((state) => state.posts.status)
+    
+    useEffect(() => {
+      if (postStatus === 'idle') {
+        dispatch(fetchPosts())
+      }
+    }, [postStatus, dispatch])
+    
+    return (
+      <div>
+        {posts.map(post => (
+          <div key={post.id}>{post.title}</div>
+        ))}
+      </div>
+    )
+  }
+  ```
+
+##### 10.10 🔧 RTK Query (Advanced Data Fetching)
+- 📝 Setting up RTK Query:
+  ```jsx
+  // services/api.js
+  import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+  
+  export const api = createApi({
+    reducerPath: 'api',
+    baseQuery: fetchBaseQuery({
+      baseUrl: 'https://jsonplaceholder.typicode.com',
+      prepareHeaders: (headers, { getState }) => {
+        const token = getState().auth.token
+        if (token) {
+          headers.set('authorization', `Bearer ${token}`)
+        }
+        return headers
+      }
+    }),
+    tagTypes: ['Post', 'User'],
+    endpoints: (builder) => ({
+      // Query endpoints (GET)
+      getPosts: builder.query({
+        query: () => '/posts',
+        providesTags: ['Post']
+      }),
+      
+      getPostById: builder.query({
+        query: (id) => `/posts/${id}`,
+        providesTags: (result, error, id) => [{ type: 'Post', id }]
+      }),
+      
+      // Mutation endpoints (POST, PUT, DELETE)
+      addPost: builder.mutation({
+        query: (newPost) => ({
+          url: '/posts',
+          method: 'POST',
+          body: newPost
+        }),
+        invalidatesTags: ['Post']
+      }),
+      
+      updatePost: builder.mutation({
+        query: ({ id, ...patch }) => ({
+          url: `/posts/${id}`,
+          method: 'PUT',
+          body: patch
+        }),
+        invalidatesTags: (result, error, { id }) => [{ type: 'Post', id }]
+      }),
+      
+      deletePost: builder.mutation({
+        query: (id) => ({
+          url: `/posts/${id}`,
+          method: 'DELETE'
+        }),
+        invalidatesTags: ['Post']
+      })
+    })
+  })
+  
+  // Export hooks
+  export const {
+    useGetPostsQuery,
+    useGetPostByIdQuery,
+    useAddPostMutation,
+    useUpdatePostMutation,
+    useDeletePostMutation
+  } = api
+  ```
+- 📦 Adding RTK Query to Store:
+  ```jsx
+  // store/store.js
+  import { configureStore } from '@reduxjs/toolkit'
+  import { api } from '../services/api'
+  
+  export const store = configureStore({
+    reducer: {
+      [api.reducerPath]: api.reducer
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(api.middleware)
+  })
+  ```
+- 📝 Using RTK Query Hooks:
+  ```jsx
+  // components/Posts.jsx
+  import { useGetPostsQuery, useAddPostMutation } from '../services/api'
+  
+  function Posts() {
+    const { data: posts, isLoading, isError, error, refetch } = useGetPostsQuery()
+    const [addPost, { isLoading: isAdding }] = useAddPostMutation()
+    
+    if (isLoading) return <div>Loading...</div>
+    if (isError) return <div>Error: {error.message}</div>
+    
+    const handleAddPost = async () => {
+      try {
+        await addPost({
+          title: 'New Post',
+          body: 'Content here'
+        }).unwrap()
+      } catch (err) {
+        console.error('Failed to add post:', err)
+      }
+    }
+    
+    return (
+      <div>
+        <button onClick={handleAddPost} disabled={isAdding}>
+          Add Post
+        </button>
+        <button onClick={refetch}>Refresh</button>
+        <ul>
+          {posts?.map(post => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  ```
+
+##### 10.11 🔄 Advanced RTK Query Features
+- 📝 Polling and Refetching:
+  ```jsx
+  // Poll every 5 seconds
+  const { data } = useGetPostsQuery(undefined, {
+    pollingInterval: 5000,
+    skip: !isLoggedIn,
+    refetchOnMountOrArgChange: true,
+    refetchOnFocus: true,
+    refetchOnReconnect: true
+  })
+  ```
+- 📝 Pagination:
+  ```jsx
+  export const api = createApi({
+    endpoints: (builder) => ({
+      getPaginatedPosts: builder.query({
+        query: (page = 1) => `/posts?_page=${page}&_limit=10`,
+        serializeQueryArgs: ({ endpointName }) => {
+          return endpointName
+        },
+        merge: (currentCache, newItems) => {
+          currentCache.push(...newItems)
+        },
+        forceRefetch({ currentArg, previousArg }) {
+          return currentArg !== previousArg
+        }
+      })
+    })
+  })
+  
+  // In component
+  function PostsList() {
+    const [page, setPage] = useState(1)
+    const { data, isFetching } = useGetPaginatedPostsQuery(page)
+    
+    return (
+      <div>
+        {data?.map(post => <Post key={post.id} post={post} />)}
+        <button 
+          onClick={() => setPage(prev => prev + 1)}
+          disabled={isFetching}
+        >
+          Load More
+        </button>
+      </div>
+    )
+  }
+  ```
+- 📝 Optimistic Updates:
+  ```jsx
+  const [updatePost] = useUpdatePostMutation()
+  
+  const handleUpdatePost = async (postId, newData) => {
+    try {
+      await updatePost({
+        id: postId,
+        ...newData
+      }).unwrap()
+    } catch (err) {
+      // Error handled by RTK Query
+    }
+  }
+  
+  // With optimistic update
+  const [updatePost] = useUpdatePostMutation({
+    optimisticUpdate: (state, { id, ...patch }) => {
+      const existing = state.posts.find(post => post.id === id)
+      if (existing) {
+        return { ...existing, ...patch }
+      }
+    }
+  })
+  ```
+
+##### 10.12 🛠️ Redux DevTools
+- 🔧 Installation:
+  - Chrome Extension: Redux DevTools
+- 📊 Features:
+  - Time-travel debugging
+  - State inspection
+  - Action history
+  - Diff between states
+  - Trace actions
+- 📝 Using DevTools:
+  ```jsx
+  // Automatically enabled with configureStore
+  export const store = configureStore({
+    reducer: rootReducer,
+    devTools: process.env.NODE_ENV !== 'production'
+  })
+  ```
+- 🔍 Inspecting State
+- 🔄 Replaying Actions
+- 🐛 Debugging with DevTools
+
+##### 10.13 🧪 Testing Redux
+- 📝 Testing Reducers:
+  ```jsx
+  // counterSlice.test.js
+  import counterReducer, { increment, decrement } from './counterSlice'
+  
+  describe('counter reducer', () => {
+    it('should handle initial state', () => {
+      expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
+        value: 0,
+        status: 'idle'
+      })
+    })
+    
+    it('should handle increment', () => {
+      const initialState = { value: 0, status: 'idle' }
+      const actual = counterReducer(initialState, increment())
+      expect(actual.value).toEqual(1)
+    })
+    
+    it('should handle decrement', () => {
+      const initialState = { value: 2, status: 'idle' }
+      const actual = counterReducer(initialState, decrement())
+      expect(actual.value).toEqual(1)
+    })
+  })
+  ```
+- 📝 Testing Async Thunks:
+  ```jsx
+  import configureStore from 'redux-mock-store'
+  import { thunk } from 'redux-thunk'
+  import { fetchUsers } from './usersSlice'
+  
+  const middlewares = [thunk]
+  const mockStore = configureStore(middlewares)
+  
+  describe('fetchUsers thunk', () => {
+    it('fetches users successfully', async () => {
+      const store = mockStore({ users: [] })
+      
+      await store.dispatch(fetchUsers())
+      
+      const actions = store.getActions()
+      expect(actions[0].type).toEqual('users/fetchUsers/pending')
+      expect(actions[1].type).toEqual('users/fetchUsers/fulfilled')
+    })
+  })
+  ```
+- 📝 Testing Components with Redux:
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import { Provider } from 'react-redux'
+  import configureStore from 'redux-mock-store'
+  import Counter from './Counter'
+  
+  const mockStore = configureStore([])
+  
+  test('renders counter value', () => {
+    const store = mockStore({
+      counter: { value: 5, status: 'idle' }
+    })
+    
+    render(
+      <Provider store={store}>
+        <Counter />
+      </Provider>
+    )
+    
+    expect(screen.getByText('Count: 5')).toBeInTheDocument()
+  })
+  ```
+
+##### 10.14 🚀 Advanced Patterns
+- 📝 Dynamic Reducer Injection:
+  ```jsx
+  // store/dynamicReducer.js
+  const createReducerManager = (initialReducers) => {
+    const reducers = { ...initialReducers }
+    let combinedReducer = combineReducers(reducers)
+    
+    return {
+      reduce: (state, action) => combinedReducer(state, action),
+      
+      add: (key, reducer) => {
+        if (!reducers[key]) {
+          reducers[key] = reducer
+          combinedReducer = combineReducers(reducers)
+        }
+      },
+      
+      remove: (key) => {
+        delete reducers[key]
+        combinedReducer = combineReducers(reducers)
+      }
+    }
+  }
+  ```
+- 📝 Middleware Creation:
+  ```jsx
+  // middleware/logger.js
+  const loggerMiddleware = (store) => (next) => (action) => {
+    console.log('dispatching', action)
+    const result = next(action)
+    console.log('next state', store.getState())
+    return result
+  }
+  
+  // Add to store
+  export const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(loggerMiddleware)
+  })
+  ```
+- 📝 Persisting State:
+  ```jsx
+  // store/store.js
+  import { saveState, loadState } from './localStorage'
+  
+  const persistedState = loadState()
+  
+  export const store = configureStore({
+    reducer: rootReducer,
+    preloadedState: persistedState
+  })
+  
+  store.subscribe(() => {
+    saveState({
+      cart: store.getState().cart,
+      user: store.getState().user
+    })
+  })
+  ```
+
+##### 10.15 ⚡ Performance Optimization
+- 📝 Selector Optimization:
+  ```jsx
+  // ❌ Bad - creates new reference each time
+  const items = useSelector(state => {
+    return state.cart.items.map(item => ({
+      ...item,
+      total: item.price * item.quantity
+    }))
+  })
+  
+  // ✅ Good - memoized selector
+  const selectItemsWithTotal = createSelector(
+    [(state) => state.cart.items],
+    (items) => items.map(item => ({
+      ...item,
+      total: item.price * item.quantity
+    }))
+  )
+  
+  const items = useSelector(selectItemsWithTotal)
+  ```
+- 📝 Component Optimization:
+  ```jsx
+  import { memo } from 'react'
+  
+  const ExpensiveComponent = memo(({ data }) => {
+    return <div>{data}</div>
+  })
+  ```
+- 📝 Normalized State Shape:
+  ```jsx
+  // ❌ Nested state (hard to update)
+  {
+    posts: [
+      {
+        id: 1,
+        comments: [
+          { id: 1, text: 'Great post!' }
+        ]
+      }
+    ]
+  }
+  
+  // ✅ Normalized state (easy to update)
+  {
+    posts: {
+      byId: {
+        1: { id: 1, title: 'Post' }
+      },
+      allIds: [1]
+    },
+    comments: {
+      byId: {
+        1: { id: 1, postId: 1, text: 'Great post!' }
+      },
+      allIds: [1]
+    }
+  }
+  ```
+
+##### 10.16 🏗️ Real-world Project Structure
+- 📁 Feature-based Organization:
+  ```
+  src/
+  ├── app/
+  │   ├── store.js
+  │   └── rootReducer.js
+  ├── features/
+  │   ├── auth/
+  │   │   ├── authSlice.js
+  │   │   ├── authAPI.js
+  │   │   ├── Login.jsx
+  │   │   └── Register.jsx
+  │   ├── posts/
+  │   │   ├── postsSlice.js
+  │   │   ├── postsAPI.js
+  │   │   ├── PostsList.jsx
+  │   │   └── PostDetail.jsx
+  │   └── users/
+  │       ├── usersSlice.js
+  │       ├── usersAPI.js
+  │       └── UserProfile.jsx
+  ├── utils/
+  │   └── selectors.js
+  └── index.js
+  ```
+- 📝 Example Root Store:
+  ```jsx
+  // app/store.js
+  import { configureStore } from '@reduxjs/toolkit'
+  import { api } from '../features/api'
+  import authReducer from '../features/auth/authSlice'
+  import postsReducer from '../features/posts/postsSlice'
+  import usersReducer from '../features/users/usersSlice'
+  
+  export const store = configureStore({
+    reducer: {
+      auth: authReducer,
+      posts: postsReducer,
+      users: usersReducer,
+      [api.reducerPath]: api.reducer
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: ['persist/PERSIST']
+        }
+      }).concat(api.middleware)
+  })
+  
+  // Infer types for TypeScript
+  export type RootState = ReturnType<typeof store.getState>
+  export type AppDispatch = typeof store.dispatch
+  ```
+
+##### 10.17 📚 Redux with TypeScript
+- 📝 Typed Hooks:
+  ```tsx
+  // app/hooks.ts
+  import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+  import type { RootState, AppDispatch } from './store'
+  
+  export const useAppDispatch = () => useDispatch<AppDispatch>()
+  export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+  ```
+- 📝 Typed Slice:
+  ```tsx
+  // features/counter/counterSlice.ts
+  import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+  
+  interface CounterState {
+    value: number
+    status: 'idle' | 'loading' | 'failed'
+  }
+  
+  const initialState: CounterState = {
+    value: 0,
+    status: 'idle'
+  }
+  
+  export const counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {
+      increment: (state) => {
+        state.value += 1
+      },
+      incrementByAmount: (state, action: PayloadAction<number>) => {
+        state.value += action.payload
+      }
+    }
+  })
+  
+  export const { increment, incrementByAmount } = counterSlice.actions
+  export default counterSlice.reducer
+  ```
+- 📝 Typed Async Thunk:
+  ```tsx
+  import { createAsyncThunk } from '@reduxjs/toolkit'
+  import axios from 'axios'
+  
+  interface User {
+    id: number
+    name: string
+    email: string
+  }
+  
+  export const fetchUsers = createAsyncThunk<User[]>(
+    'users/fetchUsers',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await axios.get<User[]>('/api/users')
+        return response.data
+      } catch (error) {
+        return rejectWithValue(error.response.data)
+      }
+    }
+  )
+  ```
+
+##### 10.18 🧩 Redux Ecosystem
+- 📦 Redux Persist:
+  ```bash
+  npm install redux-persist
+  ```
+  ```jsx
+  import { persistStore, persistReducer } from 'redux-persist'
+  import storage from 'redux-persist/lib/storage'
+  
+  const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['auth', 'cart'] // only these reducers persist
+  }
+  
+  const persistedReducer = persistReducer(persistConfig, rootReducer)
+  
+  export const store = configureStore({
+    reducer: persistedReducer
+  })
+  
+  export const persistor = persistStore(store)
+  ```
+- 📦 Redux Saga (alternative to thunk):
+  ```bash
+  npm install redux-saga
+  ```
+- 📦 Reselect (already included in RTK)
+- 📦 Redux Actions (utility)
+- 📦 Redux Form (legacy)
+
+##### 10.19 🚀 Migration from Context to Redux
+- 📝 When to Migrate:
+  - Growing complexity
+  - Performance issues
+  - Need for DevTools
+  - Team familiarity
+- 📝 Migration Strategy:
+  - Identify shared state
+  - Create slices gradually
+  - Replace Context with Redux
+  - Test thoroughly
+
+##### 10.20 💻 Practical Projects
+- 🏗️ Todo App with Redux Toolkit
+- 🛒 E-commerce Store with Cart
+- 🔐 Authentication System
+- 📝 Blog with Posts and Comments
+- 📊 Dashboard with Real-time Data
+- 🎮 Game Scoreboard
+- 💬 Chat Application
+- 📦 Inventory Management System
+- 👥 User Management Dashboard
+- 🏦 Banking Application
+- 📅 Event Scheduler
+- 🗳️ Voting/Polling System
+- 📚 Library Management
+- 🏪 Restaurant Ordering System
+- 💼 Project Management Tool
+
+---
+## 🎯 STAGE 11 — Fetch API & Axios (HTTP Requests)
+**Goal**: Master HTTP communication for building data-driven applications with modern APIs.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 11.1 🌐 Introduction to HTTP
+- 🤔 What is HTTP/HTTPS?
+- 📜 HTTP Request/Response Cycle:
+  ```http
+  GET /api/users HTTP/1.1
+  Host: example.com
+  Accept: application/json
+  Authorization: Bearer token123
+  ```
+- 📦 HTTP Methods (CRUD):
+  - `GET` - Retrieve data
+  - `POST` - Create new resource
+  - `PUT` - Update entire resource
+  - `PATCH` - Partial update
+  - `DELETE` - Remove resource
+- 📝 HTTP Status Codes:
+  - 1xx: Informational
+  - 2xx: Success (200 OK, 201 Created)
+  - 3xx: Redirection
+  - 4xx: Client Error (404 Not Found, 400 Bad Request)
+  - 5xx: Server Error (500 Internal Server Error)
+- 📋 HTTP Headers:
+  - Request Headers: `Content-Type`, `Authorization`, `Accept`
+  - Response Headers: `Cache-Control`, `Set-Cookie`
+
+##### 11.2 📡 Fetch API Basics
+- 📝 What is Fetch API?
+- 🔧 Basic GET Request:
+  ```javascript
+  fetch('https://api.example.com/users')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      return response.json()
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error))
+  ```
+- 📦 Response Object Properties:
+  - `response.status` - HTTP status code
+  - `response.ok` - true if status 200-299
+  - `response.headers` - Headers object
+  - `response.url` - Response URL
+  - `response.type` - basic, cors, error
+- 📥 Response Methods:
+  - `response.json()` - Parse JSON
+  - `response.text()` - Get as text
+  - `response.blob()` - Binary data
+  - `response.formData()` - Form data
+  - `response.arrayBuffer()` - Array buffer
+
+##### 11.3 📤 POST Requests with Fetch
+- 📝 Creating Resources:
+  ```javascript
+  const newUser = {
+    name: 'John Doe',
+    email: 'john@example.com',
+    role: 'user'
+  }
+  
+  fetch('https://api.example.com/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(newUser)
+  })
+    .then(response => response.json())
+    .then(data => console.log('Created:', data))
+    .catch(error => console.error('Error:', error))
+  ```
+- 📤 Form Data Submission:
+  ```javascript
+  const formData = new FormData()
+  formData.append('username', 'johndoe')
+  formData.append('avatar', fileInput.files[0])
+  
+  fetch('https://api.example.com/profile', {
+    method: 'POST',
+    body: formData // Don't set Content-Type, browser sets it with boundary
+  })
+    .then(response => response.json())
+    .then(data => console.log('Uploaded:', data))
+  ```
+
+##### 11.4 🔄 PUT, PATCH, DELETE
+- 📝 PUT Request (full update):
+  ```javascript
+  fetch('https://api.example.com/users/123', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'John Updated',
+      email: 'john.updated@example.com',
+      role: 'admin'
+    })
+  })
+  ```
+- 📝 PATCH Request (partial update):
+  ```javascript
+  fetch('https://api.example.com/users/123', {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'John Modified'  // Only update name
+    })
+  })
+  ```
+- 📝 DELETE Request:
+  ```javascript
+  fetch('https://api.example.com/users/123', {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (response.status === 204) {
+        console.log('User deleted successfully')
+      }
+    })
+  ```
+
+##### 11.5 🎯 Advanced Fetch Features
+- 📝 Request Object:
+  ```javascript
+  const request = new Request('https://api.example.com/users', {
+    method: 'GET',
+    headers: new Headers({
+      'Authorization': 'Bearer token123',
+      'X-Custom-Header': 'custom value'
+    }),
+    cache: 'no-cache',
+    credentials: 'include' // Send cookies
+  })
+  
+  fetch(request)
+    .then(response => response.json())
+    .then(data => console.log(data))
+  ```
+- 📝 Headers Object:
+  ```javascript
+  const headers = new Headers()
+  headers.append('Content-Type', 'application/json')
+  headers.append('Authorization', 'Bearer token123')
+  headers.has('Content-Type') // true
+  headers.get('Content-Type') // 'application/json'
+  headers.delete('Authorization')
+  ```
+- 🔄 AbortController (canceling requests):
+  ```javascript
+  const controller = new AbortController()
+  const signal = controller.signal
+  
+  setTimeout(() => controller.abort(), 5000) // Cancel after 5 seconds
+  
+  fetch('https://api.example.com/large-data', { signal })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => {
+      if (error.name === 'AbortError') {
+        console.log('Request was cancelled')
+      }
+    })
+  ```
+
+##### 11.6 🌐 Axios Introduction
+- 📦 What is Axios?
+- 🎯 Why Axios over Fetch:
+  - Automatic JSON transformation
+  - Request/response interceptors
+  - Better error handling
+  - Request cancellation
+  - Progress tracking
+  - Browser and Node.js support
+- 📥 Installation:
+  ```bash
+  npm install axios
+  # or
+  yarn add axios
+  ```
+- 📝 Basic GET Request:
+  ```javascript
+  import axios from 'axios'
+  
+  axios.get('https://api.example.com/users')
+    .then(response => {
+      console.log('Data:', response.data)
+      console.log('Status:', response.status)
+      console.log('Headers:', response.headers)
+    })
+    .catch(error => {
+      console.error('Error:', error.message)
+    })
+  ```
+
+##### 11.7 📤 Axios POST and Other Methods
+- 📝 POST Request:
+  ```javascript
+  axios.post('https://api.example.com/users', {
+    name: 'John Doe',
+    email: 'john@example.com'
+  }, {
+    headers: {
+      'Authorization': 'Bearer token123'
+    }
+  })
+    .then(response => console.log('Created:', response.data))
+    .catch(error => console.error('Error:', error))
+  ```
+- 📝 PUT/PATCH/DELETE:
+  ```javascript
+  // PUT
+  axios.put('https://api.example.com/users/123', {
+    name: 'John Updated',
+    email: 'john@example.com',
+    role: 'admin'
+  })
+  
+  // PATCH
+  axios.patch('https://api.example.com/users/123', {
+    name: 'John Modified'
+  })
+  
+  // DELETE
+  axios.delete('https://api.example.com/users/123')
+  ```
+- 📝 Multiple Requests:
+  ```javascript
+  Promise.all([
+    axios.get('/api/users'),
+    axios.get('/api/posts'),
+    axios.get('/api/comments')
+  ]).then(([users, posts, comments]) => {
+    console.log('Users:', users.data)
+    console.log('Posts:', posts.data)
+    console.log('Comments:', comments.data)
+  })
+  ```
+
+##### 11.8 ⚙️ Axios Configuration
+- 📝 Creating an Instance:
+  ```javascript
+  // services/api.js
+  import axios from 'axios'
+  
+  const api = axios.create({
+    baseURL: 'https://api.example.com',
+    timeout: 10000,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  
+  export default api
+  ```
+- 📝 Global Configuration:
+  ```javascript
+  axios.defaults.baseURL = 'https://api.example.com'
+  axios.defaults.headers.common['Authorization'] = 'Bearer token123'
+  axios.defaults.headers.post['Content-Type'] = 'application/json'
+  axios.defaults.timeout = 5000
+  ```
+
+##### 11.9 🔧 Axios Interceptors
+- 📝 Request Interceptors:
+  ```javascript
+  // Add token to every request
+  axios.interceptors.request.use(
+    config => {
+      const token = localStorage.getItem('token')
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
+      console.log('Request:', config)
+      return config
+    },
+    error => {
+      return Promise.reject(error)
+    }
+  )
+  ```
+- 📝 Response Interceptors:
+  ```javascript
+  // Handle responses globally
+  axios.interceptors.response.use(
+    response => {
+      // Any status code within 2xx
+      console.log('Response:', response)
+      return response
+    },
+    error => {
+      // Any status codes outside 2xx
+      if (error.response?.status === 401) {
+        // Unauthorized - redirect to login
+        window.location.href = '/login'
+      }
+      if (error.response?.status === 500) {
+        // Server error - show notification
+        toast.error('Server error. Please try again later.')
+      }
+      return Promise.reject(error)
+    }
+  )
+  ```
+- 📝 Removing Interceptors:
+  ```javascript
+  const myInterceptor = axios.interceptors.request.use(config => {
+    // ...
+  })
+  
+  axios.interceptors.request.eject(myInterceptor)
+  ```
+
+##### 11.10 🎯 Error Handling in Axios
+- 📝 Comprehensive Error Handling:
+  ```javascript
+  axios.get('/api/users/123')
+    .then(response => {
+      console.log('Success:', response.data)
+    })
+    .catch(error => {
+      if (error.response) {
+        // Server responded with error status
+        console.log('Error Data:', error.response.data)
+        console.log('Error Status:', error.response.status)
+        console.log('Error Headers:', error.response.headers)
+      } else if (error.request) {
+        // Request made but no response
+        console.log('No response received:', error.request)
+      } else {
+        // Something happened in setup
+        console.log('Error:', error.message)
+      }
+      console.log('Error Config:', error.config)
+    })
+  ```
+- 📝 Custom Error Class:
+  ```javascript
+  class APIError extends Error {
+    constructor(message, status, data) {
+      super(message)
+      this.name = 'APIError'
+      this.status = status
+      this.data = data
+    }
+  }
+  
+  axios.get('/api/users').catch(error => {
+    if (error.response) {
+      throw new APIError(
+        error.response.data.message,
+        error.response.status,
+        error.response.data
+      )
+    }
+    throw error
+  })
+  ```
+
+##### 11.11 🔄 Request Cancellation
+- 📝 Axios CancelToken (legacy):
+  ```javascript
+  const CancelToken = axios.CancelToken
+  let cancel
+  
+  axios.get('/api/large-data', {
+    cancelToken: new CancelToken(c => {
+      cancel = c
+    })
+  }).catch(error => {
+    if (axios.isCancel(error)) {
+      console.log('Request cancelled:', error.message)
+    }
+  })
+  
+  // Cancel the request
+  cancel('Operation cancelled by user')
+  ```
+- 📝 AbortController (modern):
+  ```javascript
+  const controller = new AbortController()
+  
+  axios.get('/api/large-data', {
+    signal: controller.signal
+  }).catch(error => {
+    if (error.name === 'CanceledError') {
+      console.log('Request cancelled')
+    }
+  })
+  
+  controller.abort()
+  ```
+
+##### 11.12 📊 Progress Tracking
+- 📝 Upload Progress:
+  ```javascript
+  axios.post('/api/upload', formData, {
+    onUploadProgress: progressEvent => {
+      const percentCompleted = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total
+      )
+      console.log(`Upload progress: ${percentCompleted}%`)
+      updateProgressBar(percentCompleted)
+    }
+  })
+  ```
+- 📝 Download Progress:
+  ```javascript
+  axios.get('/api/large-file', {
+    responseType: 'blob',
+    onDownloadProgress: progressEvent => {
+      const percentCompleted = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total
+      )
+      console.log(`Download progress: ${percentCompleted}%`)
+    }
+  })
+  ```
+
+##### 11.13 🔐 Authentication Patterns
+- 📝 JWT Authentication:
+  ```javascript
+  // Login
+  const login = async (email, password) => {
+    try {
+      const response = await axios.post('/api/auth/login', {
+        email,
+        password
+      })
+      
+      const { token, user } = response.data
+      localStorage.setItem('token', token)
+      
+      // Set default header for future requests
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      
+      return { success: true, user }
+    } catch (error) {
+      return { success: false, error: error.response?.data?.message }
+    }
+  }
+  
+  // Logout
+  const logout = () => {
+    localStorage.removeItem('token')
+    delete axios.defaults.headers.common['Authorization']
+  }
+  ```
+- 📝 Token Refresh:
+  ```javascript
+  let isRefreshing = false
+  let failedQueue = []
+  
+  const processQueue = (error, token = null) => {
+    failedQueue.forEach(prom => {
+      if (error) {
+        prom.reject(error)
+      } else {
+        prom.resolve(token)
+      }
+    })
+    failedQueue = []
+  }
+  
+  axios.interceptors.response.use(
+    response => response,
+    async error => {
+      const originalRequest = error.config
+      
+      if (error.response?.status === 401 && !originalRequest._retry) {
+        if (isRefreshing) {
+          return new Promise((resolve, reject) => {
+            failedQueue.push({ resolve, reject })
+          })
+            .then(token => {
+              originalRequest.headers['Authorization'] = `Bearer ${token}`
+              return axios(originalRequest)
+            })
+            .catch(err => Promise.reject(err))
+        }
+        
+        originalRequest._retry = true
+        isRefreshing = true
+        
+        try {
+          const refreshToken = localStorage.getItem('refreshToken')
+          const response = await axios.post('/api/auth/refresh', {
+            refreshToken
+          })
+          
+          const { token } = response.data
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+          
+          processQueue(null, token)
+          return axios(originalRequest)
+        } catch (refreshError) {
+          processQueue(refreshError, null)
+          // Redirect to login
+          window.location.href = '/login'
+          return Promise.reject(refreshError)
+        } finally {
+          isRefreshing = false
+        }
+      }
+      
+      return Promise.reject(error)
+    }
+  )
+  ```
+
+##### 11.14 🚀 React with Fetch/Axios
+- 📝 Custom useFetch Hook:
+  ```javascript
+  // hooks/useFetch.js
+  import { useState, useEffect } from 'react'
+  
+  function useFetch(url, options = {}) {
+    const [data, setData] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    
+    useEffect(() => {
+      const abortController = new AbortController()
+      
+      const fetchData = async () => {
+        try {
+          setLoading(true)
+          const response = await fetch(url, {
+            ...options,
+            signal: abortController.signal
+          })
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+          }
+          
+          const result = await response.json()
+          setData(result)
+          setError(null)
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            setError(err.message)
+          }
+        } finally {
+          setLoading(false)
+        }
+      }
+      
+      fetchData()
+      
+      return () => abortController.abort()
+    }, [url])
+    
+    return { data, loading, error }
+  }
+  
+  // Usage
+  function UsersList() {
+    const { data: users, loading, error } = useFetch('/api/users')
+    
+    if (loading) return <div>Loading...</div>
+    if (error) return <div>Error: {error}</div>
+    
+    return (
+      <ul>
+        {users?.map(user => <li key={user.id}>{user.name}</li>)}
+      </ul>
+    )
+  }
+  ```
+- 📝 Axios in React:
+  ```javascript
+  // services/userService.js
+  import api from './api'
+  
+  export const userService = {
+    getAll: () => api.get('/users'),
+    getById: (id) => api.get(`/users/${id}`),
+    create: (data) => api.post('/users', data),
+    update: (id, data) => api.put(`/users/${id}`, data),
+    delete: (id) => api.delete(`/users/${id}`),
+    updatePartial: (id, data) => api.patch(`/users/${id}`, data)
+  }
+  
+  // components/UserManager.jsx
+  import { useState, useEffect } from 'react'
+  import { userService } from '../services/userService'
+  
+  function UserManager() {
+    const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    
+    useEffect(() => {
+      loadUsers()
+    }, [])
+    
+    const loadUsers = async () => {
+      try {
+        setLoading(true)
+        const response = await userService.getAll()
+        setUsers(response.data)
+        setError(null)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    
+    const createUser = async (userData) => {
+      try {
+        const response = await userService.create(userData)
+        setUsers(prev => [...prev, response.data])
+        return { success: true }
+      } catch (err) {
+        return { success: false, error: err.message }
+      }
+    }
+    
+    const deleteUser = async (id) => {
+      try {
+        await userService.delete(id)
+        setUsers(prev => prev.filter(user => user.id !== id))
+        return { success: true }
+      } catch (err) {
+        return { success: false, error: err.message }
+      }
+    }
+    
+    if (loading) return <div>Loading...</div>
+    if (error) return <div>Error: {error}</div>
+    
+    return (
+      <div>
+        {/* User list UI */}
+      </div>
+    )
+  }
+  ```
+
+##### 11.15 📦 React Query (TanStack Query)
+- 📝 Introduction to React Query:
+  ```bash
+  npm install @tanstack/react-query
+  ```
+- 📝 Setup:
+  ```javascript
+  // App.jsx
+  import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+  import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+  
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        cacheTime: 10 * 60 * 1000, // 10 minutes
+        retry: 1,
+        refetchOnWindowFocus: false
+      }
+    }
+  })
+  
+  function App() {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <YourApp />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    )
+  }
+  ```
+- 📝 Basic Queries:
+  ```javascript
+  import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+  import { userService } from '../services/userService'
+  
+  function UsersList() {
+    const queryClient = useQueryClient()
+    
+    // Query
+    const { data: users, isLoading, error } = useQuery({
+      queryKey: ['users'],
+      queryFn: userService.getAll,
+      select: (response) => response.data
+    })
+    
+    // Mutation
+    const createMutation = useMutation({
+      mutationFn: userService.create,
+      onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries({ queryKey: ['users'] })
+        toast.success('User created successfully')
+      },
+      onError: (error) => {
+        toast.error(`Error: ${error.message}`)
+      }
+    })
+    
+    const deleteMutation = useMutation({
+      mutationFn: userService.delete,
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['users'] })
+        toast.success('User deleted successfully')
+      }
+    })
+    
+    if (isLoading) return <div>Loading...</div>
+    if (error) return <div>Error: {error.message}</div>
+    
+    return (
+      <div>
+        <button 
+          onClick={() => createMutation.mutate({ name: 'New User' })}
+          disabled={createMutation.isLoading}
+        >
+          Add User
+        </button>
+        
+        <ul>
+          {users?.map(user => (
+            <li key={user.id}>
+              {user.name}
+              <button onClick={() => deleteMutation.mutate(user.id)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  ```
+
+##### 11.16 🔄 Pagination and Infinite Scroll
+- 📝 Pagination with React Query:
+  ```javascript
+  function PaginatedUsers() {
+    const [page, setPage] = useState(1)
+    
+    const { data, isLoading } = useQuery({
+      queryKey: ['users', page],
+      queryFn: () => axios.get(`/api/users?page=${page}&limit=10`),
+      keepPreviousData: true
+    })
+    
+    return (
+      <div>
+        {data?.data.map(user => <UserCard key={user.id} user={user} />)}
+        
+        <div className="pagination">
+          <button
+            onClick={() => setPage(p => Math.max(1, p - 1))}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <span>Page {page}</span>
+          <button
+            onClick={() => setPage(p => p + 1)}
+            disabled={!data?.hasNextPage}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    )
+  }
+  ```
+- 📝 Infinite Scroll:
+  ```javascript
+  import { useInfiniteQuery } from '@tanstack/react-query'
+  
+  function InfiniteUsers() {
+    const {
+      data,
+      fetchNextPage,
+      hasNextPage,
+      isFetchingNextPage
+    } = useInfiniteQuery({
+      queryKey: ['users'],
+      queryFn: ({ pageParam = 1 }) => 
+        axios.get(`/api/users?page=${pageParam}&limit=10`),
+      getNextPageParam: (lastPage, allPages) => {
+        return lastPage.data.length ? allPages.length + 1 : undefined
+      }
+    })
+    
+    return (
+      <div>
+        {data?.pages.map(page => (
+          <React.Fragment key={page.page}>
+            {page.data.map(user => <UserCard key={user.id} user={user} />)}
+          </React.Fragment>
+        ))}
+        
+        <button
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          {isFetchingNextPage
+            ? 'Loading more...'
+            : hasNextPage
+            ? 'Load More'
+            : 'No more users'}
+        </button>
+      </div>
+    )
+  }
+  ```
+
+##### 11.17 🧪 Testing HTTP Requests
+- 📝 Mocking Fetch:
+  ```javascript
+  // users.test.js
+  import { render, screen, waitFor } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import UsersList from './UsersList'
+  
+  global.fetch = jest.fn()
+  
+  beforeEach(() => {
+    fetch.mockClear()
+  })
+  
+  test('loads and displays users', async () => {
+    const mockUsers = [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Jane' }
+    ]
+    
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockUsers
+    })
+    
+    render(<UsersList />)
+    
+    expect(screen.getByText('Loading...')).toBeInTheDocument()
+    
+    await waitFor(() => {
+      expect(screen.getByText('John')).toBeInTheDocument()
+      expect(screen.getByText('Jane')).toBeInTheDocument()
+    })
+    
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenCalledWith('/api/users')
+  })
+  
+  test('handles error', async () => {
+    fetch.mockRejectedValueOnce(new Error('Network error'))
+    
+    render(<UsersList />)
+    
+    await waitFor(() => {
+      expect(screen.getByText('Error: Network error')).toBeInTheDocument()
+    })
+  })
+  ```
+- 📝 Mocking Axios:
+  ```javascript
+  // users.test.js
+  import axios from 'axios'
+  import { render, screen, waitFor } from '@testing-library/react'
+  import UsersList from './UsersList'
+  
+  jest.mock('axios')
+  
+  test('fetches users successfully', async () => {
+    const mockUsers = { data: [{ id: 1, name: 'John' }] }
+    axios.get.mockResolvedValueOnce(mockUsers)
+    
+    render(<UsersList />)
+    
+    await waitFor(() => {
+      expect(screen.getByText('John')).toBeInTheDocument()
+    })
+    
+    expect(axios.get).toHaveBeenCalledWith('/api/users')
+  })
+  
+  test('handles error', async () => {
+    axios.get.mockRejectedValueOnce(new Error('Network error'))
+    
+    render(<UsersList />)
+    
+    await waitFor(() => {
+      expect(screen.getByText('Error: Network error')).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 11.18 🔒 Security Best Practices
+- 📝 HTTPS Only
+- 📝 Sanitize Input:
+  ```javascript
+  // Never trust user input directly
+  const searchUsers = async (query) => {
+    // Sanitize query
+    const sanitized = query.replace(/[<>]/g, '')
+    return axios.get(`/api/users?search=${encodeURIComponent(sanitized)}`)
+  }
+  ```
+- 📝 CSRF Protection:
+  ```javascript
+  // Get CSRF token from cookie/meta
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').content
+  
+  axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
+  ```
+- 📝 Rate Limiting:
+  ```javascript
+  // Implement request queuing/throttling
+  class RateLimiter {
+    constructor(maxRequests, perMilliseconds) {
+      this.maxRequests = maxRequests
+      this.perMilliseconds = perMilliseconds
+      this.queue = []
+      this.tokens = maxRequests
+      this.lastRefill = Date.now()
+    }
+    
+    async acquire() {
+      this.refill()
+      
+      if (this.tokens > 0) {
+        this.tokens--
+        return true
+      }
+      
+      // Wait for token
+      await new Promise(resolve => 
+        setTimeout(resolve, this.perMilliseconds / this.maxRequests)
+      )
+      return this.acquire()
+    }
+    
+    refill() {
+      const now = Date.now()
+      const timePassed = now - this.lastRefill
+      const refillTokens = Math.floor(
+        timePassed * (this.maxRequests / this.perMilliseconds)
+      )
+      
+      if (refillTokens > 0) {
+        this.tokens = Math.min(this.maxRequests, this.tokens + refillTokens)
+        this.lastRefill = now
+      }
+    }
+  }
+  ```
+
+##### 11.19 🚀 Performance Optimization
+- 📝 Request Caching:
+  ```javascript
+  // Simple cache implementation
+  const cache = new Map()
+  
+  async function fetchWithCache(url, ttl = 60000) {
+    const cached = cache.get(url)
+    if (cached && Date.now() - cached.timestamp < ttl) {
+      return cached.data
+    }
+    
+    const response = await fetch(url)
+    const data = await response.json()
+    
+    cache.set(url, {
+      data,
+      timestamp: Date.now()
+    })
+    
+    return data
+  }
+  ```
+- 📝 Debouncing Search:
+  ```javascript
+  import { debounce } from 'lodash'
+  
+  function SearchUsers() {
+    const [results, setResults] = useState([])
+    
+    const debouncedSearch = useMemo(
+      () => debounce(async (query) => {
+        if (query.length < 2) return
+        
+        const { data } = await axios.get(`/api/users?search=${query}`)
+        setResults(data)
+      }, 500),
+      []
+    )
+    
+    useEffect(() => {
+      return () => {
+        debouncedSearch.cancel()
+      }
+    }, [debouncedSearch])
+    
+    return (
+      <div>
+        <input
+          type="text"
+          onChange={(e) => debouncedSearch(e.target.value)}
+          placeholder="Search users..."
+        />
+        {/* Results */}
+      </div>
+    )
+  }
+  ```
+- 📝 Request Deduplication:
+  ```javascript
+  const pendingRequests = new Map()
+  
+  async function dedupedFetch(url) {
+    if (pendingRequests.has(url)) {
+      return pendingRequests.get(url)
+    }
+    
+    const promise = fetch(url).then(response => response.json())
+    pendingRequests.set(url, promise)
+    
+    try {
+      return await promise
+    } finally {
+      pendingRequests.delete(url)
+    }
+  }
+  ```
+
+##### 11.20 💻 Practical Projects
+- 🏗️ User Management Dashboard with CRUD
+- 📝 Blog Platform with Posts and Comments
+- 🌤️ Weather App with API Integration
+- 📰 News Aggregator with Multiple APIs
+- 🛒 E-commerce Store with Product API
+- 🔐 Authentication System (Login/Register)
+- 📊 Dashboard with Real-time Data
+- 💬 Chat Application with REST API
+- 📸 Image Gallery with Upload Feature
+- 🗺️ Map Application with Location API
+- 🎵 Music Player with API Integration
+- 📱 Movie Database (TMDB API)
+- 🍽️ Recipe Finder Application
+- 💪 Fitness Tracker with API
+- 📚 Library Management System
+- 🏦 Banking Dashboard with Transactions
+- 📅 Event Calendar with API
+- 🎮 Game Leaderboard
+- 📝 Note-Taking App with Cloud Sync
+- 👥 Social Media Dashboard
+
+---
