@@ -9079,3 +9079,1325 @@ Production    (16-19) ████████████░ 2 oy
 - ⚙️ Settings Panel
 
 ---
+
+## 🎯 STAGE 13 — Shadcn UI (Component Library)
+**Goal**: Master Shadcn UI for building beautiful, accessible, and customizable React applications.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 13.1 🎨 Introduction to Shadcn UI
+- 🤔 What is Shadcn UI?
+- 📜 Philosophy Behind Shadcn UI
+- 🎯 Key Features:
+  - Not a component library (it's a collection of reusable components)
+  - Copy-paste architecture
+  - Radix UI primitives
+  - Tailwind CSS styling
+  - Fully accessible
+  - Customizable themes
+- 🔄 Shadcn UI vs Other Libraries:
+  - vs Material UI
+  - vs Chakra UI
+  - vs Ant Design
+  - vs Bootstrap
+- 📦 Installation:
+  ```bash
+  npx shadcn-ui@latest init
+  ```
+
+##### 13.2 ⚙️ Project Setup and Configuration
+- 📝 Initializing Shadcn UI:
+  ```bash
+  # In your React/Vite project
+  npx shadcn-ui@latest init
+  
+  # You'll be prompted with options:
+  # Would you like to use TypeScript? Yes
+  # Which style would you like to use? Default
+  # Which color would you like to use? Slate
+  # Where is your global CSS file? src/index.css
+  # Where is your tailwind.config.js? tailwind.config.js
+  # Configure the import alias for components? @/components
+  # Configure the import alias for utils? @/lib/utils
+  ```
+- 📁 Project Structure:
+  ```
+  src/
+  ├── components/
+  │   ├── ui/           # shadcn components
+  │   │   ├── button.tsx
+  │   │   ├── card.tsx
+  │   │   └── ...
+  │   └── ...           # your components
+  ├── lib/
+  │   └── utils.ts      # utility functions
+  ├── hooks/            # custom hooks
+  └── styles/
+      └── globals.css   # Tailwind + shadcn styles
+  ```
+- 📝 components.json Configuration:
+  ```json
+  {
+    "$schema": "https://ui.shadcn.com/schema.json",
+    "style": "default",
+    "rsc": false,
+    "tsx": true,
+    "tailwind": {
+      "config": "tailwind.config.js",
+      "css": "src/index.css",
+      "baseColor": "slate",
+      "cssVariables": true
+    },
+    "aliases": {
+      "components": "@/components",
+      "utils": "@/lib/utils"
+    }
+  }
+  ```
+
+##### 13.3 🎯 Core Components - Button
+- 📝 Adding Button Component:
+  ```bash
+  npx shadcn-ui@latest add button
+  ```
+- 📝 Button Component Usage:
+  ```tsx
+  import { Button } from "@/components/ui/button"
+  
+  function App() {
+    return (
+      <div className="space-x-4">
+        {/* Variants */}
+        <Button>Default</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Link</Button>
+        
+        {/* Sizes */}
+        <Button size="sm">Small</Button>
+        <Button size="default">Default</Button>
+        <Button size="lg">Large</Button>
+        <Button size="icon">🔍</Button>
+        
+        {/* States */}
+        <Button disabled>Disabled</Button>
+        <Button loading>Loading...</Button>
+        
+        {/* With Icons */}
+        <Button>
+          <MailIcon className="mr-2 h-4 w-4" />
+          Login with Email
+        </Button>
+      </div>
+    )
+  }
+  ```
+- 📝 Button Component Code:
+  ```tsx
+  // components/ui/button.tsx
+  import * as React from "react"
+  import { Slot } from "@radix-ui/react-slot"
+  import { cva, type VariantProps } from "class-variance-authority"
+  import { cn } from "@/lib/utils"
+  
+  const buttonVariants = cva(
+    "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    {
+      variants: {
+        variant: {
+          default: "bg-primary text-primary-foreground hover:bg-primary/90",
+          destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          ghost: "hover:bg-accent hover:text-accent-foreground",
+          link: "text-primary underline-offset-4 hover:underline",
+        },
+        size: {
+          default: "h-10 px-4 py-2",
+          sm: "h-9 rounded-md px-3",
+          lg: "h-11 rounded-md px-8",
+          icon: "h-10 w-10",
+        },
+      },
+      defaultVariants: {
+        variant: "default",
+        size: "default",
+      },
+    }
+  )
+  
+  export interface ButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+      VariantProps<typeof buttonVariants> {
+    asChild?: boolean
+  }
+  
+  const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ className, variant, size, asChild = false, ...props }, ref) => {
+      const Comp = asChild ? Slot : "button"
+      return (
+        <Comp
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        />
+      )
+    }
+  )
+  Button.displayName = "Button"
+  
+  export { Button, buttonVariants }
+  ```
+
+##### 13.4 📦 Card Components
+- 📝 Adding Card Component:
+  ```bash
+  npx shadcn-ui@latest add card
+  ```
+- 📝 Card Component Usage:
+  ```tsx
+  import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+  } from "@/components/ui/card"
+  
+  function ProductCard({ product }) {
+    return (
+      <Card className="w-[350px]">
+        <CardHeader>
+          <CardTitle>{product.name}</CardTitle>
+          <CardDescription>
+            {product.description}
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent>
+          <div className="grid gap-4">
+            <div className="flex items-center space-x-4">
+              <span className="text-2xl font-bold">
+                ${product.price}
+              </span>
+              {product.inStock ? (
+                <span className="text-green-500">In Stock</span>
+              ) : (
+                <span className="text-red-500">Out of Stock</span>
+              )}
+            </div>
+            
+            <img 
+              src={product.image} 
+              alt={product.name}
+              className="rounded-md"
+            />
+          </div>
+        </CardContent>
+        
+        <CardFooter className="flex justify-between">
+          <Button variant="outline">Add to Wishlist</Button>
+          <Button>Add to Cart</Button>
+        </CardFooter>
+      </Card>
+    )
+  }
+  ```
+
+##### 13.5 📝 Form Components
+- 📝 Adding Form Components:
+  ```bash
+  npx shadcn-ui@latest add form
+  npx shadcn-ui@latest add input
+  npx shadcn-ui@latest add label
+  npx shadcn-ui@latest add textarea
+  npx shadcn-ui@latest add select
+  npx shadcn-ui@latest add checkbox
+  npx shadcn-ui@latest add radio-group
+  ```
+- 📝 Complete Form Example:
+  ```tsx
+  import { zodResolver } from "@hookform/resolvers/zod"
+  import { useForm } from "react-hook-form"
+  import * as z from "zod"
+  
+  import { Button } from "@/components/ui/button"
+  import {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+  } from "@/components/ui/form"
+  import { Input } from "@/components/ui/input"
+  import { Textarea } from "@/components/ui/textarea"
+  import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+  import { Checkbox } from "@/components/ui/checkbox"
+  import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+  
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: "Username must be at least 2 characters.",
+    }),
+    email: z.string().email({
+      message: "Please enter a valid email address.",
+    }),
+    bio: z.string().max(160, {
+      message: "Bio must not be longer than 160 characters.",
+    }),
+    role: z.string({
+      required_error: "Please select a role.",
+    }),
+    terms: z.boolean().refine(val => val === true, {
+      message: "You must accept the terms and conditions.",
+    }),
+    gender: z.string({
+      required_error: "Please select your gender.",
+    }),
+  })
+  
+  function ProfileForm() {
+    const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        username: "",
+        email: "",
+        bio: "",
+        terms: false,
+      },
+    })
+    
+    function onSubmit(values: z.infer<typeof formSchema>) {
+      console.log(values)
+    }
+    
+    return (
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          {/* Username Field */}
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input placeholder="johndoe" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your public display name.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          {/* Email Field */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="john@example.com" type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          {/* Bio Field */}
+          <FormField
+            control={form.control}
+            name="bio"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Bio</FormLabel>
+                <FormControl>
+                  <Textarea 
+                    placeholder="Tell us about yourself..."
+                    className="resize-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  You can <span>@mention</span> other users.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          {/* Select Field */}
+          <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Role</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="user">User</SelectItem>
+                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="moderator">Moderator</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          {/* Radio Group */}
+          <FormField
+            control={form.control}
+            name="gender"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>Gender</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className="flex flex-col space-y-1"
+                  >
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="male" />
+                      </FormControl>
+                      <FormLabel className="font-normal">Male</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="female" />
+                      </FormControl>
+                      <FormLabel className="font-normal">Female</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value="other" />
+                      </FormControl>
+                      <FormLabel className="font-normal">Other</FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          {/* Checkbox */}
+          <FormField
+            control={form.control}
+            name="terms"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <FormLabel>
+                    Accept terms and conditions
+                  </FormLabel>
+                  <FormDescription>
+                    You agree to our Terms of Service and Privacy Policy.
+                  </FormDescription>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
+    )
+  }
+  ```
+
+##### 13.6 🔔 Dialog and Modal Components
+- 📝 Adding Dialog:
+  ```bash
+  npx shadcn-ui@latest add dialog
+  ```
+- 📝 Dialog Usage:
+  ```tsx
+  import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+  
+  function ConfirmationDialog() {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline">Delete Account</Button>
+        </DialogTrigger>
+        
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Delete Account</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete your account? 
+              This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="py-4">
+            <p className="text-sm text-gray-500">
+              All your data will be permanently removed from our servers.
+            </p>
+          </div>
+          
+          <DialogFooter>
+            <Button variant="outline">Cancel</Button>
+            <Button variant="destructive">Delete Account</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    )
+  }
+  ```
+
+##### 13.7 🔔 Alert and Toast Components
+- 📝 Adding Alert and Toast:
+  ```bash
+  npx shadcn-ui@latest add alert
+  npx shadcn-ui@latest add toast
+  ```
+- 📝 Alert Component:
+  ```tsx
+  import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+  import { AlertCircle, CheckCircle2, Info, AlertTriangle } from "lucide-react"
+  
+  function AlertExamples() {
+    return (
+      <div className="space-y-4">
+        {/* Default Alert */}
+        <Alert>
+          <Info className="h-4 w-4" />
+          <AlertTitle>Information</AlertTitle>
+          <AlertDescription>
+            This is a default alert message.
+          </AlertDescription>
+        </Alert>
+        
+        {/* Success Alert */}
+        <Alert variant="success">
+          <CheckCircle2 className="h-4 w-4" />
+          <AlertTitle>Success</AlertTitle>
+          <AlertDescription>
+            Your changes have been saved successfully.
+          </AlertDescription>
+        </Alert>
+        
+        {/* Warning Alert */}
+        <Alert variant="warning">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>
+            Please review your information before submitting.
+          </AlertDescription>
+        </Alert>
+        
+        {/* Destructive Alert */}
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            There was an error processing your request.
+          </AlertDescription>
+        </Alert>
+      </div>
+    )
+  }
+  ```
+- 📝 Toast Notifications:
+  ```tsx
+  import { useToast } from "@/components/ui/use-toast"
+  import { ToastAction } from "@/components/ui/toast"
+  
+  function ToastDemo() {
+    const { toast } = useToast()
+    
+    const showToast = () => {
+      toast({
+        title: "Scheduled: Catch up",
+        description: "Friday, February 10, 2024 at 5:57 PM",
+        action: (
+          <ToastAction altText="Undo">Undo</ToastAction>
+        ),
+      })
+    }
+    
+    const showSuccessToast = () => {
+      toast({
+        title: "Success!",
+        description: "Your changes have been saved.",
+        variant: "success",
+      })
+    }
+    
+    const showErrorToast = () => {
+      toast({
+        title: "Error",
+        description: "Something went wrong.",
+        variant: "destructive",
+      })
+    }
+    
+    const showCustomToast = () => {
+      toast({
+        title: "Custom Toast",
+        description: "This toast has custom styling.",
+        duration: 5000, // 5 seconds
+        className: "bg-blue-500 text-white",
+      })
+    }
+    
+    return (
+      <div className="space-x-4">
+        <Button onClick={showToast}>Show Toast</Button>
+        <Button onClick={showSuccessToast}>Success</Button>
+        <Button onClick={showErrorToast}>Error</Button>
+        <Button onClick={showCustomToast}>Custom</Button>
+      </div>
+    )
+  }
+  ```
+
+##### 13.8 📊 Table and Data Display
+- 📝 Adding Table Components:
+  ```bash
+  npx shadcn-ui@latest add table
+  npx shadcn-ui@latest add badge
+  npx shadcn-ui@latest add avatar
+  ```
+- 📝 Data Table Example:
+  ```tsx
+  import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+  } from "@/components/ui/table"
+  import { Badge } from "@/components/ui/badge"
+  import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+  
+  const users = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      role: "Admin",
+      status: "active",
+      avatar: "/avatars/01.png",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      role: "User",
+      status: "inactive",
+      avatar: "/avatars/02.png",
+    },
+    // ...
+  ]
+  
+  function UsersTable() {
+    return (
+      <Table>
+        <TableCaption>A list of your users.</TableCaption>
+        
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">Avatar</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Role</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        
+        <TableBody>
+          {users.map((user) => (
+            <TableRow key={user.id}>
+              <TableCell>
+                <Avatar>
+                  <AvatarImage src={user.avatar} />
+                  <AvatarFallback>
+                    {user.name.split(' ').map(n => n[0]).join('')}
+                  </AvatarFallback>
+                </Avatar>
+              </TableCell>
+              <TableCell className="font-medium">{user.name}</TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>{user.role}</TableCell>
+              <TableCell>
+                <Badge variant={user.status === 'active' ? 'success' : 'secondary'}>
+                  {user.status}
+                </Badge>
+              </TableCell>
+              <TableCell className="text-right space-x-2">
+                <Button variant="ghost" size="sm">Edit</Button>
+                <Button variant="ghost" size="sm" className="text-red-500">
+                  Delete
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    )
+  }
+  ```
+
+##### 13.9 🧭 Navigation Components
+- 📝 Adding Navigation:
+  ```bash
+  npx shadcn-ui@latest add navigation-menu
+  npx shadcn-ui@latest add dropdown-menu
+  npx shadcn-ui@latest add tabs
+  ```
+- 📝 Navigation Menu:
+  ```tsx
+  import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+  } from "@/components/ui/navigation-menu"
+  
+  function MainNav() {
+    return (
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-4 w-[400px]">
+                <li>
+                  <NavigationMenuLink asChild>
+                    <a href="/docs" className="block p-3 hover:bg-accent rounded-lg">
+                      <div className="text-sm font-medium">Introduction</div>
+                      <p className="text-sm text-gray-500">
+                        Learn about the basics and get started.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+                <li>
+                  <NavigationMenuLink asChild>
+                    <a href="/installation" className="block p-3 hover:bg-accent rounded-lg">
+                      <div className="text-sm font-medium">Installation</div>
+                      <p className="text-sm text-gray-500">
+                        Install and configure your project.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                {components.map((component) => (
+                  <li key={component.title}>
+                    <NavigationMenuLink asChild>
+                      <a href={component.href} className="block p-3 hover:bg-accent rounded-lg">
+                        <div className="text-sm font-medium">{component.title}</div>
+                        <p className="text-sm text-gray-500">{component.description}</p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          
+          <NavigationMenuItem>
+            <a href="/docs">
+              <NavigationMenuLink className="px-3 py-2">
+                Documentation
+              </NavigationMenuLink>
+            </a>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    )
+  }
+  ```
+- 📝 Dropdown Menu:
+  ```tsx
+  import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+  
+  function UserMenu() {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+            <Avatar className="h-8 w-8">
+              <AvatarImage src="/avatars/user.png" alt="@username" />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+          </Button>
+        </DropdownMenuTrigger>
+        
+        <DropdownMenuContent className="w-56" align="end">
+          <DropdownMenuLabel className="font-normal">
+            <div className="flex flex-col space-y-1">
+              <p className="text-sm font-medium leading-none">John Doe</p>
+              <p className="text-xs leading-none text-muted-foreground">
+                john@example.com
+              </p>
+            </div>
+          </DropdownMenuLabel>
+          
+          <DropdownMenuSeparator />
+          
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              Profile
+              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              Settings
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+          
+          <DropdownMenuSeparator />
+          
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>Light</DropdownMenuItem>
+                <DropdownMenuItem>Dark</DropdownMenuItem>
+                <DropdownMenuItem>System</DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          
+          <DropdownMenuSeparator />
+          
+          <DropdownMenuItem className="text-red-500">
+            Log out
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
+  }
+  ```
+
+##### 13.10 📱 Responsive Layout Components
+- 📝 Adding Layout Components:
+  ```bash
+  npx shadcn-ui@latest add sheet
+  npx shadcn-ui@latest add separator
+  npx shadcn-ui@latest add aspect-ratio
+  ```
+- 📝 Mobile Navigation with Sheet:
+  ```tsx
+  import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+  } from "@/components/ui/sheet"
+  import { Menu } from "lucide-react"
+  
+  function MobileNav() {
+    return (
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <Menu className="h-5 w-5" />
+          </Button>
+        </SheetTrigger>
+        
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>Navigation Menu</SheetTitle>
+            <SheetDescription>
+              Browse through all sections
+            </SheetDescription>
+          </SheetHeader>
+          
+          <div className="py-4">
+            <nav className="flex flex-col space-y-4">
+              <a href="/" className="text-lg hover:text-primary">Home</a>
+              <a href="/about" className="text-lg hover:text-primary">About</a>
+              <a href="/services" className="text-lg hover:text-primary">Services</a>
+              <a href="/contact" className="text-lg hover:text-primary">Contact</a>
+            </nav>
+          </div>
+        </SheetContent>
+      </Sheet>
+    )
+  }
+  ```
+
+##### 13.11 🎯 Advanced Components
+- 📝 Adding Advanced Components:
+  ```bash
+  npx shadcn-ui@latest add calendar
+  npx shadcn-ui@latest add date-picker
+  npx shadcn-ui@latest add command
+  npx shadcn-ui@latest add popover
+  npx shadcn-ui@latest add tooltip
+  npx shadcn-ui@latest add hover-card
+  npx shadcn-ui@latest add progress
+  npx shadcn-ui@latest add slider
+  npx shadcn-ui@latest add switch
+  npx shadcn-ui@latest add tabs
+  ```
+- 📝 Date Picker with Calendar:
+  ```tsx
+  import { Calendar } from "@/components/ui/calendar"
+  import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover"
+  import { CalendarIcon } from "lucide-react"
+  import { format } from "date-fns"
+  
+  function DatePicker() {
+    const [date, setDate] = useState<Date>()
+    
+    return (
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            className={cn(
+              "w-[240px] justify-start text-left font-normal",
+              !date && "text-muted-foreground"
+            )}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {date ? format(date, "PPP") : <span>Pick a date</span>}
+          </Button>
+        </PopoverTrigger>
+        
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            initialFocus
+          />
+        </PopoverContent>
+      </Popover>
+    )
+  }
+  ```
+- 📝 Command Palette:
+  ```tsx
+  import {
+    Command,
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+  } from "@/components/ui/command"
+  
+  function CommandMenu() {
+    const [open, setOpen] = useState(false)
+    
+    useEffect(() => {
+      const down = (e: KeyboardEvent) => {
+        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault()
+          setOpen((open) => !open)
+        }
+      }
+      document.addEventListener("keydown", down)
+      return () => document.removeEventListener("keydown", down)
+    }, [])
+    
+    return (
+      <>
+        <Button
+          variant="outline"
+          className="relative w-full justify-start text-sm text-muted-foreground"
+          onClick={() => setOpen(true)}
+        >
+          <Search className="mr-2 h-4 w-4" />
+          Search...
+          <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </Button>
+        
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            
+            <CommandGroup heading="Suggestions">
+              <CommandItem>Calendar</CommandItem>
+              <CommandItem>Search Emails</CommandItem>
+              <CommandItem>Calculator</CommandItem>
+            </CommandGroup>
+            
+            <CommandSeparator />
+            
+            <CommandGroup heading="Settings">
+              <CommandItem>Profile</CommandItem>
+              <CommandItem>Billing</CommandItem>
+              <CommandItem>Settings</CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
+      </>
+    )
+  }
+  ```
+
+##### 13.12 🎨 Theming and Customization
+- 📝 Theme Configuration:
+  ```css
+  /* src/index.css */
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 222.2 84% 4.9%;
+      --radius: 0.5rem;
+    }
+  
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+    }
+  }
+  ```
+- 📝 Custom Theme Switcher:
+  ```tsx
+  import { Moon, Sun } from "lucide-react"
+  
+  import { Button } from "@/components/ui/button"
+  import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+  
+  function ModeToggle() {
+    const { setTheme } = useTheme()
+    
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" size="icon">
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+        </DropdownMenuTrigger>
+        
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onClick={() => setTheme("light")}>
+            Light
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("dark")}>
+            Dark
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("system")}>
+            System
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
+  }
+  ```
+
+##### 13.13 🚀 Building a Complete Dashboard
+- 📝 Dashboard Layout:
+  ```tsx
+  // app/dashboard/layout.tsx
+  import { Sidebar } from "@/components/sidebar"
+  import { Header } from "@/components/header"
+  
+  export default function DashboardLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }) {
+    return (
+      <div className="flex h-screen">
+        <Sidebar />
+        <div className="flex-1 flex flex-col">
+          <Header />
+          <main className="flex-1 overflow-y-auto p-6">
+            {children}
+          </main>
+        </div>
+      </div>
+    )
+  }
+  ```
+- 📝 Sidebar Component:
+  ```tsx
+  // components/sidebar.tsx
+  import { cn } from "@/lib/utils"
+  import {
+    Home,
+    Users,
+    Settings,
+    FileText,
+    BarChart,
+    CreditCard,
+  } from "lucide-react"
+  
+  const navItems = [
+    { icon: Home, label: "Dashboard", href: "/dashboard" },
+    { icon: Users, label: "Users", href: "/dashboard/users" },
+    { icon: FileText, label: "Posts", href: "/dashboard/posts" },
+    { icon: BarChart, label: "Analytics", href: "/dashboard/analytics" },
+    { icon: CreditCard, label: "Billing", href: "/dashboard/billing" },
+    { icon: Settings, label: "Settings", href: "/dashboard/settings" },
+  ]
+  
+  export function Sidebar() {
+    const pathname = usePathname()
+    
+    return (
+      <div className="w-64 border-r bg-card">
+        <div className="p-6">
+          <h2 className="text-lg font-semibold">Company Name</h2>
+        </div>
+        
+        <nav className="px-4 space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            const isActive = pathname === item.href
+            
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors",
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "hover:bg-muted"
+                )}
+              >
+                <Icon className="h-4 w-4" />
+                {item.label}
+              </Link>
+            )
+          })}
+        </nav>
+      </div>
+    )
+  }
+  ```
+
+##### 13.14 🧩 Custom Component Patterns
+- 📝 Composing Components:
+  ```tsx
+  // components/data-table.tsx
+  import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+  } from "@/components/ui/table"
+  import { Button } from "@/components/ui/button"
+  import { ChevronLeft, ChevronRight } from "lucide-react"
+  
+  interface DataTableProps<T> {
+    data: T[]
+    columns: {
+      key: keyof T
+      header: string
+      cell?: (item: T) => React.ReactNode
+    }[]
+    onPageChange?: (page: number) => void
+    currentPage?: number
+    totalPages?: number
+  }
+  
+  export function DataTable<T>({
+    data,
+    columns,
+    onPageChange,
+    currentPage,
+    totalPages,
+  }: DataTableProps<T>) {
+    return (
+      <div className="space-y-4">
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableHead key={column.key as string}>
+                    {column.header}
+                  </TableHead>
+                ))}
+              </TableRow>
+            </TableHeader>
+            
+            <TableBody>
+              {data.map((item, index) => (
+                <TableRow key={index}>
+                  {columns.map((column) => (
+                    <TableCell key={column.key as string}>
+                      {column.cell
+                        ? column.cell(item)
+                        : (item[column.key] as React.ReactNode)}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+        
+        {onPageChange && totalPages && (
+          <div className="flex items-center justify-end space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onPageChange(currentPage! - 1)}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <span className="text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+            
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onPageChange(currentPage! + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
+      </div>
+    )
+  }
+  ```
+
+##### 13.15 💻 Practical Projects
+- 🏗️ Admin Dashboard with Charts
+- 📝 Blog Platform with Rich Text
+- 🛒 E-commerce Storefront
+- 🔐 Authentication Pages (Login/Register)
+- 📊 Analytics Dashboard
+- 👥 User Management System
+- 📅 Event Calendar Application
+- 💬 Chat Application UI
+- 📁 File Manager Interface
+- 🎨 Portfolio Website
+- 📚 Documentation Site
+- 🏪 Restaurant Ordering UI
+- 🎮 Game Dashboard
+- 💼 Project Management Tool
+- 📱 Mobile Responsive App
+
+---
