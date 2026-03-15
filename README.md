@@ -4281,5 +4281,1712 @@ Production    (16-19) ████████████░ 2 oy
 - 💪 Fitness Tracker
 - 🎵 Music Player
 - 📝 Form Builder Application
+---
+
+## 🎯 STAGE 8 — React Router (Navigation)
+**Goal**: Master client-side routing for single-page applications with React Router.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 8.1 🧭 Introduction to Routing
+- 🤔 What is Routing in SPAs?
+- 📜 Traditional Multi-Page Apps vs SPAs
+- 🎯 Why React Router?
+- 🔄 How Client-Side Routing Works
+- 📦 History API (pushState, replaceState)
+- 🌐 React Router Versions (v6 is current)
+
+##### 8.2 📦 Installation and Setup
+- 📥 Installing React Router:
+  ```bash
+  npm install react-router-dom
+  # or
+  yarn add react-router-dom
+  ```
+- 🔧 Basic Setup:
+  ```jsx
+  import { BrowserRouter } from 'react-router-dom'
+  
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
+  ```
+- 🏗️ Router Types:
+  - `BrowserRouter` (clean URLs: /about)
+  - `HashRouter` (hash URLs: #/about)
+  - `MemoryRouter` (for testing)
+  - `StaticRouter` (for SSR)
+  - `NativeRouter` (React Native)
+
+##### 8.3 📝 Basic Routing
+- 🔀 Routes and Route Components:
+  ```jsx
+  import { Routes, Route } from 'react-router-dom'
+  
+  function App() {
+    return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    )
+  }
+  ```
+- 🎯 Route Matching Logic
+- 📍 Index Routes:
+  ```jsx
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+    </Route>
+  </Routes>
+  ```
+- 🔄 Not Found (404) Route:
+  ```jsx
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+  ```
+
+##### 8.4 🔗 Navigation Links
+- 📝 Link Component:
+  ```jsx
+  import { Link } from 'react-router-dom'
+  
+  function Navbar() {
+    return (
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+      </nav>
+    )
+  }
+  ```
+- 🎨 NavLink (active styling):
+  ```jsx
+  import { NavLink } from 'react-router-dom'
+  
+  function Navbar() {
+    return (
+      <nav>
+        <NavLink 
+          to="/"
+          className={({ isActive }) => isActive ? 'active' : ''}
+          style={({ isActive }) => ({
+            fontWeight: isActive ? 'bold' : 'normal'
+          })}
+        >
+          Home
+        </NavLink>
+      </nav>
+    )
+  }
+  ```
+- 🔄 Navigate Component (programmatic):
+  ```jsx
+  import { Navigate } from 'react-router-dom'
+  
+  function ProtectedRoute({ isAuthenticated, children }) {
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />
+    }
+    return children
+  }
+  ```
+- ⚡ useNavigate Hook:
+  ```jsx
+  import { useNavigate } from 'react-router-dom'
+  
+  function LoginButton() {
+    const navigate = useNavigate()
+    
+    const handleLogin = async () => {
+      await login()
+      navigate('/dashboard', { replace: true })
+    }
+    
+    return <button onClick={handleLogin}>Login</button>
+  }
+  ```
+
+##### 8.5 📦 Nested Routes
+- 🏗️ Layout Routes:
+  ```jsx
+  import { Outlet } from 'react-router-dom'
+  
+  function Layout() {
+    return (
+      <div>
+        <header>Header</header>
+        <main>
+          <Outlet /> {/* Child routes render here */}
+        </main>
+        <footer>Footer</footer>
+      </div>
+    )
+  }
+  
+  function App() {
+    return (
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+        </Route>
+      </Routes>
+    )
+  }
+  ```
+- 📂 Relative Links in Nested Routes:
+  ```jsx
+  function Dashboard() {
+    return (
+      <div>
+        <nav>
+          <Link to="profile">Profile</Link> {/* /dashboard/profile */}
+          <Link to="settings">Settings</Link> {/* /dashboard/settings */}
+        </nav>
+        <Outlet />
+      </div>
+    )
+  }
+  ```
+- 🎯 Outlet Context (passing data to children)
+
+##### 8.6 🔢 Route Parameters
+- 📝 Dynamic Segments:
+  ```jsx
+  <Route path="/users/:userId" element={<UserProfile />} />
+  <Route path="/products/:category/:id" element={<ProductDetail />} />
+  ```
+- 📥 useParams Hook:
+  ```jsx
+  import { useParams } from 'react-router-dom'
+  
+  function UserProfile() {
+    const { userId } = useParams()
+    
+    // Fetch user data with userId
+    return <div>User ID: {userId}</div>
+  }
+  ```
+- 🔍 Optional Parameters:
+  ```jsx
+  <Route path="/products/:category?/:id?" element={<Products />} />
+  ```
+- 🎯 Catch-All Parameters (splat):
+  ```jsx
+  <Route path="/files/*" element={<Files />} />
+  
+  function Files() {
+    const { '*' : filePath } = useParams()
+    // filePath = "documents/report.pdf"
+    return <div>File: {filePath}</div>
+  }
+  ```
+
+##### 8.7 🔍 Query Parameters
+- 📝 useSearchParams Hook:
+  ```jsx
+  import { useSearchParams } from 'react-router-dom'
+  
+  function SearchPage() {
+    const [searchParams, setSearchParams] = useSearchParams()
+    
+    const query = searchParams.get('q') || ''
+    const page = parseInt(searchParams.get('page')) || 1
+    
+    const updateQuery = (newQuery) => {
+      setSearchParams({ q: newQuery, page: 1 })
+    }
+    
+    return (
+      <div>
+        <input 
+          value={query}
+          onChange={(e) => updateQuery(e.target.value)}
+        />
+        <div>Page: {page}</div>
+      </div>
+    )
+  }
+  ```
+- 🔄 Working with Multiple Params:
+  ```jsx
+  function FilterPage() {
+    const [searchParams, setSearchParams] = useSearchParams()
+    
+    const filters = {
+      category: searchParams.get('category') || '',
+      minPrice: searchParams.get('minPrice') || '',
+      maxPrice: searchParams.get('maxPrice') || '',
+      sort: searchParams.get('sort') || 'newest'
+    }
+    
+    const updateFilter = (key, value) => {
+      const newParams = new URLSearchParams(searchParams)
+      if (value) {
+        newParams.set(key, value)
+      } else {
+        newParams.delete(key)
+      }
+      setSearchParams(newParams)
+    }
+    
+    return (
+      <div>
+        <select 
+          value={filters.category}
+          onChange={(e) => updateFilter('category', e.target.value)}
+        >
+          <option value="">All Categories</option>
+          <option value="electronics">Electronics</option>
+        </select>
+      </div>
+    )
+  }
+  ```
+- 📦 URLSearchParams Methods:
+  - `get()`, `set()`, `delete()`
+  - `append()`, `has()`
+  - `toString()`, `entries()`
+
+##### 8.8 🎯 Programmatic Navigation
+- 📝 useNavigate Hook (detailed):
+  ```jsx
+  import { useNavigate } from 'react-router-dom'
+  
+  function NavigationButtons() {
+    const navigate = useNavigate()
+    
+    return (
+      <div>
+        <button onClick={() => navigate('/')}>
+          Go Home
+        </button>
+        
+        <button onClick={() => navigate(-1)}>
+          Go Back
+        </button>
+        
+        <button onClick={() => navigate(1)}>
+          Go Forward
+        </button>
+        
+        <button onClick={() => navigate('/dashboard', { 
+          replace: true,  // Replace history entry
+          state: { from: 'home' }  // Pass state
+        })}>
+          Go to Dashboard (Replace)
+        </button>
+        
+        <button onClick={() => navigate('/settings', {
+          state: { userId: 123 }
+        })}>
+          Settings
+        </button>
+      </div>
+    )
+  }
+  ```
+- 📥 Accessing Navigation State:
+  ```jsx
+  import { useLocation } from 'react-router-dom'
+  
+  function Settings() {
+    const location = useLocation()
+    const state = location.state
+    // { userId: 123 }
+    
+    return <div>User ID: {state?.userId}</div>
+  }
+  ```
+
+##### 8.9 📍 useLocation Hook
+- 📝 Getting Current Location:
+  ```jsx
+  import { useLocation } from 'react-router-dom'
+  
+  function CurrentRoute() {
+    const location = useLocation()
+    
+    return (
+      <div>
+        <p>Pathname: {location.pathname}</p>
+        <p>Search: {location.search}</p>
+        <p>Hash: {location.hash}</p>
+        <p>State: {JSON.stringify(location.state)}</p>
+        <p>Key: {location.key}</p>
+      </div>
+    )
+  }
+  ```
+- 🔄 Tracking Page Views:
+  ```jsx
+  useEffect(() => {
+    // Send page view to analytics
+    analytics.page(location.pathname)
+  }, [location])
+  ```
+
+##### 8.10 🔧 useRoutes Hook (Config-based Routing)
+- 📝 Route Configuration:
+  ```jsx
+  import { useRoutes } from 'react-router-dom'
+  
+  const routes = [
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: 'about', element: <About /> },
+        { 
+          path: 'dashboard',
+          element: <Dashboard />,
+          children: [
+            { path: 'profile', element: <Profile /> },
+            { path: 'settings', element: <Settings /> }
+          ]
+        },
+        { path: 'users/:id', element: <UserProfile /> }
+      ]
+    },
+    { path: '*', element: <NotFound /> }
+  ]
+  
+  function App() {
+    const element = useRoutes(routes)
+    return element
+  }
+  ```
+- 🎯 Benefits of Config-based Routing:
+  - Centralized route definitions
+  - Easier to manage in large apps
+  - Can be serialized/loaded dynamically
+
+##### 8.11 🔒 Protected Routes
+- 📝 Authentication Guard:
+  ```jsx
+  function ProtectedRoute({ children }) {
+    const { user } = useAuth()
+    const location = useLocation()
+    
+    if (!user) {
+      // Save the location they tried to go to
+      return <Navigate to="/login" state={{ from: location }} replace />
+    }
+    
+    return children
+  }
+  
+  // Usage
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/login" element={<Login />} />
+    <Route
+      path="/dashboard/*"
+      element={
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      }
+    />
+  </Routes>
+  ```
+- 🔄 Redirect After Login:
+  ```jsx
+  function Login() {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      await login()
+      navigate(from, { replace: true })
+    }
+    
+    return <form onSubmit={handleSubmit}>...</form>
+  }
+  ```
+- 🎯 Role-Based Access:
+  ```jsx
+  function RoleBasedRoute({ children, allowedRoles }) {
+    const { user } = useAuth()
+    
+    if (!user) return <Navigate to="/login" />
+    if (!allowedRoles.includes(user.role)) {
+      return <Navigate to="/unauthorized" />
+    }
+    
+    return children
+  }
+  ```
+
+##### 8.12 🔄 Route Transitions and Animations
+- 📝 Animated Routes:
+  ```jsx
+  import { useLocation } from 'react-router-dom'
+  import { TransitionGroup, CSSTransition } from 'react-transition-group'
+  
+  function AnimatedRoutes() {
+    const location = useLocation()
+    
+    return (
+      <TransitionGroup>
+        <CSSTransition
+          key={location.key}
+          classNames="fade"
+          timeout={300}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    )
+  }
+  ```
+- 🎨 CSS Animations:
+  ```css
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  ```
+- 🔄 Page Transition Libraries:
+  - Framer Motion
+  - React Spring
+  - React Router Animations
+
+##### 8.13 📦 Lazy Loading Routes
+- 📝 Code Splitting with React.lazy:
+  ```jsx
+  import { lazy, Suspense } from 'react'
+  
+  const Home = lazy(() => import('./pages/Home'))
+  const About = lazy(() => import('./pages/About'))
+  const Dashboard = lazy(() => import('./pages/Dashboard'))
+  
+  function App() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+        </Routes>
+      </Suspense>
+    )
+  }
+  ```
+- 🎯 Route-based Code Splitting:
+  ```jsx
+  const UserRoutes = lazy(() => import('./routes/UserRoutes'))
+  const AdminRoutes = lazy(() => import('./routes/AdminRoutes'))
+  
+  function App() {
+    const { user } = useAuth()
+    
+    return (
+      <Suspense fallback={<Loading />}>
+        {user?.role === 'admin' ? <AdminRoutes /> : <UserRoutes />}
+      </Suspense>
+    )
+  }
+  ```
+- ⚡ Prefetching Routes:
+  ```jsx
+  import { usePrefetch } from 'react-router-dom'
+  
+  function NavLink({ to, children }) {
+    const prefetch = usePrefetch()
+    
+    return (
+      <Link 
+        to={to}
+        onMouseEnter={() => prefetch(to)}
+        onFocus={() => prefetch(to)}
+      >
+        {children}
+      </Link>
+    )
+  }
+  ```
+
+##### 8.14 🔧 Custom Route Components
+- 📝 Scroll Restoration:
+  ```jsx
+  function ScrollToTop() {
+    const { pathname } = useLocation()
+    
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [pathname])
+    
+    return null
+  }
+  
+  // Usage in App
+  function App() {
+    return (
+      <>
+        <ScrollToTop />
+        <Routes>...</Routes>
+      </>
+    )
+  }
+  ```
+- 📝 Route Change Tracker:
+  ```jsx
+  function RouteTracker() {
+    const location = useLocation()
+    
+    useEffect(() => {
+      // Track route change
+      console.log('Route changed:', location.pathname)
+    }, [location])
+    
+    return null
+  }
+  ```
+- 🎯 Route Guard Component:
+  ```jsx
+  function RouteGuard({ children, guard, fallback }) {
+    const location = useLocation()
+    const [isAllowed, setIsAllowed] = useState(false)
+    const [isChecking, setIsChecking] = useState(true)
+    
+    useEffect(() => {
+      const checkGuard = async () => {
+        const allowed = await guard(location)
+        setIsAllowed(allowed)
+        setIsChecking(false)
+      }
+      
+      checkGuard()
+    }, [location, guard])
+    
+    if (isChecking) return <Loading />
+    return isAllowed ? children : fallback
+  }
+  ```
+
+##### 8.15 🔗 Link Component Advanced
+- 📝 `replace` Prop:
+  ```jsx
+  <Link to="/dashboard" replace>
+    Dashboard (replace current history)
+  </Link>
+  ```
+- 📦 `state` Prop:
+  ```jsx
+  <Link 
+    to="/profile"
+    state={{ fromNotification: true, userId: 123 }}
+  >
+    View Profile
+  </Link>
+  ```
+- 🔄 `reloadDocument` (full page reload):
+  ```jsx
+  <Link to="/download" reloadDocument>
+    Download (full page reload)
+  </Link>
+  ```
+- 🎯 `preventScrollReset`:
+  ```jsx
+  <Link to="/modal" preventScrollReset>
+    Open Modal (don't scroll to top)
+  </Link>
+  ```
+
+##### 8.16 📚 useMatch and useResolvedPath
+- 📝 useMatch Hook:
+  ```jsx
+  import { useMatch } from 'react-router-dom'
+  
+  function NavLinkWithPattern({ to, children }) {
+    const match = useMatch(to)
+    
+    return (
+      <Link 
+        to={to}
+        className={match ? 'active' : ''}
+      >
+        {children}
+      </Link>
+    )
+  }
+  ```
+- 📝 useResolvedPath:
+  ```jsx
+  import { useResolvedPath } from 'react-router-dom'
+  
+  function RelativeLink({ to, children }) {
+    const resolvedPath = useResolvedPath(to)
+    
+    return (
+      <Link to={to}>
+        {children} (resolves to: {resolvedPath.pathname})
+      </Link>
+    )
+  }
+  ```
+
+##### 8.17 🔄 React Router v6 Features
+- 🆕 Relative Routes and Links
+- 🆕 Automatic Route Ranking
+- 🆕 Nested Routes with Outlet
+- 🆕 useNavigate instead of useHistory
+- 🆕 element prop instead of component/render
+- 🆕 No more Switch (replaced with Routes)
+- 🆕 useRoutes hook for config
+
+##### 8.18 🧪 Testing React Router
+- 📝 Testing with MemoryRouter:
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import { MemoryRouter } from 'react-router-dom'
+  import userEvent from '@testing-library/user-event'
+  import App from './App'
+  
+  test('navigates to about page', async () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    )
+    
+    expect(screen.getByText('Home Page')).toBeInTheDocument()
+    
+    await userEvent.click(screen.getByText('About'))
+    
+    expect(screen.getByText('About Page')).toBeInTheDocument()
+  })
+  
+  test('handles not found routes', () => {
+    render(
+      <MemoryRouter initialEntries={['/unknown']}>
+        <App />
+      </MemoryRouter>
+    )
+    
+    expect(screen.getByText('404 - Not Found')).toBeInTheDocument()
+  })
+  ```
+- 📝 Testing Route Parameters:
+  ```jsx
+  test('displays user id from params', () => {
+    render(
+      <MemoryRouter initialEntries={['/users/123']}>
+        <Routes>
+          <Route path="/users/:id" element={<UserProfile />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    
+    expect(screen.getByText('User ID: 123')).toBeInTheDocument()
+  })
+  ```
+
+##### 8.19 🚀 Advanced Patterns
+- 📝 Modal Routes:
+  ```jsx
+  function App() {
+    const location = useLocation()
+    const state = location.state
+    
+    return (
+      <>
+        <Routes location={state?.backgroundLocation || location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+        
+        {/* Show modal if background location exists */}
+        {state?.backgroundLocation && (
+          <Routes>
+            <Route path="/img/:id" element={<Modal />} />
+          </Routes>
+        )}
+      </>
+    )
+  }
+  
+  // Open modal
+  <Link 
+    to="/img/1"
+    state={{ backgroundLocation: location }}
+  >
+    View Image
+  </Link>
+  ```
+- 📝 Breadcrumbs:
+  ```jsx
+  function Breadcrumbs() {
+    const location = useLocation()
+    const pathnames = location.pathname.split('/').filter(x => x)
+    
+    return (
+      <nav>
+        <Link to="/">Home</Link>
+        {pathnames.map((name, index) => {
+          const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`
+          const isLast = index === pathnames.length - 1
+          
+          return (
+            <span key={name}>
+              <span> / </span>
+              {isLast ? (
+                <span>{name}</span>
+              ) : (
+                <Link to={routeTo}>{name}</Link>
+              )}
+            </span>
+          )
+        })}
+      </nav>
+    )
+  }
+  ```
+
+##### 8.20 💻 Practical Projects
+- 🏗️ Multi-page Website with Navigation
+- 📝 Blog with Dynamic Routes
+- 🛒 E-commerce with Product Pages
+- 🔐 Authentication Flow (login/protected routes)
+- 📊 Dashboard with Nested Routes
+- 🖼️ Image Gallery with Modal Routes
+- 📚 Recipe App with Categories
+- 👤 User Profile Pages
+- 🛍️ Shopping Cart with Checkout Flow
+- 📱 Mobile App-like Navigation
+- 🗂️ File Explorer with Nested Routes
+- 📰 News Site with Article Pages
+- 🎮 Game with Different Levels
+- 💼 Portfolio with Project Pages
+- 📅 Event Calendar with Date Routes
+
+---
+
+## 🎯 STAGE 9 — Context API (State Management)
+**Goal**: Master React's built-in state management solution for medium-complexity applications.
+**Time**: 15 soat | 8 dars
+
+#### 📚 Topics
+
+##### 9.1 📦 Introduction to Context API
+- 🤔 What is Context API?
+- 🎯 Why Context? (Prop Drilling Problem)
+- 📜 Before Context (Prop Drilling Example):
+  ```jsx
+  function App() {
+    const [user, setUser] = useState({ name: 'John' })
+    
+    return (
+      <div>
+        <Header user={user} />
+        <Main user={user} />
+        <Footer user={user} />
+      </div>
+    )
+  }
+  
+  function Header({ user }) {
+    return <header><UserAvatar user={user} /></header>
+  }
+  
+  function UserAvatar({ user }) {
+    return <img src={user.avatar} alt={user.name} />
+  }
+  // user prop passed through multiple levels!
+  ```
+- 🔄 Context vs Props
+- 📦 When to Use Context:
+  - Theme (light/dark mode)
+  - User authentication
+  - Language/locale
+  - Global settings
+  - UI state (modals, toasts)
+
+##### 9.2 🏗️ Creating and Providing Context
+- 📝 createContext:
+  ```jsx
+  import { createContext } from 'react'
+  
+  const ThemeContext = createContext(null)
+  // or with default value
+  const ThemeContext = createContext('light')
+  ```
+- 📦 Context Provider:
+  ```jsx
+  function App() {
+    const [theme, setTheme] = useState('light')
+    
+    return (
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <Header />
+        <Main />
+        <Footer />
+      </ThemeContext.Provider>
+    )
+  }
+  ```
+- 🎯 Multiple Providers:
+  ```jsx
+  function App() {
+    return (
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <AuthContext.Provider value={{ user, login, logout }}>
+          <LanguageContext.Provider value={{ language, setLanguage }}>
+            <Main />
+          </LanguageContext.Provider>
+        </AuthContext.Provider>
+      </ThemeContext.Provider>
+    )
+  }
+  ```
+
+##### 9.3 📥 Consuming Context
+- 📝 useContext Hook:
+  ```jsx
+  import { useContext } from 'react'
+  
+  function ThemedButton() {
+    const { theme, setTheme } = useContext(ThemeContext)
+    
+    return (
+      <button
+        className={`btn-${theme}`}
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      >
+        Current theme: {theme}
+      </button>
+    )
+  }
+  ```
+- 📦 Context.Consumer (legacy):
+  ```jsx
+  <ThemeContext.Consumer>
+    {({ theme, setTheme }) => (
+      <button className={`btn-${theme}`}>
+        Theme: {theme}
+      </button>
+    )}
+  </ThemeContext.Consumer>
+  ```
+- 🎯 Multiple Contexts:
+  ```jsx
+  function Toolbar() {
+    const { theme } = useContext(ThemeContext)
+    const { user } = useContext(AuthContext)
+    const { language } = useContext(LanguageContext)
+    
+    return (
+      <div className={`toolbar-${theme}`}>
+        <p>User: {user?.name}</p>
+        <p>Language: {language}</p>
+      </div>
+    )
+  }
+  ```
+
+##### 9.4 🎨 Theme Context Example
+- 📝 Complete Theme Implementation:
+  ```jsx
+  // contexts/ThemeContext.jsx
+  import { createContext, useState, useContext } from 'react'
+  
+  const ThemeContext = createContext()
+  
+  export function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState(() => {
+      // Load from localStorage
+      const saved = localStorage.getItem('theme')
+      return saved || 'light'
+    })
+    
+    const toggleTheme = () => {
+      setTheme(prev => {
+        const newTheme = prev === 'light' ? 'dark' : 'light'
+        localStorage.setItem('theme', newTheme)
+        return newTheme
+      })
+    }
+    
+    return (
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    )
+  }
+  
+  export function useTheme() {
+    const context = useContext(ThemeContext)
+    if (context === undefined) {
+      throw new Error('useTheme must be used within a ThemeProvider')
+    }
+    return context
+  }
+  ```
+- 📦 Using the Theme:
+  ```jsx
+  // App.jsx
+  import { ThemeProvider } from './contexts/ThemeContext'
+  
+  function App() {
+    return (
+      <ThemeProvider>
+        <Header />
+        <Main />
+      </ThemeProvider>
+    )
+  }
+  
+  // Header.jsx
+  import { useTheme } from '../contexts/ThemeContext'
+  
+  function Header() {
+    const { theme, toggleTheme } = useTheme()
+    
+    return (
+      <header className={`header-${theme}`}>
+        <h1>My App</h1>
+        <button onClick={toggleTheme}>
+          Switch to {theme === 'light' ? 'dark' : 'light'} mode
+        </button>
+      </header>
+    )
+  }
+  ```
+
+##### 9.5 🔐 Auth Context Example
+- 📝 Authentication Context:
+  ```jsx
+  // contexts/AuthContext.jsx
+  import { createContext, useState, useContext, useEffect } from 'react'
+  
+  const AuthContext = createContext()
+  
+  export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
+    
+    useEffect(() => {
+      // Check for saved session
+      const savedUser = localStorage.getItem('user')
+      if (savedUser) {
+        setUser(JSON.parse(savedUser))
+      }
+      setLoading(false)
+    }, [])
+    
+    const login = async (email, password) => {
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          body: JSON.stringify({ email, password })
+        })
+        const userData = await response.json()
+        setUser(userData)
+        localStorage.setItem('user', JSON.stringify(userData))
+        return { success: true }
+      } catch (error) {
+        return { success: false, error: error.message }
+      }
+    }
+    
+    const logout = () => {
+      setUser(null)
+      localStorage.removeItem('user')
+    }
+    
+    const value = {
+      user,
+      login,
+      logout,
+      loading,
+      isAuthenticated: !!user
+    }
+    
+    return (
+      <AuthContext.Provider value={value}>
+        {children}
+      </AuthContext.Provider>
+    )
+  }
+  
+  export function useAuth() {
+    const context = useContext(AuthContext)
+    if (!context) {
+      throw new Error('useAuth must be used within AuthProvider')
+    }
+    return context
+  }
+  ```
+- 📦 Using Auth Context:
+  ```jsx
+  // ProtectedRoute.jsx
+  import { Navigate } from 'react-router-dom'
+  import { useAuth } from './contexts/AuthContext'
+  
+  export function ProtectedRoute({ children }) {
+    const { isAuthenticated, loading } = useAuth()
+    
+    if (loading) {
+      return <div>Loading...</div>
+    }
+    
+    if (!isAuthenticated) {
+      return <Navigate to="/login" replace />
+    }
+    
+    return children
+  }
+  
+  // Login.jsx
+  import { useAuth } from './contexts/AuthContext'
+  import { useNavigate } from 'react-router-dom'
+  
+  function Login() {
+    const { login } = useAuth()
+    const navigate = useNavigate()
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      const result = await login(email, password)
+      if (result.success) {
+        navigate('/dashboard')
+      }
+    }
+    
+    return <form onSubmit={handleSubmit}>...</form>
+  }
+  ```
+
+##### 9.6 🎯 Cart/Shopping Context
+- 📝 Shopping Cart Context:
+  ```jsx
+  // contexts/CartContext.jsx
+  import { createContext, useState, useContext, useReducer } from 'react'
+  
+  const CartContext = createContext()
+  
+  const cartReducer = (state, action) => {
+    switch (action.type) {
+      case 'ADD_ITEM':
+        const existingItem = state.items.find(
+          item => item.id === action.payload.id
+        )
+        if (existingItem) {
+          return {
+            ...state,
+            items: state.items.map(item =>
+              item.id === action.payload.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            )
+          }
+        }
+        return {
+          ...state,
+          items: [...state.items, { ...action.payload, quantity: 1 }]
+        }
+        
+      case 'REMOVE_ITEM':
+        return {
+          ...state,
+          items: state.items.filter(item => item.id !== action.payload)
+        }
+        
+      case 'UPDATE_QUANTITY':
+        return {
+          ...state,
+          items: state.items.map(item =>
+            item.id === action.payload.id
+              ? { ...item, quantity: action.payload.quantity }
+              : item
+          )
+        }
+        
+      case 'CLEAR_CART':
+        return {
+          ...state,
+          items: []
+        }
+        
+      default:
+        return state
+    }
+  }
+  
+  export function CartProvider({ children }) {
+    const [state, dispatch] = useReducer(cartReducer, {
+      items: []
+    })
+    
+    const addItem = (product) => {
+      dispatch({ type: 'ADD_ITEM', payload: product })
+    }
+    
+    const removeItem = (id) => {
+      dispatch({ type: 'REMOVE_ITEM', payload: id })
+    }
+    
+    const updateQuantity = (id, quantity) => {
+      dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } })
+    }
+    
+    const clearCart = () => {
+      dispatch({ type: 'CLEAR_CART' })
+    }
+    
+    const totalItems = state.items.reduce(
+      (sum, item) => sum + item.quantity, 0
+    )
+    
+    const totalPrice = state.items.reduce(
+      (sum, item) => sum + (item.price * item.quantity), 0
+    )
+    
+    return (
+      <CartContext.Provider value={{
+        items: state.items,
+        addItem,
+        removeItem,
+        updateQuantity,
+        clearCart,
+        totalItems,
+        totalPrice
+      }}>
+        {children}
+      </CartContext.Provider>
+    )
+  }
+  
+  export function useCart() {
+    const context = useContext(CartContext)
+    if (!context) {
+      throw new Error('useCart must be used within CartProvider')
+    }
+    return context
+  }
+  ```
+
+##### 9.7 🔔 Notification/Toast Context
+- 📝 Toast Context:
+  ```jsx
+  // contexts/ToastContext.jsx
+  import { createContext, useState, useContext, useCallback } from 'react'
+  
+  const ToastContext = createContext()
+  
+  let nextId = 0
+  
+  export function ToastProvider({ children }) {
+    const [toasts, setToasts] = useState([])
+    
+    const addToast = useCallback((message, type = 'info', duration = 3000) => {
+      const id = nextId++
+      setToasts(prev => [...prev, { id, message, type }])
+      
+      setTimeout(() => {
+        setToasts(prev => prev.filter(toast => toast.id !== id))
+      }, duration)
+    }, [])
+    
+    const removeToast = useCallback((id) => {
+      setToasts(prev => prev.filter(toast => toast.id !== id))
+    }, [])
+    
+    return (
+      <ToastContext.Provider value={{ addToast, removeToast, toasts }}>
+        {children}
+        <ToastContainer toasts={toasts} onRemove={removeToast} />
+      </ToastContext.Provider>
+    )
+  }
+  
+  export function useToast() {
+    const context = useContext(ToastContext)
+    if (!context) {
+      throw new Error('useToast must be used within ToastProvider')
+    }
+    return context
+  }
+  
+  // ToastContainer Component
+  function ToastContainer({ toasts, onRemove }) {
+    return (
+      <div className="toast-container">
+        {toasts.map(toast => (
+          <div key={toast.id} className={`toast toast-${toast.type}`}>
+            <span>{toast.message}</span>
+            <button onClick={() => onRemove(toast.id)}>×</button>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  ```
+
+##### 9.8 🎯 Complex State with useReducer + Context
+- 📝 Combining useReducer with Context:
+  ```jsx
+  // contexts/TodoContext.jsx
+  import { createContext, useContext, useReducer } from 'react'
+  
+  const TodoContext = createContext()
+  
+  const initialState = {
+    todos: [],
+    filter: 'all',
+    loading: false,
+    error: null
+  }
+  
+  function todoReducer(state, action) {
+    switch (action.type) {
+      case 'FETCH_START':
+        return { ...state, loading: true, error: null }
+        
+      case 'FETCH_SUCCESS':
+        return { ...state, loading: false, todos: action.payload }
+        
+      case 'FETCH_ERROR':
+        return { ...state, loading: false, error: action.payload }
+        
+      case 'ADD_TODO':
+        return {
+          ...state,
+          todos: [...state.todos, action.payload]
+        }
+        
+      case 'TOGGLE_TODO':
+        return {
+          ...state,
+          todos: state.todos.map(todo =>
+            todo.id === action.payload
+              ? { ...todo, completed: !todo.completed }
+              : todo
+          )
+        }
+        
+      case 'DELETE_TODO':
+        return {
+          ...state,
+          todos: state.todos.filter(todo => todo.id !== action.payload)
+        }
+        
+      case 'SET_FILTER':
+        return { ...state, filter: action.payload }
+        
+      default:
+        return state
+    }
+  }
+  
+  export function TodoProvider({ children }) {
+    const [state, dispatch] = useReducer(todoReducer, initialState)
+    
+    const fetchTodos = async () => {
+      dispatch({ type: 'FETCH_START' })
+      try {
+        const response = await fetch('/api/todos')
+        const data = await response.json()
+        dispatch({ type: 'FETCH_SUCCESS', payload: data })
+      } catch (error) {
+        dispatch({ type: 'FETCH_ERROR', payload: error.message })
+      }
+    }
+    
+    const addTodo = (text) => {
+      const newTodo = {
+        id: Date.now(),
+        text,
+        completed: false
+      }
+      dispatch({ type: 'ADD_TODO', payload: newTodo })
+    }
+    
+    const toggleTodo = (id) => {
+      dispatch({ type: 'TOGGLE_TODO', payload: id })
+    }
+    
+    const deleteTodo = (id) => {
+      dispatch({ type: 'DELETE_TODO', payload: id })
+    }
+    
+    const setFilter = (filter) => {
+      dispatch({ type: 'SET_FILTER', payload: filter })
+    }
+    
+    const filteredTodos = state.todos.filter(todo => {
+      if (state.filter === 'active') return !todo.completed
+      if (state.filter === 'completed') return todo.completed
+      return true
+    })
+    
+    return (
+      <TodoContext.Provider value={{
+        todos: filteredTodos,
+        allTodos: state.todos,
+        filter: state.filter,
+        loading: state.loading,
+        error: state.error,
+        fetchTodos,
+        addTodo,
+        toggleTodo,
+        deleteTodo,
+        setFilter
+      }}>
+        {children}
+      </TodoContext.Provider>
+    )
+  }
+  
+  export function useTodos() {
+    const context = useContext(TodoContext)
+    if (!context) {
+      throw new Error('useTodos must be used within TodoProvider')
+    }
+    return context
+  }
+  ```
+
+##### 9.9 🔄 Context Composition
+- 📝 Combining Multiple Contexts:
+  ```jsx
+  // contexts/index.jsx
+  import { ThemeProvider } from './ThemeContext'
+  import { AuthProvider } from './AuthContext'
+  import { CartProvider } from './CartContext'
+  import { ToastProvider } from './ToastContext'
+  
+  export function AppProviders({ children }) {
+    return (
+      <ThemeProvider>
+        <AuthProvider>
+          <CartProvider>
+            <ToastProvider>
+              {children}
+            </ToastProvider>
+          </CartProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    )
+  }
+  
+  // App.jsx
+  import { AppProviders } from './contexts'
+  
+  function App() {
+    return (
+      <AppProviders>
+        <Main />
+      </AppProviders>
+    )
+  }
+  ```
+- 🎯 Custom Hook Composition:
+  ```jsx
+  // hooks/useApp.js
+  import { useTheme } from '../contexts/ThemeContext'
+  import { useAuth } from '../contexts/AuthContext'
+  import { useCart } from '../contexts/CartContext'
+  import { useToast } from '../contexts/ToastContext'
+  
+  export function useApp() {
+    const theme = useTheme()
+    const auth = useAuth()
+    const cart = useCart()
+    const toast = useToast()
+    
+    return {
+      theme,
+      auth,
+      cart,
+      toast
+    }
+  }
+  ```
+
+##### 9.10 ⚡ Performance Optimization
+- 📝 Memoizing Context Value:
+  ```jsx
+  import { useMemo } from 'react'
+  
+  function UserProvider({ children }) {
+    const [user, setUser] = useState(null)
+    
+    const value = useMemo(() => ({
+      user,
+      login: (userData) => setUser(userData),
+      logout: () => setUser(null),
+      isAuthenticated: !!user
+    }), [user])
+    
+    return (
+      <UserContext.Provider value={value}>
+        {children}
+      </UserContext.Provider>
+    )
+  }
+  ```
+- 📦 Splitting Context:
+  ```jsx
+  // Split into separate contexts to prevent unnecessary re-renders
+  const UserStateContext = createContext()
+  const UserDispatchContext = createContext()
+  
+  function UserProvider({ children }) {
+    const [state, dispatch] = useReducer(userReducer, initialState)
+    
+    return (
+      <UserDispatchContext.Provider value={dispatch}>
+        <UserStateContext.Provider value={state}>
+          {children}
+        </UserStateContext.Provider>
+      </UserDispatchContext.Provider>
+    )
+  }
+  
+  export function useUserState() {
+    return useContext(UserStateContext)
+  }
+  
+  export function useUserDispatch() {
+    return useContext(UserDispatchContext)
+  }
+  ```
+- 🎯 React.memo with Context:
+  ```jsx
+  const ExpensiveComponent = React.memo(({ data }) => {
+    // Only re-renders when data changes
+    return <div>{data}</div>
+  })
+  ```
+
+##### 9.11 🧪 Testing Context
+- 📝 Testing Context Providers:
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { ThemeProvider, useTheme } from './ThemeContext'
+  
+  function TestComponent() {
+    const { theme, toggleTheme } = useTheme()
+    return (
+      <div>
+        <span data-testid="theme">{theme}</span>
+        <button onClick={toggleTheme}>Toggle</button>
+      </div>
+    )
+  }
+  
+  test('theme context works correctly', async () => {
+    render(
+      <ThemeProvider>
+        <TestComponent />
+      </ThemeProvider>
+    )
+    
+    expect(screen.getByTestId('theme')).toHaveTextContent('light')
+    
+    await userEvent.click(screen.getByText('Toggle'))
+    
+    expect(screen.getByTestId('theme')).toHaveTextContent('dark')
+  })
+  ```
+- 📝 Testing with Custom Render:
+  ```jsx
+  // test-utils.jsx
+  import { render } from '@testing-library/react'
+  import { ThemeProvider } from './contexts/ThemeContext'
+  import { AuthProvider } from './contexts/AuthContext'
+  
+  const AllTheProviders = ({ children }) => {
+    return (
+      <ThemeProvider>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </ThemeProvider>
+    )
+  }
+  
+  const customRender = (ui, options) =>
+    render(ui, { wrapper: AllTheProviders, ...options })
+  
+  export * from '@testing-library/react'
+  export { customRender as render }
+  ```
+
+##### 9.12 🚀 Advanced Patterns
+- 📝 Context with TypeScript:
+  ```tsx
+  interface ThemeContextType {
+    theme: 'light' | 'dark'
+    toggleTheme: () => void
+  }
+  
+  const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+  
+  export function useTheme(): ThemeContextType {
+    const context = useContext(ThemeContext)
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider')
+    }
+    return context
+  }
+  ```
+- 📝 Updating Context from Nested Components:
+  ```jsx
+  function DeeplyNested() {
+    const { updateUser } = useUser()
+    
+    return (
+      <button onClick={() => updateUser({ name: 'New Name' })}>
+        Update User
+      </button>
+    )
+  }
+  ```
+- 📝 Context with Reducer Pattern:
+  ```jsx
+  const AppContext = createContext()
+  
+  function appReducer(state, action) {
+    switch (action.type) {
+      case 'SET_USER':
+        return { ...state, user: action.payload }
+      case 'SET_THEME':
+        return { ...state, theme: action.payload }
+      case 'ADD_NOTIFICATION':
+        return {
+          ...state,
+          notifications: [...state.notifications, action.payload]
+        }
+      default:
+        return state
+    }
+  }
+  
+  function AppProvider({ children }) {
+    const [state, dispatch] = useReducer(appReducer, {
+      user: null,
+      theme: 'light',
+      notifications: []
+    })
+    
+    return (
+      <AppContext.Provider value={{ state, dispatch }}>
+        {children}
+      </AppContext.Provider>
+    )
+  }
+  ```
+
+##### 9.13 📚 Context vs Other State Management
+- 🔄 Context vs Redux:
+  - When to use Context
+  - When to use Redux
+  - Performance considerations
+  - Complexity trade-offs
+- 🔄 Context vs Props:
+  - Prop drilling solution
+  - When props are better
+  - Maintainability
+- 🔄 Context vs State Lifting:
+  - Shared state
+  - Component hierarchy
+  - Reusability
+
+##### 9.14 ⚠️ Common Pitfalls and Solutions
+- 📝 Unnecessary Re-renders:
+  ```jsx
+  // ❌ Bad - creates new object every render
+  <UserContext.Provider value={{ user, login }}>
+    {children}
+  </UserContext.Provider>
+  
+  // ✅ Good - memoized value
+  const value = useMemo(() => ({ user, login }), [user])
+  <UserContext.Provider value={value}>
+    {children}
+  </UserContext.Provider>
+  ```
+- 📝 Context Provider Nesting:
+  ```jsx
+  // ❌ Too many nested providers
+  <ThemeProvider>
+    <AuthProvider>
+      <CartProvider>
+        <NotificationProvider>
+          <UserProvider>
+            <App />
+          </UserProvider>
+        </NotificationProvider>
+      </CartProvider>
+    </AuthProvider>
+  </ThemeProvider>
+  
+  // ✅ Combine providers
+  <AppProviders>
+    <App />
+  </AppProviders>
+  ```
+- 📝 Default Context Values:
+  ```jsx
+  // ❌ Undefined default might cause errors
+  const Context = createContext()
+  
+  // ✅ Provide meaningful default or null check
+  const Context = createContext(null)
+  // Or with default values
+  const Context = createContext({ theme: 'light', toggleTheme: () => {} })
+  ```
+
+##### 9.15 💻 Practical Projects
+- 🏗️ Theme Switcher Application
+- 🔐 Authentication Flow with Context
+- 🛒 Shopping Cart Implementation
+- 🔔 Toast Notification System
+- 📝 Todo App with Context + Reducer
+- 👤 User Profile Management
+- 🌐 Multi-language Support
+- 📊 Dashboard with Multiple Contexts
+- 🎨 Dynamic Theming System
+- 📦 E-commerce Store with Cart
+- 💬 Chat Application with User Context
+- ⚙️ Application Settings Panel
+- 📱 Mobile-responsive Layout Context
+- 🎮 Game Settings and Preferences
+- 📚 Blog with User Preferences
 
 ---
