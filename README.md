@@ -8171,3 +8171,911 @@ Production    (16-19) ████████████░ 2 oy
 - 👥 Social Media Dashboard
 
 ---
+
+## 🎯 STAGE 12 — Tailwind CSS (Utility CSS Framework)
+**Goal**: Master Tailwind CSS for rapid, maintainable, and responsive UI development.
+**Time**: 25 soat | 12 dars
+
+#### 📚 Topics
+
+##### 12.1 🎨 Introduction to Tailwind CSS
+- 🤔 What is Tailwind CSS?
+- 📜 Utility-First CSS Philosophy
+- 🎯 Why Tailwind? (Advantages)
+  - No context switching
+  - Consistent design system
+  - Small production bundle
+  - No naming conventions
+  - Responsive by default
+- 🔄 Tailwind vs Traditional CSS vs CSS-in-JS
+- 📦 Installation Options:
+  ```bash
+  # Using npm
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init -p
+  
+  # Using CDN (for prototyping only)
+  <script src="https://cdn.tailwindcss.com"></script>
+  ```
+
+##### 12.2 ⚙️ Tailwind Configuration
+- 📝 tailwind.config.js:
+  ```javascript
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            50: '#eff6ff',
+            100: '#dbeafe',
+            500: '#3b82f6',
+            600: '#2563eb',
+            700: '#1d4ed8',
+          },
+          secondary: {
+            500: '#10b981',
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['Fira Code', 'monospace'],
+        },
+        spacing: {
+          '128': '32rem',
+          '144': '36rem',
+        },
+        borderRadius: {
+          'xl': '1rem',
+          '2xl': '1.5rem',
+        },
+        animation: {
+          'spin-slow': 'spin 3s linear infinite',
+          'bounce-slow': 'bounce 2s infinite',
+        }
+      },
+    },
+    plugins: [
+      require('@tailwindcss/forms'),
+      require('@tailwindcss/typography'),
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+- 📝 postcss.config.js:
+  ```javascript
+  module.exports = {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  }
+  ```
+- 📝 main.css:
+  ```css
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  @layer base {
+    h1 {
+      @apply text-2xl font-bold;
+    }
+    h2 {
+      @apply text-xl font-semibold;
+    }
+  }
+  
+  @layer components {
+    .btn-primary {
+      @apply px-4 py-2 bg-primary-500 text-white rounded-lg 
+             hover:bg-primary-600 transition-colors duration-200;
+    }
+  }
+  
+  @layer utilities {
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+  }
+  ```
+
+##### 12.3 📦 Core Concepts
+- 📝 Utility Classes Structure:
+  ```html
+  <!-- Format: {property}-{value} -->
+  <div class="
+    text-center     <!-- text-align: center -->
+    bg-blue-500     <!-- background-color: blue-500 -->
+    p-4            <!-- padding: 1rem -->
+    m-2            <!-- margin: 0.5rem -->
+    rounded-lg     <!-- border-radius: 0.5rem -->
+  ">
+    Content
+  </div>
+  ```
+- 📝 Responsive Design:
+  ```html
+  <!-- Format: {breakpoint}:{utility} -->
+  <div class="
+    text-base        <!-- Mobile: base text -->
+    md:text-lg       <!-- Tablet: larger text -->
+    lg:text-xl       <!-- Desktop: extra large text -->
+    w-full           <!-- Mobile: full width -->
+    md:w-1/2         <!-- Tablet: half width -->
+    lg:w-1/3         <!-- Desktop: one-third width -->
+  ">
+    Responsive content
+  </div>
+  ```
+- 📝 Hover, Focus, Active States:
+  ```html
+  <button class="
+    bg-blue-500
+    hover:bg-blue-600        <!-- On hover -->
+    focus:outline-none       <!-- On focus -->
+    focus:ring-2             <!-- On focus -->
+    focus:ring-blue-300      <!-- On focus -->
+    active:bg-blue-700       <!-- On click/active -->
+    disabled:opacity-50      <!-- When disabled -->
+  ">
+    Click me
+  </button>
+  ```
+
+##### 12.4 📏 Layout and Spacing
+- 📝 Container and Width:
+  ```html
+  <!-- Container with max-width -->
+  <div class="container mx-auto px-4">
+    <!-- Centered content with padding -->
+  </div>
+  
+  <!-- Width utilities -->
+  <div class="w-0 w-px w-0.5 w-1 w-2 w-4 w-8 w-12 w-16 w-20 w-24"></div>
+  <div class="w-1/2 w-1/3 w-2/3 w-1/4 w-3/4 w-full w-screen w-min w-max"></div>
+  ```
+- 📝 Height Utilities:
+  ```html
+  <div class="h-0 h-px h-0.5 h-1 h-2 h-4 h-8 h-12 h-16 h-20 h-24"></div>
+  <div class="h-1/2 h-1/3 h-2/3 h-1/4 h-3/4 h-full h-screen h-min h-max"></div>
+  ```
+- 📝 Padding and Margin:
+  ```html
+  <!-- Padding: p{t|r|b|l|x|y}-{size} -->
+  <div class="p-4">All sides</div>
+  <div class="pt-4">Top</div>
+  <div class="pr-4">Right</div>
+  <div class="pb-4">Bottom</div>
+  <div class="pl-4">Left</div>
+  <div class="px-4">Left + Right</div>
+  <div class="py-4">Top + Bottom</div>
+  
+  <!-- Margin: same pattern -->
+  <div class="m-4 mt-4 mr-4 mb-4 ml-4 mx-4 my-4"></div>
+  <div class="-mt-4">Negative margin</div>
+  ```
+- 📝 Space Between:
+  ```html
+  <div class="space-y-4">
+    <!-- Vertical spacing between children -->
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </div>
+  
+  <div class="space-x-4">
+    <!-- Horizontal spacing between children -->
+    <span>Item 1</span>
+    <span>Item 2</span>
+    <span>Item 3</span>
+  </div>
+  ```
+
+##### 12.5 🎨 Colors and Backgrounds
+- 📝 Text Colors:
+  ```html
+  <p class="text-gray-500">Gray text</p>
+  <p class="text-red-600">Red text</p>
+  <p class="text-blue-700">Blue text</p>
+  <p class="text-green-500">Green text</p>
+  <p class="text-yellow-500">Yellow text</p>
+  <p class="text-purple-500">Purple text</p>
+  <p class="text-pink-500">Pink text</p>
+  <p class="text-indigo-500">Indigo text</p>
+  
+  <!-- Opacity -->
+  <p class="text-black/50">50% opacity</p>
+  <p class="text-black/75">75% opacity</p>
+  ```
+- 📝 Background Colors:
+  ```html
+  <div class="bg-gray-100">Light gray</div>
+  <div class="bg-blue-500">Blue background</div>
+  <div class="bg-gradient-to-r from-blue-500 to-purple-500">
+    Gradient background
+  </div>
+  <div class="bg-[#ff0000]">Custom color with arbitrary value</div>
+  ```
+- 📝 Background Images:
+  ```html
+  <div class="bg-cover bg-center" style="background-image: url('/image.jpg')">
+    Content
+  </div>
+  
+  <!-- Or with arbitrary value -->
+  <div class="bg-[url('/image.jpg')] bg-cover"></div>
+  ```
+
+##### 12.6 ✍️ Typography
+- 📝 Font Size:
+  ```html
+  <p class="text-xs">Extra small</p>
+  <p class="text-sm">Small</p>
+  <p class="text-base">Base (default)</p>
+  <p class="text-lg">Large</p>
+  <p class="text-xl">Extra large</p>
+  <p class="text-2xl">2xl</p>
+  <p class="text-3xl">3xl</p>
+  <p class="text-4xl">4xl</p>
+  <p class="text-5xl">5xl</p>
+  <p class="text-6xl">6xl</p>
+  <p class="text-7xl">7xl</p>
+  <p class="text-8xl">8xl</p>
+  <p class="text-9xl">9xl</p>
+  ```
+- 📝 Font Weight:
+  ```html
+  <p class="font-thin">Thin (100)</p>
+  <p class="font-light">Light (300)</p>
+  <p class="font-normal">Normal (400)</p>
+  <p class="font-medium">Medium (500)</p>
+  <p class="font-semibold">Semibold (600)</p>
+  <p class="font-bold">Bold (700)</p>
+  <p class="font-extrabold">Extrabold (800)</p>
+  <p class="font-black">Black (900)</p>
+  ```
+- 📝 Text Alignment:
+  ```html
+  <p class="text-left">Left aligned</p>
+  <p class="text-center">Center aligned</p>
+  <p class="text-right">Right aligned</p>
+  <p class="text-justify">Justified</p>
+  ```
+- 📝 Text Decoration:
+  ```html
+  <p class="underline">Underlined</p>
+  <p class="line-through">Line through</p>
+  <p class="overline">Overline</p>
+  <p class="no-underline">No underline</p>
+  ```
+- 📝 Line Height:
+  ```html
+  <p class="leading-none">None (1)</p>
+  <p class="leading-tight">Tight (1.25)</p>
+  <p class="leading-snug">Snug (1.375)</p>
+  <p class="leading-normal">Normal (1.5)</p>
+  <p class="leading-relaxed">Relaxed (1.625)</p>
+  <p class="leading-loose">Loose (2)</p>
+  ```
+
+##### 12.7 📐 Flexbox with Tailwind
+- 📝 Flex Container:
+  ```html
+  <div class="flex">Flex container</div>
+  <div class="inline-flex">Inline flex container</div>
+  
+  <!-- Direction -->
+  <div class="flex flex-row">Row (default)</div>
+  <div class="flex flex-row-reverse">Row reverse</div>
+  <div class="flex flex-col">Column</div>
+  <div class="flex flex-col-reverse">Column reverse</div>
+  ```
+- 📝 Justify Content:
+  ```html
+  <div class="flex justify-start">Start</div>
+  <div class="flex justify-end">End</div>
+  <div class="flex justify-center">Center</div>
+  <div class="flex justify-between">Space between</div>
+  <div class="flex justify-around">Space around</div>
+  <div class="flex justify-evenly">Space evenly</div>
+  ```
+- 📝 Align Items:
+  ```html
+  <div class="flex items-start">Start</div>
+  <div class="flex items-end">End</div>
+  <div class="flex items-center">Center</div>
+  <div class="flex items-baseline">Baseline</div>
+  <div class="flex items-stretch">Stretch (default)</div>
+  ```
+- 📝 Flex Item Properties:
+  ```html
+  <div class="flex-1">Flex: 1 1 0%</div>
+  <div class="flex-auto">Flex: 1 1 auto</div>
+  <div class="flex-initial">Flex: 0 1 auto</div>
+  <div class="flex-none">Flex: 0 0 auto</div>
+  
+  <!-- Grow and shrink -->
+  <div class="grow">Grow</div>
+  <div class="grow-0">Don't grow</div>
+  <div class="shrink">Shrink</div>
+  <div class="shrink-0">Don't shrink</div>
+  ```
+
+##### 12.8 📐 Grid with Tailwind
+- 📝 Grid Container:
+  ```html
+  <div class="grid">Grid container</div>
+  <div class="inline-grid">Inline grid</div>
+  
+  <!-- Template columns -->
+  <div class="grid grid-cols-1">1 column</div>
+  <div class="grid grid-cols-2">2 columns</div>
+  <div class="grid grid-cols-3">3 columns</div>
+  <div class="grid grid-cols-4">4 columns</div>
+  <div class="grid grid-cols-6">6 columns</div>
+  <div class="grid grid-cols-12">12 columns</div>
+  ```
+- 📝 Gap:
+  ```html
+  <div class="grid gap-4">Gap on all sides</div>
+  <div class="grid gap-x-4">Horizontal gap</div>
+  <div class="grid gap-y-4">Vertical gap</div>
+  ```
+- 📝 Spanning Columns:
+  ```html
+  <div class="grid grid-cols-3">
+    <div class="col-span-1">Spans 1 column</div>
+    <div class="col-span-2">Spans 2 columns</div>
+    <div class="col-span-3">Spans 3 columns</div>
+    <div class="col-start-2 col-end-4">Start at 2, end at 4</div>
+  </div>
+  ```
+- 📝 Grid Template Areas:
+  ```html
+  <div class="grid grid-areas-layout">
+    <header class="grid-in-header">Header</header>
+    <nav class="grid-in-nav">Navigation</nav>
+    <main class="grid-in-main">Main content</main>
+    <aside class="grid-in-aside">Sidebar</aside>
+    <footer class="grid-in-footer">Footer</footer>
+  </div>
+  
+  <style>
+    .grid-areas-layout {
+      grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    }
+  </style>
+  ```
+
+##### 12.9 🎭 Borders and Effects
+- 📝 Border Radius:
+  ```html
+  <div class="rounded-none">No rounding</div>
+  <div class="rounded-sm">Small rounding</div>
+  <div class="rounded">Default rounding</div>
+  <div class="rounded-md">Medium rounding</div>
+  <div class="rounded-lg">Large rounding</div>
+  <div class="rounded-xl">Extra large</div>
+  <div class="rounded-2xl">2xl</div>
+  <div class="rounded-3xl">3xl</div>
+  <div class="rounded-full">Full circle</div>
+  
+  <!-- Specific corners -->
+  <div class="rounded-t-lg">Top corners</div>
+  <div class="rounded-b-lg">Bottom corners</div>
+  <div class="rounded-l-lg">Left corners</div>
+  <div class="rounded-r-lg">Right corners</div>
+  ```
+- 📝 Borders:
+  ```html
+  <div class="border">Default border</div>
+  <div class="border-2 border-blue-500">2px blue border</div>
+  <div class="border-t-4 border-red-500">Top border only</div>
+  <div class="border-dashed">Dashed border</div>
+  <div class="border-dotted">Dotted border</div>
+  <div class="border-double">Double border</div>
+  <div class="border-none">No border</div>
+  ```
+- 📝 Shadows:
+  ```html
+  <div class="shadow-sm">Small shadow</div>
+  <div class="shadow">Default shadow</div>
+  <div class="shadow-md">Medium shadow</div>
+  <div class="shadow-lg">Large shadow</div>
+  <div class="shadow-xl">Extra large</div>
+  <div class="shadow-2xl">2xl shadow</div>
+  <div class="shadow-inner">Inner shadow</div>
+  <div class="shadow-none">No shadow</div>
+  ```
+
+##### 12.10 🔧 Interactive States
+- 📝 Hover, Focus, Active:
+  ```html
+  <button class="
+    bg-blue-500 hover:bg-blue-600
+    focus:outline-none focus:ring-2 focus:ring-blue-300
+    active:bg-blue-700
+    disabled:opacity-50 disabled:cursor-not-allowed
+  ">
+    Interactive button
+  </button>
+  
+  <a href="#" class="
+    text-blue-500 hover:text-blue-700
+    visited:text-purple-600
+  ">
+    Styled link
+  </a>
+  ```
+- 📝 Group Hover:
+  ```html
+  <div class="group relative">
+    <div class="group-hover:scale-105 transition">
+      Content that scales on parent hover
+    </div>
+    <div class="opacity-0 group-hover:opacity-100">
+      Hidden content that appears on hover
+    </div>
+  </div>
+  ```
+- 📝 Peer Modifiers:
+  ```html
+  <input type="checkbox" class="peer" />
+  <label class="peer-checked:bg-blue-500">
+    This label changes when checkbox is checked
+  </label>
+  ```
+
+##### 12.11 📱 Responsive Design
+- 📝 Breakpoints:
+  ```html
+  <!-- Default (mobile): 0px+ -->
+  <!-- sm: 640px+ -->
+  <!-- md: 768px+ -->
+  <!-- lg: 1024px+ -->
+  <!-- xl: 1280px+ -->
+  <!-- 2xl: 1536px+ -->
+  
+  <div class="
+    text-sm         <!-- Mobile -->
+    sm:text-base    <!-- ≥640px -->
+    md:text-lg      <!-- ≥768px -->
+    lg:text-xl      <!-- ≥1024px -->
+    xl:text-2xl     <!-- ≥1280px -->
+    2xl:text-3xl    <!-- ≥1536px -->
+    
+    w-full          <!-- Mobile -->
+    sm:w-1/2        <!-- ≥640px -->
+    md:w-1/3        <!-- ≥768px -->
+    lg:w-1/4        <!-- ≥1024px -->
+  ">
+    Responsive text
+  </div>
+  ```
+- 📝 Container Queries:
+  ```html
+  <!-- Requires @tailwindcss/container-queries plugin -->
+  <div class="@container">
+    <div class="@lg:text-lg @xl:text-xl">
+      Responsive to container size
+    </div>
+  </div>
+  ```
+
+##### 12.12 🎨 Dark Mode
+- 📝 Configuration:
+  ```javascript
+  // tailwind.config.js
+  module.exports = {
+    darkMode: 'class', // or 'media' for system preference
+    // ...
+  }
+  ```
+- 📝 Usage:
+  ```html
+  <div class="bg-white dark:bg-gray-800 text-black dark:text-white">
+    <p class="text-gray-600 dark:text-gray-300">
+      Automatically switches in dark mode
+    </p>
+    
+    <button class="
+      bg-blue-500 dark:bg-blue-700
+      hover:bg-blue-600 dark:hover:bg-blue-800
+    ">
+      Dark mode aware button
+    </button>
+  </div>
+  ```
+- 📝 Toggle Dark Mode:
+  ```javascript
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    }
+  }
+  
+  // Load saved preference
+  if (localStorage.theme === 'dark' || 
+      (!('theme' in localStorage) && 
+       window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+  ```
+
+##### 12.13 🎯 Customization and Configuration
+- 📝 Theme Extension:
+  ```javascript
+  // tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            DEFAULT: '#3b82f6',
+            light: '#60a5fa',
+            dark: '#2563eb',
+          }
+        },
+        spacing: {
+          '18': '4.5rem',
+          '88': '22rem',
+        },
+        fontSize: {
+          'xxs': '0.625rem',
+        },
+        animation: {
+          'fade-in': 'fadeIn 0.5s ease-in-out',
+          'slide-up': 'slideUp 0.3s ease-out',
+        },
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+          },
+          slideUp: {
+            '0%': { transform: 'translateY(10px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          }
+        }
+      }
+    }
+  }
+  ```
+- 📝 Arbitrary Values:
+  ```html
+  <!-- Use any CSS value -->
+  <div class="top-[117px]">Position with arbitrary value</div>
+  <div class="bg-[#bada55]">Arbitrary color</div>
+  <div class="text-[22px]">Arbitrary font size</div>
+  <div class="w-[calc(100%-2rem)]">Arbitrary calculation</div>
+  ```
+
+##### 12.14 🔧 Directives and Functions
+- 📝 @apply Directive:
+  ```css
+  .btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded-lg 
+           hover:bg-blue-600 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 
+           dark:bg-gray-800 dark:text-white;
+  }
+  ```
+- 📝 @layer Directive:
+  ```css
+  @layer base {
+    h1 {
+      @apply text-3xl font-bold;
+    }
+    h2 {
+      @apply text-2xl font-semibold;
+    }
+  }
+  
+  @layer components {
+    .alert {
+      @apply p-4 rounded-lg;
+    }
+    .alert-error {
+      @apply bg-red-100 text-red-700;
+    }
+  }
+  
+  @layer utilities {
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  ```
+- 📝 theme() Function:
+  ```css
+  .custom-class {
+    box-shadow: 0 0 0 3px theme('colors.blue.500');
+    padding: theme('spacing.4');
+    font-size: theme('fontSize.lg');
+  }
+  ```
+
+##### 12.15 🔌 Plugins
+- 📝 Official Plugins:
+  ```bash
+  npm install @tailwindcss/forms
+  npm install @tailwindcss/typography
+  npm install @tailwindcss/aspect-ratio
+  npm install @tailwindcss/container-queries
+  ```
+- 📝 Forms Plugin:
+  ```javascript
+  // tailwind.config.js
+  plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'class', // or 'base'
+    }),
+  ]
+  
+  // Usage
+  <input type="text" class="form-input" />
+  <select class="form-select"></select>
+  <input type="checkbox" class="form-checkbox" />
+  ```
+- 📝 Typography Plugin:
+  ```javascript
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
+  
+  // Usage
+  <article class="prose prose-lg dark:prose-invert">
+    <h1>Blog post title</h1>
+    <p>Content with beautiful typography</p>
+  </article>
+  ```
+
+##### 12.16 🚀 Performance Optimization
+- 📝 PurgeCSS (built-in):
+  ```javascript
+  // tailwind.config.js
+  module.exports = {
+    content: [
+      './src/**/*.{js,jsx,ts,tsx,html}',
+      './public/index.html',
+    ],
+    // Tailwind automatically purges unused styles
+  }
+  ```
+- 📝 JIT Mode (Just-in-Time):
+  ```javascript
+  // tailwind.config.js
+  module.exports = {
+    mode: 'jit', // Default in v3+
+    // ...
+  }
+  ```
+- 📝 Optimizing for Production:
+  ```bash
+  # CSS will be automatically purged during build
+  npm run build
+  ```
+
+##### 12.17 🎨 Tailwind with React
+- 📝 Conditional Classes:
+  ```jsx
+  function Button({ variant = 'primary', size = 'md', disabled }) {
+    const baseClasses = 'font-semibold rounded-lg transition-colors'
+    
+    const variantClasses = {
+      primary: 'bg-blue-500 text-white hover:bg-blue-600',
+      secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+      danger: 'bg-red-500 text-white hover:bg-red-600',
+    }
+    
+    const sizeClasses = {
+      sm: 'px-3 py-1.5 text-sm',
+      md: 'px-4 py-2 text-base',
+      lg: 'px-6 py-3 text-lg',
+    }
+    
+    return (
+      <button
+        className={`
+          ${baseClasses}
+          ${variantClasses[variant]}
+          ${sizeClasses[size]}
+          ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
+        `}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    )
+  }
+  ```
+- 📝 clsx and classnames:
+  ```bash
+  npm install clsx
+  # or
+  npm install classnames
+  ```
+  ```jsx
+  import clsx from 'clsx'
+  
+  function Alert({ type = 'info', showIcon = true, children }) {
+    return (
+      <div className={clsx(
+        'p-4 rounded-lg',
+        {
+          'bg-blue-100 text-blue-700': type === 'info',
+          'bg-green-100 text-green-700': type === 'success',
+          'bg-yellow-100 text-yellow-700': type === 'warning',
+          'bg-red-100 text-red-700': type === 'error',
+        }
+      )}>
+        {showIcon && <span className="mr-2">🔔</span>}
+        {children}
+      </div>
+    )
+  }
+  ```
+- 📝 Tailwind Merge:
+  ```bash
+  npm install tailwind-merge
+  ```
+  ```jsx
+  import { twMerge } from 'tailwind-merge'
+  
+  function Button({ className, children }) {
+    return (
+      <button
+        className={twMerge(
+          'px-4 py-2 bg-blue-500 text-white rounded-lg',
+          className
+        )}
+      >
+        {children}
+      </button>
+    )
+  }
+  
+  // Usage - merges classes correctly
+  <Button className="bg-red-500">Red Button</Button>
+  ```
+
+##### 12.18 🧩 Component Patterns
+- 📝 Card Component:
+  ```jsx
+  function Card({ title, description, image, footer }) {
+    return (
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        {image && (
+          <img className="w-full h-48 object-cover" src={image} alt={title} />
+        )}
+        
+        <div className="px-6 py-4">
+          <h3 className="font-bold text-xl mb-2">{title}</h3>
+          <p className="text-gray-700 text-base">{description}</p>
+        </div>
+        
+        {footer && (
+          <div className="px-6 py-4 bg-gray-50 border-t">
+            {footer}
+          </div>
+        )}
+      </div>
+    )
+  }
+  ```
+- 📝 Modal Component:
+  ```jsx
+  function Modal({ isOpen, onClose, title, children }) {
+    if (!isOpen) return null
+    
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div className="flex items-center justify-center min-h-screen px-4">
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/50 transition-opacity"
+            onClick={onClose}
+          />
+          
+          {/* Modal content */}
+          <div className="relative bg-white rounded-lg max-w-lg w-full">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <button
+                onClick={onClose}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <span className="text-2xl">&times;</span>
+              </button>
+            </div>
+            
+            <div className="p-6">{children}</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  ```
+
+##### 12.19 🧪 Testing Tailwind Components
+- 📝 Visual Regression Testing:
+  ```javascript
+  // Button.test.jsx
+  import { render, screen } from '@testing-library/react'
+  import Button from './Button'
+  
+  describe('Button component', () => {
+    it('applies correct classes for primary variant', () => {
+      render(<Button variant="primary">Click me</Button>)
+      const button = screen.getByText('Click me')
+      
+      expect(button).toHaveClass('bg-blue-500')
+      expect(button).toHaveClass('text-white')
+      expect(button).toHaveClass('hover:bg-blue-600')
+    })
+    
+    it('applies correct size classes', () => {
+      render(<Button size="lg">Large button</Button>)
+      const button = screen.getByText('Large button')
+      
+      expect(button).toHaveClass('px-6')
+      expect(button).toHaveClass('py-3')
+      expect(button).toHaveClass('text-lg')
+    })
+    
+    it('handles disabled state', () => {
+      render(<Button disabled>Disabled button</Button>)
+      const button = screen.getByText('Disabled button')
+      
+      expect(button).toBeDisabled()
+      expect(button).toHaveClass('opacity-50')
+      expect(button).toHaveClass('cursor-not-allowed')
+    })
+  })
+  ```
+
+##### 12.20 💻 Practical Projects
+- 🏗️ Responsive Navigation Bar
+- 📝 Blog/Article Layout with Typography
+- 🛒 Product Card Grid
+- 🔐 Login/Registration Forms
+- 📊 Dashboard with Cards and Charts
+- 🎨 Landing Page with Hero Section
+- 🖼️ Image Gallery with Grid
+- 📱 Mobile-First Responsive Website
+- 🎭 Modal and Dialog Components
+- 🔔 Toast Notification System
+- 📋 Pricing Tables
+- 👤 User Profile Page
+- 🛍️ E-commerce Product Page
+- 📰 News/Magazine Layout
+- 🎮 Game Dashboard Interface
+- 💼 Portfolio Website
+- 📚 Documentation Site
+- 🏪 Restaurant Menu Page
+- 📅 Event Calendar
+- ⚙️ Settings Panel
+
+---
