@@ -17,7 +17,7 @@ Grid konteyner yaratish uchun ota-elementga `display: grid` beriladi. Shu bilan 
     padding: 10px;
     border: 2px solid black;
   }
-  
+
   .item {
     background: lightblue;
     padding: 20px;
