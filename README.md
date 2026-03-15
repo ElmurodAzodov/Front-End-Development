@@ -10401,3 +10401,6898 @@ Production    (16-19) ████████████░ 2 oy
 - 📱 Mobile Responsive App
 
 ---
+
+## 🎯 STAGE 14 — React Hook Form (Form Management)
+**Goal**: Master React Hook Form for building performant, flexible, and extensible forms with easy validation.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 14.1 📝 Introduction to React Hook Form
+- 🤔 What is React Hook Form?
+- 🎯 Why React Hook Form?
+  - Performance (minimal re-renders)
+  - Uncontrolled components
+  - Easy validation integration
+  - Small bundle size
+  - TypeScript support
+- 🔄 React Hook Form vs Other Form Libraries:
+  - vs Formik
+  - vs Redux Form
+  - vs Final Form
+- 📦 Installation:
+  ```bash
+  npm install react-hook-form
+  # or
+  yarn add react-hook-form
+  ```
+
+##### 14.2 🎯 Basic Form with useForm
+- 📝 Simple Form Example:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  
+  interface FormData {
+    firstName: string
+    lastName: string
+    email: string
+    age: number
+  }
+  
+  function SimpleForm() {
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+    
+    const onSubmit = (data: FormData) => {
+      console.log(data)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div>
+          <label>First Name</label>
+          <input {...register('firstName', { required: true })} />
+          {errors.firstName && <span>This field is required</span>}
+        </div>
+        
+        <div>
+          <label>Last Name</label>
+          <input {...register('lastName')} />
+        </div>
+        
+        <div>
+          <label>Email</label>
+          <input type="email" {...register('email', { 
+            required: 'Email is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: 'Invalid email address'
+            }
+          })} />
+          {errors.email && <span>{errors.email.message}</span>}
+        </div>
+        
+        <div>
+          <label>Age</label>
+          <input type="number" {...register('age', { 
+            min: { value: 18, message: 'Must be at least 18' },
+            max: { value: 99, message: 'Must be at most 99' }
+          })} />
+          {errors.age && <span>{errors.age.message}</span>}
+        </div>
+        
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+  ```
+
+##### 14.3 📦 Form Registration Deep Dive
+- 📝 Register Options:
+  ```tsx
+  const { register } = useForm()
+  
+  // Basic registration
+  <input {...register('fieldName')} />
+  
+  // With validation
+  <input {...register('email', {
+    required: 'Email is required',
+    pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: 'Invalid email address'
+    },
+    validate: {
+      notAdmin: (value) => value !== 'admin@example.com' || 'Cannot use admin email',
+      notBlacklisted: (value) => !blacklistedEmails.includes(value) || 'Email is blacklisted'
+    }
+  })} />
+  
+  // With value transformation
+  <input {...register('age', {
+    setValueAs: (value) => parseInt(value) || 0
+  })} />
+  
+  // Disabled field
+  <input {...register('disabledField', { disabled: true })} />
+  
+  // With onChange/onBlur
+  <input {...register('field', {
+    onChange: (e) => console.log('Changed:', e.target.value),
+    onBlur: (e) => console.log('Blurred:', e.target.value)
+  })} />
+  ```
+
+##### 14.4 🎯 Form State and Errors
+- 📝 formState Object:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  
+  function FormWithState() {
+    const { 
+      register, 
+      handleSubmit,
+      formState: { 
+        errors,           // Validation errors
+        isDirty,          // Form has been modified
+        dirtyFields,      // Which fields have been modified
+        touchedFields,    // Which fields have been touched
+        isSubmitting,     // Form is currently submitting
+        isLoading,        // Form is loading (async defaultValues)
+        submitCount,      // Number of form submissions
+        isValid,          // Form has no errors
+        isValidating,     // Validation in progress
+      } 
+    } = useForm()
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('email', { required: true })} />
+        {errors.email && <span>Email is required</span>}
+        
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+        
+        <div>
+          <p>Form Modified: {isDirty ? 'Yes' : 'No'}</p>
+          <p>Valid: {isValid ? 'Yes' : 'No'}</p>
+          <p>Submit Count: {submitCount}</p>
+        </div>
+      </form>
+    )
+  }
+  ```
+
+##### 14.5 🔧 Form Methods
+- 📝 Important Form Methods:
+  ```tsx
+  const { 
+    register,
+    handleSubmit,
+    setValue,
+    getValues,
+    watch,
+    reset,
+    trigger,
+    setError,
+    clearErrors,
+    setFocus,
+    control,
+  } = useForm<FormData>()
+  
+  // Set value programmatically
+  setValue('firstName', 'John')
+  setValue('user.address.city', 'New York') // Nested fields
+  
+  // Get values
+  const values = getValues() // All values
+  const firstName = getValues('firstName') // Single field
+  const multiple = getValues(['firstName', 'lastName']) // Multiple fields
+  
+  // Watch fields (subscribe to changes)
+  const watchFirstName = watch('firstName')
+  const watchAll = watch() // Watch all fields
+  const watchMultiple = watch(['firstName', 'email'])
+  
+  // Reset form
+  reset() // Reset to default values
+  reset({ firstName: 'Jane' }) // Reset with new values
+  
+  // Trigger validation
+  await trigger() // Validate all fields
+  await trigger('email') // Validate specific field
+  
+  // Set error manually
+  setError('email', { 
+    type: 'manual', 
+    message: 'Email already exists' 
+  })
+  
+  // Clear errors
+  clearErrors() // Clear all errors
+  clearErrors('email') // Clear specific field
+  
+  // Set focus
+  setFocus('firstName')
+  ```
+
+##### 14.6 📝 Complex Form Examples
+- 📝 Multi-step Form (Wizard):
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  
+  interface FormData {
+    step1: {
+      firstName: string
+      lastName: string
+      email: string
+    }
+    step2: {
+      address: string
+      city: string
+      zipCode: string
+    }
+    step3: {
+      paymentMethod: string
+      cardNumber: string
+      expiryDate: string
+    }
+  }
+  
+  function MultiStepForm() {
+    const [step, setStep] = useState(1)
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm<FormData>()
+    
+    const nextStep = async () => {
+      let isValid = false
+      
+      switch(step) {
+        case 1:
+          isValid = await trigger(['step1.firstName', 'step1.lastName', 'step1.email'])
+          break
+        case 2:
+          isValid = await trigger(['step2.address', 'step2.city', 'step2.zipCode'])
+          break
+      }
+      
+      if (isValid) {
+        setStep(step + 1)
+      }
+    }
+    
+    const prevStep = () => {
+      setStep(step - 1)
+    }
+    
+    const onSubmit = (data: FormData) => {
+      console.log('Final data:', data)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {step === 1 && (
+          <div className="step1">
+            <h2>Personal Information</h2>
+            <input {...register('step1.firstName', { required: true })} placeholder="First Name" />
+            <input {...register('step1.lastName', { required: true })} placeholder="Last Name" />
+            <input {...register('step1.email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email" />
+          </div>
+        )}
+        
+        {step === 2 && (
+          <div className="step2">
+            <h2>Address Information</h2>
+            <input {...register('step2.address', { required: true })} placeholder="Address" />
+            <input {...register('step2.city', { required: true })} placeholder="City" />
+            <input {...register('step2.zipCode', { required: true, pattern: /^\d{5}$/ })} placeholder="ZIP Code" />
+          </div>
+        )}
+        
+        {step === 3 && (
+          <div className="step3">
+            <h2>Payment Information</h2>
+            <select {...register('step3.paymentMethod', { required: true })}>
+              <option value="credit">Credit Card</option>
+              <option value="paypal">PayPal</option>
+            </select>
+            <input {...register('step3.cardNumber', { required: true, pattern: /^\d{16}$/ })} placeholder="Card Number" />
+            <input {...register('step3.expiryDate', { required: true, pattern: /^(0[1-9]|1[0-2])\/\d{2}$/ })} placeholder="MM/YY" />
+          </div>
+        )}
+        
+        <div className="navigation">
+          {step > 1 && <button type="button" onClick={prevStep}>Previous</button>}
+          {step < 3 && <button type="button" onClick={nextStep}>Next</button>}
+          {step === 3 && <button type="submit">Submit</button>}
+        </div>
+      </form>
+    )
+  }
+  ```
+
+##### 14.7 🔄 Dynamic Form Fields
+- 📝 Adding/Removing Fields Dynamically:
+  ```tsx
+  import { useForm, useFieldArray } from 'react-hook-form'
+  
+  interface FormData {
+    users: {
+      name: string
+      email: string
+      role: string
+    }[]
+  }
+  
+  function DynamicForm() {
+    const { control, register, handleSubmit, formState: { errors } } = useForm<FormData>({
+      defaultValues: {
+        users: [{ name: '', email: '', role: 'user' }]
+      }
+    })
+    
+    const { fields, append, remove, prepend, insert, swap, move } = useFieldArray({
+      control,
+      name: 'users'
+    })
+    
+    const onSubmit = (data: FormData) => {
+      console.log(data)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {fields.map((field, index) => (
+          <div key={field.id} className="user-field">
+            <input
+              {...register(`users.${index}.name`, { required: true })}
+              placeholder="Name"
+            />
+            
+            <input
+              {...register(`users.${index}.email`, { 
+                required: true,
+                pattern: /^\S+@\S+$/i 
+              })}
+              placeholder="Email"
+            />
+            
+            <select {...register(`users.${index}.role`)}>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+              <option value="moderator">Moderator</option>
+            </select>
+            
+            <button type="button" onClick={() => remove(index)}>
+              Remove
+            </button>
+          </div>
+        ))}
+        
+        <div className="actions">
+          <button type="button" onClick={() => append({ name: '', email: '', role: 'user' })}>
+            Add User
+          </button>
+          
+          <button type="button" onClick={() => prepend({ name: '', email: '', role: 'user' })}>
+            Add at Beginning
+          </button>
+          
+          {fields.length > 1 && (
+            <>
+              <button type="button" onClick={() => swap(0, 1)}>
+                Swap First Two
+              </button>
+              
+              <button type="button" onClick={() => move(0, fields.length - 1)}>
+                Move First to Last
+              </button>
+            </>
+          )}
+        </div>
+        
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+  ```
+
+##### 14.8 🎯 Integration with UI Libraries
+- 📝 Shadcn UI Integration:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  import { Button } from "@/components/ui/button"
+  import {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+  } from "@/components/ui/form"
+  import { Input } from "@/components/ui/input"
+  import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+  import { Checkbox } from "@/components/ui/checkbox"
+  import { zodResolver } from "@hookform/resolvers/zod"
+  import * as z from "zod"
+  
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: "Username must be at least 2 characters.",
+    }),
+    email: z.string().email({
+      message: "Please enter a valid email address.",
+    }),
+    role: z.string({
+      required_error: "Please select a role.",
+    }),
+    terms: z.boolean().refine(val => val === true, {
+      message: "You must accept the terms.",
+    }),
+  })
+  
+  function ShadcnForm() {
+    const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        username: "",
+        email: "",
+        terms: false,
+      },
+    })
+    
+    function onSubmit(values: z.infer<typeof formSchema>) {
+      console.log(values)
+    }
+    
+    return (
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input placeholder="johndoe" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your public display name.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="john@example.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Role</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="user">User</SelectItem>
+                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="moderator">Moderator</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="terms"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <FormLabel>
+                    Accept terms and conditions
+                  </FormLabel>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
+    )
+  }
+  ```
+
+##### 14.9 🔧 Custom Validation
+- 📝 Custom Validation Rules:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  
+  function CustomValidationForm() {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm()
+    
+    const password = watch('password')
+    
+    const validatePassword = (value: string) => {
+      if (!value) return 'Password is required'
+      if (value.length < 8) return 'Password must be at least 8 characters'
+      if (!/[A-Z]/.test(value)) return 'Password must contain at least one uppercase letter'
+      if (!/[a-z]/.test(value)) return 'Password must contain at least one lowercase letter'
+      if (!/[0-9]/.test(value)) return 'Password must contain at least one number'
+      if (!/[!@#$%^&*]/.test(value)) return 'Password must contain at least one special character'
+      return true
+    }
+    
+    const validateConfirmPassword = (value: string) => {
+      return value === password || 'Passwords do not match'
+    }
+    
+    const validateUsername = async (value: string) => {
+      // Async validation
+      const response = await fetch(`/api/check-username?username=${value}`)
+      const data = await response.json()
+      return data.available || 'Username already taken'
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>Username</label>
+          <input {...register('username', { 
+            required: 'Username is required',
+            minLength: {
+              value: 3,
+              message: 'Username must be at least 3 characters'
+            },
+            validate: validateUsername
+          })} />
+          {errors.username && <span>{errors.username.message as string}</span>}
+        </div>
+        
+        <div>
+          <label>Password</label>
+          <input 
+            type="password" 
+            {...register('password', { 
+              validate: validatePassword
+            })} 
+          />
+          {errors.password && <span>{errors.password.message as string}</span>}
+        </div>
+        
+        <div>
+          <label>Confirm Password</label>
+          <input 
+            type="password" 
+            {...register('confirmPassword', { 
+              validate: validateConfirmPassword
+            })} 
+          />
+          {errors.confirmPassword && <span>{errors.confirmPassword.message as string}</span>}
+        </div>
+        
+        <button type="submit">Register</button>
+      </form>
+    )
+  }
+  ```
+
+##### 14.10 📱 Form with File Upload
+- 📝 File Upload Example:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  import { useState } from 'react'
+  
+  interface FormData {
+    name: string
+    files: FileList
+  }
+  
+  function FileUploadForm() {
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+    const [previews, setPreviews] = useState<string[]>([])
+    
+    const validateFiles = (files: FileList) => {
+      if (files.length === 0) return 'At least one file is required'
+      
+      const maxSize = 5 * 1024 * 1024 // 5MB
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']
+      
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i]
+        
+        if (file.size > maxSize) {
+          return `File ${file.name} exceeds 5MB limit`
+        }
+        
+        if (!allowedTypes.includes(file.type)) {
+          return `File ${file.name} must be JPEG, PNG, or GIF`
+        }
+      }
+      
+      return true
+    }
+    
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = e.target.files
+      if (files) {
+        const newPreviews: string[] = []
+        for (let i = 0; i < files.length; i++) {
+          newPreviews.push(URL.createObjectURL(files[i]))
+        }
+        setPreviews(newPreviews)
+      }
+    }
+    
+    const onSubmit = async (data: FormData) => {
+      const formData = new FormData()
+      formData.append('name', data.name)
+      
+      for (let i = 0; i < data.files.length; i++) {
+        formData.append('files', data.files[i])
+      }
+      
+      // Send to API
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+      })
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+        <div>
+          <label>Name</label>
+          <input {...register('name', { required: 'Name is required' })} />
+          {errors.name && <span>{errors.name.message}</span>}
+        </div>
+        
+        <div>
+          <label>Files</label>
+          <input
+            type="file"
+            multiple
+            {...register('files', { 
+              validate: validateFiles,
+              onChange: handleFileChange
+            })}
+          />
+          {errors.files && <span>{errors.files.message as string}</span>}
+        </div>
+        
+        {previews.length > 0 && (
+          <div className="previews">
+            {previews.map((preview, index) => (
+              <img key={index} src={preview} alt={`Preview ${index}`} />
+            ))}
+          </div>
+        )}
+        
+        <button type="submit">Upload</button>
+      </form>
+    )
+  }
+  ```
+
+##### 14.11 🎨 Styled Forms with Tailwind
+- 📝 Beautiful Form Example:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  import { cn } from '@/lib/utils'
+  
+  function StyledForm() {
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm()
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto space-y-6">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            {...register('name', { required: 'Name is required' })}
+            className={cn(
+              "mt-1 block w-full rounded-md shadow-sm",
+              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
+              errors.name && "border-red-300 focus:border-red-500 focus:ring-red-500"
+            )}
+          />
+          {errors.name && (
+            <p className="mt-1 text-sm text-red-600">{errors.name.message as string}</p>
+          )}
+        </div>
+        
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            {...register('email', { 
+              required: 'Email is required',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Invalid email format'
+              }
+            })}
+            className={cn(
+              "mt-1 block w-full rounded-md shadow-sm",
+              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
+              errors.email && "border-red-300 focus:border-red-500 focus:ring-red-500"
+            )}
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-600">{errors.email.message as string}</p>
+          )}
+        </div>
+        
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+            Message
+          </label>
+          <textarea
+            id="message"
+            rows={4}
+            {...register('message', { 
+              required: 'Message is required',
+              minLength: {
+                value: 10,
+                message: 'Message must be at least 10 characters'
+              }
+            })}
+            className={cn(
+              "mt-1 block w-full rounded-md shadow-sm",
+              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
+              errors.message && "border-red-300 focus:border-red-500 focus:ring-red-500"
+            )}
+          />
+          {errors.message && (
+            <p className="mt-1 text-sm text-red-600">{errors.message.message as string}</p>
+          )}
+        </div>
+        
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            id="terms"
+            {...register('terms', { 
+              required: 'You must accept the terms' 
+            })}
+            className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          />
+          <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
+            I agree to the terms and conditions
+          </label>
+          {errors.terms && (
+            <p className="mt-1 text-sm text-red-600">{errors.terms.message as string}</p>
+          )}
+        </div>
+        
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={cn(
+            "w-full flex justify-center py-2 px-4 border border-transparent",
+            "rounded-md shadow-sm text-sm font-medium text-white",
+            "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2",
+            "focus:ring-offset-2 focus:ring-blue-500",
+            "disabled:opacity-50 disabled:cursor-not-allowed"
+          )}
+        >
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+      </form>
+    )
+  }
+  ```
+
+##### 14.12 🔄 Form Context and Nested Forms
+- 📝 Using FormProvider:
+  ```tsx
+  // Parent Component
+  import { useForm, FormProvider } from 'react-hook-form'
+  
+  function ParentForm() {
+    const methods = useForm()
+    
+    return (
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <PersonalInfo />
+          <AddressInfo />
+          <PaymentInfo />
+          <button type="submit">Submit</button>
+        </form>
+      </FormProvider>
+    )
+  }
+  
+  // Child Component
+  import { useFormContext } from 'react-hook-form'
+  
+  function PersonalInfo() {
+    const { register, formState: { errors } } = useFormContext()
+    
+    return (
+      <div>
+        <h3>Personal Information</h3>
+        <input {...register('firstName')} placeholder="First Name" />
+        <input {...register('lastName')} placeholder="Last Name" />
+      </div>
+    )
+  }
+  
+  function AddressInfo() {
+    const { register } = useFormContext()
+    
+    return (
+      <div>
+        <h3>Address Information</h3>
+        <input {...register('address')} placeholder="Address" />
+        <input {...register('city')} placeholder="City" />
+      </div>
+    )
+  }
+  ```
+
+##### 14.13 🎯 Advanced Patterns
+- 📝 Dependent Fields:
+  ```tsx
+  function DependentFields() {
+    const { register, watch, setValue, formState: { errors } } = useForm()
+    
+    const country = watch('country')
+    const city = watch('city')
+    
+    // Update cities when country changes
+    useEffect(() => {
+      if (country) {
+        // Reset city when country changes
+        setValue('city', '')
+        // Fetch cities for selected country
+        fetchCities(country)
+      }
+    }, [country, setValue])
+    
+    return (
+      <div>
+        <select {...register('country', { required: true })}>
+          <option value="">Select Country</option>
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+        </select>
+        
+        <select {...register('city', { required: true })} disabled={!country}>
+          <option value="">Select City</option>
+          {cities.map(city => (
+            <option key={city} value={city}>{city}</option>
+          ))}
+        </select>
+        
+        {country === 'us' && (
+          <input {...register('zipCode')} placeholder="ZIP Code" />
+        )}
+      </div>
+    )
+  }
+  ```
+- 📝 Conditional Fields:
+  ```tsx
+  function ConditionalFields() {
+    const { register, watch } = useForm()
+    
+    const hasNewsletter = watch('newsletter')
+    const accountType = watch('accountType')
+    
+    return (
+      <div>
+        <div>
+          <label>
+            <input type="checkbox" {...register('newsletter')} />
+            Subscribe to newsletter
+          </label>
+        </div>
+        
+        {hasNewsletter && (
+          <div>
+            <label>Email Frequency</label>
+            <select {...register('frequency')}>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+        )}
+        
+        <div>
+          <label>Account Type</label>
+          <select {...register('accountType')}>
+            <option value="basic">Basic</option>
+            <option value="premium">Premium</option>
+            <option value="enterprise">Enterprise</option>
+          </select>
+        </div>
+        
+        {accountType === 'premium' && (
+          <div>
+            <label>Premium Feature Access</label>
+            <input type="checkbox" {...register('premiumFeatures')} />
+          </div>
+        )}
+        
+        {accountType === 'enterprise' && (
+          <div>
+            <label>Company Name</label>
+            <input {...register('companyName')} />
+          </div>
+        )}
+      </div>
+    )
+  }
+  ```
+
+##### 14.14 🧪 Testing Forms
+- 📝 Testing React Hook Form:
+  ```tsx
+  import { render, screen, waitFor } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { useForm } from 'react-hook-form'
+  
+  function TestForm() {
+    const { register, handleSubmit } = useForm()
+    
+    const onSubmit = jest.fn()
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('name')} placeholder="Name" />
+        <input {...register('email')} placeholder="Email" />
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+  
+  describe('TestForm', () => {
+    it('submits form data correctly', async () => {
+      const mockSubmit = jest.fn()
+      render(<TestForm onSubmit={mockSubmit} />)
+      
+      await userEvent.type(screen.getByPlaceholderText('Name'), 'John Doe')
+      await userEvent.type(screen.getByPlaceholderText('Email'), 'john@example.com')
+      await userEvent.click(screen.getByText('Submit'))
+      
+      await waitFor(() => {
+        expect(mockSubmit).toHaveBeenCalledWith(
+          expect.objectContaining({
+            name: 'John Doe',
+            email: 'john@example.com'
+          }),
+          expect.anything()
+        )
+      })
+    })
+    
+    it('shows validation errors', async () => {
+      render(<TestForm onSubmit={mockSubmit} />)
+      
+      await userEvent.click(screen.getByText('Submit'))
+      
+      await waitFor(() => {
+        expect(screen.getByText('Name is required')).toBeInTheDocument()
+        expect(screen.getByText('Email is required')).toBeInTheDocument()
+      })
+    })
+  })
+  ```
+
+##### 14.15 🚀 Performance Optimization
+- 📝 Preventing Re-renders:
+  ```tsx
+  import { useForm, Controller } from 'react-hook-form'
+  
+  // Use Controller for custom components that don't expose ref
+  function OptimizedForm() {
+    const { control, handleSubmit } = useForm()
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => (
+            <ExpensiveInput {...field} />
+          )}
+        />
+        
+        <Controller
+          name="richText"
+          control={control}
+          render={({ field }) => (
+            <RichTextEditor 
+              value={field.value}
+              onChange={field.onChange}
+            />
+          )}
+        />
+      </form>
+    )
+  }
+  
+  // Memoize expensive components
+  const ExpensiveInput = React.memo(({ value, onChange }) => {
+    return (
+      <input 
+        value={value} 
+        onChange={onChange}
+        className="expensive-styles"
+      />
+    )
+  })
+  ```
+- 📝 useWatch for Performance:
+  ```tsx
+  import { useForm, useWatch } from 'react-hook-form'
+  
+  function TotalCalculator() {
+    const { control, register } = useForm({
+      defaultValues: {
+        items: [{ price: 0, quantity: 1 }]
+      }
+    })
+    
+    const items = useWatch({
+      control,
+      name: 'items'
+    })
+    
+    const total = items.reduce(
+      (sum, item) => sum + (item.price * item.quantity), 
+      0
+    )
+    
+    return (
+      <div>
+        {items.map((_, index) => (
+          <div key={index}>
+            <input
+              type="number"
+              {...register(`items.${index}.price`)}
+            />
+            <input
+              type="number"
+              {...register(`items.${index}.quantity`)}
+            />
+          </div>
+        ))}
+        <div>Total: ${total}</div>
+      </div>
+    )
+  }
+  ```
+
+##### 14.16 💻 Practical Projects
+- 🏗️ User Registration Form
+- 📝 Blog Post Editor
+- 🛒 Checkout Form with Multiple Steps
+- 🔐 Login Form with Validation
+- 📊 Survey/Quiz Application
+- 👥 Team Member Invitation Form
+- 📅 Event Booking Form
+- 💳 Payment Form with Card Details
+- 📁 File Upload with Progress
+- ⚙️ Settings/Preferences Form
+- 📋 Multi-step Wizard
+- 🏨 Hotel Booking Form
+- 🚗 Car Rental Form
+- 📦 Order Form with Dynamic Items
+- 🔍 Advanced Search Form
+
+---
+
+## 🎯 STAGE 15 — Zod (Schema Validation)
+**Goal**: Master Zod for type-safe schema validation and data parsing in TypeScript applications.
+**Time**: 15 soat | 8 dars
+
+#### 📚 Topics
+
+##### 15.1 📦 Introduction to Zod
+- 🤔 What is Zod?
+- 🎯 Why Zod?
+  - TypeScript-first
+  - Zero dependencies
+  - Runtime validation
+  - Type inference
+  - Composable schemas
+  - Immutable
+- 🔄 Zod vs Other Validation Libraries:
+  - vs Yup
+  - vs Joi
+  - vs io-ts
+  - vs Ajv
+- 📥 Installation:
+  ```bash
+  npm install zod
+  # or
+  yarn add zod
+  ```
+
+##### 15.2 📝 Basic Schema Types
+- 📝 Primitive Types:
+  ```typescript
+  import { z } from 'zod'
+  
+  // String
+  const stringSchema = z.string()
+  const stringResult = stringSchema.parse('hello') // ✅
+  // stringSchema.parse(123) // ❌ throws error
+  
+  // Number
+  const numberSchema = z.number()
+  const numberResult = numberSchema.parse(42) // ✅
+  
+  // Boolean
+  const booleanSchema = z.boolean()
+  const boolResult = booleanSchema.parse(true) // ✅
+  
+  // Null and Undefined
+  const nullSchema = z.null()
+  const undefinedSchema = z.undefined()
+  const voidSchema = z.void() // accepts null or undefined
+  
+  // Any and Unknown
+  const anySchema = z.any()
+  const unknownSchema = z.unknown()
+  
+  // Never
+  const neverSchema = z.never() // accepts nothing
+  
+  // Literals
+  const literalSchema = z.literal('hello')
+  const literalResult = literalSchema.parse('hello') // ✅
+  // literalSchema.parse('world') // ❌
+  ```
+- 📝 Safe Parse:
+  ```typescript
+  const result = stringSchema.safeParse(123)
+  
+  if (result.success) {
+    console.log('Data:', result.data) // Type is string
+  } else {
+    console.log('Error:', result.error) // ZodError
+  }
+  ```
+
+##### 15.3 📦 Object Schemas
+- 📝 Basic Object Schema:
+  ```typescript
+  import { z } from 'zod'
+  
+  const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email(),
+    age: z.number().min(18).max(120),
+    isActive: z.boolean().default(true),
+    role: z.enum(['admin', 'user', 'guest']),
+    tags: z.array(z.string()),
+    metadata: z.record(z.string(), z.unknown()).optional(),
+  })
+  
+  // Type inference
+  type User = z.infer<typeof UserSchema>
+  
+  // Usage
+  const user: User = {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@example.com',
+    age: 30,
+    role: 'user',
+    tags: ['customer', 'premium'],
+  }
+  
+  // Validate
+  const validated = UserSchema.parse(user)
+  ```
+- 📝 Nested Objects:
+  ```typescript
+  const AddressSchema = z.object({
+    street: z.string(),
+    city: z.string(),
+    country: z.string(),
+    zipCode: z.string().regex(/^\d{5}$/),
+  })
+  
+  const UserWithAddressSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    address: AddressSchema,
+    shippingAddress: AddressSchema.optional(),
+    addresses: z.array(AddressSchema),
+  })
+  ```
+
+##### 15.4 🔧 Schema Methods
+- 📝 Validation Methods:
+  ```typescript
+  // String methods
+  const emailSchema = z.string().email('Invalid email')
+  const urlSchema = z.string().url('Invalid URL')
+  const uuidSchema = z.string().uuid()
+  const regexSchema = z.string().regex(/^[A-Z]+$/, 'Must be uppercase')
+  const minLengthSchema = z.string().min(5, 'At least 5 characters')
+  const maxLengthSchema = z.string().max(100)
+  const lengthSchema = z.string().length(10)
+  const includesSchema = z.string().includes('@')
+  const startsWithSchema = z.string().startsWith('https')
+  const endsWithSchema = z.string().endsWith('.com')
+  const datetimeSchema = z.string().datetime() // ISO datetime
+  const ipSchema = z.string().ip() // IPv4 or IPv6
+  
+  // Number methods
+  const positiveSchema = z.number().positive()
+  const negativeSchema = z.number().negative()
+  const nonnegativeSchema = z.number().nonnegative()
+  const minSchema = z.number().min(18, 'Must be at least 18')
+  const maxSchema = z.number().max(100)
+  const intSchema = z.number().int()
+  const multipleOfSchema = z.number().multipleOf(5)
+  const finiteSchema = z.number().finite() // not Infinity or -Infinity
+  
+  // Array methods
+  const arraySchema = z.array(z.string())
+  const minArraySchema = z.array(z.string()).min(1, 'At least one item')
+  const maxArraySchema = z.array(z.string()).max(10)
+  const nonemptyArraySchema = z.array(z.string()).nonempty()
+  const lengthArraySchema = z.array(z.string()).length(5)
+  ```
+
+##### 15.5 🔀 Union and Intersection
+- 📝 Union Types:
+  ```typescript
+  // String or number
+  const stringOrNumber = z.union([z.string(), z.number()])
+  // or using .or()
+  const stringOrNumber2 = z.string().or(z.number())
+  
+  // Discriminated unions
+  const DogSchema = z.object({
+    type: z.literal('dog'),
+    bark: z.boolean(),
+  })
+  
+  const CatSchema = z.object({
+    type: z.literal('cat'),
+    meow: z.boolean(),
+  })
+  
+  const AnimalSchema = z.discriminatedUnion('type', [DogSchema, CatSchema])
+  
+  type Animal = z.infer<typeof AnimalSchema>
+  // Animal = { type: 'dog', bark: boolean } | { type: 'cat', meow: boolean }
+  ```
+- 📝 Intersection Types:
+  ```typescript
+  const BasicInfoSchema = z.object({
+    name: z.string(),
+    email: z.string().email(),
+  })
+  
+  const AddressInfoSchema = z.object({
+    address: z.string(),
+    city: z.string(),
+  })
+  
+  const UserSchema = z.intersection(BasicInfoSchema, AddressInfoSchema)
+  // or using .and()
+  const UserSchema2 = BasicInfoSchema.and(AddressInfoSchema)
+  
+  type User = z.infer<typeof UserSchema>
+  // { name: string; email: string; address: string; city: string; }
+  ```
+
+##### 15.6 🎯 Advanced Types
+- 📝 Optional and Nullable:
+  ```typescript
+  const OptionalSchema = z.string().optional() // string | undefined
+  const NullableSchema = z.string().nullable() // string | null
+  const NullishSchema = z.string().nullish() // string | null | undefined
+  
+  const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    age: z.number().optional(), // optional property
+    email: z.string().email().nullable(), // can be null
+    phone: z.string().nullish(), // can be null or undefined
+  })
+  ```
+- 📝 Default Values:
+  ```typescript
+  const WithDefaultSchema = z.string().default('default value')
+  
+  const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    role: z.enum(['admin', 'user']).default('user'),
+    isActive: z.boolean().default(true),
+    createdAt: z.date().default(() => new Date()),
+  })
+  ```
+- 📝 Record and Map:
+  ```typescript
+  // Record (key-value pairs)
+  const StringRecordSchema = z.record(z.string()) // { [k: string]: string }
+  const MixedRecordSchema = z.record(z.string(), z.union([z.string(), z.number()]))
+  
+  // Map
+  const MapSchema = z.map(z.string(), z.number())
+  ```
+- 📝 Set and Promise:
+  ```typescript
+  const SetSchema = z.set(z.string())
+  const PromiseSchema = z.promise(z.string())
+  ```
+
+##### 15.7 🔄 Transform and Refine
+- 📝 Transform (modify data):
+  ```typescript
+  const DateStringSchema = z.string().transform((str) => new Date(str))
+  
+  const NumberStringSchema = z.string().transform(Number)
+  
+  const TrimmedStringSchema = z.string().transform(s => s.trim())
+  
+  const UserSchema = z.object({
+    name: z.string(),
+    email: z.string().email(),
+  }).transform(user => ({
+    ...user,
+    displayName: user.name.toUpperCase(),
+    domain: user.email.split('@')[1],
+  }))
+  
+  // Multiple transforms
+  const ProcessedSchema = z.string()
+    .transform(s => s.trim())
+    .transform(s => s.toLowerCase())
+    .transform(s => s.split(','))
+  ```
+- 📝 Refine (custom validation):
+  ```typescript
+  const PasswordSchema = z.string()
+    .min(8)
+    .refine(
+      (password) => /[A-Z]/.test(password),
+      'Must contain uppercase letter'
+    )
+    .refine(
+      (password) => /[a-z]/.test(password),
+      'Must contain lowercase letter'
+    )
+    .refine(
+      (password) => /[0-9]/.test(password),
+      'Must contain number'
+    )
+  
+  const UserSchema = z.object({
+    password: PasswordSchema,
+    confirmPassword: z.string(),
+  }).refine(data => data.password === data.confirmPassword, {
+    message: 'Passwords must match',
+    path: ['confirmPassword'], // Error path
+  })
+  ```
+- 📝 SuperRefine (advanced validation):
+  ```typescript
+  const UserSchema = z.object({
+    username: z.string(),
+    password: z.string(),
+    age: z.number(),
+  }).superRefine((data, ctx) => {
+    // Custom validation with context
+    if (data.username === data.password) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Username and password cannot be the same',
+        path: ['password'],
+      })
+    }
+    
+    if (data.age < 18 && data.username.includes('admin')) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Minors cannot have admin username',
+        path: ['username'],
+      })
+    }
+  })
+  ```
+
+##### 15.8 🎨 Schema Composition
+- 📝 Extending Schemas:
+  ```typescript
+  const BaseUserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email(),
+  })
+  
+  // Extend with new fields
+  const AdminUserSchema = BaseUserSchema.extend({
+    role: z.literal('admin'),
+    permissions: z.array(z.string()),
+    department: z.string().optional(),
+  })
+  
+  const RegularUserSchema = BaseUserSchema.extend({
+    role: z.literal('user'),
+    subscription: z.enum(['free', 'premium']).default('free'),
+  })
+  
+  // Merge schemas
+  const CompleteUserSchema = BaseUserSchema.merge(z.object({
+    address: z.string(),
+    phone: z.string(),
+  }))
+  ```
+- 📝 Pick, Omit, Partial:
+  ```typescript
+  const FullUserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email(),
+    password: z.string(),
+    role: z.string(),
+    createdAt: z.date(),
+  })
+  
+  // Pick specific fields
+  const PublicUserSchema = FullUserSchema.pick({
+    id: true,
+    name: true,
+    email: true,
+    role: true,
+  })
+  
+  // Omit fields
+  const UserWithoutPassword = FullUserSchema.omit({
+    password: true,
+  })
+  
+  // Make all fields optional
+  const PartialUserSchema = FullUserSchema.partial()
+  
+  // Make specific fields optional
+  const UserUpdateSchema = FullUserSchema.partial({
+    email: true,
+    role: true,
+  })
+  ```
+
+##### 15.9 🔧 Error Handling
+- 📝 ZodError Handling:
+  ```typescript
+  import { z, ZodError } from 'zod'
+  
+  const UserSchema = z.object({
+    name: z.string().min(2),
+    email: z.string().email(),
+    age: z.number().min(18),
+  })
+  
+  try {
+    const user = UserSchema.parse({
+      name: 'J',
+      email: 'invalid',
+      age: 16,
+    })
+  } catch (error) {
+    if (error instanceof ZodError) {
+      console.log(error.errors)
+      // [
+      //   { code: 'too_small', path: ['name'], message: 'String must contain at least 2 character(s)' },
+      //   { code: 'invalid_string', path: ['email'], message: 'Invalid email' },
+      //   { code: 'too_small', path: ['age'], message: 'Number must be greater than or equal to 18' }
+      // ]
+      
+      // Format errors
+      const formatted = error.format()
+      // {
+      //   _errors: [],
+      //   name: { _errors: ['String must contain at least 2 character(s)'] },
+      //   email: { _errors: ['Invalid email'] },
+      //   age: { _errors: ['Number must be greater than or equal to 18'] }
+      // }
+    }
+  }
+  
+  // Flatten errors
+  const result = UserSchema.safeParse(invalidData)
+  if (!result.success) {
+    const flattened = result.error.flatten()
+    // {
+    //   formErrors: [],
+    //   fieldErrors: {
+    //     name: ['String must contain at least 2 character(s)'],
+    //     email: ['Invalid email'],
+    //     age: ['Number must be greater than or equal to 18']
+    //   }
+    // }
+  }
+  ```
+
+##### 15.10 🔄 Parsing and Validation
+- 📝 Parse Methods:
+  ```typescript
+  const schema = z.string().min(3)
+  
+  // parse - throws on error
+  const result = schema.parse('hello')
+  
+  // parseAsync - for async validation
+  const asyncResult = await schema.parseAsync('hello')
+  
+  // safeParse - returns Result object
+  const safeResult = schema.safeParse('hi')
+  if (safeResult.success) {
+    console.log(safeResult.data)
+  } else {
+    console.log(safeResult.error)
+  }
+  
+  // safeParseAsync
+  const safeAsyncResult = await schema.safeParseAsync('hello')
+  
+  // Non-strict parsing (strip unknown keys)
+  const userSchema = z.object({
+    name: z.string(),
+  })
+  
+  const userData = { name: 'John', extra: 'field' }
+  const parsed = userSchema.parse(userData) // extra field is stripped
+  
+  // Strict parsing - error on unknown keys
+  const strictSchema = userSchema.strict()
+  // strictSchema.parse(userData) // throws error
+  
+  // Passthrough - keep unknown keys
+  const passthroughSchema = userSchema.passthrough()
+  const passthrough = passthroughSchema.parse(userData) // keeps extra field
+  ```
+
+##### 15.11 🎯 Integration with React Hook Form
+- 📝 Zod Resolver:
+  ```bash
+  npm install @hookform/resolvers
+  ```
+- 📝 Form Validation Example:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  import { zodResolver } from '@hookform/resolvers/zod'
+  import { z } from 'zod'
+  
+  const loginSchema = z.object({
+    email: z.string()
+      .min(1, 'Email is required')
+      .email('Invalid email address'),
+    password: z.string()
+      .min(8, 'Password must be at least 8 characters')
+      .regex(/[A-Z]/, 'Must contain uppercase letter')
+      .regex(/[a-z]/, 'Must contain lowercase letter')
+      .regex(/[0-9]/, 'Must contain number'),
+    rememberMe: z.boolean().default(false),
+  })
+  
+  type LoginForm = z.infer<typeof loginSchema>
+  
+  function LoginForm() {
+    const { 
+      register, 
+      handleSubmit, 
+      formState: { errors } 
+    } = useForm<LoginForm>({
+      resolver: zodResolver(loginSchema),
+      defaultValues: {
+        email: '',
+        password: '',
+        rememberMe: false,
+      }
+    })
+    
+    const onSubmit = (data: LoginForm) => {
+      console.log('Validated data:', data)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>Email</label>
+          <input {...register('email')} />
+          {errors.email && <span>{errors.email.message}</span>}
+        </div>
+        
+        <div>
+          <label>Password</label>
+          <input type="password" {...register('password')} />
+          {errors.password && <span>{errors.password.message}</span>}
+        </div>
+        
+        <div>
+          <label>
+            <input type="checkbox" {...register('rememberMe')} />
+            Remember me
+          </label>
+        </div>
+        
+        <button type="submit">Login</button>
+      </form>
+    )
+  }
+  ```
+
+##### 15.12 📦 Complex Form Example
+- 📝 User Registration with Zod:
+  ```tsx
+  import { useForm } from 'react-hook-form'
+  import { zodResolver } from '@hookform/resolvers/zod'
+  import { z } from 'zod'
+  
+  const phoneRegex = /^\+?[1-9]\d{1,14}$/
+  
+  const userSchema = z.object({
+    personalInfo: z.object({
+      firstName: z.string().min(2, 'First name too short'),
+      lastName: z.string().min(2, 'Last name too short'),
+      dateOfBirth: z.string().refine((date) => {
+        const age = new Date().getFullYear() - new Date(date).getFullYear()
+        return age >= 18
+      }, 'Must be 18 or older'),
+    }),
+    
+    contactInfo: z.object({
+      email: z.string().email('Invalid email'),
+      phone: z.string().regex(phoneRegex, 'Invalid phone number'),
+      address: z.object({
+        street: z.string().min(1, 'Street required'),
+        city: z.string().min(1, 'City required'),
+        zipCode: z.string().regex(/^\d{5}$/, 'Invalid ZIP code'),
+        country: z.string().min(1, 'Country required'),
+      }),
+    }),
+    
+    accountInfo: z.object({
+      username: z.string()
+        .min(3, 'Username too short')
+        .max(20, 'Username too long')
+        .regex(/^[a-zA-Z0-9_]+$/, 'Only letters, numbers, and underscores'),
+      
+      password: z.string()
+        .min(8, 'Password too short')
+        .regex(/[A-Z]/, 'Must contain uppercase')
+        .regex(/[a-z]/, 'Must contain lowercase')
+        .regex(/[0-9]/, 'Must contain number'),
+      
+      confirmPassword: z.string(),
+      
+      role: z.enum(['user', 'admin', 'moderator']).default('user'),
+      
+      preferences: z.object({
+        newsletter: z.boolean().default(false),
+        theme: z.enum(['light', 'dark', 'system']).default('system'),
+        notifications: z.object({
+          email: z.boolean().default(true),
+          sms: z.boolean().default(false),
+          push: z.boolean().default(true),
+        }),
+      }),
+    }),
+  }).refine(data => data.accountInfo.password === data.accountInfo.confirmPassword, {
+    message: 'Passwords must match',
+    path: ['accountInfo', 'confirmPassword'],
+  })
+  
+  type UserForm = z.infer<typeof userSchema>
+  
+  function RegistrationForm() {
+    const { 
+      register, 
+      handleSubmit, 
+      formState: { errors, isSubmitting } 
+    } = useForm<UserForm>({
+      resolver: zodResolver(userSchema),
+      defaultValues: {
+        accountInfo: {
+          preferences: {
+            newsletter: false,
+            theme: 'system',
+            notifications: {
+              email: true,
+              sms: false,
+              push: true,
+            },
+          },
+        },
+      },
+    })
+    
+    const onSubmit = async (data: UserForm) => {
+      // Submit to API
+      console.log('Registration data:', data)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {/* Personal Info */}
+        <fieldset>
+          <legend>Personal Information</legend>
+          
+          <div>
+            <label>First Name</label>
+            <input {...register('personalInfo.firstName')} />
+            {errors.personalInfo?.firstName && (
+              <span>{errors.personalInfo.firstName.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Last Name</label>
+            <input {...register('personalInfo.lastName')} />
+            {errors.personalInfo?.lastName && (
+              <span>{errors.personalInfo.lastName.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Date of Birth</label>
+            <input type="date" {...register('personalInfo.dateOfBirth')} />
+            {errors.personalInfo?.dateOfBirth && (
+              <span>{errors.personalInfo.dateOfBirth.message}</span>
+            )}
+          </div>
+        </fieldset>
+        
+        {/* Contact Info */}
+        <fieldset>
+          <legend>Contact Information</legend>
+          
+          <div>
+            <label>Email</label>
+            <input type="email" {...register('contactInfo.email')} />
+            {errors.contactInfo?.email && (
+              <span>{errors.contactInfo.email.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Phone</label>
+            <input {...register('contactInfo.phone')} />
+            {errors.contactInfo?.phone && (
+              <span>{errors.contactInfo.phone.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Street</label>
+            <input {...register('contactInfo.address.street')} />
+            {errors.contactInfo?.address?.street && (
+              <span>{errors.contactInfo.address.street.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>City</label>
+            <input {...register('contactInfo.address.city')} />
+            {errors.contactInfo?.address?.city && (
+              <span>{errors.contactInfo.address.city.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>ZIP Code</label>
+            <input {...register('contactInfo.address.zipCode')} />
+            {errors.contactInfo?.address?.zipCode && (
+              <span>{errors.contactInfo.address.zipCode.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Country</label>
+            <input {...register('contactInfo.address.country')} />
+            {errors.contactInfo?.address?.country && (
+              <span>{errors.contactInfo.address.country.message}</span>
+            )}
+          </div>
+        </fieldset>
+        
+        {/* Account Info */}
+        <fieldset>
+          <legend>Account Information</legend>
+          
+          <div>
+            <label>Username</label>
+            <input {...register('accountInfo.username')} />
+            {errors.accountInfo?.username && (
+              <span>{errors.accountInfo.username.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Password</label>
+            <input type="password" {...register('accountInfo.password')} />
+            {errors.accountInfo?.password && (
+              <span>{errors.accountInfo.password.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Confirm Password</label>
+            <input type="password" {...register('accountInfo.confirmPassword')} />
+            {errors.accountInfo?.confirmPassword && (
+              <span>{errors.accountInfo.confirmPassword.message}</span>
+            )}
+          </div>
+          
+          <div>
+            <label>Role</label>
+            <select {...register('accountInfo.role')}>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+              <option value="moderator">Moderator</option>
+            </select>
+          </div>
+          
+          <div>
+            <label>
+              <input type="checkbox" {...register('accountInfo.preferences.newsletter')} />
+              Subscribe to newsletter
+            </label>
+          </div>
+          
+          <div>
+            <label>Theme</label>
+            <select {...register('accountInfo.preferences.theme')}>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="system">System</option>
+            </select>
+          </div>
+          
+          <div>
+            <label>Email Notifications</label>
+            <input 
+              type="checkbox" 
+              {...register('accountInfo.preferences.notifications.email')} 
+            />
+          </div>
+          
+          <div>
+            <label>SMS Notifications</label>
+            <input 
+              type="checkbox" 
+              {...register('accountInfo.preferences.notifications.sms')} 
+            />
+          </div>
+          
+          <div>
+            <label>Push Notifications</label>
+            <input 
+              type="checkbox" 
+              {...register('accountInfo.preferences.notifications.push')} 
+            />
+          </div>
+        </fieldset>
+        
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Registering...' : 'Register'}
+        </button>
+      </form>
+    )
+  }
+  ```
+
+##### 15.13 🔧 API Integration with Zod
+- 📝 API Response Validation:
+  ```typescript
+  import { z } from 'zod'
+  
+  // Define API response schema
+  const ApiResponseSchema = z.object({
+    status: z.enum(['success', 'error']),
+    data: z.unknown(),
+    message: z.string().optional(),
+  })
+  
+  const UserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string().email(),
+    createdAt: z.string().datetime(),
+  })
+  
+  const UsersResponseSchema = ApiResponseSchema.extend({
+    data: z.array(UserSchema),
+    pagination: z.object({
+      page: z.number(),
+      totalPages: z.number(),
+      totalItems: z.number(),
+    }),
+  })
+  
+  // Fetch and validate API response
+  async function fetchUsers() {
+    try {
+      const response = await fetch('/api/users')
+      const json = await response.json()
+      
+      const validated = UsersResponseSchema.parse(json)
+      
+      if (validated.status === 'success') {
+        return validated.data
+      } else {
+        throw new Error(validated.message)
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        console.error('Invalid API response structure:', error.errors)
+      }
+      throw error
+    }
+  }
+  ```
+- 📝 Request Validation:
+  ```typescript
+  const CreateUserSchema = z.object({
+    name: z.string().min(2),
+    email: z.string().email(),
+    password: z.string().min(8),
+    role: z.enum(['user', 'admin']).default('user'),
+  })
+  
+  type CreateUserInput = z.infer<typeof CreateUserSchema>
+  
+  async function createUser(input: CreateUserInput) {
+    // Validate input before sending
+    const validated = CreateUserSchema.parse(input)
+    
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(validated),
+    })
+    
+    return response.json()
+  }
+  ```
+
+##### 15.14 🎯 Environment Variables Validation
+- 📝 Validating Environment Variables:
+  ```typescript
+  import { z } from 'zod'
+  
+  const envSchema = z.object({
+    // App
+    NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
+    PORT: z.string().transform(Number).default('3000'),
+    
+    // API
+    API_URL: z.string().url(),
+    API_KEY: z.string().min(32),
+    
+    // Database
+    DATABASE_URL: z.string().url(),
+    DATABASE_NAME: z.string(),
+    
+    // Redis
+    REDIS_URL: z.string().url().optional(),
+    
+    // Features
+    ENABLE_ANALYTICS: z.string()
+      .transform(val => val === 'true')
+      .default('false'),
+    
+    FEATURE_FLAGS: z.string()
+      .transform(val => val.split(','))
+      .default(''),
+  })
+  
+  // Validate process.env
+  function validateEnv() {
+    try {
+      const env = envSchema.parse(process.env)
+      console.log('✅ Environment variables validated')
+      return env
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        console.error('❌ Invalid environment variables:')
+        error.errors.forEach(err => {
+          console.error(`  - ${err.path.join('.')}: ${err.message}`)
+        })
+      }
+      process.exit(1)
+    }
+  }
+  
+  export const env = validateEnv()
+  ```
+
+##### 15.15 🔄 Custom Types and Branding
+- 📝 Branded Types:
+  ```typescript
+  import { z } from 'zod'
+  
+  // Create branded types
+  const UserIdSchema = z.string().uuid().brand<'UserId'>()
+  const EmailSchema = z.string().email().brand<'Email'>()
+  const PositiveNumberSchema = z.number().positive().brand<'PositiveNumber'>()
+  
+  type UserId = z.infer<typeof UserIdSchema>
+  type Email = z.infer<typeof EmailSchema>
+  
+  // Use branded types for type safety
+  function getUserById(id: UserId) {
+    // id has branded type, cannot be passed regular string
+  }
+  
+  const userId = UserIdSchema.parse('123e4567-e89b-12d3-a456-426614174000')
+  getUserById(userId) // ✅ OK
+  
+  // getUserById('regular-string') // ❌ Type error
+  ```
+- 📝 Custom Validation with Branding:
+  ```typescript
+  const ValidatedString = z.string().refine(
+    (val) => val.length >= 3,
+    'Must be at least 3 characters'
+  ).brand<'ValidatedString'>()
+  
+  function processValidated(input: z.infer<typeof ValidatedString>) {
+    // input is guaranteed to be validated
+  }
+  ```
+
+##### 15.16 🧪 Testing with Zod
+- 📝 Testing Validation:
+  ```typescript
+  import { z } from 'zod'
+  
+  describe('UserSchema', () => {
+    const UserSchema = z.object({
+      name: z.string().min(2),
+      email: z.string().email(),
+      age: z.number().min(18),
+    })
+    
+    it('validates correct user data', () => {
+      const user = {
+        name: 'John Doe',
+        email: 'john@example.com',
+        age: 25,
+      }
+      
+      expect(() => UserSchema.parse(user)).not.toThrow()
+    })
+    
+    it('fails with invalid email', () => {
+      const user = {
+        name: 'John Doe',
+        email: 'invalid',
+        age: 25,
+      }
+      
+      expect(() => UserSchema.parse(user)).toThrow()
+    })
+    
+    it('fails with underage user', () => {
+      const user = {
+        name: 'John Doe',
+        email: 'john@example.com',
+        age: 16,
+      }
+      
+      try {
+        UserSchema.parse(user)
+        fail('Should have thrown')
+      } catch (error) {
+        expect(error).toBeInstanceOf(z.ZodError)
+        expect(error.issues[0].path).toEqual(['age'])
+      }
+    })
+    
+    it('returns correct data with safeParse', () => {
+      const user = {
+        name: 'John Doe',
+        email: 'john@example.com',
+        age: 25,
+      }
+      
+      const result = UserSchema.safeParse(user)
+      
+      expect(result.success).toBe(true)
+      if (result.success) {
+        expect(result.data).toEqual(user)
+      }
+    })
+  })
+  ```
+
+##### 15.17 🚀 Advanced Patterns
+- 📝 Recursive Schemas:
+  ```typescript
+  import { z } from 'zod'
+  
+  // Category with subcategories (recursive)
+  const CategorySchema: z.ZodType<any> = z.lazy(() => 
+    z.object({
+      id: z.number(),
+      name: z.string(),
+      subcategories: z.array(CategorySchema).optional(),
+    })
+  )
+  
+  type Category = z.infer<typeof CategorySchema>
+  
+  const category: Category = {
+    id: 1,
+    name: 'Electronics',
+    subcategories: [
+      {
+        id: 2,
+        name: 'Phones',
+        subcategories: [
+          { id: 3, name: 'Smartphones' },
+          { id: 4, name: 'Accessories' },
+        ],
+      },
+    ],
+  }
+  ```
+- 📝 Conditional Schemas:
+  ```typescript
+  const ProductSchema = z.object({
+    type: z.enum(['physical', 'digital']),
+    name: z.string(),
+    price: z.number(),
+  }).superRefine((data, ctx) => {
+    if (data.type === 'physical') {
+      // Physical products need weight and dimensions
+      if (!('weight' in data)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Physical products require weight',
+          path: ['weight'],
+        })
+      }
+      if (!('dimensions' in data)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Physical products require dimensions',
+          path: ['dimensions'],
+        })
+      }
+    } else if (data.type === 'digital') {
+      // Digital products need download link
+      if (!('downloadLink' in data)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Digital products require download link',
+          path: ['downloadLink'],
+        })
+      }
+    }
+  })
+  ```
+
+##### 15.18 💻 Practical Projects
+- 🏗️ User Registration System
+- 📝 Blog Post Validation
+- 🛒 Checkout Form Validation
+- 🔐 Authentication Schemas
+- 📊 API Response Validation
+- ⚙️ Configuration Validation
+- 📁 File Upload Validation
+- 💳 Payment Form Validation
+- 📧 Email Template Validation
+- 🎮 Game Data Validation
+- 📦 Inventory Management
+- 👥 Team Member Validation
+- 📅 Event Booking System
+- 🏨 Hotel Reservation System
+- 📱 Mobile App Data Validation
+
+---
+
+## 🎯 STAGE 16 — Next.js (React Framework)
+**Goal**: Master Next.js for building production-ready React applications with server-side rendering, static generation, and excellent developer experience.
+**Time**: 40 soat | 20 dars
+
+#### 📚 Topics
+
+##### 16.1 🚀 Introduction to Next.js
+- 🤔 What is Next.js?
+- 📜 History and Evolution (Vercel)
+- 🎯 Why Next.js?
+  - Server-Side Rendering (SSR)
+  - Static Site Generation (SSG)
+  - File-based Routing
+  - API Routes
+  - Image Optimization
+  - Font Optimization
+  - Built-in CSS Support
+  - Fast Refresh
+- 🔄 Next.js vs Other Frameworks:
+  - vs Create React App
+  - vs Gatsby
+  - vs Remix
+  - vs Astro
+- 📦 Installation:
+  ```bash
+  npx create-next-app@latest my-app
+  # or
+  yarn create next-app my-app
+  # or
+  pnpm create next-app my-app
+  
+  # With TypeScript
+  npx create-next-app@latest my-app --typescript
+  ```
+
+##### 16.2 📁 Project Structure
+- 📝 Next.js Project Structure:
+  ```
+  my-app/
+  ├── app/                    # App Router (Next.js 13+)
+  │   ├── layout.tsx          # Root layout
+  │   ├── page.tsx            # Home page
+  │   ├── about/
+  │   │   └── page.tsx        # About page
+  │   ├── blog/
+  │   │   ├── page.tsx        # Blog listing
+  │   │   └── [slug]/
+  │   │       └── page.tsx    # Dynamic blog post
+  │   └── api/                 # API routes
+  │       └── hello/
+  │           └── route.ts     # API endpoint
+  ├── public/                  # Static assets
+  │   ├── images/
+  │   └── favicon.ico
+  ├── components/              # Reusable components
+  ├── lib/                     # Utility functions
+  ├── styles/                  # Global styles
+  │   └── globals.css
+  ├── next.config.js           # Next.js configuration
+  ├── package.json
+  └── tsconfig.json            # TypeScript config (if using TS)
+  ```
+
+##### 16.3 🧭 App Router and Pages
+- 📝 App Router (Next.js 13+):
+  ```tsx
+  // app/page.tsx - Home page
+  export default function HomePage() {
+    return (
+      <div>
+        <h1>Welcome to Next.js!</h1>
+      </div>
+    )
+  }
+  
+  // app/about/page.tsx - About page
+  export default function AboutPage() {
+    return (
+      <div>
+        <h1>About Us</h1>
+      </div>
+    )
+  }
+  
+  // app/blog/[slug]/page.tsx - Dynamic route
+  interface BlogPostProps {
+    params: {
+      slug: string
+    }
+    searchParams: {
+      [key: string]: string | string[] | undefined
+    }
+  }
+  
+  export default function BlogPost({ params, searchParams }: BlogPostProps) {
+    return (
+      <div>
+        <h1>Blog Post: {params.slug}</h1>
+        <p>Query: {JSON.stringify(searchParams)}</p>
+      </div>
+    )
+  }
+  ```
+- 📝 Layouts:
+  ```tsx
+  // app/layout.tsx - Root layout
+  import { Inter } from 'next/font/google'
+  
+  const inter = Inter({ subsets: ['latin'] })
+  
+  export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }) {
+    return (
+      <html lang="en">
+        <body className={inter.className}>
+          <header>Header</header>
+          <main>{children}</main>
+          <footer>Footer</footer>
+        </body>
+      </html>
+    )
+  }
+  
+  // app/blog/layout.tsx - Nested layout for blog section
+  export default function BlogLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }) {
+    return (
+      <div className="blog-layout">
+        <nav>Blog Navigation</nav>
+        {children}
+      </div>
+    )
+  }
+  ```
+
+##### 16.4 🔗 Navigation and Linking
+- 📝 Link Component:
+  ```tsx
+  import Link from 'next/link'
+  import { useRouter } from 'next/navigation'
+  
+  export default function Navigation() {
+    const router = useRouter()
+    
+    return (
+      <nav>
+        {/* Basic navigation */}
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/blog">Blog</Link>
+        
+        {/* With query parameters */}
+        <Link href="/search?q=nextjs">Search Next.js</Link>
+        
+        {/* Dynamic routes */}
+        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+        
+        {/* Replace instead of push */}
+        <Link href="/dashboard" replace>Dashboard</Link>
+        
+        {/* Scroll to top disabled */}
+        <Link href="/contact" scroll={false}>Contact</Link>
+        
+        {/* Programmatic navigation */}
+        <button onClick={() => router.push('/about')}>
+          Go to About
+        </button>
+        
+        <button onClick={() => router.back()}>
+          Go Back
+        </button>
+        
+        <button onClick={() => router.forward()}>
+          Go Forward
+        </button>
+        
+        {/* Refresh current page */}
+        <button onClick={() => router.refresh()}>
+          Refresh
+        </button>
+      </nav>
+    )
+  }
+  ```
+
+##### 16.5 🎯 Data Fetching Methods
+- 📝 Server Components (Default in App Router):
+  ```tsx
+  // app/users/page.tsx
+  async function getUsers() {
+    const res = await fetch('https://api.example.com/users')
+    
+    if (!res.ok) {
+      throw new Error('Failed to fetch users')
+    }
+    
+    return res.json()
+  }
+  
+  export default async function UsersPage() {
+    const users = await getUsers()
+    
+    return (
+      <div>
+        <h1>Users</h1>
+        <ul>
+          {users.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  ```
+- 📝 Client Components:
+  ```tsx
+  'use client'
+  
+  import { useState, useEffect } from 'react'
+  
+  export default function ClientComponent() {
+    const [data, setData] = useState(null)
+    
+    useEffect(() => {
+      fetch('/api/data')
+        .then(res => res.json())
+        .then(setData)
+    }, [])
+    
+    return <div>{/* Render client-side data */}</div>
+  }
+  ```
+- 📝 Static Generation (SSG):
+  ```tsx
+  // app/posts/[id]/page.tsx
+  export async function generateStaticParams() {
+    const posts = await fetch('https://api.example.com/posts').then(res => res.json())
+    
+    return posts.map(post => ({
+      id: post.id.toString(),
+    }))
+  }
+  
+  export default async function PostPage({ params }: { params: { id: string } }) {
+    const post = await fetch(`https://api.example.com/posts/${params.id}`).then(res => res.json())
+    
+    return (
+      <div>
+        <h1>{post.title}</h1>
+        <p>{post.content}</p>
+      </div>
+    )
+  }
+  ```
+
+##### 16.6 🖼️ Image Optimization
+- 📝 Next.js Image Component:
+  ```tsx
+  import Image from 'next/image'
+  
+  export default function OptimizedImage() {
+    return (
+      <div>
+        {/* Local image (automatically optimized) */}
+        <Image
+          src="/profile.jpg"
+          alt="Profile"
+          width={500}
+          height={500}
+          className="rounded-full"
+        />
+        
+        {/* Remote image (requires domain in config) */}
+        <Image
+          src="https://example.com/image.jpg"
+          alt="Remote Image"
+          width={800}
+          height={600}
+          priority // Prioritize loading
+        />
+        
+        {/* Responsive image with sizes */}
+        <Image
+          src="/hero.jpg"
+          alt="Hero"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          fill
+          className="object-cover"
+        />
+        
+        {/* Image with blur placeholder */}
+        <Image
+          src="/gallery/image.jpg"
+          alt="Gallery"
+          width={400}
+          height={300}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,..."
+        />
+      </div>
+    )
+  }
+  ```
+- ⚙️ next.config.js for images:
+  ```javascript
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'example.com',
+          port: '',
+          pathname: '/images/**',
+        },
+        {
+          protocol: 'https',
+          hostname: '*.cloudfront.net',
+        },
+      ],
+      formats: ['image/avif', 'image/webp'],
+      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    },
+  }
+  
+  module.exports = nextConfig
+  ```
+
+##### 16.7 🎨 Styling in Next.js
+- 📝 CSS Modules:
+  ```tsx
+  // app/components/Button.module.css
+  .button {
+    background: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .button:hover {
+    background: darkblue;
+  }
+  
+  // app/components/Button.tsx
+  import styles from './Button.module.css'
+  
+  export default function Button() {
+    return <button className={styles.button}>Click me</button>
+  }
+  ```
+- 📝 Global Styles:
+  ```css
+  /* app/globals.css */
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  @layer base {
+    h1 {
+      @apply text-3xl font-bold;
+    }
+    h2 {
+      @apply text-2xl font-semibold;
+    }
+  }
+  ```
+- 📝 CSS-in-JS with Tailwind:
+  ```tsx
+  import { cn } from '@/lib/utils'
+  
+  export default function StyledComponent({ className }) {
+    return (
+      <div className={cn(
+        "p-4 bg-white rounded-lg shadow-md",
+        "hover:shadow-lg transition-shadow",
+        className
+      )}>
+        Content
+      </div>
+    )
+  }
+  ```
+
+##### 16.8 🔧 API Routes
+- 📝 Creating API Routes:
+  ```tsx
+  // app/api/users/route.ts
+  import { NextResponse } from 'next/server'
+  
+  export async function GET(request: Request) {
+    const users = await db.users.findMany()
+    
+    return NextResponse.json(users)
+  }
+  
+  export async function POST(request: Request) {
+    try {
+      const body = await request.json()
+      const user = await db.users.create({ data: body })
+      
+      return NextResponse.json(user, { status: 201 })
+    } catch (error) {
+      return NextResponse.json(
+        { error: 'Failed to create user' },
+        { status: 500 }
+      )
+    }
+  }
+  
+  // app/api/users/[id]/route.ts
+  export async function GET(
+    request: Request,
+    { params }: { params: { id: string } }
+  ) {
+    const user = await db.users.findUnique({
+      where: { id: params.id }
+    })
+    
+    if (!user) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
+      )
+    }
+    
+    return NextResponse.json(user)
+  }
+  
+  export async function PUT(
+    request: Request,
+    { params }: { params: { id: string } }
+  ) {
+    const body = await request.json()
+    const user = await db.users.update({
+      where: { id: params.id },
+      data: body
+    })
+    
+    return NextResponse.json(user)
+  }
+  
+  export async function DELETE(
+    request: Request,
+    { params }: { params: { id: string } }
+  ) {
+    await db.users.delete({
+      where: { id: params.id }
+    })
+    
+    return NextResponse.json({ success: true })
+  }
+  ```
+- 📝 Middleware:
+  ```tsx
+  // middleware.ts
+  import { NextResponse } from 'next/server'
+  import type { NextRequest } from 'next/server'
+  
+  export function middleware(request: NextRequest) {
+    const token = request.cookies.get('token')
+    const isAuthPage = request.nextUrl.pathname.startsWith('/login')
+    
+    if (!token && !isAuthPage) {
+      return NextResponse.redirect(new URL('/login', request.url))
+    }
+    
+    if (token && isAuthPage) {
+      return NextResponse.redirect(new URL('/dashboard', request.url))
+    }
+  }
+  
+  export const config = {
+    matcher: ['/dashboard/:path*', '/login']
+  }
+  ```
+
+##### 16.9 🔐 Authentication
+- 📝 NextAuth.js Setup:
+  ```bash
+  npm install next-auth
+  ```
+  ```tsx
+  // app/api/auth/[...nextauth]/route.ts
+  import NextAuth from 'next-auth'
+  import GithubProvider from 'next-auth/providers/github'
+  import GoogleProvider from 'next-auth/providers/google'
+  import CredentialsProvider from 'next-auth/providers/credentials'
+  
+  const handler = NextAuth({
+    providers: [
+      GithubProvider({
+        clientId: process.env.GITHUB_ID!,
+        clientSecret: process.env.GITHUB_SECRET!,
+      }),
+      GoogleProvider({
+        clientId: process.env.GOOGLE_ID!,
+        clientSecret: process.env.GOOGLE_SECRET!,
+      }),
+      CredentialsProvider({
+        name: 'credentials',
+        credentials: {
+          email: { label: 'Email', type: 'email' },
+          password: { label: 'Password', type: 'password' }
+        },
+        async authorize(credentials) {
+          // Validate credentials against database
+          const user = await db.users.findUnique({
+            where: { email: credentials?.email }
+          })
+          
+          if (user && await comparePasswords(credentials?.password, user.password)) {
+            return {
+              id: user.id,
+              email: user.email,
+              name: user.name
+            }
+          }
+          
+          return null
+        }
+      })
+    ],
+    callbacks: {
+      async jwt({ token, user }) {
+        if (user) {
+          token.id = user.id
+        }
+        return token
+      },
+      async session({ session, token }) {
+        if (session.user) {
+          session.user.id = token.id as string
+        }
+        return session
+      }
+    },
+    pages: {
+      signIn: '/login',
+      error: '/auth/error',
+    },
+    session: {
+      strategy: 'jwt',
+    },
+  })
+  
+  export { handler as GET, handler as POST }
+  ```
+- 📝 Using Authentication:
+  ```tsx
+  'use client'
+  
+  import { useSession, signIn, signOut } from 'next-auth/react'
+  
+  export default function AuthButton() {
+    const { data: session, status } = useSession()
+    
+    if (status === 'loading') {
+      return <div>Loading...</div>
+    }
+    
+    if (session) {
+      return (
+        <div>
+          <p>Welcome, {session.user?.name}</p>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </div>
+      )
+    }
+    
+    return (
+      <div>
+        <button onClick={() => signIn('github')}>Sign in with GitHub</button>
+        <button onClick={() => signIn('google')}>Sign in with Google</button>
+      </div>
+    )
+  }
+  ```
+
+##### 16.10 🗄️ Database Integration
+- 📝 Prisma Setup:
+  ```bash
+  npm install prisma @prisma/client
+  npx prisma init
+  ```
+  ```prisma
+  // prisma/schema.prisma
+  generator client {
+    provider = "prisma-client-js"
+  }
+  
+  datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+  }
+  
+  model User {
+    id        String   @id @default(cuid())
+    email     String   @unique
+    name      String?
+    posts     Post[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+  }
+  
+  model Post {
+    id        String   @id @default(cuid())
+    title     String
+    content   String?
+    published Boolean  @default(false)
+    author    User     @relation(fields: [authorId], references: [id])
+    authorId  String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+  }
+  ```
+- 📝 Database Client:
+  ```tsx
+  // lib/prisma.ts
+  import { PrismaClient } from '@prisma/client'
+  
+  const globalForPrisma = globalThis as unknown as {
+    prisma: PrismaClient | undefined
+  }
+  
+  export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+  
+  if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+  
+  // app/posts/page.tsx
+  import { prisma } from '@/lib/prisma'
+  
+  export default async function PostsPage() {
+    const posts = await prisma.post.findMany({
+      include: {
+        author: true
+      },
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+    
+    return (
+      <div>
+        {posts.map(post => (
+          <article key={post.id}>
+            <h2>{post.title}</h2>
+            <p>By {post.author.name}</p>
+            <p>{post.content}</p>
+          </article>
+        ))}
+      </div>
+    )
+  }
+  ```
+
+##### 16.11 🚀 Dynamic Routes and Catch-All Routes
+- 📝 Dynamic Routes:
+  ```tsx
+  // app/products/[category]/[id]/page.tsx
+  interface ProductPageProps {
+    params: {
+      category: string
+      id: string
+    }
+  }
+  
+  export default async function ProductPage({ params }: ProductPageProps) {
+    const product = await getProduct(params.id)
+    
+    return (
+      <div>
+        <h1>{product.name}</h1>
+        <p>Category: {params.category}</p>
+        <p>Price: ${product.price}</p>
+      </div>
+    )
+  }
+  ```
+- 📝 Catch-All Routes:
+  ```tsx
+  // app/docs/[...slug]/page.tsx
+  interface DocsPageProps {
+    params: {
+      slug: string[]
+    }
+  }
+  
+  export default async function DocsPage({ params }: DocsPageProps) {
+    // params.slug could be ['getting-started', 'installation']
+    // or ['api', 'reference', 'authentication']
+    
+    return (
+      <div>
+        <h1>Documentation</h1>
+        <p>Path: {params.slug.join(' / ')}</p>
+      </div>
+    )
+  }
+  ```
+- 📝 Optional Catch-All:
+  ```tsx
+  // app/settings/[[...tab]]/page.tsx
+  // Matches: /settings, /settings/profile, /settings/profile/edit
+  ```
+
+##### 16.12 🎯 Server Actions
+- 📝 Server Actions (Next.js 14+):
+  ```tsx
+  // app/actions.ts
+  'use server'
+  
+  import { revalidatePath } from 'next/cache'
+  import { prisma } from '@/lib/prisma'
+  
+  export async function createPost(formData: FormData) {
+    const title = formData.get('title') as string
+    const content = formData.get('content') as string
+    
+    if (!title || !content) {
+      throw new Error('Title and content are required')
+    }
+    
+    await prisma.post.create({
+      data: {
+        title,
+        content,
+        authorId: 'user-id'
+      }
+    })
+    
+    revalidatePath('/posts')
+  }
+  
+  export async function deletePost(id: string) {
+    await prisma.post.delete({
+      where: { id }
+    })
+    
+    revalidatePath('/posts')
+  }
+  ```
+- 📝 Using Server Actions:
+  ```tsx
+  // app/posts/new/page.tsx
+  import { createPost } from '@/app/actions'
+  
+  export default function NewPostPage() {
+    return (
+      <form action={createPost}>
+        <div>
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        
+        <div>
+          <label htmlFor="content">Content</label>
+          <textarea id="content" name="content" required />
+        </div>
+        
+        <button type="submit">Create Post</button>
+      </form>
+    )
+  }
+  
+  // app/posts/page.tsx
+  import { deletePost } from '@/app/actions'
+  
+  export default async function PostsPage() {
+    const posts = await prisma.post.findMany()
+    
+    return (
+      <div>
+        {posts.map(post => (
+          <div key={post.id}>
+            <h2>{post.title}</h2>
+            <form action={deletePost.bind(null, post.id)}>
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        ))}
+      </div>
+    )
+  }
+  ```
+
+##### 16.13 🔧 Middleware and Edge Functions
+- 📝 Advanced Middleware:
+  ```tsx
+  // middleware.ts
+  import { NextResponse } from 'next/server'
+  import type { NextRequest } from 'next/server'
+  
+  export function middleware(request: NextRequest) {
+    const response = NextResponse.next()
+    
+    // Add custom headers
+    response.headers.set('x-custom-header', 'hello')
+    
+    // Rate limiting
+    const ip = request.ip ?? 'anonymous'
+    const rateLimit = getRateLimit(ip)
+    
+    if (rateLimit.exceeded) {
+      return new NextResponse('Too many requests', { status: 429 })
+    }
+    
+    // Geolocation-based redirect
+    const country = request.geo?.country
+    if (country === 'US' && request.nextUrl.pathname === '/') {
+      return NextResponse.redirect(new URL('/us', request.url))
+    }
+    
+    // A/B testing
+    const cookie = request.cookies.get('experiment')
+    if (!cookie) {
+      response.cookies.set('experiment', Math.random() > 0.5 ? 'A' : 'B')
+    }
+    
+    return response
+  }
+  
+  export const config = {
+    matcher: [
+      '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    ],
+  }
+  ```
+
+##### 16.14 📱 Internationalization (i18n)
+- 📝 Next.js i18n Setup:
+  ```javascript
+  // next.config.js
+  module.exports = {
+    i18n: {
+      locales: ['en', 'uz', 'ru'],
+      defaultLocale: 'en',
+      localeDetection: true,
+    },
+  }
+  ```
+- 📝 Using i18n:
+  ```tsx
+  // app/[lang]/layout.tsx
+  export default async function LangLayout({
+    children,
+    params,
+  }: {
+    children: React.ReactNode
+    params: { lang: string }
+  }) {
+    return (
+      <html lang={params.lang}>
+        <body>{children}</body>
+      </html>
+    )
+  }
+  
+  // app/[lang]/page.tsx
+  import { getDictionary } from '@/lib/dictionaries'
+  
+  export default async function HomePage({
+    params: { lang }
+  }: {
+    params: { lang: string }
+  }) {
+    const dict = await getDictionary(lang)
+    
+    return (
+      <div>
+        <h1>{dict.home.title}</h1>
+        <p>{dict.home.description}</p>
+      </div>
+    )
+  }
+  
+  // lib/dictionaries.ts
+  const dictionaries = {
+    en: () => import('./dictionaries/en.json').then(module => module.default),
+    uz: () => import('./dictionaries/uz.json').then(module => module.default),
+    ru: () => import('./dictionaries/ru.json').then(module => module.default),
+  }
+  
+  export const getDictionary = async (locale: string) => {
+    return dictionaries[locale as keyof typeof dictionaries]()
+  }
+  ```
+
+##### 16.15 🚀 Performance Optimization
+- 📝 Dynamic Imports:
+  ```tsx
+  import dynamic from 'next/dynamic'
+  
+  const HeavyComponent = dynamic(
+    () => import('@/components/HeavyComponent'),
+    {
+      loading: () => <p>Loading...</p>,
+      ssr: false, // Disable SSR for client-only components
+    }
+  )
+  
+  export default function Page() {
+    return (
+      <div>
+        <h1>My Page</h1>
+        <HeavyComponent />
+      </div>
+    )
+  }
+  ```
+- 📝 Font Optimization:
+  ```tsx
+  import { Inter, Roboto_Mono } from 'next/font/google'
+  
+  const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-inter',
+  })
+  
+  const robotoMono = Roboto_Mono({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-roboto-mono',
+  })
+  
+  export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }) {
+    return (
+      <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+        <body>{children}</body>
+      </html>
+    )
+  }
+  ```
+- 📝 Script Optimization:
+  ```tsx
+  import Script from 'next/script'
+  
+  export default function Page() {
+    return (
+      <>
+        <Script
+          src="https://example.com/analytics.js"
+          strategy="afterInteractive" // Load after page is interactive
+        />
+        
+        <Script
+          src="https://example.com/chat.js"
+          strategy="lazyOnload" // Load during idle time
+        />
+        
+        <Script
+          src="https://example.com/critical.js"
+          strategy="beforeInteractive" // Load before page is interactive
+        />
+      </>
+    )
+  }
+  ```
+
+##### 16.16 🎯 SEO and Metadata
+- 📝 Metadata API:
+  ```tsx
+  // app/page.tsx
+  import type { Metadata } from 'next'
+  
+  export const metadata: Metadata = {
+    title: 'My Awesome Site',
+    description: 'This is my awesome Next.js site',
+    keywords: 'nextjs, react, typescript',
+    authors: [{ name: 'John Doe', url: 'https://johndoe.com' }],
+    openGraph: {
+      title: 'My Awesome Site',
+      description: 'This is my awesome Next.js site',
+      url: 'https://mysite.com',
+      siteName: 'My Site',
+      images: [
+        {
+          url: 'https://mysite.com/og-image.jpg',
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'My Awesome Site',
+      description: 'This is my awesome Next.js site',
+      images: ['https://mysite.com/twitter-image.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    verification: {
+      google: 'google-site-verification-code',
+      yandex: 'yandex-verification-code',
+    },
+  }
+  
+  // Dynamic metadata
+  export async function generateMetadata({
+    params
+  }: {
+    params: { slug: string }
+  }): Promise<Metadata> {
+    const post = await getPost(params.slug)
+    
+    return {
+      title: post.title,
+      description: post.excerpt,
+      openGraph: {
+        title: post.title,
+        description: post.excerpt,
+        images: [post.image],
+      },
+    }
+  }
+  ```
+- 📝 Sitemap and Robots:
+  ```tsx
+  // app/sitemap.ts
+  export default async function sitemap() {
+    const baseUrl = 'https://mysite.com'
+    
+    const posts = await getPosts()
+    
+    const postUrls = posts.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: post.updatedAt,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }))
+    
+    return [
+      {
+        url: baseUrl,
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 1,
+      },
+      {
+        url: `${baseUrl}/about`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.5,
+      },
+      ...postUrls,
+    ]
+  }
+  
+  // app/robots.ts
+  export default function robots() {
+    return {
+      rules: {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin', '/private'],
+      },
+      sitemap: 'https://mysite.com/sitemap.xml',
+    }
+  }
+  ```
+
+##### 16.17 🧪 Testing Next.js Apps
+- 📝 Unit Testing:
+  ```bash
+  npm install --save-dev jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
+  ```
+  ```tsx
+  // __tests__/Button.test.tsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import Button from '@/components/Button'
+  
+  describe('Button', () => {
+    it('renders correctly', () => {
+      render(<Button>Click me</Button>)
+      expect(screen.getByText('Click me')).toBeInTheDocument()
+    })
+    
+    it('handles click events', async () => {
+      const handleClick = jest.fn()
+      render(<Button onClick={handleClick}>Click me</Button>)
+      
+      await userEvent.click(screen.getByText('Click me'))
+      expect(handleClick).toHaveBeenCalled()
+    })
+  })
+  ```
+- 📝 Integration Testing:
+  ```tsx
+  // __tests__/api/users.test.ts
+  import { createMocks } from 'node-mocks-http'
+  import { GET, POST } from '@/app/api/users/route'
+  
+  describe('/api/users', () => {
+    it('returns users list', async () => {
+      const { req, res } = createMocks({
+        method: 'GET',
+      })
+      
+      const response = await GET(req)
+      const data = await response.json()
+      
+      expect(response.status).toBe(200)
+      expect(Array.isArray(data)).toBe(true)
+    })
+    
+    it('creates a new user', async () => {
+      const { req, res } = createMocks({
+        method: 'POST',
+        body: {
+          name: 'John Doe',
+          email: 'john@example.com',
+        },
+      })
+      
+      const response = await POST(req)
+      const data = await response.json()
+      
+      expect(response.status).toBe(201)
+      expect(data.name).toBe('John Doe')
+    })
+  })
+  ```
+
+##### 16.18 🚀 Deployment
+- 📝 Vercel Deployment:
+  ```bash
+  # Install Vercel CLI
+  npm i -g vercel
+  
+  # Deploy
+  vercel
+  
+  # Deploy to production
+  vercel --prod
+  ```
+- 📝 Environment Variables:
+  ```bash
+  # .env.local (development)
+  DATABASE_URL=postgresql://localhost:5432/mydb
+  API_KEY=dev-api-key
+  
+  # .env.production (production)
+  DATABASE_URL=postgresql://prod:password@prod-db:5432/mydb
+  API_KEY=prod-api-key
+  ```
+- 📝 Docker Deployment:
+  ```dockerfile
+  # Dockerfile
+  FROM node:18-alpine AS base
+  
+  # Install dependencies
+  FROM base AS deps
+  WORKDIR /app
+  COPY package.json package-lock.json ./
+  RUN npm ci
+  
+  # Build app
+  FROM base AS builder
+  WORKDIR /app
+  COPY --from=deps /app/node_modules ./node_modules
+  COPY . .
+  RUN npm run build
+  
+  # Production image
+  FROM base AS runner
+  WORKDIR /app
+  ENV NODE_ENV production
+  
+  RUN addgroup --system --gid 1001 nodejs
+  RUN adduser --system --uid 1001 nextjs
+  
+  COPY --from=builder /app/public ./public
+  COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+  COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+  
+  USER nextjs
+  EXPOSE 3000
+  ENV PORT 3000
+  
+  CMD ["node", "server.js"]
+  ```
+
+##### 16.19 🎯 Advanced Patterns
+- 📝 Route Handlers with Validation:
+  ```tsx
+  // app/api/posts/route.ts
+  import { z } from 'zod'
+  import { prisma } from '@/lib/prisma'
+  
+  const PostSchema = z.object({
+    title: z.string().min(3),
+    content: z.string().min(10),
+    published: z.boolean().default(false),
+  })
+  
+  export async function POST(request: Request) {
+    try {
+      const body = await request.json()
+      
+      // Validate input
+      const validated = PostSchema.parse(body)
+      
+      // Create post
+      const post = await prisma.post.create({
+        data: validated
+      })
+      
+      return NextResponse.json(post, { status: 201 })
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return NextResponse.json(
+          { error: 'Validation failed', details: error.errors },
+          { status: 400 }
+        )
+      }
+      
+      return NextResponse.json(
+        { error: 'Internal server error' },
+        { status: 500 }
+      )
+    }
+  }
+  ```
+- 📝 Incremental Static Regeneration (ISR):
+  ```tsx
+  // app/blog/[slug]/page.tsx
+  export default async function BlogPost({ params }: { params: { slug: string } }) {
+    const post = await fetch(`https://api.example.com/posts/${params.slug}`, {
+      next: {
+        revalidate: 3600 // Revalidate every hour
+      }
+    }).then(res => res.json())
+    
+    return <article>{/* Post content */}</article>
+  }
+  
+  // Or in generateStaticParams
+  export async function generateStaticParams() {
+    const posts = await fetch('https://api.example.com/posts', {
+      next: { revalidate: 3600 }
+    }).then(res => res.json())
+    
+    return posts.map(post => ({
+      slug: post.slug
+    }))
+  }
+  ```
+
+##### 16.20 💻 Practical Projects
+- 🏗️ Full-stack Blog Platform
+- 📝 E-commerce Store with Cart
+- 🔐 Authentication System
+- 📊 Admin Dashboard
+- 🌐 Multi-language Website
+- 🖼️ Portfolio with CMS
+- 📰 News Website with ISR
+- 🛒 Product Catalog
+- 💬 Real-time Chat Application
+- 📅 Event Booking System
+- 🏨 Hotel Reservation Platform
+- 📚 Documentation Site
+- 🎮 Game Leaderboard
+- 📱 PWA Application
+- 🔍 Search Engine with API Routes
+- 💼 Company Landing Page
+- 📧 Email Newsletter System
+- 📊 Analytics Dashboard
+- 🗺️ Travel Blog with Maps
+- 🎥 Movie Database
+
+---
+
+## 🎯 STAGE 17 — Jest (Unit Testing)
+**Goal**: Master Jest for writing comprehensive unit tests, ensuring code reliability and preventing regressions.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 17.1 🧪 Introduction to Testing
+- 🤔 What is Testing?
+- 🎯 Why Testing Matters:
+  - Catch bugs early
+  - Prevent regressions
+  - Documentation
+  - Confidence in refactoring
+  - Better code design
+- 📊 Types of Tests:
+  - Unit Tests (testing individual functions/components)
+  - Integration Tests (testing multiple units together)
+  - End-to-End Tests (testing complete user flows)
+- 🔧 Testing Pyramid
+- 📦 What is Jest?
+  - Facebook's testing framework
+  - Zero configuration
+  - Fast and isolated
+  - Built-in assertions
+  - Mocking capabilities
+  - Code coverage
+
+##### 17.2 ⚙️ Jest Setup
+- 📝 Installation:
+  ```bash
+  # For React/JavaScript project
+  npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react
+  
+  # For TypeScript project
+  npm install --save-dev jest @types/jest ts-jest @babel/preset-typescript
+  
+  # For React Testing Library
+  npm install --save-dev @testing-library/react @testing-library/jest-dom
+  
+  # Configuration file
+  npm init jest@latest
+  ```
+- 📝 jest.config.js:
+  ```javascript
+  // jest.config.js
+  module.exports = {
+    testEnvironment: 'jsdom',
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+    moduleNameMapper: {
+      '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+      '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
+      '^@/(.*)$': '<rootDir>/src/$1'
+    },
+    collectCoverageFrom: [
+      'src/**/*.{js,jsx,ts,tsx}',
+      '!src/**/*.d.ts',
+      '!src/index.tsx',
+      '!src/reportWebVitals.ts'
+    ],
+    coverageThreshold: {
+      global: {
+        branches: 80,
+        functions: 80,
+        lines: 80,
+        statements: 80
+      }
+    }
+  }
+  ```
+- 📝 package.json scripts:
+  ```json
+  {
+    "scripts": {
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage",
+      "test:ci": "jest --ci --coverage --maxWorkers=2"
+    }
+  }
+  ```
+
+##### 17.3 📝 Basic Test Structure
+- 📝 Writing Your First Test:
+  ```javascript
+  // math.js
+  export function add(a, b) {
+    return a + b
+  }
+  
+  export function subtract(a, b) {
+    return a - b
+  }
+  
+  // math.test.js
+  import { add, subtract } from './math'
+  
+  test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3)
+  })
+  
+  test('subtracts 5 - 3 to equal 2', () => {
+    expect(subtract(5, 3)).toBe(2)
+  })
+  
+  // Using describe to group tests
+  describe('Math functions', () => {
+    describe('add', () => {
+      it('should add positive numbers correctly', () => {
+        expect(add(2, 3)).toBe(5)
+      })
+      
+      it('should add negative numbers correctly', () => {
+        expect(add(-2, -3)).toBe(-5)
+      })
+      
+      it('should add zero correctly', () => {
+        expect(add(5, 0)).toBe(5)
+      })
+    })
+    
+    describe('subtract', () => {
+      it('should subtract positive numbers correctly', () => {
+        expect(subtract(5, 3)).toBe(2)
+      })
+      
+      it('should subtract negative numbers correctly', () => {
+        expect(subtract(-5, -3)).toBe(-2)
+      })
+    })
+  })
+  ```
+
+##### 17.4 🎯 Matchers and Assertions
+- 📝 Common Matchers:
+  ```javascript
+  test('common matchers', () => {
+    // Equality
+    expect(2 + 2).toBe(4)
+    expect({ name: 'John' }).toEqual({ name: 'John' })
+    
+    // Truthiness
+    expect(true).toBeTruthy()
+    expect(false).toBeFalsy()
+    expect(null).toBeNull()
+    expect(undefined).toBeUndefined()
+    expect(null).toBeDefined()
+    
+    // Numbers
+    expect(10).toBeGreaterThan(5)
+    expect(10).toBeGreaterThanOrEqual(10)
+    expect(5).toBeLessThan(10)
+    expect(5).toBeLessThanOrEqual(5)
+    
+    // Floating point numbers
+    expect(0.1 + 0.2).toBeCloseTo(0.3)
+    
+    // Strings
+    expect('Hello World').toMatch(/World/)
+    expect('Hello').toHaveLength(5)
+    
+    // Arrays
+    expect([1, 2, 3]).toContain(2)
+    expect([1, 2, 3]).toHaveLength(3)
+    
+    // Objects
+    const user = { name: 'John', age: 30 }
+    expect(user).toHaveProperty('name')
+    expect(user).toHaveProperty('age', 30)
+    
+    // Exceptions
+    expect(() => {
+      throw new Error('Something went wrong')
+    }).toThrow()
+    
+    expect(() => {
+      throw new Error('Invalid input')
+    }).toThrow('Invalid input')
+  })
+  ```
+- 📝 Custom Matchers:
+  ```javascript
+  // Extending Jest with custom matchers
+  expect.extend({
+    toBeWithinRange(received, floor, ceiling) {
+      const pass = received >= floor && received <= ceiling
+      if (pass) {
+        return {
+          message: () => `expected ${received} not to be within range ${floor} - ${ceiling}`,
+          pass: true
+        }
+      } else {
+        return {
+          message: () => `expected ${received} to be within range ${floor} - ${ceiling}`,
+          pass: false
+        }
+      }
+    }
+  })
+  
+  test('custom matcher', () => {
+    expect(10).toBeWithinRange(5, 15)
+    expect(20).not.toBeWithinRange(5, 15)
+  })
+  ```
+
+##### 17.5 🔄 Testing Asynchronous Code
+- 📝 Callbacks:
+  ```javascript
+  // fetchData.js
+  export function fetchData(callback) {
+    setTimeout(() => {
+      callback('peanut butter')
+    }, 100)
+  }
+  
+  // fetchData.test.js
+  test('callback data', done => {
+    function callback(data) {
+      try {
+        expect(data).toBe('peanut butter')
+        done()
+      } catch (error) {
+        done(error)
+      }
+    }
+    
+    fetchData(callback)
+  })
+  ```
+- 📝 Promises:
+  ```javascript
+  // fetchData.js
+  export function fetchData() {
+    return Promise.resolve('peanut butter')
+  }
+  
+  export function fetchDataReject() {
+    return Promise.reject('error occurred')
+  }
+  
+  // fetchData.test.js
+  test('promise resolves', () => {
+    return fetchData().then(data => {
+      expect(data).toBe('peanut butter')
+    })
+  })
+  
+  test('promise rejects', () => {
+    return fetchDataReject().catch(error => {
+      expect(error).toBe('error occurred')
+    })
+  })
+  ```
+- 📝 Async/Await:
+  ```javascript
+  test('async/await resolves', async () => {
+    const data = await fetchData()
+    expect(data).toBe('peanut butter')
+  })
+  
+  test('async/await rejects', async () => {
+    await expect(fetchDataReject()).rejects.toBe('error occurred')
+  })
+  
+  // Combining with resolves/rejects
+  test('resolves matcher', async () => {
+    await expect(fetchData()).resolves.toBe('peanut butter')
+  })
+  
+  test('rejects matcher', async () => {
+    await expect(fetchDataReject()).rejects.toBe('error occurred')
+  })
+  ```
+
+##### 17.6 🔧 Setup and Teardown
+- 📝 Before and After Hooks:
+  ```javascript
+  // Global hooks
+  beforeAll(() => {
+    console.log('Run once before all tests')
+    // Initialize database connection
+    // Setup test data
+  })
+  
+  afterAll(() => {
+    console.log('Run once after all tests')
+    // Close database connection
+    // Clean up
+  })
+  
+  beforeEach(() => {
+    console.log('Run before each test')
+    // Reset state
+    // Create fresh test data
+  })
+  
+  afterEach(() => {
+    console.log('Run after each test')
+    // Clean up after each test
+  })
+  
+  // Scoped hooks (inside describe)
+  describe('User operations', () => {
+    let user
+    
+    beforeEach(() => {
+      user = {
+        id: 1,
+        name: 'John Doe',
+        email: 'john@example.com'
+      }
+    })
+    
+    test('user has correct name', () => {
+      expect(user.name).toBe('John Doe')
+    })
+    
+    test('user has correct email', () => {
+      expect(user.email).toBe('john@example.com')
+    })
+  })
+  ```
+
+##### 17.7 🎭 Mocking Functions
+- 📝 Mock Functions:
+  ```javascript
+  // userService.js
+  export function sendWelcomeEmail(user) {
+    // Send email logic
+  }
+  
+  export function registerUser(name, email, sendEmail = sendWelcomeEmail) {
+    const user = { id: Date.now(), name, email }
+    sendEmail(user)
+    return user
+  }
+  
+  // userService.test.js
+  import { registerUser } from './userService'
+  
+  test('registerUser sends welcome email', () => {
+    const mockSendEmail = jest.fn()
+    
+    const user = registerUser('John Doe', 'john@example.com', mockSendEmail)
+    
+    expect(mockSendEmail).toHaveBeenCalled()
+    expect(mockSendEmail).toHaveBeenCalledTimes(1)
+    expect(mockSendEmail).toHaveBeenCalledWith(user)
+    expect(mockSendEmail).toHaveBeenLastCalledWith(user)
+  })
+  
+  test('mock function implementation', () => {
+    const mock = jest.fn(x => x * 2)
+    
+    expect(mock(5)).toBe(10)
+    expect(mock).toHaveBeenCalledWith(5)
+  })
+  
+  test('mock return values', () => {
+    const mock = jest.fn()
+    mock.mockReturnValueOnce('first call')
+      .mockReturnValueOnce('second call')
+      .mockReturnValue('default')
+    
+    expect(mock()).toBe('first call')
+    expect(mock()).toBe('second call')
+    expect(mock()).toBe('default')
+    expect(mock()).toBe('default')
+  })
+  ```
+- 📝 Mock Implementation:
+  ```javascript
+  test('mock implementation', () => {
+    const mock = jest.fn()
+    mock.mockImplementation((a, b) => a + b)
+    
+    expect(mock(1, 2)).toBe(3)
+  })
+  
+  test('mock implementation once', () => {
+    const mock = jest.fn()
+    mock.mockImplementationOnce(() => 'first')
+      .mockImplementationOnce(() => 'second')
+    
+    expect(mock()).toBe('first')
+    expect(mock()).toBe('second')
+    expect(mock()).toBe(undefined)
+  })
+  ```
+
+##### 17.8 📦 Mocking Modules
+- 📝 Mocking Modules:
+  ```javascript
+  // api.js
+  import axios from 'axios'
+  
+  export async function fetchUsers() {
+    const response = await axios.get('/api/users')
+    return response.data
+  }
+  
+  // api.test.js
+  jest.mock('axios')
+  import axios from 'axios'
+  import { fetchUsers } from './api'
+  
+  test('fetchUsers returns user data', async () => {
+    const mockUsers = [{ id: 1, name: 'John' }]
+    axios.get.mockResolvedValue({ data: mockUsers })
+    
+    const users = await fetchUsers()
+    
+    expect(users).toEqual(mockUsers)
+    expect(axios.get).toHaveBeenCalledWith('/api/users')
+    expect(axios.get).toHaveBeenCalledTimes(1)
+  })
+  
+  test('fetchUsers handles error', async () => {
+    const error = new Error('Network error')
+    axios.get.mockRejectedValue(error)
+    
+    await expect(fetchUsers()).rejects.toThrow('Network error')
+  })
+  ```
+- 📝 Manual Mocks:
+  ```javascript
+  // __mocks__/fs.js
+  const fs = jest.createMockFromModule('fs')
+  
+  let mockFiles = {}
+  
+  function __setMockFiles(newMockFiles) {
+    mockFiles = newMockFiles
+  }
+  
+  function readFileSync(filePath) {
+    return mockFiles[filePath]
+  }
+  
+  fs.__setMockFiles = __setMockFiles
+  fs.readFileSync = readFileSync
+  
+  module.exports = fs
+  
+  // fileReader.test.js
+  jest.mock('fs')
+  const fs = require('fs')
+  const { readConfig } = require('./fileReader')
+  
+  beforeEach(() => {
+    fs.__setMockFiles({
+      '/config.json': JSON.stringify({ port: 3000 })
+    })
+  })
+  
+  test('readConfig reads configuration', () => {
+    const config = readConfig('/config.json')
+    expect(config).toEqual({ port: 3000 })
+  })
+  ```
+
+##### 17.9 ⏱️ Timers Mocking
+- 📝 Mocking Timers:
+  ```javascript
+  // timer.js
+  export function delayedHello(callback) {
+    setTimeout(() => {
+      callback('Hello')
+    }, 1000)
+  }
+  
+  export function repeatAction(action, interval, times) {
+    let count = 0
+    const intervalId = setInterval(() => {
+      action()
+      count++
+      if (count >= times) {
+        clearInterval(intervalId)
+      }
+    }, interval)
+  }
+  
+  // timer.test.js
+  jest.useFakeTimers()
+  
+  test('delayedHello calls callback after 1 second', () => {
+    const callback = jest.fn()
+    
+    delayedHello(callback)
+    
+    expect(callback).not.toBeCalled()
+    
+    jest.advanceTimersByTime(1000)
+    
+    expect(callback).toBeCalled()
+    expect(callback).toBeCalledWith('Hello')
+  })
+  
+  test('repeatAction repeats specified times', () => {
+    const action = jest.fn()
+    
+    repeatAction(action, 500, 3)
+    
+    expect(action).not.toBeCalled()
+    
+    jest.advanceTimersByTime(1500)
+    
+    expect(action).toBeCalledTimes(3)
+  })
+  
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+  ```
+
+##### 17.10 🧪 Testing React Components (Basic)
+- 📝 Testing React with Jest:
+  ```jsx
+  // Button.jsx
+  import React from 'react'
+  
+  export function Button({ onClick, children, disabled }) {
+    return (
+      <button 
+        onClick={onClick}
+        disabled={disabled}
+        className="btn"
+      >
+        {children}
+      </button>
+    )
+  }
+  
+  // Button.test.jsx
+  import React from 'react'
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { Button } from './Button'
+  
+  describe('Button component', () => {
+    it('renders correctly', () => {
+      render(<Button>Click me</Button>)
+      
+      const button = screen.getByRole('button', { name: /click me/i })
+      expect(button).toBeInTheDocument()
+      expect(button).toHaveClass('btn')
+    })
+    
+    it('handles click events', async () => {
+      const handleClick = jest.fn()
+      
+      render(<Button onClick={handleClick}>Click me</Button>)
+      
+      const button = screen.getByRole('button')
+      await userEvent.click(button)
+      
+      expect(handleClick).toHaveBeenCalledTimes(1)
+    })
+    
+    it('can be disabled', () => {
+      render(<Button disabled>Disabled button</Button>)
+      
+      const button = screen.getByRole('button')
+      expect(button).toBeDisabled()
+    })
+  })
+  ```
+
+##### 17.11 📊 Code Coverage
+- 📝 Understanding Coverage:
+  ```bash
+  # Run tests with coverage
+  npm test -- --coverage
+  
+  # Coverage thresholds in jest.config.js
+  ```
+- 📝 Coverage Reports:
+  ```
+  --------------------|---------|----------|---------|---------|-------------------
+  File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+  --------------------|---------|----------|---------|---------|-------------------
+  All files          |   85.71 |    66.66 |   83.33 |   85.71 |                  
+  src/components     |     100 |      100 |     100 |     100 |                  
+    Button.jsx       |     100 |      100 |     100 |     100 |                  
+  src/utils          |   71.42 |       50 |      75 |   71.42 |                  
+    math.js          |   71.42 |       50 |      75 |   71.42 | 8,12             
+  --------------------|---------|----------|---------|---------|-------------------
+  ```
+- 📝 Coverage Types:
+  ```javascript
+  // Line coverage - percentage of executable lines executed
+  // Branch coverage - percentage of conditional branches executed
+  // Function coverage - percentage of functions called
+  // Statement coverage - percentage of statements executed
+  
+  export function calculateDiscount(price, isMember, hasCoupon) {
+    let discount = 0
+    
+    if (isMember) {  // Branch 1
+      discount += 0.1
+    }
+    
+    if (hasCoupon) {  // Branch 2
+      discount += 0.2
+    }
+    
+    return price * (1 - discount)
+  }
+  ```
+
+##### 17.12 🎯 Snapshot Testing
+- 📝 Snapshot Tests:
+  ```jsx
+  // UserProfile.jsx
+  export function UserProfile({ user }) {
+    return (
+      <div className="profile">
+        <img src={user.avatar} alt={user.name} />
+        <h2>{user.name}</h2>
+        <p>{user.email}</p>
+        <ul>
+          {user.skills.map(skill => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  
+  // UserProfile.test.jsx
+  import { render } from '@testing-library/react'
+  import { UserProfile } from './UserProfile'
+  
+  test('UserProfile matches snapshot', () => {
+    const user = {
+      name: 'John Doe',
+      email: 'john@example.com',
+      avatar: '/avatar.jpg',
+      skills: ['React', 'TypeScript', 'Node.js']
+    }
+    
+    const { container } = render(<UserProfile user={user} />)
+    expect(container).toMatchSnapshot()
+  })
+  
+  // When component changes intentionally:
+  // Press 'u' in watch mode to update snapshots
+  // Or run: npm test -- -u
+  ```
+- 📝 Inline Snapshots:
+  ```javascript
+  test('inline snapshot', () => {
+    const user = {
+      id: 1,
+      name: 'John Doe',
+      createdAt: new Date('2024-01-01')
+    }
+    
+    expect(user).toMatchInlineSnapshot(`
+      {
+        "createdAt": 2024-01-01T00:00:00.000Z,
+        "id": 1,
+        "name": "John Doe",
+      }
+    `)
+  })
+  ```
+
+##### 17.13 🔄 Testing Integration
+- 📝 Integration Tests:
+  ```javascript
+  // userManager.js
+  import { validateUser } from './validation'
+  import { saveUser } from './database'
+  import { sendWelcomeEmail } from './email'
+  
+  export async function createUser(userData) {
+    const validatedUser = validateUser(userData)
+    const savedUser = await saveUser(validatedUser)
+    await sendWelcomeEmail(savedUser)
+    return savedUser
+  }
+  
+  // userManager.test.js
+  jest.mock('./validation')
+  jest.mock('./database')
+  jest.mock('./email')
+  
+  import { validateUser } from './validation'
+  import { saveUser } from './database'
+  import { sendWelcomeEmail } from './email'
+  import { createUser } from './userManager'
+  
+  test('createUser orchestrates the entire process', async () => {
+    const userData = { name: 'John', email: 'john@example.com' }
+    const validatedUser = { ...userData, isValid: true }
+    const savedUser = { ...validatedUser, id: 1 }
+    
+    validateUser.mockReturnValue(validatedUser)
+    saveUser.mockResolvedValue(savedUser)
+    sendWelcomeEmail.mockResolvedValue()
+    
+    const result = await createUser(userData)
+    
+    expect(result).toEqual(savedUser)
+    expect(validateUser).toHaveBeenCalledWith(userData)
+    expect(saveUser).toHaveBeenCalledWith(validatedUser)
+    expect(sendWelcomeEmail).toHaveBeenCalledWith(savedUser)
+  })
+  ```
+
+##### 17.14 🧩 Testing Custom Hooks
+- 📝 Testing Hooks:
+  ```javascript
+  // useCounter.js
+  import { useState, useCallback } from 'react'
+  
+  export function useCounter(initialValue = 0) {
+    const [count, setCount] = useState(initialValue)
+    
+    const increment = useCallback(() => {
+      setCount(c => c + 1)
+    }, [])
+    
+    const decrement = useCallback(() => {
+      setCount(c => c - 1)
+    }, [])
+    
+    const reset = useCallback(() => {
+      setCount(initialValue)
+    }, [initialValue])
+    
+    return { count, increment, decrement, reset }
+  }
+  
+  // useCounter.test.js
+  import { renderHook, act } from '@testing-library/react'
+  import { useCounter } from './useCounter'
+  
+  test('should initialize with default value', () => {
+    const { result } = renderHook(() => useCounter())
+    
+    expect(result.current.count).toBe(0)
+  })
+  
+  test('should initialize with custom value', () => {
+    const { result } = renderHook(() => useCounter(10))
+    
+    expect(result.current.count).toBe(10)
+  })
+  
+  test('should increment counter', () => {
+    const { result } = renderHook(() => useCounter(5))
+    
+    act(() => {
+      result.current.increment()
+    })
+    
+    expect(result.current.count).toBe(6)
+  })
+  
+  test('should decrement counter', () => {
+    const { result } = renderHook(() => useCounter(5))
+    
+    act(() => {
+      result.current.decrement()
+    })
+    
+    expect(result.current.count).toBe(4)
+  })
+  
+  test('should reset counter', () => {
+    const { result } = renderHook(() => useCounter(5))
+    
+    act(() => {
+      result.current.increment()
+      result.current.increment()
+      result.current.reset()
+    })
+    
+    expect(result.current.count).toBe(5)
+  })
+  ```
+
+##### 17.15 🎭 Mocking Context and Providers
+- 📝 Testing with Context:
+  ```jsx
+  // ThemeContext.jsx
+  import React, { createContext, useContext, useState } from 'react'
+  
+  const ThemeContext = createContext()
+  
+  export function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState('light')
+    
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light')
+    }
+    
+    return (
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    )
+  }
+  
+  export function useTheme() {
+    const context = useContext(ThemeContext)
+    if (!context) {
+      throw new Error('useTheme must be used within ThemeProvider')
+    }
+    return context
+  }
+  
+  // ThemedButton.jsx
+  export function ThemedButton() {
+    const { theme, toggleTheme } = useTheme()
+    
+    return (
+      <button 
+        onClick={toggleTheme}
+        className={`btn-${theme}`}
+      >
+        Current theme: {theme}
+      </button>
+    )
+  }
+  
+  // ThemedButton.test.jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { ThemeProvider, ThemedButton } from './ThemeContext'
+  
+  const customRender = (ui, { providerProps, ...renderOptions }) => {
+    return render(
+      <ThemeProvider {...providerProps}>
+        {ui}
+      </ThemeProvider>,
+      renderOptions
+    )
+  }
+  
+  test('button shows current theme', () => {
+    render(
+      <ThemeProvider>
+        <ThemedButton />
+      </ThemeProvider>
+    )
+    
+    expect(screen.getByText(/Current theme: light/i)).toBeInTheDocument()
+  })
+  
+  test('clicking button toggles theme', async () => {
+    render(
+      <ThemeProvider>
+        <ThemedButton />
+      </ThemeProvider>
+    )
+    
+    const button = screen.getByRole('button')
+    await userEvent.click(button)
+    
+    expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
+  })
+  ```
+
+##### 17.16 🔧 Debugging Tests
+- 📝 Debugging Techniques:
+  ```javascript
+  test('debugging example', () => {
+    const user = {
+      name: 'John',
+      age: 30,
+      address: {
+        city: 'New York',
+        country: 'USA'
+      }
+    }
+    
+    // Log values
+    console.log('User:', user)
+    
+    // Use debugger
+    debugger
+    
+    // Use Jest's debug mode
+    // Run: node --inspect-brk node_modules/.bin/jest --runInBand
+    
+    expect(user.name).toBe('John')
+  })
+  ```
+- 📝 Jest Watch Mode:
+  ```bash
+  # Watch mode options
+  # Press 'f' to run only failed tests
+  # Press 'p' to filter by filename
+  # Press 't' to filter by test name
+  # Press 'q' to quit
+  # Press 'Enter' to run all tests
+  ```
+
+##### 17.17 🚀 Advanced Jest Features
+- 📝 Test.each (Parameterized Tests):
+  ```javascript
+  // math.js
+  export function power(base, exponent) {
+    return Math.pow(base, exponent)
+  }
+  
+  // math.test.js
+  describe('power function', () => {
+    test.each([
+      [2, 3, 8],
+      [3, 2, 9],
+      [5, 0, 1],
+      [2, -1, 0.5],
+    ])('power(%i, %i) should return %i', (base, exponent, expected) => {
+      expect(power(base, exponent)).toBeCloseTo(expected)
+    })
+  })
+  
+  // With template literals
+  test.each`
+    base | exponent | expected
+    ${2} | ${3}     | ${8}
+    ${3} | ${2}     | ${9}
+    ${5} | ${0}     | ${1}
+  `('returns $expected when $base^$exponent', ({ base, exponent, expected }) => {
+    expect(power(base, exponent)).toBe(expected)
+  })
+  ```
+- 📝 Test.todo:
+  ```javascript
+  describe('Calculator', () => {
+    test.todo('should add two numbers')
+    test.todo('should subtract two numbers')
+    test.todo('should multiply two numbers')
+    test.todo('should handle division by zero')
+  })
+  ```
+- 📝 Only and Skip:
+  ```javascript
+  // Run only this test
+  test.only('critical test', () => {
+    expect(true).toBe(true)
+  })
+  
+  // Skip this test
+  test.skip('not implemented yet', () => {
+    expect(true).toBe(true)
+  })
+  
+  describe.only('important suite', () => {
+    // Only this describe runs
+  })
+  
+  describe.skip('legacy tests', () => {
+    // These tests are skipped
+  })
+  ```
+
+##### 17.18 🎯 Testing Best Practices
+- 📝 Test Organization:
+  ```javascript
+  // 1. Arrange - setup test data
+  // 2. Act - perform the action
+  // 3. Assert - verify results
+  
+  test('should calculate total price with discount', () => {
+    // Arrange
+    const cart = [
+      { price: 100, quantity: 2 },
+      { price: 50, quantity: 1 }
+    ]
+    const discount = 0.1
+    
+    // Act
+    const total = calculateTotal(cart, discount)
+    
+    // Assert
+    expect(total).toBe(225) // (200 + 50) * 0.9
+  })
+  ```
+- 📝 Naming Conventions:
+  ```javascript
+  // Good
+  test('returns user when valid ID is provided', () => {})
+  test('throws error when user is not found', () => {})
+  test('updates user email successfully', () => {})
+  
+  // Avoid
+  test('user test', () => {})
+  test('check function', () => {})
+  ```
+- 📝 What to Test:
+  ```javascript
+  // DO test:
+  // - Public API functions
+  // - Edge cases (empty, null, undefined)
+  // - Error conditions
+  // - Business logic
+  
+  // DON'T test:
+  // - Implementation details
+  // - Third-party libraries
+  // - Simple getters/setters
+  // - Configuration files
+  ```
+
+##### 17.19 🔧 Continuous Integration
+- 📝 GitHub Actions Setup:
+  ```yaml
+  # .github/workflows/test.yml
+  name: Tests
+  
+  on:
+    push:
+      branches: [ main, develop ]
+    pull_request:
+      branches: [ main ]
+  
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      
+      steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm test -- --coverage
+        
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+  ```
+
+##### 17.20 💻 Practical Projects
+- 🏗️ Utility Functions Testing
+- 📝 React Component Testing
+- 🔐 Authentication Logic Testing
+- 🛒 Shopping Cart Logic Testing
+- 📊 Data Transformation Testing
+- 🔄 API Integration Testing
+- 🎭 Mocking External Services
+- 📱 Form Validation Testing
+- 🧩 Custom Hook Testing
+- 🎨 UI Component Snapshot Testing
+- 🔧 Error Boundary Testing
+- 📦 Redux/Context State Testing
+- 🚦 Routing Logic Testing
+- ⚡ Performance Testing
+- 📈 Code Coverage Analysis
+
+---
+
+## 🎯 STAGE 18 — React Testing Library (Component Testing)
+**Goal**: Master React Testing Library for testing React components in a user-centric way, ensuring applications work correctly from the user's perspective.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 18.1 🧪 Introduction to React Testing Library
+- 🤔 What is React Testing Library?
+- 📜 Philosophy: "Test your software the way users use it"
+- 🎯 Why React Testing Library?
+  - Tests from user perspective
+  - Encourages accessible components
+  - Works with any React framework
+  - Lightweight and flexible
+  - No testing implementation details
+- 🔄 RTL vs Enzyme vs React Test Utils
+- 📦 Installation:
+  ```bash
+  npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+  ```
+- 📝 Setup:
+  ```javascript
+  // src/setupTests.js
+  import '@testing-library/jest-dom'
+  ```
+
+##### 18.2 🎯 Core Concepts
+- 📝 Queries (Finding Elements):
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  
+  test('queries examples', () => {
+    render(
+      <div>
+        <button>Click me</button>
+        <button aria-label="close">X</button>
+        <input placeholder="Enter name" />
+        <div role="alert">Error message</div>
+        <label htmlFor="email">Email:</label>
+        <input id="email" />
+        <img alt="profile" src="/image.jpg" />
+        <span data-testid="custom">Custom element</span>
+      </div>
+    )
+    
+    // getBy - throws if not found
+    const button = screen.getByText('Click me')
+    const closeButton = screen.getByLabelText('close')
+    const input = screen.getByPlaceholderText('Enter name')
+    const alert = screen.getByRole('alert')
+    const emailInput = screen.getByLabelText('Email:')
+    const image = screen.getByAltText('profile')
+    const custom = screen.getByTestId('custom')
+    
+    // queryBy - returns null if not found (no error)
+    const missing = screen.queryByText('Not found')
+    expect(missing).toBeNull()
+    
+    // findBy - for async elements (returns Promise)
+    // const asyncElement = await screen.findByText('Loaded')
+  })
+  ```
+- 📝 Query Types:
+  ```jsx
+  test('query types', () => {
+    render(
+      <div>
+        <button>Submit</button>
+        <button>Submit</button>
+        <div>Content</div>
+      </div>
+    )
+    
+    // getByText - throws if multiple matches
+    // const button = screen.getByText('Submit') // Throws!
+    
+    // getAllByText - returns array of matches
+    const buttons = screen.getAllByText('Submit')
+    expect(buttons).toHaveLength(2)
+    
+    // queryAllByText - returns array (empty if none)
+    const missing = screen.queryAllByText('Not found')
+    expect(missing).toHaveLength(0)
+    
+    // findByText - for async
+    // const element = await screen.findByText('Loaded')
+    
+    // findAllByText - for async multiple
+    // const elements = await screen.findAllByText('Item')
+  })
+  ```
+
+##### 18.3 🎨 Priority Order for Queries
+- 📝 Query Priority (from most to least recommended):
+  ```jsx
+  test('query priority', () => {
+    render(
+      <div>
+        {/* 1. Accessible by everyone */}
+        <button>Save</button>
+        <a href="/about">About</button>
+        <input type="checkbox" />
+        
+        {/* 2. Semantic queries */}
+        <h1>Title</h1>
+        <p>Paragraph</p>
+        
+        {/* 3. Test IDs (use as last resort) */}
+        <div data-testid="custom">Content</div>
+      </div>
+    )
+    
+    // 1. Accessible queries (role, label, text)
+    screen.getByRole('button', { name: /save/i })
+    screen.getByLabelText(/email/i)
+    screen.getByPlaceholderText(/name/i)
+    screen.getByText(/about/i)
+    screen.getByDisplayValue(/initial value/i)
+    
+    // 2. Semantic queries
+    screen.getByAltText(/profile/i)
+    screen.getByTitle(/tooltip/i)
+    
+    // 3. Test ID (last resort)
+    screen.getByTestId('custom')
+  })
+  ```
+
+##### 18.4 🔧 User Events
+- 📝 userEvent vs fireEvent:
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  
+  function Form() {
+    const [value, setValue] = useState('')
+    const [submitted, setSubmitted] = useState(false)
+    
+    return (
+      <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
+        <input 
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Enter text"
+        />
+        <button type="submit">Submit</button>
+        {submitted && <div>Form submitted!</div>}
+      </form>
+    )
+  }
+  
+  test('userEvent simulates real user interactions', async () => {
+    const user = userEvent.setup()
+    render(<Form />)
+    
+    // Type in input
+    const input = screen.getByPlaceholderText('Enter text')
+    await user.type(input, 'Hello World')
+    expect(input).toHaveValue('Hello World')
+    
+    // Click button
+    const button = screen.getByRole('button')
+    await user.click(button)
+    
+    // Check result
+    expect(screen.getByText('Form submitted!')).toBeInTheDocument()
+  })
+  
+  test('userEvent advanced interactions', async () => {
+    const user = userEvent.setup()
+    render(<ComplexForm />)
+    
+    // Keyboard interactions
+    await user.keyboard('{Shift>}A{/Shift}') // Shift + A
+    
+    // Tab navigation
+    await user.tab()
+    
+    // Select options
+    await user.selectOptions(screen.getByRole('listbox'), 'option2')
+    
+    // Upload file
+    const file = new File(['hello'], 'hello.png', { type: 'image/png' })
+    await user.upload(screen.getByLabelText(/upload/i), file)
+    
+    // Double click
+    await user.dblClick(screen.getByText('Double click me'))
+    
+    // Hover
+    await user.hover(screen.getByText('Hover me'))
+  })
+  ```
+
+##### 18.5 🎯 Testing Forms
+- 📝 Form Testing:
+  ```jsx
+  // LoginForm.jsx
+  export function LoginForm({ onSubmit }) {
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+      rememberMe: false
+    })
+    
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      onSubmit(formData)
+    }
+    
+    return (
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+          />
+        </div>
+        
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={formData.password}
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            required
+          />
+        </div>
+        
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={formData.rememberMe}
+              onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
+            />
+            Remember me
+          </label>
+        </div>
+        
+        <button type="submit">Login</button>
+      </form>
+    )
+  }
+  
+  // LoginForm.test.jsx
+  describe('LoginForm', () => {
+    it('submits form data correctly', async () => {
+      const user = userEvent.setup()
+      const handleSubmit = jest.fn()
+      
+      render(<LoginForm onSubmit={handleSubmit} />)
+      
+      // Fill form
+      await user.type(screen.getByLabelText(/email/i), 'john@example.com')
+      await user.type(screen.getByLabelText(/password/i), 'password123')
+      await user.click(screen.getByLabelText(/remember me/i))
+      
+      // Submit form
+      await user.click(screen.getByRole('button', { name: /login/i }))
+      
+      // Assert
+      expect(handleSubmit).toHaveBeenCalledWith({
+        email: 'john@example.com',
+        password: 'password123',
+        rememberMe: true
+      })
+    })
+    
+    it('validates required fields', async () => {
+      const user = userEvent.setup()
+      const handleSubmit = jest.fn()
+      
+      render(<LoginForm onSubmit={handleSubmit} />)
+      
+      // Try to submit without filling
+      await user.click(screen.getByRole('button', { name: /login/i }))
+      
+      // Form shouldn't submit
+      expect(handleSubmit).not.toHaveBeenCalled()
+      
+      // Check HTML5 validation
+      const emailInput = screen.getByLabelText(/email/i)
+      expect(emailInput).toBeRequired()
+    })
+  })
+  ```
+
+##### 18.6 🔄 Testing Async Operations
+- 📝 Async Component Testing:
+  ```jsx
+  // UserList.jsx
+  export function UserList() {
+    const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+    
+    useEffect(() => {
+      fetch('/api/users')
+        .then(res => res.json())
+        .then(data => {
+          setUsers(data)
+          setLoading(false)
+        })
+        .catch(err => {
+          setError(err.message)
+          setLoading(false)
+        })
+    }, [])
+    
+    if (loading) return <div>Loading...</div>
+    if (error) return <div>Error: {error}</div>
+    
+    return (
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
+    )
+  }
+  
+  // UserList.test.jsx
+  describe('UserList', () => {
+    beforeEach(() => {
+      global.fetch = jest.fn()
+    })
+    
+    afterEach(() => {
+      jest.resetAllMocks()
+    })
+    
+    it('displays loading state initially', () => {
+      global.fetch.mockImplementation(() => new Promise(() => {}))
+      
+      render(<UserList />)
+      
+      expect(screen.getByText('Loading...')).toBeInTheDocument()
+    })
+    
+    it('displays users after successful fetch', async () => {
+      const mockUsers = [
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Smith' }
+      ]
+      
+      global.fetch.mockResolvedValue({
+        ok: true,
+        json: async () => mockUsers
+      })
+      
+      render(<UserList />)
+      
+      // Wait for loading to finish and users to appear
+      await waitForElementToBeRemoved(() => screen.queryByText('Loading...'))
+      
+      expect(screen.getByText('John Doe')).toBeInTheDocument()
+      expect(screen.getByText('Jane Smith')).toBeInTheDocument()
+    })
+    
+    it('displays error message on fetch failure', async () => {
+      global.fetch.mockRejectedValue(new Error('Network error'))
+      
+      render(<UserList />)
+      
+      await waitFor(() => {
+        expect(screen.getByText(/Error: Network error/i)).toBeInTheDocument()
+      })
+    })
+  })
+  ```
+
+##### 18.7 🎭 Testing with Context
+- 📝 Context Testing:
+  ```jsx
+  // ThemeContext.jsx
+  const ThemeContext = createContext()
+  
+  export function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState('light')
+    
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light')
+    }
+    
+    return (
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    )
+  }
+  
+  export function useTheme() {
+    return useContext(ThemeContext)
+  }
+  
+  // ThemedButton.jsx
+  export function ThemedButton() {
+    const { theme, toggleTheme } = useTheme()
+    
+    return (
+      <button 
+        onClick={toggleTheme}
+        className={`btn-${theme}`}
+      >
+        Current theme: {theme}
+      </button>
+    )
+  }
+  
+  // ThemedButton.test.jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { ThemeProvider, ThemedButton } from './ThemeContext'
+  
+  describe('ThemedButton', () => {
+    const renderWithTheme = (component) => {
+      return render(
+        <ThemeProvider>
+          {component}
+        </ThemeProvider>
+      )
+    }
+    
+    it('displays initial theme', () => {
+      renderWithTheme(<ThemedButton />)
+      
+      expect(screen.getByText(/Current theme: light/i)).toBeInTheDocument()
+    })
+    
+    it('toggles theme when clicked', async () => {
+      const user = userEvent.setup()
+      renderWithTheme(<ThemedButton />)
+      
+      const button = screen.getByRole('button')
+      await user.click(button)
+      
+      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
+    })
+    
+    // Testing with custom context value
+    it('works with custom theme value', () => {
+      const customThemeValue = {
+        theme: 'dark',
+        toggleTheme: jest.fn()
+      }
+      
+      render(
+        <ThemeContext.Provider value={customThemeValue}>
+          <ThemedButton />
+        </ThemeContext.Provider>
+      )
+      
+      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 18.8 🔄 Testing with Redux
+- 📝 Redux Testing:
+  ```jsx
+  // counterSlice.js
+  const counterSlice = createSlice({
+    name: 'counter',
+    initialState: { value: 0 },
+    reducers: {
+      increment: (state) => { state.value += 1 },
+      decrement: (state) => { state.value -= 1 },
+    }
+  })
+  
+  // Counter.jsx
+  export function Counter() {
+    const count = useSelector(state => state.counter.value)
+    const dispatch = useDispatch()
+    
+    return (
+      <div>
+        <h2>Count: {count}</h2>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+      </div>
+    )
+  }
+  
+  // Counter.test.jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { Provider } from 'react-redux'
+  import { configureStore } from '@reduxjs/toolkit'
+  import counterReducer from './counterSlice'
+  import { Counter } from './Counter'
+  
+  describe('Counter with Redux', () => {
+    const renderWithRedux = (
+      component,
+      {
+        preloadedState,
+        store = configureStore({
+          reducer: { counter: counterReducer },
+          preloadedState
+        })
+      } = {}
+    ) => {
+      return {
+        ...render(<Provider store={store}>{component}</Provider>),
+        store
+      }
+    }
+    
+    it('renders with initial state', () => {
+      renderWithRedux(<Counter />)
+      
+      expect(screen.getByText('Count: 0')).toBeInTheDocument()
+    })
+    
+    it('increments counter', async () => {
+      const user = userEvent.setup()
+      const { store } = renderWithRedux(<Counter />, {
+        preloadedState: { counter: { value: 5 } }
+      })
+      
+      await user.click(screen.getByText('+'))
+      
+      expect(screen.getByText('Count: 6')).toBeInTheDocument()
+      expect(store.getState().counter.value).toBe(6)
+    })
+    
+    it('decrements counter', async () => {
+      const user = userEvent.setup()
+      renderWithRedux(<Counter />, {
+        preloadedState: { counter: { value: 10 } }
+      })
+      
+      await user.click(screen.getByText('-'))
+      
+      expect(screen.getByText('Count: 9')).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 18.9 🧭 Testing React Router
+- 📝 Router Testing:
+  ```jsx
+  // App.jsx
+  export function App() {
+    return (
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </nav>
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/user/:id" element={<UserProfile />} />
+        </Routes>
+      </BrowserRouter>
+    )
+  }
+  
+  // App.test.jsx
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { MemoryRouter, Routes, Route } from 'react-router-dom'
+  import { App, Home, About, UserProfile } from './App'
+  
+  describe('Routing', () => {
+    it('navigates to about page', async () => {
+      const user = userEvent.setup()
+      
+      render(
+        <MemoryRouter initialEntries={['/']}>
+          <App />
+        </MemoryRouter>
+      )
+      
+      expect(screen.getByText(/home page/i)).toBeInTheDocument()
+      
+      await user.click(screen.getByRole('link', { name: /about/i }))
+      
+      expect(screen.getByText(/about page/i)).toBeInTheDocument()
+    })
+    
+    it('displays 404 for unknown routes', () => {
+      render(
+        <MemoryRouter initialEntries={['/unknown']}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
+        </MemoryRouter>
+      )
+      
+      expect(screen.getByText('404 Not Found')).toBeInTheDocument()
+    })
+    
+    it('renders user profile with correct id', () => {
+      render(
+        <MemoryRouter initialEntries={['/user/123']}>
+          <Routes>
+            <Route path="/user/:id" element={<UserProfile />} />
+          </Routes>
+        </MemoryRouter>
+      )
+      
+      expect(screen.getByText('User ID: 123')).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 18.10 🎨 Testing Styled Components
+- 📝 Testing with CSS-in-JS:
+  ```jsx
+  // StyledButton.jsx
+  import styled from 'styled-components'
+  
+  const Button = styled.button`
+    background: ${props => props.primary ? 'blue' : 'gray'};
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    
+    &:hover {
+      background: ${props => props.primary ? 'darkblue' : 'darkgray'};
+    }
+  `
+  
+  export function StyledButton({ primary, children }) {
+    return <Button primary={primary}>{children}</Button>
+  }
+  
+  // StyledButton.test.jsx
+  describe('StyledButton', () => {
+    it('applies primary styles', () => {
+      render(<StyledButton primary>Click me</StyledButton>)
+      
+      const button = screen.getByText('Click me')
+      
+      // Check computed styles
+      expect(button).toHaveStyle({
+        background: 'blue',
+        color: 'white'
+      })
+    })
+    
+    it('applies secondary styles', () => {
+      render(<StyledButton>Click me</StyledButton>)
+      
+      const button = screen.getByText('Click me')
+      
+      expect(button).toHaveStyle({
+        background: 'gray',
+        color: 'white'
+      })
+    })
+    
+    // For more complex style testing, use snapshot
+    it('matches snapshot', () => {
+      const { container } = render(<StyledButton primary>Click me</StyledButton>)
+      
+      expect(container.firstChild).toMatchSnapshot()
+    })
+  })
+  ```
+
+##### 18.11 🎯 Testing Accessibility
+- 📝 Accessibility Testing:
+  ```jsx
+  import { axe, toHaveNoViolations } from 'jest-axe'
+  
+  expect.extend(toHaveNoViolations)
+  
+  describe('Accessibility', () => {
+    it('should have no accessibility violations', async () => {
+      const { container } = render(
+        <form>
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" />
+          
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" />
+          
+          <button type="submit">Submit</button>
+        </form>
+      )
+      
+      const results = await axe(container)
+      expect(results).toHaveNoViolations()
+    })
+    
+    it('detects accessibility issues', async () => {
+      // Missing labels - bad accessibility
+      const { container } = render(
+        <div>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <button>Submit</button>
+        </div>
+      )
+      
+      const results = await axe(container)
+      expect(results.violations.length).toBeGreaterThan(0)
+    })
+  })
+  ```
+
+##### 18.12 🔧 Custom Render Functions
+- 📝 Custom Render with Providers:
+  ```jsx
+  // test-utils.jsx
+  import { render } from '@testing-library/react'
+  import { ThemeProvider } from './contexts/ThemeContext'
+  import { AuthProvider } from './contexts/AuthContext'
+  import { Provider } from 'react-redux'
+  import { store } from './store'
+  
+  const AllTheProviders = ({ children }) => {
+    return (
+      <Provider store={store}>
+        <ThemeProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </ThemeProvider>
+      </Provider>
+    )
+  }
+  
+  const customRender = (ui, options) =>
+    render(ui, { wrapper: AllTheProviders, ...options })
+  
+  // Re-export everything
+  export * from '@testing-library/react'
+  export { customRender as render }
+  
+  // Component.test.jsx
+  import { render, screen } from './test-utils'
+  
+  test('component works with all providers', () => {
+    render(<MyComponent />)
+    
+    expect(screen.getByText('Content')).toBeInTheDocument()
+  })
+  ```
+
+##### 18.13 🎭 Mocking Advanced Scenarios
+- 📝 Mocking Date/Time:
+  ```jsx
+  // TimeDisplay.jsx
+  export function TimeDisplay() {
+    const [time, setTime] = useState(new Date())
+    
+    useEffect(() => {
+      const timer = setInterval(() => setTime(new Date()), 1000)
+      return () => clearInterval(timer)
+    }, [])
+    
+    return <div>{time.toLocaleTimeString()}</div>
+  }
+  
+  // TimeDisplay.test.jsx
+  describe('TimeDisplay', () => {
+    beforeEach(() => {
+      jest.useFakeTimers()
+      jest.setSystemTime(new Date('2024-01-01T12:00:00'))
+    })
+    
+    afterEach(() => {
+      jest.useRealTimers()
+    })
+    
+    it('displays current time', () => {
+      render(<TimeDisplay />)
+      
+      expect(screen.getByText('12:00:00 PM')).toBeInTheDocument()
+    })
+    
+    it('updates time every second', () => {
+      render(<TimeDisplay />)
+      
+      jest.advanceTimersByTime(1000)
+      
+      expect(screen.getByText('12:00:01 PM')).toBeInTheDocument()
+    })
+  })
+  ```
+- 📝 Mocking Local Storage:
+  ```jsx
+  // storage.js
+  export const storage = {
+    getItem: (key) => localStorage.getItem(key),
+    setItem: (key, value) => localStorage.setItem(key, value),
+    removeItem: (key) => localStorage.removeItem(key)
+  }
+  
+  // storage.test.js
+  const localStorageMock = (() => {
+    let store = {}
+    
+    return {
+      getItem: jest.fn((key) => store[key] || null),
+      setItem: jest.fn((key, value) => { store[key] = value.toString() }),
+      removeItem: jest.fn((key) => { delete store[key] }),
+      clear: jest.fn(() => { store = {} })
+    }
+  })()
+  
+  Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+  
+  describe('storage', () => {
+    beforeEach(() => {
+      localStorageMock.clear()
+      jest.clearAllMocks()
+    })
+    
+    it('sets and gets items', () => {
+      storage.setItem('theme', 'dark')
+      
+      expect(localStorage.setItem).toHaveBeenCalledWith('theme', 'dark')
+      
+      const value = storage.getItem('theme')
+      expect(localStorage.getItem).toHaveBeenCalledWith('theme')
+      expect(value).toBe('dark')
+    })
+  })
+  ```
+
+##### 18.14 🧪 Testing Error Boundaries
+- 📝 Error Boundary Testing:
+  ```jsx
+  // ErrorBoundary.jsx
+  export class ErrorBoundary extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = { hasError: false }
+    }
+    
+    static getDerivedStateFromError(error) {
+      return { hasError: true }
+    }
+    
+    componentDidCatch(error, errorInfo) {
+      console.error('Error caught:', error, errorInfo)
+    }
+    
+    render() {
+      if (this.state.hasError) {
+        return <div>Something went wrong</div>
+      }
+      
+      return this.props.children
+    }
+  }
+  
+  // ErrorBoundary.test.jsx
+  describe('ErrorBoundary', () => {
+    const ProblemChild = () => {
+      throw new Error('Test error')
+    }
+    
+    it('catches errors and displays fallback UI', () => {
+      // Suppress error console logs during test
+      jest.spyOn(console, 'error').mockImplementation(() => {})
+      
+      render(
+        <ErrorBoundary>
+          <ProblemChild />
+        </ErrorBoundary>
+      )
+      
+      expect(screen.getByText('Something went wrong')).toBeInTheDocument()
+      
+      console.error.mockRestore()
+    })
+    
+    it('renders children when no error', () => {
+      render(
+        <ErrorBoundary>
+          <div>Normal content</div>
+        </ErrorBoundary>
+      )
+      
+      expect(screen.getByText('Normal content')).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 18.15 🚀 Performance Testing
+- 📝 Component Rendering Performance:
+  ```jsx
+  import { render, screen } from '@testing-library/react'
+  import { Profiler } from 'react'
+  
+  describe('Performance', () => {
+    it('renders within acceptable time', () => {
+      const onRender = jest.fn()
+      
+      render(
+        <Profiler id="test" onRender={onRender}>
+          <ExpensiveComponent />
+        </Profiler>
+      )
+      
+      // First render duration
+      const [id, phase, actualDuration] = onRender.mock.calls[0]
+      
+      expect(actualDuration).toBeLessThan(100) // Less than 100ms
+    })
+    
+    it('memoizes correctly', () => {
+      const renderSpy = jest.fn()
+      
+      const MemoComponent = React.memo(({ value }) => {
+        renderSpy()
+        return <div>{value}</div>
+      })
+      
+      const { rerender } = render(<MemoComponent value="test" />)
+      
+      expect(renderSpy).toHaveBeenCalledTimes(1)
+      
+      // Rerender with same props - should not re-render
+      rerender(<MemoComponent value="test" />)
+      
+      expect(renderSpy).toHaveBeenCalledTimes(1)
+    })
+  })
+  ```
+
+##### 18.16 🔄 Testing Custom Hooks
+- 📝 Advanced Hook Testing:
+  ```jsx
+  // useLocalStorage.js
+  export function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+      try {
+        const item = window.localStorage.getItem(key)
+        return item ? JSON.parse(item) : initialValue
+      } catch (error) {
+        return initialValue
+      }
+    })
+    
+    const setValue = (value) => {
+      try {
+        const valueToStore = value instanceof Function ? value(storedValue) : value
+        setStoredValue(valueToStore)
+        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    
+    return [storedValue, setValue]
+  }
+  
+  // useLocalStorage.test.js
+  describe('useLocalStorage', () => {
+    beforeEach(() => {
+      window.localStorage.clear()
+    })
+    
+    it('returns initial value', () => {
+      const { result } = renderHook(() => useLocalStorage('key', 'initial'))
+      
+      expect(result.current[0]).toBe('initial')
+    })
+    
+    it('reads existing value from localStorage', () => {
+      window.localStorage.setItem('key', JSON.stringify('stored'))
+      
+      const { result } = renderHook(() => useLocalStorage('key', 'initial'))
+      
+      expect(result.current[0]).toBe('stored')
+    })
+    
+    it('updates localStorage when value changes', () => {
+      const { result, rerender } = renderHook(() => useLocalStorage('key', 'initial'))
+      
+      act(() => {
+        const [, setValue] = result.current
+        setValue('updated')
+      })
+      
+      expect(result.current[0]).toBe('updated')
+      expect(JSON.parse(window.localStorage.getItem('key'))).toBe('updated')
+    })
+    
+    it('handles function updates', () => {
+      const { result } = renderHook(() => useLocalStorage('key', 0))
+      
+      act(() => {
+        const [, setValue] = result.current
+        setValue(prev => prev + 1)
+      })
+      
+      expect(result.current[0]).toBe(1)
+    })
+  })
+  ```
+
+##### 18.17 🎯 Testing Portals
+- 📝 Portal Testing:
+  ```jsx
+  // Modal.jsx
+  import { createPortal } from 'react-dom'
+  
+  export function Modal({ isOpen, onClose, children }) {
+    if (!isOpen) return null
+    
+    return createPortal(
+      <div role="dialog" aria-modal="true">
+        <div className="modal-backdrop" onClick={onClose} />
+        <div className="modal-content">
+          <button onClick={onClose}>Close</button>
+          {children}
+        </div>
+      </div>,
+      document.body
+    )
+  }
+  
+  // Modal.test.jsx
+  describe('Modal', () => {
+    it('renders nothing when closed', () => {
+      render(<Modal isOpen={false}>Content</Modal>)
+      
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    })
+    
+    it('renders portal content when open', () => {
+      render(<Modal isOpen={true}>Modal content</Modal>)
+      
+      const dialog = screen.getByRole('dialog')
+      expect(dialog).toBeInTheDocument()
+      expect(screen.getByText('Modal content')).toBeInTheDocument()
+      
+      // Check that it's rendered in body, not in the original location
+      expect(document.body).toContainElement(dialog)
+    })
+    
+    it('calls onClose when backdrop clicked', async () => {
+      const user = userEvent.setup()
+      const handleClose = jest.fn()
+      
+      render(<Modal isOpen={true} onClose={handleClose}>Content</Modal>)
+      
+      await user.click(screen.getByRole('dialog').firstChild)
+      
+      expect(handleClose).toHaveBeenCalled()
+    })
+  })
+  ```
+
+##### 18.18 🧪 Testing Responsive Design
+- 📝 Responsive Component Testing:
+  ```jsx
+  // ResponsiveMenu.jsx
+  export function ResponsiveMenu() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+    
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 768)
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }, [])
+    
+    return isMobile ? (
+      <div className="mobile-menu">☰</div>
+    ) : (
+      <ul className="desktop-menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    )
+  }
+  
+  // ResponsiveMenu.test.jsx
+  describe('ResponsiveMenu', () => {
+    const originalInnerWidth = window.innerWidth
+    
+    afterEach(() => {
+      window.innerWidth = originalInnerWidth
+    })
+    
+    it('renders mobile menu on small screens', () => {
+      window.innerWidth = 500
+      
+      render(<ResponsiveMenu />)
+      
+      expect(screen.getByText('☰')).toBeInTheDocument()
+      expect(screen.queryByRole('list')).not.toBeInTheDocument()
+    })
+    
+    it('renders desktop menu on large screens', () => {
+      window.innerWidth = 1024
+      
+      render(<ResponsiveMenu />)
+      
+      expect(screen.getByRole('list')).toBeInTheDocument()
+      expect(screen.getByText('Home')).toBeInTheDocument()
+      expect(screen.getByText('About')).toBeInTheDocument()
+      expect(screen.getByText('Contact')).toBeInTheDocument()
+    })
+    
+    it('updates when window resizes', () => {
+      window.innerWidth = 1024
+      
+      render(<ResponsiveMenu />)
+      
+      expect(screen.getByRole('list')).toBeInTheDocument()
+      
+      act(() => {
+        window.innerWidth = 500
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      expect(screen.getByText('☰')).toBeInTheDocument()
+    })
+  })
+  ```
+
+##### 18.19 🚀 Testing Patterns and Anti-patterns
+- 📝 Good Testing Patterns:
+  ```jsx
+  // ✅ GOOD: Test behavior, not implementation
+  test('counter increments when button clicked', async () => {
+    const user = userEvent.setup()
+    render(<Counter />)
+    
+    await user.click(screen.getByRole('button', { name: /increment/i }))
+    
+    expect(screen.getByText('Count: 1')).toBeInTheDocument()
+  })
+  
+  // ✅ GOOD: Use semantic queries
+  test('form submits with correct data', async () => {
+    render(<LoginForm />)
+    
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument()
+  })
+  
+  // ✅ GOOD: Test error states
+  test('displays error message on failed submission', async () => {
+    jest.spyOn(api, 'login').mockRejectedValue(new Error('Invalid credentials'))
+    
+    render(<LoginForm />)
+    
+    await user.click(screen.getByRole('button'))
+    
+    expect(await screen.findByText(/invalid credentials/i)).toBeInTheDocument()
+  })
+  ```
+- 📝 Anti-patterns to Avoid:
+  ```jsx
+  // ❌ BAD: Testing implementation details
+  test('calls setState with correct value', () => {
+    const setStateMock = jest.fn()
+    jest.spyOn(React, 'useState').mockImplementation(() => [false, setStateMock])
+    
+    render(<Component />)
+    
+    expect(setStateMock).toHaveBeenCalledWith(true)
+  })
+  
+  // ❌ BAD: Using test IDs unnecessarily
+  test('renders button', () => {
+    render(<Button data-testid="submit-button">Submit</Button>)
+    
+    expect(screen.getByTestId('submit-button')).toBeInTheDocument()
+    // Better: screen.getByRole('button', { name: /submit/i })
+  })
+  
+  // ❌ BAD: Testing multiple things in one test
+  test('form works correctly', async () => {
+    // Tests validation, submission, success message, and cleanup all in one
+    // Better: split into separate tests
+  })
+  ```
+
+##### 18.20 💻 Practical Projects
+- 🏗️ Complete Form Testing Suite
+- 📝 Todo Application Testing
+- 🔐 Authentication Flow Testing
+- 🛒 Shopping Cart Integration Tests
+- 📊 Dashboard Component Testing
+- 💬 Chat Application Testing
+- 🎮 Game Component Testing
+- 📱 Responsive Design Testing
+- 🔄 State Management Testing
+- 🧩 Custom Hook Test Suite
+- 🎨 UI Component Library Testing
+- 🚦 Routing and Navigation Tests
+- 📦 Data Fetching and Error Handling
+- 🎭 Modal and Portal Testing
+- ⚡ Performance and Optimization Tests
+
+---
+
+## 🎯 STAGE 19 — Playwright (End-to-End Testing)
+**Goal**: Master Playwright for writing reliable end-to-end tests that simulate real user interactions across multiple browsers.
+**Time**: 20 soat | 10 dars
+
+#### 📚 Topics
+
+##### 19.1 🎭 Introduction to Playwright
+- 🤔 What is Playwright?
+- 📜 History (Microsoft, 2020)
+- 🎯 Why Playwright?
+  - Cross-browser testing (Chromium, Firefox, WebKit)
+  - Auto-waiting for elements
+  - Network interception
+  - Mobile emulation
+  - Visual testing
+  - Parallel execution
+  - TypeScript support
+- 🔄 Playwright vs Cypress vs Selenium
+- 📦 Installation:
+  ```bash
+  npm init playwright@latest
+  # or
+  yarn create playwright
+  # or
+  pnpm create playwright
+  ```
+- 📁 Project Structure:
+  ```
+  playwright-project/
+  ├── tests/
+  │   ├── example.spec.ts
+  │   └── login.spec.ts
+  ├── playwright.config.ts
+  ├── package.json
+  └── playwright-report/
+  ```
+
+##### 19.2 ⚙️ Playwright Configuration
+- 📝 playwright.config.ts:
+  ```typescript
+  import { defineConfig, devices } from '@playwright/test'
+  
+  export default defineConfig({
+    testDir: './tests',
+    fullyParallel: true,
+    forbidOnly: !!process.env.CI,
+    retries: process.env.CI ? 2 : 0,
+    workers: process.env.CI ? 1 : undefined,
+    reporter: [
+      ['html'],
+      ['json', { outputFile: 'test-results.json' }],
+      ['junit', { outputFile: 'junit.xml' }]
+    ],
+    
+    use: {
+      baseURL: 'http://localhost:3000',
+      trace: 'on-first-retry',
+      screenshot: 'only-on-failure',
+      video: 'retain-on-failure',
+    },
+    
+    projects: [
+      {
+        name: 'chromium',
+        use: { ...devices['Desktop Chrome'] },
+      },
+      {
+        name: 'firefox',
+        use: { ...devices['Desktop Firefox'] },
+      },
+      {
+        name: 'webkit',
+        use: { ...devices['Desktop Safari'] },
+      },
+      {
+        name: 'Mobile Chrome',
+        use: { ...devices['Pixel 5'] },
+      },
+      {
+        name: 'Mobile Safari',
+        use: { ...devices['iPhone 12'] },
+      },
+    ],
+    
+    webServer: {
+      command: 'npm run dev',
+      url: 'http://localhost:3000',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120 * 1000,
+    },
+  })
+  ```
+
+##### 19.3 📝 Writing Your First Test
+- 📝 Basic Test Example:
+  ```typescript
+  // tests/example.spec.ts
+  import { test, expect } from '@playwright/test'
+  
+  test('has title', async ({ page }) => {
+    await page.goto('https://example.com')
+    
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/Example Domain/)
+  })
+  
+  test('get started link', async ({ page }) => {
+    await page.goto('https://example.com')
+    
+    // Click the get started link.
+    await page.getByRole('link', { name: 'More information' }).click()
+    
+    // Expects page to have a heading with the name of Installation.
+    await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible()
+  })
+  ```
+- 📝 Test Hooks:
+  ```typescript
+  import { test, expect } from '@playwright/test'
+  
+  test.describe('User Dashboard', () => {
+    test.beforeEach(async ({ page }) => {
+      // Run before each test
+      await page.goto('/dashboard')
+      await page.waitForLoadState('networkidle')
+    })
+    
+    test.afterEach(async ({ page }) => {
+      // Run after each test
+      await page.close()
+    })
+    
+    test.beforeAll(async () => {
+      // Run once before all tests
+      console.log('Starting tests...')
+    })
+    
+    test.afterAll(async () => {
+      // Run once after all tests
+      console.log('Tests completed')
+    })
+    
+    test('should display user profile', async ({ page }) => {
+      await expect(page.getByText('Welcome, John')).toBeVisible()
+    })
+  })
+  ```
+
+##### 19.4 🔍 Locators and Selectors
+- 📝 Different Locator Strategies:
+  ```typescript
+  test('locator strategies', async ({ page }) => {
+    await page.goto('/products')
+    
+    // By role (recommended)
+    await page.getByRole('button', { name: 'Submit' }).click()
+    await page.getByRole('link', { name: 'Products' }).click()
+    await page.getByRole('heading', { name: 'Shopping Cart' })
+    
+    // By text
+    await page.getByText('Add to cart').click()
+    await page.getByText('Total: $99.99')
+    
+    // By label
+    await page.getByLabel('Email').fill('user@example.com')
+    await page.getByLabel('Password', { exact: true }).fill('password123')
+    
+    // By placeholder
+    await page.getByPlaceholder('Search products...').fill('laptop')
+    
+    // By alt text
+    await page.getByAltText('Product image').click()
+    
+    // By title
+    await page.getByTitle('Close modal').click()
+    
+    // By test id
+    await page.getByTestId('submit-button').click()
+    
+    // CSS selectors
+    await page.locator('.product-card').first().click()
+    await page.locator('#main-nav').hover()
+    
+    // XPath
+    await page.locator('xpath=//button[text()="Submit"]').click()
+    
+    // Chaining locators
+    const productCard = page.locator('.product-card').filter({ hasText: 'Laptop' })
+    await productCard.locator('button.add-to-cart').click()
+  })
+  ```
+- 📝 Filtering Locators:
+  ```typescript
+  test('filtering locators', async ({ page }) => {
+    await page.goto('/products')
+    
+    // Filter by text
+    const laptops = page.locator('.product-card').filter({ hasText: 'Laptop' })
+    await expect(laptops).toHaveCount(3)
+    
+    // Filter by child element
+    const inStock = page.locator('.product-card').filter({ 
+      has: page.locator('.in-stock-badge') 
+    })
+    
+    // First, last, nth
+    await page.locator('.product-card').first().click()
+    await page.locator('.product-card').last().click()
+    await page.locator('.product-card').nth(2).click()
+    
+    // and, or
+    const buttons = page.locator('button').and(page.locator('.primary'))
+    const cards = page.locator('.card').or(page.locator('.product'))
+  })
+  ```
+
+##### 19.5 🎯 Actions and Interactions
+- 📝 User Actions:
+  ```typescript
+  test('user interactions', async ({ page }) => {
+    await page.goto('/interactions')
+    
+    // Click
+    await page.getByRole('button', { name: 'Submit' }).click()
+    await page.getByRole('button', { name: 'Delete' }).dblclick()
+    await page.getByRole('button', { name: 'Menu' }).click({ button: 'right' })
+    
+    // Keyboard
+    await page.getByLabel('Search').fill('playwright')
+    await page.getByLabel('Search').press('Enter')
+    await page.keyboard.press('Control+A')
+    await page.keyboard.type('Hello World')
+    
+    // Checkboxes and radio
+    await page.getByLabel('Accept terms').check()
+    await page.getByLabel('Subscribe').uncheck()
+    expect(await page.getByLabel('Accept terms').isChecked()).toBe(true)
+    
+    // Select options
+    await page.getByLabel('Country').selectOption('USA')
+    await page.getByLabel('Languages').selectOption(['en', 'es'])
+    
+    // Hover and focus
+    await page.getByText('Menu').hover()
+    await page.getByLabel('Username').focus()
+    
+    // Drag and drop
+    await page.locator('#source').dragTo(page.locator('#target'))
+    
+    // Upload files
+    await page.getByLabel('Upload file').setInputFiles('path/to/file.jpg')
+    await page.getByLabel('Upload files').setInputFiles(['file1.jpg', 'file2.jpg'])
+    
+    // Scroll
+    await page.getByText('Load more').scrollIntoViewIfNeeded()
+    await page.mouse.wheel(0, 500)
+    
+    // Wait for element
+    await page.waitForSelector('.loading', { state: 'hidden' })
+    await page.waitForFunction(() => window.scrollY > 100)
+  })
+  ```
+
+##### 19.6 🔄 Assertions and Expectations
+- 📝 Playwright Assertions:
+  ```typescript
+  test('assertions', async ({ page }) => {
+    await page.goto('/profile')
+    
+    // Visibility
+    await expect(page.getByText('Profile')).toBeVisible()
+    await expect(page.getByText('Loading')).toBeHidden()
+    
+    // Text content
+    await expect(page.getByLabel('Username')).toHaveValue('john_doe')
+    await expect(page.locator('.greeting')).toContainText('Welcome')
+    await expect(page.locator('.title')).toHaveText('Dashboard')
+    
+    // Count
+    await expect(page.locator('.product')).toHaveCount(10)
+    await expect(page.locator('.cart-item')).toHaveCount(0)
+    
+    // Attributes
+    await expect(page.getByRole('button')).toHaveAttribute('disabled')
+    await expect(page.getByLabel('Email')).toHaveAttribute('type', 'email')
+    
+    // CSS properties
+    await expect(page.locator('.error')).toHaveCSS('color', 'rgb(255, 0, 0)')
+    
+    // URL
+    await expect(page).toHaveURL('/dashboard')
+    await expect(page).toHaveURL(/.*dashboard.*/)
+    
+    // Title
+    await expect(page).toHaveTitle(/My App/)
+    
+    // Screenshot comparison
+    await expect(page).toHaveScreenshot('dashboard.png', {
+      maxDiffPixels: 100
+    })
+    
+    // Element screenshot
+    await expect(page.locator('.profile-card')).toHaveScreenshot()
+  })
+  ```
+
+##### 19.7 🌐 Network Interception
+- 📝 Mocking API Responses:
+  ```typescript
+  test('mock API responses', async ({ page }) => {
+    // Mock API response
+    await page.route('**/api/users', async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify([
+          { id: 1, name: 'John Doe' },
+          { id: 2, name: 'Jane Smith' }
+        ])
+      })
+    })
+    
+    await page.goto('/users')
+    
+    // Wait for mocked data
+    await expect(page.getByText('John Doe')).toBeVisible()
+  })
+  
+  test('intercept and modify requests', async ({ page }) => {
+    // Modify request headers
+    await page.route('**/api/*', async route => {
+      const headers = {
+        ...route.request().headers(),
+        'Authorization': 'Bearer token123'
+      }
+      await route.continue({ headers })
+    })
+    
+    // Block specific requests
+    await page.route('**/analytics.js', route => route.abort())
+    
+    // Delay responses
+    await page.route('**/api/slow-endpoint', async route => {
+      await page.waitForTimeout(2000)
+      await route.continue()
+    })
+    
+    await page.goto('/dashboard')
+  })
+  
+  test('wait for network requests', async ({ page }) => {
+    // Wait for specific request
+    const responsePromise = page.waitForResponse('**/api/data')
+    await page.getByRole('button', { name: 'Load data' }).click()
+    const response = await responsePromise
+    
+    const data = await response.json()
+    expect(data).toBeDefined()
+    
+    // Wait for all network idle
+    await page.waitForLoadState('networkidle')
+  })
+  ```
+
+##### 19.8 📱 Mobile Testing
+- 📝 Mobile Emulation:
+  ```typescript
+  import { test, expect, devices } from '@playwright/test'
+  
+  test.use({
+    ...devices['iPhone 12'],
+    locale: 'en-US',
+    geolocation: { longitude: 12.4924, latitude: 41.8902 },
+    permissions: ['geolocation']
+  })
+  
+  test('mobile testing', async ({ page }) => {
+    await page.goto('/')
+    
+    // Check mobile view
+    const viewportSize = page.viewportSize()
+    expect(viewportSize?.width).toBe(390) // iPhone 12 width
+    
+    // Test touch interactions
+    await page.locator('.menu-button').tap() // Touch tap
+    
+    // Test mobile navigation
+    await expect(page.getByRole('button', { name: 'Menu' })).toBeVisible()
+    await page.getByRole('button', { name: 'Menu' }).tap()
+    
+    // Test geolocation
+    await page.goto('/nearby-stores')
+    await page.waitForSelector('.stores-list')
+    
+    // Test orientation
+    await page.setViewportSize({ width: 844, height: 390 }) // Landscape
+    await expect(page.locator('.landscape-view')).toBeVisible()
+  })
+  ```
+
+##### 19.9 📸 Visual Testing
+- 📝 Screenshot Testing:
+  ```typescript
+  test('visual comparison', async ({ page }) => {
+    await page.goto('/')
+    
+    // Full page screenshot
+    await expect(page).toHaveScreenshot('homepage.png', {
+      fullPage: true,
+      maxDiffPixels: 100,
+      threshold: 0.2
+    })
+    
+    // Element screenshot
+    const header = page.locator('header')
+    await expect(header).toHaveScreenshot('header.png')
+    
+    // Specific area
+    await page.screenshot({
+      path: 'screenshots/dashboard.png',
+      clip: { x: 0, y: 0, width: 800, height: 600 }
+    })
+  })
+  
+  test('visual testing with mask', async ({ page }) => {
+    await page.goto('/profile')
+    
+    // Mask dynamic content
+    await expect(page).toHaveScreenshot('profile.png', {
+      mask: [
+        page.locator('.avatar-image'), // Mask avatar that might change
+        page.locator('.timestamp') // Mask timestamps
+      ]
+    })
+  })
+  ```
+
+##### 19.10 🔧 Debugging and Reporting
+- 📝 Debugging Tools:
+  ```typescript
+  test('debugging', async ({ page }) => {
+    // Use Playwright Inspector
+    // Run with: PWDEBUG=1 npm test
+    
+    // Pause for debugging
+    await page.pause()
+    
+    // Console logging
+    page.on('console', msg => {
+      console.log(`Browser console: ${msg.text()}`)
+    })
+    
+    // Network logging
+    page.on('request', request => {
+      console.log(`Request: ${request.method()} ${request.url()}`)
+    })
+    
+    page.on('response', response => {
+      console.log(`Response: ${response.status()} ${response.url()}`)
+    })
+    
+    // Error handling
+    page.on('pageerror', error => {
+      console.error(`Page error: ${error.message}`)
+    })
+    
+    await page.goto('/')
+  })
+  
+  // Generate trace
+  test('trace example', async ({ page, context }) => {
+    // Start tracing
+    await context.tracing.start({ screenshots: true, snapshots: true })
+    
+    await page.goto('/')
+    await page.getByRole('button', { name: 'Submit' }).click()
+    
+    // Stop tracing and save
+    await context.tracing.stop({ path: 'trace.zip' })
+  })
+  ```
+
+##### 19.11 🔄 Test Organization
+- 📝 Test Groups and Tags:
+  ```typescript
+  import { test, expect } from '@playwright/test'
+  
+  // Tag tests
+  test.describe('Login', () => {
+    test('successful login @smoke', async ({ page }) => {
+      // Smoke test
+    })
+    
+    test('failed login @regression', async ({ page }) => {
+      // Regression test
+    })
+  })
+  
+  // Run with tags: npx playwright test --grep "@smoke"
+  
+  // Skip tests
+  test.skip('flaky test', async ({ page }) => {
+    // This test will be skipped
+  })
+  
+  // Only run specific tests
+  test.only('critical test', async ({ page }) => {
+    // Only this test runs
+  })
+  
+  // Conditional test
+  test('mobile only', async ({ page, browserName }) => {
+    test.skip(browserName === 'chromium', 'Chromium not supported')
+    // Test implementation
+  })
+  
+  // Parametrized tests
+  const users = ['admin', 'user', 'guest']
+  
+  for (const role of users) {
+    test(`login as ${role}`, async ({ page }) => {
+      await loginAsRole(page, role)
+      await expect(page).toHaveURL(`/${role}/dashboard`)
+    })
+  }
+  ```
+
+##### 19.12 🚀 Parallel Execution
+- 📝 Running Tests in Parallel:
+  ```typescript
+  // playwright.config.ts
+  export default defineConfig({
+    workers: 4, // Run 4 tests in parallel
+    fullyParallel: true, // Run all tests in parallel
+    
+    // Or configure per project
+    projects: [
+      {
+        name: 'chromium',
+        use: { ...devices['Desktop Chrome'] },
+        fullyParallel: true,
+        workers: 2
+      }
+    ]
+  })
+  
+  // Sharding tests in CI
+  // Run: npx playwright test --shard=1/4
+  // Run: npx playwright test --shard=2/4
+  ```
+
+##### 19.13 🎭 Advanced Scenarios
+- 📝 Handling Multiple Pages/Tabs:
+  ```typescript
+  test('multiple pages', async ({ context }) => {
+    const page1 = await context.newPage()
+    await page1.goto('/')
+    
+    const page2 = await context.newPage()
+    await page2.goto('/about')
+    
+    // Switch between pages
+    await page1.bringToFront()
+    
+    // Handle popup
+    const popupPromise = context.waitForEvent('page')
+    await page1.getByRole('link', { name: 'Open popup' }).click()
+    const popup = await popupPromise
+    await popup.waitForLoadState()
+  })
+  ```
+- 📝 Handling Frames:
+  ```typescript
+  test('iframes', async ({ page }) => {
+    await page.goto('/with-iframe')
+    
+    // Get frame
+    const frame = page.frame({ url: /.*embed.*/ })
+    
+    // Or by locator
+    const frameLocator = page.frameLocator('#my-iframe')
+    
+    // Interact with frame elements
+    await frameLocator.getByRole('button', { name: 'Submit' }).click()
+  })
+  ```
+- 📝 Handling Dialogs:
+  ```typescript
+  test('dialogs', async ({ page }) => {
+    // Handle alert
+    page.on('dialog', async dialog => {
+      expect(dialog.type()).toBe('alert')
+      await dialog.accept()
+    })
+    
+    // Handle confirm
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toBe('Are you sure?')
+      await dialog.accept()
+    })
+    
+    // Handle prompt
+    page.on('dialog', async dialog => {
+      await dialog.accept('My input value')
+    })
+    
+    await page.getByRole('button', { name: 'Show alert' }).click()
+  })
+  ```
+
+##### 19.14 🧪 Testing Authentication
+- 📝 Authentication Flows:
+  ```typescript
+  // auth.setup.ts
+  import { test as setup, expect } from '@playwright/test'
+  
+  const authFile = 'playwright/.auth/user.json'
+  
+  setup('authenticate', async ({ page }) => {
+    await page.goto('/login')
+    
+    await page.getByLabel('Email').fill('user@example.com')
+    await page.getByLabel('Password').fill('password123')
+    await page.getByRole('button', { name: 'Sign in' }).click()
+    
+    await page.waitForURL('/dashboard')
+    
+    // Save authentication state
+    await page.context().storageState({ path: authFile })
+  })
+  
+  // Use authenticated state in tests
+  test.use({ storageState: 'playwright/.auth/user.json' })
+  
+  test('authenticated test', async ({ page }) => {
+    await page.goto('/dashboard')
+    await expect(page.getByText('Welcome back')).toBeVisible()
+  })
+  ```
+
+##### 19.15 📊 Performance Testing
+- 📝 Measuring Performance:
+  ```typescript
+  test('performance metrics', async ({ page }) => {
+    // Start tracing
+    await page.tracing.start({ screenshots: true, snapshots: true })
+    
+    await page.goto('/')
+    
+    // Get performance metrics
+    const metrics = await page.metrics()
+    console.log('Performance metrics:', metrics)
+    
+    // Get navigation timing
+    const timing = await page.evaluate(() => JSON.stringify(window.performance.timing))
+    console.log('Navigation timing:', timing)
+    
+    // Measure specific action
+    const start = Date.now()
+    await page.getByRole('button', { name: 'Load data' }).click()
+    await page.waitForResponse('**/api/data')
+    const duration = Date.now() - start
+    console.log(`Data load took ${duration}ms`)
+    
+    // Check Web Vitals
+    const webVitals = await page.evaluate(() => {
+      return {
+        LCP: performance.getEntriesByType('largest-contentful-paint')[0],
+        FID: performance.getEntriesByType('first-input')[0],
+        CLS: performance.getEntriesByType('layout-shift')
+      }
+    })
+    
+    // Stop tracing
+    await page.tracing.stop({ path: 'trace.json' })
+  })
+  ```
+
+##### 19.16 🔧 Custom Fixtures
+- 📝 Creating Custom Fixtures:
+  ```typescript
+  // fixtures.ts
+  import { test as base, expect } from '@playwright/test'
+  import { LoginPage } from './pages/login-page'
+  import { DashboardPage } from './pages/dashboard-page'
+  
+  // Extend test with custom fixtures
+  export const test = base.extend({
+    loginPage: async ({ page }, use) => {
+      const loginPage = new LoginPage(page)
+      await use(loginPage)
+    },
+    
+    dashboardPage: async ({ page }, use) => {
+      const dashboardPage = new DashboardPage(page)
+      await use(dashboardPage)
+    },
+    
+    authenticatedPage: async ({ page }, use) => {
+      await page.goto('/login')
+      await page.getByLabel('Email').fill('user@example.com')
+      await page.getByLabel('Password').fill('password123')
+      await page.getByRole('button', { name: 'Sign in' }).click()
+      await page.waitForURL('/dashboard')
+      await use(page)
+    }
+  })
+  
+  export { expect }
+  
+  // Use fixtures in tests
+  import { test, expect } from './fixtures'
+  
+  test('login page test', async ({ loginPage }) => {
+    await loginPage.navigate()
+    await loginPage.login('user@example.com', 'password123')
+    await expect(loginPage.successMessage).toBeVisible()
+  })
+  
+  test('dashboard test', async ({ authenticatedPage }) => {
+    await expect(authenticatedPage.getByText('Welcome')).toBeVisible()
+  })
+  ```
+
+##### 19.17 🏗️ Page Object Model
+- 📝 Page Object Pattern:
+  ```typescript
+  // pages/login-page.ts
+  export class LoginPage {
+    constructor(private page: Page) {}
+    
+    // Locators
+    private emailInput = this.page.getByLabel('Email')
+    private passwordInput = this.page.getByLabel('Password')
+    private submitButton = this.page.getByRole('button', { name: 'Sign in' })
+    private errorMessage = this.page.getByTestId('error-message')
+    
+    // Actions
+    async navigate() {
+      await this.page.goto('/login')
+    }
+    
+    async login(email: string, password: string) {
+      await this.emailInput.fill(email)
+      await this.passwordInput.fill(password)
+      await this.submitButton.click()
+    }
+    
+    async getErrorMessage() {
+      return this.errorMessage.textContent()
+    }
+    
+    // Assertions
+    async expectLoginSuccess() {
+      await expect(this.page).toHaveURL('/dashboard')
+    }
+    
+    async expectErrorMessage(message: string) {
+      await expect(this.errorMessage).toContainText(message)
+    }
+  }
+  
+  // pages/dashboard-page.ts
+  export class DashboardPage {
+    constructor(private page: Page) {}
+    
+    private welcomeMessage = this.page.getByTestId('welcome')
+    private logoutButton = this.page.getByRole('button', { name: 'Logout' })
+    
+    async logout() {
+      await this.logoutButton.click()
+    }
+    
+    async getWelcomeMessage() {
+      return this.welcomeMessage.textContent()
+    }
+  }
+  
+  // tests/login.spec.ts
+  import { test, expect } from '@playwright/test'
+  import { LoginPage } from '../pages/login-page'
+  import { DashboardPage } from '../pages/dashboard-page'
+  
+  test('successful login', async ({ page }) => {
+    const loginPage = new LoginPage(page)
+    const dashboardPage = new DashboardPage(page)
+    
+    await loginPage.navigate()
+    await loginPage.login('user@example.com', 'password123')
+    await loginPage.expectLoginSuccess()
+    
+    const message = await dashboardPage.getWelcomeMessage()
+    expect(message).toContain('Welcome')
+  })
+  
+  test('failed login', async ({ page }) => {
+    const loginPage = new LoginPage(page)
+    
+    await loginPage.navigate()
+    await loginPage.login('wrong@email.com', 'wrongpass')
+    await loginPage.expectErrorMessage('Invalid credentials')
+  })
+  ```
+
+##### 19.18 🔄 API Testing with Playwright
+- 📝 Testing APIs:
+  ```typescript
+  import { request, test, expect } from '@playwright/test'
+  
+  test('API testing', async ({ request }) => {
+    // GET request
+    const users = await request.get('/api/users')
+    expect(users.ok()).toBeTruthy()
+    const usersData = await users.json()
+    expect(usersData).toHaveLength(10)
+    
+    // POST request
+    const newUser = await request.post('/api/users', {
+      data: {
+        name: 'John Doe',
+        email: 'john@example.com'
+      }
+    })
+    expect(newUser.status()).toBe(201)
+    const userData = await newUser.json()
+    expect(userData.id).toBeDefined()
+    
+    // PUT request
+    const updated = await request.put(`/api/users/${userData.id}`, {
+      data: {
+        name: 'John Updated'
+      }
+    })
+    expect(updated.status()).toBe(200)
+    
+    // DELETE request
+    const deleted = await request.delete(`/api/users/${userData.id}`)
+    expect(deleted.status()).toBe(204)
+  })
+  
+  test('API with authentication', async ({ request }) => {
+    const response = await request.get('/api/private', {
+      headers: {
+        'Authorization': 'Bearer token123'
+      }
+    })
+    expect(response.status()).toBe(200)
+  })
+  ```
+
+##### 19.19 🚀 CI/CD Integration
+- 📝 GitHub Actions:
+  ```yaml
+  # .github/workflows/playwright.yml
+  name: Playwright Tests
+  
+  on:
+    push:
+      branches: [main, develop]
+    pull_request:
+      branches: [main]
+  
+  jobs:
+    test:
+      timeout-minutes: 60
+      runs-on: ubuntu-latest
+      
+      steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        
+      - name: Run Playwright tests
+        run: npx playwright test
+        
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+  ```
+- 📝 Docker Integration:
+  ```dockerfile
+  FROM mcr.microsoft.com/playwright:v1.40.0-focal
+  
+  WORKDIR /app
+  
+  COPY package*.json ./
+  RUN npm ci
+  
+  COPY . .
+  
+  CMD ["npx", "playwright", "test"]
+  ```
+
+##### 19.20 💻 Practical Projects
+- 🏗️ E2E Testing for E-commerce Site
+- 📝 Authentication Flow Testing
+- 🛒 Shopping Cart E2E Tests
+- 📱 Mobile Responsive Testing
+- 🔍 Search Functionality Tests
+- 💳 Payment Process Testing
+- 📊 Dashboard Interaction Tests
+- 🔄 Multi-step Form Testing
+- 🌐 Multi-language Site Testing
+- 📸 Visual Regression Testing
+- 🎭 User Journey Testing
+- 🔧 Admin Panel Testing
+- 📧 Email Verification Flow
+- 🔐 Password Reset Process
+- 🚦 Navigation and Routing Tests
+
+---
+
+**[Stage 19 (Playwright) tayyor]**
+
+## 📊 COMPLETE TIMELINE
+
+| Stage | Topic | Soat | Darslar (2h) | Haftalar (3 dars/hafta) |
+|-------|-------|------|--------------|------------------------|
+| 1 | HTML5 | 20 | 10 | 3.3 |
+| 2 | CSS3 | 40 | 20 | 6.7 |
+| 3 | JavaScript | 60 | 30 | 10 |
+| 4 | Git | 20 | 10 | 3.3 |
+| 5 | TypeScript | 30 | 15 | 5 |
+| 6 | Vite | 15 | 8 | 2.7 |
+| 7 | React | 60 | 30 | 10 |
+| 8 | React Router | 20 | 10 | 3.3 |
+| 9 | Context API | 15 | 8 | 2.7 |
+| 10 | Redux Toolkit | 25 | 12 | 4 |
+| 11 | Fetch API & Axios | 20 | 10 | 3.3 |
+| 12 | Tailwind CSS | 25 | 12 | 4 |
+| 13 | Shadcn UI | 20 | 10 | 3.3 |
+| 14 | React Hook Form | 20 | 10 | 3.3 |
+| 15 | Zod | 15 | 8 | 2.7 |
+| 16 | Next.js | 40 | 20 | 6.7 |
+| 17 | Jest | 20 | 10 | 3.3 |
+| 18 | React Testing Library | 20 | 10 | 3.3 |
+| 19 | Playwright | 20 | 10 | 3.3 |
+| **JAMI** | | **485** | **243** | **~81 hafta** |
+
+### 📅 Jami vaqt: 18-20 oy (haftasiga 3 dars bilan)
+
+---
+
+## 🎯 LEARNING PATH RECOMMENDATIONS
+
+### **For Beginners (0-6 months experience)**
+```
+Focus on Stages 1-5 (6 oy)
+├── HTML5, CSS3 fundamentals
+├── JavaScript core concepts
+├── Git version control
+├── TypeScript basics
+└── Build simple websites
+```
+
+### **For Intermediate (6-12 months experience)**
+```
+Focus on Stages 6-10 (5 oy)
+├── Modern build tools (Vite)
+├── React fundamentals
+├── Routing and navigation
+├── State management (Context, Redux)
+└── Build interactive applications
+```
+
+### **For Advanced (1-2 years experience)**
+```
+Focus on Stages 11-15 (4 oy)
+├── HTTP requests (Fetch, Axios)
+├── Styling with Tailwind
+├── UI components (Shadcn UI)
+├── Form handling (React Hook Form, Zod)
+└── Build production-ready UIs
+```
+
+### **For Expert (2-3 years experience)**
+```
+Focus on Stages 16-19 (5 oy)
+├── Full-stack with Next.js
+├── Unit testing with Jest
+├── Component testing with RTL
+├── E2E testing with Playwright
+└── Deploy and maintain applications
+```
+
+---
+
+## 📈 SKILL PROGRESSION
+
+```
+Level 1: Junior Developer (Stages 1-5)
+├── Build static websites
+├── Understand core web technologies
+├── Work with version control
+└── Basic TypeScript knowledge
+
+Level 2: Mid-Level Developer (Stages 6-10)
+├── Build React applications
+├── Manage state effectively
+├── Handle routing and navigation
+└── Use modern build tools
+
+Level 3: Senior Developer (Stages 11-15)
+├── Create complex UIs with libraries
+├── Handle forms and validation
+├── Style professionally
+└── Optimize performance
+
+Level 4: Lead Developer (Stages 16-19)
+├── Build full-stack applications
+├── Implement comprehensive testing
+├── Ensure code quality
+└── Deploy and maintain production apps
+```
+
+---
+
+## 🔧 RECOMMENDED TOOLS
+
+| Category | Tools |
+|----------|-------|
+| **Code Editor** | VS Code, WebStorm, Sublime Text |
+| **Extensions** | ESLint, Prettier, GitLens, Thunder Client |
+| **Package Manager** | npm, yarn, pnpm |
+| **Version Control** | Git, GitHub, GitLab, Bitbucket |
+| **Design Tools** | Figma, Adobe XD, Sketch |
+| **API Testing** | Postman, Insomnia, Thunder Client |
+| **Browser DevTools** | Chrome DevTools, Firefox DevTools |
+| **Performance** | Lighthouse, WebPageTest |
+| **Testing** | Jest, React Testing Library, Playwright |
+| **CI/CD** | GitHub Actions, GitLab CI, Jenkins |
+| **Deployment** | Vercel, Netlify, AWS, Cloudflare |
+
+---
+
+## 📚 RESOURCES
+
+### **Official Documentation**
+- [MDN Web Docs](https://developer.mozilla.org)
+- [React Documentation](https://react.dev)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Playwright Documentation](https://playwright.dev/docs)
+
+### **Books**
+- "Eloquent JavaScript" by Marijn Haverbeke
+- "You Don't Know JS" by Kyle Simpson
+- "The Road to React" by Robin Wieruch
+- "Testing JavaScript" by Kent C. Dodds
+- "Fullstack React" by Accomazzo, Murray, Lerner
+
+### **Practice Platforms**
+- [LeetCode](https://leetcode.com)
+- [HackerRank](https://hackerrank.com)
+- [Codewars](https://codewars.com)
+- [Frontend Mentor](https://frontendmentor.io)
+- [Exercism](https://exercism.org)
+
+### **YouTube Channels**
+- Traversy Media
+- Web Dev Simplified
+- Fireship
+- Kent C. Dodds
+- Jack Herrington
+
+### **Blogs and Newsletters**
+- [dev.to](https://dev.to)
+- [CSS-Tricks](https://css-tricks.com)
+- [Smashing Magazine](https://smashingmagazine.com)
+- [JavaScript Weekly](https://javascriptweekly.com)
+- [React Newsletter](https://reactnewsletter.com)
+
+---
+
+<p align="center">
+  <strong>© Frontend Full Stack Roadmap 2026</strong>
+  <br>
+  <strong>Elmurod Azodov | @the_elmurod</strong>
+</p>
