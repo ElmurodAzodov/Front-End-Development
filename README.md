@@ -1,136 +1,24 @@
-# **THE COMPLETE FRONTEND ROADMAP 2026**
-<div align="center">
-  <!-- Gradient Header -->
-  <img src="https://img.shields.io/badge/FRONTEND-ROADMAP%202026-ff6b6b?style=for-the-badge&logo=react&logoColor=white" alt="Frontend Roadmap 2026">
-  
-  <br><br>
-  
-  <!-- Animated Logo Cards -->
-  <table>
-    <tr>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" height="50" />
-        <br><b>HTML5</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50" height="50" />
-        <br><b>CSS3</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="50" height="50" />
-        <br><b>JavaScript</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="50" height="50" />
-        <br><b>TypeScript</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50" height="50" />
-        <br><b>React</b>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="50" height="50" />
-        <br><b>Next.js</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" width="50" height="50" />
-        <br><b>Redux</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" width="50" height="50" />
-        <br><b>Tailwind</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="50" height="50" />
-        <br><b>Git</b>
-      </td>
-      <td align="center" width="100">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" width="50" height="50" />
-        <br><b>Jest</b>
-      </td>
-    </tr>
-  </table>
+# **THE COMPLETE FRONTEND ROADMAP**
 
-  <br>
-  
-  <!-- Main Title with Gradient -->
-  <h1>
-    <span style="background: linear-gradient(45deg, #667eea, #764ba2, #ff6b6b); padding: 15px 30px; border-radius: 50px; color: white; display: inline-block;">
-      🚀 THE COMPLETE FRONTEND ROADMAP 2026 🚀
-    </span>
-  </h1>
-  
-  <h3>
-    <span style="background: #f0f0f0; padding: 10px 25px; border-radius: 30px; color: #333;">
-      From Zero to Production-Ready Developer
-    </span>
-  </h3>
-  
-  <br>
-  
-  <!-- Stats Cards -->
-  <table style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 10px;">
-    <tr>
-      <td align="center" width="200" style="color: white;">
-        <h1>📚 19</h1>
-        <p><b>COMPREHENSIVE STAGES</b></p>
-      </td>
-      <td align="center" width="200" style="color: white;">
-        <h1>⏱️ 485h</h1>
-        <p><b>LEARNING HOURS</b></p>
-      </td>
-      <td align="center" width="200" style="color: white;">
-        <h1>🎯 20+</h1>
-        <p><b>TECHNOLOGIES</b></p>
-      </td>
-      <td align="center" width="200" style="color: white;">
-        <h1>📊 5</h1>
-        <p><b>SKILL LEVELS</b></p>
-      </td>
-    </tr>
-  </table>
-  
-  <br>
-  
-  <!-- Author Card with Glassmorphism -->
-  <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px; max-width: 400px; margin: 0 auto; box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);">
-    <img src="https://img.shields.io/badge/👨‍💻-Elmurod%20Azodov-blueviolet?style=for-the-badge" alt="Author">
-    <br><br>
-    <a href="https://t.me/the_elmurod">
-      <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-    </a>
-    <a href="#">
-      <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-    </a>
-    <a href="#">
-      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-    </a>
-  </div>
-  
-  <br>
-  
-  <!-- Version Badges -->
-  <p>
-    <img src="https://img.shields.io/badge/Version-2026.3-blue?style=flat-square&logo=vercel" alt="Version">
-    <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square&logo=checkmarx" alt="Status">
-    <img src="https://img.shields.io/badge/Updated-March%202026-orange?style=flat-square&logo=calendar" alt="Updated">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square&logo=open-source-initiative" alt="License">
-  </p>
-  
-  <!-- Motivational Quote -->
-  <blockquote style="background: #f9f9f9; border-left: 10px solid #667eea; padding: 10px; border-radius: 10px;">
-    <b>"The journey of a thousand miles begins with a single step."</b> — Lao Tzu
-  </blockquote>
-  
-  <!-- Animated Scroll Indicator -->
-  <p>
-    <a href="#-table-of-contents">
-      <img src="https://img.shields.io/badge/⬇️%20EXPLORE%20THE%20ROADMAP-FF6B6B?style=for-the-badge&logo=arrow-down&logoColor=white" alt="Explore">
-    </a>
-  </p>
+<div align="center">
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="120" alt="Frontend Logo"/>
+
+<h3>Frontend Development</h3>
+
+<p><strong>From Zero → Production-Ready Developer</strong></p>
+
+<br>
+
+<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind,redux,vite" />
+
+<br><br>
+
+<p><strong>Elmurod Azodov</strong></p>
+<p>@the_elmurod</p>
+
 </div>
+
 
 <br>
 
@@ -138,243 +26,64 @@
 
 ## 📑 **TABLE OF CONTENTS**
 
-<div align="center">
-  <table style="border: 2px solid #667eea; border-radius: 15px; overflow: hidden;">
-    <thead style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-      <tr>
-        <th width="80">STAGE</th>
-        <th width="250">TECHNOLOGY</th>
-        <th width="150">LEVEL</th>
-        <th width="150">DURATION</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td colspan="4" style="background: #f0f0f0; text-align: center;"><b>🟢 BEGINNER FOUNDATION</b></td></tr>
-      <tr><td>01</td><td>📄 <b>HTML5</b> — Structure & Semantics</td><td>🟢 Beginner</td><td>20h</td></tr>
-      <tr><td>02</td><td>🎨 <b>CSS3</b> — Styling & Layout</td><td>🟢 Beginner</td><td>40h</td></tr>
-      <tr><td>03</td><td>⚡ <b>JavaScript</b> — Core Language</td><td>🟢 Beginner</td><td>60h</td></tr>
-      
-      <tr><td colspan="4" style="background: #f0f0f0; text-align: center;"><b>🔵 INTERMEDIATE TOOLS</b></td></tr>
-      <tr><td>04</td><td>📦 <b>Git</b> — Version Control</td><td>🔵 Intermediate</td><td>20h</td></tr>
-      <tr><td>05</td><td>🔷 <b>TypeScript</b> — Type Safety</td><td>🔵 Intermediate</td><td>30h</td></tr>
-      <tr><td>06</td><td>⚡ <b>Vite</b> — Build Tool</td><td>🔵 Intermediate</td><td>15h</td></tr>
-      
-      <tr><td colspan="4" style="background: #f0f0f0; text-align: center;"><b>🟠 ADVANCED FRAMEWORKS</b></td></tr>
-      <tr><td>07</td><td>⚛️ <b>React</b> — UI Library</td><td>🟠 Advanced</td><td>60h</td></tr>
-      <tr><td>08</td><td>🧭 <b>React Router</b> — Navigation</td><td>🟠 Advanced</td><td>20h</td></tr>
-      <tr><td>09</td><td>📊 <b>Context API</b> — State Management</td><td>🟠 Advanced</td><td>15h</td></tr>
-      <tr><td>10</td><td>🔄 <b>Redux Toolkit</b> — Advanced State</td><td>🟠 Advanced</td><td>25h</td></tr>
-      
-      <tr><td colspan="4" style="background: #f0f0f0; text-align: center;"><b>🔴 EXPERT INTEGRATION</b></td></tr>
-      <tr><td>11</td><td>🌐 <b>Fetch API & Axios</b> — HTTP Requests</td><td>🔴 Expert</td><td>20h</td></tr>
-      <tr><td>12</td><td>🎨 <b>Tailwind CSS</b> — Utility CSS</td><td>🔴 Expert</td><td>25h</td></tr>
-      <tr><td>13</td><td>🧩 <b>Shadcn UI</b> — Component Library</td><td>🔴 Expert</td><td>20h</td></tr>
-      <tr><td>14</td><td>📝 <b>React Hook Form</b> — Forms</td><td>🔴 Expert</td><td>20h</td></tr>
-      <tr><td>15</td><td>✅ <b>Zod</b> — Validation</td><td>🔴 Expert</td><td>15h</td></tr>
-      
-      <tr><td colspan="4" style="background: #f0f0f0; text-align: center;"><b>🟣 PRODUCTION MASTERY</b></td></tr>
-      <tr><td>16</td><td>🚀 <b>Next.js</b> — React Framework</td><td>🟣 Production</td><td>40h</td></tr>
-      <tr><td>17</td><td>🧪 <b>Jest</b> — Unit Testing</td><td>🟣 Production</td><td>20h</td></tr>
-      <tr><td>18</td><td>🔧 <b>React Testing Library</b> — Component Testing</td><td>🟣 Production</td><td>20h</td></tr>
-      <tr><td>19</td><td>🎭 <b>Playwright</b> — E2E Testing</td><td>🟣 Production</td><td>20h</td></tr>
-      
-      <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-        <td colspan="3" align="right"><b>TOTAL INVESTMENT:</b></td>
-        <td><b>485 HOURS</b></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<br>
+- [🎨 THE COMPLETE FRONTEND ROADMAP 2026](#-the-complete-frontend-roadmap-2026)
+  - [From Zero to Production-Ready Developer](#from-zero-to-production-ready-developer)
+  - [📑 TABLE OF CONTENTS](#-table-of-contents)
+  - [🎯 ROADMAP OVERVIEW](#-roadmap-overview)
+    - [**Learning Path Summary**](#learning-path-summary)
+    - [**📊 Time Distribution**](#-time-distribution)
+  - [🎯 STAGE 1 — HTML5 (Structure & Semantics)](#-stage-1--html5-structure--semantics)
+  - [🎯 STAGE 2 — CSS3 (Styling & Layout)](#-stage-2--css3-styling--layout)
+  - [🎯 STAGE 3 — JavaScript (Core Language)](#-stage-3--javascript-core-language)
+  - [🎯 STAGE 4 — Git & Version Control](#-stage-4--git--version-control)
+  - [🎯 STAGE 5 — TypeScript (Type Safety)](#-stage-5--typescript-type-safety)
+  - [🎯 STAGE 6 — Vite (Build Tool)](#-stage-6--vite-build-tool)
+  - [🎯 STAGE 7 — React (UI Library)](#-stage-7--react-ui-library)
+  - [🎯 STAGE 8 — React Router (Navigation)](#-stage-8--react-router-navigation)
+  - [🎯 STAGE 9 — Context API (State Management)](#-stage-9--context-api-state-management)
+  - [🎯 STAGE 10 — Redux Toolkit (Advanced State)](#-stage-10--redux-toolkit-advanced-state)
+  - [🎯 STAGE 11 — Fetch API & Axios (HTTP Requests)](#-stage-11--fetch-api--axios-http-requests)
+  - [🎯 STAGE 12 — Tailwind CSS (Utility CSS)](#-stage-12--tailwind-css-utility-css)
+  - [🎯 STAGE 13 — Shadcn UI (Component Library)](#-stage-13--shadcn-ui-component-library)
+  - [🎯 STAGE 14 — React Hook Form (Forms)](#-stage-14--react-hook-form-forms)
+  - [🎯 STAGE 15 — Zod (Validation)](#-stage-15--zod-validation)
+  - [🎯 STAGE 16 — Next.js (React Framework)](#-stage-16--nextjs-react-framework)
+  - [🎯 STAGE 17 — Jest (Unit Testing)](#-stage-17--jest-unit-testing)
+  - [🎯 STAGE 18 — React Testing Library (Component Testing)](#-stage-18--react-testing-library-component-testing)
+  - [🎯 STAGE 19 — Playwright (E2E Testing)](#-stage-19--playwright-e2e-testing)
+  - [📊 COMPLETE TIMELINE](#-complete-timeline)
+  - [🎯 LEARNING PATH RECOMMENDATIONS](#-learning-path-recommendations)
+  - [📈 SKILL PROGRESSION](#-skill-progression)
+  - [🔧 RECOMMENDED TOOLS](#-recommended-tools)
+  - [📚 RESOURCES](#-resources)
 
 ---
 
-## 🎯 **ROADMAP OVERVIEW**
+## 🎯 ROADMAP OVERVIEW
 
-<div align="center">
-  <table style="border-collapse: collapse; width: 100%;">
-    <tr>
-      <td colspan="5" align="center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px;">
-        <h2>📊 LEARNING PATH SUMMARY</h2>
-      </td>
-    </tr>
-  </table>
-  
-  <br>
-  
-  <!-- Modern Cards Layout -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <!-- Beginner Card -->
-    <div style="flex: 1; min-width: 200px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid #4caf50;">
-      <div style="font-size: 3em; text-align: center;">🟢</div>
-      <h3 align="center">BEGINNER</h3>
-      <p align="center"><b>Stages 1-3</b></p>
-      <p align="center"><span style="background: #4caf50; color: white; padding: 5px 15px; border-radius: 20px;">2 Months</span></p>
-      <hr>
-      <ul>
-        <li>✅ HTML5 Semantics</li>
-        <li>✅ CSS3 Styling</li>
-        <li>✅ JavaScript Core</li>
-      </ul>
-    </div>
-    
-    <!-- Intermediate Card -->
-    <div style="flex: 1; min-width: 200px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid #2196f3;">
-      <div style="font-size: 3em; text-align: center;">🔵</div>
-      <h3 align="center">INTERMEDIATE</h3>
-      <p align="center"><b>Stages 4-6</b></p>
-      <p align="center"><span style="background: #2196f3; color: white; padding: 5px 15px; border-radius: 20px;">1 Month</span></p>
-      <hr>
-      <ul>
-        <li>✅ Git Version Control</li>
-        <li>✅ TypeScript</li>
-        <li>✅ Vite Build Tool</li>
-      </ul>
-    </div>
-    
-    <!-- Advanced Card -->
-    <div style="flex: 1; min-width: 200px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid #ff9800;">
-      <div style="font-size: 3em; text-align: center;">🟠</div>
-      <h3 align="center">ADVANCED</h3>
-      <p align="center"><b>Stages 7-10</b></p>
-      <p align="center"><span style="background: #ff9800; color: white; padding: 5px 15px; border-radius: 20px;">2 Months</span></p>
-      <hr>
-      <ul>
-        <li>✅ React & Router</li>
-        <li>✅ Context API</li>
-        <li>✅ Redux Toolkit</li>
-      </ul>
-    </div>
-    
-    <!-- Expert Card -->
-    <div style="flex: 1; min-width: 200px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid #f44336;">
-      <div style="font-size: 3em; text-align: center;">🔴</div>
-      <h3 align="center">EXPERT</h3>
-      <p align="center"><b>Stages 11-15</b></p>
-      <p align="center"><span style="background: #f44336; color: white; padding: 5px 15px; border-radius: 20px;">2 Months</span></p>
-      <hr>
-      <ul>
-        <li>✅ HTTP & APIs</li>
-        <li>✅ UI Libraries</li>
-        <li>✅ Form Validation</li>
-      </ul>
-    </div>
-    
-    <!-- Production Card -->
-    <div style="flex: 1; min-width: 200px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid #9c27b0;">
-      <div style="font-size: 3em; text-align: center;">🟣</div>
-      <h3 align="center">PRODUCTION</h3>
-      <p align="center"><b>Stages 16-19</b></p>
-      <p align="center"><span style="background: #9c27b0; color: white; padding: 5px 15px; border-radius: 20px;">2 Months</span></p>
-      <hr>
-      <ul>
-        <li>✅ Next.js</li>
-        <li>✅ Testing Suite</li>
-        <li>✅ Deployment</li>
-      </ul>
-    </div>
-  </div>
-</div>
+### **Learning Path Summary**
 
-<br>
+| Level | Stages | Time | Outcome |
+|-------|--------|------|---------|
+| 🟢 **Beginner** | 1-3 | 2 oy | HTML, CSS, JavaScript asoslari |
+| 🔵 **Intermediate** | 4-6 | 1 oy | Git, TypeScript, Vite |
+| 🟠 **Advanced** | 7-10 | 2 oy | React, Router, State Management |
+| 🔴 **Expert** | 11-15 | 2 oy | HTTP, UI Libraries, Forms |
+| 🟣 **Production** | 16-19 | 2 oy | Next.js, Testing, Deployment |
 
----
+### **📊 Time Distribution**
 
-### **📊 TIME DISTRIBUTION**
+```
+Jami vaqt: 9 oy (36 hafta)
+Haftalik yuklama: 10-12 soat
+Jami soat: ~400 soat
 
-<div align="center">
-  <!-- Progress Bars -->
-  <table style="width: 100%; max-width: 800px;">
-    <tr>
-      <td width="150"><b>Total Time:</b></td>
-      <td colspan="2"><b>9 Months (36 Weeks) | 10-12 hours/week | ~400 hours total</b></td>
-    </tr>
-    <tr>
-      <td>🟢 Beginner (1-3)</td>
-      <td width="500">
-        <div style="background: #e0e0e0; border-radius: 10px; height: 30px;">
-          <div style="background: linear-gradient(90deg, #4caf50, #8bc34a); width: 22%; height: 30px; border-radius: 10px; text-align: center; color: white; line-height: 30px;">
-            2 Months
-          </div>
-        </div>
-      </td>
-      <td width="100">22%</td>
-    </tr>
-    <tr>
-      <td>🔵 Intermediate (4-6)</td>
-      <td>
-        <div style="background: #e0e0e0; border-radius: 10px; height: 30px;">
-          <div style="background: linear-gradient(90deg, #2196f3, #64b5f6); width: 11%; height: 30px; border-radius: 10px; text-align: center; color: white; line-height: 30px;">
-            1 Month
-          </div>
-        </div>
-      </td>
-      <td>11%</td>
-    </tr>
-    <tr>
-      <td>🟠 Advanced (7-10)</td>
-      <td>
-        <div style="background: #e0e0e0; border-radius: 10px; height: 30px;">
-          <div style="background: linear-gradient(90deg, #ff9800, #ffb74d); width: 22%; height: 30px; border-radius: 10px; text-align: center; color: white; line-height: 30px;">
-            2 Months
-          </div>
-        </div>
-      </td>
-      <td>22%</td>
-    </tr>
-    <tr>
-      <td>🔴 Expert (11-15)</td>
-      <td>
-        <div style="background: #e0e0e0; border-radius: 10px; height: 30px;">
-          <div style="background: linear-gradient(90deg, #f44336, #ef5350); width: 22%; height: 30px; border-radius: 10px; text-align: center; color: white; line-height: 30px;">
-            2 Months
-          </div>
-        </div>
-      </td>
-      <td>22%</td>
-    </tr>
-    <tr>
-      <td>🟣 Production (16-19)</td>
-      <td>
-        <div style="background: #e0e0e0; border-radius: 10px; height: 30px;">
-          <div style="background: linear-gradient(90deg, #9c27b0, #ba68c8); width: 22%; height: 30px; border-radius: 10px; text-align: center; color: white; line-height: 30px;">
-            2 Months
-          </div>
-        </div>
-      </td>
-      <td>22%</td>
-    </tr>
-  </table>
-  
-  <br>
-  
-  <!-- ASCII Progress Bar (for markdown compatibility) -->
-  <pre style="background: #2d2d2d; color: #fff; padding: 15px; border-radius: 10px; font-family: monospace;">
-Jami vaqt: 9 oy (36 hafta) | Haftalik: 10-12 soat | Jami: ~400 soat
-
-Beginner      (1-3)   🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ 2 oy
-Intermediate  (4-6)   🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜ 1 oy
-Advanced      (7-10)  🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧🟧⬜ 2 oy
-Expert        (11-15) 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥⬜ 2 oy
-Production    (16-19) 🟪🟪🟪🟪🟪🟪🟪🟪🟪🟪🟪⬜ 2 oy
-  </pre>
-</div>
-
-<br>
-
----
-
-<!-- Quick Navigation -->
-<div align="center">
-  <a href="#-table-of-contents"><img src="https://img.shields.io/badge/📋%20Mundarija-667eea?style=for-the-badge" alt="Mundarija"></a>
-  <a href="#-roadmap-overview"><img src="https://img.shields.io/badge/🎯%20Overview-764ba2?style=for-the-badge" alt="Overview"></a>
-  <a href="#-complete-timeline"><img src="https://img.shields.io/badge/📊%20Timeline-ff6b6b?style=for-the-badge" alt="Timeline"></a>
-  <a href="#-recommended-tools"><img src="https://img.shields.io/badge/🔧%20Tools-4caf50?style=for-the-badge" alt="Tools"></a>
-  <a href="#-resources"><img src="https://img.shields.io/badge/📚%20Resources-ff9800?style=for-the-badge" alt="Resources"></a>
-</div>
-
-<br>
+Beginner      (1-3)   ████████░░░░ 2 oy
+Intermediate  (4-6)   ████░░░░░░░░ 1 oy
+Advanced      (7-10)  ████████████░ 2 oy
+Expert        (11-15) ████████████░ 2 oy
+Production    (16-19) ████████████░ 2 oy
+```
 
 ---
 
