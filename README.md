@@ -835,99 +835,98 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 <br>
 
-## 🎯 STAGE 3 — JavaScript (Core Language)
-**Goal**: Master JavaScript fundamentals to build interactive web applications.
-**Time**: 60 soat | 30 dars
+## 🎯 STAGE 3 — MODERN JAVASCRIPT (Core Language & Web APIs)
+**Goal**: Master JavaScript fundamentals and modern features to build interactive web applications.
+**Time**: 72 soat | 36 dars
+
+---
 
 #### 📚 **Topics**
 
 ##### **3.1 📝 JavaScript Basics**
-- 🌐 What is JavaScript? (History, Evolution)
+- 🌐 What is JavaScript? (History, Evolution, ES6+ to ES2024+)
 - 🔧 JavaScript Execution Environments:
   - Browser (client-side)
   - Node.js (server-side)
+  - Deno, Bun
 - 📦 Adding JavaScript to HTML:
   - Inline `<script>` tag
   - External `<script src="">`
-  - Async vs Defer attributes
+  - `async` vs `defer` attributes
+  - `<script type="module">`
 - 💬 Comments (`// single line`, `/* multi-line */`)
-- 📄 JavaScript Syntax Basics
-- 🚀 JavaScript Versions (ES5, ES6+, ES2024)
+- 📄 JavaScript Syntax Basics (case-sensitive, semicolons)
+- 🚀 JavaScript Versions (ES5, ES6/ES2015, ES2020, ES2024)
+
+---
 
 ##### **3.2 📦 Variables and Data Types**
 - 📦 Variable Declarations:
-  - `var` (function-scoped, legacy)
+  - `var` (function-scoped, legacy, hoisting issues)
   - `let` (block-scoped, mutable)
-  - `const` (block-scoped, immutable)
-  - Variable Naming Rules
+  - `const` (block-scoped, immutable reference)
+  - Variable Naming Rules and Conventions (camelCase)
 - 📊 Primitive Data Types:
-  - `number` (integers, floats, NaN, Infinity)
+  - `number` (integers, floats, NaN, Infinity, -Infinity)
   - `string` (text, template literals)
   - `boolean` (true, false)
   - `undefined` (declared but not assigned)
   - `null` (intentional absence)
   - `symbol` (unique identifiers) ES6+
-  - `bigint` (large integers) ES2020+
+  - `bigint` (large integers beyond Number.MAX_SAFE_INTEGER) ES2020+
 - 🔍 Type Checking:
-  - `typeof` operator
+  - `typeof` operator (limitations: `typeof null === "object"`)
   - `instanceof` operator
-  - Type Conversion (explicit vs implicit)
-- 🔄 Type Coercion:
-  - String concatenation
-  - Numeric operations
-  - Boolean context
+  - `Number.isNaN()` vs `isNaN()`
+  - `Array.isArray()`
+- 🔄 Type Conversion:
+  - Explicit: `Number()`, `String()`, `Boolean()`, `parseInt()`, `parseFloat()`
+  - Implicit (type coercion)
+  - `toString()` method
+
+---
 
 ##### **3.3 ➗ Operators**
 - ➕ Arithmetic Operators:
-  - `+` (addition), `-` (subtraction)
-  - `*` (multiplication), `/` (division)
-  - `%` (modulus/remainder)
-  - `**` (exponentiation) ES7+
+  - `+`, `-`, `*`, `/`, `%`, `**` (exponentiation) ES7+
   - `++` (increment), `--` (decrement)
 - ⚖️ Comparison Operators:
-  - `==` (loose equality)
-  - `===` (strict equality)
-  - `!=` (loose inequality)
-  - `!==` (strict inequality)
-  - `>` (greater than), `<` (less than)
-  - `>=` (greater or equal), `<=` (less or equal)
+  - `==` (loose equality — avoid)
+  - `===` (strict equality — always prefer)
+  - `!=`, `!==`, `>`, `<`, `>=`, `<=`
 - 🔗 Logical Operators:
-  - `&&` (AND)
-  - `||` (OR)
+  - `&&` (AND — short-circuit)
+  - `||` (OR — short-circuit)
   - `!` (NOT)
   - `??` (nullish coalescing) ES2020+
 - 📝 Assignment Operators:
-  - `=` (assignment)
-  - `+=`, `-=`, `*=`, `/=`, `%=`, `**=`
-- 🔢 Bitwise Operators:
-  - `&` (AND), `|` (OR)
-  - `^` (XOR), `~` (NOT)
-  - `<<` (left shift), `>>` (right shift)
-  - `>>>` (unsigned right shift)
+  - `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `**=`
+  - `&&=`, `||=`, `??=` (logical assignment) ES2021+
 - 👥 Other Operators:
-  - `typeof`, `instanceof`
-  - `in` (property check)
-  - `delete` (remove property)
-  - `,` (comma operator)
+  - `typeof`, `instanceof`, `in`, `delete`
   - `?:` (ternary/conditional)
   - `?.` (optional chaining) ES2020+
+  - `,` (comma operator)
+
+---
 
 ##### **3.4 📝 Control Flow**
 - ✅ Conditional Statements:
   - `if` statement
   - `else if` ladder
   - `else` clause
-  - Nested conditions
 - 🔀 Truthy and Falsy Values:
-  - Falsy: `false`, `0`, `""`, `null`, `undefined`, `NaN`
-  - Truthy: everything else
+  - **Falsy**: `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`
+  - **Truthy**: everything else
 - 🎭 Switch Statement:
   - `switch (expression)`
   - `case` labels
-  - `break` statement
+  - `break` statement (prevent fall-through)
   - `default` case
-  - Fall-through behavior
+  - Fall-through behavior (when intentional)
 - ❓ Ternary Operator: `condition ? expr1 : expr2`
+
+---
 
 ##### **3.5 🔄 Loops and Iteration**
 - 🔄 `for` Loop: `for (init; condition; increment)`
@@ -936,18 +935,19 @@ Production    (16-19) ████████████░ 2 oy
 - 🎮 Loop Control:
   - `break` (exit loop)
   - `continue` (skip iteration)
-  - Labels (named loops)
-- 🔄 `for...in` Loop (object properties)
-- 🔄 `for...of` Loop (iterable values) ES6+
+- 🔄 `for...in` Loop (object properties — use with caution)
+- 🔄 `for...of` Loop (iterable values — arrays, strings, maps) ES6+
 - ⚠️ Infinite Loops (avoiding)
-- 🔄 Loop Performance Considerations
+- 🔄 Iterating Arrays: `forEach()`, `map()`, `for...of`
+
+---
 
 ##### **3.6 📚 Arrays**
 - 🆕 Array Creation:
   - `[]` literal syntax
-  - `new Array()` constructor
-  - `Array.from()` ES6+
-  - `Array.of()` ES6+
+  - `new Array()` constructor (avoid)
+  - `Array.from()` ES6+ (convert iterables)
+  - `Array.of()` ES6+ (create from arguments)
 - 📍 Array Indexing (0-based)
 - 📏 Array Properties: `length`
 - 🛠️ Basic Array Methods:
@@ -961,54 +961,55 @@ Production    (16-19) ████████████░ 2 oy
     - `indexOf()`, `lastIndexOf()`
     - `includes()` ES7+
     - `find()`, `findIndex()` ES6+
+    - `at()` ES2022+ (negative indexing)
   - Transforming:
     - `concat()` (merge arrays)
     - `slice()` (extract portion)
     - `join()` (to string)
-    - `reverse()` (reverse order)
-    - `sort()` (sort elements)
+    - `reverse()`, `sort()` (mutate)
+    - `toReversed()`, `toSorted()`, `toSpliced()` ES2023+ (immutable)
 - 🔄 Iteration Methods:
-  - `forEach()` (loop through)
-  - `map()` (transform each)
-  - `filter()` (filter elements)
+  - `forEach()` (loop)
+  - `map()` (transform)
+  - `filter()` (filter)
   - `reduce()`, `reduceRight()` (accumulate)
-  - `every()`, `some()` (test conditions)
+  - `every()`, `some()` (test)
   - `flat()`, `flatMap()` ES10+
+  - `findLast()`, `findLastIndex()` ES2023+
 - 📦 Multidimensional Arrays
 - 🎯 Array Destructuring ES6+
-- ⏱️ Array Performance (time complexity)
+- ⏱️ Array Performance
+
+---
 
 ##### **3.7 📚 Strings**
 - 🆕 String Creation:
   - Quotes: `''`, `""`
   - Template Literals: `` `hello ${name}` `` ES6+
-  - `String()` constructor
 - 📏 String Properties: `length`
-- 📍 String Indexing (0-based)
 - 🔒 String Immutability
 - 🛠️ String Methods:
-  - Case Methods: `toUpperCase()`, `toLowerCase()`
-  - Searching: `indexOf()`, `lastIndexOf()`, `includes()`, `startsWith()`, `endsWith()`
-  - Extracting: `slice()`, `substring()`, `substr()` (legacy)
-  - Splitting/Joining: `split()`, `join()`
-  - Replacing: `replace()`, `replaceAll()` ES2021+
-  - Trimming: `trim()`, `trimStart()`, `trimEnd()`
-  - Padding: `padStart()`, `padEnd()` ES8+
-  - Repeating: `repeat()` ES6+
-  - Character Access: `charAt()`, `charCodeAt()`, `at()` ES2022+
+  - Case: `toUpperCase()`, `toLowerCase()`
+  - Search: `indexOf()`, `lastIndexOf()`, `includes()`, `startsWith()`, `endsWith()`
+  - Extract: `slice()`, `substring()` (avoid `substr()` — deprecated)
+  - Split/Join: `split()`
+  - Replace: `replace()`, `replaceAll()` ES2021+
+  - Trim: `trim()`, `trimStart()`, `trimEnd()`
+  - Pad: `padStart()`, `padEnd()` ES8+
+  - Repeat: `repeat()` ES6+
+  - Access: `charAt()`, `charCodeAt()`, `at()` ES2022+
 - 🔤 Template Literals:
-  - Interpolation `${expression}`
+  - Interpolation: `${expression}`
   - Multi-line strings
   - Tagged templates
-- 📝 Regular Expressions with Strings:
-  - `match()`, `search()`
-  - `replace()` with regex
-  - `split()` with regex
+- 📝 Regular Expressions with Strings
+
+---
 
 ##### **3.8 📚 Objects**
 - 🆕 Object Creation:
   - Object literal: `{}`
-  - `new Object()` constructor
+  - `new Object()` constructor (avoid)
   - `Object.create()`
 - 📦 Object Properties:
   - Dot notation: `obj.property`
@@ -1017,45 +1018,41 @@ Production    (16-19) ████████████░ 2 oy
   - Property value shorthand ES6+
 - 🛠️ Object Methods:
   - `Object.keys()`, `Object.values()`, `Object.entries()` ES8+
-  - `Object.assign()` (copy/merge)
+  - `Object.assign()` (shallow copy)
   - `Object.freeze()`, `Object.seal()`
-  - `Object.hasOwnProperty()`
-  - `Object.getOwnPropertyNames()`
-- 🔍 Property Descriptors:
-  - `writable`, `enumerable`, `configurable`
-  - `Object.defineProperty()`
-  - `Object.defineProperties()`
+  - `Object.hasOwn()` ES2022+ (replaces `hasOwnProperty`)
+  - `Object.groupBy()` ES2024+
 - 🔗 Object References and Copying:
   - Shallow copy: `Object.assign()`, spread `{...obj}`
-  - Deep copy: `JSON.parse(JSON.stringify())`, `structuredClone()` ES2022+
+  - Deep copy: `structuredClone()` ES2022+ (preferred over JSON methods)
 - 🎯 Object Destructuring ES6+
-- 🔄 Iterating Objects:
-  - `for...in` loop
-  - `Object.keys()` with `forEach()`
-  - `Object.entries()` with destructuring
+- 🔄 Iterating Objects: `for...in`, `Object.entries()` with `for...of`
+- 🔒 Optional Chaining with Objects: `obj?.nested?.property`
+
+---
 
 ##### **3.9 📚 Functions**
-- 📝 Function Declarations: `function name() {}`
-- 📝 Function Expressions: `const fn = function() {}`
-- 🏹 Arrow Functions: `() => {}` ES6+
+- 📝 Function Declarations: `function name() {}` (hoisted)
+- 📝 Function Expressions: `const fn = function() {}` (not hoisted)
+- 🏹 Arrow Functions: `() => {}` ES6+ (lexical `this`, no `arguments`)
 - 📤 Return Values:
-  - Implicit return (arrow functions)
+  - Implicit return in arrow functions: `() => value`
   - Explicit `return` statement
-  - Functions without return (`undefined`)
+  - Functions without return return `undefined`
 - 📞 Function Parameters:
   - Required parameters
   - Default parameters ES6+
   - Rest parameters `...args` ES6+
-  - Parameters destructuring
-- 🔄 Arguments Object (legacy)
+  - Parameter destructuring
 - 🌐 First-Class Functions:
   - Assign to variables
   - Pass as arguments (callbacks)
   - Return from functions (higher-order)
-- 🔗 Callback Functions
-- 🔄 Recursion (functions calling themselves)
+- 🔄 Recursion
 - ⚡ Immediately Invoked Function Expressions (IIFE)
 - 📦 Function Scope and Closures
+
+---
 
 ##### **3.10 🌐 Scope and Closures**
 - 🌍 Global Scope
@@ -1064,41 +1061,44 @@ Production    (16-19) ████████████░ 2 oy
 - 🔗 Scope Chain
 - 📚 Lexical Scoping
 - 🔒 Closures:
-  - What are closures?
-  - Practical use cases
+  - What are closures? (function + its lexical environment)
+  - Practical use cases: data privacy, factory functions, event handlers
   - Memory implications
 - 🎯 Module Pattern (using closures)
 - 🔄 Variable Hoisting:
-  - `var` hoisting
-  - `let`/`const` temporal dead zone
-  - Function hoisting
+  - `var` hoisting (initialized as `undefined`)
+  - `let`/`const` hoisting (temporal dead zone)
+  - Function hoisting (declarations only)
+
+---
 
 ##### **3.11 🎯 Advanced Function Concepts**
-- 🔗 Higher-Order Functions:
-  - Functions that take functions
-  - Functions that return functions
+- 🔗 Higher-Order Functions (functions that operate on functions)
 - 📦 Function Composition
-- 🎭 Currying (transforming functions)
+- 🎭 Currying (transforming `f(a,b,c)` to `f(a)(b)(c)`)
 - 🔄 Partial Application
-- 📝 Pure Functions (no side effects)
-- 🔒 Function Memoization (caching)
+- 📝 Pure Functions (no side effects, deterministic)
+- 🔒 Function Memoization (caching results)
 - ⏱️ Throttling and Debouncing
 - 🔧 Function Binding:
-  - `bind()` method
-  - `call()` and `apply()` methods
-  - `this` context binding
+  - `bind()` (creates new function with bound `this`)
+  - `call()` (invokes with `this` and arguments)
+  - `apply()` (invokes with `this` and array of arguments)
+
+---
 
 ##### **3.12 📚 'this' Keyword**
-- 🌐 Global Context (`window` in browser)
+- 🌐 Global Context: `window` (browser) or `globalThis`
 - 📝 Function Context:
-  - Regular functions (dynamic `this`)
-  - Arrow functions (lexical `this`)
-- 🏗️ Method Context (object methods)
-- 🎯 Constructor Context (`new` keyword)
-- 🔧 Explicit Binding:
-  - `call()`, `apply()`, `bind()`
-- 📦 Event Handler Context
-- ⚠️ Common `this` Pitfalls
+  - Regular functions: `this` depends on caller (dynamic)
+  - Arrow functions: lexical `this` (from surrounding scope)
+- 🏗️ Method Context: `this` refers to object
+- 🎯 Constructor Context: `this` refers to new instance (`new` keyword)
+- 🔧 Explicit Binding: `call()`, `apply()`, `bind()`
+- 📦 Event Handler Context: `this` refers to element
+- ⚠️ Common Pitfalls: losing `this` in callbacks, setTimeout
+
+---
 
 ##### **3.13 🏗️ Object-Oriented JavaScript**
 - 🏗️ Constructor Functions:
@@ -1106,456 +1106,513 @@ Production    (16-19) ████████████░ 2 oy
   - `this` in constructors
   - `instanceof` operator
 - 🔗 Prototypes and Prototype Chain:
-  - `__proto__` vs `prototype`
-  - `Object.getPrototypeOf()`
-  - `Object.setPrototypeOf()`
-  - Prototype inheritance
-- 📦 ES6 Classes:
+  - `__proto__` (legacy) vs `Object.getPrototypeOf()`
+  - `prototype` property on functions
+  - Prototypal inheritance
+- 📦 ES6+ Classes:
   - `class` declaration
   - `constructor` method
   - Instance properties/methods
-  - Static properties/methods
-  - Getters and Setters
+  - Static properties/methods (`static`)
+  - Getters and Setters (`get`, `set`)
   - Computed method names
 - 👪 Class Inheritance (`extends`)
-- 🔧 `super` keyword (call parent)
+- 🔧 `super` keyword
 - 🏗️ Mixins (multiple inheritance alternative)
 - 📦 Private Class Fields (`#privateField`) ES2022+
 - 🏷️ Public Class Fields ES2022+
+- 🔒 Private Methods ES2022+
+
+---
 
 ##### **3.14 📚 Built-in Objects**
 - 📅 Date and Time:
-  - `new Date()`
-  - Getting/setting date components
-  - Date formatting
-  - Date calculations
+  - `new Date()`, `Date.now()`
+  - Getting/setting: `getFullYear()`, `getMonth()`, `getDate()`, etc.
+  - ISO formatting: `toISOString()`
+  - Intl.DateTimeFormat (localization)
 - 🧮 Math Object:
   - Constants: `Math.PI`, `Math.E`
   - Methods: `Math.random()`, `Math.round()`, `Math.floor()`, `Math.ceil()`
   - `Math.max()`, `Math.min()`, `Math.abs()`
   - `Math.pow()`, `Math.sqrt()`, `Math.cbrt()`
-  - Trigonometry: `Math.sin()`, `Math.cos()`, etc.
 - 📦 Number Object:
-  - Constants: `Number.MAX_VALUE`, `Number.MIN_VALUE`
-  - `Number.isInteger()`, `Number.isNaN()`
+  - `Number.MAX_SAFE_INTEGER`, `Number.MIN_SAFE_INTEGER`
+  - `Number.isInteger()`, `Number.isNaN()`, `Number.isFinite()`
   - `Number.parseFloat()`, `Number.parseInt()`
 - 📦 JSON Object:
   - `JSON.stringify()` (object to JSON)
   - `JSON.parse()` (JSON to object)
-  - JSON formatting
-- 📦 RegExp (Regular Expressions):
-  - Creating regex: literal `/pattern/`, `new RegExp()`
-  - Flags: `g` (global), `i` (ignore case), `m` (multiline)
-  - Methods: `test()`, `exec()`
-  - Character classes, quantifiers, groups
-  - Lookahead/lookbehind
+  - Reviver and replacer functions
+- 📦 RegExp (Regular Expressions) — see 3.24
+
+---
 
 ##### **3.15 🧩 Error Handling**
-- ❌ Types of Errors:
-  - SyntaxError, ReferenceError
-  - TypeError, RangeError
-  - Custom errors
-- 🛡️ Try...Catch:
+- ❌ Error Types:
+  - `Error`, `SyntaxError`, `ReferenceError`
+  - `TypeError`, `RangeError`, `URIError`
+- 🛡️ Try...Catch...Finally:
   - `try` block
-  - `catch(error)` block
+  - `catch(error)` block (optional binding ES10+)
   - `finally` block (always executes)
 - ⬆️ Throwing Errors: `throw new Error("message")`
-- 🔗 Error Object Properties:
-  - `name`, `message`, `stack`
-- 🎨 Custom Error Classes
+- 🎨 Custom Error Classes (extend `Error`)
 - 🔄 Error Propagation
 - 🌐 Global Error Handling:
-  - `window.onerror`
-  - `window.addEventListener('error')`
+  - `window.onerror` (browser)
+  - `unhandledrejection` event (unhandled promise rejections)
+  - `process.on('uncaughtException')` (Node.js)
+
+---
 
 ##### **3.16 📦 ES6+ Modern Features**
-- 📦 Template Literals (already covered)
-- 🏹 Arrow Functions (already covered)
-- 📚 Destructuring:
-  - Array destructuring: `[a, b] = [1, 2]`
-  - Object destructuring: `{name, age} = obj`
-  - Nested destructuring
-  - Default values in destructuring
-- 🌐 Spread Operator (`...`):
-  - Spread in arrays: `[...arr1, ...arr2]`
-  - Spread in objects: `{...obj1, ...obj2}`
-  - Spread in function calls
+- 📦 Template Literals
+- 🏹 Arrow Functions
+- 📚 Destructuring (array, object, nested)
+- 🌐 Spread Operator (`...`) for arrays, objects, function calls
 - 📦 Rest Parameters (`...args`)
-- 📦 Enhanced Object Literals:
-  - Property shorthand
-  - Method shorthand
-  - Computed property names
+- 📦 Enhanced Object Literals
 - 🔗 Optional Chaining (`?.`) ES2020+
 - 🔗 Nullish Coalescing (`??`) ES2020+
 - 🔢 Numeric Separators (`1_000_000`) ES2021+
-- 🎯 Logical Assignment Operators:
-  - `&&=`, `||=`, `??=` ES2021+
+- 🎯 Logical Assignment Operators (`&&=`, `||=`, `??=`) ES2021+
 - 📦 `String.prototype.replaceAll()` ES2021+
 - 📦 `Array.prototype.at()` ES2022+
+- 📦 `Object.hasOwn()` ES2022+
 - 📦 Top-level `await` ES2022+
 - 📦 `Array.prototype.findLast()`, `findLastIndex()` ES2023+
-- 📦 Hashbang Grammar ES2023+
+- 📦 `Array.prototype.toReversed()`, `toSorted()`, `toSpliced()`, `with()` ES2023+
+- 📦 `Object.groupBy()`, `Map.groupBy()` ES2024+
+- 📦 `Promise.withResolvers()` ES2024+
+
+---
 
 ##### **3.17 🌐 Document Object Model (DOM)**
-- 🌳 DOM Tree Structure:
-  - Nodes and elements
-  - Parent-child relationships
-  - Siblings
+- 🌳 DOM Tree Structure
 - 🔍 Selecting Elements:
   - `getElementById()`
-  - `getElementsByClassName()`
-  - `getElementsByTagName()`
-  - `querySelector()` (CSS selector)
-  - `querySelectorAll()` (all matches)
+  - `getElementsByClassName()`, `getElementsByTagName()` (live collections)
+  - `querySelector()` (first match)
+  - `querySelectorAll()` (all matches, static NodeList)
 - 🔄 Traversing DOM:
   - Parent: `parentElement`, `parentNode`
   - Children: `children`, `childNodes`
   - Siblings: `nextElementSibling`, `previousElementSibling`
   - First/last: `firstElementChild`, `lastElementChild`
 - 📝 Manipulating Content:
-  - `textContent`, `innerText`
-  - `innerHTML`, `outerHTML`
+  - `textContent` (safe, fast)
+  - `innerHTML` (dangerous if from user input)
+  - `innerText` (respects styling)
 - 🎨 Manipulating Attributes:
-  - `getAttribute()`, `setAttribute()`
-  - `removeAttribute()`, `hasAttribute()`
-  - `classList` (add, remove, toggle, contains)
+  - `getAttribute()`, `setAttribute()`, `removeAttribute()`, `hasAttribute()`
+  - `classList`: `add()`, `remove()`, `toggle()`, `contains()`, `replace()`
+  - Dataset: `data-*` → `element.dataset`
 - 🎭 Manipulating Styles:
   - `style` property (inline styles)
   - `getComputedStyle()`
+  - CSS custom properties with `style.setProperty()`
 - 🏗️ Creating and Removing Elements:
-  - `createElement()`
-  - `createTextNode()`
-  - `appendChild()`, `append()`
-  - `insertBefore()`, `insertAdjacentElement()`
-  - `replaceChild()`
-  - `removeChild()`, `remove()`
+  - `createElement()`, `createTextNode()`
+  - `append()`, `appendChild()`, `prepend()`
+  - `insertBefore()`, `insertAdjacentElement()`, `insertAdjacentHTML()`
+  - `replaceChild()`, `replaceChildren()`
+  - `remove()`, `removeChild()`
   - `cloneNode()`
-- 📦 DocumentFragment (performance)
+- 📦 DocumentFragment (performance for bulk operations)
+- 🌐 `element.innerHTML` vs `insertAdjacentHTML` vs DocumentFragment
+
+---
 
 ##### **3.18 🎯 Events**
 - 🖱️ Event Types:
-  - Mouse Events: `click`, `dblclick`, `mouseenter`, `mouseleave`, `mousemove`
-  - Keyboard Events: `keydown`, `keyup`, `keypress`
-  - Form Events: `submit`, `change`, `input`, `focus`, `blur`
-  - Window Events: `load`, `resize`, `scroll`, `unload`
-  - Touch Events: `touchstart`, `touchmove`, `touchend`
-  - Drag Events: `drag`, `drop`, `dragover`
+  - Mouse: `click`, `dblclick`, `mouseenter`, `mouseleave`, `mousemove`, `contextmenu`
+  - Keyboard: `keydown`, `keyup`
+  - Form: `submit`, `change`, `input`, `focus`, `blur`, `reset`
+  - Window: `load`, `DOMContentLoaded`, `resize`, `scroll`, `beforeunload`
+  - Touch: `touchstart`, `touchmove`, `touchend`
+  - Drag/Drop: `drag`, `dragstart`, `dragend`, `drop`, `dragover`
+  - Clipboard: `copy`, `cut`, `paste`
 - 📝 Event Handlers:
-  - Inline: `onclick="handler()"`
-  - Property: `element.onclick = handler`
-  - `addEventListener()` (recommended)
-  - `removeEventListener()`
+  - Inline HTML: `onclick="handler()"` (avoid)
+  - DOM property: `element.onclick = handler` (single handler)
+  - `addEventListener()` (multiple handlers, recommended)
+  - `removeEventListener()` (must reference same function)
 - 🎯 Event Object:
-  - `event.type`, `event.target`
-  - `event.currentTarget`
-  - `event.preventDefault()` (cancel default)
-  - `event.stopPropagation()` (stop bubbling)
-  - `event.stopImmediatePropagation()`
+  - `event.type`, `event.target` (actual element)
+  - `event.currentTarget` (listening element)
+  - `event.preventDefault()`
+  - `event.stopPropagation()`, `event.stopImmediatePropagation()`
 - 🔄 Event Propagation:
-  - Capturing Phase (top to bottom)
+  - Capturing Phase (top → bottom)
   - Target Phase
-  - Bubbling Phase (bottom to top)
+  - Bubbling Phase (bottom → top)
   - `useCapture` parameter
-- 🎭 Event Delegation (efficient handling)
-- 🎨 Custom Events:
-  - `new CustomEvent()`
-  - `dispatchEvent()`
-- ⏱️ Debouncing and Throttling Events
+- 🎭 Event Delegation (attach listener to parent)
+- 🎨 Custom Events: `new CustomEvent()`, `dispatchEvent()`
+- ⏱️ Debouncing and Throttling (performance)
+
+---
 
 ##### **3.19 🌐 Browser Object Model (BOM)**
 - 🌐 Window Object:
-  - `window.innerWidth`, `window.innerHeight`
-  - `window.open()`, `window.close()`
-  - `window.moveTo()`, `window.resizeTo()`
-  - `window.scrollTo()`, `window.scrollBy()`
-  - Timers: `setTimeout()`, `setInterval()`
-  - `clearTimeout()`, `clearInterval()`
-  - `requestAnimationFrame()` (animations)
+  - Dimensions: `innerWidth`, `innerHeight`, `outerWidth`, `outerHeight`
+  - Methods: `open()`, `close()`, `scrollTo()`, `scrollBy()`
+  - Timers: `setTimeout()`, `setInterval()`, `clearTimeout()`, `clearInterval()`
+  - Animation: `requestAnimationFrame()`, `cancelAnimationFrame()`
 - 📜 Navigator Object:
-  - `navigator.userAgent` (browser info)
-  - `navigator.language`
+  - `navigator.userAgent` (browser detection — avoid if possible)
+  - `navigator.language`, `navigator.languages`
   - `navigator.onLine` (network status)
-  - `navigator.geolocation` (getCurrentPosition)
-  - `navigator.clipboard` (copy/paste)
-  - `navigator.mediaDevices` (camera/mic)
+  - `navigator.geolocation` (`getCurrentPosition`, `watchPosition`)
+  - `navigator.clipboard` (`writeText`, `readText`)
+  - `navigator.mediaDevices` (camera, microphone, screen capture)
+  - `navigator.serviceWorker` (PWA)
 - 📍 Location Object:
-  - `location.href` (current URL)
-  - `location.protocol`, `location.host`
-  - `location.pathname`, `location.search`
-  - `location.hash`
+  - `location.href`, `location.protocol`, `location.host`, `location.pathname`
+  - `location.search`, `location.hash`
   - `location.reload()`, `location.assign()`, `location.replace()`
 - 📜 History Object:
-  - `history.back()`, `history.forward()`
-  - `history.go()`
-  - `history.pushState()` (SPA navigation)
-  - `history.replaceState()`
+  - `history.back()`, `history.forward()`, `history.go()`
+  - `history.pushState()`, `history.replaceState()` (SPA)
   - `popstate` event
-- 💾 Screen Object:
-  - `screen.width`, `screen.height`
-  - `screen.availWidth`, `screen.availHeight`
-  - `screen.colorDepth`, `screen.pixelDepth`
-- 🍪 Document.cookie (storing small data)
-- 📦 LocalStorage and SessionStorage (Web Storage API)
+- 💾 Screen Object: `screen.width`, `screen.height`, `screen.availWidth`, `screen.availHeight`
+- 🍪 Cookies: `document.cookie` (parse/set)
+- 📦 Web Storage: `localStorage`, `sessionStorage` (see 3.20)
 
-##### **3.20 💾 Web Storage and IndexedDB**
+---
+
+##### **3.20 💾 Web Storage**
 - 📦 localStorage:
   - `setItem()`, `getItem()`, `removeItem()`, `clear()`
-  - Storage limitations (5-10MB)
+  - Storage limit: 5-10MB
   - Synchronous API
+  - Data persists across sessions
 - 📦 sessionStorage:
   - Same API as localStorage
-  - Data persists only for session
-- 🔒 Cookies vs Web Storage
+  - Data clears when tab closes
+- 🔒 Cookies vs Web Storage vs IndexedDB
+- 🔄 Storage Events (cross-tab communication)
 - 🗄️ IndexedDB:
   - Asynchronous API
+  - Database creation and versioning
   - Object stores (like tables)
-  - Transactions
+  - Transactions (readonly, readwrite)
+  - CRUD operations with `put()`, `get()`, `delete()`
   - Indexes for searching
-  - CRUD operations
-  - Version management
-- 📦 Cache API (for PWAs)
-- 🔄 Storage Events (cross-tab communication)
+  - Cursors for iteration
+- 📦 Cache API (Service Workers, PWAs)
+
+---
 
 ##### **3.21 🌐 Fetch API and AJAX**
-- 📡 What is AJAX? (Asynchronous JavaScript)
-- 🌐 XMLHttpRequest (legacy):
-  - Creating request
-  - Handling response
-  - Ready states
-  - Callback patterns
+- 📡 AJAX (Asynchronous JavaScript and XML)
 - 🆕 Fetch API (modern):
-  - Basic syntax: `fetch(url)`
-  - Response handling
-  - JSON parsing
-  - Error handling
-  - Request options (method, headers, body)
-  - Uploading files
+  - Basic: `fetch(url)`
+  - Response handling: `response.json()`, `response.text()`, `response.blob()`
+  - Error handling: check `response.ok`
+  - Request options: `method`, `headers`, `body`
+  - Uploading files with FormData
 - 📦 Request and Response Objects
-- 🌐 HTTP Headers:
-  - Content-Type
-  - Authorization
-  - Custom headers
+- 🌐 HTTP Headers: `Content-Type`, `Authorization`, `Accept`
 - 📡 CORS (Cross-Origin Resource Sharing)
-- 🔄 Aborting Fetch Requests (AbortController)
-- 📡 Server-Sent Events (SSE)
-- 🔌 WebSockets (real-time communication)
+- 🔄 Aborting Requests: `AbortController`, `AbortSignal`
+- 📡 Server-Sent Events (SSE): `EventSource`
+- 🔌 WebSockets: `WebSocket` API for real-time
+- 🌐 XMLHttpRequest (legacy — recognize but don't use)
+
+---
 
 ##### **3.22 🔄 Promises and Async JavaScript**
 - ⏱️ Synchronous vs Asynchronous
 - 🔗 Callback Hell (Pyramid of Doom)
 - 🤝 Promises:
-  - Promise states: pending, fulfilled, rejected
-  - Creating promises: `new Promise()`
-  - `then()`, `catch()`, `finally()`
-  - Chaining promises
-  - Promise methods:
-    - `Promise.all()` (all fulfill)
-    - `Promise.allSettled()` (all complete)
+  - States: `pending`, `fulfilled`, `rejected`
+  - Creating: `new Promise((resolve, reject) => {})`
+  - Methods: `then()`, `catch()`, `finally()`
+  - Chaining
+  - Static methods:
+    - `Promise.all()` (all settle — rejects fast)
+    - `Promise.allSettled()` (all settle — never rejects)
     - `Promise.race()` (first settles)
     - `Promise.any()` (first fulfills) ES2021+
-  - Promise.resolve(), Promise.reject()
+    - `Promise.resolve()`, `Promise.reject()`
+    - `Promise.withResolvers()` ES2024+
 - ⚡ Async/Await (ES8+):
-  - `async` functions
+  - `async` function declaration
   - `await` keyword
-  - Error handling with try/catch
+  - Error handling with `try/catch`
   - Parallel execution with `Promise.all`
-  - Top-level await (modules)
+  - Top-level `await` (modules only) ES2022+
 - 🔄 Event Loop:
-  - Call Stack
-  - Task Queue (Macro tasks)
-  - Microtask Queue (Promise callbacks)
-  - Web APIs (setTimeout, fetch, etc.)
+  - Call Stack (synchronous code)
+  - Web APIs (setTimeout, fetch, DOM events)
+  - Task Queue (macrotasks: setTimeout, setInterval)
+  - Microtask Queue (microtasks: Promise callbacks, queueMicrotask)
   - How JavaScript is single-threaded
 
+---
+
 ##### **3.23 📦 Modules**
-- 📦 What are Modules?
-- 🔧 Module Formats:
-  - CommonJS (Node.js: `require()`, `module.exports`)
-  - AMD (Asynchronous Module Definition)
-  - UMD (Universal Module Definition)
-  - ES6 Modules (standard)
+- 📦 What are Modules? (encapsulation, reusability)
+- 🔧 Module Systems:
+  - CommonJS: `require()`, `module.exports` (Node.js)
+  - ES6 Modules (standard, browser + Node.js)
 - 📤 ES6 Modules:
-  - Export: `export`, `export default`
-  - Import: `import`, `import * as`
-  - Dynamic imports: `import()`
-  - Named vs Default exports
-- 📁 Module Structure
-- 🔄 Circular Dependencies
-- 🌐 Module Loading in Browsers:
-  - `<script type="module">`
-  - Module resolution
-  - Import maps
+  - Named exports: `export const name = ...`
+  - Default export: `export default ...`
+  - Import: `import { name } from './module.js'`
+  - Import all: `import * as mod from './module.js'`
+  - Import default: `import name from './module.js'`
+  - Rename: `import { name as alias } from './module.js'`
+- 🔄 Dynamic Imports: `import()` (code splitting)
+- 📁 Module Structure and Best Practices
+- 🌐 Module Loading in Browsers: `<script type="module">`
+- 📦 Import Maps (control module resolution)
+
+---
 
 ##### **3.24 🧩 Regular Expressions Deep Dive**
 - 📝 Regex Patterns:
-  - Literal characters
+  - Literal: `/pattern/flags`
+  - Constructor: `new RegExp('pattern', 'flags')`
   - Character classes: `[abc]`, `[^abc]`, `[a-z]`
-  - Predefined classes: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`, `.`
-  - Quantifiers: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`
-  - Anchors: `^`, `$`, `\b`, `\B`
-  - Groups and Capturing: `(abc)`, `(?:abc)` (non-capturing)
+  - Predefined: `\d` (digit), `\w` (word), `\s` (space), `.` (any except newline)
+  - Quantifiers: `*` (0+), `+` (1+), `?` (0/1), `{n}`, `{n,}`, `{n,m}`
+  - Anchors: `^` (start), `$` (end), `\b` (word boundary)
+  - Groups: `(abc)` (capturing), `(?:abc)` (non-capturing)
   - Alternation: `cat|dog`
   - Lookahead: `(?=...)`, `(?!...)`
   - Lookbehind: `(?<=...)`, `(?<!...)` ES2018+
-- 🚩 Regex Flags:
-  - `g` (global)
-  - `i` (case insensitive)
-  - `m` (multiline)
-  - `s` (dotall) ES2018+
-  - `u` (unicode)
-  - `y` (sticky)
-- 🛠️ String Methods with Regex:
-  - `match()`, `matchAll()` ES2020+
-  - `search()`, `replace()`, `replaceAll()`
-  - `split()`
-- 🛠️ RegExp Methods:
-  - `test()`, `exec()`
-  - `lastIndex` property
-- 📝 Practical Regex Examples:
-  - Email validation
-  - URL validation
-  - Phone number formats
-  - Password strength
-  - Extracting data
+- 🚩 Flags:
+  - `g` (global), `i` (case-insensitive), `m` (multiline)
+  - `s` (dotall) ES2018+, `u` (unicode), `y` (sticky)
+- 🛠️ String Methods: `match()`, `matchAll()` ES2020+, `search()`, `replace()`, `replaceAll()`, `split()`
+- 🛠️ RegExp Methods: `test()`, `exec()` (with `lastIndex`)
+- 📝 Practical Examples:
+  - Email validation, URL validation, phone numbers
+  - Password strength, extracting data, sanitizing input
+
+---
 
 ##### **3.25 🎨 Canvas API**
 - 🎨 Canvas Basics:
   - `<canvas>` element
-  - Getting context: `getContext('2d')`
+  - 2D context: `getContext('2d')`
 - 🖼️ Drawing Shapes:
   - Rectangles: `fillRect()`, `strokeRect()`, `clearRect()`
   - Paths: `beginPath()`, `moveTo()`, `lineTo()`, `closePath()`
-  - Circles/Arcs: `arc()`, `arcTo()`
+  - Arcs: `arc()`, `arcTo()`
   - Curves: `quadraticCurveTo()`, `bezierCurveTo()`
 - 🎨 Styling:
   - `fillStyle`, `strokeStyle`
   - `lineWidth`, `lineCap`, `lineJoin`
   - Gradients: `createLinearGradient()`, `createRadialGradient()`
   - Patterns: `createPattern()`
-  - Shadows: `shadowBlur`, `shadowOffset`, `shadowColor`
-- ✍️ Text:
-  - `fillText()`, `strokeText()`
-  - `font`, `textAlign`, `textBaseline`
-  - `measureText()`
-- 🖼️ Images:
-  - `drawImage()` (from img, canvas, video)
-  - Image manipulation
-- 🔄 Transformations:
-  - `translate()`, `rotate()`, `scale()`
-  - `transform()`, `setTransform()`
-- 💾 Saving/Restoring State: `save()`, `restore()`
+  - Shadows: `shadowBlur`, `shadowColor`, `shadowOffsetX/Y`
+- ✍️ Text: `fillText()`, `strokeText()`, `font`, `textAlign`, `measureText()`
+- 🖼️ Images: `drawImage()`, pixel manipulation with `getImageData()`, `putImageData()`
+- 🔄 Transformations: `translate()`, `rotate()`, `scale()`, `transform()`, `setTransform()`
+- 💾 State: `save()`, `restore()`
 - 🎬 Animations with `requestAnimationFrame()`
-- 🖱️ Interaction (mouse events with canvas)
+- 🖱️ Interaction (mouse coordinates, click detection)
+
+---
 
 ##### **3.26 📊 Web APIs**
 - 🌐 Geolocation API:
-  - `getCurrentPosition()`
-  - `watchPosition()`
-  - Handling permissions
+  - `getCurrentPosition(success, error, options)`
+  - `watchPosition()`, `clearWatch()`
+  - Permissions API
 - 🔔 Notifications API:
-  - Requesting permission
-  - Showing notifications
+  - `Notification.requestPermission()`
+  - `new Notification(title, options)`
   - Notification events
 - 📋 Clipboard API:
-  - `read()`, `write()`
-  - `readText()`, `writeText()`
-- 📱 Vibration API
-- 🔋 Battery API
-- 🌐 Network Information API
+  - `navigator.clipboard.writeText()`, `readText()`
+  - `write()`, `read()` for rich content
+  - Permissions
+- 📱 Vibration API: `navigator.vibrate()`
+- 🌐 Network Information API: `navigator.connection`
 - 📦 File API:
-  - File input handling
-  - FileReader (read as text, data URL)
+  - File input: `<input type="file">`
+  - `FileList`, `File` objects
+  - `FileReader`: `readAsText()`, `readAsDataURL()`, `readAsArrayBuffer()`
   - Blob objects
-  - File and directory selection
+  - Drag and drop file handling
 - 📷 MediaDevices API:
-  - Camera and microphone access
-  - Screen capture
-  - Media recording
+  - `getUserMedia()` (camera, microphone)
+  - `getDisplayMedia()` (screen capture)
+  - `MediaRecorder` API
 - 🔐 Credential Management API
-- 💳 Payment Request API
-- 🎮 Gamepad API
-- 🖨️ Web Printing
+- 🖨️ Web Printing: `window.print()`
+- 💳 Payment Request API (optional)
+
+---
 
 ##### **3.27 🚀 Performance and Optimization**
-- 📦 Minification and Bundling
-- 🖼️ Image Optimization
-- 🚫 Debouncing and Throttling (already covered)
-- 🔄 Lazy Loading:
-  - Images: `loading="lazy"`
-  - Components/Modules
-- 📦 Code Splitting
-- 🗄️ Memoization (caching results)
-- 📊 Web Vitals:
+- 📦 Minification, Bundling, Tree Shaking
+- 🖼️ Image Optimization (lazy loading, responsive)
+- 🚫 Debouncing and Throttling
+- 🔄 Lazy Loading: images, components, routes
+- 📦 Code Splitting (dynamic imports)
+- 🗄️ Memoization (caching function results)
+- 📊 Core Web Vitals:
   - Largest Contentful Paint (LCP)
-  - First Input Delay (FID)
+  - Interaction to Next Paint (INP) — replaces FID
   - Cumulative Layout Shift (CLS)
 - 🔧 Performance APIs:
-  - `performance.now()`
-  - `performance.mark()`, `measure()`
-  - `PerformanceObserver`
+  - `performance.now()`, `performance.mark()`, `performance.measure()`
+  - `PerformanceObserver`, `PerformanceEntry`
 - 📡 Network Optimization:
   - HTTP/2, HTTP/3
   - Compression (gzip, brotli)
-  - Caching strategies
-- 🧪 Profiling JavaScript (DevTools)
+  - Caching strategies (Cache-Control, ETag)
+- 🧪 Profiling with DevTools
+
+---
 
 ##### **3.28 🧪 Testing JavaScript**
 - ✅ Unit Testing:
-  - Assertions
-  - Test frameworks (Jest, Mocha)
-  - Testing structure (describe, it, test)
-- 🔧 Testing Tools:
-  - Jest (will cover in Stage 17)
+  - Assertions (expect, assert)
+  - Test structure: `describe`, `it`/`test`
+  - Setup and teardown: `beforeEach`, `afterEach`
+- 🔧 Testing Frameworks:
+  - Jest (most popular, covers Stage 17)
+  - Vitest (Vite-based)
   - Mocha + Chai
-  - Jasmine
-- 🎭 Mocking and Spies
+- 🎭 Mocking and Spies:
+  - Mock functions
+  - Module mocking
+  - `jest.spyOn()`
 - 🧪 Integration Testing
-- 🌐 DOM Testing (jsdom)
-- ⚡ Test Coverage
+- 🌐 DOM Testing: `@testing-library/jest-dom`, `jsdom`
+- ⚡ Test Coverage: `--coverage`
+
+---
 
 ##### **3.29 🛠️ Debugging JavaScript**
 - 🐛 console Methods:
-  - `console.log()`, `console.info()`, `console.warn()`, `console.error()`
-  - `console.table()` (tabular data)
-  - `console.group()`, `console.groupCollapsed()`
-  - `console.time()`, `console.timeEnd()`
-  - `console.trace()`, `console.assert()`
-  - `console.count()`, `console.clear()`
+  - `log()`, `info()`, `warn()`, `error()`
+  - `table()` (tabular data)
+  - `group()`, `groupCollapsed()`, `groupEnd()`
+  - `time()`, `timeEnd()`, `timeLog()`
+  - `trace()`, `assert()`, `count()`
+  - `clear()`
 - 🔍 Browser DevTools:
-  - Sources Panel (breakpoints)
-  - Watch expressions
-  - Call stack
-  - Scope variables
-  - Step through code
-- 🐞 Debugger Statement: `debugger;`
+  - Sources Panel: breakpoints, watch, call stack, scope
+  - Console: evaluate expressions
+  - Network Panel: request inspection
+  - Performance Panel: profiling
+  - Memory Panel: heap snapshots, leaks
+- 🐞 `debugger;` statement
 - 🔧 Breakpoint Types:
-  - Line breakpoints
-  - Conditional breakpoints
-  - DOM breakpoints
-  - Event listener breakpoints
-- 📊 Network Debugging
-- 🎨 Performance Profiling
+  - Line, conditional, DOM, event listener, XHR/fetch
+- 🧠 Memory Leak Detection
+- 🛠️ Debugging Async Code: async stack traces
+
+---
+
+##### **3.30 🌐 Modern Browser APIs**
+- 🧩 Resize Observer (element size changes)
+- 👁️ Intersection Observer (visibility detection)
+- 📜 Mutation Observer (DOM changes)
+- 🎨 View Transitions API (`document.startViewTransition()`)
+- 📦 Popover API (native popups)
+- 🪟 Dialog API (`<dialog>` element)
+- 🔄 Scroll-driven Animations (CSS + JS)
+- 🔐 Trusted Types (XSS prevention)
+- 🧩 Web Components: Custom Elements, Shadow DOM, `<template>`, `<slot>`
+
+---
+
+##### **3.31 🛡️ Security in JavaScript**
+- ❌ XSS (Cross-Site Scripting) Prevention:
+  - Avoid `innerHTML` with user input
+  - Use `textContent` instead
+  - Sanitize with DOMPurify
+- 🔒 CSRF (Cross-Site Request Forgery)
+- 🔐 Content Security Policy (CSP)
+- 🍪 Cookie Security: `HttpOnly`, `Secure`, `SameSite`
+- 🔑 Secure Storage: never store sensitive data in localStorage
+- 🛡️ `iframe` security: `sandbox`
+- 🔗 `rel="noopener noreferrer"` for external links
+- 🧪 `Subresource Integrity` (SRI)
+
+---
+
+##### **3.32 📦 JavaScript Design Patterns**
+- 🏗️ Creational Patterns:
+  - Singleton, Factory, Constructor
+- 🧩 Structural Patterns:
+  - Module, Revealing Module, Decorator
+- 🔄 Behavioral Patterns:
+  - Observer (Event Emitter), Pub/Sub
+  - Strategy, Command
+- 🎯 When to Use Each Pattern
+
+---
+
+##### **3.33 🌐 Real-World JavaScript**
+- 📡 Working with REST APIs
+- 🔄 Error Handling Strategies
+- 🎨 State Management (plain JS patterns)
+- 📦 LocalStorage/SessionStorage patterns
+- 🔌 WebSocket real-time communication
+- 📱 Progressive Web Apps (PWAs) basics
+- 🧩 Service Workers (offline support)
+- 📊 Web Workers (background threads)
+
+---
+
+##### **3.34 🧩 TypeScript Fundamentals (Prep)**
+- 📦 What is TypeScript? (typed superset)
+- 🔧 Basic Types: `string`, `number`, `boolean`, `array`, `any`
+- 🎯 Interfaces and Type Aliases
+- 🔧 Functions with types
+- 🏗️ Classes in TypeScript
+- 🚀 Why TypeScript for large apps
+
+---
+
+##### **3.35 🧪 Testing & Debugging Projects**
+- 🧪 Unit Testing Practice with Jest
+- 🐛 Debugging Complex Applications
+- 📊 Performance Profiling
 - 🧠 Memory Leak Detection
 
-##### **3.30 💻 Practical Projects**
-- 🏗️ Build a Calculator App
-- 📝 Create a To-Do List Application
-- ⏰ Make a Countdown Timer
+---
+
+##### **3.36 💻 Practical Projects**
+- 🏗️ Calculator App
+- 📝 To-Do List with LocalStorage
+- ⏰ Countdown Timer
 - 🌤️ Weather App with Fetch API
 - 🖼️ Image Gallery with Filtering
 - 📋 Interactive Form with Validation
-- 🎮 Simple Game (Tic-Tac-Toe, Memory)
-- 📊 Data Dashboard with Charts
-- 🛒 Shopping Cart Application
-- 📝 Note-Taking App with LocalStorage
+- 🎮 Simple Game (Tic-Tac-Toe)
+- 📊 Data Dashboard with Charts (Chart.js)
+- 🛒 Shopping Cart
+- 📝 Note-Taking App
 - 🔍 Movie Search App (OMDB API)
 - 💬 Real-time Chat (WebSockets)
-- 🗺️ Interactive Map (Leaflet/Mapbox)
-- 🎵 Music Player Application
-- 📰 News Aggregator
-- 📚 Complete Portfolio with Interactive Features
+- 🗺️ Interactive Map (Leaflet)
+- 🎵 Music Player
+- 📰 News Aggregator (multiple APIs)
+- 📦 Infinite Scroll with Intersection Observer
+- 🎨 Canvas Drawing App
+- 🔐 Secure Login Flow (JWT, localStorage)
+- 🧩 Modal Dialog Component
+- 📦 Complete SPA with Routing (vanilla JS)
+- 🚀 Portfolio with Interactive Features
 
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 🎯 STAGE 4 — Git & Version Control
 **Goal**: Master version control for collaborative development and code management.
