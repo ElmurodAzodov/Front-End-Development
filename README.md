@@ -2459,96 +2459,84 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 <br>
 
-## 🎯 STAGE 6 — Vite (Build Tool)
+## 🎯 STAGE 6 — VITE (Modern Build Tool)
 **Goal**: Master modern build tooling for fast development and optimized production builds.
-**Time**: 15 soat | 8 dars
+**Time**: 18 soat | 9 dars
+
+---
 
 #### 📚 **Topics**
 
 ##### **6.1 🚀 Introduction to Build Tools**
 - 🤔 What are Build Tools?
 - 📜 History of Frontend Build Tools:
-  - Grunt (2012)
-  - Gulp (2013)
-  - Webpack (2014)
-  - Parcel (2017)
-  - Snowpack (2019)
-  - Vite (2020)
-- 🎯 Why Vite? (Problems with traditional bundlers)
+  - Grunt (2012), Gulp (2013) — task runners
+  - Webpack (2014) — module bundler
+  - Parcel (2017), Snowpack (2019)
+  - **Vite (2020)** — next generation
+- 🎯 Why Vite? (Problems with traditional bundlers: slow start, HMR bottlenecks)
 - ⚡ Vite's Core Philosophy:
-  - No bundling during development
-  - Native ES Modules
-  - Lightning fast HMR
+  - No bundling during development (native ES Modules)
+  - Lightning fast HMR (esbuild)
   - Optimized build with Rollup
 
+---
+
 ##### **6.2 📦 Vite Overview**
-- 🌐 What is Vite? (French word for "fast")
-- 🏗️ Vite Architecture:
-  - Dev Server (esbuild pre-bundling)
-  - Build Command (Rollup)
+- 🌐 What is Vite? (French for "fast")
+- 🏗️ Architecture:
+  - Dev Server: esbuild pre-bundling + native ESM
+  - Build Command: Rollup bundling
   - Plugin System
-- 🔄 How Vite Works:
-  - Native ESM in development
-  - On-demand file serving
-  - esbuild for dependencies
-  - Rollup for production
-- ⚡ Vite Features:
-  - Instant server start
-  - Lightning fast HMR
-  - Optimized build
-  - TypeScript support out of box
-  - CSS pre-processors
+- 🔄 How It Works:
+  - On-demand file serving (no initial bundling)
+  - Dependency pre-bundling with esbuild
+  - Production build with Rollup
+- ⚡ Key Features:
+  - Instant server start (no waiting)
+  - Lightning fast HMR (preserves app state)
+  - TypeScript out of box
+  - CSS preprocessors
   - Static assets handling
-  - Multi-page support
   - SSR support
 
+---
+
 ##### **6.3 🆕 Creating Vite Projects**
-- 📥 Creating a new Vite project:
+- 📥 Creating a project:
   ```bash
   npm create vite@latest
-  # or
-  yarn create vite
-  # or
   pnpm create vite
+  yarn create vite
   ```
 - 🎯 Project Templates:
-  - `vanilla` (plain JavaScript)
-  - `vanilla-ts` (TypeScript)
-  - `vue` (Vue.js)
-  - `vue-ts` (Vue + TypeScript)
-  - `react` (React)
-  - `react-ts` (React + TypeScript)
-  - `preact` (Preact)
-  - `preact-ts` (Preact + TypeScript)
-  - `lit` (Lit)
-  - `lit-ts` (Lit + TypeScript)
-  - `svelte` (Svelte)
-  - `svelte-ts` (Svelte + TypeScript)
+  - Vanilla, Vanilla-TS
+  - React, React-TS
+  - Vue, Vue-TS
+  - Preact, Svelte, Lit
 - 📁 Project Structure:
   ```
   my-project/
-  ├── index.html
-  ├── package.json
+  ├── index.html          # entry point (not hidden)
   ├── vite.config.js
-  ├── public/
-  │   └── favicon.ico
+  ├── package.json
+  ├── public/             # static assets
   └── src/
       ├── main.js
-      ├── App.vue/jsx/tsx
-      ├── style.css
       └── assets/
   ```
-- 🚀 Running the project:
+- 🚀 Scripts:
   ```bash
-  npm run dev
-  npm run build
-  npm run preview
+  npm run dev      # dev server
+  npm run build    # production build
+  npm run preview  # preview build
   ```
 
-##### **6.4 ⚙️ Vite Configuration (vite.config.js)**
-- 📝 Basic Configuration:
+---
+
+##### **6.4 ⚙️ Vite Configuration**
+- 📝 Basic `vite.config.js`:
   ```javascript
-  // vite.config.js
   import { defineConfig } from 'vite'
   import react from '@vitejs/plugin-react'
   
@@ -2561,149 +2549,83 @@ Production    (16-19) ████████████░ 2 oy
     },
     build: {
       outDir: 'dist',
-      sourcemap: true,
+      sourcemap: false,
       minify: 'esbuild'
     }
   })
   ```
-- 🎯 Configuration Options:
-  - `root` (project root)
-  - `base` (base public path)
-  - `mode` (development/production)
-  - `define` (global constants)
-  - `resolve.alias` (path aliases)
-  - `css` (CSS configuration)
-  - `json` (JSON options)
-  - `esbuild` (esbuild options)
-  - `assetsInclude` (additional asset types)
-  - `logLevel` (logging level)
-  - `clearScreen` (clear screen on dev)
+- 🎯 Key Options:
+  - `root` — project root
+  - `base` — base public path (/)
+  - `resolve.alias` — path aliases
+  - `css` — CSS configuration
+  - `server.proxy` — avoid CORS
+  - `build.rollupOptions` — custom Rollup config
 
-##### **6.5 🔧 Plugins System**
+---
+
+##### **6.5 🔌 Plugins System**
 - 📦 Official Plugins:
   - `@vitejs/plugin-react`
   - `@vitejs/plugin-vue`
-  - `@vitejs/plugin-legacy`
-  - `@vitejs/plugin-basic-ssl`
-- 🔌 Community Plugins:
-  - `vite-plugin-pwa` (PWA support)
-  - `vite-plugin-svgr` (SVG as React components)
-  - `vite-plugin-mdx` (MDX support)
-  - `vite-plugin-checker` (type checking)
-  - `vite-plugin-compression` (gzip/brotli)
-  - `vite-plugin-inspect` (inspect plugins)
-  - `vite-plugin-html` (HTML manipulation)
-  - `vite-plugin-environment` (env variables)
+  - `@vitejs/plugin-legacy` (browser support)
+- 🔌 Essential Community Plugins:
+  - `vite-plugin-pwa` — Progressive Web Apps
+  - `vite-plugin-svgr` — SVG as React components
+  - `vite-plugin-checker` — TypeScript type checking
+  - `vite-plugin-compression` — gzip/brotli
+  - `vite-plugin-html` — HTML manipulation
 - 🔧 Using Plugins:
   ```javascript
   import { defineConfig } from 'vite'
   import react from '@vitejs/plugin-react'
-  import svgr from 'vite-plugin-svgr'
   import { VitePWA } from 'vite-plugin-pwa'
   
   export default defineConfig({
     plugins: [
       react(),
-      svgr(),
-      VitePWA({
-        registerType: 'autoUpdate',
-        manifest: {
-          name: 'My App',
-          short_name: 'App',
-          theme_color: '#ffffff'
-        }
-      })
+      VitePWA({ manifest: { name: 'My App' } })
     ]
   })
   ```
-- 🎨 Creating Custom Plugins:
-  ```javascript
-  // my-plugin.js
-  export default function myPlugin() {
-    return {
-      name: 'vite-plugin-my-plugin',
-      configureServer(server) {
-        // dev server hooks
-      },
-      transform(code, id) {
-        // transform code
-        return {
-          code: transformedCode,
-          map: null
-        }
-      },
-      buildStart() {
-        // build hooks
-      }
-    }
-  }
-  ```
 
-##### **6.6 📂 Static Assets Handling**
-- 🖼️ Public Directory (static assets)
+---
+
+##### **6.6 📂 Static Assets**
+- 🖼️ Public Directory (`/public`) — served as-is
 - 📦 Importing Assets:
   ```javascript
   import imgUrl from './assets/image.png'
   import jsonData from './data.json'
-  import workerScript from './worker.js?worker'
+  import worker from './worker.js?worker'
   
-  // In JSX/HTML
-  <img src={imgUrl} alt="description" />
+  <img src={imgUrl} alt="" />
   ```
 - 📊 Asset Inlining:
   ```javascript
   import svgContent from './icon.svg?raw'
   import cssContent from './styles.css?inline'
   ```
-- 🎨 URL Resolution:
-  - Relative paths
-  - Absolute paths (from public)
-  - Aliased paths
 - 🖼️ Image Optimization:
-  - Automatic optimization with plugins
-  - Responsive images
-  - Lazy loading
+  - Use plugins: `vite-plugin-image-optimizer`
+  - Generate responsive images with `srcset`
+
+---
 
 ##### **6.7 🎨 CSS and Preprocessors**
 - 📝 CSS Support:
-  - Plain CSS
-  - CSS Modules
-  - PostCSS
-  - CSS Preprocessors
-- 🔧 CSS Modules:
-  ```css
-  /* style.module.css */
-  .button {
-    background: blue;
-    color: white;
-  }
-  ```
+  - Plain CSS (import directly)
+  - CSS Modules: `style.module.css`
   ```javascript
   import styles from './style.module.css'
-  
-  function Button() {
-    return <button className={styles.button}>Click</button>
-  }
+  <div className={styles.button}>
   ```
 - 🎨 Preprocessors:
   - Sass/SCSS: `npm add -D sass`
   - Less: `npm add -D less`
   - Stylus: `npm add -D stylus`
-  ```scss
-  // Using SCSS
-  $primary-color: blue;
-  
-  .button {
-    background: $primary-color;
-    &:hover {
-      background: darken($primary-color, 10%);
-    }
-  }
-  ```
 - 🔧 PostCSS:
-  - `postcss.config.js`
-  - Autoprefixer
-  - Tailwind CSS integration
+  - `postcss.config.js` + Tailwind CSS
   ```javascript
   // postcss.config.js
   export default {
@@ -2713,60 +2635,42 @@ Production    (16-19) ████████████░ 2 oy
     }
   }
   ```
-- 📱 CSS Code Splitting
-- 🎨 CSS Minification
+- 📱 CSS Code Splitting (automatic)
 
-##### **6.8 🔧 Environment Variables and Modes**
-- 🌐 Environment Variables:
-  ```bash
-  # .env
-  VITE_API_URL=http://localhost:3000
-  VITE_APP_TITLE=My App
+---
+
+##### **6.8 🔧 Environment Variables**
+- 🌐 Environment Files:
+  ```
+  .env                # all environments
+  .env.development    # dev mode
+  .env.production     # build mode
+  .env.staging        # custom mode
   ```
 - 📦 Accessing Variables:
   ```javascript
   console.log(import.meta.env.VITE_API_URL)
-  console.log(import.meta.env.MODE)
-  console.log(import.meta.env.PROD)
-  console.log(import.meta.env.DEV)
-  console.log(import.meta.env.SSR)
-  ```
-- 🎯 Environment Modes:
-  ```bash
-  # .env.development
-  # .env.production
-  # .env.staging
-  
-  # Load specific mode
-  vite build --mode staging
+  console.log(import.meta.env.MODE)      // development/production
+  console.log(import.meta.env.DEV)       // true in dev
+  console.log(import.meta.env.PROD)      // true in build
   ```
 - 🔒 TypeScript Support:
   ```typescript
   // env.d.ts
   interface ImportMetaEnv {
     readonly VITE_API_URL: string
-    readonly VITE_APP_TITLE: string
-  }
-  
-  interface ImportMeta {
-    readonly env: ImportMetaEnv
   }
   ```
+- 🎯 Custom Modes: `vite build --mode staging`
 
-##### **6.9 🚀 Development Server Features**
-- ⚡ Hot Module Replacement (HMR):
-  - How HMR works
-  - HMR API
-  - Custom HMR handling
+---
+
+##### **6.9 🚀 Development Server**
+- ⚡ HMR (Hot Module Replacement):
   ```javascript
   if (import.meta.hot) {
-    import.meta.hot.accept((newModule) => {
-      // Handle update
-    })
-    
-    import.meta.hot.dispose(() => {
-      // Cleanup
-    })
+    import.meta.hot.accept((newModule) => {})
+    import.meta.hot.dispose(() => {})
   }
   ```
 - 🔧 Server Options:
@@ -2774,14 +2678,8 @@ Production    (16-19) ████████████░ 2 oy
   export default defineConfig({
     server: {
       port: 3000,
-      strictPort: true,
-      host: '0.0.0.0',
-      open: '/dashboard',
-      cors: true,
-      https: {
-        key: fs.readFileSync('./key.pem'),
-        cert: fs.readFileSync('./cert.pem')
-      },
+      host: true,
+      open: true,
       proxy: {
         '/api': {
           target: 'http://localhost:5000',
@@ -2789,36 +2687,25 @@ Production    (16-19) ████████████░ 2 oy
           rewrite: (path) => path.replace(/^\/api/, '')
         }
       },
-      watch: {
-        usePolling: true,
-        interval: 100
-      },
-      hmr: {
-        overlay: true,
-        timeout: 5000
-      }
+      https: true,  // generate self-signed cert
+      watch: { usePolling: true }
     }
   })
   ```
-- 🔄 Proxy Configuration (avoiding CORS)
-- 📦 Middleware Support
+- 🔄 Proxy Configuration (CORS avoidance)
 
-##### **6.10 🏗️ Build Process and Optimization**
-- 📦 Build Command:
-  ```bash
-  npm run build
-  # Output in dist/ folder
-  ```
+---
+
+##### **6.10 🏗️ Build Process**
+- 📦 Build Command: `npm run build` → `/dist`
 - ⚙️ Build Configuration:
   ```javascript
   export default defineConfig({
     build: {
       outDir: 'dist',
-      assetsDir: 'assets',
-      sourcemap: true,
-      minify: 'esbuild', // or 'terser'
-      target: 'es2015',
-      cssCodeSplit: true,
+      sourcemap: false,
+      minify: 'esbuild',  // or 'terser'
+      target: 'es2020',
       chunkSizeWarningLimit: 500,
       rollupOptions: {
         input: {
@@ -2827,36 +2714,40 @@ Production    (16-19) ████████████░ 2 oy
         },
         output: {
           manualChunks: {
-            vendor: ['react', 'react-dom'],
-            utils: ['lodash', 'date-fns']
+            vendor: ['react', 'react-dom']
           }
         }
-      },
-      commonjsOptions: {
-        transformMixedEsModules: true
       }
     }
   })
   ```
 - 📦 Chunk Splitting:
-  - Manual chunks
-  - Dynamic imports
-  - Vendor chunk separation
-- 🎯 Tree Shaking (removing unused code)
-- 🖼️ Asset Optimization:
-  - Image optimization
-  - Font optimization
-  - SVG optimization
-
-##### **6.11 🔧 Path Aliases and Resolving**
-- 📝 Setting up Aliases:
+  - Automatic code splitting with dynamic imports
+  - Manual chunks with `manualChunks`
+- 🎯 Tree Shaking (removes unused code)
+- 📊 Bundle Analysis:
+  ```bash
+  npm add -D rollup-plugin-visualizer
+  ```
   ```javascript
+  import visualizer from 'rollup-plugin-visualizer'
+  export default defineConfig({
+    plugins: [visualizer({ open: true })]
+  })
+  ```
+
+---
+
+##### **6.11 🔧 Path Aliases**
+- 📝 Setting Aliases:
+  ```javascript
+  import path from 'path'
+  
   export default defineConfig({
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
         '@components': path.resolve(__dirname, './src/components'),
-        '@utils': path.resolve(__dirname, './src/utils'),
         '@assets': path.resolve(__dirname, './src/assets')
       }
     }
@@ -2865,7 +2756,6 @@ Production    (16-19) ████████████░ 2 oy
 - 📦 Using Aliases:
   ```javascript
   import Button from '@/components/Button'
-  import { formatDate } from '@utils/date'
   import logo from '@assets/logo.svg'
   ```
 - 🔧 TypeScript Path Mapping:
@@ -2882,143 +2772,101 @@ Production    (16-19) ████████████░ 2 oy
   }
   ```
 
+---
+
 ##### **6.12 🔧 TypeScript with Vite**
-- 📦 TypeScript Setup:
+- 📦 Setup: `npm create vite@latest my-app -- --template react-ts`
+- ⚙️ Type-Checking during Build:
   ```bash
-  npm create vite@latest my-app -- --template react-ts
-  ```
-- ⚙️ tsconfig.json for Vite:
-  ```json
-  {
-    "compilerOptions": {
-      "target": "ES2020",
-      "useDefineForClassFields": true,
-      "lib": ["ES2020", "DOM", "DOM.Iterable"],
-      "module": "ESNext",
-      "skipLibCheck": true,
-      "moduleResolution": "bundler",
-      "allowImportingTsExtensions": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true,
-      "jsx": "react-jsx",
-      "strict": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true
-    },
-    "include": ["src"],
-    "references": [{ "path": "./tsconfig.node.json" }]
-  }
-  ```
-- 🔧 Type-Checking during Build:
-  ```bash
-  npm install -D vite-plugin-checker
+  npm add -D vite-plugin-checker
   ```
   ```javascript
   import checker from 'vite-plugin-checker'
   
   export default defineConfig({
-    plugins: [
-      checker({ typescript: true })
-    ]
+    plugins: [checker({ typescript: true })]
   })
   ```
+- 🔧 tsconfig.json for Vite:
+  ```json
+  {
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "ESNext",
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      "allowImportingTsExtensions": true,
+      "strict": true,
+      "jsx": "react-jsx"
+    }
+  }
+  ```
 
-##### **6.13 🧪 Testing with Vite**
+---
+
+##### **6.13 🧪 Testing with Vitest**
 - ✅ Vitest (Vite-native test runner):
   ```bash
-  npm install -D vitest
+  npm add -D vitest @testing-library/react @testing-library/jest-dom
   ```
-- ⚙️ vitest.config.ts:
-  ```typescript
+- ⚙️ `vite.config.js`:
+  ```javascript
   import { defineConfig } from 'vitest/config'
-  import react from '@vitejs/plugin-react'
   
   export default defineConfig({
-    plugins: [react()],
     test: {
       environment: 'jsdom',
       globals: true,
       setupFiles: './src/test/setup.ts',
-      coverage: {
-        provider: 'v8',
-        reporter: ['text', 'json', 'html']
-      }
+      coverage: { provider: 'v8' }
     }
   })
   ```
 - 📝 Writing Tests:
   ```typescript
-  import { describe, it, expect } from 'vitest'
-  
-  describe('sum function', () => {
-    it('should add two numbers', () => {
-      expect(sum(1, 2)).toBe(3)
-    })
-  })
-  ```
-- 🧪 Testing React Components:
-  ```typescript
+  import { describe, it, expect, vi } from 'vitest'
   import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import Button from './Button'
   
   describe('Button', () => {
-    it('should render with text', () => {
-      render(<Button>Click me</Button>)
-      expect(screen.getByText('Click me')).toBeInTheDocument()
-    })
-    
-    it('should call onClick when clicked', async () => {
-      const onClick = vi.fn()
-      render(<Button onClick={onClick}>Click</Button>)
-      await userEvent.click(screen.getByText('Click'))
-      expect(onClick).toHaveBeenCalled()
+    it('renders correctly', () => {
+      render(<Button>Click</Button>)
+      expect(screen.getByText('Click')).toBeInTheDocument()
     })
   })
   ```
+- 🧪 Snapshots, Mocking, Spies
+
+---
 
 ##### **6.14 🚀 Production Deployment**
-- 📦 Building for Production:
-  ```bash
-  npm run build
-  # dist/ folder ready for deployment
+- 📦 Build: `npm run build`
+- 🌐 Deployment Platforms:
+  - **Vercel** — zero config
+  - **Netlify** — drag & drop or CLI
+  - **GitHub Pages** — `npm run build` + deploy
+  - **Cloudflare Pages**
+  - **AWS S3 + CloudFront**
+- 🐳 Docker Deployment:
+  ```dockerfile
+  FROM node:20-alpine AS builder
+  WORKDIR /app
+  COPY package*.json .
+  RUN npm ci
+  COPY . .
+  RUN npm run build
+  
+  FROM nginx:alpine
+  COPY --from=builder /app/dist /usr/share/nginx/html
+  EXPOSE 80
   ```
-- 🌐 Deployment Options:
-  - Static Hosting:
-    - Netlify
-    - Vercel
-    - GitHub Pages
-    - Cloudflare Pages
-    - AWS S3 + CloudFront
-  - Docker Deployment:
-    ```dockerfile
-    FROM node:18-alpine as builder
-    WORKDIR /app
-    COPY package*.json ./
-    RUN npm ci
-    COPY . .
-    RUN npm run build
-    
-    FROM nginx:alpine
-    COPY --from=builder /app/dist /usr/share/nginx/html
-    COPY nginx.conf /etc/nginx/nginx.conf
-    EXPOSE 80
-    CMD ["nginx", "-g", "daemon off;"]
-    ```
 - ⚙️ Environment Variables in Production:
-  - Build-time variables
-  - Runtime configuration
-  - Client-side secrets handling
-- 🔧 Post-Build Optimization:
-  - Gzip/Brotli compression
-  - CDN configuration
-  - Cache headers
-  - Service Worker (PWA)
+  - Build-time only (injected during build)
+  - No runtime client-side secrets
 
-##### **6.15 🔧 Advanced Vite Features**
-- 📦 Multi-Page Application Support:
+---
+
+##### **6.15 🔧 Advanced Features**
+- 📦 Multi-Page Application (MPA):
   ```javascript
   export default defineConfig({
     build: {
@@ -3032,17 +2880,6 @@ Production    (16-19) ████████████░ 2 oy
     }
   })
   ```
-- 🔄 Server-Side Rendering (SSR):
-  ```javascript
-  // vite.config.js
-  export default defineConfig({
-    ssr: {
-      noExternal: ['some-package'],
-      target: 'node',
-      format: 'esm'
-    }
-  })
-  ```
 - 📦 Library Mode:
   ```javascript
   export default defineConfig({
@@ -3050,846 +2887,412 @@ Production    (16-19) ████████████░ 2 oy
       lib: {
         entry: 'src/index.ts',
         name: 'MyLibrary',
-        fileName: (format) => `my-library.${format}.js`,
-        formats: ['es', 'umd']
+        formats: ['es', 'umd'],
+        fileName: (format) => `my-lib.${format}.js`
       },
       rollupOptions: {
-        external: ['react', 'react-dom'],
-        output: {
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM'
-          }
-        }
+        external: ['react'],
+        output: { globals: { react: 'React' } }
       }
     }
   })
   ```
-- 🎨 Custom Dev Server Middleware
-- 🔧 Worker Scripts:
-  ```javascript
-  import MyWorker from './worker?worker'
-  
-  const worker = new MyWorker()
-  worker.postMessage('hello')
-  worker.onmessage = (e) => console.log(e.data)
-  ```
-
-##### **6.16 🔧 Performance Optimization**
-- ⚡ Build Performance:
-  - esbuild vs terser
-  - Chunk splitting strategies
-  - Dynamic imports
-  ```javascript
-  // Lazy loading
-  const AdminPanel = React.lazy(() => import('./AdminPanel'))
-  
-  // Route-based code splitting
-  const routes = [
-    {
-      path: '/dashboard',
-      component: React.lazy(() => import('./Dashboard'))
-    }
-  ]
-  ```
-- 📦 Bundle Analysis:
-  ```bash
-  npm install -D rollup-plugin-visualizer
-  ```
-  ```javascript
-  import visualizer from 'rollup-plugin-visualizer'
-  
-  export default defineConfig({
-    plugins: [
-      visualizer({
-        filename: 'dist/stats.html',
-        open: true
-      })
-    ]
-  })
-  ```
-- 🖼️ Image Optimization:
-  - `vite-plugin-image-optimizer`
-  - Responsive images with `srcset`
-  - WebP/AVIF formats
-- 📊 Performance Budgets
-- 🚀 HTTP/2 Server Push
-
-##### **6.17 🔌 Integration with Backend Frameworks**
-- 🌐 Vite + Laravel:
-  ```php
-  // Laravel Mix to Vite migration
-  // Using Laravel Vite plugin
-  ```
-- 🐍 Vite + Django:
-  - django-vite integration
-- ☕ Vite + Spring Boot
-- 📦 Vite + Ruby on Rails
-- ⚡ Vite + WordPress
-
-##### **6.18 🧩 Vite Ecosystem**
-- 📚 Popular Templates:
-  - `vite-ts-react-tailwind` (starter template)
-  - `vite-react-ts-starter` (complete starter)
-  - `vite-electron-builder` (Electron apps)
-  - `vite-react-native` (React Native Web)
-- 🔧 Vite Tools:
-  - `vite-ssr` (SSR framework)
-  - `vite-plugin-pages` (file-based routing)
-  - `vite-plugin-mock` (API mocking)
-  - `vite-plugin-windicss` (Windi CSS)
-  - `vite-plugin-icons` (icon collections)
-- 📚 Learning Resources:
-  - Vite documentation
-  - Awesome Vite (GitHub)
-  - Vite Discord community
-
-##### **6.19 🚀 Migration to Vite**
-- 🔄 From Create React App:
-  ```bash
-  npm install -D @vitejs/plugin-react vite
-  # Update package.json scripts
-  # Move index.html to root
-  # Configure vite.config.js
-  ```
-- 🔄 From Webpack:
-  - Analyze webpack config
-  - Map plugins to Vite equivalents
-  - Update environment variables
-  - Test build output
-- 🔄 From Next.js (static export)
-- 📦 Common Migration Issues:
-  - Path aliases
-  - Environment variables
-  - CSS imports
-  - Dynamic imports
-  - Public assets
-
-##### **6.20 💻 Practical Projects**
-- 🏗️ Create a React + TypeScript + Vite Starter
-- 📝 Build a Portfolio Site with Vite
-- 🔧 Create a Component Library with Vite Library Mode
-- 🚀 Deploy a Vite App to Vercel/Netlify
-- 📦 Configure Multi-Page Application
-- 🎨 Add Tailwind CSS to Vite Project
-- 🔌 Integrate Vite with Express Backend
-- 🧪 Add Vitest for Unit Testing
-- 📊 Analyze Bundle Size with Visualizer
-- 🌐 Create a PWA with Vite Plugin
-- 🔧 Migrate CRA Project to Vite
-- 🏗️ Build an SSR Application with Vite
+- 🔄 SSR (Server-Side Rendering) support
+- 🔧 Web Workers: `import Worker from './worker?worker'`
 
 ---
 
-## 🎯 STAGE 7 — React (UI Library)
-**Goal**: Master React for building modern, interactive user interfaces.
-**Time**: 60 soat | 30 dars
+##### **6.16 🔌 Integration with Frameworks**
+- ⚛️ React + Vite (covered)
+- 🖖 Vue + Vite
+- 🎨 Tailwind CSS Integration:
+  ```bash
+  npm add -D tailwindcss postcss autoprefixer
+  npx tailwindcss init -p
+  ```
+- 🌐 Laravel + Vite
+- 🐍 Django + Vite (django-vite-plugin)
+
+---
+
+##### **6.17 🔄 Migration to Vite**
+- 🔄 From Create React App:
+  ```bash
+  npm add -D @vitejs/plugin-react vite
+  # Move index.html to root
+  # Update package.json scripts
+  # Configure vite.config.js
+  ```
+- 🔄 From Webpack:
+  - Path aliases need remapping
+  - Environment variables: `process.env` → `import.meta.env`
+  - CSS imports: `@import` paths
+- 📦 Common Issues:
+  - Environment variables
+  - Public folder handling
+  - Dynamic imports syntax
+
+---
+
+##### **6.18 💻 Practical Projects**
+- 🏗️ Create React + TypeScript + Vite starter
+- 📝 Build portfolio site with Vite
+- 🔧 Create component library with Library Mode
+- 🚀 Deploy Vite app to Vercel/Netlify
+- 📦 Configure Multi-Page Application
+- 🎨 Add Tailwind CSS to Vite project
+- 🧪 Add Vitest for unit testing
+- 📊 Analyze bundle size with visualizer
+- 🔄 Migrate CRA project to Vite
+- 🌐 Create PWA with `vite-plugin-pwa`
+- 🏗️ Build SSR application with Vite
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 7 — REACT (Modern UI Library)
+**Goal**: Master React for building modern, interactive user interfaces with latest patterns.
+**Time**: 72 soat | 30 dars
+
+---
 
 #### 📚 **Topics**
 
 ##### **7.1 ⚛️ Introduction to React**
-- 🤔 What is React?
-- 📜 History of React (Facebook, 2013)
-- 🎯 Why React? (Advantages over vanilla JS)
-- 🔄 React vs Other Frameworks (Vue, Angular, Svelte)
-- 🏗️ React Philosophy:
+- 🤔 What is React? (Library for building UIs)
+- 📜 History (Facebook, 2013, open-source)
+- 🎯 Why React? (Declarative, Component-based, Learn once write anywhere)
+- 🔄 React vs Alternatives (Vue, Angular, Svelte, Solid)
+- 🏗️ Core Philosophy:
   - Component-based architecture
   - Declarative UI
   - Virtual DOM
   - Unidirectional data flow
 - 🌐 React Ecosystem Overview
 
+---
+
 ##### **7.2 🔧 Setting Up React**
-- 📦 Create React App (legacy):
-  ```bash
-  npx create-react-app my-app
-  cd my-app
-  npm start
-  ```
-- ⚡ Vite + React (recommended):
+- ⚡ Vite + React (recommended, CRA deprecated):
   ```bash
   npm create vite@latest my-app -- --template react
-  # or with TypeScript
   npm create vite@latest my-app -- --template react-ts
   ```
 - 📁 Project Structure:
   ```
   my-app/
-  ├── index.html
-  ├── package.json
+  ├── index.html          # entry (Vite)
   ├── vite.config.js
-  ├── public/
-  │   └── vite.svg
+  ├── package.json
   └── src/
-      ├── main.jsx
+      ├── main.jsx        # entry point
       ├── App.jsx
-      ├── App.css
       └── assets/
   ```
-- 🚀 Running the Development Server
-- 🔧 React Developer Tools (Chrome Extension)
+- 🚀 Scripts: `npm run dev`, `npm run build`, `npm run preview`
+- 🔧 React Developer Tools (Chrome/Firefox extension)
+
+---
 
 ##### **7.3 🧩 JSX (JavaScript XML)**
-- 📝 What is JSX?
+- 📝 What is JSX? (JavaScript + XML syntax)
 - 🎯 JSX Syntax:
   ```jsx
-  const element = <h1>Hello, world!</h1>
-  const name = "John"
   const element = <h1>Hello, {name}</h1>
-  ```
-- 📦 Embedding Expressions:
-  ```jsx
-  const user = { firstName: 'John', lastName: 'Doe' }
-  const element = <h1>Hello, {formatName(user)}</h1>
-  ```
-- 🎨 JSX Attributes:
-  ```jsx
   const element = <img src={user.avatarUrl} className="avatar" />
   ```
-- 📦 JSX Children:
-  ```jsx
-  const element = (
-    <div>
-      <h1>Title</h1>
-      <p>Paragraph</p>
-    </div>
-  )
-  ```
-- 🔧 JSX Prevents Injection Attacks
-- 🔄 JSX Transpilation (React.createElement)
+- 📦 Embedding Expressions: `{expression}`
+- 📦 JSX Children: self-closing vs wrapping
+- 🔧 JSX Transpilation: `React.createElement()`
+- 🔒 JSX Prevents Injection Attacks (auto-escaping)
+
+---
 
 ##### **7.4 📦 Components**
-- 📝 Functional Components:
+- 📝 Functional Components (modern):
   ```jsx
-  function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>
+  function Welcome({ name }) {
+    return <h1>Hello, {name}</h1>
   }
   
-  // Arrow function
-  const Welcome = (props) => <h1>Hello, {props.name}</h1>
+  const Welcome = ({ name }) => <h1>Hello, {name}</h1>
   ```
-- 🏗️ Class Components (legacy):
-  ```jsx
-  class Welcome extends React.Component {
-    render() {
-      return <h1>Hello, {this.props.name}</h1>
-    }
-  }
-  ```
-- 🎯 Component Composition:
-  ```jsx
-  function App() {
-    return (
-      <div>
-        <Welcome name="John" />
-        <Welcome name="Jane" />
-        <Welcome name="Bob" />
-      </div>
-    )
-  }
-  ```
-- 📦 Component Naming Conventions
-- 🔄 Pure Components
-- 🎨 Component Best Practices
+- 🏗️ Class Components (legacy — understand but don't write new code)
+- 🎯 Component Composition
+- 📦 Component Naming: PascalCase
+- 🔄 Pure Components (`React.memo`)
 
-##### **7.5 📤 Props (Properties)**
-- 📝 Passing Props:
+---
+
+##### **7.5 📤 Props**
+- 📝 Passing and Receiving Props:
   ```jsx
-  <Avatar
-    size={100}
-    src="avatar.jpg"
-    alt="User avatar"
-    user={{ name: "John", email: "john@example.com" }}
-  />
-  ```
-- 📥 Receiving Props:
-  ```jsx
-  function Avatar({ size, src, alt, user }) {
-    return (
-      <div>
-        <img width={size} src={src} alt={alt} />
-        <p>{user.name}</p>
-      </div>
-    )
+  <Avatar size={100} user={{ name: "John" }} />
+  
+  function Avatar({ size, user, children }) {
+    return <img width={size} alt={user.name} />
   }
   ```
-- 📦 Default Props:
-  ```jsx
-  function Button({ type = 'button', children }) {
-    return <button type={type}>{children}</button>
-  }
-  ```
-- 🎯 Props Destructuring
-- 🔒 Props are Read-Only (immutable)
+- 📦 Default Props: `variant = 'primary'`
+- 🔒 Props are Read-Only
 - 📤 Children Prop:
   ```jsx
   function Card({ children }) {
     return <div className="card">{children}</div>
   }
-  
-  // Usage
-  <Card>
-    <h2>Title</h2>
-    <p>Content</p>
-  </Card>
   ```
-- 🔄 Render Props Pattern
+- 🔄 Prop Drilling (problem → Context solves)
 
-##### **7.6 🎯 State Management Basics**
+---
+
+##### **7.6 🎯 State Management (useState)**
 - 📦 useState Hook:
   ```jsx
-  import { useState } from 'react'
-  
-  function Counter() {
-    const [count, setCount] = useState(0)
-    
-    return (
-      <div>
-        <p>Count: {count}</p>
-        <button onClick={() => setCount(count + 1)}>
-          Increment
-        </button>
-      </div>
-    )
-  }
+  const [count, setCount] = useState(0)
+  const [user, setUser] = useState({ name: '', email: '' })
+  const [items, setItems] = useState([])
   ```
 - 🎯 State Updates are Asynchronous
-- 📦 State with Objects:
+- 📦 Updating Objects/Arrays (immutability):
   ```jsx
-  const [user, setUser] = useState({ name: '', email: '' })
-  
-  // Update object
   setUser({ ...user, name: 'John' })
-  ```
-- 📦 State with Arrays:
-  ```jsx
-  const [items, setItems] = useState([])
-  
-  // Add item
   setItems([...items, newItem])
-  
-  // Remove item
   setItems(items.filter(item => item.id !== id))
-  
-  // Update item
-  setItems(items.map(item => 
-    item.id === id ? { ...item, updated: true } : item
-  ))
+  setItems(items.map(item => item.id === id ? { ...item, done: true } : item))
   ```
-- 🔄 Lazy Initial State
-- 🎯 State vs Props
-- 📦 Lifting State Up
+- 🔄 Lazy Initial State: `useState(() => expensiveComputation())`
+- 📦 State vs Props
+
+---
 
 ##### **7.7 🔄 Handling Events**
-- 📝 Event Handling Syntax:
+- 📝 Event Handlers:
   ```jsx
-  function Button() {
-    function handleClick() {
-      console.log('Button clicked')
-    }
-    
-    return <button onClick={handleClick}>Click me</button>
-  }
-  ```
-- 🎯 Event Object:
-  ```jsx
-  function handleInput(e) {
-    console.log(e.target.value)
+  function handleClick(e) {
+    e.preventDefault()
+    console.log('Clicked')
   }
   
-  <input onChange={handleInput} />
+  <button onClick={handleClick}>Click</button>
+  <input onChange={(e) => setValue(e.target.value)} />
   ```
 - 📦 Passing Arguments:
   ```jsx
-  function handleDelete(id, e) {
-    console.log('Delete', id)
-  }
-  
-  <button onClick={(e) => handleDelete(1, e)}>
-    Delete
-  </button>
+  <button onClick={() => handleDelete(id)}>Delete</button>
   ```
-- 🚫 Preventing Default Behavior:
-  ```jsx
-  function handleSubmit(e) {
-    e.preventDefault()
-    // form submission logic
-  }
-  ```
-- 🎯 SyntheticEvent (React's event wrapper)
-- 🔄 Event Pooling (legacy)
+- 🎯 SyntheticEvent (React's cross-browser wrapper)
+- ⚠️ Event Pooling (legacy — removed in React 17+)
+
+---
 
 ##### **7.8 🔄 Conditional Rendering**
-- 📝 if Statement:
-  ```jsx
-  function Greeting({ isLoggedIn }) {
-    if (isLoggedIn) {
-      return <UserGreeting />
-    }
-    return <GuestGreeting />
-  }
-  ```
-- ❓ Ternary Operator:
-  ```jsx
-  <div>
-    {isLoggedIn ? <LogoutButton /> : <LoginButton />}
-  </div>
-  ```
-- 🔗 Logical && Operator:
-  ```jsx
-  <div>
-    {unreadMessages.length > 0 && (
-      <h2>You have {unreadMessages.length} unread messages.</h2>
-    )}
-  </div>
-  ```
-- 🚫 Conditional Rendering with null
-- 🔄 Element Variables:
-  ```jsx
-  let button
-  if (isLoggedIn) {
-    button = <LogoutButton />
-  } else {
-    button = <LoginButton />
-  }
-  
-  return <div>{button}</div>
-  ```
+- 📝 `if` Statement (outside JSX)
+- ❓ Ternary Operator: `{isLoggedIn ? <Logout /> : <Login />}`
+- 🔗 Logical &&: `{unreadCount > 0 && <Badge count={unreadCount} />}`
+- 🚫 `null` (render nothing)
+- 🔄 Element Variables (store JSX in variable)
+
+---
 
 ##### **7.9 🔄 Lists and Keys**
 - 📝 Rendering Lists:
   ```jsx
-  function NumberList({ numbers }) {
-    const listItems = numbers.map(number => 
-      <li>{number}</li>
-    )
-    return <ul>{listItems}</ul>
-  }
+  {items.map(item => <li key={item.id}>{item.name}</li>)}
   ```
-- 🗝️ Keys in React:
-  ```jsx
-  const todoItems = todos.map(todo =>
-    <li key={todo.id}>
-      {todo.text}
-    </li>
-  )
-  ```
-- 🎯 Why Keys are Important:
-  - Performance (reconciliation)
-  - Identity of elements
-  - Avoiding bugs
-- 📦 Keys Best Practices:
-  - Use unique IDs (not index)
-  - Stable across renders
-  - Unique among siblings
-- ⚠️ Anti-pattern: Using Index as Key
-- 🔄 Extracting Components with Keys
+- 🗝️ Keys: stable, unique, predictable identity
+- 🚫 Anti-pattern: using array index as key
+- 🎯 Why Keys Matter: reconciliation performance
+
+---
 
 ##### **7.10 🎨 Styling React Components**
-- 📝 Inline Styles:
-  ```jsx
-  const divStyle = {
-    color: 'blue',
-    backgroundColor: 'lightgray'
-  }
-  
-  function MyComponent() {
-    return <div style={divStyle}>Styled content</div>
-  }
-  ```
-- 📦 CSS Classes:
-  ```jsx
-  import './Button.css'
-  
-  function Button() {
-    return <button className="btn btn-primary">Click</button>
-  }
-  ```
-- 🎯 CSS Modules:
-  ```jsx
-  import styles from './Button.module.css'
-  
-  function Button() {
-    return <button className={styles.primary}>Click</button>
-  }
-  ```
-- 🎨 Styled Components (CSS-in-JS):
+- 📝 Inline Styles: `style={{ color: 'blue', backgroundColor: 'gray' }}`
+- 📦 CSS Classes: `className="btn btn-primary"`
+- 🎯 CSS Modules: `import styles from './Button.module.css'` → `className={styles.button}`
+- 🎨 Styled Components:
   ```bash
   npm install styled-components
   ```
   ```jsx
-  import styled from 'styled-components'
-  
   const Button = styled.button`
-    background: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    
-    &:hover {
-      background: darkblue;
-    }
+    background: ${props => props.primary ? 'blue' : 'gray'};
+    &:hover { background: darkblue; }
   `
   ```
-- 🎨 Emotion (alternative CSS-in-JS)
 - 🔧 Tailwind CSS with React (Stage 12)
-- 📦 Dynamic Styling with State
+
+---
 
 ##### **7.11 🔄 Lifecycle and Effects (useEffect)**
-- 📝 What are Side Effects?
-- 🔧 useEffect Hook:
-  ```jsx
-  import { useEffect } from 'react'
-  
-  function Example() {
-    useEffect(() => {
-      // Effect runs after render
-      document.title = 'New Title'
-    })
-    
-    return <div>Content</div>
-  }
-  ```
-- 📦 Effect Dependencies:
+- 📝 useEffect Hook:
   ```jsx
   useEffect(() => {
-    // Runs only when count changes
-    console.log('Count changed:', count)
-  }, [count])
-  
-  useEffect(() => {
-    // Runs only once (on mount)
-    fetchData()
-  }, [])
-  ```
-- 🧹 Cleanup Function:
-  ```jsx
-  useEffect(() => {
-    const subscription = props.source.subscribe()
+    // runs after render
+    document.title = `Count: ${count}`
     
     return () => {
-      // Cleanup on unmount or before next effect
-      subscription.unsubscribe()
+      // cleanup (on unmount or before next effect)
     }
-  }, [props.source])
+  }, [count]) // dependency array
   ```
 - 🎯 Common Use Cases:
-  - Fetching data
+  - Data fetching
   - Subscriptions
   - DOM manipulation
-  - Timers (setInterval, setTimeout)
+  - Timers
   - Event listeners
-- ⚠️ Effect Pitfalls:
-  - Infinite loops
-  - Missing dependencies
-  - Stale closures
+- ⚠️ Empty deps: `[]` → runs once (mount)
+- ⚠️ No deps: runs after every render
+- 🔄 Cleanup Function
 
-##### **7.12 🎯 Advanced Hooks - useRef**
-- 📝 useRef Hook:
-  ```jsx
-  import { useRef } from 'react'
-  
-  function TextInput() {
-    const inputRef = useRef(null)
-    
-    const focusInput = () => {
-      inputRef.current.focus()
-    }
-    
-    return (
-      <div>
-        <input ref={inputRef} type="text" />
-        <button onClick={focusInput}>Focus Input</button>
-      </div>
-    )
-  }
-  ```
-- 📦 Storing Mutable Values:
-  ```jsx
-  function Timer() {
-    const intervalRef = useRef()
-    
-    useEffect(() => {
-      intervalRef.current = setInterval(() => {
-        // do something
-      }, 1000)
-      
-      return () => clearInterval(intervalRef.current)
-    }, [])
-  }
-  ```
-- 🎯 Forwarding Refs:
-  ```jsx
-  const FancyInput = forwardRef((props, ref) => {
-    return <input ref={ref} className="fancy" {...props} />
-  })
-  ```
-- 🔄 useRef vs useState (persistence without re-render)
+---
 
-##### **7.13 🎯 Advanced Hooks - useMemo and useCallback**
-- 📦 useMemo (memoize values):
+##### **7.12 🎯 useRef**
+- 📝 DOM Reference:
   ```jsx
-  import { useMemo } from 'react'
-  
-  function ExpensiveComponent({ data }) {
-    const processedData = useMemo(() => {
-      return data.map(item => expensiveOperation(item))
-    }, [data])
-    
-    return <div>{processedData}</div>
-  }
+  const inputRef = useRef(null)
+  inputRef.current.focus()
+  <input ref={inputRef} />
   ```
-- 📦 useCallback (memoize functions):
+- 📦 Mutable Values (persist without re-render):
   ```jsx
-  import { useCallback } from 'react'
-  
-  function Parent() {
-    const [count, setCount] = useState(0)
-    
-    const handleClick = useCallback(() => {
-      console.log('Button clicked')
-    }, []) // Empty deps - function never changes
-    
-    return <Child onClick={handleClick} />
-  }
+  const intervalRef = useRef()
+  intervalRef.current = setInterval(() => {}, 1000)
   ```
-- 🎯 When to use:
-  - Expensive calculations
-  - Referential equality
-  - Optimizing child renders
-  - Preventing unnecessary effects
-- ⚠️ Premature Optimization (don't overuse)
+- 🎯 Forwarding Refs: `forwardRef`
+- 🔄 useRef vs useState
+
+---
+
+##### **7.13 🎯 useMemo and useCallback**
+- 📦 useMemo (cache expensive calculations):
+  ```jsx
+  const expensiveValue = useMemo(() => {
+    return items.map(item => heavyComputation(item))
+  }, [items])
+  ```
+- 📦 useCallback (cache functions):
+  ```jsx
+  const handleClick = useCallback(() => {
+    console.log(count)
+  }, [count])
+  ```
+- 🎯 When to Use:
+  - Expensive computations
+  - Referential equality (prevent child re-renders)
+  - Dependencies for other hooks
+- ⚠️ Don't over-optimize
+
+---
 
 ##### **7.14 🎯 Custom Hooks**
 - 📝 Creating Custom Hooks:
   ```jsx
-  // useLocalStorage.js
-  import { useState, useEffect } from 'react'
-  
   function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
-      try {
-        const item = window.localStorage.getItem(key)
-        return item ? JSON.parse(item) : initialValue
-      } catch (error) {
-        return initialValue
-      }
+      const item = localStorage.getItem(key)
+      return item ? JSON.parse(item) : initialValue
     })
     
     useEffect(() => {
-      window.localStorage.setItem(key, JSON.stringify(storedValue))
+      localStorage.setItem(key, JSON.stringify(storedValue))
     }, [key, storedValue])
     
     return [storedValue, setStoredValue]
   }
-  
-  // Usage
-  function App() {
-    const [name, setName] = useLocalStorage('name', 'John')
-    return <input value={name} onChange={e => setName(e.target.value)} />
-  }
   ```
 - 📦 Common Custom Hooks:
-  - `useFetch` (data fetching)
-  - `useDebounce` (debounced value)
-  - `useThrottle` (throttled value)
-  - `useWindowSize` (responsive)
-  - `useClickOutside` (modal/dropdown)
-  - `usePrevious` (previous value)
-  - `useToggle` (boolean toggle)
-  - `useForm` (form handling)
-  - `useAuth` (authentication)
+  - `useFetch`, `useDebounce`, `useThrottle`
+  - `useWindowSize`, `useClickOutside`
+  - `useToggle`, `usePrevious`, `useForm`
 - 🎯 Rules of Hooks:
-  - Only call hooks at top level
-  - Only call hooks from React functions
-  - Custom hooks naming (use prefix)
+  - Only call at top level
+  - Only call from React functions
+  - Custom hooks must start with `use`
 
-##### **7.15 🔄 Context API (Basic)**
+---
+
+##### **7.15 🔄 Context API**
 - 📝 Creating Context:
   ```jsx
-  import { createContext } from 'react'
-  
   const ThemeContext = createContext('light')
   ```
 - 📦 Providing Context:
   ```jsx
-  function App() {
-    return (
-      <ThemeContext.Provider value="dark">
-        <Toolbar />
-      </ThemeContext.Provider>
-    )
-  }
+  <ThemeContext.Provider value="dark">
+    <App />
+  </ThemeContext.Provider>
   ```
 - 📥 Consuming Context:
   ```jsx
-  function ThemedButton() {
-    const theme = useContext(ThemeContext)
-    return <button className={theme}>Themed Button</button>
-  }
+  const theme = useContext(ThemeContext)
   ```
-- 🎯 When to use Context:
-  - Theme (light/dark mode)
+- 🎯 Use Cases:
+  - Theme (dark/light mode)
   - User authentication
   - Language/locale
   - Global settings
-- ⚠️ Context Limitations (will cover more in Stage 9)
+- ⚠️ Context Limitations (not for high-frequency updates → use state management)
+
+---
 
 ##### **7.16 🏗️ React Router (Basic)**
-- 📦 Installation:
-  ```bash
-  npm install react-router-dom
-  ```
-- 📝 Basic Routing:
+- 📦 Installation: `npm install react-router-dom`
+- 📝 Basic Setup:
   ```jsx
   import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
   
-  function App() {
-    return (
-      <BrowserRouter>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    )
-  }
+  <BrowserRouter>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+    </nav>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
   ```
 - 📦 Route Parameters:
   ```jsx
   <Route path="/user/:id" element={<UserProfile />} />
-  
-  // In UserProfile component
-  import { useParams } from 'react-router-dom'
-  const { id } = useParams()
+  // const { id } = useParams()
   ```
-- 🔄 Navigation:
-  ```jsx
-  import { useNavigate } from 'react-router-dom'
-  
-  function LoginButton() {
-    const navigate = useNavigate()
-    
-    const handleLogin = () => {
-      // login logic
-      navigate('/dashboard')
-    }
-    
-    return <button onClick={handleLogin}>Login</button>
-  }
-  ```
-- 🎯 Nested Routes (will cover more in Stage 8)
+- 🔄 Navigation: `useNavigate()`
+
+---
 
 ##### **7.17 📦 Forms in React**
 - 📝 Controlled Components:
   ```jsx
-  function LoginForm() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      console.log({ email, password })
-    }
-    
-    return (
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
-    )
-  }
+  const [value, setValue] = useState('')
+  <input value={value} onChange={e => setValue(e.target.value)} />
   ```
 - 📦 Multiple Inputs:
   ```jsx
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    age: ''
-  })
-  
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  const [form, setForm] = useState({ name: '', email: '' })
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   ```
-- 🎯 Select, Textarea, Checkbox, Radio
+- 🎯 Handling: input, textarea, select, checkbox, radio
 - 🔄 Uncontrolled Components (useRef)
-- 📦 Form Validation (basic)
-- 🔧 Form Libraries (React Hook Form - Stage 14)
+- 📦 Basic Validation
+- 🔧 React Hook Form (Stage 14)
 
-##### **7.18 🌐 Data Fetching in React**
-- 📝 Fetch API with useEffect:
+---
+
+##### **7.18 🌐 Data Fetching**
+- 📝 useEffect + fetch:
   ```jsx
-  function UserList() {
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    
-    useEffect(() => {
-      fetch('https://api.example.com/users')
-        .then(res => res.json())
-        .then(data => {
-          setUsers(data)
-          setLoading(false)
-        })
-        .catch(err => {
-          setError(err.message)
-          setLoading(false)
-        })
-    }, [])
-    
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-    
-    return (
-      <ul>
-        {users.map(user => <li key={user.id}>{user.name}</li>)}
-      </ul>
-    )
-  }
-  ```
-- 📦 Async/Await Pattern:
-  ```jsx
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        setLoading(true)
-        const res = await fetch('https://api.example.com/users')
-        const data = await res.json()
-        setUsers(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    
-    fetchUsers()
-  }, [])
-  ```
-- 🔄 AbortController (cleanup):
-  ```jsx
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  
   useEffect(() => {
     const abortController = new AbortController()
     
@@ -3899,146 +3302,101 @@ Production    (16-19) ████████████░ 2 oy
       .catch(err => {
         if (err.name !== 'AbortError') setError(err)
       })
+      .finally(() => setLoading(false))
     
     return () => abortController.abort()
   }, [url])
   ```
-- 🎯 Custom useFetch Hook
-- 📦 React Query / TanStack Query (advanced)
-- 🔧 Axios (will cover in Stage 11)
+- 🎯 Loading and Error States
+- 🔄 Custom `useFetch` Hook
+- 📦 React Query / TanStack Query (Stage 9)
 
-##### **7.19 🎯 React Performance Optimization**
-- 📦 React.memo (component memoization):
+---
+
+##### **7.19 🎯 Performance Optimization**
+- 📦 `React.memo` (prevent re-renders):
   ```jsx
-  const MemoizedComponent = React.memo(function MyComponent(props) {
-    // Renders only if props change
-    return <div>{props.name}</div>
+  const MemoComponent = React.memo(({ name }) => {
+    return <div>{name}</div>
   })
   ```
-- 📦 useMemo (value memoization)
-- 📦 useCallback (function memoization)
-- 🔄 Lazy Loading Components:
+- 📦 `useMemo` (cache values)
+- 📦 `useCallback` (cache functions)
+- 🔄 Lazy Loading + Suspense:
   ```jsx
-  import { lazy, Suspense } from 'react'
+  const LazyComponent = lazy(() => import('./HeavyComponent'))
   
-  const LazyComponent = lazy(() => import('./LazyComponent'))
-  
-  function App() {
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyComponent />
-      </Suspense>
-    )
-  }
+  <Suspense fallback={<Spinner />}>
+    <LazyComponent />
+  </Suspense>
   ```
-- 📦 Code Splitting with React.lazy
-- 🎯 Virtualization (react-window, react-virtualized)
-- 🔧 Profiling React Apps (React DevTools Profiler)
-- ⚠️ Common Performance Pitfalls:
-  - Unnecessary re-renders
-  - Large lists without virtualization
-  - Expensive calculations without memoization
-  - Inline functions in render
+- 🎯 Virtualization: `react-window` for large lists
+- 🔧 React DevTools Profiler
 
-##### **7.20 🧪 Testing React Components (Basic)**
-- 📦 Jest and React Testing Library:
-  ```bash
-  npm install --save-dev @testing-library/react @testing-library/jest-dom
-  ```
-- 📝 Basic Component Test:
+---
+
+##### **7.20 🧪 Testing React Components**
+- 📦 Setup: `@testing-library/react`, `@testing-library/jest-dom`, `vitest`
+- 📝 Basic Test:
   ```jsx
   import { render, screen } from '@testing-library/react'
   import userEvent from '@testing-library/user-event'
-  import Button from './Button'
   
-  test('Button renders with text', () => {
-    render(<Button>Click me</Button>)
-    expect(screen.getByText('Click me')).toBeInTheDocument()
-  })
-  
-  test('Button calls onClick when clicked', async () => {
-    const handleClick = jest.fn()
+  test('button click', async () => {
+    const handleClick = vi.fn()
     render(<Button onClick={handleClick}>Click</Button>)
     
     await userEvent.click(screen.getByText('Click'))
     expect(handleClick).toHaveBeenCalled()
   })
   ```
-- 🎯 Testing Hooks (renderHook)
+- 🎯 Testing Hooks: `renderHook`
 - 🔄 Testing Async Operations
-- 📦 Mocking API Calls
-- 🧪 Test Coverage (will cover more in Stage 17-18)
+
+---
 
 ##### **7.21 🔧 React DevTools**
-- 🛠️ Components Tab:
-  - Inspect component tree
-  - View props and state
-  - Edit props/state in real-time
-  - Search components
-- ⚡ Profiler Tab:
-  - Record performance
-  - Identify slow components
-  - Analyze render times
-  - Find unnecessary renders
+- 🛠️ Components Tab: inspect props, state, hooks
+- ⚡ Profiler Tab: record renders, identify slow components
 - 🐛 Debugging with DevTools
-- 🔍 Source Maps for Debugging
+
+---
 
 ##### **7.22 🏗️ React Architecture Patterns**
-- 📁 Folder Structure:
+- 📁 Folder Structure (feature-based):
   ```
   src/
-  ├── components/
-  │   ├── common/
-  │   ├── layout/
-  │   └── features/
-  ├── hooks/
-  ├── utils/
-  ├── services/
-  ├── contexts/
-  ├── types/
+  ├── features/
+  │   └── auth/
+  │       ├── components/
+  │       ├── hooks/
+  │       ├── services/
+  │       └── types/
+  ├── shared/
+  │   ├── components/
+  │   ├── hooks/
+  │   └── utils/
   └── pages/
   ```
 - 🎯 Component Patterns:
-  - Presentational vs Container Components
+  - Presentational vs Container
   - Compound Components
-  - Higher-Order Components (HOC)
-  - Render Props
   - Custom Hooks
-- 📦 Atomic Design Pattern:
-  - Atoms (Button, Input)
-  - Molecules (SearchBar)
-  - Organisms (Header, Footer)
-  - Templates (Page layouts)
-  - Pages (Specific views)
-- 🔄 Feature-based Organization
+- 📦 Atomic Design (Atoms, Molecules, Organisms, Templates, Pages)
+
+---
 
 ##### **7.23 🎯 React with TypeScript**
 - 📝 Typing Props:
   ```tsx
   interface ButtonProps {
     variant?: 'primary' | 'secondary'
-    size?: 'small' | 'medium' | 'large'
     onClick: () => void
     children: React.ReactNode
-    disabled?: boolean
   }
   
-  const Button: React.FC<ButtonProps> = ({
-    variant = 'primary',
-    size = 'medium',
-    onClick,
-    children,
-    disabled = false
-  }) => {
-    return (
-      <button
-        className={`btn btn-${variant} btn-${size}`}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {children}
-      </button>
-    )
+  const Button: React.FC<ButtonProps> = ({ variant = 'primary', onClick, children }) => {
+    return <button className={`btn-${variant}`} onClick={onClick}>{children}</button>
   }
   ```
 - 📦 Typing Hooks:
@@ -4049,250 +3407,108 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 🎯 Typing Events:
   ```tsx
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
-  }
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {}
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {}
   ```
-- 📦 Typing Context
-- 🔧 Generic Components
+
+---
 
 ##### **7.24 🚀 React Best Practices**
 - 📝 Component Design:
   - Single responsibility
   - Small, focused components
-  - Reusable components
   - Composition over inheritance
 - 🎯 State Management:
   - Local state first
-  - Lift state when needed
+  - Lift state up when needed
   - Context for global state
-  - Redux for complex state
+  - State management for complex (Redux/Zustand)
 - 🔧 Performance:
   - Memoize when needed
   - Lazy load routes
   - Virtualize long lists
-  - Avoid inline functions
-- 📁 Project Structure:
-  - Consistent naming
-  - Feature-based organization
-  - Clear separation of concerns
-- 📚 Documentation:
-  - PropTypes or TypeScript
-  - Component documentation
-  - Storybook for UI components
+- 📁 Consistent naming and folder structure
 
-##### **7.25 🐛 Debugging React Applications**
-- 🛠️ Console Methods:
-  ```jsx
-  console.log('props:', props)
-  console.log('state:', state)
-  console.warn('Warning message')
-  console.error('Error message')
-  console.table(data)
-  ```
+---
+
+##### **7.25 🐛 Debugging**
+- 🛠️ Console Methods: `console.log`, `console.table`, `console.group`
 - 🔍 React DevTools
-- 🐞 Debugger Statement:
-  ```jsx
-  function Component() {
-    debugger // Execution pauses here
-    return <div>Content</div>
-  }
-  ```
+- 🐞 `debugger;` statement
 - 📊 Error Boundaries:
   ```jsx
   class ErrorBoundary extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = { hasError: false }
-    }
-    
-    static getDerivedStateFromError(error) {
-      return { hasError: true }
-    }
-    
-    componentDidCatch(error, errorInfo) {
-      console.log('Error caught:', error, errorInfo)
-    }
-    
+    state = { hasError: false }
+    static getDerivedStateFromError() { return { hasError: true } }
+    componentDidCatch(error, info) { console.error(error) }
     render() {
-      if (this.state.hasError) {
-        return <h1>Something went wrong.</h1>
-      }
+      if (this.state.hasError) return <h1>Something went wrong</h1>
       return this.props.children
     }
   }
-  
-  // Usage
-  <ErrorBoundary>
-    <MyComponent />
-  </ErrorBoundary>
   ```
-- 🔧 React StrictMode (detect problems)
+- 🔧 React StrictMode
 
-##### **7.26 🔄 React Suspense and Concurrent Features**
-- 📦 Suspense for Data Fetching:
+---
+
+##### **7.26 🔄 React 19+ Features**
+- 🆕 React Compiler (automatic memoization)
+- 🆕 `use` Hook (promises, context)
+- 🆕 Actions (form actions)
+- 🆕 `useOptimistic` (optimistic updates)
+- 🆕 `useFormStatus` (form submission state)
+- 🆕 Server Components (RSC) — Stage 20
+
+---
+
+##### **7.27 🔧 Advanced Refs**
+- 📦 Callback Refs:
   ```jsx
-  const resource = fetchProfileData()
-  
-  function ProfilePage() {
-    return (
-      <Suspense fallback={<h1>Loading profile...</h1>}>
-        <ProfileDetails />
-        <Suspense fallback={<h1>Loading posts...</h1>}>
-          <ProfilePosts />
-        </Suspense>
-      </Suspense>
-    )
-  }
+  const [height, setHeight] = useState(0)
+  const measuredRef = useCallback(node => {
+    if (node) setHeight(node.getBoundingClientRect().height)
+  }, [])
+  <div ref={measuredRef}>Content</div>
   ```
-- 🎯 useTransition (non-urgent updates):
+- 🎯 `useImperativeHandle`:
   ```jsx
-  import { useTransition } from 'react'
-  
-  function TabContainer() {
-    const [isPending, startTransition] = useTransition()
-    const [tab, setTab] = useState('about')
-    
-    const selectTab = (nextTab) => {
-      startTransition(() => {
-        setTab(nextTab)
-      })
-    }
-    
-    return (
-      <div>
-        {isPending && <Spinner />}
-        <button onClick={() => selectTab('about')}>About</button>
-        <button onClick={() => selectTab('posts')}>Posts</button>
-        <button onClick={() => selectTab('contact')}>Contact</button>
-        {tab === 'about' && <About />}
-        {tab === 'posts' && <Posts />}
-        {tab === 'contact' && <Contact />}
-      </div>
-    )
-  }
-  ```
-- 🔄 useDeferredValue (defer updates):
-  ```jsx
-  function SearchList({ query }) {
-    const deferredQuery = useDeferredValue(query)
-    
-    const list = useMemo(() => {
-      return getFilteredItems(deferredQuery)
-    }, [deferredQuery])
-    
-    return <List items={list} />
-  }
+  useImperativeHandle(ref, () => ({
+    focus: () => inputRef.current.focus(),
+    getValue: () => inputRef.current.value
+  }))
   ```
 
-##### **7.27 🔧 React Portals**
-- 📝 What are Portals?
-- 📦 Using Portals:
+---
+
+##### **7.28 🔄 React Portals**
+- 📝 `createPortal`:
   ```jsx
   import { createPortal } from 'react-dom'
   
-  function Modal({ isOpen, onClose, children }) {
+  function Modal({ children, isOpen }) {
     if (!isOpen) return null
-    
     return createPortal(
-      <div className="modal-overlay">
-        <div className="modal-content">
-          <button onClick={onClose}>Close</button>
-          {children}
-        </div>
-      </div>,
+      <div className="modal">{children}</div>,
       document.body
     )
   }
   ```
-- 🎯 Use Cases:
-  - Modals
-  - Tooltips
-  - Dropdowns
-  - Toast notifications
-- 🔄 Event Bubbling with Portals
+- 🎯 Use Cases: modals, tooltips, dropdowns, toasts
 
-##### **7.28 🔄 Refs and DOM Manipulation**
-- 📦 Callback Refs:
+---
+
+##### **7.29 🧪 Testing Advanced**
+- 📦 Mocking API Calls:
   ```jsx
-  function MeasureExample() {
-    const [height, setHeight] = useState(0)
-    
-    const measuredRef = useCallback(node => {
-      if (node !== null) {
-        setHeight(node.getBoundingClientRect().height)
-      }
-    }, [])
-    
-    return (
-      <>
-        <h1 ref={measuredRef}>Hello, world</h1>
-        <h2>The above header is {Math.round(height)}px tall</h2>
-      </>
-    )
-  }
-  ```
-- 🎯 useImperativeHandle:
-  ```jsx
-  const FancyInput = forwardRef((props, ref) => {
-    const inputRef = useRef()
-    
-    useImperativeHandle(ref, () => ({
-      focus: () => {
-        inputRef.current.focus()
-      },
-      blur: () => {
-        inputRef.current.blur()
-      },
-      getValue: () => {
-        return inputRef.current.value
-      }
-    }))
-    
-    return <input ref={inputRef} {...props} />
+  vi.spyOn(global, 'fetch').mockResolvedValue({
+    json: () => Promise.resolve({ data: [] })
   })
-  
-  // Usage
-  function Parent() {
-    const inputRef = useRef()
-    
-    useEffect(() => {
-      inputRef.current.focus()
-    }, [])
-    
-    return <FancyInput ref={inputRef} />
-  }
   ```
+- 🎯 Testing Custom Hooks: `renderHook`
+- 🔄 Testing Async Components
+- 📊 Test Coverage
 
-##### **7.29 🔄 React 18+ Features**
-- 🆕 Automatic Batching:
-  ```jsx
-  // React 18 batches all state updates
-  function handleClick() {
-    setCount(c => c + 1)
-    setFlag(f => !f)
-    // React will re-render only once
-  }
-  ```
-- 🆕 startTransition (covered)
-- 🆕 useId (for accessibility):
-  ```jsx
-  function FormField({ label }) {
-    const id = useId()
-    return (
-      <div>
-        <label htmlFor={id}>{label}</label>
-        <input id={id} type="text" />
-      </div>
-    )
-  }
-  ```
-- 🆕 useSyncExternalStore (for external stores)
-- 🆕 useInsertionEffect (for CSS-in-JS)
+---
 
 ##### **7.30 💻 Practical Projects**
 - 🏗️ Todo List Application
@@ -4307,7 +3523,6 @@ Production    (16-19) ████████████░ 2 oy
 - 📚 Blog with Comments
 - 🍽️ Restaurant Menu App
 - 💼 Portfolio Website
-- 📱 Responsive Landing Page
 - 🔍 Movie Search App (TMDB API)
 - 📰 News Aggregator
 - 🛍️ Shopping Cart
@@ -4315,7 +3530,15 @@ Production    (16-19) ████████████░ 2 oy
 - 💪 Fitness Tracker
 - 🎵 Music Player
 - 📝 Form Builder Application
+- 🚀 Full-stack CRUD App with API
+
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 🎯 STAGE 8 — React Router (Navigation)
 **Goal**: Master client-side routing for single-page applications with React Router.
