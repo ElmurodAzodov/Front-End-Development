@@ -1614,25 +1614,29 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 <br>
 
-## 🎯 STAGE 4 — Git & Version Control
+## 🎯 STAGE 4 — GIT & VERSION CONTROL
 **Goal**: Master version control for collaborative development and code management.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 12 dars
+
+---
 
 #### 📚 **Topics**
 
 ##### **4.1 📦 Version Control Basics**
 - 🔄 What is Version Control?
-- 📜 History of Version Control Systems
-- 🎯 Why Git? (Advantages over others)
+- 📜 History of Version Control Systems (CVS, SVN, Git)
+- 🎯 Why Git? (Distributed, Fast, Branching Model)
 - 🌐 Centralized vs Distributed VCS
 - 🏗️ How Git Works (Snapshots, not differences)
-- 📁 Git Repository Structure (.git folder)
+- 📁 Git Repository Structure (`.git` folder)
+
+---
 
 ##### **4.2 🔧 Git Installation and Setup**
 - 📥 Installing Git:
-  - Windows (Git Bash)
-  - macOS (Homebrew, Xcode)
-  - Linux (apt, yum, dnf)
+  - Windows (Git Bash, Winget)
+  - macOS (Homebrew, Xcode Command Line Tools)
+  - Linux (apt, dnf, pacman)
 - ⚙️ Initial Configuration:
   ```bash
   git config --global user.name "Your Name"
@@ -1644,294 +1648,332 @@ Production    (16-19) ████████████░ 2 oy
 - 🎨 Git Aliases (shortcuts)
 - 🖥️ Git GUI Clients (GitKraken, Sourcetree, GitHub Desktop)
 
+---
+
 ##### **4.3 🆕 Creating Repositories**
-- 🆕 Initializing a Repository: `git init`
-- 📥 Cloning a Repository: `git clone <url>`
-- 📁 Repository Structure:
+- 🆕 Initializing: `git init`
+- 📥 Cloning: `git clone <url>`
+- 📁 Three States:
   - Working Directory
   - Staging Area (Index)
-  - Local Repository
-  - Remote Repository
-- 🔍 Checking Status: `git status`
-- 📂 .gitignore File:
-  - Why ignore files?
-  - Patterns and syntax
-  - Global gitignore
-  - Examples (node_modules, .env, .DS_Store)
+  - Repository (`.git`)
+- 🔍 Checking Status: `git status` (`-s` for short)
+- 📂 `.gitignore`:
+  - Why ignore files
+  - Patterns: `node_modules/`, `.env`, `*.log`, `dist/`
+  - Global gitignore: `git config --global core.excludesfile ~/.gitignore_global`
+  - Examples for different projects
+
+---
 
 ##### **4.4 📝 Basic Git Workflow**
-- ➕ Adding Files to Staging:
-  - `git add <file>` (specific file)
-  - `git add .` (all files)
-  - `git add -p` (interactive staging)
-- 💾 Committing Changes:
-  - `git commit -m "message"` (inline message)
-  - `git commit` (opens editor)
-  - Writing good commit messages (Conventional Commits)
-  - `git commit -a -m "message"` (add+commit tracked files)
+- ➕ Adding to Staging:
+  - `git add <file>` (single)
+  - `git add .` (all)
+  - `git add -p` (interactive, patch mode)
+- 💾 Committing:
+  - `git commit -m "message"`
+  - `git commit` (editor)
+  - Writing good commit messages:
+    - Subject line (50 chars max)
+    - Body explaining why
+    - Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`
+  - `git commit -a -m "message"` (add tracked + commit)
   - `git commit --amend` (modify last commit)
 - 🔄 Viewing History:
-  - `git log` (basic log)
-  - `git log --oneline` (compact)
-  - `git log --graph` (branch visualization)
+  - `git log`, `git log --oneline`
+  - `git log --graph --oneline --decorate`
   - `git log --pretty=format:"%h - %an, %ar : %s"`
-  - `git show <commit-hash>` (show commit details)
+  - `git show <commit-hash>`
+
+---
 
 ##### **4.5 🌿 Branching**
-- 🌿 What are Branches?
+- 🌿 What are Branches? (Lightweight pointers)
 - 🌿 Creating Branches:
-  - `git branch <branch-name>` (create)
-  - `git checkout -b <branch-name>` (create and switch)
-  - `git switch -c <branch-name>` (new way)
-- 🔄 Switching Branches:
-  - `git checkout <branch-name>` (old way)
-  - `git switch <branch-name>` (new way)
-- 📋 Listing Branches:
-  - `git branch` (local branches)
-  - `git branch -r` (remote branches)
-  - `git branch -a` (all branches)
+  - `git branch <name>` (create)
+  - `git checkout -b <name>` (create + switch)
+  - `git switch -c <name>` (modern)
+- 🔄 Switching:
+  - `git checkout <name>` (old)
+  - `git switch <name>` (modern)
+- 📋 Listing:
+  - `git branch` (local)
+  - `git branch -r` (remote)
+  - `git branch -a` (all)
 - 🏷️ Branch Naming Conventions:
-  - feature/, bugfix/, hotfix/, release/
-  - Examples: feature/login, bugfix/header-issue
-- 🔍 Viewing Branch Differences:
-  - `git diff <branch1>..<branch2>`
-  - `git log <branch1>..<branch2>`
+  - `feature/`, `bugfix/`, `hotfix/`, `release/`, `chore/`
+  - Examples: `feature/login-page`, `bugfix/header-responsive`
+- 🔍 Viewing Differences:
+  - `git diff main..feature`
+  - `git log main..feature`
+
+---
 
 ##### **4.6 🔀 Merging**
-- 🔄 Fast-Forward Merge
-- 🔀 Three-Way Merge
+- 🔄 Fast-Forward Merge (linear history)
+- 🔀 Three-Way Merge (creates merge commit)
 - 🔧 Merge Process:
-  - `git merge <branch>` (merge into current)
-  - Merge commits
+  - `git checkout main`
+  - `git merge feature-branch`
 - ⚠️ Merge Conflicts:
-  - What causes conflicts?
-  - Conflict markers (<<<<<<<, =======, >>>>>>>)
-  - Resolving conflicts manually
-  - `git mergetool` (visual merge tools)
-  - Aborting merge: `git merge --abort`
-- 🎯 Merge Strategies:
-  - `recursive`, `ours`, `octopus`
-  - `git merge --strategy-option=ours/theirs`
+  - When they occur
+  - Conflict markers: `<<<<<<<`, `=======`, `>>>>>>>`
+  - Resolving manually
+  - `git mergetool` (visual tools)
+  - `git merge --abort` (cancel)
+- 🎯 Merge Strategies: `--no-ff`, `--ff-only`
+
+---
 
 ##### **4.7 🔄 Rebasing**
-- 🔄 What is Rebasing?
+- 🔄 What is Rebasing? (Replaying commits)
 - 📏 Rebase vs Merge:
-  - Linear history (rebase)
-  - Preserve history (merge)
-- 🔧 Rebasing Commands:
-  - `git rebase <branch>`
+  - Rebase: linear history, cleaner
+  - Merge: preserves actual timeline
+- 🔧 Basic Rebase:
+  - `git checkout feature`
+  - `git rebase main`
+- ⚙️ Rebase Commands:
   - `git rebase --continue`
   - `git rebase --abort`
   - `git rebase --skip`
-- ⚠️ Interactive Rebase:
-  - `git rebase -i HEAD~n`
-  - Commands: pick, reword, edit, squash, fixup, drop
-  - Squashing commits
-  - Rewriting commit messages
-- 🚫 Golden Rule of Rebasing (never rebase public branches)
+- 🎯 Interactive Rebase:
+  - `git rebase -i HEAD~3`
+  - Commands:
+    - `pick` (keep)
+    - `reword` (change message)
+    - `edit` (modify)
+    - `squash` (combine with previous)
+    - `fixup` (combine without message)
+    - `drop` (remove)
+- 🚫 Golden Rule: **Never rebase public branches**
+
+---
 
 ##### **4.8 🔄 Remote Repositories**
 - 🌐 What are Remotes?
-- 🔗 Adding Remotes: `git remote add origin <url>`
-- 📋 Listing Remotes: `git remote -v`
-- 🔄 Fetching: `git fetch <remote>`
+- 🔗 Adding: `git remote add origin <url>`
+- 📋 Listing: `git remote -v`
+- 🔄 Fetching: `git fetch origin` (download without merging)
 - 🔄 Pulling: `git pull` (fetch + merge)
-- 📤 Pushing: `git push <remote> <branch>`
-- 🔧 Setting Upstream: `git push -u origin main`
-- 📥 Cloning with Remotes
-- 🔄 Remote Branches:
-  - `origin/main`, `origin/feature`
-  - Tracking branches
+- 📤 Pushing:
+  - `git push origin main`
+  - `git push -u origin main` (set upstream)
+- 🔄 Remote Branches: `origin/main`, `origin/feature`
 - 🔄 Syncing Fork:
   - `git remote add upstream <original-url>`
   - `git fetch upstream`
   - `git merge upstream/main`
 
+---
+
 ##### **4.9 🏷️ Tags**
-- 🏷️ What are Tags?
-- 📝 Creating Tags:
-  - Lightweight tags: `git tag <tagname>`
-  - Annotated tags: `git tag -a v1.0.0 -m "message"`
-- 📋 Listing Tags: `git tag`
-- 🔍 Viewing Tag Details: `git show v1.0.0`
-- 📤 Pushing Tags: `git push origin v1.0.0`, `git push --tags`
-- 🔄 Checking out Tags: `git checkout v1.0.0`
-- 🗑️ Deleting Tags: `git tag -d v1.0.0`, `git push origin --delete v1.0.0`
-- 📦 Semantic Versioning (SemVer): v1.2.3 (major.minor.patch)
+- 🏷️ What are Tags? (Marking releases)
+- 📝 Creating:
+  - Lightweight: `git tag v1.0.0`
+  - Annotated: `git tag -a v1.0.0 -m "Release v1.0.0"`
+- 📋 Listing: `git tag`, `git tag -l "v1.*"`
+- 🔍 Viewing: `git show v1.0.0`
+- 📤 Pushing: `git push origin v1.0.0`, `git push --tags`
+- 🗑️ Deleting:
+  - Local: `git tag -d v1.0.0`
+  - Remote: `git push origin --delete v1.0.0`
+- 📦 Semantic Versioning (SemVer): `MAJOR.MINOR.PATCH`
+
+---
 
 ##### **4.10 📦 Stashing**
-- 📦 What is Stash?
-- 💾 Saving Changes: `git stash`
-- 📋 Listing Stashes: `git stash list`
-- 🔄 Applying Stashes:
-  - `git stash apply` (apply but keep)
-  - `git stash pop` (apply and remove)
-  - `git stash apply stash@{2}` (specific stash)
-- 🆕 Creating Stash with Name: `git stash push -m "message"`
-- 🗑️ Dropping Stashes: `git stash drop stash@{0}`
-- 🧹 Clearing All Stashes: `git stash clear`
-- 🌿 Stashing Untracked Files: `git stash -u`
+- 📦 What is Stash? (Save unfinished work)
+- 💾 Saving: `git stash`, `git stash push -m "message"`
+- 📋 Listing: `git stash list`
+- 🔄 Applying:
+  - `git stash apply` (keep in stash)
+  - `git stash pop` (apply + remove)
+  - `git stash apply stash@{2}`
+- 🗑️ Dropping: `git stash drop stash@{0}`
+- 🧹 Clearing: `git stash clear`
+- 🌿 Stash Untracked: `git stash -u`
+- 🌿 Stash with Index: `git stash --keep-index`
+
+---
 
 ##### **4.11 🔍 Undoing Changes**
-- ↩️ Undoing Working Directory Changes:
-  - `git checkout -- <file>` (discard changes)
-  - `git restore <file>` (new way)
-- ↩️ Unstaging Files:
-  - `git reset HEAD <file>` (old way)
-  - `git restore --staged <file>` (new way)
+- ↩️ Working Directory: `git restore <file>` or `git checkout -- <file>`
+- ↩️ Staging Area: `git restore --staged <file>` or `git reset HEAD <file>`
 - ↩️ Undoing Commits:
   - `git reset --soft HEAD~1` (keep changes staged)
   - `git reset --mixed HEAD~1` (keep changes unstaged)
-  - `git reset --hard HEAD~1` (discard changes completely)
-  - `git revert <commit>` (create new commit that undoes)
-- 🔄 Reset vs Revert
-- 📝 Changing Last Commit: `git commit --amend`
-- 🔍 Finding Lost Commits: `git reflog`
+  - `git reset --hard HEAD~1` (discard completely)
+  - `git revert <commit>` (create inverse commit)
+- 🔄 Reset vs Revert (rewrite history vs safe undo)
+- 📝 Amend: `git commit --amend` (modify last commit)
+- 🔍 Finding Lost: `git reflog`
+
+---
 
 ##### **4.12 🌐 GitHub/GitLab/Bitbucket**
-- 📦 Platform Overview:
-  - GitHub (most popular)
-  - GitLab (CI/CD integrated)
+- 📦 Platform Comparison:
+  - GitHub (most popular, Actions, Copilot)
+  - GitLab (built-in CI/CD)
   - Bitbucket (Jira integration)
-- 🆕 Creating Remote Repositories
-- 🔗 SSH vs HTTPS Authentication:
-  - Generating SSH keys: `ssh-keygen -t ed25519`
-  - Adding SSH key to account
-- 📤 Pushing to Remote
+- 🔐 Authentication:
+  - HTTPS (token required)
+  - SSH (key pair: `ssh-keygen -t ed25519`)
+- 📤 Creating Remote Repos
 - 📥 Pull Requests / Merge Requests:
   - Creating PR/MR
-  - Code review process
+  - Code review
   - Approving and merging
+  - Squash and merge option
 - 🔄 Forking Workflow
-- 📋 Issues and Project Management
-- 🔧 GitHub Actions Basics (CI/CD)
-- 📄 README.md and Documentation
+- 📋 Issues and Projects
+- 🔧 GitHub Actions Basics
+- 📄 README.md, CONTRIBUTING.md, LICENSE
+
+---
 
 ##### **4.13 👥 Collaboration Workflows**
 - 🌿 Git Flow:
-  - main/master (production)
-  - develop (integration)
-  - feature/* (new features)
-  - release/* (release preparation)
-  - hotfix/* (emergency fixes)
+  - `main` (production)
+  - `develop` (integration)
+  - `feature/*` (new features)
+  - `release/*` (preparation)
+  - `hotfix/*` (emergency fixes)
 - 🚀 GitHub Flow:
-  - main branch always deployable
-  - feature branches
-  - pull requests
-- 🔄 GitLab Flow:
-  - environment branches (staging, production)
-  - feature branches
-  - merge requests
+  - `main` always deployable
+  - Feature branches → PR → merge
+- 🌿 GitLab Flow:
+  - Environment branches (`staging`, `production`)
+  - Feature branches
 - 🌿 Trunk-Based Development
 - 🔀 Forking Workflow (open source)
 - 📋 Code Review Best Practices
 
+---
+
 ##### **4.14 🔧 Advanced Git**
-- 🔍 Git Bisect (finding bugs):
-  - `git bisect start`
-  - `git bisect bad` (current is bad)
-  - `git bisect good <commit>` (good commit)
-  - Automated bisect with script
+- 🔍 Git Bisect (find bug commits):
+  ```bash
+  git bisect start
+  git bisect bad HEAD
+  git bisect good <known-good-commit>
+  # test → git bisect good/bad
+  git bisect reset
+  ```
 - 📦 Git Submodules:
-  - Adding: `git submodule add <url>`
-  - Updating: `git submodule update --init --recursive`
-  - Cloning with submodules
+  - `git submodule add <url>`
+  - `git submodule update --init --recursive`
+  - Cloning with submodules: `git clone --recursive <url>`
 - 🌿 Git Worktree (multiple branches simultaneously)
-- 🔍 Git Grep (searching)
 - 📊 Git Blame: `git blame <file>`
-- 🔍 Git Log Advanced:
+- 🔍 Advanced Log:
   - `git log -S "function"` (search code)
-  - `git log -G "regex"` (search with regex)
-  - `git log --grep="pattern"` (search commit messages)
+  - `git log -G "regex"` (regex search)
+  - `git log --grep="pattern"` (commit messages)
   - `git log --author="name"`
   - `git log --since="2 weeks ago"`
 - 🔧 Git Hooks:
-  - Client-side hooks (pre-commit, prepare-commit-msg)
-  - Server-side hooks (pre-receive, post-receive)
-  - .git/hooks directory
-  - Husky (Node.js git hooks)
+  - `.git/hooks/`
+  - Pre-commit, commit-msg, pre-push
+  - Husky (Node.js)
+
+---
 
 ##### **4.15 🧹 Git Best Practices**
-- 📝 Write Meaningful Commit Messages
-- 🎯 Commit Often, Push When Ready
-- 🌿 Use Branches for Features/Bugs
-- 🔄 Keep Commits Focused (Single Responsibility)
-- 🚫 Don't Commit Sensitive Data (.gitignore)
-- 🔄 Pull Before Push
-- 🧹 Clean Up Merged Branches
-- 📦 Use .gitignore Properly
-- 🔍 Review Changes Before Committing
-- 🏷️ Tag Releases
-- 📚 Document Repository (README)
+- 📝 Write meaningful commit messages
+- 🎯 Commit often, push when ready
+- 🌿 Use branches for features/bugs
+- 🔄 Keep commits focused (single responsibility)
+- 🚫 Never commit sensitive data (use `.gitignore`)
+- 🔄 Pull before push
+- 🧹 Delete merged branches
+- 📦 Use `.gitignore` properly
+- 🔍 Review changes with `git diff` before commit
+- 🏷️ Tag releases
+- 📚 Document repository with README
+
+---
 
 ##### **4.16 🐛 Common Git Issues and Solutions**
-- ⚠️ Detached HEAD State
-- 🔀 Merge Conflicts Resolution
-- 💾 Accidentally Committed to Wrong Branch
-- ↩️ Recovering Lost Commits (reflog)
-- 🗑️ Removing Sensitive Data (BFG Repo-Cleaner)
-- 🔄 Syncing Fork with Original
-- 📦 Large Files in Repository (Git LFS)
-- 🔐 Authentication Issues
-- 🌐 Network/Proxy Issues
+- ⚠️ Detached HEAD state
+- 🔀 Merge conflicts (resolution strategies)
+- 💾 Accidentally committed to wrong branch
+- ↩️ Recovering lost commits (`git reflog`)
+- 🗑️ Removing sensitive data (BFG Repo-Cleaner)
+- 🔄 Syncing fork with upstream
+- 📦 Large files (Git LFS)
+- 🔐 Authentication issues (SSH, tokens)
+- 🌐 Network/proxy issues
+
+---
 
 ##### **4.17 🛠️ Git Tools and Integrations**
-- 🖥️ Git GUI Clients:
+- 🖥️ GUI Clients:
   - GitKraken
   - Sourcetree
   - GitHub Desktop
   - Git Extensions
 - 🔧 IDE Integration:
-  - VS Code Git integration
+  - VS Code (built-in Git)
   - WebStorm/IntelliJ
-  - Sublime Merge
 - 📊 Git Statistics:
-  - `git shortlog`
-  - `git count-objects`
-  - Third-party tools (gitstats)
-- 🔍 Git Visualization Tools:
-  - `git log --graph`
-  - GitK (built-in)
-  - GitUp
-
-##### **4.18 🌐 Open Source Contribution**
-- 🔍 Finding Projects to Contribute
-- 📋 Understanding Contribution Guidelines
-- 🍴 Forking the Repository
-- 🌿 Creating Feature Branch
-- 🔧 Making Changes
-- 📤 Creating Pull Request
-- 💬 Participating in Code Review
-- 🔄 Updating PR with Changes
-- 🎉 Getting Your PR Merged
-- 📚 Learning from Open Source
-
-##### **4.19 🔒 Git Security**
-- 🔐 SSH Keys Management
-- 🔒 GPG Signing Commits:
-  - Generating GPG key
-  - `git commit -S -m "message"`
-  - `git config commit.gpgsign true`
-  - GitHub verified commits
-- 🚫 .gitignore Security (.env, secrets)
-- 🔄 Git Crypt (encrypting files)
-- 🔍 Auditing Repository: `git log --grep="password"`
-
-##### **4.20 💻 Practical Projects**
-- 🏗️ Initialize a New Project with Git
-- 🌿 Create Feature Branches for Development
-- 🔀 Practice Merging and Resolving Conflicts
-- 📝 Commit History Analysis
-- 🔄 Rebase Interactive to Squash Commits
-- 🏷️ Tag Releases with Version Numbers
-- 🌐 Push to GitHub/GitLab
-- 👥 Simulate Team Collaboration (multiple users)
-- 🔧 Set Up Git Hooks with Husky
-- 📦 Contribute to an Open Source Project
-- 🚀 Deploy with Git (Netlify/Vercel)
-- 📊 Create Git Aliases for Common Commands
+  - `git shortlog -sn` (contributors)
+  - `git count-objects` (repo size)
+- 🔍 Visualization: `git log --graph`, GitK, GitUp
 
 ---
+
+##### **4.18 🌐 Open Source Contribution**
+- 🔍 Finding projects:
+  - GitHub `good-first-issue`
+  - `help-wanted` labels
+- 📋 Read CONTRIBUTING.md
+- 🍴 Fork repository
+- 🌿 Create feature branch
+- 🔧 Make changes
+- 📤 Create Pull Request
+- 💬 Participate in review
+- 🔄 Update PR with changes
+- 🎉 Get merged
+
+---
+
+##### **4.19 🔒 Git Security**
+- 🔐 SSH key management
+- 🔒 GPG signing commits:
+  ```bash
+  gpg --gen-key
+  git config commit.gpgsign true
+  git commit -S -m "message"
+  ```
+- 🚫 `.gitignore` for secrets (`.env`, `*.key`)
+- 🔄 Git Crypt (encrypt files)
+- 🔍 Audit repository: `git log --grep="password"`
+
+---
+
+##### **4.20 💻 Practical Projects**
+- 🏗️ Initialize new project with Git
+- 🌿 Create feature branches for development
+- 🔀 Practice merging and resolving conflicts
+- 📝 Analyze commit history
+- 🔄 Interactive rebase to squash commits
+- 🏷️ Tag releases with version numbers
+- 🌐 Push to GitHub/GitLab
+- 👥 Simulate team collaboration (multiple users/accounts)
+- 🔧 Set up Git hooks with Husky
+- 📦 Contribute to open source project
+- 🚀 Deploy with Git (Netlify/Vercel)
+- 📊 Create Git aliases for common commands
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 🎯 STAGE 5 — TypeScript (Type Safety)
 **Goal**: Add static typing to JavaScript for more robust and maintainable code.
