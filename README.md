@@ -3540,26 +3540,27 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 <br>
 
-## 🎯 STAGE 8 — React Router (Navigation)
-**Goal**: Master client-side routing for single-page applications with React Router.
-**Time**: 20 soat | 10 dars
+## 🎯 STAGE 8 — REACT ROUTER (Navigation)
+**Goal**: Master client-side routing for single-page applications with React Router v6+.
+**Time**: 24 soat | 10 dars
 
-#### 📚 Topics
+---
 
-##### 8.1 🧭 Introduction to Routing
+#### 📚 **Topics**
+
+##### **8.1 🧭 Introduction to Routing**
 - 🤔 What is Routing in SPAs?
-- 📜 Traditional Multi-Page Apps vs SPAs
-- 🎯 Why React Router?
-- 🔄 How Client-Side Routing Works
-- 📦 History API (pushState, replaceState)
-- 🌐 React Router Versions (v6 is current)
+- 📜 Traditional MPA vs SPA (page reload vs client-side navigation)
+- 🎯 Why React Router? (Standard for React routing)
+- 🔄 How Client-Side Routing Works: History API (`pushState`, `replaceState`, `popstate`)
+- 📦 React Router v6 (current, no v7 yet)
 
-##### 8.2 📦 Installation and Setup
-- 📥 Installing React Router:
+---
+
+##### **8.2 📦 Installation and Setup**
+- 📥 Installation:
   ```bash
   npm install react-router-dom
-  # or
-  yarn add react-router-dom
   ```
 - 🔧 Basic Setup:
   ```jsx
@@ -3572,14 +3573,16 @@ Production    (16-19) ████████████░ 2 oy
   )
   ```
 - 🏗️ Router Types:
-  - `BrowserRouter` (clean URLs: /about)
-  - `HashRouter` (hash URLs: #/about)
-  - `MemoryRouter` (for testing)
-  - `StaticRouter` (for SSR)
-  - `NativeRouter` (React Native)
+  - `BrowserRouter` — clean URLs (recommended)
+  - `HashRouter` — hash URLs (legacy browser support)
+  - `MemoryRouter` — for testing
+  - `StaticRouter` — for SSR
+  - `NativeRouter` — React Native
 
-##### 8.3 📝 Basic Routing
-- 🔀 Routes and Route Components:
+---
+
+##### **8.3 📝 Basic Routing**
+- 🔀 Routes and Route:
   ```jsx
   import { Routes, Route } from 'react-router-dom'
   
@@ -3589,104 +3592,58 @@ Production    (16-19) ████████████░ 2 oy
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     )
   }
   ```
-- 🎯 Route Matching Logic
-- 📍 Index Routes:
-  ```jsx
-  <Routes>
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-    </Route>
-  </Routes>
-  ```
-- 🔄 Not Found (404) Route:
-  ```jsx
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-  ```
+- 🎯 Route Matching (best match wins, not first)
+- 📍 Index Routes (default child route)
 
-##### 8.4 🔗 Navigation Links
+---
+
+##### **8.4 🔗 Navigation Links**
 - 📝 Link Component:
   ```jsx
   import { Link } from 'react-router-dom'
   
-  function Navbar() {
-    return (
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
-    )
-  }
+  <Link to="/about">About</Link>
   ```
 - 🎨 NavLink (active styling):
   ```jsx
-  import { NavLink } from 'react-router-dom'
-  
-  function Navbar() {
-    return (
-      <nav>
-        <NavLink 
-          to="/"
-          className={({ isActive }) => isActive ? 'active' : ''}
-          style={({ isActive }) => ({
-            fontWeight: isActive ? 'bold' : 'normal'
-          })}
-        >
-          Home
-        </NavLink>
-      </nav>
-    )
-  }
+  <NavLink
+    to="/about"
+    className={({ isActive }) => isActive ? 'active' : ''}
+    style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
+  >
+    About
+  </NavLink>
   ```
-- 🔄 Navigate Component (programmatic):
+- 🔄 Navigate Component (redirect):
   ```jsx
-  import { Navigate } from 'react-router-dom'
-  
-  function ProtectedRoute({ isAuthenticated, children }) {
-    if (!isAuthenticated) {
-      return <Navigate to="/login" replace />
-    }
-    return children
-  }
+  {!isAuthenticated && <Navigate to="/login" replace />}
   ```
 - ⚡ useNavigate Hook:
   ```jsx
-  import { useNavigate } from 'react-router-dom'
-  
-  function LoginButton() {
-    const navigate = useNavigate()
-    
-    const handleLogin = async () => {
-      await login()
-      navigate('/dashboard', { replace: true })
-    }
-    
-    return <button onClick={handleLogin}>Login</button>
-  }
+  const navigate = useNavigate()
+  navigate('/dashboard')
+  navigate(-1)  // go back
+  navigate(1)   // go forward
   ```
 
-##### 8.5 📦 Nested Routes
-- 🏗️ Layout Routes:
+---
+
+##### **8.5 📦 Nested Routes**
+- 🏗️ Layout Routes with Outlet:
   ```jsx
   import { Outlet } from 'react-router-dom'
   
   function Layout() {
     return (
       <div>
-        <header>Header</header>
-        <main>
-          <Outlet /> {/* Child routes render here */}
-        </main>
-        <footer>Footer</footer>
+        <Header />
+        <main><Outlet /></main>
+        <Footer />
       </div>
     )
   }
@@ -3708,21 +3665,12 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📂 Relative Links in Nested Routes:
   ```jsx
-  function Dashboard() {
-    return (
-      <div>
-        <nav>
-          <Link to="profile">Profile</Link> {/* /dashboard/profile */}
-          <Link to="settings">Settings</Link> {/* /dashboard/settings */}
-        </nav>
-        <Outlet />
-      </div>
-    )
-  }
+  <Link to="profile">Profile</Link>  // /dashboard/profile
   ```
-- 🎯 Outlet Context (passing data to children)
 
-##### 8.6 🔢 Route Parameters
+---
+
+##### **8.6 🔢 Route Parameters**
 - 📝 Dynamic Segments:
   ```jsx
   <Route path="/users/:userId" element={<UserProfile />} />
@@ -3730,35 +3678,26 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📥 useParams Hook:
   ```jsx
-  import { useParams } from 'react-router-dom'
-  
   function UserProfile() {
     const { userId } = useParams()
-    
-    // Fetch user data with userId
     return <div>User ID: {userId}</div>
   }
   ```
-- 🔍 Optional Parameters:
-  ```jsx
-  <Route path="/products/:category?/:id?" element={<Products />} />
-  ```
-- 🎯 Catch-All Parameters (splat):
+- 🎯 Catch-All (splat):
   ```jsx
   <Route path="/files/*" element={<Files />} />
   
   function Files() {
     const { '*' : filePath } = useParams()
     // filePath = "documents/report.pdf"
-    return <div>File: {filePath}</div>
   }
   ```
 
-##### 8.7 🔍 Query Parameters
+---
+
+##### **8.7 🔍 Query Parameters**
 - 📝 useSearchParams Hook:
   ```jsx
-  import { useSearchParams } from 'react-router-dom'
-  
   function SearchPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     
@@ -3766,143 +3705,58 @@ Production    (16-19) ████████████░ 2 oy
     const page = parseInt(searchParams.get('page')) || 1
     
     const updateQuery = (newQuery) => {
-      setSearchParams({ q: newQuery, page: 1 })
+      setSearchParams({ q: newQuery, page: '1' })
     }
     
     return (
-      <div>
-        <input 
-          value={query}
-          onChange={(e) => updateQuery(e.target.value)}
-        />
-        <div>Page: {page}</div>
-      </div>
+      <input
+        value={query}
+        onChange={(e) => updateQuery(e.target.value)}
+      />
     )
   }
   ```
-- 🔄 Working with Multiple Params:
-  ```jsx
-  function FilterPage() {
-    const [searchParams, setSearchParams] = useSearchParams()
-    
-    const filters = {
-      category: searchParams.get('category') || '',
-      minPrice: searchParams.get('minPrice') || '',
-      maxPrice: searchParams.get('maxPrice') || '',
-      sort: searchParams.get('sort') || 'newest'
-    }
-    
-    const updateFilter = (key, value) => {
-      const newParams = new URLSearchParams(searchParams)
-      if (value) {
-        newParams.set(key, value)
-      } else {
-        newParams.delete(key)
-      }
-      setSearchParams(newParams)
-    }
-    
-    return (
-      <div>
-        <select 
-          value={filters.category}
-          onChange={(e) => updateFilter('category', e.target.value)}
-        >
-          <option value="">All Categories</option>
-          <option value="electronics">Electronics</option>
-        </select>
-      </div>
-    )
-  }
-  ```
-- 📦 URLSearchParams Methods:
-  - `get()`, `set()`, `delete()`
-  - `append()`, `has()`
-  - `toString()`, `entries()`
+- 🔄 URLSearchParams Methods:
+  - `get()`, `set()`, `delete()`, `has()`, `append()`, `toString()`
 
-##### 8.8 🎯 Programmatic Navigation
-- 📝 useNavigate Hook (detailed):
+---
+
+##### **8.8 🎯 Programmatic Navigation**
+- 📝 useNavigate (detailed):
   ```jsx
-  import { useNavigate } from 'react-router-dom'
+  const navigate = useNavigate()
   
-  function NavigationButtons() {
-    const navigate = useNavigate()
-    
-    return (
-      <div>
-        <button onClick={() => navigate('/')}>
-          Go Home
-        </button>
-        
-        <button onClick={() => navigate(-1)}>
-          Go Back
-        </button>
-        
-        <button onClick={() => navigate(1)}>
-          Go Forward
-        </button>
-        
-        <button onClick={() => navigate('/dashboard', { 
-          replace: true,  // Replace history entry
-          state: { from: 'home' }  // Pass state
-        })}>
-          Go to Dashboard (Replace)
-        </button>
-        
-        <button onClick={() => navigate('/settings', {
-          state: { userId: 123 }
-        })}>
-          Settings
-        </button>
-      </div>
-    )
-  }
+  navigate('/dashboard', {
+    replace: true,           // replace history entry
+    state: { from: 'home' }  // pass state
+  })
   ```
 - 📥 Accessing Navigation State:
   ```jsx
-  import { useLocation } from 'react-router-dom'
-  
-  function Settings() {
-    const location = useLocation()
-    const state = location.state
-    // { userId: 123 }
-    
-    return <div>User ID: {state?.userId}</div>
-  }
+  const location = useLocation()
+  const state = location.state  // { from: 'home' }
   ```
 
-##### 8.9 📍 useLocation Hook
-- 📝 Getting Current Location:
+---
+
+##### **8.9 📍 useLocation Hook**
+- 📝 Current Location Info:
   ```jsx
-  import { useLocation } from 'react-router-dom'
-  
-  function CurrentRoute() {
-    const location = useLocation()
-    
-    return (
-      <div>
-        <p>Pathname: {location.pathname}</p>
-        <p>Search: {location.search}</p>
-        <p>Hash: {location.hash}</p>
-        <p>State: {JSON.stringify(location.state)}</p>
-        <p>Key: {location.key}</p>
-      </div>
-    )
-  }
+  const location = useLocation()
+  // location.pathname, location.search, location.hash, location.state, location.key
   ```
-- 🔄 Tracking Page Views:
+- 🔄 Page View Tracking:
   ```jsx
   useEffect(() => {
-    // Send page view to analytics
-    analytics.page(location.pathname)
+    analytics.pageView(location.pathname)
   }, [location])
   ```
 
-##### 8.10 🔧 useRoutes Hook (Config-based Routing)
-- 📝 Route Configuration:
+---
+
+##### **8.10 🔧 useRoutes Hook**
+- 📝 Config-based Routing:
   ```jsx
-  import { useRoutes } from 'react-router-dom'
-  
   const routes = [
     {
       path: '/',
@@ -3910,31 +3764,28 @@ Production    (16-19) ████████████░ 2 oy
       children: [
         { index: true, element: <Home /> },
         { path: 'about', element: <About /> },
-        { 
+        {
           path: 'dashboard',
           element: <Dashboard />,
           children: [
             { path: 'profile', element: <Profile /> },
             { path: 'settings', element: <Settings /> }
           ]
-        },
-        { path: 'users/:id', element: <UserProfile /> }
+        }
       ]
     },
     { path: '*', element: <NotFound /> }
   ]
   
   function App() {
-    const element = useRoutes(routes)
-    return element
+    return useRoutes(routes)
   }
   ```
-- 🎯 Benefits of Config-based Routing:
-  - Centralized route definitions
-  - Easier to manage in large apps
-  - Can be serialized/loaded dynamically
+- 🎯 Benefits: centralized routes, easier dynamic loading
 
-##### 8.11 🔒 Protected Routes
+---
+
+##### **8.11 🔒 Protected Routes**
 - 📝 Authentication Guard:
   ```jsx
   function ProtectedRoute({ children }) {
@@ -3942,26 +3793,16 @@ Production    (16-19) ████████████░ 2 oy
     const location = useLocation()
     
     if (!user) {
-      // Save the location they tried to go to
       return <Navigate to="/login" state={{ from: location }} replace />
     }
-    
     return children
   }
   
   // Usage
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/login" element={<Login />} />
-    <Route
-      path="/dashboard/*"
-      element={
-        <ProtectedRoute>
-          <Dashboard />
-        </ProtectedRoute>
-      }
-    />
-  </Routes>
+  <Route
+    path="/dashboard/*"
+    element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
+  />
   ```
 - 🔄 Redirect After Login:
   ```jsx
@@ -3970,78 +3811,57 @@ Production    (16-19) ████████████░ 2 oy
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
     
-    const handleSubmit = async (e) => {
-      e.preventDefault()
+    const handleLogin = async () => {
       await login()
       navigate(from, { replace: true })
     }
-    
-    return <form onSubmit={handleSubmit}>...</form>
   }
   ```
 - 🎯 Role-Based Access:
   ```jsx
-  function RoleBasedRoute({ children, allowedRoles }) {
-    const { user } = useAuth()
-    
-    if (!user) return <Navigate to="/login" />
-    if (!allowedRoles.includes(user.role)) {
-      return <Navigate to="/unauthorized" />
+  <Route
+    path="/admin"
+    element={
+      <ProtectedRoute allowedRoles={['admin']}>
+        <Admin />
+      </ProtectedRoute>
     }
-    
-    return children
-  }
+  />
   ```
 
-##### 8.12 🔄 Route Transitions and Animations
-- 📝 Animated Routes:
+---
+
+##### **8.12 🔄 Route Animations**
+- 📝 Framer Motion with Routes:
   ```jsx
-  import { useLocation } from 'react-router-dom'
-  import { TransitionGroup, CSSTransition } from 'react-transition-group'
+  import { AnimatePresence, motion } from 'framer-motion'
   
   function AnimatedRoutes() {
     const location = useLocation()
     
     return (
-      <TransitionGroup>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={300}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.3 }}
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
           </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+        </motion.div>
+      </AnimatePresence>
     )
   }
   ```
-- 🎨 CSS Animations:
-  ```css
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-  ```
-- 🔄 Page Transition Libraries:
-  - Framer Motion
-  - React Spring
-  - React Router Animations
 
-##### 8.13 📦 Lazy Loading Routes
-- 📝 Code Splitting with React.lazy:
+---
+
+##### **8.13 📦 Lazy Loading Routes**
+- 📝 Code Splitting with `lazy` + `Suspense`:
   ```jsx
   import { lazy, Suspense } from 'react'
   
@@ -4061,41 +3881,19 @@ Production    (16-19) ████████████░ 2 oy
     )
   }
   ```
-- 🎯 Route-based Code Splitting:
+- ⚡ Route Prefetching:
   ```jsx
-  const UserRoutes = lazy(() => import('./routes/UserRoutes'))
-  const AdminRoutes = lazy(() => import('./routes/AdminRoutes'))
-  
-  function App() {
-    const { user } = useAuth()
-    
-    return (
-      <Suspense fallback={<Loading />}>
-        {user?.role === 'admin' ? <AdminRoutes /> : <UserRoutes />}
-      </Suspense>
-    )
-  }
-  ```
-- ⚡ Prefetching Routes:
-  ```jsx
-  import { usePrefetch } from 'react-router-dom'
-  
-  function NavLink({ to, children }) {
-    const prefetch = usePrefetch()
-    
-    return (
-      <Link 
-        to={to}
-        onMouseEnter={() => prefetch(to)}
-        onFocus={() => prefetch(to)}
-      >
-        {children}
-      </Link>
-    )
-  }
+  <Link
+    to="/dashboard"
+    onMouseEnter={() => import('./pages/Dashboard')}
+  >
+    Dashboard
+  </Link>
   ```
 
-##### 8.14 🔧 Custom Route Components
+---
+
+##### **8.14 🔧 Custom Route Components**
 - 📝 Scroll Restoration:
   ```jsx
   function ScrollToTop() {
@@ -4107,16 +3905,6 @@ Production    (16-19) ████████████░ 2 oy
     
     return null
   }
-  
-  // Usage in App
-  function App() {
-    return (
-      <>
-        <ScrollToTop />
-        <Routes>...</Routes>
-      </>
-    )
-  }
   ```
 - 📝 Route Change Tracker:
   ```jsx
@@ -4124,107 +3912,48 @@ Production    (16-19) ████████████░ 2 oy
     const location = useLocation()
     
     useEffect(() => {
-      // Track route change
       console.log('Route changed:', location.pathname)
     }, [location])
     
     return null
   }
   ```
-- 🎯 Route Guard Component:
-  ```jsx
-  function RouteGuard({ children, guard, fallback }) {
-    const location = useLocation()
-    const [isAllowed, setIsAllowed] = useState(false)
-    const [isChecking, setIsChecking] = useState(true)
-    
-    useEffect(() => {
-      const checkGuard = async () => {
-        const allowed = await guard(location)
-        setIsAllowed(allowed)
-        setIsChecking(false)
-      }
-      
-      checkGuard()
-    }, [location, guard])
-    
-    if (isChecking) return <Loading />
-    return isAllowed ? children : fallback
-  }
-  ```
 
-##### 8.15 🔗 Link Component Advanced
+---
+
+##### **8.15 🔗 Advanced Link Features**
 - 📝 `replace` Prop:
   ```jsx
-  <Link to="/dashboard" replace>
-    Dashboard (replace current history)
-  </Link>
+  <Link to="/dashboard" replace>Dashboard</Link>
   ```
 - 📦 `state` Prop:
   ```jsx
-  <Link 
-    to="/profile"
-    state={{ fromNotification: true, userId: 123 }}
-  >
-    View Profile
+  <Link to="/profile" state={{ fromNotification: true }}>
+    Profile
   </Link>
   ```
 - 🔄 `reloadDocument` (full page reload):
   ```jsx
-  <Link to="/download" reloadDocument>
-    Download (full page reload)
-  </Link>
-  ```
-- 🎯 `preventScrollReset`:
-  ```jsx
-  <Link to="/modal" preventScrollReset>
-    Open Modal (don't scroll to top)
-  </Link>
+  <Link to="/download" reloadDocument>Download</Link>
   ```
 
-##### 8.16 📚 useMatch and useResolvedPath
-- 📝 useMatch Hook:
+---
+
+##### **8.16 📚 Additional Hooks**
+- 📝 `useMatch`:
   ```jsx
-  import { useMatch } from 'react-router-dom'
-  
-  function NavLinkWithPattern({ to, children }) {
-    const match = useMatch(to)
-    
-    return (
-      <Link 
-        to={to}
-        className={match ? 'active' : ''}
-      >
-        {children}
-      </Link>
-    )
-  }
+  const match = useMatch('/users/:id')
+  // match = { params: { id: '123' }, pathname: '/users/123', ... }
   ```
-- 📝 useResolvedPath:
+- 📝 `useResolvedPath`:
   ```jsx
-  import { useResolvedPath } from 'react-router-dom'
-  
-  function RelativeLink({ to, children }) {
-    const resolvedPath = useResolvedPath(to)
-    
-    return (
-      <Link to={to}>
-        {children} (resolves to: {resolvedPath.pathname})
-      </Link>
-    )
-  }
+  const resolved = useResolvedPath('./settings')
+  // resolved.pathname = '/current-path/settings'
   ```
 
-##### 8.17 🔄 React Router v6 Features
-- 🆕 Relative Routes and Links
-- 🆕 Automatic Route Ranking
-- 🆕 Nested Routes with Outlet
-- 🆕 useNavigate instead of useHistory
-- 🆕 element prop instead of component/render
-- 🆕 No more Switch (replaced with Routes)
-- 🆕 useRoutes hook for config
+---
 
-##### 8.18 🧪 Testing React Router
+##### **8.17 🧪 Testing React Router**
 - 📝 Testing with MemoryRouter:
   ```jsx
   import { render, screen } from '@testing-library/react'
@@ -4239,39 +3968,34 @@ Production    (16-19) ████████████░ 2 oy
       </MemoryRouter>
     )
     
-    expect(screen.getByText('Home Page')).toBeInTheDocument()
-    
     await userEvent.click(screen.getByText('About'))
-    
     expect(screen.getByText('About Page')).toBeInTheDocument()
   })
   
-  test('handles not found routes', () => {
+  test('404 on unknown route', () => {
     render(
       <MemoryRouter initialEntries={['/unknown']}>
         <App />
       </MemoryRouter>
     )
-    
-    expect(screen.getByText('404 - Not Found')).toBeInTheDocument()
+    expect(screen.getByText('404')).toBeInTheDocument()
   })
   ```
 - 📝 Testing Route Parameters:
   ```jsx
-  test('displays user id from params', () => {
-    render(
-      <MemoryRouter initialEntries={['/users/123']}>
-        <Routes>
-          <Route path="/users/:id" element={<UserProfile />} />
-        </Routes>
-      </MemoryRouter>
-    )
-    
-    expect(screen.getByText('User ID: 123')).toBeInTheDocument()
-  })
+  render(
+    <MemoryRouter initialEntries={['/users/123']}>
+      <Routes>
+        <Route path="/users/:id" element={<UserProfile />} />
+      </Routes>
+    </MemoryRouter>
+  )
+  expect(screen.getByText('User ID: 123')).toBeInTheDocument()
   ```
 
-##### 8.19 🚀 Advanced Patterns
+---
+
+##### **8.18 🚀 Advanced Patterns**
 - 📝 Modal Routes:
   ```jsx
   function App() {
@@ -4285,7 +4009,6 @@ Production    (16-19) ████████████░ 2 oy
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
         
-        {/* Show modal if background location exists */}
         {state?.backgroundLocation && (
           <Routes>
             <Route path="/img/:id" element={<Modal />} />
@@ -4296,10 +4019,7 @@ Production    (16-19) ████████████░ 2 oy
   }
   
   // Open modal
-  <Link 
-    to="/img/1"
-    state={{ backgroundLocation: location }}
-  >
+  <Link to="/img/1" state={{ backgroundLocation: location }}>
     View Image
   </Link>
   ```
@@ -4307,23 +4027,18 @@ Production    (16-19) ████████████░ 2 oy
   ```jsx
   function Breadcrumbs() {
     const location = useLocation()
-    const pathnames = location.pathname.split('/').filter(x => x)
+    const pathnames = location.pathname.split('/').filter(Boolean)
     
     return (
       <nav>
         <Link to="/">Home</Link>
-        {pathnames.map((name, index) => {
-          const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`
-          const isLast = index === pathnames.length - 1
-          
+        {pathnames.map((name, i) => {
+          const to = `/${pathnames.slice(0, i + 1).join('/')}`
+          const isLast = i === pathnames.length - 1
           return (
             <span key={name}>
               <span> / </span>
-              {isLast ? (
-                <span>{name}</span>
-              ) : (
-                <Link to={routeTo}>{name}</Link>
-              )}
+              {isLast ? <span>{name}</span> : <Link to={to}>{name}</Link>}
             </span>
           )
         })}
@@ -4332,7 +4047,20 @@ Production    (16-19) ████████████░ 2 oy
   }
   ```
 
-##### 8.20 💻 Practical Projects
+---
+
+##### **8.19 🔄 React Router v6 Features (Summary)**
+- 🆕 `Routes` instead of `Switch`
+- 🆕 `element` prop instead of `component`/`render`
+- 🆕 Relative routes and links
+- 🆕 Automatic route ranking
+- 🆕 `useNavigate` instead of `useHistory`
+- 🆕 `Outlet` for nested routes
+- 🆕 `useRoutes` for config-based routing
+
+---
+
+##### **8.20 💻 Practical Projects**
 - 🏗️ Multi-page Website with Navigation
 - 📝 Blog with Dynamic Routes
 - 🛒 E-commerce with Product Pages
@@ -4351,39 +4079,40 @@ Production    (16-19) ████████████░ 2 oy
 
 ---
 
-## 🎯 STAGE 9 — Context API (State Management)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 9 — CONTEXT API (Built-in State Management)
 **Goal**: Master React's built-in state management solution for medium-complexity applications.
-**Time**: 15 soat | 8 dars
+**Time**: 18 soat | 9 dars
 
-#### 📚 Topics
+---
 
-##### 9.1 📦 Introduction to Context API
-- 🤔 What is Context API?
+#### 📚 **Topics**
+
+##### **9.1 📦 Introduction to Context API**
+- 🤔 What is Context API? (Built-in React state management)
 - 🎯 Why Context? (Prop Drilling Problem)
-- 📜 Before Context (Prop Drilling Example):
+- 📜 Prop Drilling Example (problem demonstration):
   ```jsx
+  // user prop passed through multiple levels
   function App() {
     const [user, setUser] = useState({ name: 'John' })
-    
-    return (
-      <div>
-        <Header user={user} />
-        <Main user={user} />
-        <Footer user={user} />
-      </div>
-    )
+    return <Header user={user} />
   }
   
   function Header({ user }) {
-    return <header><UserAvatar user={user} /></header>
+    return <UserAvatar user={user} />
   }
   
   function UserAvatar({ user }) {
     return <img src={user.avatar} alt={user.name} />
   }
-  // user prop passed through multiple levels!
   ```
-- 🔄 Context vs Props
+- 🔄 Context vs Props (when to use each)
 - 📦 When to Use Context:
   - Theme (light/dark mode)
   - User authentication
@@ -4391,14 +4120,16 @@ Production    (16-19) ████████████░ 2 oy
   - Global settings
   - UI state (modals, toasts)
 
-##### 9.2 🏗️ Creating and Providing Context
-- 📝 createContext:
+---
+
+##### **9.2 🏗️ Creating and Providing Context**
+- 📝 `createContext`:
   ```jsx
   import { createContext } from 'react'
   
-  const ThemeContext = createContext(null)
-  // or with default value
   const ThemeContext = createContext('light')
+  // or with null (requires check)
+  const ThemeContext = createContext(null)
   ```
 - 📦 Context Provider:
   ```jsx
@@ -4414,66 +4145,34 @@ Production    (16-19) ████████████░ 2 oy
     )
   }
   ```
-- 🎯 Multiple Providers:
-  ```jsx
-  function App() {
-    return (
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <AuthContext.Provider value={{ user, login, logout }}>
-          <LanguageContext.Provider value={{ language, setLanguage }}>
-            <Main />
-          </LanguageContext.Provider>
-        </AuthContext.Provider>
-      </ThemeContext.Provider>
-    )
-  }
-  ```
+- 🎯 Multiple Providers (nesting)
 
-##### 9.3 📥 Consuming Context
-- 📝 useContext Hook:
+---
+
+##### **9.3 📥 Consuming Context**
+- 📝 `useContext` Hook (modern):
   ```jsx
   import { useContext } from 'react'
   
   function ThemedButton() {
     const { theme, setTheme } = useContext(ThemeContext)
-    
     return (
-      <button
-        className={`btn-${theme}`}
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      >
-        Current theme: {theme}
-      </button>
-    )
-  }
-  ```
-- 📦 Context.Consumer (legacy):
-  ```jsx
-  <ThemeContext.Consumer>
-    {({ theme, setTheme }) => (
-      <button className={`btn-${theme}`}>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
         Theme: {theme}
       </button>
-    )}
-  </ThemeContext.Consumer>
-  ```
-- 🎯 Multiple Contexts:
-  ```jsx
-  function Toolbar() {
-    const { theme } = useContext(ThemeContext)
-    const { user } = useContext(AuthContext)
-    const { language } = useContext(LanguageContext)
-    
-    return (
-      <div className={`toolbar-${theme}`}>
-        <p>User: {user?.name}</p>
-        <p>Language: {language}</p>
-      </div>
     )
   }
   ```
+- 📦 Context.Consumer (legacy — avoid in new code)
+- 🎯 Multiple Contexts:
+  ```jsx
+  const { theme } = useContext(ThemeContext)
+  const { user } = useContext(AuthContext)
+  ```
 
-##### 9.4 🎨 Theme Context Example
+---
+
+##### **9.4 🎨 Theme Context Example**
 - 📝 Complete Theme Implementation:
   ```jsx
   // contexts/ThemeContext.jsx
@@ -4483,9 +4182,7 @@ Production    (16-19) ████████████░ 2 oy
   
   export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
-      // Load from localStorage
-      const saved = localStorage.getItem('theme')
-      return saved || 'light'
+      return localStorage.getItem('theme') || 'light'
     })
     
     const toggleTheme = () => {
@@ -4506,48 +4203,37 @@ Production    (16-19) ████████████░ 2 oy
   export function useTheme() {
     const context = useContext(ThemeContext)
     if (context === undefined) {
-      throw new Error('useTheme must be used within a ThemeProvider')
+      throw new Error('useTheme must be used within ThemeProvider')
     }
     return context
   }
   ```
-- 📦 Using the Theme:
+- 📦 Usage:
   ```jsx
-  // App.jsx
-  import { ThemeProvider } from './contexts/ThemeContext'
-  
   function App() {
     return (
       <ThemeProvider>
         <Header />
-        <Main />
       </ThemeProvider>
     )
   }
   
-  // Header.jsx
-  import { useTheme } from '../contexts/ThemeContext'
-  
   function Header() {
     const { theme, toggleTheme } = useTheme()
-    
     return (
       <header className={`header-${theme}`}>
-        <h1>My App</h1>
-        <button onClick={toggleTheme}>
-          Switch to {theme === 'light' ? 'dark' : 'light'} mode
-        </button>
+        <button onClick={toggleTheme}>Toggle Theme</button>
       </header>
     )
   }
   ```
 
-##### 9.5 🔐 Auth Context Example
+---
+
+##### **9.5 🔐 Auth Context Example**
 - 📝 Authentication Context:
   ```jsx
   // contexts/AuthContext.jsx
-  import { createContext, useState, useContext, useEffect } from 'react'
-  
   const AuthContext = createContext()
   
   export function AuthProvider({ children }) {
@@ -4555,27 +4241,20 @@ Production    (16-19) ████████████░ 2 oy
     const [loading, setLoading] = useState(true)
     
     useEffect(() => {
-      // Check for saved session
-      const savedUser = localStorage.getItem('user')
-      if (savedUser) {
-        setUser(JSON.parse(savedUser))
-      }
+      const saved = localStorage.getItem('user')
+      if (saved) setUser(JSON.parse(saved))
       setLoading(false)
     }, [])
     
     const login = async (email, password) => {
-      try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          body: JSON.stringify({ email, password })
-        })
-        const userData = await response.json()
-        setUser(userData)
-        localStorage.setItem('user', JSON.stringify(userData))
-        return { success: true }
-      } catch (error) {
-        return { success: false, error: error.message }
-      }
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password })
+      })
+      const userData = await response.json()
+      setUser(userData)
+      localStorage.setItem('user', JSON.stringify(userData))
+      return { success: true }
     }
     
     const logout = () => {
@@ -4583,16 +4262,8 @@ Production    (16-19) ████████████░ 2 oy
       localStorage.removeItem('user')
     }
     
-    const value = {
-      user,
-      login,
-      logout,
-      loading,
-      isAuthenticated: !!user
-    }
-    
     return (
-      <AuthContext.Provider value={value}>
+      <AuthContext.Provider value={{ user, login, logout, loading, isAuthenticated: !!user }}>
         {children}
       </AuthContext.Provider>
     )
@@ -4600,250 +4271,34 @@ Production    (16-19) ████████████░ 2 oy
   
   export function useAuth() {
     const context = useContext(AuthContext)
-    if (!context) {
-      throw new Error('useAuth must be used within AuthProvider')
-    }
+    if (!context) throw new Error('useAuth must be used within AuthProvider')
     return context
   }
   ```
-- 📦 Using Auth Context:
+- 📦 Protected Route with Auth:
   ```jsx
-  // ProtectedRoute.jsx
-  import { Navigate } from 'react-router-dom'
-  import { useAuth } from './contexts/AuthContext'
-  
-  export function ProtectedRoute({ children }) {
+  function ProtectedRoute({ children }) {
     const { isAuthenticated, loading } = useAuth()
-    
-    if (loading) {
-      return <div>Loading...</div>
-    }
-    
-    if (!isAuthenticated) {
-      return <Navigate to="/login" replace />
-    }
-    
+    if (loading) return <div>Loading...</div>
+    if (!isAuthenticated) return <Navigate to="/login" replace />
     return children
   }
-  
-  // Login.jsx
-  import { useAuth } from './contexts/AuthContext'
-  import { useNavigate } from 'react-router-dom'
-  
-  function Login() {
-    const { login } = useAuth()
-    const navigate = useNavigate()
-    
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      const result = await login(email, password)
-      if (result.success) {
-        navigate('/dashboard')
-      }
-    }
-    
-    return <form onSubmit={handleSubmit}>...</form>
-  }
   ```
 
-##### 9.6 🎯 Cart/Shopping Context
-- 📝 Shopping Cart Context:
-  ```jsx
-  // contexts/CartContext.jsx
-  import { createContext, useState, useContext, useReducer } from 'react'
-  
-  const CartContext = createContext()
-  
-  const cartReducer = (state, action) => {
-    switch (action.type) {
-      case 'ADD_ITEM':
-        const existingItem = state.items.find(
-          item => item.id === action.payload.id
-        )
-        if (existingItem) {
-          return {
-            ...state,
-            items: state.items.map(item =>
-              item.id === action.payload.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-            )
-          }
-        }
-        return {
-          ...state,
-          items: [...state.items, { ...action.payload, quantity: 1 }]
-        }
-        
-      case 'REMOVE_ITEM':
-        return {
-          ...state,
-          items: state.items.filter(item => item.id !== action.payload)
-        }
-        
-      case 'UPDATE_QUANTITY':
-        return {
-          ...state,
-          items: state.items.map(item =>
-            item.id === action.payload.id
-              ? { ...item, quantity: action.payload.quantity }
-              : item
-          )
-        }
-        
-      case 'CLEAR_CART':
-        return {
-          ...state,
-          items: []
-        }
-        
-      default:
-        return state
-    }
-  }
-  
-  export function CartProvider({ children }) {
-    const [state, dispatch] = useReducer(cartReducer, {
-      items: []
-    })
-    
-    const addItem = (product) => {
-      dispatch({ type: 'ADD_ITEM', payload: product })
-    }
-    
-    const removeItem = (id) => {
-      dispatch({ type: 'REMOVE_ITEM', payload: id })
-    }
-    
-    const updateQuantity = (id, quantity) => {
-      dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } })
-    }
-    
-    const clearCart = () => {
-      dispatch({ type: 'CLEAR_CART' })
-    }
-    
-    const totalItems = state.items.reduce(
-      (sum, item) => sum + item.quantity, 0
-    )
-    
-    const totalPrice = state.items.reduce(
-      (sum, item) => sum + (item.price * item.quantity), 0
-    )
-    
-    return (
-      <CartContext.Provider value={{
-        items: state.items,
-        addItem,
-        removeItem,
-        updateQuantity,
-        clearCart,
-        totalItems,
-        totalPrice
-      }}>
-        {children}
-      </CartContext.Provider>
-    )
-  }
-  
-  export function useCart() {
-    const context = useContext(CartContext)
-    if (!context) {
-      throw new Error('useCart must be used within CartProvider')
-    }
-    return context
-  }
-  ```
+---
 
-##### 9.7 🔔 Notification/Toast Context
-- 📝 Toast Context:
-  ```jsx
-  // contexts/ToastContext.jsx
-  import { createContext, useState, useContext, useCallback } from 'react'
-  
-  const ToastContext = createContext()
-  
-  let nextId = 0
-  
-  export function ToastProvider({ children }) {
-    const [toasts, setToasts] = useState([])
-    
-    const addToast = useCallback((message, type = 'info', duration = 3000) => {
-      const id = nextId++
-      setToasts(prev => [...prev, { id, message, type }])
-      
-      setTimeout(() => {
-        setToasts(prev => prev.filter(toast => toast.id !== id))
-      }, duration)
-    }, [])
-    
-    const removeToast = useCallback((id) => {
-      setToasts(prev => prev.filter(toast => toast.id !== id))
-    }, [])
-    
-    return (
-      <ToastContext.Provider value={{ addToast, removeToast, toasts }}>
-        {children}
-        <ToastContainer toasts={toasts} onRemove={removeToast} />
-      </ToastContext.Provider>
-    )
-  }
-  
-  export function useToast() {
-    const context = useContext(ToastContext)
-    if (!context) {
-      throw new Error('useToast must be used within ToastProvider')
-    }
-    return context
-  }
-  
-  // ToastContainer Component
-  function ToastContainer({ toasts, onRemove }) {
-    return (
-      <div className="toast-container">
-        {toasts.map(toast => (
-          <div key={toast.id} className={`toast toast-${toast.type}`}>
-            <span>{toast.message}</span>
-            <button onClick={() => onRemove(toast.id)}>×</button>
-          </div>
-        ))}
-      </div>
-    )
-  }
-  ```
-
-##### 9.8 🎯 Complex State with useReducer + Context
-- 📝 Combining useReducer with Context:
+##### **9.6 🎯 useReducer + Context Pattern**
+- 📝 Combining Reducer with Context:
   ```jsx
   // contexts/TodoContext.jsx
-  import { createContext, useContext, useReducer } from 'react'
-  
   const TodoContext = createContext()
   
-  const initialState = {
-    todos: [],
-    filter: 'all',
-    loading: false,
-    error: null
-  }
+  const initialState = { todos: [], filter: 'all' }
   
   function todoReducer(state, action) {
     switch (action.type) {
-      case 'FETCH_START':
-        return { ...state, loading: true, error: null }
-        
-      case 'FETCH_SUCCESS':
-        return { ...state, loading: false, todos: action.payload }
-        
-      case 'FETCH_ERROR':
-        return { ...state, loading: false, error: action.payload }
-        
       case 'ADD_TODO':
-        return {
-          ...state,
-          todos: [...state.todos, action.payload]
-        }
-        
+        return { ...state, todos: [...state.todos, action.payload] }
       case 'TOGGLE_TODO':
         return {
           ...state,
@@ -4853,16 +4308,8 @@ Production    (16-19) ████████████░ 2 oy
               : todo
           )
         }
-        
-      case 'DELETE_TODO':
-        return {
-          ...state,
-          todos: state.todos.filter(todo => todo.id !== action.payload)
-        }
-        
       case 'SET_FILTER':
         return { ...state, filter: action.payload }
-        
       default:
         return state
     }
@@ -4871,37 +4318,12 @@ Production    (16-19) ████████████░ 2 oy
   export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialState)
     
-    const fetchTodos = async () => {
-      dispatch({ type: 'FETCH_START' })
-      try {
-        const response = await fetch('/api/todos')
-        const data = await response.json()
-        dispatch({ type: 'FETCH_SUCCESS', payload: data })
-      } catch (error) {
-        dispatch({ type: 'FETCH_ERROR', payload: error.message })
-      }
-    }
-    
     const addTodo = (text) => {
-      const newTodo = {
-        id: Date.now(),
-        text,
-        completed: false
-      }
-      dispatch({ type: 'ADD_TODO', payload: newTodo })
+      dispatch({ type: 'ADD_TODO', payload: { id: Date.now(), text, completed: false } })
     }
     
-    const toggleTodo = (id) => {
-      dispatch({ type: 'TOGGLE_TODO', payload: id })
-    }
-    
-    const deleteTodo = (id) => {
-      dispatch({ type: 'DELETE_TODO', payload: id })
-    }
-    
-    const setFilter = (filter) => {
-      dispatch({ type: 'SET_FILTER', payload: filter })
-    }
+    const toggleTodo = (id) => dispatch({ type: 'TOGGLE_TODO', payload: id })
+    const setFilter = (filter) => dispatch({ type: 'SET_FILTER', payload: filter })
     
     const filteredTodos = state.todos.filter(todo => {
       if (state.filter === 'active') return !todo.completed
@@ -4912,15 +4334,10 @@ Production    (16-19) ████████████░ 2 oy
     return (
       <TodoContext.Provider value={{
         todos: filteredTodos,
-        allTodos: state.todos,
-        filter: state.filter,
-        loading: state.loading,
-        error: state.error,
-        fetchTodos,
         addTodo,
         toggleTodo,
-        deleteTodo,
-        setFilter
+        setFilter,
+        filter: state.filter
       }}>
         {children}
       </TodoContext.Provider>
@@ -4929,39 +4346,34 @@ Production    (16-19) ████████████░ 2 oy
   
   export function useTodos() {
     const context = useContext(TodoContext)
-    if (!context) {
-      throw new Error('useTodos must be used within TodoProvider')
-    }
+    if (!context) throw new Error('useTodos must be used within TodoProvider')
     return context
   }
   ```
 
-##### 9.9 🔄 Context Composition
-- 📝 Combining Multiple Contexts:
+---
+
+##### **9.7 🔄 Context Composition**
+- 📝 Combining Multiple Providers:
   ```jsx
   // contexts/index.jsx
   import { ThemeProvider } from './ThemeContext'
   import { AuthProvider } from './AuthContext'
-  import { CartProvider } from './CartContext'
-  import { ToastProvider } from './ToastContext'
+  import { TodoProvider } from './TodoContext'
   
   export function AppProviders({ children }) {
     return (
       <ThemeProvider>
         <AuthProvider>
-          <CartProvider>
-            <ToastProvider>
-              {children}
-            </ToastProvider>
-          </CartProvider>
+          <TodoProvider>
+            {children}
+          </TodoProvider>
         </AuthProvider>
       </ThemeProvider>
     )
   }
   
   // App.jsx
-  import { AppProviders } from './contexts'
-  
   function App() {
     return (
       <AppProviders>
@@ -4970,90 +4382,41 @@ Production    (16-19) ████████████░ 2 oy
     )
   }
   ```
-- 🎯 Custom Hook Composition:
-  ```jsx
-  // hooks/useApp.js
-  import { useTheme } from '../contexts/ThemeContext'
-  import { useAuth } from '../contexts/AuthContext'
-  import { useCart } from '../contexts/CartContext'
-  import { useToast } from '../contexts/ToastContext'
-  
-  export function useApp() {
-    const theme = useTheme()
-    const auth = useAuth()
-    const cart = useCart()
-    const toast = useToast()
-    
-    return {
-      theme,
-      auth,
-      cart,
-      toast
-    }
-  }
-  ```
 
-##### 9.10 ⚡ Performance Optimization
+---
+
+##### **9.8 ⚡ Performance Optimization**
 - 📝 Memoizing Context Value:
   ```jsx
-  import { useMemo } from 'react'
-  
   function UserProvider({ children }) {
     const [user, setUser] = useState(null)
     
     const value = useMemo(() => ({
       user,
-      login: (userData) => setUser(userData),
-      logout: () => setUser(null),
-      isAuthenticated: !!user
+      login: (data) => setUser(data),
+      logout: () => setUser(null)
     }), [user])
     
-    return (
-      <UserContext.Provider value={value}>
-        {children}
-      </UserContext.Provider>
-    )
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
   }
   ```
-- 📦 Splitting Context:
+- 📦 Splitting Context (prevent re-renders):
   ```jsx
-  // Split into separate contexts to prevent unnecessary re-renders
+  // Separate state and dispatch contexts
   const UserStateContext = createContext()
   const UserDispatchContext = createContext()
   
-  function UserProvider({ children }) {
-    const [state, dispatch] = useReducer(userReducer, initialState)
-    
-    return (
-      <UserDispatchContext.Provider value={dispatch}>
-        <UserStateContext.Provider value={state}>
-          {children}
-        </UserStateContext.Provider>
-      </UserDispatchContext.Provider>
-    )
-  }
-  
-  export function useUserState() {
-    return useContext(UserStateContext)
-  }
-  
-  export function useUserDispatch() {
-    return useContext(UserDispatchContext)
-  }
+  export function useUserState() { return useContext(UserStateContext) }
+  export function useUserDispatch() { return useContext(UserDispatchContext) }
   ```
-- 🎯 React.memo with Context:
-  ```jsx
-  const ExpensiveComponent = React.memo(({ data }) => {
-    // Only re-renders when data changes
-    return <div>{data}</div>
-  })
-  ```
+- 🎯 Only consumers of changed values re-render
 
-##### 9.11 🧪 Testing Context
-- 📝 Testing Context Providers:
+---
+
+##### **9.9 🧪 Testing Context**
+- 📝 Testing with Provider:
   ```jsx
   import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
   import { ThemeProvider, useTheme } from './ThemeContext'
   
   function TestComponent() {
@@ -5066,7 +4429,7 @@ Production    (16-19) ████████████░ 2 oy
     )
   }
   
-  test('theme context works correctly', async () => {
+  test('theme context works', async () => {
     render(
       <ThemeProvider>
         <TestComponent />
@@ -5074,162 +4437,47 @@ Production    (16-19) ████████████░ 2 oy
     )
     
     expect(screen.getByTestId('theme')).toHaveTextContent('light')
-    
     await userEvent.click(screen.getByText('Toggle'))
-    
     expect(screen.getByTestId('theme')).toHaveTextContent('dark')
   })
   ```
-- 📝 Testing with Custom Render:
+- 📝 Custom Render Wrapper:
   ```jsx
   // test-utils.jsx
-  import { render } from '@testing-library/react'
-  import { ThemeProvider } from './contexts/ThemeContext'
-  import { AuthProvider } from './contexts/AuthContext'
-  
-  const AllTheProviders = ({ children }) => {
-    return (
-      <ThemeProvider>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
-      </ThemeProvider>
-    )
-  }
-  
-  const customRender = (ui, options) =>
-    render(ui, { wrapper: AllTheProviders, ...options })
-  
-  export * from '@testing-library/react'
-  export { customRender as render }
-  ```
-
-##### 9.12 🚀 Advanced Patterns
-- 📝 Context with TypeScript:
-  ```tsx
-  interface ThemeContextType {
-    theme: 'light' | 'dark'
-    toggleTheme: () => void
-  }
-  
-  const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-  
-  export function useTheme(): ThemeContextType {
-    const context = useContext(ThemeContext)
-    if (!context) {
-      throw new Error('useTheme must be used within ThemeProvider')
-    }
-    return context
-  }
-  ```
-- 📝 Updating Context from Nested Components:
-  ```jsx
-  function DeeplyNested() {
-    const { updateUser } = useUser()
-    
-    return (
-      <button onClick={() => updateUser({ name: 'New Name' })}>
-        Update User
-      </button>
-    )
-  }
-  ```
-- 📝 Context with Reducer Pattern:
-  ```jsx
-  const AppContext = createContext()
-  
-  function appReducer(state, action) {
-    switch (action.type) {
-      case 'SET_USER':
-        return { ...state, user: action.payload }
-      case 'SET_THEME':
-        return { ...state, theme: action.payload }
-      case 'ADD_NOTIFICATION':
-        return {
-          ...state,
-          notifications: [...state.notifications, action.payload]
-        }
-      default:
-        return state
-    }
-  }
-  
-  function AppProvider({ children }) {
-    const [state, dispatch] = useReducer(appReducer, {
-      user: null,
-      theme: 'light',
-      notifications: []
-    })
-    
-    return (
-      <AppContext.Provider value={{ state, dispatch }}>
+  const AllProviders = ({ children }) => (
+    <ThemeProvider>
+      <AuthProvider>
         {children}
-      </AppContext.Provider>
-    )
-  }
+      </AuthProvider>
+    </ThemeProvider>
+  )
+  
+  export const render = (ui, options) =>
+    testRender(ui, { wrapper: AllProviders, ...options })
   ```
 
-##### 9.13 📚 Context vs Other State Management
-- 🔄 Context vs Redux:
-  - When to use Context
-  - When to use Redux
-  - Performance considerations
-  - Complexity trade-offs
-- 🔄 Context vs Props:
-  - Prop drilling solution
-  - When props are better
-  - Maintainability
-- 🔄 Context vs State Lifting:
-  - Shared state
-  - Component hierarchy
-  - Reusability
+---
 
-##### 9.14 ⚠️ Common Pitfalls and Solutions
-- 📝 Unnecessary Re-renders:
-  ```jsx
-  // ❌ Bad - creates new object every render
-  <UserContext.Provider value={{ user, login }}>
-    {children}
-  </UserContext.Provider>
-  
-  // ✅ Good - memoized value
-  const value = useMemo(() => ({ user, login }), [user])
-  <UserContext.Provider value={value}>
-    {children}
-  </UserContext.Provider>
-  ```
-- 📝 Context Provider Nesting:
-  ```jsx
-  // ❌ Too many nested providers
-  <ThemeProvider>
-    <AuthProvider>
-      <CartProvider>
-        <NotificationProvider>
-          <UserProvider>
-            <App />
-          </UserProvider>
-        </NotificationProvider>
-      </CartProvider>
-    </AuthProvider>
-  </ThemeProvider>
-  
-  // ✅ Combine providers
-  <AppProviders>
-    <App />
-  </AppProviders>
-  ```
-- 📝 Default Context Values:
-  ```jsx
-  // ❌ Undefined default might cause errors
-  const Context = createContext()
-  
-  // ✅ Provide meaningful default or null check
-  const Context = createContext(null)
-  // Or with default values
-  const Context = createContext({ theme: 'light', toggleTheme: () => {} })
-  ```
+##### **9.10 🔄 Context vs Alternatives**
+| Solution | When to Use |
+|----------|-------------|
+| **Props** | Simple, shallow component trees |
+| **Context** | Medium complexity, global settings |
+| **Redux/Zustand** | Complex state, frequent updates, large apps |
+| **State Lifting** | Shared state between siblings |
 
-##### 9.15 💻 Practical Projects
+---
+
+##### **9.11 ⚠️ Common Pitfalls**
+- ❌ Unnecessary re-renders (value not memoized)
+- ❌ Too many nested providers (hard to maintain)
+- ❌ Using Context for high-frequency updates
+- ❌ Missing provider (undefined context)
+- ❌ Overusing Context (when props would suffice)
+
+---
+
+##### **9.12 💻 Practical Projects**
 - 🏗️ Theme Switcher Application
 - 🔐 Authentication Flow with Context
 - 🛒 Shopping Cart Implementation
@@ -5242,144 +4490,127 @@ Production    (16-19) ████████████░ 2 oy
 - 📦 E-commerce Store with Cart
 - 💬 Chat Application with User Context
 - ⚙️ Application Settings Panel
-- 📱 Mobile-responsive Layout Context
-- 🎮 Game Settings and Preferences
 - 📚 Blog with User Preferences
 
 ---
-## 🎯 STAGE 10 — Redux Toolkit (Advanced State Management)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 10 — REDUX TOOLKIT (Advanced State Management)
 **Goal**: Master Redux Toolkit for complex state management in large-scale applications.
-**Time**: 25 soat | 12 dars
+**Time**: 30 soat | 12 dars
 
-#### 📚 Topics
+---
 
-##### 10.1 📦 Introduction to Redux
-- 🤔 What is Redux?
-- 📜 History of Redux (Dan Abramov, 2015)
-- 🎯 Why Redux? (Problems it solves)
+#### 📚 **Topics**
+
+##### **10.1 📦 Introduction to Redux**
+- 🤔 What is Redux? (Predictable state container)
+- 📜 History (Dan Abramov, 2015)
+- 🎯 Why Redux? (Problems: prop drilling, complex state logic)
 - 🔄 Redux Principles:
   - Single source of truth (one store)
-  - State is read-only
+  - State is read-only (actions trigger changes)
   - Changes via pure functions (reducers)
 - 📊 When to Use Redux:
   - Complex state logic
-  - Multiple components need same state
-  - State is updated frequently
+  - Multiple components share same state
+  - State updates frequently
   - Large team collaboration
-- 🔄 Redux vs Context API:
-  - Performance (re-renders)
-  - DevTools
-  - Middleware
-  - Time-travel debugging
+- 🔄 Redux vs Context API (performance, DevTools, middleware)
 
-##### 10.2 🔧 Redux Toolkit Overview
-- 📦 What is Redux Toolkit (RTK)?
+---
+
+##### **10.2 🔧 Redux Toolkit Overview**
+- 📦 What is Redux Toolkit? (Official, recommended way)
 - 🎯 Problems with Traditional Redux:
-  - Boilerplate code
+  - Too much boilerplate
   - Complex setup
   - Many packages needed
-- ⚡ Redux Toolkit Features:
-  - configureStore (simplified store setup)
-  - createSlice (actions + reducers together)
-  - createAsyncThunk (async logic)
-  - createEntityAdapter (normalized state)
+- ⚡ RTK Features:
+  - `configureStore` (simplified store)
+  - `createSlice` (actions + reducers together)
+  - `createAsyncThunk` (async logic)
+  - `createEntityAdapter` (normalized state)
   - RTK Query (data fetching)
 - 📥 Installation:
   ```bash
   npm install @reduxjs/toolkit react-redux
-  # or
-  yarn add @reduxjs/toolkit react-redux
   ```
 
-##### 10.3 🏗️ Redux Store Setup
-- 📝 configureStore:
+---
+
+##### **10.3 🏗️ Store Setup**
+- 📝 `configureStore`:
   ```jsx
   // store/store.js
   import { configureStore } from '@reduxjs/toolkit'
   
   export const store = configureStore({
     reducer: {
-      // reducers will go here
+      // reducers go here
     },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: true,
-        immutableCheck: true
-      })
+      getDefaultMiddleware({ serializableCheck: true })
   })
   ```
 - 📦 Provider Setup:
   ```jsx
   // main.jsx
-  import React from 'react'
-  import ReactDOM from 'react-dom/client'
   import { Provider } from 'react-redux'
   import { store } from './store/store'
-  import App from './App'
   
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  )
+  <Provider store={store}>
+    <App />
+  </Provider>
   ```
 
-##### 10.4 🍰 createSlice (The Heart of RTK)
+---
+
+##### **10.4 🍰 createSlice**
 - 📝 Creating a Slice:
   ```jsx
   // features/counter/counterSlice.js
   import { createSlice } from '@reduxjs/toolkit'
   
-  const initialState = {
-    value: 0,
-    status: 'idle'
-  }
+  const initialState = { value: 0, status: 'idle' }
   
   const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-      increment: (state) => {
-        state.value += 1  // Immer allows "mutating" syntax
-      },
-      decrement: (state) => {
-        state.value -= 1
-      },
-      incrementByAmount: (state, action) => {
-        state.value += action.payload
-      },
-      reset: (state) => {
-        state.value = 0
-      }
+      increment: (state) => { state.value += 1 },
+      decrement: (state) => { state.value -= 1 },
+      incrementByAmount: (state, action) => { state.value += action.payload },
+      reset: (state) => { state.value = 0 }
     }
   })
   
-  // Export actions
   export const { increment, decrement, incrementByAmount, reset } = counterSlice.actions
-  
-  // Export reducer
   export default counterSlice.reducer
   ```
-- 🔄 Immer.js Magic (immutable updates with mutable syntax)
+- 🔄 Immer.js Magic (write mutable logic, get immutable updates)
 - 📦 Adding to Store:
   ```jsx
-  // store/store.js
   import counterReducer from '../features/counter/counterSlice'
   
   export const store = configureStore({
-    reducer: {
-      counter: counterReducer
-    }
+    reducer: { counter: counterReducer }
   })
   ```
 
-##### 10.5 📥 Using Redux in Components
-- 📝 useSelector (reading state):
+---
+
+##### **10.5 📥 Using Redux in Components**
+- 📝 `useSelector` + `useDispatch`:
   ```jsx
-  // components/Counter.jsx
   import { useSelector, useDispatch } from 'react-redux'
-  import { increment, decrement, reset } from '../features/counter/counterSlice'
+  import { increment, decrement } from './counterSlice'
   
   function Counter() {
     const count = useSelector((state) => state.counter.value)
@@ -5390,134 +4621,28 @@ Production    (16-19) ████████████░ 2 oy
         <h2>Count: {count}</h2>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(decrement())}>-</button>
-        <button onClick={() => dispatch(reset())}>Reset</button>
       </div>
     )
   }
-  ```
-- 📦 Multiple Selectors:
-  ```jsx
-  const count = useSelector((state) => state.counter.value)
-  const status = useSelector((state) => state.counter.status)
-  const user = useSelector((state) => state.user.data)
   ```
 - 🎯 Memoized Selectors:
   ```jsx
   import { createSelector } from '@reduxjs/toolkit'
   
-  const selectCounter = (state) => state.counter
   const selectDoubleCount = createSelector(
-    [selectCounter],
-    (counter) => counter.value * 2
+    [(state) => state.counter.value],
+    (value) => value * 2
   )
   
-  // In component
   const doubleCount = useSelector(selectDoubleCount)
   ```
 
-##### 10.6 🔄 Complex State with Multiple Slices
-- 📝 User Slice:
-  ```jsx
-  // features/user/userSlice.js
-  import { createSlice } from '@reduxjs/toolkit'
-  
-  const initialState = {
-    profile: null,
-    isLoading: false,
-    error: null
-  }
-  
-  const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-      setUser: (state, action) => {
-        state.profile = action.payload
-      },
-      setLoading: (state, action) => {
-        state.isLoading = action.payload
-      },
-      setError: (state, action) => {
-        state.error = action.payload
-      },
-      clearUser: (state) => {
-        state.profile = null
-        state.error = null
-      }
-    }
-  })
-  
-  export const { setUser, setLoading, setError, clearUser } = userSlice.actions
-  export default userSlice.reducer
-  ```
-- 📦 Cart Slice:
-  ```jsx
-  // features/cart/cartSlice.js
-  import { createSlice } from '@reduxjs/toolkit'
-  
-  const initialState = {
-    items: [],
-    totalQuantity: 0,
-    totalPrice: 0
-  }
-  
-  const cartSlice = createSlice({
-    name: 'cart',
-    initialState,
-    reducers: {
-      addToCart: (state, action) => {
-        const existingItem = state.items.find(item => item.id === action.payload.id)
-        
-        if (existingItem) {
-          existingItem.quantity += 1
-        } else {
-          state.items.push({ ...action.payload, quantity: 1 })
-        }
-        
-        state.totalQuantity += 1
-        state.totalPrice += action.payload.price
-      },
-      
-      removeFromCart: (state, action) => {
-        const item = state.items.find(item => item.id === action.payload)
-        if (item) {
-          state.totalQuantity -= item.quantity
-          state.totalPrice -= item.price * item.quantity
-          state.items = state.items.filter(item => item.id !== action.payload)
-        }
-      },
-      
-      updateQuantity: (state, action) => {
-        const { id, quantity } = action.payload
-        const item = state.items.find(item => item.id === id)
-        
-        if (item) {
-          const quantityDiff = quantity - item.quantity
-          state.totalQuantity += quantityDiff
-          state.totalPrice += item.price * quantityDiff
-          item.quantity = quantity
-        }
-      },
-      
-      clearCart: (state) => {
-        state.items = []
-        state.totalQuantity = 0
-        state.totalPrice = 0
-      }
-    }
-  })
-  
-  export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions
-  export default cartSlice.reducer
-  ```
+---
+
+##### **10.6 🔄 Complex State with Multiple Slices**
+- 📝 Example: User + Cart slices
 - 🏗️ Combined Store:
   ```jsx
-  // store/store.js
-  import { configureStore } from '@reduxjs/toolkit'
-  import counterReducer from '../features/counter/counterSlice'
-  import userReducer from '../features/user/userSlice'
-  import cartReducer from '../features/cart/cartSlice'
-  
   export const store = configureStore({
     reducer: {
       counter: counterReducer,
@@ -5527,10 +4652,11 @@ Production    (16-19) ████████████░ 2 oy
   })
   ```
 
-##### 10.7 ⚡ Async Logic with createAsyncThunk
-- 📝 Basic createAsyncThunk:
+---
+
+##### **10.7 ⚡ Async Logic with createAsyncThunk**
+- 📝 Basic `createAsyncThunk`:
   ```jsx
-  // features/users/usersSlice.js
   import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
   import axios from 'axios'
   
@@ -5538,47 +4664,22 @@ Production    (16-19) ████████████░ 2 oy
     'users/fetchUsers',
     async (_, { rejectWithValue }) => {
       try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+        const response = await axios.get('/api/users')
         return response.data
       } catch (error) {
         return rejectWithValue(error.response.data)
       }
     }
   )
-  
-  export const createUser = createAsyncThunk(
-    'users/createUser',
-    async (userData, { rejectWithValue }) => {
-      try {
-        const response = await axios.post('/api/users', userData)
-        return response.data
-      } catch (error) {
-        return rejectWithValue(error.response.data)
-      }
-    }
-  )
-  
-  const initialState = {
-    users: [],
-    loading: false,
-    error: null,
-    currentUser: null
-  }
   
   const usersSlice = createSlice({
     name: 'users',
-    initialState,
-    reducers: {
-      clearError: (state) => {
-        state.error = null
-      }
-    },
+    initialState: { users: [], loading: false, error: null },
+    reducers: {},
     extraReducers: (builder) => {
       builder
-        // fetchUsers
         .addCase(fetchUsers.pending, (state) => {
           state.loading = true
-          state.error = null
         })
         .addCase(fetchUsers.fulfilled, (state, action) => {
           state.loading = false
@@ -5588,122 +4689,29 @@ Production    (16-19) ████████████░ 2 oy
           state.loading = false
           state.error = action.payload
         })
-        // createUser
-        .addCase(createUser.fulfilled, (state, action) => {
-          state.users.push(action.payload)
-        })
     }
   })
-  
-  export const { clearError } = usersSlice.actions
-  export default usersSlice.reducer
   ```
-- 📦 Using Async Thunks in Components:
+- 📦 Using in Component:
   ```jsx
-  // components/UserList.jsx
-  import { useEffect } from 'react'
-  import { useSelector, useDispatch } from 'react-redux'
-  import { fetchUsers, clearError } from '../features/users/usersSlice'
-  
-  function UserList() {
-    const dispatch = useDispatch()
-    const { users, loading, error } = useSelector((state) => state.users)
-    
-    useEffect(() => {
-      dispatch(fetchUsers())
-    }, [dispatch])
-    
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-    
-    return (
-      <div>
-        <h2>Users</h2>
-        <ul>
-          {users.map(user => (
-            <li key={user.id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [])
   ```
 
-##### 10.8 🎯 Advanced createAsyncThunk Patterns
-- 📝 Thunk with Parameters:
-  ```jsx
-  export const fetchUserById = createAsyncThunk(
-    'users/fetchById',
-    async (userId, { rejectWithValue }) => {
-      try {
-        const response = await axios.get(`/api/users/${userId}`)
-        return response.data
-      } catch (error) {
-        return rejectWithValue(error.response.data)
-      }
-    }
-  )
-  
-  // In component
-  dispatch(fetchUserById(123))
-  ```
-- 📝 Multiple Async Operations:
-  ```jsx
-  export const updateUserWithPosts = createAsyncThunk(
-    'users/updateWithPosts',
-    async (userId, { dispatch, getState }) => {
-      // Get current state
-      const state = getState()
-      
-      // Dispatch multiple actions
-      await dispatch(fetchUserById(userId))
-      await dispatch(fetchUserPosts(userId))
-      
-      // Access updated state
-      const updatedState = getState()
-      return updatedState.users.currentUser
-    }
-  )
-  ```
-- 📝 Conditional Fetching:
-  ```jsx
-  export const fetchUsersIfNeeded = createAsyncThunk(
-    'users/fetchIfNeeded',
-    async (_, { getState }) => {
-      const state = getState()
-      
-      // Don't fetch if we already have users
-      if (state.users.users.length > 0) {
-        return state.users.users
-      }
-      
-      const response = await axios.get('/api/users')
-      return response.data
-    }
-  )
-  ```
+---
 
-##### 10.9 🗃️ createEntityAdapter (Normalized State)
+##### **10.8 🗃️ createEntityAdapter (Normalized State)**
 - 📝 Setting up Entity Adapter:
   ```jsx
-  // features/posts/postsSlice.js
-  import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
+  import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
   
-  // Create adapter
   const postsAdapter = createEntityAdapter({
     selectId: (post) => post.id,
     sortComparer: (a, b) => b.date.localeCompare(a.date)
   })
   
-  const initialState = postsAdapter.getInitialState({
-    status: 'idle',
-    error: null
-  })
-  
-  export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await axios.get('/api/posts')
-    return response.data
-  })
+  const initialState = postsAdapter.getInitialState({ status: 'idle' })
   
   const postsSlice = createSlice({
     name: 'posts',
@@ -5712,94 +4720,38 @@ Production    (16-19) ████████████░ 2 oy
       addPost: postsAdapter.addOne,
       updatePost: postsAdapter.updateOne,
       removePost: postsAdapter.removeOne,
-      addManyPosts: postsAdapter.addMany
-    },
-    extraReducers: (builder) => {
-      builder
-        .addCase(fetchPosts.pending, (state) => {
-          state.status = 'loading'
-        })
-        .addCase(fetchPosts.fulfilled, (state, action) => {
-          state.status = 'succeeded'
-          postsAdapter.setAll(state, action.payload)
-        })
-        .addCase(fetchPosts.rejected, (state, action) => {
-          state.status = 'failed'
-          state.error = action.error.message
-        })
     }
   })
   
-  // Export actions
-  export const { addPost, updatePost, removePost, addManyPosts } = postsSlice.actions
-  
-  // Export selectors
+  // Selectors
   export const {
     selectAll: selectAllPosts,
     selectById: selectPostById,
     selectIds: selectPostIds
   } = postsAdapter.getSelectors((state) => state.posts)
-  
-  export default postsSlice.reducer
-  ```
-- 📦 Using Entity Adapter in Components:
-  ```jsx
-  import { useSelector, useDispatch } from 'react-redux'
-  import { selectAllPosts, fetchPosts } from '../features/posts/postsSlice'
-  
-  function PostsList() {
-    const dispatch = useDispatch()
-    const posts = useSelector(selectAllPosts)
-    const postStatus = useSelector((state) => state.posts.status)
-    
-    useEffect(() => {
-      if (postStatus === 'idle') {
-        dispatch(fetchPosts())
-      }
-    }, [postStatus, dispatch])
-    
-    return (
-      <div>
-        {posts.map(post => (
-          <div key={post.id}>{post.title}</div>
-        ))}
-      </div>
-    )
-  }
   ```
 
-##### 10.10 🔧 RTK Query (Advanced Data Fetching)
-- 📝 Setting up RTK Query:
+---
+
+##### **10.9 🔧 RTK Query (Data Fetching)**
+- 📝 Setting up API:
   ```jsx
   // services/api.js
   import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
   
   export const api = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({
-      baseUrl: 'https://jsonplaceholder.typicode.com',
-      prepareHeaders: (headers, { getState }) => {
-        const token = getState().auth.token
-        if (token) {
-          headers.set('authorization', `Bearer ${token}`)
-        }
-        return headers
-      }
-    }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.example.com' }),
     tagTypes: ['Post', 'User'],
     endpoints: (builder) => ({
-      // Query endpoints (GET)
       getPosts: builder.query({
         query: () => '/posts',
         providesTags: ['Post']
       }),
-      
       getPostById: builder.query({
         query: (id) => `/posts/${id}`,
         providesTags: (result, error, id) => [{ type: 'Post', id }]
       }),
-      
-      // Mutation endpoints (POST, PUT, DELETE)
       addPost: builder.mutation({
         query: (newPost) => ({
           url: '/posts',
@@ -5807,436 +4759,102 @@ Production    (16-19) ████████████░ 2 oy
           body: newPost
         }),
         invalidatesTags: ['Post']
-      }),
-      
-      updatePost: builder.mutation({
-        query: ({ id, ...patch }) => ({
-          url: `/posts/${id}`,
-          method: 'PUT',
-          body: patch
-        }),
-        invalidatesTags: (result, error, { id }) => [{ type: 'Post', id }]
-      }),
-      
-      deletePost: builder.mutation({
-        query: (id) => ({
-          url: `/posts/${id}`,
-          method: 'DELETE'
-        }),
-        invalidatesTags: ['Post']
       })
     })
   })
   
-  // Export hooks
-  export const {
-    useGetPostsQuery,
-    useGetPostByIdQuery,
-    useAddPostMutation,
-    useUpdatePostMutation,
-    useDeletePostMutation
-  } = api
+  export const { useGetPostsQuery, useGetPostByIdQuery, useAddPostMutation } = api
   ```
-- 📦 Adding RTK Query to Store:
+- 📦 Adding to Store:
   ```jsx
-  // store/store.js
-  import { configureStore } from '@reduxjs/toolkit'
-  import { api } from '../services/api'
-  
   export const store = configureStore({
     reducer: {
       [api.reducerPath]: api.reducer
     },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(api.middleware)
+    middleware: (getDefault) => getDefault().concat(api.middleware)
   })
   ```
 - 📝 Using RTK Query Hooks:
   ```jsx
-  // components/Posts.jsx
-  import { useGetPostsQuery, useAddPostMutation } from '../services/api'
-  
   function Posts() {
-    const { data: posts, isLoading, isError, error, refetch } = useGetPostsQuery()
+    const { data: posts, isLoading, error, refetch } = useGetPostsQuery()
     const [addPost, { isLoading: isAdding }] = useAddPostMutation()
     
     if (isLoading) return <div>Loading...</div>
-    if (isError) return <div>Error: {error.message}</div>
-    
-    const handleAddPost = async () => {
-      try {
-        await addPost({
-          title: 'New Post',
-          body: 'Content here'
-        }).unwrap()
-      } catch (err) {
-        console.error('Failed to add post:', err)
-      }
-    }
+    if (error) return <div>Error: {error.message}</div>
     
     return (
       <div>
-        <button onClick={handleAddPost} disabled={isAdding}>
-          Add Post
-        </button>
         <button onClick={refetch}>Refresh</button>
-        <ul>
-          {posts?.map(post => (
-            <li key={post.id}>{post.title}</li>
-          ))}
-        </ul>
+        {posts?.map(post => <div key={post.id}>{post.title}</div>)}
       </div>
     )
   }
   ```
 
-##### 10.11 🔄 Advanced RTK Query Features
-- 📝 Polling and Refetching:
-  ```jsx
-  // Poll every 5 seconds
-  const { data } = useGetPostsQuery(undefined, {
-    pollingInterval: 5000,
-    skip: !isLoggedIn,
-    refetchOnMountOrArgChange: true,
-    refetchOnFocus: true,
-    refetchOnReconnect: true
-  })
-  ```
-- 📝 Pagination:
-  ```jsx
-  export const api = createApi({
-    endpoints: (builder) => ({
-      getPaginatedPosts: builder.query({
-        query: (page = 1) => `/posts?_page=${page}&_limit=10`,
-        serializeQueryArgs: ({ endpointName }) => {
-          return endpointName
-        },
-        merge: (currentCache, newItems) => {
-          currentCache.push(...newItems)
-        },
-        forceRefetch({ currentArg, previousArg }) {
-          return currentArg !== previousArg
-        }
-      })
-    })
-  })
-  
-  // In component
-  function PostsList() {
-    const [page, setPage] = useState(1)
-    const { data, isFetching } = useGetPaginatedPostsQuery(page)
-    
-    return (
-      <div>
-        {data?.map(post => <Post key={post.id} post={post} />)}
-        <button 
-          onClick={() => setPage(prev => prev + 1)}
-          disabled={isFetching}
-        >
-          Load More
-        </button>
-      </div>
-    )
-  }
-  ```
-- 📝 Optimistic Updates:
-  ```jsx
-  const [updatePost] = useUpdatePostMutation()
-  
-  const handleUpdatePost = async (postId, newData) => {
-    try {
-      await updatePost({
-        id: postId,
-        ...newData
-      }).unwrap()
-    } catch (err) {
-      // Error handled by RTK Query
-    }
-  }
-  
-  // With optimistic update
-  const [updatePost] = useUpdatePostMutation({
-    optimisticUpdate: (state, { id, ...patch }) => {
-      const existing = state.posts.find(post => post.id === id)
-      if (existing) {
-        return { ...existing, ...patch }
-      }
-    }
-  })
-  ```
+---
 
-##### 10.12 🛠️ Redux DevTools
-- 🔧 Installation:
-  - Chrome Extension: Redux DevTools
+##### **10.10 🔄 Advanced RTK Query**
+- 📝 Polling: `useGetPostsQuery(undefined, { pollingInterval: 5000 })`
+- 📝 Pagination: `useGetPaginatedPostsQuery(page)`
+- 📝 Optimistic Updates (automatic with mutations)
+- 📝 Conditional Fetching: `skip` option
+
+---
+
+##### **10.11 🛠️ Redux DevTools**
+- 🔧 Chrome Extension: Redux DevTools
 - 📊 Features:
   - Time-travel debugging
   - State inspection
   - Action history
   - Diff between states
-  - Trace actions
-- 📝 Using DevTools:
-  ```jsx
-  // Automatically enabled with configureStore
-  export const store = configureStore({
-    reducer: rootReducer,
-    devTools: process.env.NODE_ENV !== 'production'
-  })
-  ```
-- 🔍 Inspecting State
-- 🔄 Replaying Actions
-- 🐛 Debugging with DevTools
+- 🔍 Automatically enabled with `configureStore`
 
-##### 10.13 🧪 Testing Redux
+---
+
+##### **10.12 🧪 Testing Redux**
 - 📝 Testing Reducers:
   ```jsx
-  // counterSlice.test.js
-  import counterReducer, { increment, decrement } from './counterSlice'
-  
-  describe('counter reducer', () => {
-    it('should handle initial state', () => {
-      expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
-        value: 0,
-        status: 'idle'
-      })
-    })
-    
-    it('should handle increment', () => {
-      const initialState = { value: 0, status: 'idle' }
-      const actual = counterReducer(initialState, increment())
-      expect(actual.value).toEqual(1)
-    })
-    
-    it('should handle decrement', () => {
-      const initialState = { value: 2, status: 'idle' }
-      const actual = counterReducer(initialState, decrement())
-      expect(actual.value).toEqual(1)
-    })
+  test('increment works', () => {
+    const initialState = { value: 0 }
+    const actual = counterReducer(initialState, increment())
+    expect(actual.value).toBe(1)
   })
   ```
 - 📝 Testing Async Thunks:
   ```jsx
   import configureStore from 'redux-mock-store'
   import { thunk } from 'redux-thunk'
-  import { fetchUsers } from './usersSlice'
   
-  const middlewares = [thunk]
-  const mockStore = configureStore(middlewares)
+  const mockStore = configureStore([thunk])
   
-  describe('fetchUsers thunk', () => {
-    it('fetches users successfully', async () => {
-      const store = mockStore({ users: [] })
-      
-      await store.dispatch(fetchUsers())
-      
-      const actions = store.getActions()
-      expect(actions[0].type).toEqual('users/fetchUsers/pending')
-      expect(actions[1].type).toEqual('users/fetchUsers/fulfilled')
-    })
+  test('fetchUsers thunk', async () => {
+    const store = mockStore({ users: [] })
+    await store.dispatch(fetchUsers())
+    const actions = store.getActions()
+    expect(actions[0].type).toBe('users/fetchUsers/pending')
+    expect(actions[1].type).toBe('users/fetchUsers/fulfilled')
   })
   ```
 - 📝 Testing Components with Redux:
   ```jsx
-  import { render, screen } from '@testing-library/react'
   import { Provider } from 'react-redux'
   import configureStore from 'redux-mock-store'
-  import Counter from './Counter'
   
   const mockStore = configureStore([])
+  const store = mockStore({ counter: { value: 5 } })
   
-  test('renders counter value', () => {
-    const store = mockStore({
-      counter: { value: 5, status: 'idle' }
-    })
-    
-    render(
-      <Provider store={store}>
-        <Counter />
-      </Provider>
-    )
-    
-    expect(screen.getByText('Count: 5')).toBeInTheDocument()
-  })
-  ```
-
-##### 10.14 🚀 Advanced Patterns
-- 📝 Dynamic Reducer Injection:
-  ```jsx
-  // store/dynamicReducer.js
-  const createReducerManager = (initialReducers) => {
-    const reducers = { ...initialReducers }
-    let combinedReducer = combineReducers(reducers)
-    
-    return {
-      reduce: (state, action) => combinedReducer(state, action),
-      
-      add: (key, reducer) => {
-        if (!reducers[key]) {
-          reducers[key] = reducer
-          combinedReducer = combineReducers(reducers)
-        }
-      },
-      
-      remove: (key) => {
-        delete reducers[key]
-        combinedReducer = combineReducers(reducers)
-      }
-    }
-  }
-  ```
-- 📝 Middleware Creation:
-  ```jsx
-  // middleware/logger.js
-  const loggerMiddleware = (store) => (next) => (action) => {
-    console.log('dispatching', action)
-    const result = next(action)
-    console.log('next state', store.getState())
-    return result
-  }
-  
-  // Add to store
-  export const store = configureStore({
-    reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(loggerMiddleware)
-  })
-  ```
-- 📝 Persisting State:
-  ```jsx
-  // store/store.js
-  import { saveState, loadState } from './localStorage'
-  
-  const persistedState = loadState()
-  
-  export const store = configureStore({
-    reducer: rootReducer,
-    preloadedState: persistedState
-  })
-  
-  store.subscribe(() => {
-    saveState({
-      cart: store.getState().cart,
-      user: store.getState().user
-    })
-  })
-  ```
-
-##### 10.15 ⚡ Performance Optimization
-- 📝 Selector Optimization:
-  ```jsx
-  // ❌ Bad - creates new reference each time
-  const items = useSelector(state => {
-    return state.cart.items.map(item => ({
-      ...item,
-      total: item.price * item.quantity
-    }))
-  })
-  
-  // ✅ Good - memoized selector
-  const selectItemsWithTotal = createSelector(
-    [(state) => state.cart.items],
-    (items) => items.map(item => ({
-      ...item,
-      total: item.price * item.quantity
-    }))
+  render(
+    <Provider store={store}>
+      <Counter />
+    </Provider>
   )
-  
-  const items = useSelector(selectItemsWithTotal)
-  ```
-- 📝 Component Optimization:
-  ```jsx
-  import { memo } from 'react'
-  
-  const ExpensiveComponent = memo(({ data }) => {
-    return <div>{data}</div>
-  })
-  ```
-- 📝 Normalized State Shape:
-  ```jsx
-  // ❌ Nested state (hard to update)
-  {
-    posts: [
-      {
-        id: 1,
-        comments: [
-          { id: 1, text: 'Great post!' }
-        ]
-      }
-    ]
-  }
-  
-  // ✅ Normalized state (easy to update)
-  {
-    posts: {
-      byId: {
-        1: { id: 1, title: 'Post' }
-      },
-      allIds: [1]
-    },
-    comments: {
-      byId: {
-        1: { id: 1, postId: 1, text: 'Great post!' }
-      },
-      allIds: [1]
-    }
-  }
   ```
 
-##### 10.16 🏗️ Real-world Project Structure
-- 📁 Feature-based Organization:
-  ```
-  src/
-  ├── app/
-  │   ├── store.js
-  │   └── rootReducer.js
-  ├── features/
-  │   ├── auth/
-  │   │   ├── authSlice.js
-  │   │   ├── authAPI.js
-  │   │   ├── Login.jsx
-  │   │   └── Register.jsx
-  │   ├── posts/
-  │   │   ├── postsSlice.js
-  │   │   ├── postsAPI.js
-  │   │   ├── PostsList.jsx
-  │   │   └── PostDetail.jsx
-  │   └── users/
-  │       ├── usersSlice.js
-  │       ├── usersAPI.js
-  │       └── UserProfile.jsx
-  ├── utils/
-  │   └── selectors.js
-  └── index.js
-  ```
-- 📝 Example Root Store:
-  ```jsx
-  // app/store.js
-  import { configureStore } from '@reduxjs/toolkit'
-  import { api } from '../features/api'
-  import authReducer from '../features/auth/authSlice'
-  import postsReducer from '../features/posts/postsSlice'
-  import usersReducer from '../features/users/usersSlice'
-  
-  export const store = configureStore({
-    reducer: {
-      auth: authReducer,
-      posts: postsReducer,
-      users: usersReducer,
-      [api.reducerPath]: api.reducer
-    },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: ['persist/PERSIST']
-        }
-      }).concat(api.middleware)
-  })
-  
-  // Infer types for TypeScript
-  export type RootState = ReturnType<typeof store.getState>
-  export type AppDispatch = typeof store.dispatch
-  ```
+---
 
-##### 10.17 📚 Redux with TypeScript
+##### **10.13 📚 Redux with TypeScript**
 - 📝 Typed Hooks:
   ```tsx
   // app/hooks.ts
@@ -6248,103 +4866,53 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📝 Typed Slice:
   ```tsx
-  // features/counter/counterSlice.ts
-  import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+  interface CounterState { value: number }
   
-  interface CounterState {
-    value: number
-    status: 'idle' | 'loading' | 'failed'
-  }
-  
-  const initialState: CounterState = {
-    value: 0,
-    status: 'idle'
-  }
-  
-  export const counterSlice = createSlice({
+  const counterSlice = createSlice({
     name: 'counter',
-    initialState,
+    initialState: { value: 0 } as CounterState,
     reducers: {
-      increment: (state) => {
-        state.value += 1
-      },
       incrementByAmount: (state, action: PayloadAction<number>) => {
         state.value += action.payload
       }
     }
   })
-  
-  export const { increment, incrementByAmount } = counterSlice.actions
-  export default counterSlice.reducer
-  ```
-- 📝 Typed Async Thunk:
-  ```tsx
-  import { createAsyncThunk } from '@reduxjs/toolkit'
-  import axios from 'axios'
-  
-  interface User {
-    id: number
-    name: string
-    email: string
-  }
-  
-  export const fetchUsers = createAsyncThunk<User[]>(
-    'users/fetchUsers',
-    async (_, { rejectWithValue }) => {
-      try {
-        const response = await axios.get<User[]>('/api/users')
-        return response.data
-      } catch (error) {
-        return rejectWithValue(error.response.data)
-      }
-    }
-  )
   ```
 
-##### 10.18 🧩 Redux Ecosystem
-- 📦 Redux Persist:
-  ```bash
-  npm install redux-persist
-  ```
-  ```jsx
-  import { persistStore, persistReducer } from 'redux-persist'
-  import storage from 'redux-persist/lib/storage'
-  
-  const persistConfig = {
-    key: 'root',
-    storage,
-    whitelist: ['auth', 'cart'] // only these reducers persist
-  }
-  
-  const persistedReducer = persistReducer(persistConfig, rootReducer)
-  
-  export const store = configureStore({
-    reducer: persistedReducer
-  })
-  
-  export const persistor = persistStore(store)
-  ```
-- 📦 Redux Saga (alternative to thunk):
-  ```bash
-  npm install redux-saga
-  ```
-- 📦 Reselect (already included in RTK)
-- 📦 Redux Actions (utility)
-- 📦 Redux Form (legacy)
+---
 
-##### 10.19 🚀 Migration from Context to Redux
-- 📝 When to Migrate:
-  - Growing complexity
-  - Performance issues
-  - Need for DevTools
-  - Team familiarity
-- 📝 Migration Strategy:
-  - Identify shared state
-  - Create slices gradually
-  - Replace Context with Redux
-  - Test thoroughly
+##### **10.14 ⚡ Performance Optimization**
+- 📝 Memoized Selectors with `createSelector`
+- 📝 Normalized State Shape (avoid nesting)
+- 📝 Component Memoization: `React.memo`
 
-##### 10.20 💻 Practical Projects
+---
+
+##### **10.15 🏗️ Real-world Project Structure**
+```
+src/
+├── app/
+│   ├── store.js
+│   └── hooks.ts          # typed hooks
+├── features/
+│   ├── auth/
+│   │   ├── authSlice.js
+│   │   ├── authAPI.js
+│   │   ├── Login.jsx
+│   │   └── Register.jsx
+│   ├── posts/
+│   │   ├── postsSlice.js
+│   │   ├── postsAPI.js
+│   │   └── PostsList.jsx
+│   └── users/
+│       ├── usersSlice.js
+│       └── UserProfile.jsx
+└── index.js
+```
+
+---
+
+##### **10.16 💻 Practical Projects**
 - 🏗️ Todo App with Redux Toolkit
 - 🛒 E-commerce Store with Cart
 - 🔐 Authentication System
@@ -6362,6 +4930,13 @@ Production    (16-19) ████████████░ 2 oy
 - 💼 Project Management Tool
 
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 🎯 STAGE 11 — Fetch API & Axios (HTTP Requests)
 **Goal**: Master HTTP communication for building data-driven applications with modern APIs.
 **Time**: 20 soat | 10 dars
