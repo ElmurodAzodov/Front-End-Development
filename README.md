@@ -87,9 +87,11 @@ Production    (16-19) ████████████░ 2 oy
 
 ---
 
-## 🎯 STAGE 1 — HTML5 (Structure & Semantics)
-**Goal**: Create structured, semantic, and accessible web pages.
-**Time**: 20 soat | 10 dars
+## 🎯 STAGE 1 — MODERN HTML (Structure, Semantics & Web Standards)
+**Goal**: Create structured, semantic, accessible, and future-proof web pages.
+**Time**: 28 soat | 14 dars
+
+---
 
 #### 📚 **Topics**
 
@@ -99,59 +101,77 @@ Production    (16-19) ████████████░ 2 oy
 - 🔤 Character Encoding (`<meta charset="UTF-8">`)
 - 👁️ Viewport Meta Tag (responsive design)
 - 💬 Comments (`<!-- comment -->`)
+- 🌍 Language Attribute (`<html lang="uz">`)
+
+---
 
 ##### **1.2 🏷️ Text Elements**
 - 📑 Headings (`<h1>` to `<h6>`)
 - 📝 Paragraphs (`<p>`)
 - 🔤 Text Formatting:
-  - `<strong>` (bold, important)
-  - `<em>` (italic, emphasis)
-  - `<mark>` (highlighted)
-  - `<small>` (small text)
-  - `<del>` (deleted text)
-  - `<ins>` (inserted text)
-  - `<sub>` (subscript)
-  - `<sup>` (superscript)
+  - `<strong>`
+  - `<em>`
+  - `<mark>`
+  - `<small>`
+  - `<del>`
+  - `<ins>`
+  - `<sub>`
+  - `<sup>`
 - 📜 Quotations:
-  - `<blockquote>` (long quotes)
-  - `<q>` (short quotes)
-  - `<cite>` (citation)
+  - `<blockquote>`
+  - `<q>`
+  - `<cite>`
 - 📋 Abbreviations (`<abbr>`)
 - 📍 Address (`<address>`)
+- 📝 Preformatted Text (`<pre>`, `<code>`)
+
+---
 
 ##### **1.3 🔗 Links and Navigation**
 - 🔗 Anchor Tag (`<a href="">`)
-- 🎯 Target Attributes (`_blank`, `_self`)
-- 📌 Internal Links (same page)
-- 🔄 External Links (other websites)
+- 🎯 Target Attributes (`_blank`, `_self`, `_parent`, `_top`)
+- 🔐 Security for `_blank`: `rel="noopener noreferrer"`
+- 📌 Internal Links
+- 🔄 External Links
 - 📧 Email Links (`mailto:`)
 - 📞 Phone Links (`tel:`)
-- ⚓ Bookmark Links (page sections)
+- ⚓ Bookmark Links
 - 🧭 Navigation (`<nav>`)
+- 📑 Skip Links
+
+---
 
 ##### **1.4 🖼️ Images and Media**
 - 🖼️ Image Tag (`<img src="" alt="">`)
 - 📏 Image Dimensions (width, height)
-- 🎨 Image Formats (JPEG, PNG, GIF, SVG, WebP)
+- 🎨 Modern Image Formats:
+  - JPEG, PNG
+  - WebP
+  - AVIF
+  - SVG
+  - GIF (animations only)
+- ⚡ Performance Attributes:
+  - `loading="lazy"`
+  - `fetchpriority="high"`
+  - `decoding="async"`
 - 📂 Responsive Images:
-  - `srcset` attribute
-  - `<picture>` element
-  - `<source>` element
-- 🎥 Video (`<video>`):
-  - `controls`, `autoplay`, `loop`
-  - Multiple sources
-- 🔈 Audio (`<audio>`):
-  - `controls`, `autoplay`
-  - Multiple formats
+  - `srcset` and `sizes`
+  - `<picture>` and `<source>`
+- 🎥 Video (`<video>`)
+- 🔈 Audio (`<audio>`)
 - 📊 Figure and Caption (`<figure>`, `<figcaption>`)
+- 🖼️ Iframes (`<iframe>` with `sandbox`, `loading="lazy"`, `title`)
+
+---
 
 ##### **1.5 📋 Lists**
 - 🔢 Ordered Lists (`<ol>`, `<li>`)
-  - `type` attribute (1, A, a, I, i)
-  - `start` attribute
+  - `start` and `reversed` attributes
 - 🔘 Unordered Lists (`<ul>`, `<li>`)
 - 📑 Definition Lists (`<dl>`, `<dt>`, `<dd>`)
 - 📦 Nested Lists
+
+---
 
 ##### **1.6 📊 Tables**
 - 📋 Table Structure (`<table>`, `<tr>`, `<td>`, `<th>`)
@@ -160,87 +180,148 @@ Production    (16-19) ████████████░ 2 oy
 - 📋 Table Footer (`<tfoot>`)
 - 🔗 Merging Cells (`colspan`, `rowspan`)
 - 📏 Column Groups (`<colgroup>`, `<col>`)
-- 🎨 Table Styling (border, padding)
+- ♿ Accessible Tables (`scope` attribute, `<caption>`)
 - 📱 Responsive Tables
 
+---
+
 ##### **1.7 📝 Forms**
-- 📋 Form Element (`<form>`):
-  - `action` attribute
-  - `method` (GET, POST)
-  - `enctype` (multipart/form-data)
+- 📋 Form Element (`<form>`)
 - 📥 Input Types:
   - `text`, `password`, `email`
   - `number`, `tel`, `url`
-  - `search`, `hidden`
+  - `search`
   - `checkbox`, `radio`
-  - `file`, `image`
+  - `file`
   - `date`, `time`, `datetime-local`
-  - `month`, `week`
   - `color`, `range`
   - `submit`, `reset`, `button`
 - 📝 Textarea (`<textarea>`)
-- 🔽 Select Menus (`<select>`, `<option>`)
-- 📦 Datalist (`<datalist>`, autocomplete)
+- 🔽 Select Menus (`<select>`, `<option>`, `<optgroup>`)
+- 📦 Datalist (`<datalist>`)
 - 🏷️ Labels (`<label>`)
 - 📦 Fieldset and Legend (`<fieldset>`, `<legend>`)
 - ✅ Form Validation:
-  - `required` attribute
-  - `pattern` attribute
+  - `required`
+  - `pattern`
   - `min`, `max`, `step`
   - `minlength`, `maxlength`
+  - Client-side vs Server-side validation
 - 📤 Form Submission
+
+---
 
 ##### **1.8 🧩 Semantic HTML5**
 - 📦 Structural Elements:
-  - `<header>` (page header)
-  - `<nav>` (navigation)
-  - `<main>` (main content)
-  - `<article>` (self-contained content)
-  - `<section>` (thematic grouping)
-  - `<aside>` (sidebar)
-  - `<footer>` (page footer)
+  - `<header>`
+  - `<nav>`
+  - `<main>`
+  - `<article>`
+  - `<section>`
+  - `<aside>`
+  - `<footer>`
 - 📑 Content Grouping:
-  - `<div>` (block container)
-  - `<span>` (inline container)
-- 🌐 HTML5 Semantic Tags Benefits:
-  - SEO (Search Engine Optimization)
-  - Accessibility (screen readers)
+  - `<div>`
+  - `<span>`
+- 🌐 Benefits:
+  - SEO
+  - Accessibility
   - Code readability
 
-##### **1.9 ♿ Accessibility (A11y)**
+---
+
+##### **1.9 ♿ Accessibility**
 - 🏷️ ARIA Roles and Attributes
 - 📝 Alt Text for Images
 - 🔗 Descriptive Link Text
 - 📑 Heading Hierarchy
 - 🎨 Color Contrast
-- ⌨️ Keyboard Navigation
+- ⌨️ Keyboard Navigation (`tabindex`, focus indicators)
 - 📢 Screen Reader Compatibility
 - 🎯 Focus Management
-- 📋 Form Accessibility (labels, errors)
+- 📋 Form Accessibility
+- 🛠️ Testing Tools (Lighthouse, axe DevTools)
 
-##### **1.10 🔧 HTML Best Practices**
-- ✅ Valid HTML (W3C Validation)
+---
+
+##### **1.10 🚀 Performance & Core Web Vitals**
+- 📊 Core Web Vitals:
+  - LCP (Largest Contentful Paint)
+  - INP (Interaction to Next Paint)
+  - CLS (Cumulative Layout Shift)
+- ⚡ HTML Performance Optimizations:
+  - `loading="lazy"`
+  - `fetchpriority`
+  - `preconnect`, `preload`, `prefetch`
+  - `async` and `defer`
+- 📱 Mobile-First Approach
+- 🖼️ Modern Image Formats
+- 🛠️ Performance Testing Tools
+
+---
+
+##### **1.11 🔍 SEO & Structured Data**
+- 🏷️ Meta Tags:
+  - `description`
+  - `author`
+  - `robots`
+- 📱 Open Graph Tags
+- 🐦 Twitter Cards
+- 📊 Structured Data with JSON-LD (Schema.org)
+- 🌐 Canonical Tags
+- 🔗 Sitemap
+
+---
+
+##### **1.12 🔒 Security**
+- 🔐 Content Security Policy (CSP)
+- 🛡️ Subresource Integrity (SRI)
+- 🔒 Trusted Types
+- 🚫 Iframe Security (`sandbox`)
+- 🔗 Link Security (`noopener noreferrer`)
+- 🍪 Cookie Security (`HttpOnly`, `Secure`, `SameSite`)
+- 📋 Form Security (CSRF protection)
+
+---
+
+##### **1.13 🧩 Modern HTML Features**
+- 🪟 Dialog Element (`<dialog>`)
+- 🪄 Popover API
+- 🎨 View Transitions API
+- 🧩 Web Components (Custom Elements, `<template>`, `<slot>`, Shadow DOM)
+- 🎯 `<details>` and `<summary>`
+- 📝 `contenteditable`
+- 🧪 Feature Detection
+
+---
+
+##### **1.14 🔧 Best Practices & Tooling**
+- ✅ Valid HTML (W3C Validator)
 - 📏 Proper Indentation
 - 💬 Meaningful Comments
 - 🏷️ Semantic Tags Usage
 - 📱 Mobile-First Approach
-- 🚀 Performance Optimization
-- 🔍 SEO Meta Tags:
-  - `<meta name="description">`
-  - `<meta name="keywords">`
-  - `<meta name="author">`
-  - Open Graph Tags (Facebook)
-  - Twitter Cards
-- 🌐 Favicon (`<link rel="icon">`)
+- 🌐 Internationalization (`lang`, `dir`, `<ruby>`)
+- 🧪 Testing Tools
+- 🛠️ Development Tools (VS Code, Browser DevTools)
+- 🌐 Favicon
+- 📦 Build Tools Basics
 
-##### **1.11 💻 Practical Projects**
-- 🏗️ Build a Personal Portfolio Page
-- 📝 Create a Blog Post Layout
-- 📋 Design a Product Card
-- 📊 Make a Pricing Table
-- 📝 Build a Contact Form
-- 📄 Create a Resume/CV Page
-- 🏠 Build a Company Landing Page
+---
+
+##### **1.15 💻 Practical Projects**
+- 🏗️ Personal Portfolio Page
+- 📝 Blog Post Layout
+- 📋 Product Card
+- 📊 Pricing Table
+- 📝 Advanced Contact Form
+- 📄 Resume/CV Page
+- 🏠 Company Landing Page
+- 🍽️ Restaurant Menu
+- 📰 News Website Layout
+- 🎨 Modal Dialog (with `<dialog>`)
+- 🪄 Accordion Component (with `<details>`)
+- 🔐 Secure Login Form
 
 ---
 
