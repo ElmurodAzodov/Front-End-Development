@@ -325,9 +325,17 @@ Production    (16-19) ████████████░ 2 oy
 
 ---
 
-## 🎯 STAGE 2 — CSS3 (Styling & Layout)
-**Goal**: Style websites with modern CSS techniques and responsive design.
-**Time**: 40 soat | 20 dars
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 2 — MODERN CSS3 (Styling, Layout & Advanced Techniques)
+**Goal**: Style websites with modern CSS techniques, responsive design, and performance optimization.
+**Time**: 48 soat | 24 dars
+
+---
 
 #### 📚 **Topics**
 
@@ -339,6 +347,10 @@ Production    (16-19) ████████████░ 2 oy
   - External CSS (`<link rel="stylesheet">`)
 - 📦 CSS Syntax (selector, property, value)
 - 💬 Comments (`/* comment */`)
+- 📜 Cascade, Specificity, and Inheritance
+- 🔄 CSS Reset vs Normalize.css
+
+---
 
 ##### **2.2 🎯 Selectors**
 - 🔤 Basic Selectors:
@@ -358,241 +370,257 @@ Production    (16-19) ████████████░ 2 oy
   - `[attr$="value"]` (ends with)
   - `[attr*="value"]` (contains)
 - 🎨 Pseudo-classes:
-  - `:hover`, `:active`, `:focus`
+  - `:hover`, `:active`, `:focus`, `:focus-visible`
   - `:first-child`, `:last-child`
   - `:nth-child()`, `:nth-of-type()`
-  - `:not()`, `:is()`, `:where()`
+  - `:not()`, `:is()`, `:where()`, `:has()`
   - `:link`, `:visited`
-  - `:checked`, `:disabled`
-  - `:root` (document root)
+  - `:checked`, `:disabled`, `:enabled`
+  - `:root`
 - ✨ Pseudo-elements:
-  - `::before`, `::after` (content)
+  - `::before`, `::after`
   - `::first-letter`, `::first-line`
-  - `::selection`, `::placeholder`
+  - `::selection`, `::placeholder`, `::marker`
+
+---
 
 ##### **2.3 🎨 Colors and Backgrounds**
 - 🌈 Color Values:
-  - Named Colors (`red`, `blue`)
-  - Hexadecimal (`#FF0000`, `#F00`)
+  - Named Colors
+  - Hexadecimal (`#FF0000`, `#F00`, `#FF0000CC`)
   - RGB/RGBA (`rgb(255,0,0)`, `rgba(255,0,0,0.5)`)
-  - HSL/HSLA (`hsl(0,100%,50%)`)
-  - CurrentColor (currentColor keyword)
+  - HSL/HSLA (`hsl(0,100%,50%)`, `hsla(0,100%,50%,0.5)`)
+  - `currentColor` keyword
+  - `color-mix()` (modern)
 - 🎨 Background Properties:
   - `background-color`
-  - `background-image` (`url()`)
-  - `background-repeat` (repeat, no-repeat)
+  - `background-image` (`url()`, gradients)
+  - `background-repeat`
   - `background-position`
-  - `background-size` (cover, contain)
-  - `background-attachment` (fixed, scroll)
-  - `background` (shorthand)
+  - `background-size` (`cover`, `contain`)
+  - `background-attachment`
+  - `background-clip`, `background-origin`
+  - `background` shorthand
 - 🌫️ Gradients:
   - Linear Gradient (`linear-gradient()`)
   - Radial Gradient (`radial-gradient()`)
   - Conic Gradient (`conic-gradient()`)
   - Repeating Gradients
-- 🎭 Opacity (`opacity` property)
+- 🎭 Opacity (`opacity`)
+- 🌈 `backdrop-filter` (glassmorphism)
+
+---
 
 ##### **2.4 📏 Units and Sizing**
 - 📐 Absolute Units:
   - `px` (pixels)
-  - `cm`, `mm`, `in` (physical units)
-  - `pt` (points, 1/72 inch)
-  - `pc` (picas, 12 points)
+  - `cm`, `mm`, `in`
+  - `pt`, `pc`
 - 📏 Relative Units:
   - `%` (percentage)
   - `em` (relative to parent font-size)
   - `rem` (relative to root font-size)
-  - `vw`, `vh` (viewport width/height)
-  - `vmin`, `vmax` (viewport min/max)
-  - `ch` (character unit)
-  - `ex` (x-height unit)
+  - `vw`, `vh`, `dvw`, `dvh` (dynamic viewport)
+  - `svw`, `svh` (small viewport)
+  - `lvw`, `lvh` (large viewport)
+  - `vmin`, `vmax`
+  - `ch`, `ex`
+  - `cqw`, `cqh` (container query units)
 - 📦 Sizing Properties:
   - `width`, `height`
   - `min-width`, `max-width`
   - `min-height`, `max-height`
-  - `box-sizing` (content-box, border-box)
+  - `aspect-ratio`
+  - `box-sizing` (`content-box`, `border-box`)
+
+---
 
 ##### **2.5 ✍️ Typography**
 - 🔤 Font Properties:
   - `font-family` (system fonts, web fonts)
-  - `font-size`
-  - `font-weight` (100-900, bold, normal)
-  - `font-style` (normal, italic, oblique)
-  - `font-variant` (small-caps)
-  - `font` (shorthand)
+  - `font-size` (px, rem, clamp)
+  - `font-weight` (100-900, `normal`, `bold`)
+  - `font-style`, `font-variant`
+  - `font` shorthand
 - 📝 Text Properties:
   - `color`
-  - `text-align` (left, right, center, justify)
-  - `text-decoration` (underline, overline, line-through)
-  - `text-transform` (uppercase, lowercase, capitalize)
-  - `text-indent` (first line indent)
+  - `text-align`
+  - `text-decoration` (with `text-decoration-thickness`, `text-underline-offset`)
+  - `text-transform`
+  - `text-indent`
   - `letter-spacing`, `word-spacing`
   - `line-height`
-  - `white-space` (nowrap, pre, pre-wrap)
+  - `white-space`
   - `word-break`, `overflow-wrap`
+  - `hyphens`
 - 🌐 Web Fonts:
   - `@font-face` rule
-  - Google Fonts
-  - Font Formats (WOFF, WOFF2, TTF)
+  - Google Fonts (performance)
+  - Font Formats (WOFF2, WOFF, TTF)
   - Variable Fonts
+  - Font Display (`swap`, `fallback`, `optional`)
 - 📜 Text Effects:
   - `text-shadow`
   - `text-overflow` (ellipsis)
-  - `direction` (ltr, rtl)
+  - `direction`, `unicode-bidi`
+  - `writing-mode`
+
+---
 
 ##### **2.6 📦 Box Model**
 - 📦 Box Model Components:
-  - Content (width/height)
-  - Padding (inner space)
-  - Border (edge line)
-  - Margin (outer space)
+  - Content
+  - Padding
+  - Border
+  - Margin
 - 📐 Padding Properties:
-  - `padding-top`, `padding-right`
-  - `padding-bottom`, `padding-left`
-  - `padding` (shorthand: top right bottom left)
+  - Individual sides
+  - Shorthand (`padding: top right bottom left`)
 - 🖼️ Border Properties:
   - `border-width`, `border-style`, `border-color`
-  - `border-top`, `border-right`, etc.
-  - `border-radius` (rounded corners)
-  - `border-image` (image borders)
-  - `outline` (outside border)
+  - Individual borders
+  - `border-radius` (rounded corners, elliptical)
+  - `border-image`
+  - `outline` and `outline-offset`
 - 📏 Margin Properties:
-  - `margin-top`, `margin-right`, etc.
-  - `margin` shorthand
-  - Margin Collapsing
+  - Individual sides
+  - Margin shorthand
+  - Margin Collapsing (when and why)
 - 📐 Box Sizing:
   - `content-box` (default)
-  - `border-box` (includes padding/border)
-  - `box-sizing` property
+  - `border-box` (recommended)
+  - Global reset (`* { box-sizing: border-box; }`)
 
-##### **2.7 📐 Layout Techniques**
+---
+
+##### **2.7 📐 Layout Techniques (Legacy)**
 - 🎯 Display Property:
-  - `block` (takes full width)
-  - `inline` (flows with text)
-  - `inline-block` (inline with block features)
-  - `none` (hide element)
-  - `flex`, `grid` (modern layouts)
-  - `table`, `table-cell` (table layouts)
+  - `block`, `inline`, `inline-block`
+  - `none`, `visibility: hidden`
+  - `contents`
 - 📏 Positioning:
   - `static` (default)
-  - `relative` (relative to itself)
-  - `absolute` (relative to positioned ancestor)
-  - `fixed` (relative to viewport)
-  - `sticky` (hybrid relative/fixed)
+  - `relative`
+  - `absolute`
+  - `fixed`
+  - `sticky`
   - `top`, `right`, `bottom`, `left`
-  - `z-index` (stacking order)
+  - `z-index` and stacking context
 - 🌊 Floats:
   - `float` (left, right)
-  - `clear` (left, right, both)
+  - `clear`
   - Clearfix Hack
+  - When to use floats (rarely needed)
 - 📏 Overflow:
   - `overflow` (visible, hidden, scroll, auto)
   - `overflow-x`, `overflow-y`
+  - `text-overflow`
 
-##### **2.8 📊 Flexbox (CSS Flexible Box Layout)**
+---
+
+##### **2.8 📊 Flexbox**
 - 🎯 Flex Container Properties:
-  - `display: flex` or `inline-flex`
+  - `display: flex` / `inline-flex`
   - `flex-direction` (row, column)
-  - `flex-wrap` (wrap, nowrap)
-  - `flex-flow` (direction + wrap)
-  - `justify-content` (main axis):
-    - `flex-start`, `flex-end`
-    - `center`, `space-between`
-    - `space-around`, `space-evenly`
-  - `align-items` (cross axis):
-    - `stretch`, `flex-start`
-    - `flex-end`, `center`
-    - `baseline`
-  - `align-content` (multi-line alignment)
+  - `flex-wrap`
+  - `flex-flow`
+  - `justify-content` (main axis)
+  - `align-items` (cross axis)
+  - `align-content` (multi-line)
+  - `gap`, `row-gap`, `column-gap`
 - 📦 Flex Item Properties:
-  - `order` (rearrange items)
-  - `flex-grow` (grow factor)
-  - `flex-shrink` (shrink factor)
-  - `flex-basis` (initial size)
-  - `flex` (grow + shrink + basis)
-  - `align-self` (override alignment)
-- 🏗️ Practical Flexbox Patterns:
+  - `order`
+  - `flex-grow`
+  - `flex-shrink`
+  - `flex-basis`
+  - `flex` shorthand
+  - `align-self`
+- 🏗️ Practical Patterns:
   - Navigation Bars
   - Card Layouts
   - Holy Grail Layout
-  - Centering Elements
+  - Perfect Centering
   - Equal Height Columns
+  - Sticky Footer
+
+---
 
 ##### **2.9 📐 CSS Grid Layout**
 - 🎯 Grid Container:
-  - `display: grid` or `inline-grid`
-  - `grid-template-columns` (define columns)
-  - `grid-template-rows` (define rows)
-  - `grid-template-areas` (named areas)
+  - `display: grid` / `inline-grid`
+  - `grid-template-columns`
+  - `grid-template-rows`
+  - `grid-template-areas`
   - `gap`, `row-gap`, `column-gap`
-- 📏 Grid Units:
+- 📏 Grid Units and Functions:
   - `fr` (fraction unit)
-  - `minmax()` (min/max size)
-  - `repeat()` (repeat columns/rows)
+  - `minmax()`
+  - `repeat()`
   - `auto-fill`, `auto-fit`
+  - `fit-content()`
 - 📦 Grid Item Placement:
   - `grid-column-start/end`
   - `grid-row-start/end`
-  - `grid-column` (shorthand)
-  - `grid-row` (shorthand)
-  - `grid-area` (name or lines)
+  - `grid-column`, `grid-row`
+  - `grid-area`
 - 🎯 Alignment in Grid:
-  - `justify-items` (row axis)
-  - `align-items` (column axis)
-  - `place-items` (both)
-  - `justify-content` (grid container)
-  - `align-content` (grid container)
-  - `place-content` (both)
-  - `justify-self`, `align-self` (items)
-- 🏗️ Practical Grid Patterns:
+  - `justify-items`, `align-items`, `place-items`
+  - `justify-content`, `align-content`, `place-content`
+  - `justify-self`, `align-self`, `place-self`
+- 🏗️ Practical Patterns:
   - Magazine Layouts
   - Dashboard Layouts
   - Image Galleries
   - Responsive Grids
-  - Card Grids
+  - Card Grids (with auto-fit)
+  - Overlapping Elements
+
+---
 
 ##### **2.10 📱 Responsive Design**
 - 📐 Viewport Meta Tag
 - 📏 Media Queries:
-  - `@media` rule syntax
-  - Media Types (`screen`, `print`)
+  - Syntax (`@media (condition)`)
   - Media Features:
     - `width`, `max-width`, `min-width`
-    - `height`, `orientation`
+    - `orientation`
     - `aspect-ratio`
-    - `resolution`
     - `prefers-color-scheme`
-  - Logical Operators (`and`, `or`, `not`)
-- 📱 Mobile-First Approach:
-  - Start with small screens
-  - Use `min-width` queries
-  - Progressive enhancement
-- 🖥️ Desktop-First Approach:
-  - Start with large screens
-  - Use `max-width` queries
-  - Graceful degradation
+    - `prefers-reduced-motion`
+    - `hover`, `pointer`
+  - Logical Operators (`and`, `not`, `or`)
+  - Container Queries (`@container`)
+- 📱 Mobile-First vs Desktop-First
 - 🎨 Responsive Patterns:
-  - Fluid Layouts (%, vw, vh)
-  - Responsive Images (`srcset`, `<picture>`)
-  - Responsive Typography
-  - Responsive Navigation (hamburger menu)
+  - Fluid Layouts
+  - Responsive Typography (`clamp()`)
+  - Responsive Images
+  - Responsive Navigation
   - Responsive Tables
-  - Responsive Cards
 - 📏 Breakpoint Strategies:
-  - Common breakpoints (576px, 768px, 992px, 1200px)
   - Content-based breakpoints
-  - Framework breakpoints
+  - Common breakpoints (640px, 768px, 1024px, 1280px)
+  - Fluid Typography
 
-##### **2.11 🎨 CSS Transitions and Animations**
-- ✨ Transitions:
+---
+
+##### **2.11 🎨 CSS Transitions**
+- ✨ Transition Properties:
   - `transition-property`
   - `transition-duration`
-  - `transition-timing-function`:
-    - `ease`, `linear`, `ease-in`
-    - `ease-out`, `ease-in-out`
-    - `cubic-bezier()` (custom)
+  - `transition-timing-function` (ease, linear, cubic-bezier)
   - `transition-delay`
-  - `transition` (shorthand)
+  - `transition` shorthand
+- 🎯 What Can Be Animated
+- 🚀 Performance Best Practices
+- 🎭 Practical Effects:
+  - Hover Effects
+  - Button Animations
+  - Smooth State Changes
+
+---
+
+##### **2.12 🎬 CSS Animations**
 - 🎬 Keyframe Animations:
   - `@keyframes` rule
   - `animation-name`
@@ -603,39 +631,33 @@ Production    (16-19) ████████████░ 2 oy
   - `animation-direction`
   - `animation-fill-mode`
   - `animation-play-state`
-  - `animation` (shorthand)
+  - `animation` shorthand
 - 🔄 Transforms:
-  - `transform` property
-  - 2D Transforms:
-    - `translate()`, `translateX()`, `translateY()`
-    - `rotate()`
-    - `scale()`, `scaleX()`, `scaleY()`
-    - `skew()`, `skewX()`, `skewY()`
-    - `matrix()`
-  - 3D Transforms:
-    - `translateZ()`, `translate3d()`
-    - `rotateX()`, `rotateY()`, `rotateZ()`
-    - `scaleZ()`, `scale3d()`
-    - `perspective`
-    - `transform-style`
-    - `backface-visibility`
+  - 2D: `translate()`, `rotate()`, `scale()`, `skew()`
+  - 3D: `translate3d()`, `rotateX/Y/Z`, `perspective`
+  - `transform-origin`
+  - `transform-style`
+  - `backface-visibility`
 - 🎭 Practical Effects:
-  - Hover Effects
   - Loading Animations
+  - Scroll-triggered Animations
   - Page Transitions
-  - Parallax Scrolling
+  - Hover Animations
 
-##### **2.12 🔧 Advanced CSS Features**
+---
+
+##### **2.13 🔧 Advanced CSS Features**
 - 🎨 Custom Properties (CSS Variables):
-  - Declaration (`--main-color: red;`)
-  - Usage (`var(--main-color)`)
+  - Declaration (`--variable-name`)
+  - Usage (`var(--variable-name)`)
   - Fallback values
+  - Scoped variables
   - Dynamic updates with JavaScript
 - 📦 CSS Functions:
   - `calc()` (calculations)
-  - `min()`, `max()`, `clamp()`
+  - `min()`, `max()`, `clamp()` (responsive values)
   - `attr()` (HTML attributes)
-  - `var()` (CSS variables)
+  - `url()`
 - 🎭 Filter Effects:
   - `blur()`, `brightness()`
   - `contrast()`, `grayscale()`
@@ -647,113 +669,171 @@ Production    (16-19) ████████████░ 2 oy
   - `background-blend-mode`
 - 🖼️ Clip Path:
   - `clip-path` (circle, polygon, ellipse)
-  - Shape-outside (text wrapping)
-- 📜 Columns:
-  - `column-count`, `column-width`
-  - `column-gap`, `column-rule`
-  - `column-span`
-- 🎨 Scroll Snap:
-  - `scroll-snap-type`
-  - `scroll-snap-align`
-  - `scroll-margin`, `scroll-padding`
+  - `shape-outside` (text wrapping)
+- 📜 CSS Grid Subgrid (`subgrid`)
+- 📦 Container Queries (`@container`)
+- 🎯 `:has()` Parent Selector
+- 📋 `@scope` Rule
 
-##### **2.13 🎨 CSS Preprocessors (Sass/SCSS)**
-- 📦 What is Sass? (Syntactically Awesome Style Sheets)
+---
+
+##### **2.14 🎨 CSS Preprocessors (Sass/SCSS)**
+- 📦 What is Sass?
 - 🔧 Installation and Setup
-- 📝 Sass Syntax:
-  - SCSS (Sassy CSS)
-  - Indented Syntax
+- 📝 SCSS Syntax
 - 🎯 Variables (`$primary-color`)
-- 📦 Nesting (selectors inside selectors)
-- 🔗 Partials and Import (`@import`, `@use`)
+- 📦 Nesting (with `&` reference)
+- 🔗 Partials and Import (`@import`, `@use`, `@forward`)
 - 📝 Mixins (`@mixin`, `@include`)
 - 🔄 Functions (`@function`)
 - 📐 Extend/Inheritance (`@extend`)
-- ➕ Operators (+, -, *, /, %)
+- ➕ Operators
 - 🎨 Control Directives:
   - `@if`, `@else`
   - `@for`, `@each`, `@while`
 - 📚 Built-in Modules:
-  - `sass:color` (color functions)
-  - `sass:math` (math functions)
-  - `sass:string` (string functions)
+  - `sass:color`
+  - `sass:math`
+  - `sass:string`
+  - `sass:map`
 
-##### **2.14 🔧 CSS Methodologies**
+---
+
+##### **2.15 🔧 CSS Methodologies**
 - 📦 BEM (Block Element Modifier):
   - Block (`.card`)
   - Element (`.card__title`)
   - Modifier (`.card--featured`)
   - Naming conventions
+  - Advantages and pitfalls
 - 🎯 SMACSS (Scalable and Modular Architecture)
 - 📂 OOCSS (Object-Oriented CSS)
-- 🔧 ITCSS (Inverted Triangle CSS)
 - 🏗️ Atomic CSS
+- 🔧 ITCSS (Inverted Triangle CSS)
 
-##### **2.15 🎨 CSS Frameworks Overview**
-- 📦 Bootstrap:
-  - Grid system
-  - Components
-  - Utilities
-- 🎨 Tailwind CSS (will cover in Stage 12)
-- 🔧 Foundation
-- 📚 Bulma
-- 🎯 UI Kit
+---
 
 ##### **2.16 🚀 Performance Optimization**
 - 📦 CSS Minification
-- 🔗 Critical CSS
-- 📂 CSS Code Splitting
-- 🖼️ Image Optimization
+- 🔗 Critical CSS (Above-the-fold)
+- 📂 Code Splitting
+- 🖼️ Image Optimization (with CSS)
 - 🚫 Avoid Expensive Properties
 - 📊 Reduce Specificity
-- 🔧 Use `will-change` Property
+- 🔧 Use `will-change` (sparingly)
 - 📏 Media Queries Performance
+- 🧹 Remove Unused CSS (PurgeCSS)
+- 🎯 CSS-in-JS Performance Considerations
+
+---
 
 ##### **2.17 🧪 Browser Developer Tools**
-- 🛠️ Elements Panel (inspect/edit HTML/CSS)
+- 🛠️ Elements Panel
 - 🎨 Styles Panel:
-  - Edit CSS properties
+  - Edit CSS live
   - Box model visualization
   - Computed styles
-  - Pseudo-classes toggling
+  - Toggle pseudo-classes (`:hover`, `:focus`)
+  - Add classes
 - 📱 Device Toolbar (responsive testing)
-- 🎭 CSS Grid/Flexbox Debugging
-- ⏱️ Performance Panel
+- 🎭 CSS Grid/Flexbox Debugging Tools
 - 🐛 Debugging CSS Issues
+- ⏱️ Performance Panel (Layout Shift, Paint)
+
+---
 
 ##### **2.18 ♿ Accessibility in CSS**
-- 🎨 Color Contrast (WCAG guidelines)
+- 🎨 Color Contrast (WCAG 2.1 AA/AAA)
 - 📝 Focus Styles (`:focus-visible`)
 - 🖱️ Reduced Motion (`prefers-reduced-motion`)
 - 📏 Responsive Units for Accessibility
 - 🏷️ Screen Reader Only Classes
 - 📋 Form Validation Styling
+- 🔤 Font Size and Line Height
+- 🎯 `outline` vs `box-shadow` for focus
+
+---
 
 ##### **2.19 🌐 Cross-Browser Compatibility**
 - 📊 Browser Support Tables (caniuse.com)
 - 🛠️ Vendor Prefixes:
-  - `-webkit-` (Chrome, Safari)
-  - `-moz-` (Firefox)
-  - `-ms-` (Internet Explorer)
-  - `-o-` (Opera)
+  - `-webkit-`
+  - `-moz-`
+  - `-ms-`
+  - `-o-`
 - 🔧 Autoprefixer Tool
 - 📦 CSS Resets (Normalize.css, Reset.css)
 - 🎯 Feature Queries (`@supports`)
 - 🐛 Common CSS Bugs and Fixes
-
-##### **2.20 💻 Practical Projects**
-- 🏗️ Build a Responsive Navigation Bar
-- 📝 Create a Blog Layout with Flexbox
-- 🖼️ Design an Image Gallery with Grid
-- 📋 Build a Pricing Table Component
-- 🎨 Create a Landing Page with Animations
-- 📱 Build a Mobile-First Portfolio
-- 🏠 Clone a Popular Website Layout
-- 📊 Create an Interactive Dashboard
-- 🎭 Build a Card Component Library
-- 🌐 Make a Complete Multi-page Website
+- 🧪 Testing Tools (BrowserStack, LambdaTest)
 
 ---
+
+##### **2.20 🎨 CSS Frameworks Overview**
+- 📦 Bootstrap (Grid, Components, Utilities)
+- 🎨 Tailwind CSS (Utility-first approach)
+- 🔧 Foundation
+- 📚 Bulma
+- 🎯 UI Kit
+- ⚠️ When to Use vs When to Avoid
+
+---
+
+##### **2.21 🧩 Modern CSS Features (2026+)**
+- 📦 Container Queries (`@container`)
+- 🎯 `:has()` Selector
+- 📋 `@scope` Rule (scoped styles)
+- 🎨 Color Functions (`color-mix()`, `color-contrast()`)
+- 📐 Viewport Units (`dvh`, `svh`, `lvh`)
+- 📏 Cascade Layers (`@layer`)
+- 🔧 `light-dark()` Function
+- 🎭 `view-transition` (CSS View Transitions)
+
+---
+
+##### **2.22 🎨 CSS Architecture**
+- 📂 Project Structure (7-1 Pattern)
+- 📦 Component-Based Architecture
+- 🔗 CSS Modules (for frameworks)
+- 🎯 Scoped CSS
+- 🧪 Testing CSS (Jest, Vitest with CSS modules)
+- 📚 Documentation (Storybook)
+
+---
+
+##### **2.23 🚀 Advanced Responsive Patterns**
+- 📱 Fluid Typography (`clamp()`)
+- 📏 Fluid Spacing
+- 🖼️ Responsive Images with CSS
+- 🎭 Responsive Animations
+- 📦 Container Query Cards
+- 🏗️ Intrinsic Web Design
+- 🎯 Responsive Grid with `auto-fit` and `minmax`
+
+---
+
+##### **2.24 💻 Practical Projects**
+- 🏗️ Responsive Navigation Bar (mobile-first)
+- 📝 Blog Layout with Flexbox
+- 🖼️ Image Gallery with CSS Grid
+- 📋 Pricing Table Component
+- 🎨 Landing Page with Animations
+- 📱 Mobile-First Portfolio
+- 🏠 Clone a Popular Website Layout
+- 📊 Interactive Dashboard
+- 🎭 Card Component Library (BEM methodology)
+- 🌐 Complete Multi-page Website
+- 🎯 Animated Modal with Dialog
+- 📦 Product Grid with Container Queries
+- 🎨 Dark/Light Theme with CSS Variables
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 🎯 STAGE 3 — JavaScript (Core Language)
 **Goal**: Master JavaScript fundamentals to build interactive web applications.
