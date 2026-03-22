@@ -1975,19 +1975,23 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 <br>
 
-## 🎯 STAGE 5 — TypeScript (Type Safety)
+## 🎯 STAGE 5 — TYPESCRIPT (Type Safety)
 **Goal**: Add static typing to JavaScript for more robust and maintainable code.
-**Time**: 30 soat | 15 dars
+**Time**: 36 soat | 18 dars
+
+---
 
 #### 📚 **Topics**
 
 ##### **5.1 📝 TypeScript Introduction**
-- 🤔 What is TypeScript?
-- 🎯 Why TypeScript? (Benefits over JavaScript)
-- 📜 TypeScript History and Versions
-- 🔄 TypeScript vs JavaScript
-- ⚙️ How TypeScript Works (Compilation to JS)
-- 🏗️ TypeScript Architecture (Compiler, Language Service)
+- 🤔 What is TypeScript? (Typed superset of JavaScript)
+- 🎯 Why TypeScript? (Benefits: early error detection, better tooling, maintainability)
+- 📜 TypeScript History (2012, Microsoft)
+- 🔄 TypeScript vs JavaScript (compile-time vs runtime)
+- ⚙️ How TypeScript Works (TypeScript Compiler → JavaScript)
+- 🏗️ TypeScript Architecture (Compiler, Language Service, AST)
+
+---
 
 ##### **5.2 🔧 Installation and Setup**
 - 📥 Installing TypeScript:
@@ -1995,53 +1999,50 @@ Production    (16-19) ████████████░ 2 oy
   npm install -g typescript
   tsc --version
   ```
-- 🆕 Creating tsconfig.json:
+- 🆕 Creating `tsconfig.json`:
   ```bash
   tsc --init
   ```
-- ⚙️ tsconfig.json Options:
-  - `target` (ES3, ES5, ES6, ES2020, ESNext)
-  - `module` (CommonJS, ES2015, ESNext)
-  - `strict` (strict mode)
-  - `outDir` (output directory)
-  - `rootDir` (source directory)
-  - `lib` (library definitions)
-  - `allowJs` (include JS files)
-  - `checkJs` (type check JS)
-  - `declaration` (generate .d.ts files)
-  - `sourceMap` (debugging support)
-- 🔧 Compiling TypeScript:
+- ⚙️ Key `tsconfig.json` Options:
+  - `target`: ES2020 (modern)
+  - `module`: ESNext or CommonJS
+  - `strict`: true (enable all strict checks)
+  - `outDir`: ./dist
+  - `rootDir`: ./src
+  - `lib`: ["ES2020", "DOM"]
+  - `skipLibCheck`: true
+- 🔧 Compiling:
   - `tsc` (compile all)
-  - `tsc file.ts` (specific file)
   - `tsc --watch` (watch mode)
-- 🔧 ts-node (run TS directly)
-- 🔧 tsx (ESM compatible runner)
+  - `tsc file.ts` (single file)
+- 🔧 Running TypeScript: `tsx` or `ts-node`
+
+---
 
 ##### **5.3 🏷️ Basic Types**
 - 📦 Primitive Types:
-  - `string`
-  - `number`
-  - `boolean`
-  - `null` and `undefined`
-  - `symbol` (ES6+)
-  - `bigint` (ES2020+)
+  - `string`, `number`, `boolean`
+  - `null`, `undefined`
+  - `symbol`, `bigint`
 - 📝 Type Annotations:
   ```typescript
   let name: string = "John";
   let age: number = 30;
   let isActive: boolean = true;
   ```
-- 🔍 Type Inference (TypeScript guessing types)
-- 📦 Any Type (`any`) - escape hatch
-- 📦 Unknown Type (`unknown`) - type-safe alternative
-- 📦 Void Type (`void`) - no return value
-- 📦 Never Type (`never`) - never returns (throws, infinite loop)
+- 🔍 Type Inference (TypeScript guesses types)
+- 📦 Special Types:
+  - `any` (escape hatch — avoid)
+  - `unknown` (type-safe alternative to any)
+  - `void` (no return value)
+  - `never` (function never returns)
 - 📦 Arrays:
   ```typescript
   let numbers: number[] = [1, 2, 3];
   let strings: Array<string> = ["a", "b", "c"];
+  let readonly: readonly number[] = [1, 2, 3];
   ```
-- 📦 Tuples (fixed-length arrays):
+- 📦 Tuples:
   ```typescript
   let person: [string, number] = ["John", 30];
   let optional: [string, number?] = ["John"];
@@ -2049,25 +2050,14 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Enums:
   ```typescript
-  enum Direction {
-    Up,      // 0
-    Down,    // 1
-    Left,    // 2
-    Right    // 3
-  }
-  
-  enum Status {
-    Active = "ACTIVE",
-    Inactive = "INACTIVE",
-    Pending = "PENDING"
-  }
-  
-  const enum Color {  // const enum (inlined)
-    Red, Green, Blue
-  }
+  enum Direction { Up, Down, Left, Right }
+  enum Status { Active = "ACTIVE", Inactive = "INACTIVE" }
+  const enum Color { Red, Green, Blue }  // fully inlined
   ```
 
-##### **5.4 🔗 TypeScript Object Types**
+---
+
+##### **5.4 🔗 Object Types**
 - 📦 Object Type Annotations:
   ```typescript
   let person: { name: string; age: number } = {
@@ -2075,41 +2065,23 @@ Production    (16-19) ████████████░ 2 oy
     age: 30
   };
   ```
-- 📦 Optional Properties (`?`):
-  ```typescript
-  interface User {
-    name: string;
-    age?: number;  // optional
-    email: string;
-  }
-  ```
-- 📦 Readonly Properties:
-  ```typescript
-  interface Config {
-    readonly apiKey: string;
-    readonly endpoint: string;
-  }
-  ```
+- 📦 Optional Properties (`?`)
+- 📦 Readonly Properties (`readonly`)
 - 📦 Index Signatures:
   ```typescript
-  interface StringDictionary {
+  interface StringDict {
     [key: string]: string;
   }
-  
-  interface NumberDictionary {
-    [index: number]: string;
-  }
   ```
-- 📦 Excess Property Checks
+- 📦 Excess Property Checks (TypeScript prevents extra properties)
+
+---
 
 ##### **5.5 📐 Type Aliases and Interfaces**
 - 📝 Type Aliases:
   ```typescript
   type UserID = string | number;
-  type Point = {
-    x: number;
-    y: number;
-  };
+  type Point = { x: number; y: number };
   type Callback = (data: string) => void;
   ```
 - 📝 Interfaces:
@@ -2122,24 +2094,20 @@ Production    (16-19) ████████████░ 2 oy
   
   interface Admin extends User {
     permissions: string[];
-    role: "admin";
   }
   ```
 - 🔄 Type Aliases vs Interfaces:
-  - When to use which
-  - Extending: `&` vs `extends`
-  - Declaration merging (interfaces only)
-  - Computed properties (type aliases)
+  - Use **interface** for objects/classes (declaration merging)
+  - Use **type** for unions, intersections, primitives
+  - Both can extend: `&` vs `extends`
+
+---
 
 ##### **5.6 🔀 Union and Intersection Types**
 - 🔀 Union Types (`|`):
   ```typescript
   type ID = string | number;
   type Status = "success" | "error" | "loading";
-  
-  function formatId(id: ID): string {
-    return id.toString();
-  }
   ```
 - 🔀 Intersection Types (`&`):
   ```typescript
@@ -2160,11 +2128,11 @@ Production    (16-19) ████████████░ 2 oy
     }
   }
   ```
-- 🎯 Type Guards with Unions:
-  - `typeof` guards
-  - `instanceof` guards
-  - `in` operator
-  - Custom type guards (`is`)
+- 🎯 Type Guards:
+  - `typeof`, `instanceof`, `in` operator
+  - Custom type guards (`is` keyword)
+
+---
 
 ##### **5.7 📚 Functions in TypeScript**
 - 📝 Function Type Annotations:
@@ -2175,24 +2143,17 @@ Production    (16-19) ████████████░ 2 oy
   
   const multiply: (x: number, y: number) => number = (x, y) => x * y;
   ```
-- 📦 Optional Parameters:
+- 📦 Optional and Default Parameters:
   ```typescript
   function greet(name: string, title?: string): string {
     return title ? `Hello ${title} ${name}` : `Hello ${name}`;
   }
-  ```
-- 📦 Default Parameters:
-  ```typescript
+  
   function createUser(name: string, role: string = "user"): User {
     return { name, role };
   }
   ```
-- 📦 Rest Parameters:
-  ```typescript
-  function sum(...numbers: number[]): number {
-    return numbers.reduce((acc, n) => acc + n, 0);
-  }
-  ```
+- 📦 Rest Parameters: `...numbers: number[]`
 - 📦 Function Overloads:
   ```typescript
   function process(x: number): number;
@@ -2202,13 +2163,9 @@ Production    (16-19) ████████████░ 2 oy
     return x.toUpperCase();
   }
   ```
-- 📦 `this` Typing:
-  ```typescript
-  interface User {
-    name: string;
-    getName(this: User): string;
-  }
-  ```
+- 📦 `this` Typing
+
+---
 
 ##### **5.8 🔧 Generics**
 - 🎯 Generic Functions:
@@ -2222,123 +2179,54 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Generic Constraints:
   ```typescript
-  interface Lengthwise {
-    length: number;
-  }
+  interface Lengthwise { length: number; }
   
   function logLength<T extends Lengthwise>(arg: T): T {
     console.log(arg.length);
     return arg;
   }
   ```
-- 📦 Generic Interfaces:
+- 📦 Generic Interfaces and Classes:
   ```typescript
-  interface Pair<T, U> {
-    first: T;
-    second: U;
-  }
+  interface Pair<T, U> { first: T; second: U; }
   
-  const pair: Pair<number, string> = { first: 1, second: "two" };
-  ```
-- 📦 Generic Classes:
-  ```typescript
   class Stack<T> {
     private items: T[] = [];
-    
-    push(item: T): void {
-      this.items.push(item);
-    }
-    
-    pop(): T | undefined {
-      return this.items.pop();
-    }
+    push(item: T): void { this.items.push(item); }
+    pop(): T | undefined { return this.items.pop(); }
   }
   ```
-- 📦 Generic Constraints with keyof:
+- 📦 Generic Constraints with `keyof`:
   ```typescript
   function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
     return obj[key];
   }
   ```
-- 📦 Default Generic Types:
-  ```typescript
-  interface Response<T = any> {
-    data: T;
-    status: number;
-    message: string;
-  }
-  ```
+- 📦 Default Generic Types: `interface Response<T = any>`
 
-##### **5.9 🎭 Type Narrowing and Type Guards**
-- 🔍 typeof Type Guards:
-  ```typescript
-  function padLeft(value: string | number): string {
-    if (typeof value === "number") {
-      return value.toString().padStart(2, "0");
-    }
-    return value.padStart(2, "0");
-  }
-  ```
-- 🔍 instanceof Type Guards:
-  ```typescript
-  class Dog { bark() {} }
-  class Cat { meow() {} }
-  
-  function makeSound(animal: Dog | Cat) {
-    if (animal instanceof Dog) {
-      animal.bark();
-    } else {
-      animal.meow();
-    }
-  }
-  ```
-- 🔍 in Operator:
-  ```typescript
-  interface Bird { fly(): void; layEggs(): void; }
-  interface Fish { swim(): void; layEggs(): void; }
-  
-  function move(animal: Bird | Fish) {
-    if ("fly" in animal) {
-      animal.fly();
-    } else {
-      animal.swim();
-    }
-  }
-  ```
-- 🔍 Custom Type Guards:
+---
+
+##### **5.9 🎭 Type Narrowing**
+- 🔍 `typeof` Type Guards
+- 🔍 `instanceof` Type Guards
+- 🔍 `in` Operator
+- 🔍 Custom Type Guards (`is`):
   ```typescript
   function isFish(pet: Fish | Bird): pet is Fish {
     return (pet as Fish).swim !== undefined;
   }
   ```
-- 🔍 Assertion Functions:
-  ```typescript
-  function assert(condition: any, msg?: string): asserts condition {
-    if (!condition) throw new Error(msg);
-  }
-  ```
+- 🔍 Assertion Functions: `asserts condition`
+- 🔍 `never` Type for Exhaustive Checks
+
+---
 
 ##### **5.10 🧩 Classes in TypeScript**
-- 📦 Class Definition:
-  ```typescript
-  class Person {
-    name: string;
-    age: number;
-    
-    constructor(name: string, age: number) {
-      this.name = name;
-      this.age = age;
-    }
-    
-    greet(): string {
-      return `Hello, I'm ${this.name}`;
-    }
-  }
-  ```
+- 📦 Class Definition with Types
 - 🔒 Access Modifiers:
   - `public` (default)
   - `private` (only within class)
-  - `protected` (within class and subclasses)
+  - `protected` (class + subclasses)
   - `readonly` (cannot modify)
 - 📦 Parameter Properties:
   ```typescript
@@ -2350,181 +2238,104 @@ Production    (16-19) ████████████░ 2 oy
     ) {}
   }
   ```
-- 📦 Getters and Setters:
-  ```typescript
-  class Employee {
-    private _salary: number = 0;
-    
-    get salary(): number {
-      return this._salary;
-    }
-    
-    set salary(value: number) {
-      if (value < 0) throw new Error("Invalid salary");
-      this._salary = value;
-    }
-  }
-  ```
-- 📦 Static Members:
-  ```typescript
-  class MathUtils {
-    static PI: number = 3.14159;
-    
-    static circleArea(radius: number): number {
-      return this.PI * radius ** 2;
-    }
-  }
-  ```
+- 📦 Getters and Setters
+- 📦 Static Members
 - 📦 Abstract Classes:
   ```typescript
   abstract class Animal {
     abstract makeSound(): void;
-    
-    move(): void {
-      console.log("Moving...");
-    }
-  }
-  
-  class Dog extends Animal {
-    makeSound(): void {
-      console.log("Woof!");
-    }
+    move(): void { console.log("Moving..."); }
   }
   ```
-- 📦 Method Overriding
-- 📦 `implements` Clause (interfaces for classes)
+- 📦 `implements` Clause (classes implementing interfaces)
 
-##### **5.11 📦 Modules and Namespaces**
+---
+
+##### **5.11 📦 Modules**
 - 📤 ES6 Modules:
   ```typescript
-  // export.ts
   export interface User { name: string; }
   export const PI = 3.14;
-  export function greet() {}
   export default class DefaultClass {}
   
-  // import.ts
-  import { User, PI, greet } from './export';
+  import { User, PI } from './export';
   import DefaultClass from './export';
   import * as Utils from './export';
   ```
-- 🔄 Dynamic Imports:
-  ```typescript
-  async function loadModule() {
-    const module = await import('./module');
-    module.doSomething();
-  }
-  ```
-- 📦 Namespaces (internal modules):
+- 🔄 Dynamic Imports: `const module = await import('./module');`
+- 📦 Namespaces (legacy, avoid in new code):
   ```typescript
   namespace Validation {
-    export interface StringValidator {
-      isValid(s: string): boolean;
-    }
-    
-    export class LettersValidator implements StringValidator {
-      isValid(s: string): boolean {
-        return /^[A-Za-z]+$/.test(s);
-      }
-    }
+    export interface StringValidator { isValid(s: string): boolean; }
   }
   ```
 
-##### **5.12 📚 Declaration Files (.d.ts)**
-- 📝 What are Declaration Files?
+---
+
+##### **5.12 📚 Declaration Files**
+- 📝 What are `.d.ts` files?
+- 📦 DefinitelyTyped (`@types/` packages):
+  ```bash
+  npm install --save-dev @types/react
+  ```
 - 🏗️ Ambient Declarations:
   ```typescript
   declare const process: any;
-  declare function require(module: string): any;
-  ```
-- 📦 Writing Declaration Files:
-  ```typescript
-  // my-library.d.ts
   declare module "my-library" {
     export function doSomething(): void;
-    export const VERSION: string;
-    export interface Options {
-      debug?: boolean;
-    }
   }
   ```
-- 📦 DefinitelyTyped (@types/ packages)
-- 🔍 Finding Type Definitions:
-  - `npm install --save-dev @types/react`
-- 📦 Triple-Slash Directives:
-  ```typescript
-  /// <reference path="..." />
-  /// <reference types="..." />
-  ```
+- 📦 Writing Declaration Files for JavaScript Libraries
+
+---
 
 ##### **5.13 🔧 Type Manipulation**
-- 🔍 Keyof Type Operator:
+- 🔍 `keyof` Operator:
   ```typescript
-  type Person = { name: string; age: number; email: string };
-  type PersonKeys = keyof Person;  // "name" | "age" | "email"
+  type Person = { name: string; age: number; };
+  type PersonKeys = keyof Person;  // "name" | "age"
   ```
-- 🔍 Typeof Type Operator:
-  ```typescript
-  const person = { name: "John", age: 30 };
-  type PersonType = typeof person;  // { name: string; age: number; }
-  ```
-- 🔍 Indexed Access Types:
-  ```typescript
-  type PersonAge = Person["age"];  // number
-  type NameOrAge = Person["name" | "age"];  // string | number
-  ```
+- 🔍 `typeof` Operator (from values to types)
+- 🔍 Indexed Access Types: `Person["name"]`
 - 🔍 Conditional Types:
   ```typescript
   type IsArray<T> = T extends any[] ? true : false;
-  type IsStringArray = IsArray<string[]>;  // true
-  type IsNumber = IsArray<number>;  // false
   ```
 - 🔍 Mapped Types:
   ```typescript
-  type Readonly<T> = {
-    readonly [P in keyof T]: T[P];
-  };
-  
-  type Optional<T> = {
-    [P in keyof T]?: T[P];
-  };
-  
-  type Nullable<T> = {
-    [P in keyof T]: T[P] | null;
-  };
+  type Readonly<T> = { readonly [P in keyof T]: T[P]; };
+  type Optional<T> = { [P in keyof T]?: T[P]; };
   ```
 - 🔍 Template Literal Types:
   ```typescript
-  type CSSUnit = `${number}px` | `${number}em` | `${number}rem`;
-  type EventName = `on${Capitalize<string>}`;  // onClick, onChange
+  type CSSUnit = `${number}px` | `${number}em`;
+  type EventName = `on${Capitalize<string>}`;
   ```
+
+---
 
 ##### **5.14 🛠️ Utility Types**
-- 📦 `Partial<T>` (all properties optional)
-- 📦 `Required<T>` (all properties required)
-- 📦 `Readonly<T>` (all properties readonly)
-- 📦 `Record<K, T>` (key-value pairs)
-- 📦 `Pick<T, K>` (subset of properties)
-- 📦 `Omit<T, K>` (remove properties)
-- 📦 `Exclude<T, U>` (exclude types from union)
-- 📦 `Extract<T, U>` (extract types from union)
-- 📦 `NonNullable<T>` (remove null and undefined)
-- 📦 `ReturnType<T>` (function return type)
-- 📦 `Parameters<T>` (function parameter types)
-- 📦 `ConstructorParameters<T>` (constructor params)
-- 📦 `InstanceType<T>` (instance type from constructor)
-- 📦 `ThisParameterType<T>` (this parameter type)
-- 📦 `OmitThisParameter<T>` (remove this parameter)
-- 📦 `Awaited<T>` (unwrap promises) TS 4.5+
+- `Partial<T>` — all properties optional
+- `Required<T>` — all properties required
+- `Readonly<T>` — all properties readonly
+- `Record<K, T>` — key-value pair object
+- `Pick<T, K>` — subset of properties
+- `Omit<T, K>` — remove properties
+- `Exclude<T, U>` — exclude types from union
+- `Extract<T, U>` — extract types from union
+- `NonNullable<T>` — remove null/undefined
+- `ReturnType<T>` — function return type
+- `Parameters<T>` — function parameter types
+- `Awaited<T>` — unwrap promises (TS 4.5+)
+
+---
 
 ##### **5.15 🎯 TypeScript with React**
-- 📦 Setting up React with TypeScript:
+- 📦 Setup: Vite + React + TypeScript:
   ```bash
-  npx create-react-app my-app --template typescript
-  # or with Vite
   npm create vite@latest my-app -- --template react-ts
   ```
-- 📝 Typing React Components:
+- 📝 Typing Props:
   ```typescript
   interface Props {
     name: string;
@@ -2540,49 +2351,26 @@ Production    (16-19) ████████████░ 2 oy
   ```typescript
   const [count, setCount] = useState<number>(0);
   const [user, setUser] = useState<User | null>(null);
-  
   const inputRef = useRef<HTMLInputElement>(null);
-  
-  useEffect(() => {
-    // effect
-  }, [count]);
   ```
 - 📦 Typing Events:
   ```typescript
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-  
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.clientX, e.clientY);
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
   ```
-- 📦 Typing Children:
-  ```typescript
-  interface Props {
-    children: React.ReactNode;
-    element?: React.ReactElement;
-  }
-  ```
+- 📦 Typing Children: `children: React.ReactNode`
 - 📦 Typing Context:
   ```typescript
-  interface ThemeContextType {
-    theme: 'light' | 'dark';
-    toggleTheme: () => void;
-  }
-  
   const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
   ```
 
-##### **5.16 🔧 Advanced TypeScript Patterns**
-- 🎯 Factory Pattern with Generics
-- 🔗 Builder Pattern
+---
+
+##### **5.16 🔧 Advanced Patterns**
+- 🎯 Builder Pattern
+- 🔗 Factory Pattern with Generics
 - 🎭 Dependency Injection
-- 📦 Singleton Pattern with TypeScript
+- 🔄 Mixins with TypeScript
 - 🎨 Decorators (experimental):
   ```typescript
   function log(target: any, key: string, descriptor: PropertyDescriptor) {
@@ -2592,47 +2380,20 @@ Production    (16-19) ████████████░ 2 oy
       return original.apply(this, args);
     };
   }
-  
-  class Calculator {
-    @log
-    add(a: number, b: number): number {
-      return a + b;
-    }
-  }
-  ```
-- 🔄 Mixins:
-  ```typescript
-  function applyMixins(derivedCtor: any, constructors: any[]) {
-    constructors.forEach((baseCtor) => {
-      Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
-        derivedCtor.prototype[name] = baseCtor.prototype[name];
-      });
-    });
-  }
   ```
 
-##### **5.17 🔧 TypeScript Configuration Deep Dive**
-- ⚙️ Compiler Options:
-  - `strict: true` (all strict checks)
+---
+
+##### **5.17 🔧 Configuration Deep Dive**
+- ⚙️ Strict Mode Flags:
+  - `strict: true` (enables all)
   - `noImplicitAny`
   - `strictNullChecks`
   - `strictFunctionTypes`
   - `strictPropertyInitialization`
-  - `noUnusedLocals`
-  - `noUnusedParameters`
+  - `noUnusedLocals`, `noUnusedParameters`
   - `noImplicitReturns`
-  - `noFallthroughCasesInSwitch`
-- 📁 Project References:
-  ```json
-  {
-    "references": [
-      { "path": "./packages/shared" },
-      { "path": "./packages/client" },
-      { "path": "./packages/server" }
-    ]
-  }
-  ```
-- 📦 Path Mapping:
+- 📁 Path Mapping:
   ```json
   {
     "compilerOptions": {
@@ -2644,57 +2405,59 @@ Production    (16-19) ████████████░ 2 oy
     }
   }
   ```
-- 🔄 TypeScript with Babel
-- 🔧 TypeScript with ESLint
+- 📦 Project References (monorepo support)
+
+---
 
 ##### **5.18 🧪 Testing TypeScript**
 - ✅ Jest with TypeScript:
   ```bash
   npm install --save-dev jest @types/jest ts-jest
   ```
-- ⚙️ jest.config.js:
+- ⚙️ `jest.config.js`:
   ```javascript
   module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
   };
   ```
-- 📝 Writing Tests:
-  ```typescript
-  import { sum } from './math';
-  
-  describe('sum', () => {
-    it('should add two numbers', () => {
-      expect(sum(1, 2)).toBe(3);
-    });
-  });
-  ```
-- 🔍 Type Testing (expect-type library)
+- 📝 Writing Tests with types
+- 🔍 Type Testing: `expect-type` library
 
-##### **5.19 🚀 TypeScript Best Practices**
-- ✅ Enable Strict Mode
-- 🚫 Avoid `any` (use `unknown` instead)
-- 📝 Use Interfaces for Objects, Types for Unions
-- 🔒 Use Readonly for Immutable Data
-- 🎯 Leverage Type Inference When Possible
-- 📦 Use Utility Types
-- 🔍 Write Self-Documenting Types
-- 📚 Use JSDoc Comments for Complex Types
-- 🔄 Keep Types Close to Usage
-- 🧪 Test Your Types
+---
+
+##### **5.19 🚀 Best Practices**
+- ✅ Enable `strict: true`
+- 🚫 Avoid `any` (use `unknown` when type is uncertain)
+- 📝 Use interfaces for objects, types for unions
+- 🔒 Use `readonly` for immutable data
+- 🎯 Leverage type inference when possible
+- 📦 Use utility types instead of custom types
+- 🔍 Write self-documenting types
+- 🧪 Test your types
+- 📚 Use JSDoc comments for complex types
+
+---
 
 ##### **5.20 💻 Practical Projects**
-- 🏗️ Convert JavaScript Project to TypeScript
-- 📝 Build a Type-Safe API Client
-- 🎯 Create a Generic Data Store
-- 🔧 Implement Type-Safe Event Emitter
-- 📦 Build a Utility Library with TypeScript
-- 🏗️ Create React Components with TypeScript
-- 🔍 Write Declaration Files for a Library
-- 🧪 Add TypeScript to Express Backend
-- 🎮 Build a Type-Safe State Machine
-- 📊 Create Type-Safe Form Validation
+- 🏗️ Convert JavaScript project to TypeScript
+- 📝 Build type-safe API client
+- 🎯 Create generic data store
+- 🔧 Implement type-safe event emitter
+- 📦 Build utility library with TypeScript
+- 🏗️ Create React components with TypeScript
+- 🔍 Write declaration files for a library
+- 🧪 Add TypeScript to Express backend
+- 🎮 Build type-safe state machine
+- 📊 Create type-safe form validation
+
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## 🎯 STAGE 6 — Vite (Build Tool)
 **Goal**: Master modern build tooling for fast development and optimized production builds.
