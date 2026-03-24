@@ -2,8 +2,6 @@
 
 <div align="center">
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="120" alt="Frontend Logo"/>
-
 <h3>Frontend Development</h3>
 
 <p><strong>From Zero → Production-Ready Developer</strong></p>
@@ -27,7 +25,7 @@
 
 ---
 
-## 🟢 BEGINNER — ASOSIY TEXNOLOGIYALAR
+## ASOSIY TEXNOLOGIYALAR
 
 **STAGE 1** — HTML5 (Structure & Semantics)
 
@@ -35,10 +33,9 @@
 
 **STAGE 3** — JavaScript (Core Language)
 
-
 ---
 
-## 🔵 INTERMEDIATE — VERSION CONTROL & BUILD TOOLS
+## VERSION CONTROL & BUILD TOOLS
 
 **STAGE 4** — Git & Version Control
 
@@ -48,7 +45,7 @@
 
 ---
 
-## 🟠 ADVANCED — REACT & STATE MANAGEMENT
+## REACT & STATE MANAGEMENT
 
 **STAGE 7** — React (UI Library)
 
@@ -60,7 +57,7 @@
 
 ---
 
-## 🔴 EXPERT — HTTP, STYLING & FORMS
+## HTTP, STYLING & FORMS
 
 **STAGE 11** — Fetch API & Axios (HTTP Requests)
 
@@ -74,7 +71,7 @@
 
 ---
 
-## 🟣 PRODUCTION — FRAMEWORK & TESTING
+## FRAMEWORK & TESTING
 
 **STAGE 16** — Next.js (React Framework)
 
@@ -3402,6 +3399,7 @@ Production    (16-19) ████████████░ 2 oy
 ##### **7.11 🔄 Lifecycle and Effects (useEffect)**
 
 - 📝 useEffect Hook:
+
   ```jsx
   useEffect(() => {
     // runs after render
@@ -3412,6 +3410,7 @@ Production    (16-19) ████████████░ 2 oy
     };
   }, [count]); // dependency array
   ```
+
 - 🎯 Common Use Cases:
   - Data fetching
   - Subscriptions
@@ -3467,6 +3466,7 @@ Production    (16-19) ████████████░ 2 oy
 ##### **7.14 🎯 Custom Hooks**
 
 - 📝 Creating Custom Hooks:
+
   ```jsx
   function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
@@ -3481,6 +3481,7 @@ Production    (16-19) ████████████░ 2 oy
     return [storedValue, setStoredValue];
   }
   ```
+
 - 📦 Common Custom Hooks:
   - `useFetch`, `useDebounce`, `useThrottle`
   - `useWindowSize`, `useClickOutside`
@@ -4031,6 +4032,7 @@ Production    (16-19) ████████████░ 2 oy
 ##### **8.7 🔍 Query Parameters**
 
 - 📝 useSearchParams Hook:
+
   ```jsx
   function SearchPage() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -4047,6 +4049,7 @@ Production    (16-19) ████████████░ 2 oy
     );
   }
   ```
+
 - 🔄 URLSearchParams Methods:
   - `get()`, `set()`, `delete()`, `has()`, `append()`, `toString()`
 
@@ -4150,6 +4153,7 @@ Production    (16-19) ████████████░ 2 oy
   ```
 
 - 🔄 Redirect After Login:
+
   ```jsx
   function Login() {
     const navigate = useNavigate();
@@ -4162,6 +4166,7 @@ Production    (16-19) ████████████░ 2 oy
     };
   }
   ```
+
 - 🎯 Role-Based Access:
   ```jsx
   <Route
@@ -4243,6 +4248,7 @@ Production    (16-19) ████████████░ 2 oy
 ##### **8.14 🔧 Custom Route Components**
 
 - 📝 Scroll Restoration:
+
   ```jsx
   function ScrollToTop() {
     const { pathname } = useLocation();
@@ -4254,7 +4260,9 @@ Production    (16-19) ████████████░ 2 oy
     return null;
   }
   ```
+
 - 📝 Route Change Tracker:
+
   ```jsx
   function RouteTracker() {
     const location = useLocation();
@@ -4384,6 +4392,7 @@ Production    (16-19) ████████████░ 2 oy
   ```
 
 - 📝 Breadcrumbs:
+
   ```jsx
   function Breadcrumbs() {
     const location = useLocation();
@@ -4501,6 +4510,7 @@ Production    (16-19) ████████████░ 2 oy
   ```
 
 - 📦 Context Provider:
+
   ```jsx
   function App() {
     const [theme, setTheme] = useState("light");
@@ -4514,6 +4524,7 @@ Production    (16-19) ████████████░ 2 oy
     );
   }
   ```
+
 - 🎯 Multiple Providers (nesting)
 
 ---
@@ -4777,6 +4788,7 @@ Production    (16-19) ████████████░ 2 oy
 ##### **9.8 ⚡ Performance Optimization**
 
 - 📝 Memoizing Context Value:
+
   ```jsx
   function UserProvider({ children }) {
     const [user, setUser] = useState(null);
@@ -4795,6 +4807,7 @@ Production    (16-19) ████████████░ 2 oy
     );
   }
   ```
+
 - 📦 Splitting Context (prevent re-renders):
 
   ```jsx
@@ -5215,6 +5228,7 @@ Production    (16-19) ████████████░ 2 oy
   });
   ```
 - 📝 Using RTK Query Hooks:
+
   ```jsx
   function Posts() {
     const { data: posts, isLoading, error, refetch } = useGetPostsQuery();
@@ -5695,6 +5709,7 @@ src/
 ##### **11.14 🚀 React with Fetch/Axios**
 
 - 📝 Custom `useFetch` Hook:
+
   ```javascript
   function useFetch(url) {
     const [data, setData] = useState(null);
@@ -5716,6 +5731,7 @@ src/
     return { data, loading, error };
   }
   ```
+
 - 📝 Axios Service Pattern:
 
   ```javascript
@@ -6753,6 +6769,7 @@ src/
 ##### **14.9 📱 File Upload**
 
 - 📝 File Input Handling:
+
   ```tsx
   function FileForm() {
     const { register, handleSubmit } = useForm();
@@ -6806,6 +6823,7 @@ src/
 ##### **14.11 🎯 Advanced Patterns**
 
 - 📝 Dependent Fields:
+
   ```tsx
   function DependentFields() {
     const { register, watch, setValue } = useForm();
@@ -6816,6 +6834,7 @@ src/
     }, [country, setValue]);
   }
   ```
+
 - 📝 Conditional Fields:
 
   ```tsx
@@ -8037,6 +8056,7 @@ src/
   ```
 
 - 📝 Query Types:
+
   ```jsx
   test("query types", () => {
     render(
@@ -8069,6 +8089,7 @@ src/
 ##### 18.3 🎨 Priority Order for Queries
 
 - 📝 Query Priority (from most to least recommended):
+
   ```jsx
   test('query priority', () => {
     render(
@@ -9332,6 +9353,7 @@ src/
   ```
 
 - 📝 Hooks:
+
   ```typescript
   test.describe("Dashboard", () => {
     test.beforeEach(async ({ page }) => {
@@ -9486,6 +9508,7 @@ src/
 ##### **19.9 📸 Visual Testing**
 
 - 📝 Screenshot Comparison:
+
   ```typescript
   test("visual test", async ({ page }) => {
     await page.goto("/");
@@ -9639,6 +9662,7 @@ src/
 ##### **19.16 🔄 API Testing**
 
 - 📝 API Tests:
+
   ```typescript
   test("API test", async ({ request }) => {
     const response = await request.get("/api/users");
