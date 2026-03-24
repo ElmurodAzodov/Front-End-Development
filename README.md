@@ -19,43 +19,86 @@
 
 </div>
 
-
 <br>
 
 ---
 
 ## 📑 **TABLE OF CONTENTS**
 
-- [🎨 THE COMPLETE FRONTEND ROADMAP 2026](#-the-complete-frontend-roadmap-2026)
-  - [From Zero to Production-Ready Developer](#from-zero-to-production-ready-developer)
-  - [📑 TABLE OF CONTENTS](#-table-of-contents)
-  - [🎯 ROADMAP OVERVIEW](#-roadmap-overview)
-    - [**Learning Path Summary**](#learning-path-summary)
-    - [**📊 Time Distribution**](#-time-distribution)
-  - [🎯 STAGE 1 — HTML5 (Structure & Semantics)](#-stage-1--html5-structure--semantics)
-  - [🎯 STAGE 2 — CSS3 (Styling & Layout)](#-stage-2--css3-styling--layout)
-  - [🎯 STAGE 3 — JavaScript (Core Language)](#-stage-3--javascript-core-language)
-  - [🎯 STAGE 4 — Git & Version Control](#-stage-4--git--version-control)
-  - [🎯 STAGE 5 — TypeScript (Type Safety)](#-stage-5--typescript-type-safety)
-  - [🎯 STAGE 6 — Vite (Build Tool)](#-stage-6--vite-build-tool)
-  - [🎯 STAGE 7 — React (UI Library)](#-stage-7--react-ui-library)
-  - [🎯 STAGE 8 — React Router (Navigation)](#-stage-8--react-router-navigation)
-  - [🎯 STAGE 9 — Context API (State Management)](#-stage-9--context-api-state-management)
-  - [🎯 STAGE 10 — Redux Toolkit (Advanced State)](#-stage-10--redux-toolkit-advanced-state)
-  - [🎯 STAGE 11 — Fetch API & Axios (HTTP Requests)](#-stage-11--fetch-api--axios-http-requests)
-  - [🎯 STAGE 12 — Tailwind CSS (Utility CSS)](#-stage-12--tailwind-css-utility-css)
-  - [🎯 STAGE 13 — Shadcn UI (Component Library)](#-stage-13--shadcn-ui-component-library)
-  - [🎯 STAGE 14 — React Hook Form (Forms)](#-stage-14--react-hook-form-forms)
-  - [🎯 STAGE 15 — Zod (Validation)](#-stage-15--zod-validation)
-  - [🎯 STAGE 16 — Next.js (React Framework)](#-stage-16--nextjs-react-framework)
-  - [🎯 STAGE 17 — Jest (Unit Testing)](#-stage-17--jest-unit-testing)
-  - [🎯 STAGE 18 — React Testing Library (Component Testing)](#-stage-18--react-testing-library-component-testing)
-  - [🎯 STAGE 19 — Playwright (E2E Testing)](#-stage-19--playwright-e2e-testing)
-  - [📊 COMPLETE TIMELINE](#-complete-timeline)
-  - [🎯 LEARNING PATH RECOMMENDATIONS](#-learning-path-recommendations)
-  - [📈 SKILL PROGRESSION](#-skill-progression)
-  - [🔧 RECOMMENDED TOOLS](#-recommended-tools)
-  - [📚 RESOURCES](#-resources)
+---
+
+## 🟢 BEGINNER — ASOSIY TEXNOLOGIYALAR
+
+**STAGE 1** — HTML5 (Structure & Semantics)
+
+**STAGE 2** — CSS3 (Styling & Layout)
+
+**STAGE 3** — JavaScript (Core Language)
+
+
+---
+
+## 🔵 INTERMEDIATE — VERSION CONTROL & BUILD TOOLS
+
+**STAGE 4** — Git & Version Control
+
+**STAGE 5** — TypeScript (Type Safety)
+
+**STAGE 6** — Vite (Build Tool)
+
+---
+
+## 🟠 ADVANCED — REACT & STATE MANAGEMENT
+
+**STAGE 7** — React (UI Library)
+
+**STAGE 8** — React Router (Navigation)
+
+**STAGE 9** — Context API (State Management)
+
+**STAGE 10** — Redux Toolkit (Advanced State)
+
+---
+
+## 🔴 EXPERT — HTTP, STYLING & FORMS
+
+**STAGE 11** — Fetch API & Axios (HTTP Requests)
+
+**STAGE 12** — Tailwind CSS (Utility CSS)
+
+**STAGE 13** — Shadcn UI (Component Library)
+
+**STAGE 14** — React Hook Form (Forms)
+
+**STAGE 15** — Zod (Validation)
+
+---
+
+## 🟣 PRODUCTION — FRAMEWORK & TESTING
+
+**STAGE 16** — Next.js (React Framework)
+
+**STAGE 17** — Jest (Unit Testing)
+
+**STAGE 18** — React Testing Library (Component Testing)
+
+**STAGE 19** — Playwright (E2E Testing)
+
+---
+
+## 📊 QO'SHIMCHA BO'LIMLAR
+
+ROADMAP OVERVIEW
+
+COMPLETE TIMELINE
+
+LEARNING PATH RECOMMENDATIONS
+
+SKILL PROGRESSION
+
+RECOMMENDED TOOLS
+
+RESOURCES
 
 ---
 
@@ -63,13 +106,13 @@
 
 ### **Learning Path Summary**
 
-| Level | Stages | Time | Outcome |
-|-------|--------|------|---------|
-| 🟢 **Beginner** | 1-3 | 2 oy | HTML, CSS, JavaScript asoslari |
-| 🔵 **Intermediate** | 4-6 | 1 oy | Git, TypeScript, Vite |
-| 🟠 **Advanced** | 7-10 | 2 oy | React, Router, State Management |
-| 🔴 **Expert** | 11-15 | 2 oy | HTTP, UI Libraries, Forms |
-| 🟣 **Production** | 16-19 | 2 oy | Next.js, Testing, Deployment |
+| Level               | Stages | Time | Outcome                         |
+| ------------------- | ------ | ---- | ------------------------------- |
+| 🟢 **Beginner**     | 1-3    | 2 oy | HTML, CSS, JavaScript asoslari  |
+| 🔵 **Intermediate** | 4-6    | 1 oy | Git, TypeScript, Vite           |
+| 🟠 **Advanced**     | 7-10   | 2 oy | React, Router, State Management |
+| 🔴 **Expert**       | 11-15  | 2 oy | HTTP, UI Libraries, Forms       |
+| 🟣 **Production**   | 16-19  | 2 oy | Next.js, Testing, Deployment    |
 
 ### **📊 Time Distribution**
 
@@ -87,7 +130,14 @@ Production    (16-19) ████████████░ 2 oy
 
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 🎯 STAGE 1 — MODERN HTML (Structure, Semantics & Web Standards)
+
 **Goal**: Create structured, semantic, accessible, and future-proof web pages.
 **Time**: 28 soat | 14 dars
 
@@ -96,6 +146,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **1.1 📄 HTML Basics**
+
 - 🌐 What is HTML? (HyperText Markup Language)
 - 🏗️ HTML Document Structure (`<!DOCTYPE>`, `<html>`, `<head>`, `<body>`)
 - 🔤 Character Encoding (`<meta charset="UTF-8">`)
@@ -106,6 +157,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.2 🏷️ Text Elements**
+
 - 📑 Headings (`<h1>` to `<h6>`)
 - 📝 Paragraphs (`<p>`)
 - 🔤 Text Formatting:
@@ -128,6 +180,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.3 🔗 Links and Navigation**
+
 - 🔗 Anchor Tag (`<a href="">`)
 - 🎯 Target Attributes (`_blank`, `_self`, `_parent`, `_top`)
 - 🔐 Security for `_blank`: `rel="noopener noreferrer"`
@@ -142,6 +195,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.4 🖼️ Images and Media**
+
 - 🖼️ Image Tag (`<img src="" alt="">`)
 - 📏 Image Dimensions (width, height)
 - 🎨 Modern Image Formats:
@@ -165,6 +219,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.5 📋 Lists**
+
 - 🔢 Ordered Lists (`<ol>`, `<li>`)
   - `start` and `reversed` attributes
 - 🔘 Unordered Lists (`<ul>`, `<li>`)
@@ -174,6 +229,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.6 📊 Tables**
+
 - 📋 Table Structure (`<table>`, `<tr>`, `<td>`, `<th>`)
 - 📑 Table Headers (`<thead>`)
 - 📦 Table Body (`<tbody>`)
@@ -186,6 +242,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.7 📝 Forms**
+
 - 📋 Form Element (`<form>`)
 - 📥 Input Types:
   - `text`, `password`, `email`
@@ -212,6 +269,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.8 🧩 Semantic HTML5**
+
 - 📦 Structural Elements:
   - `<header>`
   - `<nav>`
@@ -231,6 +289,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.9 ♿ Accessibility**
+
 - 🏷️ ARIA Roles and Attributes
 - 📝 Alt Text for Images
 - 🔗 Descriptive Link Text
@@ -245,6 +304,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.10 🚀 Performance & Core Web Vitals**
+
 - 📊 Core Web Vitals:
   - LCP (Largest Contentful Paint)
   - INP (Interaction to Next Paint)
@@ -261,6 +321,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.11 🔍 SEO & Structured Data**
+
 - 🏷️ Meta Tags:
   - `description`
   - `author`
@@ -274,6 +335,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.12 🔒 Security**
+
 - 🔐 Content Security Policy (CSP)
 - 🛡️ Subresource Integrity (SRI)
 - 🔒 Trusted Types
@@ -285,6 +347,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.13 🧩 Modern HTML Features**
+
 - 🪟 Dialog Element (`<dialog>`)
 - 🪄 Popover API
 - 🎨 View Transitions API
@@ -296,6 +359,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.14 🔧 Best Practices & Tooling**
+
 - ✅ Valid HTML (W3C Validator)
 - 📏 Proper Indentation
 - 💬 Meaningful Comments
@@ -310,6 +374,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **1.15 💻 Practical Projects**
+
 - 🏗️ Personal Portfolio Page
 - 📝 Blog Post Layout
 - 📋 Product Card
@@ -332,6 +397,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 2 — MODERN CSS3 (Styling, Layout & Advanced Techniques)
+
 **Goal**: Style websites with modern CSS techniques, responsive design, and performance optimization.
 **Time**: 48 soat | 24 dars
 
@@ -340,6 +406,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **2.1 🎨 CSS Fundamentals**
+
 - 📝 What is CSS? (Cascading Style Sheets)
 - 🔗 CSS Integration Methods:
   - Inline CSS (`style=""`)
@@ -353,6 +420,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.2 🎯 Selectors**
+
 - 🔤 Basic Selectors:
   - Element Selector (`h1`, `p`)
   - Class Selector (`.classname`)
@@ -385,6 +453,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.3 🎨 Colors and Backgrounds**
+
 - 🌈 Color Values:
   - Named Colors
   - Hexadecimal (`#FF0000`, `#F00`, `#FF0000CC`)
@@ -412,6 +481,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.4 📏 Units and Sizing**
+
 - 📐 Absolute Units:
   - `px` (pixels)
   - `cm`, `mm`, `in`
@@ -436,6 +506,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.5 ✍️ Typography**
+
 - 🔤 Font Properties:
   - `font-family` (system fonts, web fonts)
   - `font-size` (px, rem, clamp)
@@ -468,6 +539,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.6 📦 Box Model**
+
 - 📦 Box Model Components:
   - Content
   - Padding
@@ -494,6 +566,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.7 📐 Layout Techniques (Legacy)**
+
 - 🎯 Display Property:
   - `block`, `inline`, `inline-block`
   - `none`, `visibility: hidden`
@@ -519,6 +592,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.8 📊 Flexbox**
+
 - 🎯 Flex Container Properties:
   - `display: flex` / `inline-flex`
   - `flex-direction` (row, column)
@@ -546,6 +620,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.9 📐 CSS Grid Layout**
+
 - 🎯 Grid Container:
   - `display: grid` / `inline-grid`
   - `grid-template-columns`
@@ -578,6 +653,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.10 📱 Responsive Design**
+
 - 📐 Viewport Meta Tag
 - 📏 Media Queries:
   - Syntax (`@media (condition)`)
@@ -605,6 +681,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.11 🎨 CSS Transitions**
+
 - ✨ Transition Properties:
   - `transition-property`
   - `transition-duration`
@@ -621,6 +698,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.12 🎬 CSS Animations**
+
 - 🎬 Keyframe Animations:
   - `@keyframes` rule
   - `animation-name`
@@ -647,6 +725,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.13 🔧 Advanced CSS Features**
+
 - 🎨 Custom Properties (CSS Variables):
   - Declaration (`--variable-name`)
   - Usage (`var(--variable-name)`)
@@ -678,6 +757,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.14 🎨 CSS Preprocessors (Sass/SCSS)**
+
 - 📦 What is Sass?
 - 🔧 Installation and Setup
 - 📝 SCSS Syntax
@@ -700,6 +780,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.15 🔧 CSS Methodologies**
+
 - 📦 BEM (Block Element Modifier):
   - Block (`.card`)
   - Element (`.card__title`)
@@ -714,6 +795,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.16 🚀 Performance Optimization**
+
 - 📦 CSS Minification
 - 🔗 Critical CSS (Above-the-fold)
 - 📂 Code Splitting
@@ -728,6 +810,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.17 🧪 Browser Developer Tools**
+
 - 🛠️ Elements Panel
 - 🎨 Styles Panel:
   - Edit CSS live
@@ -743,6 +826,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.18 ♿ Accessibility in CSS**
+
 - 🎨 Color Contrast (WCAG 2.1 AA/AAA)
 - 📝 Focus Styles (`:focus-visible`)
 - 🖱️ Reduced Motion (`prefers-reduced-motion`)
@@ -755,6 +839,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.19 🌐 Cross-Browser Compatibility**
+
 - 📊 Browser Support Tables (caniuse.com)
 - 🛠️ Vendor Prefixes:
   - `-webkit-`
@@ -770,6 +855,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.20 🎨 CSS Frameworks Overview**
+
 - 📦 Bootstrap (Grid, Components, Utilities)
 - 🎨 Tailwind CSS (Utility-first approach)
 - 🔧 Foundation
@@ -780,6 +866,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.21 🧩 Modern CSS Features (2026+)**
+
 - 📦 Container Queries (`@container`)
 - 🎯 `:has()` Selector
 - 📋 `@scope` Rule (scoped styles)
@@ -792,6 +879,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.22 🎨 CSS Architecture**
+
 - 📂 Project Structure (7-1 Pattern)
 - 📦 Component-Based Architecture
 - 🔗 CSS Modules (for frameworks)
@@ -802,6 +890,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.23 🚀 Advanced Responsive Patterns**
+
 - 📱 Fluid Typography (`clamp()`)
 - 📏 Fluid Spacing
 - 🖼️ Responsive Images with CSS
@@ -813,6 +902,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **2.24 💻 Practical Projects**
+
 - 🏗️ Responsive Navigation Bar (mobile-first)
 - 📝 Blog Layout with Flexbox
 - 🖼️ Image Gallery with CSS Grid
@@ -836,6 +926,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 3 — MODERN JAVASCRIPT (Core Language & Web APIs)
+
 **Goal**: Master JavaScript fundamentals and modern features to build interactive web applications.
 **Time**: 72 soat | 36 dars
 
@@ -844,6 +935,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **3.1 📝 JavaScript Basics**
+
 - 🌐 What is JavaScript? (History, Evolution, ES6+ to ES2024+)
 - 🔧 JavaScript Execution Environments:
   - Browser (client-side)
@@ -861,6 +953,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.2 📦 Variables and Data Types**
+
 - 📦 Variable Declarations:
   - `var` (function-scoped, legacy, hoisting issues)
   - `let` (block-scoped, mutable)
@@ -887,6 +980,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.3 ➗ Operators**
+
 - ➕ Arithmetic Operators:
   - `+`, `-`, `*`, `/`, `%`, `**` (exponentiation) ES7+
   - `++` (increment), `--` (decrement)
@@ -911,6 +1005,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.4 📝 Control Flow**
+
 - ✅ Conditional Statements:
   - `if` statement
   - `else if` ladder
@@ -929,6 +1024,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.5 🔄 Loops and Iteration**
+
 - 🔄 `for` Loop: `for (init; condition; increment)`
 - 🔄 `while` Loop: `while (condition)`
 - 🔄 `do...while` Loop (runs at least once)
@@ -943,6 +1039,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.6 📚 Arrays**
+
 - 🆕 Array Creation:
   - `[]` literal syntax
   - `new Array()` constructor (avoid)
@@ -983,6 +1080,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.7 📚 Strings**
+
 - 🆕 String Creation:
   - Quotes: `''`, `""`
   - Template Literals: `` `hello ${name}` `` ES6+
@@ -1007,6 +1105,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.8 📚 Objects**
+
 - 🆕 Object Creation:
   - Object literal: `{}`
   - `new Object()` constructor (avoid)
@@ -1032,6 +1131,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.9 📚 Functions**
+
 - 📝 Function Declarations: `function name() {}` (hoisted)
 - 📝 Function Expressions: `const fn = function() {}` (not hoisted)
 - 🏹 Arrow Functions: `() => {}` ES6+ (lexical `this`, no `arguments`)
@@ -1055,6 +1155,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.10 🌐 Scope and Closures**
+
 - 🌍 Global Scope
 - 🏠 Local Scope (function scope)
 - 📦 Block Scope (`let`, `const`)
@@ -1073,6 +1174,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.11 🎯 Advanced Function Concepts**
+
 - 🔗 Higher-Order Functions (functions that operate on functions)
 - 📦 Function Composition
 - 🎭 Currying (transforming `f(a,b,c)` to `f(a)(b)(c)`)
@@ -1088,6 +1190,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.12 📚 'this' Keyword**
+
 - 🌐 Global Context: `window` (browser) or `globalThis`
 - 📝 Function Context:
   - Regular functions: `this` depends on caller (dynamic)
@@ -1101,6 +1204,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.13 🏗️ Object-Oriented JavaScript**
+
 - 🏗️ Constructor Functions:
   - `new` operator
   - `this` in constructors
@@ -1126,6 +1230,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.14 📚 Built-in Objects**
+
 - 📅 Date and Time:
   - `new Date()`, `Date.now()`
   - Getting/setting: `getFullYear()`, `getMonth()`, `getDate()`, etc.
@@ -1149,6 +1254,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.15 🧩 Error Handling**
+
 - ❌ Error Types:
   - `Error`, `SyntaxError`, `ReferenceError`
   - `TypeError`, `RangeError`, `URIError`
@@ -1167,6 +1273,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.16 📦 ES6+ Modern Features**
+
 - 📦 Template Literals
 - 🏹 Arrow Functions
 - 📚 Destructuring (array, object, nested)
@@ -1189,6 +1296,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.17 🌐 Document Object Model (DOM)**
+
 - 🌳 DOM Tree Structure
 - 🔍 Selecting Elements:
   - `getElementById()`
@@ -1225,6 +1333,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.18 🎯 Events**
+
 - 🖱️ Event Types:
   - Mouse: `click`, `dblclick`, `mouseenter`, `mouseleave`, `mousemove`, `contextmenu`
   - Keyboard: `keydown`, `keyup`
@@ -1255,6 +1364,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.19 🌐 Browser Object Model (BOM)**
+
 - 🌐 Window Object:
   - Dimensions: `innerWidth`, `innerHeight`, `outerWidth`, `outerHeight`
   - Methods: `open()`, `close()`, `scrollTo()`, `scrollBy()`
@@ -1283,6 +1393,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.20 💾 Web Storage**
+
 - 📦 localStorage:
   - `setItem()`, `getItem()`, `removeItem()`, `clear()`
   - Storage limit: 5-10MB
@@ -1306,6 +1417,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.21 🌐 Fetch API and AJAX**
+
 - 📡 AJAX (Asynchronous JavaScript and XML)
 - 🆕 Fetch API (modern):
   - Basic: `fetch(url)`
@@ -1324,6 +1436,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.22 🔄 Promises and Async JavaScript**
+
 - ⏱️ Synchronous vs Asynchronous
 - 🔗 Callback Hell (Pyramid of Doom)
 - 🤝 Promises:
@@ -1354,6 +1467,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.23 📦 Modules**
+
 - 📦 What are Modules? (encapsulation, reusability)
 - 🔧 Module Systems:
   - CommonJS: `require()`, `module.exports` (Node.js)
@@ -1373,6 +1487,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.24 🧩 Regular Expressions Deep Dive**
+
 - 📝 Regex Patterns:
   - Literal: `/pattern/flags`
   - Constructor: `new RegExp('pattern', 'flags')`
@@ -1396,6 +1511,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.25 🎨 Canvas API**
+
 - 🎨 Canvas Basics:
   - `<canvas>` element
   - 2D context: `getContext('2d')`
@@ -1420,6 +1536,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.26 📊 Web APIs**
+
 - 🌐 Geolocation API:
   - `getCurrentPosition(success, error, options)`
   - `watchPosition()`, `clearWatch()`
@@ -1451,6 +1568,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.27 🚀 Performance and Optimization**
+
 - 📦 Minification, Bundling, Tree Shaking
 - 🖼️ Image Optimization (lazy loading, responsive)
 - 🚫 Debouncing and Throttling
@@ -1473,6 +1591,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.28 🧪 Testing JavaScript**
+
 - ✅ Unit Testing:
   - Assertions (expect, assert)
   - Test structure: `describe`, `it`/`test`
@@ -1492,6 +1611,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.29 🛠️ Debugging JavaScript**
+
 - 🐛 console Methods:
   - `log()`, `info()`, `warn()`, `error()`
   - `table()` (tabular data)
@@ -1514,6 +1634,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.30 🌐 Modern Browser APIs**
+
 - 🧩 Resize Observer (element size changes)
 - 👁️ Intersection Observer (visibility detection)
 - 📜 Mutation Observer (DOM changes)
@@ -1527,6 +1648,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.31 🛡️ Security in JavaScript**
+
 - ❌ XSS (Cross-Site Scripting) Prevention:
   - Avoid `innerHTML` with user input
   - Use `textContent` instead
@@ -1542,6 +1664,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.32 📦 JavaScript Design Patterns**
+
 - 🏗️ Creational Patterns:
   - Singleton, Factory, Constructor
 - 🧩 Structural Patterns:
@@ -1554,6 +1677,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.33 🌐 Real-World JavaScript**
+
 - 📡 Working with REST APIs
 - 🔄 Error Handling Strategies
 - 🎨 State Management (plain JS patterns)
@@ -1566,6 +1690,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.34 🧩 TypeScript Fundamentals (Prep)**
+
 - 📦 What is TypeScript? (typed superset)
 - 🔧 Basic Types: `string`, `number`, `boolean`, `array`, `any`
 - 🎯 Interfaces and Type Aliases
@@ -1576,6 +1701,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.35 🧪 Testing & Debugging Projects**
+
 - 🧪 Unit Testing Practice with Jest
 - 🐛 Debugging Complex Applications
 - 📊 Performance Profiling
@@ -1584,6 +1710,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **3.36 💻 Practical Projects**
+
 - 🏗️ Calculator App
 - 📝 To-Do List with LocalStorage
 - ⏰ Countdown Timer
@@ -1615,6 +1742,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 4 — GIT & VERSION CONTROL
+
 **Goal**: Master version control for collaborative development and code management.
 **Time**: 24 soat | 12 dars
 
@@ -1623,6 +1751,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **4.1 📦 Version Control Basics**
+
 - 🔄 What is Version Control?
 - 📜 History of Version Control Systems (CVS, SVN, Git)
 - 🎯 Why Git? (Distributed, Fast, Branching Model)
@@ -1633,6 +1762,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.2 🔧 Git Installation and Setup**
+
 - 📥 Installing Git:
   - Windows (Git Bash, Winget)
   - macOS (Homebrew, Xcode Command Line Tools)
@@ -1651,6 +1781,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.3 🆕 Creating Repositories**
+
 - 🆕 Initializing: `git init`
 - 📥 Cloning: `git clone <url>`
 - 📁 Three States:
@@ -1667,6 +1798,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.4 📝 Basic Git Workflow**
+
 - ➕ Adding to Staging:
   - `git add <file>` (single)
   - `git add .` (all)
@@ -1689,6 +1821,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.5 🌿 Branching**
+
 - 🌿 What are Branches? (Lightweight pointers)
 - 🌿 Creating Branches:
   - `git branch <name>` (create)
@@ -1711,6 +1844,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.6 🔀 Merging**
+
 - 🔄 Fast-Forward Merge (linear history)
 - 🔀 Three-Way Merge (creates merge commit)
 - 🔧 Merge Process:
@@ -1727,6 +1861,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.7 🔄 Rebasing**
+
 - 🔄 What is Rebasing? (Replaying commits)
 - 📏 Rebase vs Merge:
   - Rebase: linear history, cleaner
@@ -1752,6 +1887,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.8 🔄 Remote Repositories**
+
 - 🌐 What are Remotes?
 - 🔗 Adding: `git remote add origin <url>`
 - 📋 Listing: `git remote -v`
@@ -1769,6 +1905,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.9 🏷️ Tags**
+
 - 🏷️ What are Tags? (Marking releases)
 - 📝 Creating:
   - Lightweight: `git tag v1.0.0`
@@ -1784,6 +1921,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.10 📦 Stashing**
+
 - 📦 What is Stash? (Save unfinished work)
 - 💾 Saving: `git stash`, `git stash push -m "message"`
 - 📋 Listing: `git stash list`
@@ -1799,6 +1937,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.11 🔍 Undoing Changes**
+
 - ↩️ Working Directory: `git restore <file>` or `git checkout -- <file>`
 - ↩️ Staging Area: `git restore --staged <file>` or `git reset HEAD <file>`
 - ↩️ Undoing Commits:
@@ -1813,6 +1952,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.12 🌐 GitHub/GitLab/Bitbucket**
+
 - 📦 Platform Comparison:
   - GitHub (most popular, Actions, Copilot)
   - GitLab (built-in CI/CD)
@@ -1834,6 +1974,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.13 👥 Collaboration Workflows**
+
 - 🌿 Git Flow:
   - `main` (production)
   - `develop` (integration)
@@ -1853,6 +1994,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.14 🔧 Advanced Git**
+
 - 🔍 Git Bisect (find bug commits):
   ```bash
   git bisect start
@@ -1881,6 +2023,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.15 🧹 Git Best Practices**
+
 - 📝 Write meaningful commit messages
 - 🎯 Commit often, push when ready
 - 🌿 Use branches for features/bugs
@@ -1896,6 +2039,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.16 🐛 Common Git Issues and Solutions**
+
 - ⚠️ Detached HEAD state
 - 🔀 Merge conflicts (resolution strategies)
 - 💾 Accidentally committed to wrong branch
@@ -1909,6 +2053,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.17 🛠️ Git Tools and Integrations**
+
 - 🖥️ GUI Clients:
   - GitKraken
   - Sourcetree
@@ -1925,6 +2070,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.18 🌐 Open Source Contribution**
+
 - 🔍 Finding projects:
   - GitHub `good-first-issue`
   - `help-wanted` labels
@@ -1940,6 +2086,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.19 🔒 Git Security**
+
 - 🔐 SSH key management
 - 🔒 GPG signing commits:
   ```bash
@@ -1954,6 +2101,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **4.20 💻 Practical Projects**
+
 - 🏗️ Initialize new project with Git
 - 🌿 Create feature branches for development
 - 🔀 Practice merging and resolving conflicts
@@ -1976,6 +2124,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 5 — TYPESCRIPT (Type Safety)
+
 **Goal**: Add static typing to JavaScript for more robust and maintainable code.
 **Time**: 36 soat | 18 dars
 
@@ -1984,6 +2133,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **5.1 📝 TypeScript Introduction**
+
 - 🤔 What is TypeScript? (Typed superset of JavaScript)
 - 🎯 Why TypeScript? (Benefits: early error detection, better tooling, maintainability)
 - 📜 TypeScript History (2012, Microsoft)
@@ -1994,6 +2144,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.2 🔧 Installation and Setup**
+
 - 📥 Installing TypeScript:
   ```bash
   npm install -g typescript
@@ -2020,6 +2171,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.3 🏷️ Basic Types**
+
 - 📦 Primitive Types:
   - `string`, `number`, `boolean`
   - `null`, `undefined`
@@ -2050,19 +2202,32 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Enums:
   ```typescript
-  enum Direction { Up, Down, Left, Right }
-  enum Status { Active = "ACTIVE", Inactive = "INACTIVE" }
-  const enum Color { Red, Green, Blue }  // fully inlined
+  enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+  }
+  enum Status {
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+  }
+  const enum Color {
+    Red,
+    Green,
+    Blue,
+  } // fully inlined
   ```
 
 ---
 
 ##### **5.4 🔗 Object Types**
+
 - 📦 Object Type Annotations:
   ```typescript
   let person: { name: string; age: number } = {
     name: "John",
-    age: 30
+    age: 30,
   };
   ```
 - 📦 Optional Properties (`?`)
@@ -2078,6 +2243,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.5 📐 Type Aliases and Interfaces**
+
 - 📝 Type Aliases:
   ```typescript
   type UserID = string | number;
@@ -2085,17 +2251,19 @@ Production    (16-19) ████████████░ 2 oy
   type Callback = (data: string) => void;
   ```
 - 📝 Interfaces:
+
   ```typescript
   interface User {
     id: number;
     name: string;
     email: string;
   }
-  
+
   interface Admin extends User {
     permissions: string[];
   }
   ```
+
 - 🔄 Type Aliases vs Interfaces:
   - Use **interface** for objects/classes (declaration merging)
   - Use **type** for unions, intersections, primitives
@@ -2104,6 +2272,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.6 🔀 Union and Intersection Types**
+
 - 🔀 Union Types (`|`):
   ```typescript
   type ID = string | number;
@@ -2116,18 +2285,22 @@ Production    (16-19) ████████████░ 2 oy
   type Person = Name & Address;
   ```
 - 🎯 Discriminated Unions:
+
   ```typescript
   type Circle = { kind: "circle"; radius: number };
   type Square = { kind: "square"; side: number };
   type Shape = Circle | Square;
-  
+
   function area(shape: Shape): number {
     switch (shape.kind) {
-      case "circle": return Math.PI * shape.radius ** 2;
-      case "square": return shape.side ** 2;
+      case "circle":
+        return Math.PI * shape.radius ** 2;
+      case "square":
+        return shape.side ** 2;
     }
   }
   ```
+
 - 🎯 Type Guards:
   - `typeof`, `instanceof`, `in` operator
   - Custom type guards (`is` keyword)
@@ -2135,24 +2308,29 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.7 📚 Functions in TypeScript**
+
 - 📝 Function Type Annotations:
+
   ```typescript
   function add(x: number, y: number): number {
     return x + y;
   }
-  
+
   const multiply: (x: number, y: number) => number = (x, y) => x * y;
   ```
+
 - 📦 Optional and Default Parameters:
+
   ```typescript
   function greet(name: string, title?: string): string {
     return title ? `Hello ${title} ${name}` : `Hello ${name}`;
   }
-  
+
   function createUser(name: string, role: string = "user"): User {
     return { name, role };
   }
   ```
+
 - 📦 Rest Parameters: `...numbers: number[]`
 - 📦 Function Overloads:
   ```typescript
@@ -2168,34 +2346,50 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.8 🔧 Generics**
+
 - 🎯 Generic Functions:
+
   ```typescript
   function identity<T>(arg: T): T {
     return arg;
   }
-  
+
   const result = identity<string>("hello");
-  const inferred = identity("hello");  // type inferred
+  const inferred = identity("hello"); // type inferred
   ```
+
 - 📦 Generic Constraints:
+
   ```typescript
-  interface Lengthwise { length: number; }
-  
+  interface Lengthwise {
+    length: number;
+  }
+
   function logLength<T extends Lengthwise>(arg: T): T {
     console.log(arg.length);
     return arg;
   }
   ```
+
 - 📦 Generic Interfaces and Classes:
+
   ```typescript
-  interface Pair<T, U> { first: T; second: U; }
-  
+  interface Pair<T, U> {
+    first: T;
+    second: U;
+  }
+
   class Stack<T> {
     private items: T[] = [];
-    push(item: T): void { this.items.push(item); }
-    pop(): T | undefined { return this.items.pop(); }
+    push(item: T): void {
+      this.items.push(item);
+    }
+    pop(): T | undefined {
+      return this.items.pop();
+    }
   }
   ```
+
 - 📦 Generic Constraints with `keyof`:
   ```typescript
   function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
@@ -2207,6 +2401,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.9 🎭 Type Narrowing**
+
 - 🔍 `typeof` Type Guards
 - 🔍 `instanceof` Type Guards
 - 🔍 `in` Operator
@@ -2222,6 +2417,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.10 🧩 Classes in TypeScript**
+
 - 📦 Class Definition with Types
 - 🔒 Access Modifiers:
   - `public` (default)
@@ -2234,7 +2430,7 @@ Production    (16-19) ████████████░ 2 oy
     constructor(
       public id: number,
       private password: string,
-      readonly email: string
+      readonly email: string,
     ) {}
   }
   ```
@@ -2244,7 +2440,9 @@ Production    (16-19) ████████████░ 2 oy
   ```typescript
   abstract class Animal {
     abstract makeSound(): void;
-    move(): void { console.log("Moving..."); }
+    move(): void {
+      console.log("Moving...");
+    }
   }
   ```
 - 📦 `implements` Clause (classes implementing interfaces)
@@ -2252,27 +2450,35 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.11 📦 Modules**
+
 - 📤 ES6 Modules:
+
   ```typescript
-  export interface User { name: string; }
+  export interface User {
+    name: string;
+  }
   export const PI = 3.14;
   export default class DefaultClass {}
-  
-  import { User, PI } from './export';
-  import DefaultClass from './export';
-  import * as Utils from './export';
+
+  import { User, PI } from "./export";
+  import DefaultClass from "./export";
+  import * as Utils from "./export";
   ```
+
 - 🔄 Dynamic Imports: `const module = await import('./module');`
 - 📦 Namespaces (legacy, avoid in new code):
   ```typescript
   namespace Validation {
-    export interface StringValidator { isValid(s: string): boolean; }
+    export interface StringValidator {
+      isValid(s: string): boolean;
+    }
   }
   ```
 
 ---
 
 ##### **5.12 📚 Declaration Files**
+
 - 📝 What are `.d.ts` files?
 - 📦 DefinitelyTyped (`@types/` packages):
   ```bash
@@ -2290,10 +2496,11 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.13 🔧 Type Manipulation**
+
 - 🔍 `keyof` Operator:
   ```typescript
-  type Person = { name: string; age: number; };
-  type PersonKeys = keyof Person;  // "name" | "age"
+  type Person = { name: string; age: number };
+  type PersonKeys = keyof Person; // "name" | "age"
   ```
 - 🔍 `typeof` Operator (from values to types)
 - 🔍 Indexed Access Types: `Person["name"]`
@@ -2303,8 +2510,8 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 🔍 Mapped Types:
   ```typescript
-  type Readonly<T> = { readonly [P in keyof T]: T[P]; };
-  type Optional<T> = { [P in keyof T]?: T[P]; };
+  type Readonly<T> = { readonly [P in keyof T]: T[P] };
+  type Optional<T> = { [P in keyof T]?: T[P] };
   ```
 - 🔍 Template Literal Types:
   ```typescript
@@ -2315,6 +2522,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.14 🛠️ Utility Types**
+
 - `Partial<T>` — all properties optional
 - `Required<T>` — all properties required
 - `Readonly<T>` — all properties readonly
@@ -2331,22 +2539,25 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.15 🎯 TypeScript with React**
+
 - 📦 Setup: Vite + React + TypeScript:
   ```bash
   npm create vite@latest my-app -- --template react-ts
   ```
 - 📝 Typing Props:
+
   ```typescript
   interface Props {
     name: string;
     age?: number;
     onClick: () => void;
   }
-  
+
   const MyComponent: React.FC<Props> = ({ name, age, onClick }) => {
     return <div onClick={onClick}>{name} ({age})</div>;
   };
   ```
+
 - 📦 Typing Hooks:
   ```typescript
   const [count, setCount] = useState<number>(0);
@@ -2367,6 +2578,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.16 🔧 Advanced Patterns**
+
 - 🎯 Builder Pattern
 - 🔗 Factory Pattern with Generics
 - 🎭 Dependency Injection
@@ -2375,7 +2587,7 @@ Production    (16-19) ████████████░ 2 oy
   ```typescript
   function log(target: any, key: string, descriptor: PropertyDescriptor) {
     const original = descriptor.value;
-    descriptor.value = function(...args: any[]) {
+    descriptor.value = function (...args: any[]) {
       console.log(`Calling ${key} with`, args);
       return original.apply(this, args);
     };
@@ -2385,6 +2597,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.17 🔧 Configuration Deep Dive**
+
 - ⚙️ Strict Mode Flags:
   - `strict: true` (enables all)
   - `noImplicitAny`
@@ -2410,6 +2623,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.18 🧪 Testing TypeScript**
+
 - ✅ Jest with TypeScript:
   ```bash
   npm install --save-dev jest @types/jest ts-jest
@@ -2417,8 +2631,8 @@ Production    (16-19) ████████████░ 2 oy
 - ⚙️ `jest.config.js`:
   ```javascript
   module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
+    preset: "ts-jest",
+    testEnvironment: "node",
   };
   ```
 - 📝 Writing Tests with types
@@ -2427,6 +2641,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.19 🚀 Best Practices**
+
 - ✅ Enable `strict: true`
 - 🚫 Avoid `any` (use `unknown` when type is uncertain)
 - 📝 Use interfaces for objects, types for unions
@@ -2440,6 +2655,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **5.20 💻 Practical Projects**
+
 - 🏗️ Convert JavaScript project to TypeScript
 - 📝 Build type-safe API client
 - 🎯 Create generic data store
@@ -2460,6 +2676,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 6 — VITE (Modern Build Tool)
+
 **Goal**: Master modern build tooling for fast development and optimized production builds.
 **Time**: 18 soat | 9 dars
 
@@ -2468,6 +2685,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **6.1 🚀 Introduction to Build Tools**
+
 - 🤔 What are Build Tools?
 - 📜 History of Frontend Build Tools:
   - Grunt (2012), Gulp (2013) — task runners
@@ -2483,6 +2701,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.2 📦 Vite Overview**
+
 - 🌐 What is Vite? (French for "fast")
 - 🏗️ Architecture:
   - Dev Server: esbuild pre-bundling + native ESM
@@ -2503,6 +2722,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.3 🆕 Creating Vite Projects**
+
 - 📥 Creating a project:
   ```bash
   npm create vite@latest
@@ -2535,25 +2755,28 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.4 ⚙️ Vite Configuration**
+
 - 📝 Basic `vite.config.js`:
+
   ```javascript
-  import { defineConfig } from 'vite'
-  import react from '@vitejs/plugin-react'
-  
+  import { defineConfig } from "vite";
+  import react from "@vitejs/plugin-react";
+
   export default defineConfig({
     plugins: [react()],
     server: {
       port: 3000,
       open: true,
-      host: true
+      host: true,
     },
     build: {
-      outDir: 'dist',
+      outDir: "dist",
       sourcemap: false,
-      minify: 'esbuild'
-    }
-  })
+      minify: "esbuild",
+    },
+  });
   ```
+
 - 🎯 Key Options:
   - `root` — project root
   - `base` — base public path (/)
@@ -2565,6 +2788,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.5 🔌 Plugins System**
+
 - 📦 Official Plugins:
   - `@vitejs/plugin-react`
   - `@vitejs/plugin-vue`
@@ -2576,35 +2800,36 @@ Production    (16-19) ████████████░ 2 oy
   - `vite-plugin-compression` — gzip/brotli
   - `vite-plugin-html` — HTML manipulation
 - 🔧 Using Plugins:
+
   ```javascript
-  import { defineConfig } from 'vite'
-  import react from '@vitejs/plugin-react'
-  import { VitePWA } from 'vite-plugin-pwa'
-  
+  import { defineConfig } from "vite";
+  import react from "@vitejs/plugin-react";
+  import { VitePWA } from "vite-plugin-pwa";
+
   export default defineConfig({
-    plugins: [
-      react(),
-      VitePWA({ manifest: { name: 'My App' } })
-    ]
-  })
+    plugins: [react(), VitePWA({ manifest: { name: "My App" } })],
+  });
   ```
 
 ---
 
 ##### **6.6 📂 Static Assets**
+
 - 🖼️ Public Directory (`/public`) — served as-is
 - 📦 Importing Assets:
+
   ```javascript
-  import imgUrl from './assets/image.png'
-  import jsonData from './data.json'
-  import worker from './worker.js?worker'
-  
-  <img src={imgUrl} alt="" />
+  import imgUrl from "./assets/image.png";
+  import jsonData from "./data.json";
+  import worker from "./worker.js?worker";
+
+  <img src={imgUrl} alt="" />;
   ```
+
 - 📊 Asset Inlining:
   ```javascript
-  import svgContent from './icon.svg?raw'
-  import cssContent from './styles.css?inline'
+  import svgContent from "./icon.svg?raw";
+  import cssContent from "./styles.css?inline";
   ```
 - 🖼️ Image Optimization:
   - Use plugins: `vite-plugin-image-optimizer`
@@ -2613,6 +2838,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.7 🎨 CSS and Preprocessors**
+
 - 📝 CSS Support:
   - Plain CSS (import directly)
   - CSS Modules: `style.module.css`
@@ -2632,14 +2858,15 @@ Production    (16-19) ████████████░ 2 oy
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
-    }
-  }
+    },
+  };
   ```
 - 📱 CSS Code Splitting (automatic)
 
 ---
 
 ##### **6.8 🔧 Environment Variables**
+
 - 🌐 Environment Files:
   ```
   .env                # all environments
@@ -2649,16 +2876,16 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Accessing Variables:
   ```javascript
-  console.log(import.meta.env.VITE_API_URL)
-  console.log(import.meta.env.MODE)      // development/production
-  console.log(import.meta.env.DEV)       // true in dev
-  console.log(import.meta.env.PROD)      // true in build
+  console.log(import.meta.env.VITE_API_URL);
+  console.log(import.meta.env.MODE); // development/production
+  console.log(import.meta.env.DEV); // true in dev
+  console.log(import.meta.env.PROD); // true in build
   ```
 - 🔒 TypeScript Support:
   ```typescript
   // env.d.ts
   interface ImportMetaEnv {
-    readonly VITE_API_URL: string
+    readonly VITE_API_URL: string;
   }
   ```
 - 🎯 Custom Modes: `vite build --mode staging`
@@ -2666,11 +2893,12 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.9 🚀 Development Server**
+
 - ⚡ HMR (Hot Module Replacement):
   ```javascript
   if (import.meta.hot) {
-    import.meta.hot.accept((newModule) => {})
-    import.meta.hot.dispose(() => {})
+    import.meta.hot.accept((newModule) => {});
+    import.meta.hot.dispose(() => {});
   }
   ```
 - 🔧 Server Options:
@@ -2681,45 +2909,46 @@ Production    (16-19) ████████████░ 2 oy
       host: true,
       open: true,
       proxy: {
-        '/api': {
-          target: 'http://localhost:5000',
+        "/api": {
+          target: "http://localhost:5000",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
-        }
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        },
       },
-      https: true,  // generate self-signed cert
-      watch: { usePolling: true }
-    }
-  })
+      https: true, // generate self-signed cert
+      watch: { usePolling: true },
+    },
+  });
   ```
 - 🔄 Proxy Configuration (CORS avoidance)
 
 ---
 
 ##### **6.10 🏗️ Build Process**
+
 - 📦 Build Command: `npm run build` → `/dist`
 - ⚙️ Build Configuration:
   ```javascript
   export default defineConfig({
     build: {
-      outDir: 'dist',
+      outDir: "dist",
       sourcemap: false,
-      minify: 'esbuild',  // or 'terser'
-      target: 'es2020',
+      minify: "esbuild", // or 'terser'
+      target: "es2020",
       chunkSizeWarningLimit: 500,
       rollupOptions: {
         input: {
-          main: 'index.html',
-          about: 'about.html'
+          main: "index.html",
+          about: "about.html",
         },
         output: {
           manualChunks: {
-            vendor: ['react', 'react-dom']
-          }
-        }
-      }
-    }
-  })
+            vendor: ["react", "react-dom"],
+          },
+        },
+      },
+    },
+  });
   ```
 - 📦 Chunk Splitting:
   - Automatic code splitting with dynamic imports
@@ -2730,33 +2959,36 @@ Production    (16-19) ████████████░ 2 oy
   npm add -D rollup-plugin-visualizer
   ```
   ```javascript
-  import visualizer from 'rollup-plugin-visualizer'
+  import visualizer from "rollup-plugin-visualizer";
   export default defineConfig({
-    plugins: [visualizer({ open: true })]
-  })
+    plugins: [visualizer({ open: true })],
+  });
   ```
 
 ---
 
 ##### **6.11 🔧 Path Aliases**
+
 - 📝 Setting Aliases:
+
   ```javascript
-  import path from 'path'
-  
+  import path from "path";
+
   export default defineConfig({
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
-        '@components': path.resolve(__dirname, './src/components'),
-        '@assets': path.resolve(__dirname, './src/assets')
-      }
-    }
-  })
+        "@": path.resolve(__dirname, "./src"),
+        "@components": path.resolve(__dirname, "./src/components"),
+        "@assets": path.resolve(__dirname, "./src/assets"),
+      },
+    },
+  });
   ```
+
 - 📦 Using Aliases:
   ```javascript
-  import Button from '@/components/Button'
-  import logo from '@assets/logo.svg'
+  import Button from "@/components/Button";
+  import logo from "@assets/logo.svg";
   ```
 - 🔧 TypeScript Path Mapping:
   ```json
@@ -2775,18 +3007,22 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.12 🔧 TypeScript with Vite**
+
 - 📦 Setup: `npm create vite@latest my-app -- --template react-ts`
 - ⚙️ Type-Checking during Build:
+
   ```bash
   npm add -D vite-plugin-checker
   ```
+
   ```javascript
-  import checker from 'vite-plugin-checker'
-  
+  import checker from "vite-plugin-checker";
+
   export default defineConfig({
-    plugins: [checker({ typescript: true })]
-  })
+    plugins: [checker({ typescript: true })],
+  });
   ```
+
 - 🔧 tsconfig.json for Vite:
   ```json
   {
@@ -2805,28 +3041,32 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.13 🧪 Testing with Vitest**
+
 - ✅ Vitest (Vite-native test runner):
   ```bash
   npm add -D vitest @testing-library/react @testing-library/jest-dom
   ```
 - ⚙️ `vite.config.js`:
+
   ```javascript
-  import { defineConfig } from 'vitest/config'
-  
+  import { defineConfig } from "vitest/config";
+
   export default defineConfig({
     test: {
-      environment: 'jsdom',
+      environment: "jsdom",
       globals: true,
-      setupFiles: './src/test/setup.ts',
-      coverage: { provider: 'v8' }
-    }
-  })
+      setupFiles: "./src/test/setup.ts",
+      coverage: { provider: "v8" },
+    },
+  });
   ```
+
 - 📝 Writing Tests:
+
   ```typescript
   import { describe, it, expect, vi } from 'vitest'
   import { render, screen } from '@testing-library/react'
-  
+
   describe('Button', () => {
     it('renders correctly', () => {
       render(<Button>Click</Button>)
@@ -2834,11 +3074,13 @@ Production    (16-19) ████████████░ 2 oy
     })
   })
   ```
+
 - 🧪 Snapshots, Mocking, Spies
 
 ---
 
 ##### **6.14 🚀 Production Deployment**
+
 - 📦 Build: `npm run build`
 - 🌐 Deployment Platforms:
   - **Vercel** — zero config
@@ -2847,6 +3089,7 @@ Production    (16-19) ████████████░ 2 oy
   - **Cloudflare Pages**
   - **AWS S3 + CloudFront**
 - 🐳 Docker Deployment:
+
   ```dockerfile
   FROM node:20-alpine AS builder
   WORKDIR /app
@@ -2854,11 +3097,12 @@ Production    (16-19) ████████████░ 2 oy
   RUN npm ci
   COPY . .
   RUN npm run build
-  
+
   FROM nginx:alpine
   COPY --from=builder /app/dist /usr/share/nginx/html
   EXPOSE 80
   ```
+
 - ⚙️ Environment Variables in Production:
   - Build-time only (injected during build)
   - No runtime client-side secrets
@@ -2866,36 +3110,37 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.15 🔧 Advanced Features**
+
 - 📦 Multi-Page Application (MPA):
   ```javascript
   export default defineConfig({
     build: {
       rollupOptions: {
         input: {
-          main: 'index.html',
-          about: 'about.html',
-          contact: 'contact.html'
-        }
-      }
-    }
-  })
+          main: "index.html",
+          about: "about.html",
+          contact: "contact.html",
+        },
+      },
+    },
+  });
   ```
 - 📦 Library Mode:
   ```javascript
   export default defineConfig({
     build: {
       lib: {
-        entry: 'src/index.ts',
-        name: 'MyLibrary',
-        formats: ['es', 'umd'],
-        fileName: (format) => `my-lib.${format}.js`
+        entry: "src/index.ts",
+        name: "MyLibrary",
+        formats: ["es", "umd"],
+        fileName: (format) => `my-lib.${format}.js`,
       },
       rollupOptions: {
-        external: ['react'],
-        output: { globals: { react: 'React' } }
-      }
-    }
-  })
+        external: ["react"],
+        output: { globals: { react: "React" } },
+      },
+    },
+  });
   ```
 - 🔄 SSR (Server-Side Rendering) support
 - 🔧 Web Workers: `import Worker from './worker?worker'`
@@ -2903,6 +3148,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.16 🔌 Integration with Frameworks**
+
 - ⚛️ React + Vite (covered)
 - 🖖 Vue + Vite
 - 🎨 Tailwind CSS Integration:
@@ -2916,6 +3162,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.17 🔄 Migration to Vite**
+
 - 🔄 From Create React App:
   ```bash
   npm add -D @vitejs/plugin-react vite
@@ -2935,6 +3182,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **6.18 💻 Practical Projects**
+
 - 🏗️ Create React + TypeScript + Vite starter
 - 📝 Build portfolio site with Vite
 - 🔧 Create component library with Library Mode
@@ -2956,6 +3204,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 7 — REACT (Modern UI Library)
+
 **Goal**: Master React for building modern, interactive user interfaces with latest patterns.
 **Time**: 72 soat | 30 dars
 
@@ -2964,6 +3213,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **7.1 ⚛️ Introduction to React**
+
 - 🤔 What is React? (Library for building UIs)
 - 📜 History (Facebook, 2013, open-source)
 - 🎯 Why React? (Declarative, Component-based, Learn once write anywhere)
@@ -2978,6 +3228,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.2 🔧 Setting Up React**
+
 - ⚡ Vite + React (recommended, CRA deprecated):
   ```bash
   npm create vite@latest my-app -- --template react
@@ -3000,11 +3251,12 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.3 🧩 JSX (JavaScript XML)**
+
 - 📝 What is JSX? (JavaScript + XML syntax)
 - 🎯 JSX Syntax:
   ```jsx
-  const element = <h1>Hello, {name}</h1>
-  const element = <img src={user.avatarUrl} className="avatar" />
+  const element = <h1>Hello, {name}</h1>;
+  const element = <img src={user.avatarUrl} className="avatar" />;
   ```
 - 📦 Embedding Expressions: `{expression}`
 - 📦 JSX Children: self-closing vs wrapping
@@ -3014,14 +3266,17 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.4 📦 Components**
+
 - 📝 Functional Components (modern):
+
   ```jsx
   function Welcome({ name }) {
-    return <h1>Hello, {name}</h1>
+    return <h1>Hello, {name}</h1>;
   }
-  
-  const Welcome = ({ name }) => <h1>Hello, {name}</h1>
+
+  const Welcome = ({ name }) => <h1>Hello, {name}</h1>;
   ```
+
 - 🏗️ Class Components (legacy — understand but don't write new code)
 - 🎯 Component Composition
 - 📦 Component Naming: PascalCase
@@ -3030,20 +3285,23 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.5 📤 Props**
+
 - 📝 Passing and Receiving Props:
+
   ```jsx
-  <Avatar size={100} user={{ name: "John" }} />
-  
+  <Avatar size={100} user={{ name: "John" }} />;
+
   function Avatar({ size, user, children }) {
-    return <img width={size} alt={user.name} />
+    return <img width={size} alt={user.name} />;
   }
   ```
+
 - 📦 Default Props: `variant = 'primary'`
 - 🔒 Props are Read-Only
 - 📤 Children Prop:
   ```jsx
   function Card({ children }) {
-    return <div className="card">{children}</div>
+    return <div className="card">{children}</div>;
   }
   ```
 - 🔄 Prop Drilling (problem → Context solves)
@@ -3051,19 +3309,22 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.6 🎯 State Management (useState)**
+
 - 📦 useState Hook:
   ```jsx
-  const [count, setCount] = useState(0)
-  const [user, setUser] = useState({ name: '', email: '' })
-  const [items, setItems] = useState([])
+  const [count, setCount] = useState(0);
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [items, setItems] = useState([]);
   ```
 - 🎯 State Updates are Asynchronous
 - 📦 Updating Objects/Arrays (immutability):
   ```jsx
-  setUser({ ...user, name: 'John' })
-  setItems([...items, newItem])
-  setItems(items.filter(item => item.id !== id))
-  setItems(items.map(item => item.id === id ? { ...item, done: true } : item))
+  setUser({ ...user, name: "John" });
+  setItems([...items, newItem]);
+  setItems(items.filter((item) => item.id !== id));
+  setItems(
+    items.map((item) => (item.id === id ? { ...item, done: true } : item)),
+  );
   ```
 - 🔄 Lazy Initial State: `useState(() => expensiveComputation())`
 - 📦 State vs Props
@@ -3071,16 +3332,19 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.7 🔄 Handling Events**
+
 - 📝 Event Handlers:
+
   ```jsx
   function handleClick(e) {
     e.preventDefault()
     console.log('Clicked')
   }
-  
+
   <button onClick={handleClick}>Click</button>
   <input onChange={(e) => setValue(e.target.value)} />
   ```
+
 - 📦 Passing Arguments:
   ```jsx
   <button onClick={() => handleDelete(id)}>Delete</button>
@@ -3091,6 +3355,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.8 🔄 Conditional Rendering**
+
 - 📝 `if` Statement (outside JSX)
 - ❓ Ternary Operator: `{isLoggedIn ? <Logout /> : <Login />}`
 - 🔗 Logical &&: `{unreadCount > 0 && <Badge count={unreadCount} />}`
@@ -3100,9 +3365,12 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.9 🔄 Lists and Keys**
+
 - 📝 Rendering Lists:
   ```jsx
-  {items.map(item => <li key={item.id}>{item.name}</li>)}
+  {
+    items.map((item) => <li key={item.id}>{item.name}</li>);
+  }
   ```
 - 🗝️ Keys: stable, unique, predictable identity
 - 🚫 Anti-pattern: using array index as key
@@ -3111,6 +3379,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.10 🎨 Styling React Components**
+
 - 📝 Inline Styles: `style={{ color: 'blue', backgroundColor: 'gray' }}`
 - 📦 CSS Classes: `className="btn btn-primary"`
 - 🎯 CSS Modules: `import styles from './Button.module.css'` → `className={styles.button}`
@@ -3120,25 +3389,28 @@ Production    (16-19) ████████████░ 2 oy
   ```
   ```jsx
   const Button = styled.button`
-    background: ${props => props.primary ? 'blue' : 'gray'};
-    &:hover { background: darkblue; }
-  `
+    background: ${(props) => (props.primary ? "blue" : "gray")};
+    &:hover {
+      background: darkblue;
+    }
+  `;
   ```
 - 🔧 Tailwind CSS with React (Stage 12)
 
 ---
 
 ##### **7.11 🔄 Lifecycle and Effects (useEffect)**
+
 - 📝 useEffect Hook:
   ```jsx
   useEffect(() => {
     // runs after render
-    document.title = `Count: ${count}`
-    
+    document.title = `Count: ${count}`;
+
     return () => {
       // cleanup (on unmount or before next effect)
-    }
-  }, [count]) // dependency array
+    };
+  }, [count]); // dependency array
   ```
 - 🎯 Common Use Cases:
   - Data fetching
@@ -3153,6 +3425,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.12 🎯 useRef**
+
 - 📝 DOM Reference:
   ```jsx
   const inputRef = useRef(null)
@@ -3161,8 +3434,8 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Mutable Values (persist without re-render):
   ```jsx
-  const intervalRef = useRef()
-  intervalRef.current = setInterval(() => {}, 1000)
+  const intervalRef = useRef();
+  intervalRef.current = setInterval(() => {}, 1000);
   ```
 - 🎯 Forwarding Refs: `forwardRef`
 - 🔄 useRef vs useState
@@ -3170,17 +3443,18 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.13 🎯 useMemo and useCallback**
+
 - 📦 useMemo (cache expensive calculations):
   ```jsx
   const expensiveValue = useMemo(() => {
-    return items.map(item => heavyComputation(item))
-  }, [items])
+    return items.map((item) => heavyComputation(item));
+  }, [items]);
   ```
 - 📦 useCallback (cache functions):
   ```jsx
   const handleClick = useCallback(() => {
-    console.log(count)
-  }, [count])
+    console.log(count);
+  }, [count]);
   ```
 - 🎯 When to Use:
   - Expensive computations
@@ -3191,19 +3465,20 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.14 🎯 Custom Hooks**
+
 - 📝 Creating Custom Hooks:
   ```jsx
   function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
-      const item = localStorage.getItem(key)
-      return item ? JSON.parse(item) : initialValue
-    })
-    
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    });
+
     useEffect(() => {
-      localStorage.setItem(key, JSON.stringify(storedValue))
-    }, [key, storedValue])
-    
-    return [storedValue, setStoredValue]
+      localStorage.setItem(key, JSON.stringify(storedValue));
+    }, [key, storedValue]);
+
+    return [storedValue, setStoredValue];
   }
   ```
 - 📦 Common Custom Hooks:
@@ -3218,9 +3493,10 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.15 🔄 Context API**
+
 - 📝 Creating Context:
   ```jsx
-  const ThemeContext = createContext('light')
+  const ThemeContext = createContext("light");
   ```
 - 📦 Providing Context:
   ```jsx
@@ -3230,7 +3506,7 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📥 Consuming Context:
   ```jsx
-  const theme = useContext(ThemeContext)
+  const theme = useContext(ThemeContext);
   ```
 - 🎯 Use Cases:
   - Theme (dark/light mode)
@@ -3242,11 +3518,13 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.16 🏗️ React Router (Basic)**
+
 - 📦 Installation: `npm install react-router-dom`
 - 📝 Basic Setup:
+
   ```jsx
-  import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-  
+  import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
   <BrowserRouter>
     <nav>
       <Link to="/">Home</Link>
@@ -3257,8 +3535,9 @@ Production    (16-19) ████████████░ 2 oy
       <Route path="/about" element={<About />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter>;
   ```
+
 - 📦 Route Parameters:
   ```jsx
   <Route path="/user/:id" element={<UserProfile />} />
@@ -3269,6 +3548,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.17 📦 Forms in React**
+
 - 📝 Controlled Components:
   ```jsx
   const [value, setValue] = useState('')
@@ -3276,8 +3556,9 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 📦 Multiple Inputs:
   ```jsx
-  const [form, setForm] = useState({ name: '', email: '' })
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const [form, setForm] = useState({ name: "", email: "" });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
   ```
 - 🎯 Handling: input, textarea, select, checkbox, radio
 - 🔄 Uncontrolled Components (useRef)
@@ -3287,26 +3568,29 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.18 🌐 Data Fetching**
+
 - 📝 useEffect + fetch:
+
   ```jsx
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    const abortController = new AbortController()
-    
+    const abortController = new AbortController();
+
     fetch(url, { signal: abortController.signal })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(setData)
-      .catch(err => {
-        if (err.name !== 'AbortError') setError(err)
+      .catch((err) => {
+        if (err.name !== "AbortError") setError(err);
       })
-      .finally(() => setLoading(false))
-    
-    return () => abortController.abort()
-  }, [url])
+      .finally(() => setLoading(false));
+
+    return () => abortController.abort();
+  }, [url]);
   ```
+
 - 🎯 Loading and Error States
 - 🔄 Custom `useFetch` Hook
 - 📦 React Query / TanStack Query (Stage 9)
@@ -3314,48 +3598,55 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.19 🎯 Performance Optimization**
+
 - 📦 `React.memo` (prevent re-renders):
   ```jsx
   const MemoComponent = React.memo(({ name }) => {
-    return <div>{name}</div>
-  })
+    return <div>{name}</div>;
+  });
   ```
 - 📦 `useMemo` (cache values)
 - 📦 `useCallback` (cache functions)
 - 🔄 Lazy Loading + Suspense:
+
   ```jsx
   const LazyComponent = lazy(() => import('./HeavyComponent'))
-  
+
   <Suspense fallback={<Spinner />}>
     <LazyComponent />
   </Suspense>
   ```
+
 - 🎯 Virtualization: `react-window` for large lists
 - 🔧 React DevTools Profiler
 
 ---
 
 ##### **7.20 🧪 Testing React Components**
+
 - 📦 Setup: `@testing-library/react`, `@testing-library/jest-dom`, `vitest`
 - 📝 Basic Test:
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  
-  test('button click', async () => {
-    const handleClick = vi.fn()
-    render(<Button onClick={handleClick}>Click</Button>)
-    
-    await userEvent.click(screen.getByText('Click'))
-    expect(handleClick).toHaveBeenCalled()
-  })
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+
+  test("button click", async () => {
+    const handleClick = vi.fn();
+    render(<Button onClick={handleClick}>Click</Button>);
+
+    await userEvent.click(screen.getByText("Click"));
+    expect(handleClick).toHaveBeenCalled();
+  });
   ```
+
 - 🎯 Testing Hooks: `renderHook`
 - 🔄 Testing Async Operations
 
 ---
 
 ##### **7.21 🔧 React DevTools**
+
 - 🛠️ Components Tab: inspect props, state, hooks
 - ⚡ Profiler Tab: record renders, identify slow components
 - 🐛 Debugging with DevTools
@@ -3363,6 +3654,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.22 🏗️ React Architecture Patterns**
+
 - 📁 Folder Structure (feature-based):
   ```
   src/
@@ -3387,33 +3679,45 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.23 🎯 React with TypeScript**
+
 - 📝 Typing Props:
+
   ```tsx
   interface ButtonProps {
-    variant?: 'primary' | 'secondary'
-    onClick: () => void
-    children: React.ReactNode
+    variant?: "primary" | "secondary";
+    onClick: () => void;
+    children: React.ReactNode;
   }
-  
-  const Button: React.FC<ButtonProps> = ({ variant = 'primary', onClick, children }) => {
-    return <button className={`btn-${variant}`} onClick={onClick}>{children}</button>
-  }
+
+  const Button: React.FC<ButtonProps> = ({
+    variant = "primary",
+    onClick,
+    children,
+  }) => {
+    return (
+      <button className={`btn-${variant}`} onClick={onClick}>
+        {children}
+      </button>
+    );
+  };
   ```
+
 - 📦 Typing Hooks:
   ```tsx
-  const [count, setCount] = useState<number>(0)
-  const [user, setUser] = useState<User | null>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [count, setCount] = useState<number>(0);
+  const [user, setUser] = useState<User | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   ```
 - 🎯 Typing Events:
   ```tsx
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {}
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {}
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
   ```
 
 ---
 
 ##### **7.24 🚀 React Best Practices**
+
 - 📝 Component Design:
   - Single responsibility
   - Small, focused components
@@ -3432,18 +3736,23 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.25 🐛 Debugging**
+
 - 🛠️ Console Methods: `console.log`, `console.table`, `console.group`
 - 🔍 React DevTools
 - 🐞 `debugger;` statement
 - 📊 Error Boundaries:
   ```jsx
   class ErrorBoundary extends React.Component {
-    state = { hasError: false }
-    static getDerivedStateFromError() { return { hasError: true } }
-    componentDidCatch(error, info) { console.error(error) }
+    state = { hasError: false };
+    static getDerivedStateFromError() {
+      return { hasError: true };
+    }
+    componentDidCatch(error, info) {
+      console.error(error);
+    }
     render() {
-      if (this.state.hasError) return <h1>Something went wrong</h1>
-      return this.props.children
+      if (this.state.hasError) return <h1>Something went wrong</h1>;
+      return this.props.children;
     }
   }
   ```
@@ -3452,6 +3761,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.26 🔄 React 19+ Features**
+
 - 🆕 React Compiler (automatic memoization)
 - 🆕 `use` Hook (promises, context)
 - 🆕 Actions (form actions)
@@ -3462,6 +3772,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.27 🔧 Advanced Refs**
+
 - 📦 Callback Refs:
   ```jsx
   const [height, setHeight] = useState(0)
@@ -3474,35 +3785,36 @@ Production    (16-19) ████████████░ 2 oy
   ```jsx
   useImperativeHandle(ref, () => ({
     focus: () => inputRef.current.focus(),
-    getValue: () => inputRef.current.value
-  }))
+    getValue: () => inputRef.current.value,
+  }));
   ```
 
 ---
 
 ##### **7.28 🔄 React Portals**
+
 - 📝 `createPortal`:
+
   ```jsx
-  import { createPortal } from 'react-dom'
-  
+  import { createPortal } from "react-dom";
+
   function Modal({ children, isOpen }) {
-    if (!isOpen) return null
-    return createPortal(
-      <div className="modal">{children}</div>,
-      document.body
-    )
+    if (!isOpen) return null;
+    return createPortal(<div className="modal">{children}</div>, document.body);
   }
   ```
+
 - 🎯 Use Cases: modals, tooltips, dropdowns, toasts
 
 ---
 
 ##### **7.29 🧪 Testing Advanced**
+
 - 📦 Mocking API Calls:
   ```jsx
-  vi.spyOn(global, 'fetch').mockResolvedValue({
-    json: () => Promise.resolve({ data: [] })
-  })
+  vi.spyOn(global, "fetch").mockResolvedValue({
+    json: () => Promise.resolve({ data: [] }),
+  });
   ```
 - 🎯 Testing Custom Hooks: `renderHook`
 - 🔄 Testing Async Components
@@ -3511,6 +3823,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **7.30 💻 Practical Projects**
+
 - 🏗️ Todo List Application
 - 📝 Markdown Note-Taking App
 - 🌤️ Weather App with API
@@ -3541,6 +3854,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 8 — REACT ROUTER (Navigation)
+
 **Goal**: Master client-side routing for single-page applications with React Router v6+.
 **Time**: 24 soat | 10 dars
 
@@ -3549,6 +3863,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **8.1 🧭 Introduction to Routing**
+
 - 🤔 What is Routing in SPAs?
 - 📜 Traditional MPA vs SPA (page reload vs client-side navigation)
 - 🎯 Why React Router? (Standard for React routing)
@@ -3558,20 +3873,23 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.2 📦 Installation and Setup**
+
 - 📥 Installation:
   ```bash
   npm install react-router-dom
   ```
 - 🔧 Basic Setup:
+
   ```jsx
-  import { BrowserRouter } from 'react-router-dom'
-  
-  ReactDOM.createRoot(document.getElementById('root')).render(
+  import { BrowserRouter } from "react-router-dom";
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <App />
-    </BrowserRouter>
-  )
+    </BrowserRouter>,
+  );
   ```
+
 - 🏗️ Router Types:
   - `BrowserRouter` — clean URLs (recommended)
   - `HashRouter` — hash URLs (legacy browser support)
@@ -3582,10 +3900,12 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.3 📝 Basic Routing**
+
 - 🔀 Routes and Route:
+
   ```jsx
-  import { Routes, Route } from 'react-router-dom'
-  
+  import { Routes, Route } from "react-router-dom";
+
   function App() {
     return (
       <Routes>
@@ -3594,60 +3914,70 @@ Production    (16-19) ████████████░ 2 oy
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    )
+    );
   }
   ```
+
 - 🎯 Route Matching (best match wins, not first)
 - 📍 Index Routes (default child route)
 
 ---
 
 ##### **8.4 🔗 Navigation Links**
+
 - 📝 Link Component:
+
   ```jsx
-  import { Link } from 'react-router-dom'
-  
-  <Link to="/about">About</Link>
+  import { Link } from "react-router-dom";
+
+  <Link to="/about">About</Link>;
   ```
+
 - 🎨 NavLink (active styling):
   ```jsx
   <NavLink
     to="/about"
-    className={({ isActive }) => isActive ? 'active' : ''}
-    style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
+    className={({ isActive }) => (isActive ? "active" : "")}
+    style={({ isActive }) => ({ fontWeight: isActive ? "bold" : "normal" })}
   >
     About
   </NavLink>
   ```
 - 🔄 Navigate Component (redirect):
   ```jsx
-  {!isAuthenticated && <Navigate to="/login" replace />}
+  {
+    !isAuthenticated && <Navigate to="/login" replace />;
+  }
   ```
 - ⚡ useNavigate Hook:
   ```jsx
-  const navigate = useNavigate()
-  navigate('/dashboard')
-  navigate(-1)  // go back
-  navigate(1)   // go forward
+  const navigate = useNavigate();
+  navigate("/dashboard");
+  navigate(-1); // go back
+  navigate(1); // go forward
   ```
 
 ---
 
 ##### **8.5 📦 Nested Routes**
+
 - 🏗️ Layout Routes with Outlet:
+
   ```jsx
-  import { Outlet } from 'react-router-dom'
-  
+  import { Outlet } from "react-router-dom";
+
   function Layout() {
     return (
       <div>
         <Header />
-        <main><Outlet /></main>
+        <main>
+          <Outlet />
+        </main>
         <Footer />
       </div>
-    )
+    );
   }
-  
+
   function App() {
     return (
       <Routes>
@@ -3660,17 +3990,19 @@ Production    (16-19) ████████████░ 2 oy
           </Route>
         </Route>
       </Routes>
-    )
+    );
   }
   ```
+
 - 📂 Relative Links in Nested Routes:
   ```jsx
-  <Link to="profile">Profile</Link>  // /dashboard/profile
+  <Link to="profile">Profile</Link> // /dashboard/profile
   ```
 
 ---
 
 ##### **8.6 🔢 Route Parameters**
+
 - 📝 Dynamic Segments:
   ```jsx
   <Route path="/users/:userId" element={<UserProfile />} />
@@ -3679,16 +4011,17 @@ Production    (16-19) ████████████░ 2 oy
 - 📥 useParams Hook:
   ```jsx
   function UserProfile() {
-    const { userId } = useParams()
-    return <div>User ID: {userId}</div>
+    const { userId } = useParams();
+    return <div>User ID: {userId}</div>;
   }
   ```
 - 🎯 Catch-All (splat):
+
   ```jsx
-  <Route path="/files/*" element={<Files />} />
-  
+  <Route path="/files/*" element={<Files />} />;
+
   function Files() {
-    const { '*' : filePath } = useParams()
+    const { "*": filePath } = useParams();
     // filePath = "documents/report.pdf"
   }
   ```
@@ -3696,24 +4029,22 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.7 🔍 Query Parameters**
+
 - 📝 useSearchParams Hook:
   ```jsx
   function SearchPage() {
-    const [searchParams, setSearchParams] = useSearchParams()
-    
-    const query = searchParams.get('q') || ''
-    const page = parseInt(searchParams.get('page')) || 1
-    
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const query = searchParams.get("q") || "";
+    const page = parseInt(searchParams.get("page")) || 1;
+
     const updateQuery = (newQuery) => {
-      setSearchParams({ q: newQuery, page: '1' })
-    }
-    
+      setSearchParams({ q: newQuery, page: "1" });
+    };
+
     return (
-      <input
-        value={query}
-        onChange={(e) => updateQuery(e.target.value)}
-      />
-    )
+      <input value={query} onChange={(e) => updateQuery(e.target.value)} />
+    );
   }
   ```
 - 🔄 URLSearchParams Methods:
@@ -3722,99 +4053,113 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.8 🎯 Programmatic Navigation**
+
 - 📝 useNavigate (detailed):
+
   ```jsx
-  const navigate = useNavigate()
-  
-  navigate('/dashboard', {
-    replace: true,           // replace history entry
-    state: { from: 'home' }  // pass state
-  })
+  const navigate = useNavigate();
+
+  navigate("/dashboard", {
+    replace: true, // replace history entry
+    state: { from: "home" }, // pass state
+  });
   ```
+
 - 📥 Accessing Navigation State:
   ```jsx
-  const location = useLocation()
-  const state = location.state  // { from: 'home' }
+  const location = useLocation();
+  const state = location.state; // { from: 'home' }
   ```
 
 ---
 
 ##### **8.9 📍 useLocation Hook**
+
 - 📝 Current Location Info:
   ```jsx
-  const location = useLocation()
+  const location = useLocation();
   // location.pathname, location.search, location.hash, location.state, location.key
   ```
 - 🔄 Page View Tracking:
   ```jsx
   useEffect(() => {
-    analytics.pageView(location.pathname)
-  }, [location])
+    analytics.pageView(location.pathname);
+  }, [location]);
   ```
 
 ---
 
 ##### **8.10 🔧 useRoutes Hook**
+
 - 📝 Config-based Routing:
+
   ```jsx
   const routes = [
     {
-      path: '/',
+      path: "/",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'about', element: <About /> },
+        { path: "about", element: <About /> },
         {
-          path: 'dashboard',
+          path: "dashboard",
           element: <Dashboard />,
           children: [
-            { path: 'profile', element: <Profile /> },
-            { path: 'settings', element: <Settings /> }
-          ]
-        }
-      ]
+            { path: "profile", element: <Profile /> },
+            { path: "settings", element: <Settings /> },
+          ],
+        },
+      ],
     },
-    { path: '*', element: <NotFound /> }
-  ]
-  
+    { path: "*", element: <NotFound /> },
+  ];
+
   function App() {
-    return useRoutes(routes)
+    return useRoutes(routes);
   }
   ```
+
 - 🎯 Benefits: centralized routes, easier dynamic loading
 
 ---
 
 ##### **8.11 🔒 Protected Routes**
+
 - 📝 Authentication Guard:
+
   ```jsx
   function ProtectedRoute({ children }) {
-    const { user } = useAuth()
-    const location = useLocation()
-    
+    const { user } = useAuth();
+    const location = useLocation();
+
     if (!user) {
-      return <Navigate to="/login" state={{ from: location }} replace />
+      return <Navigate to="/login" state={{ from: location }} replace />;
     }
-    return children
+    return children;
   }
-  
+
   // Usage
   <Route
     path="/dashboard/*"
-    element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
-  />
+    element={
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    }
+  />;
   ```
+
 - 🔄 Redirect After Login:
   ```jsx
   function Login() {
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
-    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const handleLogin = async () => {
-      await login()
-      navigate(from, { replace: true })
-    }
+      await login();
+      navigate(from, { replace: true });
+    };
   }
   ```
 - 🎯 Role-Based Access:
@@ -3822,7 +4167,7 @@ Production    (16-19) ████████████░ 2 oy
   <Route
     path="/admin"
     element={
-      <ProtectedRoute allowedRoles={['admin']}>
+      <ProtectedRoute allowedRoles={["admin"]}>
         <Admin />
       </ProtectedRoute>
     }
@@ -3832,13 +4177,15 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.12 🔄 Route Animations**
+
 - 📝 Framer Motion with Routes:
+
   ```jsx
-  import { AnimatePresence, motion } from 'framer-motion'
-  
+  import { AnimatePresence, motion } from "framer-motion";
+
   function AnimatedRoutes() {
-    const location = useLocation()
-    
+    const location = useLocation();
+
     return (
       <AnimatePresence mode="wait">
         <motion.div
@@ -3854,21 +4201,23 @@ Production    (16-19) ████████████░ 2 oy
           </Routes>
         </motion.div>
       </AnimatePresence>
-    )
+    );
   }
   ```
 
 ---
 
 ##### **8.13 📦 Lazy Loading Routes**
+
 - 📝 Code Splitting with `lazy` + `Suspense`:
+
   ```jsx
-  import { lazy, Suspense } from 'react'
-  
-  const Home = lazy(() => import('./pages/Home'))
-  const About = lazy(() => import('./pages/About'))
-  const Dashboard = lazy(() => import('./pages/Dashboard'))
-  
+  import { lazy, Suspense } from "react";
+
+  const Home = lazy(() => import("./pages/Home"));
+  const About = lazy(() => import("./pages/About"));
+  const Dashboard = lazy(() => import("./pages/Dashboard"));
+
   function App() {
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -3878,15 +4227,13 @@ Production    (16-19) ████████████░ 2 oy
           <Route path="/dashboard/*" element={<Dashboard />} />
         </Routes>
       </Suspense>
-    )
+    );
   }
   ```
+
 - ⚡ Route Prefetching:
   ```jsx
-  <Link
-    to="/dashboard"
-    onMouseEnter={() => import('./pages/Dashboard')}
-  >
+  <Link to="/dashboard" onMouseEnter={() => import("./pages/Dashboard")}>
     Dashboard
   </Link>
   ```
@@ -3894,37 +4241,41 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.14 🔧 Custom Route Components**
+
 - 📝 Scroll Restoration:
   ```jsx
   function ScrollToTop() {
-    const { pathname } = useLocation()
-    
+    const { pathname } = useLocation();
+
     useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [pathname])
-    
-    return null
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
   }
   ```
 - 📝 Route Change Tracker:
   ```jsx
   function RouteTracker() {
-    const location = useLocation()
-    
+    const location = useLocation();
+
     useEffect(() => {
-      console.log('Route changed:', location.pathname)
-    }, [location])
-    
-    return null
+      console.log("Route changed:", location.pathname);
+    }, [location]);
+
+    return null;
   }
   ```
 
 ---
 
 ##### **8.15 🔗 Advanced Link Features**
+
 - 📝 `replace` Prop:
   ```jsx
-  <Link to="/dashboard" replace>Dashboard</Link>
+  <Link to="/dashboard" replace>
+    Dashboard
+  </Link>
   ```
 - 📦 `state` Prop:
   ```jsx
@@ -3934,122 +4285,132 @@ Production    (16-19) ████████████░ 2 oy
   ```
 - 🔄 `reloadDocument` (full page reload):
   ```jsx
-  <Link to="/download" reloadDocument>Download</Link>
+  <Link to="/download" reloadDocument>
+    Download
+  </Link>
   ```
 
 ---
 
 ##### **8.16 📚 Additional Hooks**
+
 - 📝 `useMatch`:
   ```jsx
-  const match = useMatch('/users/:id')
+  const match = useMatch("/users/:id");
   // match = { params: { id: '123' }, pathname: '/users/123', ... }
   ```
 - 📝 `useResolvedPath`:
   ```jsx
-  const resolved = useResolvedPath('./settings')
+  const resolved = useResolvedPath("./settings");
   // resolved.pathname = '/current-path/settings'
   ```
 
 ---
 
 ##### **8.17 🧪 Testing React Router**
+
 - 📝 Testing with MemoryRouter:
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import { MemoryRouter } from 'react-router-dom'
-  import userEvent from '@testing-library/user-event'
-  import App from './App'
-  
-  test('navigates to about page', async () => {
+  import { render, screen } from "@testing-library/react";
+  import { MemoryRouter } from "react-router-dom";
+  import userEvent from "@testing-library/user-event";
+  import App from "./App";
+
+  test("navigates to about page", async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={["/"]}>
         <App />
-      </MemoryRouter>
-    )
-    
-    await userEvent.click(screen.getByText('About'))
-    expect(screen.getByText('About Page')).toBeInTheDocument()
-  })
-  
-  test('404 on unknown route', () => {
+      </MemoryRouter>,
+    );
+
+    await userEvent.click(screen.getByText("About"));
+    expect(screen.getByText("About Page")).toBeInTheDocument();
+  });
+
+  test("404 on unknown route", () => {
     render(
-      <MemoryRouter initialEntries={['/unknown']}>
+      <MemoryRouter initialEntries={["/unknown"]}>
         <App />
-      </MemoryRouter>
-    )
-    expect(screen.getByText('404')).toBeInTheDocument()
-  })
+      </MemoryRouter>,
+    );
+    expect(screen.getByText("404")).toBeInTheDocument();
+  });
   ```
+
 - 📝 Testing Route Parameters:
   ```jsx
   render(
-    <MemoryRouter initialEntries={['/users/123']}>
+    <MemoryRouter initialEntries={["/users/123"]}>
       <Routes>
         <Route path="/users/:id" element={<UserProfile />} />
       </Routes>
-    </MemoryRouter>
-  )
-  expect(screen.getByText('User ID: 123')).toBeInTheDocument()
+    </MemoryRouter>,
+  );
+  expect(screen.getByText("User ID: 123")).toBeInTheDocument();
   ```
 
 ---
 
 ##### **8.18 🚀 Advanced Patterns**
+
 - 📝 Modal Routes:
+
   ```jsx
   function App() {
-    const location = useLocation()
-    const state = location.state
-    
+    const location = useLocation();
+    const state = location.state;
+
     return (
       <>
         <Routes location={state?.backgroundLocation || location}>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
-        
+
         {state?.backgroundLocation && (
           <Routes>
             <Route path="/img/:id" element={<Modal />} />
           </Routes>
         )}
       </>
-    )
+    );
   }
-  
+
   // Open modal
   <Link to="/img/1" state={{ backgroundLocation: location }}>
     View Image
-  </Link>
+  </Link>;
   ```
+
 - 📝 Breadcrumbs:
   ```jsx
   function Breadcrumbs() {
-    const location = useLocation()
-    const pathnames = location.pathname.split('/').filter(Boolean)
-    
+    const location = useLocation();
+    const pathnames = location.pathname.split("/").filter(Boolean);
+
     return (
       <nav>
         <Link to="/">Home</Link>
         {pathnames.map((name, i) => {
-          const to = `/${pathnames.slice(0, i + 1).join('/')}`
-          const isLast = i === pathnames.length - 1
+          const to = `/${pathnames.slice(0, i + 1).join("/")}`;
+          const isLast = i === pathnames.length - 1;
           return (
             <span key={name}>
               <span> / </span>
               {isLast ? <span>{name}</span> : <Link to={to}>{name}</Link>}
             </span>
-          )
+          );
         })}
       </nav>
-    )
+    );
   }
   ```
 
 ---
 
 ##### **8.19 🔄 React Router v6 Features (Summary)**
+
 - 🆕 `Routes` instead of `Switch`
 - 🆕 `element` prop instead of `component`/`render`
 - 🆕 Relative routes and links
@@ -4061,6 +4422,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **8.20 💻 Practical Projects**
+
 - 🏗️ Multi-page Website with Navigation
 - 📝 Blog with Dynamic Routes
 - 🛒 E-commerce with Product Pages
@@ -4086,6 +4448,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 9 — CONTEXT API (Built-in State Management)
+
 **Goal**: Master React's built-in state management solution for medium-complexity applications.
 **Time**: 18 soat | 9 dars
 
@@ -4094,24 +4457,27 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **9.1 📦 Introduction to Context API**
+
 - 🤔 What is Context API? (Built-in React state management)
 - 🎯 Why Context? (Prop Drilling Problem)
 - 📜 Prop Drilling Example (problem demonstration):
+
   ```jsx
   // user prop passed through multiple levels
   function App() {
-    const [user, setUser] = useState({ name: 'John' })
-    return <Header user={user} />
+    const [user, setUser] = useState({ name: "John" });
+    return <Header user={user} />;
   }
-  
+
   function Header({ user }) {
-    return <UserAvatar user={user} />
+    return <UserAvatar user={user} />;
   }
-  
+
   function UserAvatar({ user }) {
-    return <img src={user.avatar} alt={user.name} />
+    return <img src={user.avatar} alt={user.name} />;
   }
   ```
+
 - 🔄 Context vs Props (when to use each)
 - 📦 When to Use Context:
   - Theme (light/dark mode)
@@ -4123,26 +4489,29 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **9.2 🏗️ Creating and Providing Context**
+
 - 📝 `createContext`:
+
   ```jsx
-  import { createContext } from 'react'
-  
-  const ThemeContext = createContext('light')
+  import { createContext } from "react";
+
+  const ThemeContext = createContext("light");
   // or with null (requires check)
-  const ThemeContext = createContext(null)
+  const ThemeContext = createContext(null);
   ```
+
 - 📦 Context Provider:
   ```jsx
   function App() {
-    const [theme, setTheme] = useState('light')
-    
+    const [theme, setTheme] = useState("light");
+
     return (
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <Header />
         <Main />
         <Footer />
       </ThemeContext.Provider>
-    )
+    );
   }
   ```
 - 🎯 Multiple Providers (nesting)
@@ -4150,325 +4519,361 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **9.3 📥 Consuming Context**
+
 - 📝 `useContext` Hook (modern):
+
   ```jsx
-  import { useContext } from 'react'
-  
+  import { useContext } from "react";
+
   function ThemedButton() {
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { theme, setTheme } = useContext(ThemeContext);
     return (
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
         Theme: {theme}
       </button>
-    )
+    );
   }
   ```
+
 - 📦 Context.Consumer (legacy — avoid in new code)
 - 🎯 Multiple Contexts:
   ```jsx
-  const { theme } = useContext(ThemeContext)
-  const { user } = useContext(AuthContext)
+  const { theme } = useContext(ThemeContext);
+  const { user } = useContext(AuthContext);
   ```
 
 ---
 
 ##### **9.4 🎨 Theme Context Example**
+
 - 📝 Complete Theme Implementation:
+
   ```jsx
   // contexts/ThemeContext.jsx
-  import { createContext, useState, useContext } from 'react'
-  
-  const ThemeContext = createContext()
-  
+  import { createContext, useState, useContext } from "react";
+
+  const ThemeContext = createContext();
+
   export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
-      return localStorage.getItem('theme') || 'light'
-    })
-    
+      return localStorage.getItem("theme") || "light";
+    });
+
     const toggleTheme = () => {
-      setTheme(prev => {
-        const newTheme = prev === 'light' ? 'dark' : 'light'
-        localStorage.setItem('theme', newTheme)
-        return newTheme
-      })
-    }
-    
+      setTheme((prev) => {
+        const newTheme = prev === "light" ? "dark" : "light";
+        localStorage.setItem("theme", newTheme);
+        return newTheme;
+      });
+    };
+
     return (
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         {children}
       </ThemeContext.Provider>
-    )
+    );
   }
-  
+
   export function useTheme() {
-    const context = useContext(ThemeContext)
+    const context = useContext(ThemeContext);
     if (context === undefined) {
-      throw new Error('useTheme must be used within ThemeProvider')
+      throw new Error("useTheme must be used within ThemeProvider");
     }
-    return context
+    return context;
   }
   ```
+
 - 📦 Usage:
+
   ```jsx
   function App() {
     return (
       <ThemeProvider>
         <Header />
       </ThemeProvider>
-    )
+    );
   }
-  
+
   function Header() {
-    const { theme, toggleTheme } = useTheme()
+    const { theme, toggleTheme } = useTheme();
     return (
       <header className={`header-${theme}`}>
         <button onClick={toggleTheme}>Toggle Theme</button>
       </header>
-    )
+    );
   }
   ```
 
 ---
 
 ##### **9.5 🔐 Auth Context Example**
+
 - 📝 Authentication Context:
+
   ```jsx
   // contexts/AuthContext.jsx
-  const AuthContext = createContext()
-  
+  const AuthContext = createContext();
+
   export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-    
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-      const saved = localStorage.getItem('user')
-      if (saved) setUser(JSON.parse(saved))
-      setLoading(false)
-    }, [])
-    
+      const saved = localStorage.getItem("user");
+      if (saved) setUser(JSON.parse(saved));
+      setLoading(false);
+    }, []);
+
     const login = async (email, password) => {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password })
-      })
-      const userData = await response.json()
-      setUser(userData)
-      localStorage.setItem('user', JSON.stringify(userData))
-      return { success: true }
-    }
-    
+      const response = await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+      const userData = await response.json();
+      setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+      return { success: true };
+    };
+
     const logout = () => {
-      setUser(null)
-      localStorage.removeItem('user')
-    }
-    
+      setUser(null);
+      localStorage.removeItem("user");
+    };
+
     return (
-      <AuthContext.Provider value={{ user, login, logout, loading, isAuthenticated: !!user }}>
+      <AuthContext.Provider
+        value={{ user, login, logout, loading, isAuthenticated: !!user }}
+      >
         {children}
       </AuthContext.Provider>
-    )
+    );
   }
-  
+
   export function useAuth() {
-    const context = useContext(AuthContext)
-    if (!context) throw new Error('useAuth must be used within AuthProvider')
-    return context
+    const context = useContext(AuthContext);
+    if (!context) throw new Error("useAuth must be used within AuthProvider");
+    return context;
   }
   ```
+
 - 📦 Protected Route with Auth:
   ```jsx
   function ProtectedRoute({ children }) {
-    const { isAuthenticated, loading } = useAuth()
-    if (loading) return <div>Loading...</div>
-    if (!isAuthenticated) return <Navigate to="/login" replace />
-    return children
+    const { isAuthenticated, loading } = useAuth();
+    if (loading) return <div>Loading...</div>;
+    if (!isAuthenticated) return <Navigate to="/login" replace />;
+    return children;
   }
   ```
 
 ---
 
 ##### **9.6 🎯 useReducer + Context Pattern**
+
 - 📝 Combining Reducer with Context:
+
   ```jsx
   // contexts/TodoContext.jsx
-  const TodoContext = createContext()
-  
-  const initialState = { todos: [], filter: 'all' }
-  
+  const TodoContext = createContext();
+
+  const initialState = { todos: [], filter: "all" };
+
   function todoReducer(state, action) {
     switch (action.type) {
-      case 'ADD_TODO':
-        return { ...state, todos: [...state.todos, action.payload] }
-      case 'TOGGLE_TODO':
+      case "ADD_TODO":
+        return { ...state, todos: [...state.todos, action.payload] };
+      case "TOGGLE_TODO":
         return {
           ...state,
-          todos: state.todos.map(todo =>
+          todos: state.todos.map((todo) =>
             todo.id === action.payload
               ? { ...todo, completed: !todo.completed }
-              : todo
-          )
-        }
-      case 'SET_FILTER':
-        return { ...state, filter: action.payload }
+              : todo,
+          ),
+        };
+      case "SET_FILTER":
+        return { ...state, filter: action.payload };
       default:
-        return state
+        return state;
     }
   }
-  
+
   export function TodoProvider({ children }) {
-    const [state, dispatch] = useReducer(todoReducer, initialState)
-    
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+
     const addTodo = (text) => {
-      dispatch({ type: 'ADD_TODO', payload: { id: Date.now(), text, completed: false } })
-    }
-    
-    const toggleTodo = (id) => dispatch({ type: 'TOGGLE_TODO', payload: id })
-    const setFilter = (filter) => dispatch({ type: 'SET_FILTER', payload: filter })
-    
-    const filteredTodos = state.todos.filter(todo => {
-      if (state.filter === 'active') return !todo.completed
-      if (state.filter === 'completed') return todo.completed
-      return true
-    })
-    
+      dispatch({
+        type: "ADD_TODO",
+        payload: { id: Date.now(), text, completed: false },
+      });
+    };
+
+    const toggleTodo = (id) => dispatch({ type: "TOGGLE_TODO", payload: id });
+    const setFilter = (filter) =>
+      dispatch({ type: "SET_FILTER", payload: filter });
+
+    const filteredTodos = state.todos.filter((todo) => {
+      if (state.filter === "active") return !todo.completed;
+      if (state.filter === "completed") return todo.completed;
+      return true;
+    });
+
     return (
-      <TodoContext.Provider value={{
-        todos: filteredTodos,
-        addTodo,
-        toggleTodo,
-        setFilter,
-        filter: state.filter
-      }}>
+      <TodoContext.Provider
+        value={{
+          todos: filteredTodos,
+          addTodo,
+          toggleTodo,
+          setFilter,
+          filter: state.filter,
+        }}
+      >
         {children}
       </TodoContext.Provider>
-    )
+    );
   }
-  
+
   export function useTodos() {
-    const context = useContext(TodoContext)
-    if (!context) throw new Error('useTodos must be used within TodoProvider')
-    return context
+    const context = useContext(TodoContext);
+    if (!context) throw new Error("useTodos must be used within TodoProvider");
+    return context;
   }
   ```
 
 ---
 
 ##### **9.7 🔄 Context Composition**
+
 - 📝 Combining Multiple Providers:
+
   ```jsx
   // contexts/index.jsx
-  import { ThemeProvider } from './ThemeContext'
-  import { AuthProvider } from './AuthContext'
-  import { TodoProvider } from './TodoContext'
-  
+  import { ThemeProvider } from "./ThemeContext";
+  import { AuthProvider } from "./AuthContext";
+  import { TodoProvider } from "./TodoContext";
+
   export function AppProviders({ children }) {
     return (
       <ThemeProvider>
         <AuthProvider>
-          <TodoProvider>
-            {children}
-          </TodoProvider>
+          <TodoProvider>{children}</TodoProvider>
         </AuthProvider>
       </ThemeProvider>
-    )
+    );
   }
-  
+
   // App.jsx
   function App() {
     return (
       <AppProviders>
         <Main />
       </AppProviders>
-    )
+    );
   }
   ```
 
 ---
 
 ##### **9.8 ⚡ Performance Optimization**
+
 - 📝 Memoizing Context Value:
   ```jsx
   function UserProvider({ children }) {
-    const [user, setUser] = useState(null)
-    
-    const value = useMemo(() => ({
-      user,
-      login: (data) => setUser(data),
-      logout: () => setUser(null)
-    }), [user])
-    
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+    const [user, setUser] = useState(null);
+
+    const value = useMemo(
+      () => ({
+        user,
+        login: (data) => setUser(data),
+        logout: () => setUser(null),
+      }),
+      [user],
+    );
+
+    return (
+      <UserContext.Provider value={value}>{children}</UserContext.Provider>
+    );
   }
   ```
 - 📦 Splitting Context (prevent re-renders):
+
   ```jsx
   // Separate state and dispatch contexts
-  const UserStateContext = createContext()
-  const UserDispatchContext = createContext()
-  
-  export function useUserState() { return useContext(UserStateContext) }
-  export function useUserDispatch() { return useContext(UserDispatchContext) }
+  const UserStateContext = createContext();
+  const UserDispatchContext = createContext();
+
+  export function useUserState() {
+    return useContext(UserStateContext);
+  }
+  export function useUserDispatch() {
+    return useContext(UserDispatchContext);
+  }
   ```
+
 - 🎯 Only consumers of changed values re-render
 
 ---
 
 ##### **9.9 🧪 Testing Context**
+
 - 📝 Testing with Provider:
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import { ThemeProvider, useTheme } from './ThemeContext'
-  
+  import { render, screen } from "@testing-library/react";
+  import { ThemeProvider, useTheme } from "./ThemeContext";
+
   function TestComponent() {
-    const { theme, toggleTheme } = useTheme()
+    const { theme, toggleTheme } = useTheme();
     return (
       <div>
         <span data-testid="theme">{theme}</span>
         <button onClick={toggleTheme}>Toggle</button>
       </div>
-    )
+    );
   }
-  
-  test('theme context works', async () => {
+
+  test("theme context works", async () => {
     render(
       <ThemeProvider>
         <TestComponent />
-      </ThemeProvider>
-    )
-    
-    expect(screen.getByTestId('theme')).toHaveTextContent('light')
-    await userEvent.click(screen.getByText('Toggle'))
-    expect(screen.getByTestId('theme')).toHaveTextContent('dark')
-  })
+      </ThemeProvider>,
+    );
+
+    expect(screen.getByTestId("theme")).toHaveTextContent("light");
+    await userEvent.click(screen.getByText("Toggle"));
+    expect(screen.getByTestId("theme")).toHaveTextContent("dark");
+  });
   ```
+
 - 📝 Custom Render Wrapper:
+
   ```jsx
   // test-utils.jsx
   const AllProviders = ({ children }) => (
     <ThemeProvider>
-      <AuthProvider>
-        {children}
-      </AuthProvider>
+      <AuthProvider>{children}</AuthProvider>
     </ThemeProvider>
-  )
-  
+  );
+
   export const render = (ui, options) =>
-    testRender(ui, { wrapper: AllProviders, ...options })
+    testRender(ui, { wrapper: AllProviders, ...options });
   ```
 
 ---
 
 ##### **9.10 🔄 Context vs Alternatives**
-| Solution | When to Use |
-|----------|-------------|
-| **Props** | Simple, shallow component trees |
-| **Context** | Medium complexity, global settings |
+
+| Solution          | When to Use                                 |
+| ----------------- | ------------------------------------------- |
+| **Props**         | Simple, shallow component trees             |
+| **Context**       | Medium complexity, global settings          |
 | **Redux/Zustand** | Complex state, frequent updates, large apps |
-| **State Lifting** | Shared state between siblings |
+| **State Lifting** | Shared state between siblings               |
 
 ---
 
 ##### **9.11 ⚠️ Common Pitfalls**
+
 - ❌ Unnecessary re-renders (value not memoized)
 - ❌ Too many nested providers (hard to maintain)
 - ❌ Using Context for high-frequency updates
@@ -4478,6 +4883,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **9.12 💻 Practical Projects**
+
 - 🏗️ Theme Switcher Application
 - 🔐 Authentication Flow with Context
 - 🛒 Shopping Cart Implementation
@@ -4501,6 +4907,7 @@ Production    (16-19) ████████████░ 2 oy
 <br>
 
 ## 🎯 STAGE 10 — REDUX TOOLKIT (Advanced State Management)
+
 **Goal**: Master Redux Toolkit for complex state management in large-scale applications.
 **Time**: 30 soat | 12 dars
 
@@ -4509,6 +4916,7 @@ Production    (16-19) ████████████░ 2 oy
 #### 📚 **Topics**
 
 ##### **10.1 📦 Introduction to Redux**
+
 - 🤔 What is Redux? (Predictable state container)
 - 📜 History (Dan Abramov, 2015)
 - 🎯 Why Redux? (Problems: prop drilling, complex state logic)
@@ -4526,6 +4934,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **10.2 🔧 Redux Toolkit Overview**
+
 - 📦 What is Redux Toolkit? (Official, recommended way)
 - 🎯 Problems with Traditional Redux:
   - Too much boilerplate
@@ -4545,101 +4954,123 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **10.3 🏗️ Store Setup**
+
 - 📝 `configureStore`:
+
   ```jsx
   // store/store.js
-  import { configureStore } from '@reduxjs/toolkit'
-  
+  import { configureStore } from "@reduxjs/toolkit";
+
   export const store = configureStore({
     reducer: {
       // reducers go here
     },
-    devTools: process.env.NODE_ENV !== 'production',
+    devTools: process.env.NODE_ENV !== "production",
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({ serializableCheck: true })
-  })
+      getDefaultMiddleware({ serializableCheck: true }),
+  });
   ```
+
 - 📦 Provider Setup:
+
   ```jsx
   // main.jsx
-  import { Provider } from 'react-redux'
-  import { store } from './store/store'
-  
+  import { Provider } from "react-redux";
+  import { store } from "./store/store";
+
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>;
   ```
 
 ---
 
 ##### **10.4 🍰 createSlice**
+
 - 📝 Creating a Slice:
+
   ```jsx
   // features/counter/counterSlice.js
-  import { createSlice } from '@reduxjs/toolkit'
-  
-  const initialState = { value: 0, status: 'idle' }
-  
+  import { createSlice } from "@reduxjs/toolkit";
+
+  const initialState = { value: 0, status: "idle" };
+
   const counterSlice = createSlice({
-    name: 'counter',
+    name: "counter",
     initialState,
     reducers: {
-      increment: (state) => { state.value += 1 },
-      decrement: (state) => { state.value -= 1 },
-      incrementByAmount: (state, action) => { state.value += action.payload },
-      reset: (state) => { state.value = 0 }
-    }
-  })
-  
-  export const { increment, decrement, incrementByAmount, reset } = counterSlice.actions
-  export default counterSlice.reducer
+      increment: (state) => {
+        state.value += 1;
+      },
+      decrement: (state) => {
+        state.value -= 1;
+      },
+      incrementByAmount: (state, action) => {
+        state.value += action.payload;
+      },
+      reset: (state) => {
+        state.value = 0;
+      },
+    },
+  });
+
+  export const { increment, decrement, incrementByAmount, reset } =
+    counterSlice.actions;
+  export default counterSlice.reducer;
   ```
+
 - 🔄 Immer.js Magic (write mutable logic, get immutable updates)
 - 📦 Adding to Store:
+
   ```jsx
-  import counterReducer from '../features/counter/counterSlice'
-  
+  import counterReducer from "../features/counter/counterSlice";
+
   export const store = configureStore({
-    reducer: { counter: counterReducer }
-  })
+    reducer: { counter: counterReducer },
+  });
   ```
 
 ---
 
 ##### **10.5 📥 Using Redux in Components**
+
 - 📝 `useSelector` + `useDispatch`:
+
   ```jsx
-  import { useSelector, useDispatch } from 'react-redux'
-  import { increment, decrement } from './counterSlice'
-  
+  import { useSelector, useDispatch } from "react-redux";
+  import { increment, decrement } from "./counterSlice";
+
   function Counter() {
-    const count = useSelector((state) => state.counter.value)
-    const dispatch = useDispatch()
-    
+    const count = useSelector((state) => state.counter.value);
+    const dispatch = useDispatch();
+
     return (
       <div>
         <h2>Count: {count}</h2>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(decrement())}>-</button>
       </div>
-    )
+    );
   }
   ```
+
 - 🎯 Memoized Selectors:
+
   ```jsx
-  import { createSelector } from '@reduxjs/toolkit'
-  
+  import { createSelector } from "@reduxjs/toolkit";
+
   const selectDoubleCount = createSelector(
     [(state) => state.counter.value],
-    (value) => value * 2
-  )
-  
-  const doubleCount = useSelector(selectDoubleCount)
+    (value) => value * 2,
+  );
+
+  const doubleCount = useSelector(selectDoubleCount);
   ```
 
 ---
 
 ##### **10.6 🔄 Complex State with Multiple Slices**
+
 - 📝 Example: User + Cart slices
 - 🏗️ Combined Store:
   ```jsx
@@ -4647,154 +5078,166 @@ Production    (16-19) ████████████░ 2 oy
     reducer: {
       counter: counterReducer,
       user: userReducer,
-      cart: cartReducer
-    }
-  })
+      cart: cartReducer,
+    },
+  });
   ```
 
 ---
 
 ##### **10.7 ⚡ Async Logic with createAsyncThunk**
+
 - 📝 Basic `createAsyncThunk`:
+
   ```jsx
-  import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-  import axios from 'axios'
-  
+  import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+  import axios from "axios";
+
   export const fetchUsers = createAsyncThunk(
-    'users/fetchUsers',
+    "users/fetchUsers",
     async (_, { rejectWithValue }) => {
       try {
-        const response = await axios.get('/api/users')
-        return response.data
+        const response = await axios.get("/api/users");
+        return response.data;
       } catch (error) {
-        return rejectWithValue(error.response.data)
+        return rejectWithValue(error.response.data);
       }
-    }
-  )
-  
+    },
+  );
+
   const usersSlice = createSlice({
-    name: 'users',
+    name: "users",
     initialState: { users: [], loading: false, error: null },
     reducers: {},
     extraReducers: (builder) => {
       builder
         .addCase(fetchUsers.pending, (state) => {
-          state.loading = true
+          state.loading = true;
         })
         .addCase(fetchUsers.fulfilled, (state, action) => {
-          state.loading = false
-          state.users = action.payload
+          state.loading = false;
+          state.users = action.payload;
         })
         .addCase(fetchUsers.rejected, (state, action) => {
-          state.loading = false
-          state.error = action.payload
-        })
-    }
-  })
+          state.loading = false;
+          state.error = action.payload;
+        });
+    },
+  });
   ```
+
 - 📦 Using in Component:
   ```jsx
   useEffect(() => {
-    dispatch(fetchUsers())
-  }, [])
+    dispatch(fetchUsers());
+  }, []);
   ```
 
 ---
 
 ##### **10.8 🗃️ createEntityAdapter (Normalized State)**
+
 - 📝 Setting up Entity Adapter:
+
   ```jsx
-  import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
-  
+  import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+
   const postsAdapter = createEntityAdapter({
     selectId: (post) => post.id,
-    sortComparer: (a, b) => b.date.localeCompare(a.date)
-  })
-  
-  const initialState = postsAdapter.getInitialState({ status: 'idle' })
-  
+    sortComparer: (a, b) => b.date.localeCompare(a.date),
+  });
+
+  const initialState = postsAdapter.getInitialState({ status: "idle" });
+
   const postsSlice = createSlice({
-    name: 'posts',
+    name: "posts",
     initialState,
     reducers: {
       addPost: postsAdapter.addOne,
       updatePost: postsAdapter.updateOne,
       removePost: postsAdapter.removeOne,
-    }
-  })
-  
+    },
+  });
+
   // Selectors
   export const {
     selectAll: selectAllPosts,
     selectById: selectPostById,
-    selectIds: selectPostIds
-  } = postsAdapter.getSelectors((state) => state.posts)
+    selectIds: selectPostIds,
+  } = postsAdapter.getSelectors((state) => state.posts);
   ```
 
 ---
 
 ##### **10.9 🔧 RTK Query (Data Fetching)**
+
 - 📝 Setting up API:
+
   ```jsx
   // services/api.js
-  import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-  
+  import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
   export const api = createApi({
-    reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.example.com' }),
-    tagTypes: ['Post', 'User'],
+    reducerPath: "api",
+    baseQuery: fetchBaseQuery({ baseUrl: "https://api.example.com" }),
+    tagTypes: ["Post", "User"],
     endpoints: (builder) => ({
       getPosts: builder.query({
-        query: () => '/posts',
-        providesTags: ['Post']
+        query: () => "/posts",
+        providesTags: ["Post"],
       }),
       getPostById: builder.query({
         query: (id) => `/posts/${id}`,
-        providesTags: (result, error, id) => [{ type: 'Post', id }]
+        providesTags: (result, error, id) => [{ type: "Post", id }],
       }),
       addPost: builder.mutation({
         query: (newPost) => ({
-          url: '/posts',
-          method: 'POST',
-          body: newPost
+          url: "/posts",
+          method: "POST",
+          body: newPost,
         }),
-        invalidatesTags: ['Post']
-      })
-    })
-  })
-  
-  export const { useGetPostsQuery, useGetPostByIdQuery, useAddPostMutation } = api
+        invalidatesTags: ["Post"],
+      }),
+    }),
+  });
+
+  export const { useGetPostsQuery, useGetPostByIdQuery, useAddPostMutation } =
+    api;
   ```
+
 - 📦 Adding to Store:
   ```jsx
   export const store = configureStore({
     reducer: {
-      [api.reducerPath]: api.reducer
+      [api.reducerPath]: api.reducer,
     },
-    middleware: (getDefault) => getDefault().concat(api.middleware)
-  })
+    middleware: (getDefault) => getDefault().concat(api.middleware),
+  });
   ```
 - 📝 Using RTK Query Hooks:
   ```jsx
   function Posts() {
-    const { data: posts, isLoading, error, refetch } = useGetPostsQuery()
-    const [addPost, { isLoading: isAdding }] = useAddPostMutation()
-    
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
-    
+    const { data: posts, isLoading, error, refetch } = useGetPostsQuery();
+    const [addPost, { isLoading: isAdding }] = useAddPostMutation();
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+
     return (
       <div>
         <button onClick={refetch}>Refresh</button>
-        {posts?.map(post => <div key={post.id}>{post.title}</div>)}
+        {posts?.map((post) => (
+          <div key={post.id}>{post.title}</div>
+        ))}
       </div>
-    )
+    );
   }
   ```
 
 ---
 
 ##### **10.10 🔄 Advanced RTK Query**
+
 - 📝 Polling: `useGetPostsQuery(undefined, { pollingInterval: 5000 })`
 - 📝 Pagination: `useGetPaginatedPostsQuery(page)`
 - 📝 Optimistic Updates (automatic with mutations)
@@ -4803,6 +5246,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **10.11 🛠️ Redux DevTools**
+
 - 🔧 Chrome Extension: Redux DevTools
 - 📊 Features:
   - Time-travel debugging
@@ -4814,74 +5258,85 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **10.12 🧪 Testing Redux**
+
 - 📝 Testing Reducers:
   ```jsx
-  test('increment works', () => {
-    const initialState = { value: 0 }
-    const actual = counterReducer(initialState, increment())
-    expect(actual.value).toBe(1)
-  })
+  test("increment works", () => {
+    const initialState = { value: 0 };
+    const actual = counterReducer(initialState, increment());
+    expect(actual.value).toBe(1);
+  });
   ```
 - 📝 Testing Async Thunks:
+
   ```jsx
-  import configureStore from 'redux-mock-store'
-  import { thunk } from 'redux-thunk'
-  
-  const mockStore = configureStore([thunk])
-  
-  test('fetchUsers thunk', async () => {
-    const store = mockStore({ users: [] })
-    await store.dispatch(fetchUsers())
-    const actions = store.getActions()
-    expect(actions[0].type).toBe('users/fetchUsers/pending')
-    expect(actions[1].type).toBe('users/fetchUsers/fulfilled')
-  })
+  import configureStore from "redux-mock-store";
+  import { thunk } from "redux-thunk";
+
+  const mockStore = configureStore([thunk]);
+
+  test("fetchUsers thunk", async () => {
+    const store = mockStore({ users: [] });
+    await store.dispatch(fetchUsers());
+    const actions = store.getActions();
+    expect(actions[0].type).toBe("users/fetchUsers/pending");
+    expect(actions[1].type).toBe("users/fetchUsers/fulfilled");
+  });
   ```
+
 - 📝 Testing Components with Redux:
+
   ```jsx
-  import { Provider } from 'react-redux'
-  import configureStore from 'redux-mock-store'
-  
-  const mockStore = configureStore([])
-  const store = mockStore({ counter: { value: 5 } })
-  
+  import { Provider } from "react-redux";
+  import configureStore from "redux-mock-store";
+
+  const mockStore = configureStore([]);
+  const store = mockStore({ counter: { value: 5 } });
+
   render(
     <Provider store={store}>
       <Counter />
-    </Provider>
-  )
+    </Provider>,
+  );
   ```
 
 ---
 
 ##### **10.13 📚 Redux with TypeScript**
+
 - 📝 Typed Hooks:
+
   ```tsx
   // app/hooks.ts
-  import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-  import type { RootState, AppDispatch } from './store'
-  
-  export const useAppDispatch = () => useDispatch<AppDispatch>()
-  export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+  import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+  import type { RootState, AppDispatch } from "./store";
+
+  export const useAppDispatch = () => useDispatch<AppDispatch>();
+  export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   ```
+
 - 📝 Typed Slice:
+
   ```tsx
-  interface CounterState { value: number }
-  
+  interface CounterState {
+    value: number;
+  }
+
   const counterSlice = createSlice({
-    name: 'counter',
+    name: "counter",
     initialState: { value: 0 } as CounterState,
     reducers: {
       incrementByAmount: (state, action: PayloadAction<number>) => {
-        state.value += action.payload
-      }
-    }
-  })
+        state.value += action.payload;
+      },
+    },
+  });
   ```
 
 ---
 
 ##### **10.14 ⚡ Performance Optimization**
+
 - 📝 Memoized Selectors with `createSelector`
 - 📝 Normalized State Shape (avoid nesting)
 - 📝 Component Memoization: `React.memo`
@@ -4889,6 +5344,7 @@ Production    (16-19) ████████████░ 2 oy
 ---
 
 ##### **10.15 🏗️ Real-world Project Structure**
+
 ```
 src/
 ├── app/
@@ -4913,6 +5369,7 @@ src/
 ---
 
 ##### **10.16 💻 Practical Projects**
+
 - 🏗️ Todo App with Redux Toolkit
 - 🛒 E-commerce Store with Cart
 - 🔐 Authentication System
@@ -4937,1050 +5394,438 @@ src/
 <br>
 <br>
 
-## 🎯 STAGE 11 — Fetch API & Axios (HTTP Requests)
+## 🎯 STAGE 11 — FETCH API & AXIOS (HTTP Requests)
+
 **Goal**: Master HTTP communication for building data-driven applications with modern APIs.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 12 dars
 
-#### 📚 Topics
+---
 
-##### 11.1 🌐 Introduction to HTTP
+#### 📚 **Topics**
+
+##### **11.1 🌐 Introduction to HTTP**
+
 - 🤔 What is HTTP/HTTPS?
-- 📜 HTTP Request/Response Cycle:
-  ```http
-  GET /api/users HTTP/1.1
-  Host: example.com
-  Accept: application/json
-  Authorization: Bearer token123
-  ```
+- 📜 HTTP Request/Response Cycle
 - 📦 HTTP Methods (CRUD):
-  - `GET` - Retrieve data
-  - `POST` - Create new resource
-  - `PUT` - Update entire resource
-  - `PATCH` - Partial update
-  - `DELETE` - Remove resource
+  - `GET` — Retrieve data
+  - `POST` — Create resource
+  - `PUT` — Full update
+  - `PATCH` — Partial update
+  - `DELETE` — Remove resource
 - 📝 HTTP Status Codes:
-  - 1xx: Informational
   - 2xx: Success (200 OK, 201 Created)
-  - 3xx: Redirection
-  - 4xx: Client Error (404 Not Found, 400 Bad Request)
+  - 4xx: Client Error (400 Bad Request, 401 Unauthorized, 404 Not Found)
   - 5xx: Server Error (500 Internal Server Error)
-- 📋 HTTP Headers:
-  - Request Headers: `Content-Type`, `Authorization`, `Accept`
-  - Response Headers: `Cache-Control`, `Set-Cookie`
+- 📋 Common Headers: `Content-Type`, `Authorization`, `Accept`
 
-##### 11.2 📡 Fetch API Basics
-- 📝 What is Fetch API?
+---
+
+##### **11.2 📡 Fetch API Basics**
+
+- 📝 What is Fetch API? (Native browser API)
 - 🔧 Basic GET Request:
   ```javascript
-  fetch('https://api.example.com/users')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      return response.json()
+  fetch("https://api.example.com/users")
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
     })
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error))
+    .then((data) => console.log(data))
+    .catch((error) => console.error("Error:", error));
   ```
-- 📦 Response Object Properties:
-  - `response.status` - HTTP status code
-  - `response.ok` - true if status 200-299
-  - `response.headers` - Headers object
-  - `response.url` - Response URL
-  - `response.type` - basic, cors, error
 - 📥 Response Methods:
-  - `response.json()` - Parse JSON
-  - `response.text()` - Get as text
-  - `response.blob()` - Binary data
-  - `response.formData()` - Form data
-  - `response.arrayBuffer()` - Array buffer
+  - `response.json()` — Parse JSON
+  - `response.text()` — Get as text
+  - `response.blob()` — Binary data
+  - `response.formData()` — Form data
 
-##### 11.3 📤 POST Requests with Fetch
+---
+
+##### **11.3 📤 POST Requests with Fetch**
+
 - 📝 Creating Resources:
   ```javascript
-  const newUser = {
-    name: 'John Doe',
-    email: 'john@example.com',
-    role: 'user'
-  }
-  
-  fetch('https://api.example.com/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(newUser)
+  fetch("https://api.example.com/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "John", email: "john@example.com" }),
   })
-    .then(response => response.json())
-    .then(data => console.log('Created:', data))
-    .catch(error => console.error('Error:', error))
+    .then((res) => res.json())
+    .then((data) => console.log("Created:", data));
   ```
-- 📤 Form Data Submission:
+- 📤 FormData Submission:
+
   ```javascript
-  const formData = new FormData()
-  formData.append('username', 'johndoe')
-  formData.append('avatar', fileInput.files[0])
-  
-  fetch('https://api.example.com/profile', {
-    method: 'POST',
-    body: formData // Don't set Content-Type, browser sets it with boundary
-  })
-    .then(response => response.json())
-    .then(data => console.log('Uploaded:', data))
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+
+  fetch("/api/upload", { method: "POST", body: formData }); // Content-Type auto-set
   ```
 
-##### 11.4 🔄 PUT, PATCH, DELETE
-- 📝 PUT Request (full update):
+---
+
+##### **11.4 🔄 PUT, PATCH, DELETE**
+
+- 📝 PUT (full update):
   ```javascript
-  fetch('https://api.example.com/users/123', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: 'John Updated',
-      email: 'john.updated@example.com',
-      role: 'admin'
-    })
-  })
+  fetch("/api/users/123", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "Updated", email: "new@example.com" }),
+  });
   ```
-- 📝 PATCH Request (partial update):
+- 📝 PATCH (partial update):
   ```javascript
-  fetch('https://api.example.com/users/123', {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: 'John Modified'  // Only update name
-    })
-  })
+  fetch("/api/users/123", {
+    method: "PATCH",
+    body: JSON.stringify({ name: "Modified" }),
+  });
   ```
-- 📝 DELETE Request:
+- 📝 DELETE:
   ```javascript
-  fetch('https://api.example.com/users/123', {
-    method: 'DELETE'
-  })
-    .then(response => {
-      if (response.status === 204) {
-        console.log('User deleted successfully')
-      }
-    })
+  fetch("/api/users/123", { method: "DELETE" });
   ```
 
-##### 11.5 🎯 Advanced Fetch Features
-- 📝 Request Object:
+---
+
+##### **11.5 🎯 Advanced Fetch Features**
+
+- 📝 Request Object and Headers
+- 🔄 AbortController (cancel requests):
+
   ```javascript
-  const request = new Request('https://api.example.com/users', {
-    method: 'GET',
-    headers: new Headers({
-      'Authorization': 'Bearer token123',
-      'X-Custom-Header': 'custom value'
-    }),
-    cache: 'no-cache',
-    credentials: 'include' // Send cookies
-  })
-  
-  fetch(request)
-    .then(response => response.json())
-    .then(data => console.log(data))
-  ```
-- 📝 Headers Object:
-  ```javascript
-  const headers = new Headers()
-  headers.append('Content-Type', 'application/json')
-  headers.append('Authorization', 'Bearer token123')
-  headers.has('Content-Type') // true
-  headers.get('Content-Type') // 'application/json'
-  headers.delete('Authorization')
-  ```
-- 🔄 AbortController (canceling requests):
-  ```javascript
-  const controller = new AbortController()
-  const signal = controller.signal
-  
-  setTimeout(() => controller.abort(), 5000) // Cancel after 5 seconds
-  
-  fetch('https://api.example.com/large-data', { signal })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => {
-      if (error.name === 'AbortError') {
-        console.log('Request was cancelled')
-      }
-    })
+  const controller = new AbortController();
+
+  fetch("/api/large-data", { signal: controller.signal }).catch((err) => {
+    if (err.name === "AbortError") console.log("Request cancelled");
+  });
+
+  controller.abort(); // cancel
   ```
 
-##### 11.6 🌐 Axios Introduction
-- 📦 What is Axios?
+---
+
+##### **11.6 🌐 Axios Introduction**
+
+- 📦 What is Axios? (Promise-based HTTP client)
 - 🎯 Why Axios over Fetch:
-  - Automatic JSON transformation
+  - Auto JSON transformation
   - Request/response interceptors
   - Better error handling
   - Request cancellation
   - Progress tracking
-  - Browser and Node.js support
+  - Node.js support
 - 📥 Installation:
   ```bash
   npm install axios
-  # or
-  yarn add axios
   ```
-- 📝 Basic GET Request:
+- 📝 Basic GET:
+
   ```javascript
-  import axios from 'axios'
-  
-  axios.get('https://api.example.com/users')
-    .then(response => {
-      console.log('Data:', response.data)
-      console.log('Status:', response.status)
-      console.log('Headers:', response.headers)
-    })
-    .catch(error => {
-      console.error('Error:', error.message)
-    })
+  import axios from "axios";
+
+  axios
+    .get("/api/users")
+    .then((response) => console.log(response.data))
+    .catch((error) => console.error(error.message));
   ```
 
-##### 11.7 📤 Axios POST and Other Methods
-- 📝 POST Request:
+---
+
+##### **11.7 📤 Axios POST, PUT, PATCH, DELETE**
+
+- 📝 POST:
   ```javascript
-  axios.post('https://api.example.com/users', {
-    name: 'John Doe',
-    email: 'john@example.com'
-  }, {
-    headers: {
-      'Authorization': 'Bearer token123'
-    }
-  })
-    .then(response => console.log('Created:', response.data))
-    .catch(error => console.error('Error:', error))
+  axios.post("/api/users", { name: "John", email: "john@example.com" });
   ```
 - 📝 PUT/PATCH/DELETE:
   ```javascript
-  // PUT
-  axios.put('https://api.example.com/users/123', {
-    name: 'John Updated',
-    email: 'john@example.com',
-    role: 'admin'
-  })
-  
-  // PATCH
-  axios.patch('https://api.example.com/users/123', {
-    name: 'John Modified'
-  })
-  
-  // DELETE
-  axios.delete('https://api.example.com/users/123')
+  axios.put("/api/users/123", { name: "Updated" });
+  axios.patch("/api/users/123", { name: "Modified" });
+  axios.delete("/api/users/123");
   ```
 - 📝 Multiple Requests:
   ```javascript
-  Promise.all([
-    axios.get('/api/users'),
-    axios.get('/api/posts'),
-    axios.get('/api/comments')
-  ]).then(([users, posts, comments]) => {
-    console.log('Users:', users.data)
-    console.log('Posts:', posts.data)
-    console.log('Comments:', comments.data)
-  })
+  Promise.all([axios.get("/api/users"), axios.get("/api/posts")]).then(
+    ([users, posts]) => {
+      console.log(users.data, posts.data);
+    },
+  );
   ```
 
-##### 11.8 ⚙️ Axios Configuration
+---
+
+##### **11.8 ⚙️ Axios Configuration**
+
 - 📝 Creating an Instance:
+
   ```javascript
-  // services/api.js
-  import axios from 'axios'
-  
   const api = axios.create({
-    baseURL: 'https://api.example.com',
+    baseURL: "https://api.example.com",
     timeout: 10000,
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-  
-  export default api
+    headers: { "Content-Type": "application/json" },
+  });
+
+  export default api;
   ```
+
 - 📝 Global Configuration:
   ```javascript
-  axios.defaults.baseURL = 'https://api.example.com'
-  axios.defaults.headers.common['Authorization'] = 'Bearer token123'
-  axios.defaults.headers.post['Content-Type'] = 'application/json'
-  axios.defaults.timeout = 5000
+  axios.defaults.baseURL = "https://api.example.com";
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   ```
 
-##### 11.9 🔧 Axios Interceptors
-- 📝 Request Interceptors:
+---
+
+##### **11.9 🔧 Axios Interceptors**
+
+- 📝 Request Interceptor (add auth token):
   ```javascript
-  // Add token to every request
-  axios.interceptors.request.use(
-    config => {
-      const token = localStorage.getItem('token')
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`
-      }
-      console.log('Request:', config)
-      return config
-    },
-    error => {
-      return Promise.reject(error)
-    }
-  )
+  axios.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  });
   ```
-- 📝 Response Interceptors:
+- 📝 Response Interceptor (handle 401):
   ```javascript
-  // Handle responses globally
   axios.interceptors.response.use(
-    response => {
-      // Any status code within 2xx
-      console.log('Response:', response)
-      return response
-    },
-    error => {
-      // Any status codes outside 2xx
+    (response) => response,
+    (error) => {
       if (error.response?.status === 401) {
-        // Unauthorized - redirect to login
-        window.location.href = '/login'
+        window.location.href = "/login";
       }
-      if (error.response?.status === 500) {
-        // Server error - show notification
-        toast.error('Server error. Please try again later.')
-      }
-      return Promise.reject(error)
-    }
-  )
-  ```
-- 📝 Removing Interceptors:
-  ```javascript
-  const myInterceptor = axios.interceptors.request.use(config => {
-    // ...
-  })
-  
-  axios.interceptors.request.eject(myInterceptor)
+      return Promise.reject(error);
+    },
+  );
   ```
 
-##### 11.10 🎯 Error Handling in Axios
+---
+
+##### **11.10 🎯 Error Handling in Axios**
+
 - 📝 Comprehensive Error Handling:
   ```javascript
-  axios.get('/api/users/123')
-    .then(response => {
-      console.log('Success:', response.data)
-    })
-    .catch(error => {
-      if (error.response) {
-        // Server responded with error status
-        console.log('Error Data:', error.response.data)
-        console.log('Error Status:', error.response.status)
-        console.log('Error Headers:', error.response.headers)
-      } else if (error.request) {
-        // Request made but no response
-        console.log('No response received:', error.request)
-      } else {
-        // Something happened in setup
-        console.log('Error:', error.message)
-      }
-      console.log('Error Config:', error.config)
-    })
-  ```
-- 📝 Custom Error Class:
-  ```javascript
-  class APIError extends Error {
-    constructor(message, status, data) {
-      super(message)
-      this.name = 'APIError'
-      this.status = status
-      this.data = data
-    }
-  }
-  
-  axios.get('/api/users').catch(error => {
+  axios.get("/api/users").catch((error) => {
     if (error.response) {
-      throw new APIError(
-        error.response.data.message,
-        error.response.status,
-        error.response.data
-      )
+      // Server responded with error
+      console.log(error.response.status, error.response.data);
+    } else if (error.request) {
+      // No response received
+      console.log("No response:", error.request);
+    } else {
+      // Request setup error
+      console.log("Error:", error.message);
     }
-    throw error
-  })
+  });
   ```
 
-##### 11.11 🔄 Request Cancellation
-- 📝 Axios CancelToken (legacy):
-  ```javascript
-  const CancelToken = axios.CancelToken
-  let cancel
-  
-  axios.get('/api/large-data', {
-    cancelToken: new CancelToken(c => {
-      cancel = c
-    })
-  }).catch(error => {
-    if (axios.isCancel(error)) {
-      console.log('Request cancelled:', error.message)
-    }
-  })
-  
-  // Cancel the request
-  cancel('Operation cancelled by user')
-  ```
+---
+
+##### **11.11 🔄 Request Cancellation**
+
 - 📝 AbortController (modern):
+
   ```javascript
-  const controller = new AbortController()
-  
-  axios.get('/api/large-data', {
-    signal: controller.signal
-  }).catch(error => {
-    if (error.name === 'CanceledError') {
-      console.log('Request cancelled')
-    }
-  })
-  
-  controller.abort()
+  const controller = new AbortController();
+
+  axios.get("/api/large-data", { signal: controller.signal }).catch((err) => {
+    if (err.name === "CanceledError") console.log("Cancelled");
+  });
+
+  controller.abort();
   ```
 
-##### 11.12 📊 Progress Tracking
+---
+
+##### **11.12 📊 Progress Tracking**
+
 - 📝 Upload Progress:
   ```javascript
-  axios.post('/api/upload', formData, {
-    onUploadProgress: progressEvent => {
-      const percentCompleted = Math.round(
-        (progressEvent.loaded * 100) / progressEvent.total
-      )
-      console.log(`Upload progress: ${percentCompleted}%`)
-      updateProgressBar(percentCompleted)
-    }
-  })
+  axios.post("/api/upload", formData, {
+    onUploadProgress: (progressEvent) => {
+      const percent = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total,
+      );
+      console.log(`Upload: ${percent}%`);
+    },
+  });
   ```
 - 📝 Download Progress:
   ```javascript
-  axios.get('/api/large-file', {
-    responseType: 'blob',
-    onDownloadProgress: progressEvent => {
-      const percentCompleted = Math.round(
-        (progressEvent.loaded * 100) / progressEvent.total
-      )
-      console.log(`Download progress: ${percentCompleted}%`)
-    }
-  })
+  axios.get("/api/large-file", {
+    responseType: "blob",
+    onDownloadProgress: (progressEvent) => {
+      const percent = Math.round(
+        (progressEvent.loaded * 100) / progressEvent.total,
+      );
+      console.log(`Download: ${percent}%`);
+    },
+  });
   ```
 
-##### 11.13 🔐 Authentication Patterns
+---
+
+##### **11.13 🔐 Authentication Patterns**
+
 - 📝 JWT Authentication:
+
   ```javascript
   // Login
   const login = async (email, password) => {
-    try {
-      const response = await axios.post('/api/auth/login', {
-        email,
-        password
-      })
-      
-      const { token, user } = response.data
-      localStorage.setItem('token', token)
-      
-      // Set default header for future requests
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      
-      return { success: true, user }
-    } catch (error) {
-      return { success: false, error: error.response?.data?.message }
-    }
-  }
-  
+    const { data } = await axios.post("/api/auth/login", { email, password });
+    localStorage.setItem("token", data.token);
+    axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+    return data.user;
+  };
+
   // Logout
   const logout = () => {
-    localStorage.removeItem('token')
-    delete axios.defaults.headers.common['Authorization']
-  }
-  ```
-- 📝 Token Refresh:
-  ```javascript
-  let isRefreshing = false
-  let failedQueue = []
-  
-  const processQueue = (error, token = null) => {
-    failedQueue.forEach(prom => {
-      if (error) {
-        prom.reject(error)
-      } else {
-        prom.resolve(token)
-      }
-    })
-    failedQueue = []
-  }
-  
-  axios.interceptors.response.use(
-    response => response,
-    async error => {
-      const originalRequest = error.config
-      
-      if (error.response?.status === 401 && !originalRequest._retry) {
-        if (isRefreshing) {
-          return new Promise((resolve, reject) => {
-            failedQueue.push({ resolve, reject })
-          })
-            .then(token => {
-              originalRequest.headers['Authorization'] = `Bearer ${token}`
-              return axios(originalRequest)
-            })
-            .catch(err => Promise.reject(err))
-        }
-        
-        originalRequest._retry = true
-        isRefreshing = true
-        
-        try {
-          const refreshToken = localStorage.getItem('refreshToken')
-          const response = await axios.post('/api/auth/refresh', {
-            refreshToken
-          })
-          
-          const { token } = response.data
-          localStorage.setItem('token', token)
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-          
-          processQueue(null, token)
-          return axios(originalRequest)
-        } catch (refreshError) {
-          processQueue(refreshError, null)
-          // Redirect to login
-          window.location.href = '/login'
-          return Promise.reject(refreshError)
-        } finally {
-          isRefreshing = false
-        }
-      }
-      
-      return Promise.reject(error)
-    }
-  )
+    localStorage.removeItem("token");
+    delete axios.defaults.headers.common["Authorization"];
+  };
   ```
 
-##### 11.14 🚀 React with Fetch/Axios
-- 📝 Custom useFetch Hook:
+- 📝 Token Refresh Interceptor (401 handling with refresh token)
+
+---
+
+##### **11.14 🚀 React with Fetch/Axios**
+
+- 📝 Custom `useFetch` Hook:
   ```javascript
-  // hooks/useFetch.js
-  import { useState, useEffect } from 'react'
-  
-  function useFetch(url, options = {}) {
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    
+  function useFetch(url) {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-      const abortController = new AbortController()
-      
-      const fetchData = async () => {
-        try {
-          setLoading(true)
-          const response = await fetch(url, {
-            ...options,
-            signal: abortController.signal
-          })
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
-          }
-          
-          const result = await response.json()
-          setData(result)
-          setError(null)
-        } catch (err) {
-          if (err.name !== 'AbortError') {
-            setError(err.message)
-          }
-        } finally {
-          setLoading(false)
-        }
-      }
-      
-      fetchData()
-      
-      return () => abortController.abort()
-    }, [url])
-    
-    return { data, loading, error }
-  }
-  
-  // Usage
-  function UsersList() {
-    const { data: users, loading, error } = useFetch('/api/users')
-    
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-    
-    return (
-      <ul>
-        {users?.map(user => <li key={user.id}>{user.name}</li>)}
-      </ul>
-    )
+      const controller = new AbortController();
+
+      fetch(url, { signal: controller.signal })
+        .then((res) => res.json())
+        .then(setData)
+        .catch(setError)
+        .finally(() => setLoading(false));
+
+      return () => controller.abort();
+    }, [url]);
+
+    return { data, loading, error };
   }
   ```
-- 📝 Axios in React:
+- 📝 Axios Service Pattern:
+
   ```javascript
   // services/userService.js
-  import api from './api'
-  
+  import api from "./api";
+
   export const userService = {
-    getAll: () => api.get('/users'),
+    getAll: () => api.get("/users"),
     getById: (id) => api.get(`/users/${id}`),
-    create: (data) => api.post('/users', data),
+    create: (data) => api.post("/users", data),
     update: (id, data) => api.put(`/users/${id}`, data),
     delete: (id) => api.delete(`/users/${id}`),
-    updatePartial: (id, data) => api.patch(`/users/${id}`, data)
-  }
-  
-  // components/UserManager.jsx
-  import { useState, useEffect } from 'react'
-  import { userService } from '../services/userService'
-  
-  function UserManager() {
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    
-    useEffect(() => {
-      loadUsers()
-    }, [])
-    
-    const loadUsers = async () => {
-      try {
-        setLoading(true)
-        const response = await userService.getAll()
-        setUsers(response.data)
-        setError(null)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-    
-    const createUser = async (userData) => {
-      try {
-        const response = await userService.create(userData)
-        setUsers(prev => [...prev, response.data])
-        return { success: true }
-      } catch (err) {
-        return { success: false, error: err.message }
-      }
-    }
-    
-    const deleteUser = async (id) => {
-      try {
-        await userService.delete(id)
-        setUsers(prev => prev.filter(user => user.id !== id))
-        return { success: true }
-      } catch (err) {
-        return { success: false, error: err.message }
-      }
-    }
-    
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-    
-    return (
-      <div>
-        {/* User list UI */}
-      </div>
-    )
-  }
+  };
   ```
 
-##### 11.15 📦 React Query (TanStack Query)
-- 📝 Introduction to React Query:
+---
+
+##### **11.15 📦 React Query (TanStack Query)**
+
+- 📝 Introduction (more in Stage 17)
+- 📝 Setup:
   ```bash
   npm install @tanstack/react-query
   ```
-- 📝 Setup:
+- 📝 Basic Query:
+
   ```javascript
-  // App.jsx
-  import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-  import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-  
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 5 * 60 * 1000, // 5 minutes
-        cacheTime: 10 * 60 * 1000, // 10 minutes
-        retry: 1,
-        refetchOnWindowFocus: false
-      }
-    }
-  })
-  
-  function App() {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <YourApp />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    )
-  }
-  ```
-- 📝 Basic Queries:
-  ```javascript
-  import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-  import { userService } from '../services/userService'
-  
+  import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
   function UsersList() {
-    const queryClient = useQueryClient()
-    
-    // Query
-    const { data: users, isLoading, error } = useQuery({
-      queryKey: ['users'],
-      queryFn: userService.getAll,
-      select: (response) => response.data
-    })
-    
-    // Mutation
+    const queryClient = useQueryClient();
+
+    const { data: users, isLoading } = useQuery({
+      queryKey: ["users"],
+      queryFn: () => axios.get("/api/users").then((res) => res.data),
+    });
+
     const createMutation = useMutation({
-      mutationFn: userService.create,
-      onSuccess: () => {
-        // Invalidate and refetch
-        queryClient.invalidateQueries({ queryKey: ['users'] })
-        toast.success('User created successfully')
-      },
-      onError: (error) => {
-        toast.error(`Error: ${error.message}`)
-      }
-    })
-    
-    const deleteMutation = useMutation({
-      mutationFn: userService.delete,
-      onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ['users'] })
-        toast.success('User deleted successfully')
-      }
-    })
-    
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
-    
-    return (
-      <div>
-        <button 
-          onClick={() => createMutation.mutate({ name: 'New User' })}
-          disabled={createMutation.isLoading}
-        >
-          Add User
-        </button>
-        
-        <ul>
-          {users?.map(user => (
-            <li key={user.id}>
-              {user.name}
-              <button onClick={() => deleteMutation.mutate(user.id)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
+      mutationFn: (newUser) => axios.post("/api/users", newUser),
+      onSuccess: () => queryClient.invalidateQueries(["users"]),
+    });
+
+    // ...
   }
   ```
 
-##### 11.16 🔄 Pagination and Infinite Scroll
-- 📝 Pagination with React Query:
-  ```javascript
-  function PaginatedUsers() {
-    const [page, setPage] = useState(1)
-    
-    const { data, isLoading } = useQuery({
-      queryKey: ['users', page],
-      queryFn: () => axios.get(`/api/users?page=${page}&limit=10`),
-      keepPreviousData: true
-    })
-    
-    return (
-      <div>
-        {data?.data.map(user => <UserCard key={user.id} user={user} />)}
-        
-        <div className="pagination">
-          <button
-            onClick={() => setPage(p => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            Previous
-          </button>
-          <span>Page {page}</span>
-          <button
-            onClick={() => setPage(p => p + 1)}
-            disabled={!data?.hasNextPage}
-          >
-            Next
-          </button>
-        </div>
-      </div>
-    )
-  }
-  ```
-- 📝 Infinite Scroll:
-  ```javascript
-  import { useInfiniteQuery } from '@tanstack/react-query'
-  
-  function InfiniteUsers() {
-    const {
-      data,
-      fetchNextPage,
-      hasNextPage,
-      isFetchingNextPage
-    } = useInfiniteQuery({
-      queryKey: ['users'],
-      queryFn: ({ pageParam = 1 }) => 
-        axios.get(`/api/users?page=${pageParam}&limit=10`),
-      getNextPageParam: (lastPage, allPages) => {
-        return lastPage.data.length ? allPages.length + 1 : undefined
-      }
-    })
-    
-    return (
-      <div>
-        {data?.pages.map(page => (
-          <React.Fragment key={page.page}>
-            {page.data.map(user => <UserCard key={user.id} user={user} />)}
-          </React.Fragment>
-        ))}
-        
-        <button
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          {isFetchingNextPage
-            ? 'Loading more...'
-            : hasNextPage
-            ? 'Load More'
-            : 'No more users'}
-        </button>
-      </div>
-    )
-  }
-  ```
+---
 
-##### 11.17 🧪 Testing HTTP Requests
+##### **11.16 🧪 Testing HTTP Requests**
+
 - 📝 Mocking Fetch:
+
   ```javascript
-  // users.test.js
-  import { render, screen, waitFor } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import UsersList from './UsersList'
-  
-  global.fetch = jest.fn()
-  
-  beforeEach(() => {
-    fetch.mockClear()
-  })
-  
-  test('loads and displays users', async () => {
-    const mockUsers = [
-      { id: 1, name: 'John' },
-      { id: 2, name: 'Jane' }
-    ]
-    
+  global.fetch = jest.fn();
+
+  test("fetches users", async () => {
     fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => mockUsers
-    })
-    
-    render(<UsersList />)
-    
-    expect(screen.getByText('Loading...')).toBeInTheDocument()
-    
-    await waitFor(() => {
-      expect(screen.getByText('John')).toBeInTheDocument()
-      expect(screen.getByText('Jane')).toBeInTheDocument()
-    })
-    
-    expect(fetch).toHaveBeenCalledTimes(1)
-    expect(fetch).toHaveBeenCalledWith('/api/users')
-  })
-  
-  test('handles error', async () => {
-    fetch.mockRejectedValueOnce(new Error('Network error'))
-    
-    render(<UsersList />)
-    
-    await waitFor(() => {
-      expect(screen.getByText('Error: Network error')).toBeInTheDocument()
-    })
-  })
+      json: async () => [{ id: 1, name: "John" }],
+    });
+
+    render(<UsersList />);
+    await waitFor(() => expect(screen.getByText("John")).toBeInTheDocument());
+  });
   ```
+
 - 📝 Mocking Axios:
+
   ```javascript
-  // users.test.js
-  import axios from 'axios'
-  import { render, screen, waitFor } from '@testing-library/react'
-  import UsersList from './UsersList'
-  
-  jest.mock('axios')
-  
-  test('fetches users successfully', async () => {
-    const mockUsers = { data: [{ id: 1, name: 'John' }] }
-    axios.get.mockResolvedValueOnce(mockUsers)
-    
-    render(<UsersList />)
-    
-    await waitFor(() => {
-      expect(screen.getByText('John')).toBeInTheDocument()
-    })
-    
-    expect(axios.get).toHaveBeenCalledWith('/api/users')
-  })
-  
-  test('handles error', async () => {
-    axios.get.mockRejectedValueOnce(new Error('Network error'))
-    
-    render(<UsersList />)
-    
-    await waitFor(() => {
-      expect(screen.getByText('Error: Network error')).toBeInTheDocument()
-    })
-  })
+  jest.mock("axios");
+
+  test("fetches users", async () => {
+    axios.get.mockResolvedValueOnce({ data: [{ id: 1, name: "John" }] });
+    // ...
+  });
   ```
 
-##### 11.18 🔒 Security Best Practices
+---
+
+##### **11.17 🔒 Security Best Practices**
+
 - 📝 HTTPS Only
-- 📝 Sanitize Input:
-  ```javascript
-  // Never trust user input directly
-  const searchUsers = async (query) => {
-    // Sanitize query
-    const sanitized = query.replace(/[<>]/g, '')
-    return axios.get(`/api/users?search=${encodeURIComponent(sanitized)}`)
-  }
-  ```
-- 📝 CSRF Protection:
-  ```javascript
-  // Get CSRF token from cookie/meta
-  const csrfToken = document.querySelector('meta[name="csrf-token"]').content
-  
-  axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
-  ```
-- 📝 Rate Limiting:
-  ```javascript
-  // Implement request queuing/throttling
-  class RateLimiter {
-    constructor(maxRequests, perMilliseconds) {
-      this.maxRequests = maxRequests
-      this.perMilliseconds = perMilliseconds
-      this.queue = []
-      this.tokens = maxRequests
-      this.lastRefill = Date.now()
-    }
-    
-    async acquire() {
-      this.refill()
-      
-      if (this.tokens > 0) {
-        this.tokens--
-        return true
-      }
-      
-      // Wait for token
-      await new Promise(resolve => 
-        setTimeout(resolve, this.perMilliseconds / this.maxRequests)
-      )
-      return this.acquire()
-    }
-    
-    refill() {
-      const now = Date.now()
-      const timePassed = now - this.lastRefill
-      const refillTokens = Math.floor(
-        timePassed * (this.maxRequests / this.perMilliseconds)
-      )
-      
-      if (refillTokens > 0) {
-        this.tokens = Math.min(this.maxRequests, this.tokens + refillTokens)
-        this.lastRefill = now
-      }
-    }
-  }
-  ```
+- 📝 Sanitize Input: `encodeURIComponent(query)`
+- 📝 CSRF Protection: `X-CSRF-Token` header
+- 📝 Never store sensitive data in URLs
+- 📝 Use environment variables for API keys
 
-##### 11.19 🚀 Performance Optimization
-- 📝 Request Caching:
-  ```javascript
-  // Simple cache implementation
-  const cache = new Map()
-  
-  async function fetchWithCache(url, ttl = 60000) {
-    const cached = cache.get(url)
-    if (cached && Date.now() - cached.timestamp < ttl) {
-      return cached.data
-    }
-    
-    const response = await fetch(url)
-    const data = await response.json()
-    
-    cache.set(url, {
-      data,
-      timestamp: Date.now()
-    })
-    
-    return data
-  }
-  ```
+---
+
+##### **11.18 🚀 Performance Optimization**
+
+- 📝 Request Caching
 - 📝 Debouncing Search:
   ```javascript
-  import { debounce } from 'lodash'
-  
-  function SearchUsers() {
-    const [results, setResults] = useState([])
-    
-    const debouncedSearch = useMemo(
-      () => debounce(async (query) => {
-        if (query.length < 2) return
-        
-        const { data } = await axios.get(`/api/users?search=${query}`)
-        setResults(data)
+  const debouncedSearch = useMemo(
+    () =>
+      debounce(async (q) => {
+        const { data } = await axios.get(`/api/search?q=${q}`);
+        setResults(data);
       }, 500),
-      []
-    )
-    
-    useEffect(() => {
-      return () => {
-        debouncedSearch.cancel()
-      }
-    }, [debouncedSearch])
-    
-    return (
-      <div>
-        <input
-          type="text"
-          onChange={(e) => debouncedSearch(e.target.value)}
-          placeholder="Search users..."
-        />
-        {/* Results */}
-      </div>
-    )
-  }
+    [],
+  );
   ```
-- 📝 Request Deduplication:
-  ```javascript
-  const pendingRequests = new Map()
-  
-  async function dedupedFetch(url) {
-    if (pendingRequests.has(url)) {
-      return pendingRequests.get(url)
-    }
-    
-    const promise = fetch(url).then(response => response.json())
-    pendingRequests.set(url, promise)
-    
-    try {
-      return await promise
-    } finally {
-      pendingRequests.delete(url)
-    }
-  }
-  ```
+- 📝 Request Deduplication (pending requests map)
+- 📝 Pagination for large datasets
 
-##### 11.20 💻 Practical Projects
+---
+
+##### **11.19 💻 Practical Projects**
+
 - 🏗️ User Management Dashboard with CRUD
 - 📝 Blog Platform with Posts and Comments
 - 🌤️ Weather App with API Integration
@@ -6004,891 +5849,301 @@ src/
 
 ---
 
-## 🎯 STAGE 12 — Tailwind CSS (Utility CSS Framework)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 12 — TAILWIND CSS (Utility CSS Framework)
+
 **Goal**: Master Tailwind CSS for rapid, maintainable, and responsive UI development.
-**Time**: 25 soat | 12 dars
+**Time**: 30 soat | 12 dars
 
-#### 📚 Topics
+---
 
-##### 12.1 🎨 Introduction to Tailwind CSS
-- 🤔 What is Tailwind CSS?
-- 📜 Utility-First CSS Philosophy
-- 🎯 Why Tailwind? (Advantages)
+#### 📚 **Topics**
+
+##### **12.1 🎨 Introduction to Tailwind CSS**
+
+- 🤔 What is Tailwind CSS? (Utility-first CSS framework)
+- 📜 Utility-First Philosophy (vs semantic CSS)
+- 🎯 Why Tailwind?
   - No context switching
   - Consistent design system
-  - Small production bundle
+  - Small production bundle (purge)
   - No naming conventions
   - Responsive by default
 - 🔄 Tailwind vs Traditional CSS vs CSS-in-JS
-- 📦 Installation Options:
+- 📦 Installation:
   ```bash
-  # Using npm
   npm install -D tailwindcss postcss autoprefixer
   npx tailwindcss init -p
-  
-  # Using CDN (for prototyping only)
-  <script src="https://cdn.tailwindcss.com"></script>
   ```
 
-##### 12.2 ⚙️ Tailwind Configuration
-- 📝 tailwind.config.js:
+---
+
+##### **12.2 ⚙️ Tailwind Configuration**
+
+- 📝 `tailwind.config.js`:
   ```javascript
-  /** @type {import('tailwindcss').Config} */
   module.exports = {
-    content: [
-      "./index.html",
-      "./src/**/*.{js,ts,jsx,tsx}",
-    ],
+    content: ["./src/**/*.{js,jsx,ts,tsx,html}"],
     theme: {
       extend: {
         colors: {
-          primary: {
-            50: '#eff6ff',
-            100: '#dbeafe',
-            500: '#3b82f6',
-            600: '#2563eb',
-            700: '#1d4ed8',
-          },
-          secondary: {
-            500: '#10b981',
-          }
+          primary: { 500: "#3b82f6", 600: "#2563eb" },
         },
-        fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif'],
-          mono: ['Fira Code', 'monospace'],
-        },
-        spacing: {
-          '128': '32rem',
-          '144': '36rem',
-        },
-        borderRadius: {
-          'xl': '1rem',
-          '2xl': '1.5rem',
-        },
-        animation: {
-          'spin-slow': 'spin 3s linear infinite',
-          'bounce-slow': 'bounce 2s infinite',
-        }
+        fontFamily: { sans: ["Inter", "sans-serif"] },
+        animation: { "spin-slow": "spin 3s linear infinite" },
       },
     },
     plugins: [
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/aspect-ratio'),
+      require("@tailwindcss/forms"),
+      require("@tailwindcss/typography"),
     ],
-  }
+  };
   ```
-- 📝 postcss.config.js:
-  ```javascript
-  module.exports = {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  }
-  ```
-- 📝 main.css:
+- 📝 `main.css`:
+
   ```css
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
-  
-  @layer base {
-    h1 {
-      @apply text-2xl font-bold;
-    }
-    h2 {
-      @apply text-xl font-semibold;
-    }
-  }
-  
+
   @layer components {
     .btn-primary {
-      @apply px-4 py-2 bg-primary-500 text-white rounded-lg 
-             hover:bg-primary-600 transition-colors duration-200;
-    }
-  }
-  
-  @layer utilities {
-    .text-shadow {
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600;
     }
   }
   ```
 
-##### 12.3 📦 Core Concepts
-- 📝 Utility Classes Structure:
+---
+
+##### **12.3 📦 Core Concepts**
+
+- 📝 Utility Classes: `{property}-{value}`
   ```html
-  <!-- Format: {property}-{value} -->
-  <div class="
-    text-center     <!-- text-align: center -->
-    bg-blue-500     <!-- background-color: blue-500 -->
-    p-4            <!-- padding: 1rem -->
-    m-2            <!-- margin: 0.5rem -->
-    rounded-lg     <!-- border-radius: 0.5rem -->
-  ">
-    Content
+  <div class="text-center bg-blue-500 p-4 m-2 rounded-lg">Content</div>
+  ```
+- 📝 Responsive: `{breakpoint}:{utility}`
+  ```html
+  <div class="text-sm md:text-lg lg:text-xl w-full md:w-1/2 lg:w-1/3">
+    Responsive
   </div>
   ```
-- 📝 Responsive Design:
+- 📝 States: `{state}:{utility}`
   ```html
-  <!-- Format: {breakpoint}:{utility} -->
-  <div class="
-    text-base        <!-- Mobile: base text -->
-    md:text-lg       <!-- Tablet: larger text -->
-    lg:text-xl       <!-- Desktop: extra large text -->
-    w-full           <!-- Mobile: full width -->
-    md:w-1/2         <!-- Tablet: half width -->
-    lg:w-1/3         <!-- Desktop: one-third width -->
-  ">
-    Responsive content
-  </div>
-  ```
-- 📝 Hover, Focus, Active States:
-  ```html
-  <button class="
-    bg-blue-500
-    hover:bg-blue-600        <!-- On hover -->
-    focus:outline-none       <!-- On focus -->
-    focus:ring-2             <!-- On focus -->
-    focus:ring-blue-300      <!-- On focus -->
-    active:bg-blue-700       <!-- On click/active -->
-    disabled:opacity-50      <!-- When disabled -->
-  ">
-    Click me
+  <button
+    class="bg-blue-500 hover:bg-blue-600 focus:ring-2 active:bg-blue-700 disabled:opacity-50"
+  >
+    Click
   </button>
   ```
 
-##### 12.4 📏 Layout and Spacing
-- 📝 Container and Width:
-  ```html
-  <!-- Container with max-width -->
-  <div class="container mx-auto px-4">
-    <!-- Centered content with padding -->
-  </div>
-  
-  <!-- Width utilities -->
-  <div class="w-0 w-px w-0.5 w-1 w-2 w-4 w-8 w-12 w-16 w-20 w-24"></div>
-  <div class="w-1/2 w-1/3 w-2/3 w-1/4 w-3/4 w-full w-screen w-min w-max"></div>
-  ```
-- 📝 Height Utilities:
-  ```html
-  <div class="h-0 h-px h-0.5 h-1 h-2 h-4 h-8 h-12 h-16 h-20 h-24"></div>
-  <div class="h-1/2 h-1/3 h-2/3 h-1/4 h-3/4 h-full h-screen h-min h-max"></div>
-  ```
-- 📝 Padding and Margin:
-  ```html
-  <!-- Padding: p{t|r|b|l|x|y}-{size} -->
-  <div class="p-4">All sides</div>
-  <div class="pt-4">Top</div>
-  <div class="pr-4">Right</div>
-  <div class="pb-4">Bottom</div>
-  <div class="pl-4">Left</div>
-  <div class="px-4">Left + Right</div>
-  <div class="py-4">Top + Bottom</div>
-  
-  <!-- Margin: same pattern -->
-  <div class="m-4 mt-4 mr-4 mb-4 ml-4 mx-4 my-4"></div>
-  <div class="-mt-4">Negative margin</div>
-  ```
+---
+
+##### **12.4 📏 Layout and Spacing**
+
+- 📝 Width/Height: `w-{size}`, `h-{size}`
+  - `w-1/2`, `w-full`, `w-screen`, `w-min`, `w-max`
+- 📝 Padding/Margin: `p-{size}`, `m-{size}`
+  - `pt-4`, `pr-4`, `pb-4`, `pl-4`, `px-4`, `py-4`
 - 📝 Space Between:
   ```html
   <div class="space-y-4">
-    <!-- Vertical spacing between children -->
-    <div>Item 1</div>
-    <div>Item 2</div>
-    <div>Item 3</div>
-  </div>
-  
-  <div class="space-x-4">
-    <!-- Horizontal spacing between children -->
-    <span>Item 1</span>
-    <span>Item 2</span>
-    <span>Item 3</span>
+    <!-- vertical spacing -->
+    <div class="space-x-4"><!-- horizontal spacing --></div>
   </div>
   ```
 
-##### 12.5 🎨 Colors and Backgrounds
-- 📝 Text Colors:
-  ```html
-  <p class="text-gray-500">Gray text</p>
-  <p class="text-red-600">Red text</p>
-  <p class="text-blue-700">Blue text</p>
-  <p class="text-green-500">Green text</p>
-  <p class="text-yellow-500">Yellow text</p>
-  <p class="text-purple-500">Purple text</p>
-  <p class="text-pink-500">Pink text</p>
-  <p class="text-indigo-500">Indigo text</p>
-  
-  <!-- Opacity -->
-  <p class="text-black/50">50% opacity</p>
-  <p class="text-black/75">75% opacity</p>
-  ```
-- 📝 Background Colors:
-  ```html
-  <div class="bg-gray-100">Light gray</div>
-  <div class="bg-blue-500">Blue background</div>
-  <div class="bg-gradient-to-r from-blue-500 to-purple-500">
-    Gradient background
-  </div>
-  <div class="bg-[#ff0000]">Custom color with arbitrary value</div>
-  ```
-- 📝 Background Images:
-  ```html
-  <div class="bg-cover bg-center" style="background-image: url('/image.jpg')">
-    Content
-  </div>
-  
-  <!-- Or with arbitrary value -->
-  <div class="bg-[url('/image.jpg')] bg-cover"></div>
-  ```
+---
 
-##### 12.6 ✍️ Typography
-- 📝 Font Size:
-  ```html
-  <p class="text-xs">Extra small</p>
-  <p class="text-sm">Small</p>
-  <p class="text-base">Base (default)</p>
-  <p class="text-lg">Large</p>
-  <p class="text-xl">Extra large</p>
-  <p class="text-2xl">2xl</p>
-  <p class="text-3xl">3xl</p>
-  <p class="text-4xl">4xl</p>
-  <p class="text-5xl">5xl</p>
-  <p class="text-6xl">6xl</p>
-  <p class="text-7xl">7xl</p>
-  <p class="text-8xl">8xl</p>
-  <p class="text-9xl">9xl</p>
-  ```
-- 📝 Font Weight:
-  ```html
-  <p class="font-thin">Thin (100)</p>
-  <p class="font-light">Light (300)</p>
-  <p class="font-normal">Normal (400)</p>
-  <p class="font-medium">Medium (500)</p>
-  <p class="font-semibold">Semibold (600)</p>
-  <p class="font-bold">Bold (700)</p>
-  <p class="font-extrabold">Extrabold (800)</p>
-  <p class="font-black">Black (900)</p>
-  ```
-- 📝 Text Alignment:
-  ```html
-  <p class="text-left">Left aligned</p>
-  <p class="text-center">Center aligned</p>
-  <p class="text-right">Right aligned</p>
-  <p class="text-justify">Justified</p>
-  ```
-- 📝 Text Decoration:
-  ```html
-  <p class="underline">Underlined</p>
-  <p class="line-through">Line through</p>
-  <p class="overline">Overline</p>
-  <p class="no-underline">No underline</p>
-  ```
-- 📝 Line Height:
-  ```html
-  <p class="leading-none">None (1)</p>
-  <p class="leading-tight">Tight (1.25)</p>
-  <p class="leading-snug">Snug (1.375)</p>
-  <p class="leading-normal">Normal (1.5)</p>
-  <p class="leading-relaxed">Relaxed (1.625)</p>
-  <p class="leading-loose">Loose (2)</p>
-  ```
+##### **12.5 🎨 Colors**
 
-##### 12.7 📐 Flexbox with Tailwind
-- 📝 Flex Container:
+- 📝 Text: `text-{color}-{shade}`
   ```html
-  <div class="flex">Flex container</div>
-  <div class="inline-flex">Inline flex container</div>
-  
-  <!-- Direction -->
-  <div class="flex flex-row">Row (default)</div>
-  <div class="flex flex-row-reverse">Row reverse</div>
-  <div class="flex flex-col">Column</div>
-  <div class="flex flex-col-reverse">Column reverse</div>
+  <p class="text-gray-500 text-red-600 text-blue-700 text-black/50"></p>
   ```
-- 📝 Justify Content:
+- 📝 Background: `bg-{color}-{shade}`
   ```html
-  <div class="flex justify-start">Start</div>
-  <div class="flex justify-end">End</div>
-  <div class="flex justify-center">Center</div>
-  <div class="flex justify-between">Space between</div>
-  <div class="flex justify-around">Space around</div>
-  <div class="flex justify-evenly">Space evenly</div>
+  <div
+    class="bg-gray-100 bg-blue-500 bg-gradient-to-r from-blue-500 to-purple-500"
+  ></div>
   ```
-- 📝 Align Items:
-  ```html
-  <div class="flex items-start">Start</div>
-  <div class="flex items-end">End</div>
-  <div class="flex items-center">Center</div>
-  <div class="flex items-baseline">Baseline</div>
-  <div class="flex items-stretch">Stretch (default)</div>
-  ```
-- 📝 Flex Item Properties:
-  ```html
-  <div class="flex-1">Flex: 1 1 0%</div>
-  <div class="flex-auto">Flex: 1 1 auto</div>
-  <div class="flex-initial">Flex: 0 1 auto</div>
-  <div class="flex-none">Flex: 0 0 auto</div>
-  
-  <!-- Grow and shrink -->
-  <div class="grow">Grow</div>
-  <div class="grow-0">Don't grow</div>
-  <div class="shrink">Shrink</div>
-  <div class="shrink-0">Don't shrink</div>
-  ```
+- 📝 Arbitrary Values: `bg-[#ff0000]`, `text-[22px]`
 
-##### 12.8 📐 Grid with Tailwind
-- 📝 Grid Container:
-  ```html
-  <div class="grid">Grid container</div>
-  <div class="inline-grid">Inline grid</div>
-  
-  <!-- Template columns -->
-  <div class="grid grid-cols-1">1 column</div>
-  <div class="grid grid-cols-2">2 columns</div>
-  <div class="grid grid-cols-3">3 columns</div>
-  <div class="grid grid-cols-4">4 columns</div>
-  <div class="grid grid-cols-6">6 columns</div>
-  <div class="grid grid-cols-12">12 columns</div>
-  ```
-- 📝 Gap:
-  ```html
-  <div class="grid gap-4">Gap on all sides</div>
-  <div class="grid gap-x-4">Horizontal gap</div>
-  <div class="grid gap-y-4">Vertical gap</div>
-  ```
-- 📝 Spanning Columns:
-  ```html
-  <div class="grid grid-cols-3">
-    <div class="col-span-1">Spans 1 column</div>
-    <div class="col-span-2">Spans 2 columns</div>
-    <div class="col-span-3">Spans 3 columns</div>
-    <div class="col-start-2 col-end-4">Start at 2, end at 4</div>
-  </div>
-  ```
-- 📝 Grid Template Areas:
-  ```html
-  <div class="grid grid-areas-layout">
-    <header class="grid-in-header">Header</header>
-    <nav class="grid-in-nav">Navigation</nav>
-    <main class="grid-in-main">Main content</main>
-    <aside class="grid-in-aside">Sidebar</aside>
-    <footer class="grid-in-footer">Footer</footer>
-  </div>
-  
-  <style>
-    .grid-areas-layout {
-      grid-template-areas: 
-        "header header header"
-        "nav main aside"
-        "footer footer footer";
-    }
-  </style>
-  ```
+---
 
-##### 12.9 🎭 Borders and Effects
-- 📝 Border Radius:
-  ```html
-  <div class="rounded-none">No rounding</div>
-  <div class="rounded-sm">Small rounding</div>
-  <div class="rounded">Default rounding</div>
-  <div class="rounded-md">Medium rounding</div>
-  <div class="rounded-lg">Large rounding</div>
-  <div class="rounded-xl">Extra large</div>
-  <div class="rounded-2xl">2xl</div>
-  <div class="rounded-3xl">3xl</div>
-  <div class="rounded-full">Full circle</div>
-  
-  <!-- Specific corners -->
-  <div class="rounded-t-lg">Top corners</div>
-  <div class="rounded-b-lg">Bottom corners</div>
-  <div class="rounded-l-lg">Left corners</div>
-  <div class="rounded-r-lg">Right corners</div>
-  ```
-- 📝 Borders:
-  ```html
-  <div class="border">Default border</div>
-  <div class="border-2 border-blue-500">2px blue border</div>
-  <div class="border-t-4 border-red-500">Top border only</div>
-  <div class="border-dashed">Dashed border</div>
-  <div class="border-dotted">Dotted border</div>
-  <div class="border-double">Double border</div>
-  <div class="border-none">No border</div>
-  ```
-- 📝 Shadows:
-  ```html
-  <div class="shadow-sm">Small shadow</div>
-  <div class="shadow">Default shadow</div>
-  <div class="shadow-md">Medium shadow</div>
-  <div class="shadow-lg">Large shadow</div>
-  <div class="shadow-xl">Extra large</div>
-  <div class="shadow-2xl">2xl shadow</div>
-  <div class="shadow-inner">Inner shadow</div>
-  <div class="shadow-none">No shadow</div>
-  ```
+##### **12.6 ✍️ Typography**
 
-##### 12.10 🔧 Interactive States
-- 📝 Hover, Focus, Active:
-  ```html
-  <button class="
-    bg-blue-500 hover:bg-blue-600
-    focus:outline-none focus:ring-2 focus:ring-blue-300
-    active:bg-blue-700
-    disabled:opacity-50 disabled:cursor-not-allowed
-  ">
-    Interactive button
-  </button>
-  
-  <a href="#" class="
-    text-blue-500 hover:text-blue-700
-    visited:text-purple-600
-  ">
-    Styled link
-  </a>
-  ```
+- 📝 Font Size: `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`... `text-9xl`
+- 📝 Font Weight: `font-thin`, `font-light`, `font-normal`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black`
+- 📝 Text Align: `text-left`, `text-center`, `text-right`, `text-justify`
+- 📝 Text Decoration: `underline`, `line-through`, `overline`, `no-underline`
+- 📝 Line Height: `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed`, `leading-loose`
+
+---
+
+##### **12.7 📐 Flexbox**
+
+- 📝 Container: `flex`, `inline-flex`
+- 📝 Direction: `flex-row`, `flex-col`, `flex-row-reverse`, `flex-col-reverse`
+- 📝 Justify: `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly`
+- 📝 Align: `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch`
+- 📝 Item: `flex-1`, `flex-auto`, `flex-initial`, `flex-none`, `grow`, `shrink`
+
+---
+
+##### **12.8 📐 Grid**
+
+- 📝 Container: `grid`, `inline-grid`
+- 📝 Columns: `grid-cols-1`, `grid-cols-2`, `grid-cols-3`, `grid-cols-4`, `grid-cols-6`, `grid-cols-12`
+- 📝 Gap: `gap-4`, `gap-x-4`, `gap-y-4`
+- 📝 Span: `col-span-1`, `col-span-2`, `col-span-3`, `col-start-2`, `col-end-4`
+
+---
+
+##### **12.9 🎭 Borders and Effects**
+
+- 📝 Border Radius: `rounded-none`, `rounded-sm`, `rounded`, `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`, `rounded-3xl`, `rounded-full`
+  - Specific: `rounded-t-lg`, `rounded-b-lg`, `rounded-l-lg`, `rounded-r-lg`
+- 📝 Border: `border`, `border-2`, `border-t-4`, `border-dashed`, `border-dotted`, `border-double`
+- 📝 Shadow: `shadow-sm`, `shadow`, `shadow-md`, `shadow-lg`, `shadow-xl`, `shadow-2xl`, `shadow-inner`
+
+---
+
+##### **12.10 🔧 Interactive States**
+
+- 📝 States: `hover:`, `focus:`, `active:`, `disabled:`, `visited:`
 - 📝 Group Hover:
   ```html
-  <div class="group relative">
-    <div class="group-hover:scale-105 transition">
-      Content that scales on parent hover
-    </div>
-    <div class="opacity-0 group-hover:opacity-100">
-      Hidden content that appears on hover
-    </div>
+  <div class="group">
+    <div class="group-hover:scale-105">Scales on parent hover</div>
+    <div class="opacity-0 group-hover:opacity-100">Appears on hover</div>
   </div>
   ```
 - 📝 Peer Modifiers:
   ```html
   <input type="checkbox" class="peer" />
-  <label class="peer-checked:bg-blue-500">
-    This label changes when checkbox is checked
-  </label>
+  <label class="peer-checked:bg-blue-500">Changes when checked</label>
   ```
 
-##### 12.11 📱 Responsive Design
+---
+
+##### **12.11 📱 Responsive Design**
+
 - 📝 Breakpoints:
-  ```html
-  <!-- Default (mobile): 0px+ -->
-  <!-- sm: 640px+ -->
-  <!-- md: 768px+ -->
-  <!-- lg: 1024px+ -->
-  <!-- xl: 1280px+ -->
-  <!-- 2xl: 1536px+ -->
-  
-  <div class="
-    text-sm         <!-- Mobile -->
-    sm:text-base    <!-- ≥640px -->
-    md:text-lg      <!-- ≥768px -->
-    lg:text-xl      <!-- ≥1024px -->
-    xl:text-2xl     <!-- ≥1280px -->
-    2xl:text-3xl    <!-- ≥1536px -->
-    
-    w-full          <!-- Mobile -->
-    sm:w-1/2        <!-- ≥640px -->
-    md:w-1/3        <!-- ≥768px -->
-    lg:w-1/4        <!-- ≥1024px -->
-  ">
-    Responsive text
-  </div>
-  ```
-- 📝 Container Queries:
-  ```html
-  <!-- Requires @tailwindcss/container-queries plugin -->
-  <div class="@container">
-    <div class="@lg:text-lg @xl:text-xl">
-      Responsive to container size
-    </div>
-  </div>
-  ```
+  - `sm:` → 640px+
+  - `md:` → 768px+
+  - `lg:` → 1024px+
+  - `xl:` → 1280px+
+  - `2xl:` → 1536px+
+- 📝 Mobile-first: default styles for mobile, add breakpoints for larger screens
 
-##### 12.12 🎨 Dark Mode
-- 📝 Configuration:
-  ```javascript
-  // tailwind.config.js
-  module.exports = {
-    darkMode: 'class', // or 'media' for system preference
-    // ...
-  }
-  ```
+---
+
+##### **12.12 🎨 Dark Mode**
+
+- 📝 Config: `darkMode: 'class'` (or `'media'`)
 - 📝 Usage:
   ```html
   <div class="bg-white dark:bg-gray-800 text-black dark:text-white">
-    <p class="text-gray-600 dark:text-gray-300">
-      Automatically switches in dark mode
-    </p>
-    
-    <button class="
-      bg-blue-500 dark:bg-blue-700
-      hover:bg-blue-600 dark:hover:bg-blue-800
-    ">
-      Dark mode aware button
-    </button>
+    <button
+      class="bg-blue-500 dark:bg-blue-700 hover:bg-blue-600 dark:hover:bg-blue-800"
+    ></button>
   </div>
   ```
-- 📝 Toggle Dark Mode:
-  ```javascript
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    } else {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    }
-  }
-  
-  // Load saved preference
-  if (localStorage.theme === 'dark' || 
-      (!('theme' in localStorage) && 
-       window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
-  ```
+- 📝 Toggle: add/remove `dark` class on `html` element
 
-##### 12.13 🎯 Customization and Configuration
-- 📝 Theme Extension:
-  ```javascript
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            DEFAULT: '#3b82f6',
-            light: '#60a5fa',
-            dark: '#2563eb',
-          }
-        },
-        spacing: {
-          '18': '4.5rem',
-          '88': '22rem',
-        },
-        fontSize: {
-          'xxs': '0.625rem',
-        },
-        animation: {
-          'fade-in': 'fadeIn 0.5s ease-in-out',
-          'slide-up': 'slideUp 0.3s ease-out',
-        },
-        keyframes: {
-          fadeIn: {
-            '0%': { opacity: '0' },
-            '100%': { opacity: '1' },
-          },
-          slideUp: {
-            '0%': { transform: 'translateY(10px)', opacity: '0' },
-            '100%': { transform: 'translateY(0)', opacity: '1' },
-          }
-        }
-      }
-    }
-  }
-  ```
-- 📝 Arbitrary Values:
-  ```html
-  <!-- Use any CSS value -->
-  <div class="top-[117px]">Position with arbitrary value</div>
-  <div class="bg-[#bada55]">Arbitrary color</div>
-  <div class="text-[22px]">Arbitrary font size</div>
-  <div class="w-[calc(100%-2rem)]">Arbitrary calculation</div>
-  ```
+---
 
-##### 12.14 🔧 Directives and Functions
-- 📝 @apply Directive:
+##### **12.13 🎯 Customization**
+
+- 📝 Arbitrary Values: `top-[117px]`, `w-[calc(100%-2rem)]`
+- 📝 Theme Extension (colors, spacing, fonts, animations)
+- 📝 Custom Keyframes for animations
+
+---
+
+##### **12.14 🔧 Directives**
+
+- 📝 `@apply` — reuse utility classes:
   ```css
   .btn {
-    @apply px-4 py-2 bg-blue-500 text-white rounded-lg 
-           hover:bg-blue-600 transition-colors;
-  }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-md p-6 
-           dark:bg-gray-800 dark:text-white;
+    @apply px-4 py-2 bg-blue-500 text-white rounded-lg;
   }
   ```
-- 📝 @layer Directive:
-  ```css
-  @layer base {
-    h1 {
-      @apply text-3xl font-bold;
-    }
-    h2 {
-      @apply text-2xl font-semibold;
-    }
-  }
-  
-  @layer components {
-    .alert {
-      @apply p-4 rounded-lg;
-    }
-    .alert-error {
-      @apply bg-red-100 text-red-700;
-    }
-  }
-  
-  @layer utilities {
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-  }
-  ```
-- 📝 theme() Function:
-  ```css
-  .custom-class {
-    box-shadow: 0 0 0 3px theme('colors.blue.500');
-    padding: theme('spacing.4');
-    font-size: theme('fontSize.lg');
-  }
-  ```
+- 📝 `@layer` — control output order (base, components, utilities)
+- 📝 `theme()` — access theme values in CSS
 
-##### 12.15 🔌 Plugins
-- 📝 Official Plugins:
-  ```bash
-  npm install @tailwindcss/forms
-  npm install @tailwindcss/typography
-  npm install @tailwindcss/aspect-ratio
-  npm install @tailwindcss/container-queries
-  ```
-- 📝 Forms Plugin:
-  ```javascript
-  // tailwind.config.js
-  plugins: [
-    require('@tailwindcss/forms')({
-      strategy: 'class', // or 'base'
-    }),
-  ]
-  
-  // Usage
-  <input type="text" class="form-input" />
-  <select class="form-select"></select>
-  <input type="checkbox" class="form-checkbox" />
-  ```
-- 📝 Typography Plugin:
-  ```javascript
-  plugins: [
-    require('@tailwindcss/typography'),
-  ]
-  
-  // Usage
-  <article class="prose prose-lg dark:prose-invert">
-    <h1>Blog post title</h1>
-    <p>Content with beautiful typography</p>
-  </article>
-  ```
+---
 
-##### 12.16 🚀 Performance Optimization
-- 📝 PurgeCSS (built-in):
-  ```javascript
-  // tailwind.config.js
-  module.exports = {
-    content: [
-      './src/**/*.{js,jsx,ts,tsx,html}',
-      './public/index.html',
-    ],
-    // Tailwind automatically purges unused styles
-  }
-  ```
-- 📝 JIT Mode (Just-in-Time):
-  ```javascript
-  // tailwind.config.js
-  module.exports = {
-    mode: 'jit', // Default in v3+
-    // ...
-  }
-  ```
-- 📝 Optimizing for Production:
-  ```bash
-  # CSS will be automatically purged during build
-  npm run build
-  ```
+##### **12.15 🔌 Plugins**
 
-##### 12.17 🎨 Tailwind with React
-- 📝 Conditional Classes:
+- 📦 Official:
+  - `@tailwindcss/forms` — better form styles
+  - `@tailwindcss/typography` — prose class for articles
+  - `@tailwindcss/aspect-ratio`
+  - `@tailwindcss/container-queries`
+
+---
+
+##### **12.16 🚀 Performance**
+
+- 📝 PurgeCSS (built-in) — removes unused CSS in production
+- 📝 JIT Mode (default in v3) — on-demand class generation
+
+---
+
+##### **12.17 🎨 Tailwind with React**
+
+- 📝 Conditional Classes with `clsx`:
+
   ```jsx
-  function Button({ variant = 'primary', size = 'md', disabled }) {
-    const baseClasses = 'font-semibold rounded-lg transition-colors'
-    
-    const variantClasses = {
-      primary: 'bg-blue-500 text-white hover:bg-blue-600',
-      secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
-      danger: 'bg-red-500 text-white hover:bg-red-600',
-    }
-    
-    const sizeClasses = {
-      sm: 'px-3 py-1.5 text-sm',
-      md: 'px-4 py-2 text-base',
-      lg: 'px-6 py-3 text-lg',
-    }
-    
-    return (
-      <button
-        className={`
-          ${baseClasses}
-          ${variantClasses[variant]}
-          ${sizeClasses[size]}
-          ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
-        `}
-        disabled={disabled}
-      >
-        {children}
-      </button>
-    )
-  }
+  import clsx from "clsx";
+
+  <button
+    className={clsx(
+      "px-4 py-2 rounded-lg",
+      variant === "primary" && "bg-blue-500 text-white",
+      variant === "secondary" && "bg-gray-200 text-gray-800",
+      disabled && "opacity-50 cursor-not-allowed",
+    )}
+  >
+    {children}
+  </button>;
   ```
-- 📝 clsx and classnames:
-  ```bash
-  npm install clsx
-  # or
-  npm install classnames
-  ```
-  ```jsx
-  import clsx from 'clsx'
-  
-  function Alert({ type = 'info', showIcon = true, children }) {
-    return (
-      <div className={clsx(
-        'p-4 rounded-lg',
-        {
-          'bg-blue-100 text-blue-700': type === 'info',
-          'bg-green-100 text-green-700': type === 'success',
-          'bg-yellow-100 text-yellow-700': type === 'warning',
-          'bg-red-100 text-red-700': type === 'error',
-        }
-      )}>
-        {showIcon && <span className="mr-2">🔔</span>}
-        {children}
-      </div>
-    )
-  }
-  ```
-- 📝 Tailwind Merge:
-  ```bash
-  npm install tailwind-merge
-  ```
+
+- 📝 Merge with `tailwind-merge`:
+
   ```jsx
   import { twMerge } from 'tailwind-merge'
-  
-  function Button({ className, children }) {
-    return (
-      <button
-        className={twMerge(
-          'px-4 py-2 bg-blue-500 text-white rounded-lg',
-          className
-        )}
-      >
-        {children}
-      </button>
-    )
-  }
-  
-  // Usage - merges classes correctly
-  <Button className="bg-red-500">Red Button</Button>
+
+  <button className={twMerge('bg-blue-500', className)}>
   ```
 
-##### 12.18 🧩 Component Patterns
-- 📝 Card Component:
-  ```jsx
-  function Card({ title, description, image, footer }) {
-    return (
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        {image && (
-          <img className="w-full h-48 object-cover" src={image} alt={title} />
-        )}
-        
-        <div className="px-6 py-4">
-          <h3 className="font-bold text-xl mb-2">{title}</h3>
-          <p className="text-gray-700 text-base">{description}</p>
-        </div>
-        
-        {footer && (
-          <div className="px-6 py-4 bg-gray-50 border-t">
-            {footer}
-          </div>
-        )}
-      </div>
-    )
-  }
-  ```
-- 📝 Modal Component:
-  ```jsx
-  function Modal({ isOpen, onClose, title, children }) {
-    if (!isOpen) return null
-    
-    return (
-      <div className="fixed inset-0 z-50 overflow-y-auto">
-        <div className="flex items-center justify-center min-h-screen px-4">
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/50 transition-opacity"
-            onClick={onClose}
-          />
-          
-          {/* Modal content */}
-          <div className="relative bg-white rounded-lg max-w-lg w-full">
-            <div className="flex justify-between items-center p-4 border-b">
-              <h3 className="text-lg font-semibold">{title}</h3>
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                <span className="text-2xl">&times;</span>
-              </button>
-            </div>
-            
-            <div className="p-6">{children}</div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-  ```
+---
 
-##### 12.19 🧪 Testing Tailwind Components
-- 📝 Visual Regression Testing:
+##### **12.18 🧩 Component Patterns**
+
+- 📝 Card, Modal, Button components with Tailwind
+- 📝 Reusable component patterns with variant props
+
+---
+
+##### **12.19 🧪 Testing**
+
+- 📝 Check class existence in tests:
   ```javascript
-  // Button.test.jsx
-  import { render, screen } from '@testing-library/react'
-  import Button from './Button'
-  
-  describe('Button component', () => {
-    it('applies correct classes for primary variant', () => {
-      render(<Button variant="primary">Click me</Button>)
-      const button = screen.getByText('Click me')
-      
-      expect(button).toHaveClass('bg-blue-500')
-      expect(button).toHaveClass('text-white')
-      expect(button).toHaveClass('hover:bg-blue-600')
-    })
-    
-    it('applies correct size classes', () => {
-      render(<Button size="lg">Large button</Button>)
-      const button = screen.getByText('Large button')
-      
-      expect(button).toHaveClass('px-6')
-      expect(button).toHaveClass('py-3')
-      expect(button).toHaveClass('text-lg')
-    })
-    
-    it('handles disabled state', () => {
-      render(<Button disabled>Disabled button</Button>)
-      const button = screen.getByText('Disabled button')
-      
-      expect(button).toBeDisabled()
-      expect(button).toHaveClass('opacity-50')
-      expect(button).toHaveClass('cursor-not-allowed')
-    })
-  })
+  expect(button).toHaveClass("bg-blue-500");
+  expect(button).toHaveClass("hover:bg-blue-600");
   ```
 
-##### 12.20 💻 Practical Projects
+---
+
+##### **12.20 💻 Practical Projects**
+
 - 🏗️ Responsive Navigation Bar
 - 📝 Blog/Article Layout with Typography
 - 🛒 Product Card Grid
@@ -6912,331 +6167,132 @@ src/
 
 ---
 
-## 🎯 STAGE 13 — Shadcn UI (Component Library)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 13 — SHADCN UI (Component Library)
+
 **Goal**: Master Shadcn UI for building beautiful, accessible, and customizable React applications.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 10 dars
 
-#### 📚 Topics
+---
 
-##### 13.1 🎨 Introduction to Shadcn UI
-- 🤔 What is Shadcn UI?
-- 📜 Philosophy Behind Shadcn UI
+#### 📚 **Topics**
+
+##### **13.1 🎨 Introduction to Shadcn UI**
+
+- 🤔 What is Shadcn UI? (Copy-paste component library, not a dependency)
+- 📜 Philosophy: You own the code, full customization
 - 🎯 Key Features:
-  - Not a component library (it's a collection of reusable components)
-  - Copy-paste architecture
-  - Radix UI primitives
+  - Radix UI primitives (accessible)
   - Tailwind CSS styling
-  - Fully accessible
-  - Customizable themes
-- 🔄 Shadcn UI vs Other Libraries:
-  - vs Material UI
-  - vs Chakra UI
-  - vs Ant Design
-  - vs Bootstrap
-- 📦 Installation:
-  ```bash
-  npx shadcn-ui@latest init
-  ```
+  - Copy-paste architecture
+  - Fully customizable
+  - TypeScript first
+- 🔄 vs Material UI, Chakra UI, Ant Design, Bootstrap
 
-##### 13.2 ⚙️ Project Setup and Configuration
-- 📝 Initializing Shadcn UI:
+---
+
+##### **13.2 ⚙️ Project Setup**
+
+- 📝 Installation:
   ```bash
-  # In your React/Vite project
   npx shadcn-ui@latest init
-  
-  # You'll be prompted with options:
-  # Would you like to use TypeScript? Yes
-  # Which style would you like to use? Default
-  # Which color would you like to use? Slate
-  # Where is your global CSS file? src/index.css
-  # Where is your tailwind.config.js? tailwind.config.js
-  # Configure the import alias for components? @/components
-  # Configure the import alias for utils? @/lib/utils
   ```
-- 📁 Project Structure:
+- 📝 Configuration prompts:
+  - TypeScript? Yes
+  - Style? Default
+  - Color? Slate
+  - CSS file? src/index.css
+  - tailwind.config.js? tailwind.config.js
+  - Component alias? @/components
+  - Utils alias? @/lib/utils
+- 📁 Resulting Structure:
   ```
   src/
-  ├── components/
-  │   ├── ui/           # shadcn components
-  │   │   ├── button.tsx
-  │   │   ├── card.tsx
-  │   │   └── ...
-  │   └── ...           # your components
-  ├── lib/
-  │   └── utils.ts      # utility functions
-  ├── hooks/            # custom hooks
-  └── styles/
-      └── globals.css   # Tailwind + shadcn styles
-  ```
-- 📝 components.json Configuration:
-  ```json
-  {
-    "$schema": "https://ui.shadcn.com/schema.json",
-    "style": "default",
-    "rsc": false,
-    "tsx": true,
-    "tailwind": {
-      "config": "tailwind.config.js",
-      "css": "src/index.css",
-      "baseColor": "slate",
-      "cssVariables": true
-    },
-    "aliases": {
-      "components": "@/components",
-      "utils": "@/lib/utils"
-    }
-  }
+  ├── components/ui/     # shadcn components (you own them)
+  ├── lib/utils.ts       # cn() helper
+  └── index.css          # Tailwind + CSS variables
   ```
 
-##### 13.3 🎯 Core Components - Button
-- 📝 Adding Button Component:
+---
+
+##### **13.3 🎯 Core Components - Button**
+
+- 📝 Adding Button:
   ```bash
   npx shadcn-ui@latest add button
   ```
-- 📝 Button Component Usage:
+- 📝 Usage:
+
   ```tsx
   import { Button } from "@/components/ui/button"
-  
-  function App() {
-    return (
-      <div className="space-x-4">
-        {/* Variants */}
-        <Button>Default</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
-        
-        {/* Sizes */}
-        <Button size="sm">Small</Button>
-        <Button size="default">Default</Button>
-        <Button size="lg">Large</Button>
-        <Button size="icon">🔍</Button>
-        
-        {/* States */}
-        <Button disabled>Disabled</Button>
-        <Button loading>Loading...</Button>
-        
-        {/* With Icons */}
-        <Button>
-          <MailIcon className="mr-2 h-4 w-4" />
-          Login with Email
-        </Button>
-      </div>
-    )
-  }
-  ```
-- 📝 Button Component Code:
-  ```tsx
-  // components/ui/button.tsx
-  import * as React from "react"
-  import { Slot } from "@radix-ui/react-slot"
-  import { cva, type VariantProps } from "class-variance-authority"
-  import { cn } from "@/lib/utils"
-  
-  const buttonVariants = cva(
-    "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-    {
-      variants: {
-        variant: {
-          default: "bg-primary text-primary-foreground hover:bg-primary/90",
-          destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-          outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-          secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-          ghost: "hover:bg-accent hover:text-accent-foreground",
-          link: "text-primary underline-offset-4 hover:underline",
-        },
-        size: {
-          default: "h-10 px-4 py-2",
-          sm: "h-9 rounded-md px-3",
-          lg: "h-11 rounded-md px-8",
-          icon: "h-10 w-10",
-        },
-      },
-      defaultVariants: {
-        variant: "default",
-        size: "default",
-      },
-    }
-  )
-  
-  export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-      VariantProps<typeof buttonVariants> {
-    asChild?: boolean
-  }
-  
-  const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, ...props }, ref) => {
-      const Comp = asChild ? Slot : "button"
-      return (
-        <Comp
-          className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref}
-          {...props}
-        />
-      )
-    }
-  )
-  Button.displayName = "Button"
-  
-  export { Button, buttonVariants }
+
+  <Button variant="default">Default</Button>
+  <Button variant="destructive">Delete</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="link">Link</Button>
+
+  <Button size="sm">Small</Button>
+  <Button size="lg">Large</Button>
+  <Button size="icon">🔍</Button>
+
+  <Button disabled>Disabled</Button>
   ```
 
-##### 13.4 📦 Card Components
-- 📝 Adding Card Component:
+---
+
+##### **13.4 📦 Card Components**
+
+- 📝 Adding Card:
   ```bash
   npx shadcn-ui@latest add card
   ```
-- 📝 Card Component Usage:
+- 📝 Usage:
   ```tsx
-  import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-  
-  function ProductCard({ product }) {
-    return (
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>{product.name}</CardTitle>
-          <CardDescription>
-            {product.description}
-          </CardDescription>
-        </CardHeader>
-        
-        <CardContent>
-          <div className="grid gap-4">
-            <div className="flex items-center space-x-4">
-              <span className="text-2xl font-bold">
-                ${product.price}
-              </span>
-              {product.inStock ? (
-                <span className="text-green-500">In Stock</span>
-              ) : (
-                <span className="text-red-500">Out of Stock</span>
-              )}
-            </div>
-            
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="rounded-md"
-            />
-          </div>
-        </CardContent>
-        
-        <CardFooter className="flex justify-between">
-          <Button variant="outline">Add to Wishlist</Button>
-          <Button>Add to Cart</Button>
-        </CardFooter>
-      </Card>
-    )
-  }
+  <Card>
+    <CardHeader>
+      <CardTitle>Title</CardTitle>
+      <CardDescription>Description</CardDescription>
+    </CardHeader>
+    <CardContent>Content</CardContent>
+    <CardFooter>Footer</CardFooter>
+  </Card>
   ```
 
-##### 13.5 📝 Form Components
-- 📝 Adding Form Components:
+---
+
+##### **13.5 📝 Form Components**
+
+- 📝 Adding form components:
   ```bash
-  npx shadcn-ui@latest add form
-  npx shadcn-ui@latest add input
-  npx shadcn-ui@latest add label
-  npx shadcn-ui@latest add textarea
-  npx shadcn-ui@latest add select
-  npx shadcn-ui@latest add checkbox
-  npx shadcn-ui@latest add radio-group
+  npx shadcn-ui@latest add form input label textarea select checkbox radio-group
   ```
-- 📝 Complete Form Example:
+- 📝 Form with Zod validation:
+
   ```tsx
-  import { zodResolver } from "@hookform/resolvers/zod"
-  import { useForm } from "react-hook-form"
-  import * as z from "zod"
-  
-  import { Button } from "@/components/ui/button"
-  import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-  } from "@/components/ui/form"
-  import { Input } from "@/components/ui/input"
-  import { Textarea } from "@/components/ui/textarea"
-  import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
-  import { Checkbox } from "@/components/ui/checkbox"
-  import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-  
+  import { zodResolver } from "@hookform/resolvers/zod";
+  import { useForm } from "react-hook-form";
+  import * as z from "zod";
+
   const formSchema = z.object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().email({
-      message: "Please enter a valid email address.",
-    }),
-    bio: z.string().max(160, {
-      message: "Bio must not be longer than 160 characters.",
-    }),
-    role: z.string({
-      required_error: "Please select a role.",
-    }),
-    terms: z.boolean().refine(val => val === true, {
-      message: "You must accept the terms and conditions.",
-    }),
-    gender: z.string({
-      required_error: "Please select your gender.",
-    }),
-  })
-  
-  function ProfileForm() {
+    email: z.string().email(),
+    password: z.string().min(8),
+  });
+
+  function LoginForm() {
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
-      defaultValues: {
-        username: "",
-        email: "",
-        bio: "",
-        terms: false,
-      },
-    })
-    
-    function onSubmit(values: z.infer<typeof formSchema>) {
-      console.log(values)
-    }
-    
+    });
+
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Username Field */}
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="johndoe" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          {/* Email Field */}
+        <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="email"
@@ -7244,978 +6300,185 @@ src/
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="john@example.com" type="email" {...field} />
+                  <Input {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
-          {/* Bio Field */}
-          <FormField
-            control={form.control}
-            name="bio"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Bio</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    placeholder="Tell us about yourself..."
-                    className="resize-none"
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  You can <span>@mention</span> other users.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          {/* Select Field */}
-          <FormField
-            control={form.control}
-            name="role"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Role</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a role" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="user">User</SelectItem>
-                    <SelectItem value="admin">Admin</SelectItem>
-                    <SelectItem value="moderator">Moderator</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          {/* Radio Group */}
-          <FormField
-            control={form.control}
-            name="gender"
-            render={({ field }) => (
-              <FormItem className="space-y-3">
-                <FormLabel>Gender</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-1"
-                  >
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="male" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Male</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="female" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Female</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="other" />
-                      </FormControl>
-                      <FormLabel className="font-normal">Other</FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          {/* Checkbox */}
-          <FormField
-            control={form.control}
-            name="terms"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel>
-                    Accept terms and conditions
-                  </FormLabel>
-                  <FormDescription>
-                    You agree to our Terms of Service and Privacy Policy.
-                  </FormDescription>
-                </div>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-    )
+    );
   }
   ```
 
-##### 13.6 🔔 Dialog and Modal Components
-- 📝 Adding Dialog:
+---
+
+##### **13.6 🔔 Dialog and Toast**
+
+- 📝 Dialog:
   ```bash
   npx shadcn-ui@latest add dialog
   ```
-- 📝 Dialog Usage:
-  ```tsx
-  import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
-  
-  function ConfirmationDialog() {
-    return (
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">Delete Account</Button>
-        </DialogTrigger>
-        
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Delete Account</DialogTitle>
-            <DialogDescription>
-              Are you sure you want to delete your account? 
-              This action cannot be undone.
-            </DialogDescription>
-          </DialogHeader>
-          
-          <div className="py-4">
-            <p className="text-sm text-gray-500">
-              All your data will be permanently removed from our servers.
-            </p>
-          </div>
-          
-          <DialogFooter>
-            <Button variant="outline">Cancel</Button>
-            <Button variant="destructive">Delete Account</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    )
-  }
-  ```
-
-##### 13.7 🔔 Alert and Toast Components
-- 📝 Adding Alert and Toast:
+- 📝 Toast:
   ```bash
-  npx shadcn-ui@latest add alert
   npx shadcn-ui@latest add toast
   ```
-- 📝 Alert Component:
+- 📝 Toast Usage:
+
   ```tsx
-  import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-  import { AlertCircle, CheckCircle2, Info, AlertTriangle } from "lucide-react"
-  
-  function AlertExamples() {
-    return (
-      <div className="space-y-4">
-        {/* Default Alert */}
-        <Alert>
-          <Info className="h-4 w-4" />
-          <AlertTitle>Information</AlertTitle>
-          <AlertDescription>
-            This is a default alert message.
-          </AlertDescription>
-        </Alert>
-        
-        {/* Success Alert */}
-        <Alert variant="success">
-          <CheckCircle2 className="h-4 w-4" />
-          <AlertTitle>Success</AlertTitle>
-          <AlertDescription>
-            Your changes have been saved successfully.
-          </AlertDescription>
-        </Alert>
-        
-        {/* Warning Alert */}
-        <Alert variant="warning">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Warning</AlertTitle>
-          <AlertDescription>
-            Please review your information before submitting.
-          </AlertDescription>
-        </Alert>
-        
-        {/* Destructive Alert */}
-        <Alert variant="destructive">
-          <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Error</AlertTitle>
-          <AlertDescription>
-            There was an error processing your request.
-          </AlertDescription>
-        </Alert>
-      </div>
-    )
-  }
-  ```
-- 📝 Toast Notifications:
-  ```tsx
-  import { useToast } from "@/components/ui/use-toast"
-  import { ToastAction } from "@/components/ui/toast"
-  
-  function ToastDemo() {
-    const { toast } = useToast()
-    
-    const showToast = () => {
-      toast({
-        title: "Scheduled: Catch up",
-        description: "Friday, February 10, 2024 at 5:57 PM",
-        action: (
-          <ToastAction altText="Undo">Undo</ToastAction>
-        ),
-      })
-    }
-    
-    const showSuccessToast = () => {
-      toast({
-        title: "Success!",
-        description: "Your changes have been saved.",
-        variant: "success",
-      })
-    }
-    
-    const showErrorToast = () => {
-      toast({
-        title: "Error",
-        description: "Something went wrong.",
-        variant: "destructive",
-      })
-    }
-    
-    const showCustomToast = () => {
-      toast({
-        title: "Custom Toast",
-        description: "This toast has custom styling.",
-        duration: 5000, // 5 seconds
-        className: "bg-blue-500 text-white",
-      })
-    }
-    
-    return (
-      <div className="space-x-4">
-        <Button onClick={showToast}>Show Toast</Button>
-        <Button onClick={showSuccessToast}>Success</Button>
-        <Button onClick={showErrorToast}>Error</Button>
-        <Button onClick={showCustomToast}>Custom</Button>
-      </div>
-    )
-  }
+  import { useToast } from "@/components/ui/use-toast";
+
+  const { toast } = useToast();
+
+  toast({
+    title: "Success",
+    description: "Your changes were saved",
+    variant: "success",
+  });
   ```
 
-##### 13.8 📊 Table and Data Display
-- 📝 Adding Table Components:
+---
+
+##### **13.7 📊 Table and Badge**
+
+- 📝 Adding:
   ```bash
-  npx shadcn-ui@latest add table
-  npx shadcn-ui@latest add badge
-  npx shadcn-ui@latest add avatar
+  npx shadcn-ui@latest add table badge avatar
   ```
-- 📝 Data Table Example:
+- 📝 Data Table with Badges:
   ```tsx
-  import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-  } from "@/components/ui/table"
-  import { Badge } from "@/components/ui/badge"
-  import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-  
-  const users = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      role: "Admin",
-      status: "active",
-      avatar: "/avatars/01.png",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      role: "User",
-      status: "inactive",
-      avatar: "/avatars/02.png",
-    },
-    // ...
-  ]
-  
-  function UsersTable() {
-    return (
-      <Table>
-        <TableCaption>A list of your users.</TableCaption>
-        
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Avatar</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Role</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        
-        <TableBody>
-          {users.map((user) => (
-            <TableRow key={user.id}>
-              <TableCell>
-                <Avatar>
-                  <AvatarImage src={user.avatar} />
-                  <AvatarFallback>
-                    {user.name.split(' ').map(n => n[0]).join('')}
-                  </AvatarFallback>
-                </Avatar>
-              </TableCell>
-              <TableCell className="font-medium">{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.role}</TableCell>
-              <TableCell>
-                <Badge variant={user.status === 'active' ? 'success' : 'secondary'}>
-                  {user.status}
-                </Badge>
-              </TableCell>
-              <TableCell className="text-right space-x-2">
-                <Button variant="ghost" size="sm">Edit</Button>
-                <Button variant="ghost" size="sm" className="text-red-500">
-                  Delete
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    )
-  }
+  <Table>
+    <TableHeader>
+      <TableRow>
+        <TableHead>Name</TableHead>
+        <TableHead>Status</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableCell>John Doe</TableCell>
+        <TableCell>
+          <Badge variant="success">Active</Badge>
+        </TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
   ```
 
-##### 13.9 🧭 Navigation Components
-- 📝 Adding Navigation:
+---
+
+##### **13.8 🧭 Navigation Components**
+
+- 📝 Adding:
   ```bash
-  npx shadcn-ui@latest add navigation-menu
-  npx shadcn-ui@latest add dropdown-menu
-  npx shadcn-ui@latest add tabs
-  ```
-- 📝 Navigation Menu:
-  ```tsx
-  import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-  } from "@/components/ui/navigation-menu"
-  
-  function MainNav() {
-    return (
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 w-[400px]">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <a href="/docs" className="block p-3 hover:bg-accent rounded-lg">
-                      <div className="text-sm font-medium">Introduction</div>
-                      <p className="text-sm text-gray-500">
-                        Learn about the basics and get started.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <li>
-                  <NavigationMenuLink asChild>
-                    <a href="/installation" className="block p-3 hover:bg-accent rounded-lg">
-                      <div className="text-sm font-medium">Installation</div>
-                      <p className="text-sm text-gray-500">
-                        Install and configure your project.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                {components.map((component) => (
-                  <li key={component.title}>
-                    <NavigationMenuLink asChild>
-                      <a href={component.href} className="block p-3 hover:bg-accent rounded-lg">
-                        <div className="text-sm font-medium">{component.title}</div>
-                        <p className="text-sm text-gray-500">{component.description}</p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          
-          <NavigationMenuItem>
-            <a href="/docs">
-              <NavigationMenuLink className="px-3 py-2">
-                Documentation
-              </NavigationMenuLink>
-            </a>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    )
-  }
+  npx shadcn-ui@latest add navigation-menu dropdown-menu tabs
   ```
 - 📝 Dropdown Menu:
   ```tsx
-  import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuPortal,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
-  
-  function UserMenu() {
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="/avatars/user.png" alt="@username" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-          </Button>
-        </DropdownMenuTrigger>
-        
-        <DropdownMenuContent className="w-56" align="end">
-          <DropdownMenuLabel className="font-normal">
-            <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">John Doe</p>
-              <p className="text-xs leading-none text-muted-foreground">
-                john@example.com
-              </p>
-            </div>
-          </DropdownMenuLabel>
-          
-          <DropdownMenuSeparator />
-          
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              Profile
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          
-          <DropdownMenuSeparator />
-          
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Light</DropdownMenuItem>
-                <DropdownMenuItem>Dark</DropdownMenuItem>
-                <DropdownMenuItem>System</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          
-          <DropdownMenuSeparator />
-          
-          <DropdownMenuItem className="text-red-500">
-            Log out
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    )
-  }
+  <DropdownMenu>
+    <DropdownMenuTrigger>Options</DropdownMenuTrigger>
+    <DropdownMenuContent>
+      <DropdownMenuItem>Profile</DropdownMenuItem>
+      <DropdownMenuItem>Settings</DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem className="text-red-500">Logout</DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
   ```
 
-##### 13.10 📱 Responsive Layout Components
-- 📝 Adding Layout Components:
+---
+
+##### **13.9 📱 Responsive Layout**
+
+- 📝 Adding Sheet (mobile menu):
   ```bash
   npx shadcn-ui@latest add sheet
-  npx shadcn-ui@latest add separator
-  npx shadcn-ui@latest add aspect-ratio
   ```
-- 📝 Mobile Navigation with Sheet:
+- 📝 Mobile Navigation:
   ```tsx
-  import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/components/ui/sheet"
-  import { Menu } from "lucide-react"
-  
-  function MobileNav() {
-    return (
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        
-        <SheetContent side="left">
-          <SheetHeader>
-            <SheetTitle>Navigation Menu</SheetTitle>
-            <SheetDescription>
-              Browse through all sections
-            </SheetDescription>
-          </SheetHeader>
-          
-          <div className="py-4">
-            <nav className="flex flex-col space-y-4">
-              <a href="/" className="text-lg hover:text-primary">Home</a>
-              <a href="/about" className="text-lg hover:text-primary">About</a>
-              <a href="/services" className="text-lg hover:text-primary">Services</a>
-              <a href="/contact" className="text-lg hover:text-primary">Contact</a>
-            </nav>
-          </div>
-        </SheetContent>
-      </Sheet>
-    )
-  }
+  <Sheet>
+    <SheetTrigger className="md:hidden">
+      <MenuIcon />
+    </SheetTrigger>
+    <SheetContent side="left">
+      <SheetHeader>
+        <SheetTitle>Menu</SheetTitle>
+      </SheetHeader>
+      <nav className="flex flex-col gap-4 mt-4">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+    </SheetContent>
+  </Sheet>
   ```
 
-##### 13.11 🎯 Advanced Components
-- 📝 Adding Advanced Components:
+---
+
+##### **13.10 🎯 Advanced Components**
+
+- 📝 Adding:
   ```bash
-  npx shadcn-ui@latest add calendar
-  npx shadcn-ui@latest add date-picker
-  npx shadcn-ui@latest add command
-  npx shadcn-ui@latest add popover
-  npx shadcn-ui@latest add tooltip
-  npx shadcn-ui@latest add hover-card
-  npx shadcn-ui@latest add progress
-  npx shadcn-ui@latest add slider
-  npx shadcn-ui@latest add switch
-  npx shadcn-ui@latest add tabs
+  npx shadcn-ui@latest add calendar popover command tooltip progress slider switch
   ```
-- 📝 Date Picker with Calendar:
+- 📝 Date Picker:
   ```tsx
-  import { Calendar } from "@/components/ui/calendar"
-  import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-  } from "@/components/ui/popover"
-  import { CalendarIcon } from "lucide-react"
-  import { format } from "date-fns"
-  
-  function DatePicker() {
-    const [date, setDate] = useState<Date>()
-    
-    return (
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            className={cn(
-              "w-[240px] justify-start text-left font-normal",
-              !date && "text-muted-foreground"
-            )}
-          >
-            <CalendarIcon className="mr-2 h-4 w-4" />
-            {date ? format(date, "PPP") : <span>Pick a date</span>}
-          </Button>
-        </PopoverTrigger>
-        
-        <PopoverContent className="w-auto p-0" align="start">
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-            initialFocus
-          />
-        </PopoverContent>
-      </Popover>
-    )
-  }
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button>Pick date</Button>
+    </PopoverTrigger>
+    <PopoverContent>
+      <Calendar mode="single" selected={date} onSelect={setDate} />
+    </PopoverContent>
+  </Popover>
   ```
-- 📝 Command Palette:
+- 📝 Command Palette (⌘K):
   ```tsx
-  import {
-    Command,
-    CommandDialog,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-    CommandSeparator,
-    CommandShortcut,
-  } from "@/components/ui/command"
-  
-  function CommandMenu() {
-    const [open, setOpen] = useState(false)
-    
-    useEffect(() => {
-      const down = (e: KeyboardEvent) => {
-        if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-          e.preventDefault()
-          setOpen((open) => !open)
-        }
-      }
-      document.addEventListener("keydown", down)
-      return () => document.removeEventListener("keydown", down)
-    }, [])
-    
-    return (
-      <>
-        <Button
-          variant="outline"
-          className="relative w-full justify-start text-sm text-muted-foreground"
-          onClick={() => setOpen(true)}
-        >
-          <Search className="mr-2 h-4 w-4" />
-          Search...
-          <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-            <span className="text-xs">⌘</span>K
-          </kbd>
-        </Button>
-        
-        <CommandDialog open={open} onOpenChange={setOpen}>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            
-            <CommandGroup heading="Suggestions">
-              <CommandItem>Calendar</CommandItem>
-              <CommandItem>Search Emails</CommandItem>
-              <CommandItem>Calculator</CommandItem>
-            </CommandGroup>
-            
-            <CommandSeparator />
-            
-            <CommandGroup heading="Settings">
-              <CommandItem>Profile</CommandItem>
-              <CommandItem>Billing</CommandItem>
-              <CommandItem>Settings</CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </CommandDialog>
-      </>
-    )
-  }
+  <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandInput placeholder="Search..." />
+    <CommandList>
+      <CommandEmpty>No results</CommandEmpty>
+      <CommandGroup heading="Pages">
+        <CommandItem>Home</CommandItem>
+        <CommandItem>Settings</CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </CommandDialog>
   ```
 
-##### 13.12 🎨 Theming and Customization
-- 📝 Theme Configuration:
-  ```css
-  /* src/index.css */
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 222.2 84% 4.9%;
-      --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
-      --popover: 0 0% 100%;
-      --popover-foreground: 222.2 84% 4.9%;
-      --primary: 222.2 47.4% 11.2%;
-      --primary-foreground: 210 40% 98%;
-      --secondary: 210 40% 96.1%;
-      --secondary-foreground: 222.2 47.4% 11.2%;
-      --muted: 210 40% 96.1%;
-      --muted-foreground: 215.4 16.3% 46.9%;
-      --accent: 210 40% 96.1%;
-      --accent-foreground: 222.2 47.4% 11.2%;
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 40% 98%;
-      --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
-      --ring: 222.2 84% 4.9%;
-      --radius: 0.5rem;
-    }
-  
-    .dark {
-      --background: 222.2 84% 4.9%;
-      --foreground: 210 40% 98%;
-      --card: 222.2 84% 4.9%;
-      --card-foreground: 210 40% 98%;
-      --popover: 222.2 84% 4.9%;
-      --popover-foreground: 210 40% 98%;
-      --primary: 210 40% 98%;
-      --primary-foreground: 222.2 47.4% 11.2%;
-      --secondary: 217.2 32.6% 17.5%;
-      --secondary-foreground: 210 40% 98%;
-      --muted: 217.2 32.6% 17.5%;
-      --muted-foreground: 215 20.2% 65.1%;
-      --accent: 217.2 32.6% 17.5%;
-      --accent-foreground: 210 40% 98%;
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 210 40% 98%;
-      --border: 217.2 32.6% 17.5%;
-      --input: 217.2 32.6% 17.5%;
-      --ring: 212.7 26.8% 83.9%;
-    }
-  }
-  ```
+---
+
+##### **13.11 🎨 Theming**
+
+- 📝 CSS Variables in `index.css` (root, .dark)
 - 📝 Custom Theme Switcher:
   ```tsx
-  import { Moon, Sun } from "lucide-react"
-  
-  import { Button } from "@/components/ui/button"
-  import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
-  
-  function ModeToggle() {
-    const { setTheme } = useTheme()
-    
-    return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon">
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-        </DropdownMenuTrigger>
-        
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => setTheme("light")}>
-            Light
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("dark")}>
-            Dark
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("system")}>
-            System
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    )
-  }
+  <DropdownMenu>
+    <DropdownMenuTrigger>Theme</DropdownMenuTrigger>
+    <DropdownMenuContent>
+      <DropdownMenuItem onClick={() => setTheme("light")}>
+        Light
+      </DropdownMenuItem>
+      <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+      <DropdownMenuItem onClick={() => setTheme("system")}>
+        System
+      </DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
   ```
 
-##### 13.13 🚀 Building a Complete Dashboard
-- 📝 Dashboard Layout:
-  ```tsx
-  // app/dashboard/layout.tsx
-  import { Sidebar } from "@/components/sidebar"
-  import { Header } from "@/components/header"
-  
-  export default function DashboardLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <div className="flex h-screen">
-        <Sidebar />
-        <div className="flex-1 flex flex-col">
-          <Header />
-          <main className="flex-1 overflow-y-auto p-6">
-            {children}
-          </main>
-        </div>
-      </div>
-    )
-  }
-  ```
-- 📝 Sidebar Component:
-  ```tsx
-  // components/sidebar.tsx
-  import { cn } from "@/lib/utils"
-  import {
-    Home,
-    Users,
-    Settings,
-    FileText,
-    BarChart,
-    CreditCard,
-  } from "lucide-react"
-  
-  const navItems = [
-    { icon: Home, label: "Dashboard", href: "/dashboard" },
-    { icon: Users, label: "Users", href: "/dashboard/users" },
-    { icon: FileText, label: "Posts", href: "/dashboard/posts" },
-    { icon: BarChart, label: "Analytics", href: "/dashboard/analytics" },
-    { icon: CreditCard, label: "Billing", href: "/dashboard/billing" },
-    { icon: Settings, label: "Settings", href: "/dashboard/settings" },
-  ]
-  
-  export function Sidebar() {
-    const pathname = usePathname()
-    
-    return (
-      <div className="w-64 border-r bg-card">
-        <div className="p-6">
-          <h2 className="text-lg font-semibold">Company Name</h2>
-        </div>
-        
-        <nav className="px-4 space-y-1">
-          {navItems.map((item) => {
-            const Icon = item.icon
-            const isActive = pathname === item.href
-            
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors",
-                  isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-muted"
-                )}
-              >
-                <Icon className="h-4 w-4" />
-                {item.label}
-              </Link>
-            )
-          })}
-        </nav>
-      </div>
-    )
-  }
-  ```
+---
 
-##### 13.14 🧩 Custom Component Patterns
-- 📝 Composing Components:
-  ```tsx
-  // components/data-table.tsx
-  import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-  } from "@/components/ui/table"
-  import { Button } from "@/components/ui/button"
-  import { ChevronLeft, ChevronRight } from "lucide-react"
-  
-  interface DataTableProps<T> {
-    data: T[]
-    columns: {
-      key: keyof T
-      header: string
-      cell?: (item: T) => React.ReactNode
-    }[]
-    onPageChange?: (page: number) => void
-    currentPage?: number
-    totalPages?: number
-  }
-  
-  export function DataTable<T>({
-    data,
-    columns,
-    onPageChange,
-    currentPage,
-    totalPages,
-  }: DataTableProps<T>) {
-    return (
-      <div className="space-y-4">
-        <div className="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableHead key={column.key as string}>
-                    {column.header}
-                  </TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            
-            <TableBody>
-              {data.map((item, index) => (
-                <TableRow key={index}>
-                  {columns.map((column) => (
-                    <TableCell key={column.key as string}>
-                      {column.cell
-                        ? column.cell(item)
-                        : (item[column.key] as React.ReactNode)}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-        
-        {onPageChange && totalPages && (
-          <div className="flex items-center justify-end space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => onPageChange(currentPage! - 1)}
-              disabled={currentPage === 1}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <span className="text-sm">
-              Page {currentPage} of {totalPages}
-            </span>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => onPageChange(currentPage! + 1)}
-              disabled={currentPage === totalPages}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
-      </div>
-    )
-  }
-  ```
+##### **13.12 🧩 Custom Component Patterns**
 
-##### 13.15 💻 Practical Projects
+- 📝 Generic DataTable component with pagination
+- 📝 Composing multiple shadcn components
+
+---
+
+##### **13.13 💻 Practical Projects**
+
 - 🏗️ Admin Dashboard with Charts
 - 📝 Blog Platform with Rich Text
 - 🛒 E-commerce Storefront
@@ -8234,475 +6497,212 @@ src/
 
 ---
 
-## 🎯 STAGE 14 — React Hook Form (Form Management)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 14 — REACT HOOK FORM (Form Management)
+
 **Goal**: Master React Hook Form for building performant, flexible, and extensible forms with easy validation.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 10 dars
 
-#### 📚 Topics
+---
 
-##### 14.1 📝 Introduction to React Hook Form
-- 🤔 What is React Hook Form?
+#### 📚 **Topics**
+
+##### **14.1 📝 Introduction to React Hook Form**
+
+- 🤔 What is React Hook Form? (Performant form library)
 - 🎯 Why React Hook Form?
-  - Performance (minimal re-renders)
-  - Uncontrolled components
+  - Minimal re-renders (uncontrolled components)
   - Easy validation integration
-  - Small bundle size
-  - TypeScript support
-- 🔄 React Hook Form vs Other Form Libraries:
-  - vs Formik
-  - vs Redux Form
-  - vs Final Form
-- 📦 Installation:
-  ```bash
-  npm install react-hook-form
-  # or
-  yarn add react-hook-form
-  ```
+  - Small bundle size (~10kb)
+  - Excellent TypeScript support
+- 🔄 vs Formik, Redux Form, Final Form
+- 📦 Installation: `npm install react-hook-form`
 
-##### 14.2 🎯 Basic Form with useForm
-- 📝 Simple Form Example:
+---
+
+##### **14.2 🎯 Basic Form with useForm**
+
+- 📝 Simple Form:
+
   ```tsx
-  import { useForm } from 'react-hook-form'
-  
+  import { useForm } from "react-hook-form";
+
   interface FormData {
-    firstName: string
-    lastName: string
-    email: string
-    age: number
+    firstName: string;
+    email: string;
   }
-  
+
   function SimpleForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
-    
-    const onSubmit = (data: FormData) => {
-      console.log(data)
-    }
-    
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm<FormData>();
+
     return (
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label>First Name</label>
-          <input {...register('firstName', { required: true })} />
-          {errors.firstName && <span>This field is required</span>}
-        </div>
-        
-        <div>
-          <label>Last Name</label>
-          <input {...register('lastName')} />
-        </div>
-        
-        <div>
-          <label>Email</label>
-          <input type="email" {...register('email', { 
-            required: 'Email is required',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Invalid email address'
-            }
-          })} />
-          {errors.email && <span>{errors.email.message}</span>}
-        </div>
-        
-        <div>
-          <label>Age</label>
-          <input type="number" {...register('age', { 
-            min: { value: 18, message: 'Must be at least 18' },
-            max: { value: 99, message: 'Must be at most 99' }
-          })} />
-          {errors.age && <span>{errors.age.message}</span>}
-        </div>
-        
+      <form onSubmit={handleSubmit((data) => console.log(data))}>
+        <input {...register("firstName", { required: true })} />
+        {errors.firstName && <span>Required</span>}
+
+        <input
+          {...register("email", {
+            required: "Email required",
+            pattern: { value: /^\S+@\S+$/i, message: "Invalid email" },
+          })}
+        />
+        {errors.email && <span>{errors.email.message}</span>}
+
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   }
   ```
 
-##### 14.3 📦 Form Registration Deep Dive
+---
+
+##### **14.3 📦 Form Registration**
+
 - 📝 Register Options:
+
   ```tsx
-  const { register } = useForm()
-  
-  // Basic registration
-  <input {...register('fieldName')} />
-  
-  // With validation
+  // Basic
+  <input {...register('field')} />
+
+  // Validation
   <input {...register('email', {
-    required: 'Email is required',
-    pattern: {
-      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-      message: 'Invalid email address'
-    },
+    required: 'Email required',
+    minLength: { value: 3, message: 'Too short' },
+    pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' },
     validate: {
-      notAdmin: (value) => value !== 'admin@example.com' || 'Cannot use admin email',
-      notBlacklisted: (value) => !blacklistedEmails.includes(value) || 'Email is blacklisted'
+      notAdmin: (v) => v !== 'admin@example.com' || 'Cannot use admin email',
+      asyncCheck: async (v) => await checkAvailability(v) || 'Taken'
     }
   })} />
-  
-  // With value transformation
-  <input {...register('age', {
-    setValueAs: (value) => parseInt(value) || 0
-  })} />
-  
-  // Disabled field
-  <input {...register('disabledField', { disabled: true })} />
-  
-  // With onChange/onBlur
-  <input {...register('field', {
-    onChange: (e) => console.log('Changed:', e.target.value),
-    onBlur: (e) => console.log('Blurred:', e.target.value)
-  })} />
+
+  // Transform value
+  <input {...register('age', { setValueAs: (v) => parseInt(v) })} />
   ```
 
-##### 14.4 🎯 Form State and Errors
-- 📝 formState Object:
+---
+
+##### **14.4 🎯 Form State**
+
+- 📝 formState Properties:
   ```tsx
-  import { useForm } from 'react-hook-form'
-  
-  function FormWithState() {
-    const { 
-      register, 
-      handleSubmit,
-      formState: { 
-        errors,           // Validation errors
-        isDirty,          // Form has been modified
-        dirtyFields,      // Which fields have been modified
-        touchedFields,    // Which fields have been touched
-        isSubmitting,     // Form is currently submitting
-        isLoading,        // Form is loading (async defaultValues)
-        submitCount,      // Number of form submissions
-        isValid,          // Form has no errors
-        isValidating,     // Validation in progress
-      } 
-    } = useForm()
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('email', { required: true })} />
-        {errors.email && <span>Email is required</span>}
-        
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Submitting...' : 'Submit'}
-        </button>
-        
-        <div>
-          <p>Form Modified: {isDirty ? 'Yes' : 'No'}</p>
-          <p>Valid: {isValid ? 'Yes' : 'No'}</p>
-          <p>Submit Count: {submitCount}</p>
-        </div>
-      </form>
-    )
-  }
+  const {
+    formState: {
+      errors, // validation errors
+      isDirty, // form modified
+      touchedFields, // fields touched
+      isSubmitting, // submitting
+      isValid, // no errors
+      submitCount, // submission count
+    },
+  } = useForm();
   ```
 
-##### 14.5 🔧 Form Methods
-- 📝 Important Form Methods:
+---
+
+##### **14.5 🔧 Form Methods**
+
+- 📝 Key Methods:
+
   ```tsx
-  const { 
-    register,
-    handleSubmit,
-    setValue,
-    getValues,
-    watch,
-    reset,
-    trigger,
-    setError,
-    clearErrors,
-    setFocus,
-    control,
-  } = useForm<FormData>()
-  
-  // Set value programmatically
-  setValue('firstName', 'John')
-  setValue('user.address.city', 'New York') // Nested fields
-  
-  // Get values
-  const values = getValues() // All values
-  const firstName = getValues('firstName') // Single field
-  const multiple = getValues(['firstName', 'lastName']) // Multiple fields
-  
-  // Watch fields (subscribe to changes)
-  const watchFirstName = watch('firstName')
-  const watchAll = watch() // Watch all fields
-  const watchMultiple = watch(['firstName', 'email'])
-  
-  // Reset form
-  reset() // Reset to default values
-  reset({ firstName: 'Jane' }) // Reset with new values
-  
-  // Trigger validation
-  await trigger() // Validate all fields
-  await trigger('email') // Validate specific field
-  
-  // Set error manually
-  setError('email', { 
-    type: 'manual', 
-    message: 'Email already exists' 
-  })
-  
-  // Clear errors
-  clearErrors() // Clear all errors
-  clearErrors('email') // Clear specific field
-  
-  // Set focus
-  setFocus('firstName')
+  const {
+    setValue, // programmatically set
+    getValues, // get current values
+    watch, // subscribe to changes
+    reset, // reset form
+    trigger, // manual validation
+    setError, // set custom error
+    clearErrors, // clear errors
+    setFocus, // focus field
+  } = useForm();
+
+  setValue("name", "John");
+  const values = getValues();
+  const name = watch("name");
+  reset({ name: "Jane" });
+  await trigger("email");
+  setError("email", { message: "Already exists" });
   ```
 
-##### 14.6 📝 Complex Form Examples
-- 📝 Multi-step Form (Wizard):
-  ```tsx
-  import { useForm } from 'react-hook-form'
-  
-  interface FormData {
-    step1: {
-      firstName: string
-      lastName: string
-      email: string
-    }
-    step2: {
-      address: string
-      city: string
-      zipCode: string
-    }
-    step3: {
-      paymentMethod: string
-      cardNumber: string
-      expiryDate: string
-    }
-  }
-  
-  function MultiStepForm() {
-    const [step, setStep] = useState(1)
-    const { register, handleSubmit, formState: { errors }, trigger } = useForm<FormData>()
-    
-    const nextStep = async () => {
-      let isValid = false
-      
-      switch(step) {
-        case 1:
-          isValid = await trigger(['step1.firstName', 'step1.lastName', 'step1.email'])
-          break
-        case 2:
-          isValid = await trigger(['step2.address', 'step2.city', 'step2.zipCode'])
-          break
-      }
-      
-      if (isValid) {
-        setStep(step + 1)
-      }
-    }
-    
-    const prevStep = () => {
-      setStep(step - 1)
-    }
-    
-    const onSubmit = (data: FormData) => {
-      console.log('Final data:', data)
-    }
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {step === 1 && (
-          <div className="step1">
-            <h2>Personal Information</h2>
-            <input {...register('step1.firstName', { required: true })} placeholder="First Name" />
-            <input {...register('step1.lastName', { required: true })} placeholder="Last Name" />
-            <input {...register('step1.email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email" />
-          </div>
-        )}
-        
-        {step === 2 && (
-          <div className="step2">
-            <h2>Address Information</h2>
-            <input {...register('step2.address', { required: true })} placeholder="Address" />
-            <input {...register('step2.city', { required: true })} placeholder="City" />
-            <input {...register('step2.zipCode', { required: true, pattern: /^\d{5}$/ })} placeholder="ZIP Code" />
-          </div>
-        )}
-        
-        {step === 3 && (
-          <div className="step3">
-            <h2>Payment Information</h2>
-            <select {...register('step3.paymentMethod', { required: true })}>
-              <option value="credit">Credit Card</option>
-              <option value="paypal">PayPal</option>
-            </select>
-            <input {...register('step3.cardNumber', { required: true, pattern: /^\d{16}$/ })} placeholder="Card Number" />
-            <input {...register('step3.expiryDate', { required: true, pattern: /^(0[1-9]|1[0-2])\/\d{2}$/ })} placeholder="MM/YY" />
-          </div>
-        )}
-        
-        <div className="navigation">
-          {step > 1 && <button type="button" onClick={prevStep}>Previous</button>}
-          {step < 3 && <button type="button" onClick={nextStep}>Next</button>}
-          {step === 3 && <button type="submit">Submit</button>}
-        </div>
-      </form>
-    )
-  }
-  ```
+---
 
-##### 14.7 🔄 Dynamic Form Fields
-- 📝 Adding/Removing Fields Dynamically:
+##### **14.6 📝 Dynamic Form Fields**
+
+- 📝 useFieldArray:
+
   ```tsx
-  import { useForm, useFieldArray } from 'react-hook-form'
-  
-  interface FormData {
-    users: {
-      name: string
-      email: string
-      role: string
-    }[]
-  }
-  
+  import { useFieldArray } from "react-hook-form";
+
   function DynamicForm() {
-    const { control, register, handleSubmit, formState: { errors } } = useForm<FormData>({
-      defaultValues: {
-        users: [{ name: '', email: '', role: 'user' }]
-      }
-    })
-    
-    const { fields, append, remove, prepend, insert, swap, move } = useFieldArray({
+    const { control, register } = useForm({
+      defaultValues: { users: [{ name: "" }] },
+    });
+
+    const { fields, append, remove } = useFieldArray({
       control,
-      name: 'users'
-    })
-    
-    const onSubmit = (data: FormData) => {
-      console.log(data)
-    }
-    
+      name: "users",
+    });
+
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {fields.map((field, index) => (
-          <div key={field.id} className="user-field">
-            <input
-              {...register(`users.${index}.name`, { required: true })}
-              placeholder="Name"
-            />
-            
-            <input
-              {...register(`users.${index}.email`, { 
-                required: true,
-                pattern: /^\S+@\S+$/i 
-              })}
-              placeholder="Email"
-            />
-            
-            <select {...register(`users.${index}.role`)}>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-              <option value="moderator">Moderator</option>
-            </select>
-            
-            <button type="button" onClick={() => remove(index)}>
+      <div>
+        {fields.map((field, i) => (
+          <div key={field.id}>
+            <input {...register(`users.${i}.name`)} />
+            <button type="button" onClick={() => remove(i)}>
               Remove
             </button>
           </div>
         ))}
-        
-        <div className="actions">
-          <button type="button" onClick={() => append({ name: '', email: '', role: 'user' })}>
-            Add User
-          </button>
-          
-          <button type="button" onClick={() => prepend({ name: '', email: '', role: 'user' })}>
-            Add at Beginning
-          </button>
-          
-          {fields.length > 1 && (
-            <>
-              <button type="button" onClick={() => swap(0, 1)}>
-                Swap First Two
-              </button>
-              
-              <button type="button" onClick={() => move(0, fields.length - 1)}>
-                Move First to Last
-              </button>
-            </>
-          )}
-        </div>
-        
-        <button type="submit">Submit</button>
-      </form>
-    )
+        <button type="button" onClick={() => append({ name: "" })}>
+          Add User
+        </button>
+      </div>
+    );
   }
   ```
 
-##### 14.8 🎯 Integration with UI Libraries
-- 📝 Shadcn UI Integration:
+---
+
+##### **14.7 🎯 Integration with Shadcn UI**
+
+- 📝 Shadcn + React Hook Form + Zod:
+
   ```tsx
-  import { useForm } from 'react-hook-form'
-  import { Button } from "@/components/ui/button"
+  import { useForm } from "react-hook-form";
+  import { zodResolver } from "@hookform/resolvers/zod";
+  import * as z from "zod";
   import {
     Form,
-    FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
+    FormControl,
     FormMessage,
-  } from "@/components/ui/form"
-  import { Input } from "@/components/ui/input"
-  import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
-  import { Checkbox } from "@/components/ui/checkbox"
-  import { zodResolver } from "@hookform/resolvers/zod"
-  import * as z from "zod"
-  
-  const formSchema = z.object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().email({
-      message: "Please enter a valid email address.",
-    }),
-    role: z.string({
-      required_error: "Please select a role.",
-    }),
-    terms: z.boolean().refine(val => val === true, {
-      message: "You must accept the terms.",
-    }),
-  })
-  
-  function ShadcnForm() {
-    const form = useForm<z.infer<typeof formSchema>>({
-      resolver: zodResolver(formSchema),
-      defaultValues: {
-        username: "",
-        email: "",
-        terms: false,
-      },
-    })
-    
-    function onSubmit(values: z.infer<typeof formSchema>) {
-      console.log(values)
-    }
-    
+  } from "@/components/ui/form";
+  import { Input } from "@/components/ui/input";
+  import { Button } from "@/components/ui/button";
+
+  const schema = z.object({
+    email: z.string().email(),
+    password: z.string().min(8),
+  });
+
+  function LoginForm() {
+    const form = useForm<z.infer<typeof schema>>({
+      resolver: zodResolver(schema),
+    });
+
     return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="johndoe" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
+        <form onSubmit={form.handleSubmit((data) => console.log(data))}>
           <FormField
             control={form.control}
             name="email"
@@ -8710,636 +6710,154 @@ src/
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="john@example.com" {...field} />
+                  <Input {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
-          <FormField
-            control={form.control}
-            name="role"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Role</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a role" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="user">User</SelectItem>
-                    <SelectItem value="admin">Admin</SelectItem>
-                    <SelectItem value="moderator">Moderator</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="terms"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel>
-                    Accept terms and conditions
-                  </FormLabel>
-                </div>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-    )
+    );
   }
   ```
 
-##### 14.9 🔧 Custom Validation
-- 📝 Custom Validation Rules:
+---
+
+##### **14.8 🔧 Custom Validation**
+
+- 📝 Sync and Async Validation:
+
   ```tsx
-  import { useForm } from 'react-hook-form'
-  
-  function CustomValidationForm() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm()
-    
-    const password = watch('password')
-    
-    const validatePassword = (value: string) => {
-      if (!value) return 'Password is required'
-      if (value.length < 8) return 'Password must be at least 8 characters'
-      if (!/[A-Z]/.test(value)) return 'Password must contain at least one uppercase letter'
-      if (!/[a-z]/.test(value)) return 'Password must contain at least one lowercase letter'
-      if (!/[0-9]/.test(value)) return 'Password must contain at least one number'
-      if (!/[!@#$%^&*]/.test(value)) return 'Password must contain at least one special character'
-      return true
-    }
-    
-    const validateConfirmPassword = (value: string) => {
-      return value === password || 'Passwords do not match'
-    }
-    
-    const validateUsername = async (value: string) => {
-      // Async validation
-      const response = await fetch(`/api/check-username?username=${value}`)
-      const data = await response.json()
-      return data.available || 'Username already taken'
-    }
-    
+  const validatePassword = (value: string) => {
+    if (!value) return 'Password required'
+    if (value.length < 8) return 'At least 8 characters'
+    if (!/[A-Z]/.test(value)) return 'Need uppercase'
+    if (!/[0-9]/.test(value)) return 'Need number'
+    return true
+  }
+
+  const validateUsername = async (value: string) => {
+    const res = await fetch(`/api/check?username=${value}`)
+    const { available } = await res.json()
+    return available || 'Username taken'
+  }
+
+  <input {...register('password', { validate: validatePassword })} />
+  <input {...register('username', { validate: validateUsername })} />
+  ```
+
+---
+
+##### **14.9 📱 File Upload**
+
+- 📝 File Input Handling:
+  ```tsx
+  function FileForm() {
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = async (data) => {
+      const formData = new FormData();
+      formData.append("file", data.file[0]);
+      await fetch("/api/upload", { method: "POST", body: formData });
+    };
+
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Username</label>
-          <input {...register('username', { 
-            required: 'Username is required',
-            minLength: {
-              value: 3,
-              message: 'Username must be at least 3 characters'
-            },
-            validate: validateUsername
-          })} />
-          {errors.username && <span>{errors.username.message as string}</span>}
-        </div>
-        
-        <div>
-          <label>Password</label>
-          <input 
-            type="password" 
-            {...register('password', { 
-              validate: validatePassword
-            })} 
-          />
-          {errors.password && <span>{errors.password.message as string}</span>}
-        </div>
-        
-        <div>
-          <label>Confirm Password</label>
-          <input 
-            type="password" 
-            {...register('confirmPassword', { 
-              validate: validateConfirmPassword
-            })} 
-          />
-          {errors.confirmPassword && <span>{errors.confirmPassword.message as string}</span>}
-        </div>
-        
-        <button type="submit">Register</button>
-      </form>
-    )
-  }
-  ```
-
-##### 14.10 📱 Form with File Upload
-- 📝 File Upload Example:
-  ```tsx
-  import { useForm } from 'react-hook-form'
-  import { useState } from 'react'
-  
-  interface FormData {
-    name: string
-    files: FileList
-  }
-  
-  function FileUploadForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
-    const [previews, setPreviews] = useState<string[]>([])
-    
-    const validateFiles = (files: FileList) => {
-      if (files.length === 0) return 'At least one file is required'
-      
-      const maxSize = 5 * 1024 * 1024 // 5MB
-      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']
-      
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i]
-        
-        if (file.size > maxSize) {
-          return `File ${file.name} exceeds 5MB limit`
-        }
-        
-        if (!allowedTypes.includes(file.type)) {
-          return `File ${file.name} must be JPEG, PNG, or GIF`
-        }
-      }
-      
-      return true
-    }
-    
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const files = e.target.files
-      if (files) {
-        const newPreviews: string[] = []
-        for (let i = 0; i < files.length; i++) {
-          newPreviews.push(URL.createObjectURL(files[i]))
-        }
-        setPreviews(newPreviews)
-      }
-    }
-    
-    const onSubmit = async (data: FormData) => {
-      const formData = new FormData()
-      formData.append('name', data.name)
-      
-      for (let i = 0; i < data.files.length; i++) {
-        formData.append('files', data.files[i])
-      }
-      
-      // Send to API
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData
-      })
-    }
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <div>
-          <label>Name</label>
-          <input {...register('name', { required: 'Name is required' })} />
-          {errors.name && <span>{errors.name.message}</span>}
-        </div>
-        
-        <div>
-          <label>Files</label>
-          <input
-            type="file"
-            multiple
-            {...register('files', { 
-              validate: validateFiles,
-              onChange: handleFileChange
-            })}
-          />
-          {errors.files && <span>{errors.files.message as string}</span>}
-        </div>
-        
-        {previews.length > 0 && (
-          <div className="previews">
-            {previews.map((preview, index) => (
-              <img key={index} src={preview} alt={`Preview ${index}`} />
-            ))}
-          </div>
-        )}
-        
+        <input type="file" {...register("file")} />
         <button type="submit">Upload</button>
       </form>
-    )
+    );
   }
   ```
 
-##### 14.11 🎨 Styled Forms with Tailwind
-- 📝 Beautiful Form Example:
-  ```tsx
-  import { useForm } from 'react-hook-form'
-  import { cn } from '@/lib/utils'
-  
-  function StyledForm() {
-    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm()
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto space-y-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            {...register('name', { required: 'Name is required' })}
-            className={cn(
-              "mt-1 block w-full rounded-md shadow-sm",
-              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
-              errors.name && "border-red-300 focus:border-red-500 focus:ring-red-500"
-            )}
-          />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message as string}</p>
-          )}
-        </div>
-        
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email Address
-          </label>
-          <input
-            type="email"
-            id="email"
-            {...register('email', { 
-              required: 'Email is required',
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: 'Invalid email format'
-              }
-            })}
-            className={cn(
-              "mt-1 block w-full rounded-md shadow-sm",
-              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
-              errors.email && "border-red-300 focus:border-red-500 focus:ring-red-500"
-            )}
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message as string}</p>
-          )}
-        </div>
-        
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            {...register('message', { 
-              required: 'Message is required',
-              minLength: {
-                value: 10,
-                message: 'Message must be at least 10 characters'
-              }
-            })}
-            className={cn(
-              "mt-1 block w-full rounded-md shadow-sm",
-              "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
-              errors.message && "border-red-300 focus:border-red-500 focus:ring-red-500"
-            )}
-          />
-          {errors.message && (
-            <p className="mt-1 text-sm text-red-600">{errors.message.message as string}</p>
-          )}
-        </div>
-        
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            id="terms"
-            {...register('terms', { 
-              required: 'You must accept the terms' 
-            })}
-            className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-          />
-          <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-            I agree to the terms and conditions
-          </label>
-          {errors.terms && (
-            <p className="mt-1 text-sm text-red-600">{errors.terms.message as string}</p>
-          )}
-        </div>
-        
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={cn(
-            "w-full flex justify-center py-2 px-4 border border-transparent",
-            "rounded-md shadow-sm text-sm font-medium text-white",
-            "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2",
-            "focus:ring-offset-2 focus:ring-blue-500",
-            "disabled:opacity-50 disabled:cursor-not-allowed"
-          )}
-        >
-          {isSubmitting ? 'Submitting...' : 'Submit'}
-        </button>
-      </form>
-    )
-  }
-  ```
+---
 
-##### 14.12 🔄 Form Context and Nested Forms
-- 📝 Using FormProvider:
+##### **14.10 🔄 Form Context (FormProvider)**
+
+- 📝 Sharing form state with nested components:
+
   ```tsx
-  // Parent Component
-  import { useForm, FormProvider } from 'react-hook-form'
-  
+  import { FormProvider, useFormContext } from "react-hook-form";
+
   function ParentForm() {
-    const methods = useForm()
-    
+    const methods = useForm();
+
     return (
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <PersonalInfo />
           <AddressInfo />
-          <PaymentInfo />
           <button type="submit">Submit</button>
         </form>
       </FormProvider>
-    )
+    );
   }
-  
-  // Child Component
-  import { useFormContext } from 'react-hook-form'
-  
+
   function PersonalInfo() {
-    const { register, formState: { errors } } = useFormContext()
-    
-    return (
-      <div>
-        <h3>Personal Information</h3>
-        <input {...register('firstName')} placeholder="First Name" />
-        <input {...register('lastName')} placeholder="Last Name" />
-      </div>
-    )
-  }
-  
-  function AddressInfo() {
-    const { register } = useFormContext()
-    
-    return (
-      <div>
-        <h3>Address Information</h3>
-        <input {...register('address')} placeholder="Address" />
-        <input {...register('city')} placeholder="City" />
-      </div>
-    )
+    const { register } = useFormContext();
+    return <input {...register("name")} />;
   }
   ```
 
-##### 14.13 🎯 Advanced Patterns
+---
+
+##### **14.11 🎯 Advanced Patterns**
+
 - 📝 Dependent Fields:
   ```tsx
   function DependentFields() {
-    const { register, watch, setValue, formState: { errors } } = useForm()
-    
-    const country = watch('country')
-    const city = watch('city')
-    
-    // Update cities when country changes
+    const { register, watch, setValue } = useForm();
+    const country = watch("country");
+
     useEffect(() => {
-      if (country) {
-        // Reset city when country changes
-        setValue('city', '')
-        // Fetch cities for selected country
-        fetchCities(country)
-      }
-    }, [country, setValue])
-    
-    return (
-      <div>
-        <select {...register('country', { required: true })}>
-          <option value="">Select Country</option>
-          <option value="us">United States</option>
-          <option value="uk">United Kingdom</option>
-          <option value="ca">Canada</option>
-        </select>
-        
-        <select {...register('city', { required: true })} disabled={!country}>
-          <option value="">Select City</option>
-          {cities.map(city => (
-            <option key={city} value={city}>{city}</option>
-          ))}
-        </select>
-        
-        {country === 'us' && (
-          <input {...register('zipCode')} placeholder="ZIP Code" />
-        )}
-      </div>
-    )
+      if (country) setValue("city", ""); // reset when country changes
+    }, [country, setValue]);
   }
   ```
 - 📝 Conditional Fields:
+
   ```tsx
-  function ConditionalFields() {
-    const { register, watch } = useForm()
-    
-    const hasNewsletter = watch('newsletter')
-    const accountType = watch('accountType')
-    
-    return (
-      <div>
-        <div>
-          <label>
-            <input type="checkbox" {...register('newsletter')} />
-            Subscribe to newsletter
-          </label>
-        </div>
-        
-        {hasNewsletter && (
-          <div>
-            <label>Email Frequency</label>
-            <select {...register('frequency')}>
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
-            </select>
-          </div>
-        )}
-        
-        <div>
-          <label>Account Type</label>
-          <select {...register('accountType')}>
-            <option value="basic">Basic</option>
-            <option value="premium">Premium</option>
-            <option value="enterprise">Enterprise</option>
-          </select>
-        </div>
-        
-        {accountType === 'premium' && (
-          <div>
-            <label>Premium Feature Access</label>
-            <input type="checkbox" {...register('premiumFeatures')} />
-          </div>
-        )}
-        
-        {accountType === 'enterprise' && (
-          <div>
-            <label>Company Name</label>
-            <input {...register('companyName')} />
-          </div>
-        )}
-      </div>
-    )
+  const hasNewsletter = watch("newsletter");
+
+  {
+    hasNewsletter && (
+      <select {...register("frequency")}>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+      </select>
+    );
   }
   ```
 
-##### 14.14 🧪 Testing Forms
-- 📝 Testing React Hook Form:
+---
+
+##### **14.12 🚀 Performance Optimization**
+
+- 📝 Controller for custom components:
+
   ```tsx
-  import { render, screen, waitFor } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { useForm } from 'react-hook-form'
-  
-  function TestForm() {
-    const { register, handleSubmit } = useForm()
-    
-    const onSubmit = jest.fn()
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('name')} placeholder="Name" />
-        <input {...register('email')} placeholder="Email" />
-        <button type="submit">Submit</button>
-      </form>
-    )
-  }
-  
-  describe('TestForm', () => {
-    it('submits form data correctly', async () => {
-      const mockSubmit = jest.fn()
-      render(<TestForm onSubmit={mockSubmit} />)
-      
-      await userEvent.type(screen.getByPlaceholderText('Name'), 'John Doe')
-      await userEvent.type(screen.getByPlaceholderText('Email'), 'john@example.com')
-      await userEvent.click(screen.getByText('Submit'))
-      
-      await waitFor(() => {
-        expect(mockSubmit).toHaveBeenCalledWith(
-          expect.objectContaining({
-            name: 'John Doe',
-            email: 'john@example.com'
-          }),
-          expect.anything()
-        )
-      })
-    })
-    
-    it('shows validation errors', async () => {
-      render(<TestForm onSubmit={mockSubmit} />)
-      
-      await userEvent.click(screen.getByText('Submit'))
-      
-      await waitFor(() => {
-        expect(screen.getByText('Name is required')).toBeInTheDocument()
-        expect(screen.getByText('Email is required')).toBeInTheDocument()
-      })
-    })
-  })
+  import { Controller } from "react-hook-form";
+
+  <Controller
+    name="richText"
+    control={control}
+    render={({ field }) => (
+      <RichTextEditor value={field.value} onChange={field.onChange} />
+    )}
+  />;
   ```
 
-##### 14.15 🚀 Performance Optimization
-- 📝 Preventing Re-renders:
+- 📝 `useWatch` for selective subscriptions:
   ```tsx
-  import { useForm, Controller } from 'react-hook-form'
-  
-  // Use Controller for custom components that don't expose ref
-  function OptimizedForm() {
-    const { control, handleSubmit } = useForm()
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => (
-            <ExpensiveInput {...field} />
-          )}
-        />
-        
-        <Controller
-          name="richText"
-          control={control}
-          render={({ field }) => (
-            <RichTextEditor 
-              value={field.value}
-              onChange={field.onChange}
-            />
-          )}
-        />
-      </form>
-    )
-  }
-  
-  // Memoize expensive components
-  const ExpensiveInput = React.memo(({ value, onChange }) => {
-    return (
-      <input 
-        value={value} 
-        onChange={onChange}
-        className="expensive-styles"
-      />
-    )
-  })
-  ```
-- 📝 useWatch for Performance:
-  ```tsx
-  import { useForm, useWatch } from 'react-hook-form'
-  
-  function TotalCalculator() {
-    const { control, register } = useForm({
-      defaultValues: {
-        items: [{ price: 0, quantity: 1 }]
-      }
-    })
-    
-    const items = useWatch({
-      control,
-      name: 'items'
-    })
-    
-    const total = items.reduce(
-      (sum, item) => sum + (item.price * item.quantity), 
-      0
-    )
-    
-    return (
-      <div>
-        {items.map((_, index) => (
-          <div key={index}>
-            <input
-              type="number"
-              {...register(`items.${index}.price`)}
-            />
-            <input
-              type="number"
-              {...register(`items.${index}.quantity`)}
-            />
-          </div>
-        ))}
-        <div>Total: ${total}</div>
-      </div>
-    )
-  }
+  const total = useWatch({ control, name: 'items' }).reduce(...)
   ```
 
-##### 14.16 💻 Practical Projects
+---
+
+##### **14.13 💻 Practical Projects**
+
 - 🏗️ User Registration Form
 - 📝 Blog Post Editor
 - 🛒 Checkout Form with Multiple Steps
@@ -9358,1100 +6876,305 @@ src/
 
 ---
 
-## 🎯 STAGE 15 — Zod (Schema Validation)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 15 — ZOD (Schema Validation)
+
 **Goal**: Master Zod for type-safe schema validation and data parsing in TypeScript applications.
-**Time**: 15 soat | 8 dars
+**Time**: 18 soat | 8 dars
 
-#### 📚 Topics
+---
 
-##### 15.1 📦 Introduction to Zod
-- 🤔 What is Zod?
+#### 📚 **Topics**
+
+##### **15.1 📦 Introduction to Zod**
+
+- 🤔 What is Zod? (TypeScript-first schema validation)
 - 🎯 Why Zod?
-  - TypeScript-first
+  - TypeScript-first (type inference)
   - Zero dependencies
   - Runtime validation
-  - Type inference
   - Composable schemas
-  - Immutable
-- 🔄 Zod vs Other Validation Libraries:
-  - vs Yup
-  - vs Joi
-  - vs io-ts
-  - vs Ajv
-- 📥 Installation:
-  ```bash
-  npm install zod
-  # or
-  yarn add zod
-  ```
+- 🔄 vs Yup, Joi, io-ts, Ajv
+- 📥 Installation: `npm install zod`
 
-##### 15.2 📝 Basic Schema Types
+---
+
+##### **15.2 📝 Basic Schema Types**
+
 - 📝 Primitive Types:
   ```typescript
-  import { z } from 'zod'
-  
-  // String
-  const stringSchema = z.string()
-  const stringResult = stringSchema.parse('hello') // ✅
-  // stringSchema.parse(123) // ❌ throws error
-  
-  // Number
-  const numberSchema = z.number()
-  const numberResult = numberSchema.parse(42) // ✅
-  
-  // Boolean
-  const booleanSchema = z.boolean()
-  const boolResult = booleanSchema.parse(true) // ✅
-  
-  // Null and Undefined
-  const nullSchema = z.null()
-  const undefinedSchema = z.undefined()
-  const voidSchema = z.void() // accepts null or undefined
-  
-  // Any and Unknown
-  const anySchema = z.any()
-  const unknownSchema = z.unknown()
-  
-  // Never
-  const neverSchema = z.never() // accepts nothing
-  
-  // Literals
-  const literalSchema = z.literal('hello')
-  const literalResult = literalSchema.parse('hello') // ✅
-  // literalSchema.parse('world') // ❌
+  z.string();
+  z.number();
+  z.boolean();
+  z.null();
+  z.undefined();
+  z.void(); // null or undefined
+  z.any();
+  z.unknown();
+  z.literal("hello"); // exact value
   ```
 - 📝 Safe Parse:
   ```typescript
-  const result = stringSchema.safeParse(123)
-  
+  const result = schema.safeParse(data);
   if (result.success) {
-    console.log('Data:', result.data) // Type is string
+    console.log(result.data); // typed
   } else {
-    console.log('Error:', result.error) // ZodError
+    console.log(result.error); // ZodError
   }
   ```
 
-##### 15.3 📦 Object Schemas
-- 📝 Basic Object Schema:
+---
+
+##### **15.3 📦 Object Schemas**
+
+- 📝 Basic Object:
+
   ```typescript
-  import { z } from 'zod'
-  
   const UserSchema = z.object({
     id: z.number(),
     name: z.string(),
     email: z.string().email(),
     age: z.number().min(18).max(120),
-    isActive: z.boolean().default(true),
-    role: z.enum(['admin', 'user', 'guest']),
+    role: z.enum(["admin", "user"]),
     tags: z.array(z.string()),
-    metadata: z.record(z.string(), z.unknown()).optional(),
-  })
-  
-  // Type inference
-  type User = z.infer<typeof UserSchema>
-  
-  // Usage
-  const user: User = {
-    id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    age: 30,
-    role: 'user',
-    tags: ['customer', 'premium'],
-  }
-  
-  // Validate
-  const validated = UserSchema.parse(user)
-  ```
-- 📝 Nested Objects:
-  ```typescript
-  const AddressSchema = z.object({
-    street: z.string(),
-    city: z.string(),
-    country: z.string(),
-    zipCode: z.string().regex(/^\d{5}$/),
-  })
-  
-  const UserWithAddressSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    address: AddressSchema,
-    shippingAddress: AddressSchema.optional(),
-    addresses: z.array(AddressSchema),
-  })
+  });
+
+  type User = z.infer<typeof UserSchema>; // TypeScript type
   ```
 
-##### 15.4 🔧 Schema Methods
-- 📝 Validation Methods:
+- 📝 Nested Objects
+- 📝 Optional: `z.string().optional()`
+- 📝 Default: `z.string().default('value')`
+
+---
+
+##### **15.4 🔧 Validation Methods**
+
+- 📝 String: `.email()`, `.url()`, `.uuid()`, `.regex()`, `.min()`, `.max()`, `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.datetime()`, `.ip()`
+- 📝 Number: `.positive()`, `.negative()`, `.nonnegative()`, `.min()`, `.max()`, `.int()`, `.multipleOf()`
+- 📝 Array: `.min()`, `.max()`, `.nonempty()`, `.length()`
+
+---
+
+##### **15.5 🔀 Union and Intersection**
+
+- 📝 Union:
   ```typescript
-  // String methods
-  const emailSchema = z.string().email('Invalid email')
-  const urlSchema = z.string().url('Invalid URL')
-  const uuidSchema = z.string().uuid()
-  const regexSchema = z.string().regex(/^[A-Z]+$/, 'Must be uppercase')
-  const minLengthSchema = z.string().min(5, 'At least 5 characters')
-  const maxLengthSchema = z.string().max(100)
-  const lengthSchema = z.string().length(10)
-  const includesSchema = z.string().includes('@')
-  const startsWithSchema = z.string().startsWith('https')
-  const endsWithSchema = z.string().endsWith('.com')
-  const datetimeSchema = z.string().datetime() // ISO datetime
-  const ipSchema = z.string().ip() // IPv4 or IPv6
-  
-  // Number methods
-  const positiveSchema = z.number().positive()
-  const negativeSchema = z.number().negative()
-  const nonnegativeSchema = z.number().nonnegative()
-  const minSchema = z.number().min(18, 'Must be at least 18')
-  const maxSchema = z.number().max(100)
-  const intSchema = z.number().int()
-  const multipleOfSchema = z.number().multipleOf(5)
-  const finiteSchema = z.number().finite() // not Infinity or -Infinity
-  
-  // Array methods
-  const arraySchema = z.array(z.string())
-  const minArraySchema = z.array(z.string()).min(1, 'At least one item')
-  const maxArraySchema = z.array(z.string()).max(10)
-  const nonemptyArraySchema = z.array(z.string()).nonempty()
-  const lengthArraySchema = z.array(z.string()).length(5)
+  z.union([z.string(), z.number()]);
+  z.string().or(z.number());
+  ```
+- 📝 Discriminated Union:
+  ```typescript
+  const DogSchema = z.object({ type: z.literal("dog"), bark: z.boolean() });
+  const CatSchema = z.object({ type: z.literal("cat"), meow: z.boolean() });
+  const AnimalSchema = z.discriminatedUnion("type", [DogSchema, CatSchema]);
+  ```
+- 📝 Intersection:
+  ```typescript
+  z.intersection(BasicSchema, AddressSchema);
+  BasicSchema.and(AddressSchema);
   ```
 
-##### 15.5 🔀 Union and Intersection
-- 📝 Union Types:
-  ```typescript
-  // String or number
-  const stringOrNumber = z.union([z.string(), z.number()])
-  // or using .or()
-  const stringOrNumber2 = z.string().or(z.number())
-  
-  // Discriminated unions
-  const DogSchema = z.object({
-    type: z.literal('dog'),
-    bark: z.boolean(),
-  })
-  
-  const CatSchema = z.object({
-    type: z.literal('cat'),
-    meow: z.boolean(),
-  })
-  
-  const AnimalSchema = z.discriminatedUnion('type', [DogSchema, CatSchema])
-  
-  type Animal = z.infer<typeof AnimalSchema>
-  // Animal = { type: 'dog', bark: boolean } | { type: 'cat', meow: boolean }
-  ```
-- 📝 Intersection Types:
-  ```typescript
-  const BasicInfoSchema = z.object({
-    name: z.string(),
-    email: z.string().email(),
-  })
-  
-  const AddressInfoSchema = z.object({
-    address: z.string(),
-    city: z.string(),
-  })
-  
-  const UserSchema = z.intersection(BasicInfoSchema, AddressInfoSchema)
-  // or using .and()
-  const UserSchema2 = BasicInfoSchema.and(AddressInfoSchema)
-  
-  type User = z.infer<typeof UserSchema>
-  // { name: string; email: string; address: string; city: string; }
-  ```
+---
 
-##### 15.6 🎯 Advanced Types
-- 📝 Optional and Nullable:
-  ```typescript
-  const OptionalSchema = z.string().optional() // string | undefined
-  const NullableSchema = z.string().nullable() // string | null
-  const NullishSchema = z.string().nullish() // string | null | undefined
-  
-  const UserSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    age: z.number().optional(), // optional property
-    email: z.string().email().nullable(), // can be null
-    phone: z.string().nullish(), // can be null or undefined
-  })
-  ```
-- 📝 Default Values:
-  ```typescript
-  const WithDefaultSchema = z.string().default('default value')
-  
-  const UserSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    role: z.enum(['admin', 'user']).default('user'),
-    isActive: z.boolean().default(true),
-    createdAt: z.date().default(() => new Date()),
-  })
-  ```
-- 📝 Record and Map:
-  ```typescript
-  // Record (key-value pairs)
-  const StringRecordSchema = z.record(z.string()) // { [k: string]: string }
-  const MixedRecordSchema = z.record(z.string(), z.union([z.string(), z.number()]))
-  
-  // Map
-  const MapSchema = z.map(z.string(), z.number())
-  ```
-- 📝 Set and Promise:
-  ```typescript
-  const SetSchema = z.set(z.string())
-  const PromiseSchema = z.promise(z.string())
-  ```
+##### **15.6 🎯 Advanced Types**
 
-##### 15.7 🔄 Transform and Refine
-- 📝 Transform (modify data):
+- 📝 Optional/Nullable:
   ```typescript
-  const DateStringSchema = z.string().transform((str) => new Date(str))
-  
-  const NumberStringSchema = z.string().transform(Number)
-  
-  const TrimmedStringSchema = z.string().transform(s => s.trim())
-  
-  const UserSchema = z.object({
-    name: z.string(),
-    email: z.string().email(),
-  }).transform(user => ({
-    ...user,
-    displayName: user.name.toUpperCase(),
-    domain: user.email.split('@')[1],
-  }))
-  
-  // Multiple transforms
-  const ProcessedSchema = z.string()
-    .transform(s => s.trim())
-    .transform(s => s.toLowerCase())
-    .transform(s => s.split(','))
+  z.string().optional(); // string | undefined
+  z.string().nullable(); // string | null
+  z.string().nullish(); // string | null | undefined
+  ```
+- 📝 Record: `z.record(z.string())`
+- 📝 Map: `z.map(z.string(), z.number())`
+- 📝 Set: `z.set(z.string())`
+
+---
+
+##### **15.7 🔄 Transform and Refine**
+
+- 📝 Transform:
+  ```typescript
+  z.string().transform((str) => new Date(str));
+  z.string().transform(Number);
+  z.string().transform((s) => s.trim());
   ```
 - 📝 Refine (custom validation):
+
   ```typescript
-  const PasswordSchema = z.string()
-    .min(8)
-    .refine(
-      (password) => /[A-Z]/.test(password),
-      'Must contain uppercase letter'
-    )
-    .refine(
-      (password) => /[a-z]/.test(password),
-      'Must contain lowercase letter'
-    )
-    .refine(
-      (password) => /[0-9]/.test(password),
-      'Must contain number'
-    )
-  
-  const UserSchema = z.object({
-    password: PasswordSchema,
-    confirmPassword: z.string(),
-  }).refine(data => data.password === data.confirmPassword, {
-    message: 'Passwords must match',
-    path: ['confirmPassword'], // Error path
-  })
-  ```
-- 📝 SuperRefine (advanced validation):
-  ```typescript
-  const UserSchema = z.object({
-    username: z.string(),
+  z.string().refine(
+    (val) => /[A-Z]/.test(val),
+    "Must contain uppercase letter",
+  );
+
+  z.object({
     password: z.string(),
-    age: z.number(),
-  }).superRefine((data, ctx) => {
-    // Custom validation with context
-    if (data.username === data.password) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'Username and password cannot be the same',
-        path: ['password'],
-      })
-    }
-    
-    if (data.age < 18 && data.username.includes('admin')) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'Minors cannot have admin username',
-        path: ['username'],
-      })
+    confirm: z.string(),
+  }).refine((data) => data.password === data.confirm, {
+    message: "Passwords must match",
+    path: ["confirm"],
+  });
+  ```
+
+- 📝 SuperRefine (multiple errors):
+  ```typescript
+  .superRefine((data, ctx) => {
+    if (data.password === data.username) {
+      ctx.addIssue({ code: 'custom', message: '...', path: ['password'] })
     }
   })
   ```
 
-##### 15.8 🎨 Schema Composition
-- 📝 Extending Schemas:
-  ```typescript
-  const BaseUserSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    email: z.string().email(),
-  })
-  
-  // Extend with new fields
-  const AdminUserSchema = BaseUserSchema.extend({
-    role: z.literal('admin'),
-    permissions: z.array(z.string()),
-    department: z.string().optional(),
-  })
-  
-  const RegularUserSchema = BaseUserSchema.extend({
-    role: z.literal('user'),
-    subscription: z.enum(['free', 'premium']).default('free'),
-  })
-  
-  // Merge schemas
-  const CompleteUserSchema = BaseUserSchema.merge(z.object({
-    address: z.string(),
-    phone: z.string(),
-  }))
-  ```
-- 📝 Pick, Omit, Partial:
-  ```typescript
-  const FullUserSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    email: z.string().email(),
-    password: z.string(),
-    role: z.string(),
-    createdAt: z.date(),
-  })
-  
-  // Pick specific fields
-  const PublicUserSchema = FullUserSchema.pick({
-    id: true,
-    name: true,
-    email: true,
-    role: true,
-  })
-  
-  // Omit fields
-  const UserWithoutPassword = FullUserSchema.omit({
-    password: true,
-  })
-  
-  // Make all fields optional
-  const PartialUserSchema = FullUserSchema.partial()
-  
-  // Make specific fields optional
-  const UserUpdateSchema = FullUserSchema.partial({
-    email: true,
-    role: true,
-  })
-  ```
+---
 
-##### 15.9 🔧 Error Handling
-- 📝 ZodError Handling:
+##### **15.8 🎨 Schema Composition**
+
+- 📝 Extend: `BaseSchema.extend({ newField: z.string() })`
+- 📝 Pick: `FullSchema.pick({ id: true, name: true })`
+- 📝 Omit: `FullSchema.omit({ password: true })`
+- 📝 Partial: `FullSchema.partial()` (all fields optional)
+- 📝 Merge: `SchemaA.merge(SchemaB)`
+
+---
+
+##### **15.9 🔧 Error Handling**
+
+- 📝 ZodError properties:
   ```typescript
-  import { z, ZodError } from 'zod'
-  
-  const UserSchema = z.object({
-    name: z.string().min(2),
-    email: z.string().email(),
-    age: z.number().min(18),
-  })
-  
   try {
-    const user = UserSchema.parse({
-      name: 'J',
-      email: 'invalid',
-      age: 16,
-    })
+    schema.parse(data);
   } catch (error) {
-    if (error instanceof ZodError) {
-      console.log(error.errors)
-      // [
-      //   { code: 'too_small', path: ['name'], message: 'String must contain at least 2 character(s)' },
-      //   { code: 'invalid_string', path: ['email'], message: 'Invalid email' },
-      //   { code: 'too_small', path: ['age'], message: 'Number must be greater than or equal to 18' }
-      // ]
-      
-      // Format errors
-      const formatted = error.format()
-      // {
-      //   _errors: [],
-      //   name: { _errors: ['String must contain at least 2 character(s)'] },
-      //   email: { _errors: ['Invalid email'] },
-      //   age: { _errors: ['Number must be greater than or equal to 18'] }
-      // }
+    if (error instanceof z.ZodError) {
+      console.log(error.errors); // array of issues
+      console.log(error.format()); // nested object
+      console.log(error.flatten()); // flat field errors
     }
   }
-  
-  // Flatten errors
-  const result = UserSchema.safeParse(invalidData)
-  if (!result.success) {
-    const flattened = result.error.flatten()
-    // {
-    //   formErrors: [],
-    //   fieldErrors: {
-    //     name: ['String must contain at least 2 character(s)'],
-    //     email: ['Invalid email'],
-    //     age: ['Number must be greater than or equal to 18']
-    //   }
-    // }
-  }
   ```
 
-##### 15.10 🔄 Parsing and Validation
-- 📝 Parse Methods:
-  ```typescript
-  const schema = z.string().min(3)
-  
-  // parse - throws on error
-  const result = schema.parse('hello')
-  
-  // parseAsync - for async validation
-  const asyncResult = await schema.parseAsync('hello')
-  
-  // safeParse - returns Result object
-  const safeResult = schema.safeParse('hi')
-  if (safeResult.success) {
-    console.log(safeResult.data)
-  } else {
-    console.log(safeResult.error)
-  }
-  
-  // safeParseAsync
-  const safeAsyncResult = await schema.safeParseAsync('hello')
-  
-  // Non-strict parsing (strip unknown keys)
-  const userSchema = z.object({
-    name: z.string(),
-  })
-  
-  const userData = { name: 'John', extra: 'field' }
-  const parsed = userSchema.parse(userData) // extra field is stripped
-  
-  // Strict parsing - error on unknown keys
-  const strictSchema = userSchema.strict()
-  // strictSchema.parse(userData) // throws error
-  
-  // Passthrough - keep unknown keys
-  const passthroughSchema = userSchema.passthrough()
-  const passthrough = passthroughSchema.parse(userData) // keeps extra field
-  ```
+---
 
-##### 15.11 🎯 Integration with React Hook Form
-- 📝 Zod Resolver:
-  ```bash
-  npm install @hookform/resolvers
-  ```
-- 📝 Form Validation Example:
+##### **15.10 🔄 Parse Methods**
+
+- 📝 `parse()` — throws on error
+- 📝 `parseAsync()` — async version
+- 📝 `safeParse()` — returns `{ success, data/error }`
+- 📝 `safeParseAsync()`
+- 📝 `strict()` — error on unknown keys
+- 📝 `passthrough()` — keep unknown keys
+- 📝 `strip()` — remove unknown keys (default)
+
+---
+
+##### **15.11 🎯 Integration with React Hook Form**
+
+- 📝 Installation: `npm install @hookform/resolvers`
+- 📝 Usage:
+
   ```tsx
-  import { useForm } from 'react-hook-form'
-  import { zodResolver } from '@hookform/resolvers/zod'
-  import { z } from 'zod'
-  
-  const loginSchema = z.object({
-    email: z.string()
-      .min(1, 'Email is required')
-      .email('Invalid email address'),
-    password: z.string()
-      .min(8, 'Password must be at least 8 characters')
-      .regex(/[A-Z]/, 'Must contain uppercase letter')
-      .regex(/[a-z]/, 'Must contain lowercase letter')
-      .regex(/[0-9]/, 'Must contain number'),
-    rememberMe: z.boolean().default(false),
-  })
-  
-  type LoginForm = z.infer<typeof loginSchema>
-  
-  function LoginForm() {
-    const { 
-      register, 
-      handleSubmit, 
-      formState: { errors } 
-    } = useForm<LoginForm>({
-      resolver: zodResolver(loginSchema),
-      defaultValues: {
-        email: '',
-        password: '',
-        rememberMe: false,
-      }
-    })
-    
-    const onSubmit = (data: LoginForm) => {
-      console.log('Validated data:', data)
-    }
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Email</label>
-          <input {...register('email')} />
-          {errors.email && <span>{errors.email.message}</span>}
-        </div>
-        
-        <div>
-          <label>Password</label>
-          <input type="password" {...register('password')} />
-          {errors.password && <span>{errors.password.message}</span>}
-        </div>
-        
-        <div>
-          <label>
-            <input type="checkbox" {...register('rememberMe')} />
-            Remember me
-          </label>
-        </div>
-        
-        <button type="submit">Login</button>
-      </form>
-    )
-  }
-  ```
+  import { zodResolver } from "@hookform/resolvers/zod";
 
-##### 15.12 📦 Complex Form Example
-- 📝 User Registration with Zod:
-  ```tsx
-  import { useForm } from 'react-hook-form'
-  import { zodResolver } from '@hookform/resolvers/zod'
-  import { z } from 'zod'
-  
-  const phoneRegex = /^\+?[1-9]\d{1,14}$/
-  
-  const userSchema = z.object({
-    personalInfo: z.object({
-      firstName: z.string().min(2, 'First name too short'),
-      lastName: z.string().min(2, 'Last name too short'),
-      dateOfBirth: z.string().refine((date) => {
-        const age = new Date().getFullYear() - new Date(date).getFullYear()
-        return age >= 18
-      }, 'Must be 18 or older'),
-    }),
-    
-    contactInfo: z.object({
-      email: z.string().email('Invalid email'),
-      phone: z.string().regex(phoneRegex, 'Invalid phone number'),
-      address: z.object({
-        street: z.string().min(1, 'Street required'),
-        city: z.string().min(1, 'City required'),
-        zipCode: z.string().regex(/^\d{5}$/, 'Invalid ZIP code'),
-        country: z.string().min(1, 'Country required'),
-      }),
-    }),
-    
-    accountInfo: z.object({
-      username: z.string()
-        .min(3, 'Username too short')
-        .max(20, 'Username too long')
-        .regex(/^[a-zA-Z0-9_]+$/, 'Only letters, numbers, and underscores'),
-      
-      password: z.string()
-        .min(8, 'Password too short')
-        .regex(/[A-Z]/, 'Must contain uppercase')
-        .regex(/[a-z]/, 'Must contain lowercase')
-        .regex(/[0-9]/, 'Must contain number'),
-      
-      confirmPassword: z.string(),
-      
-      role: z.enum(['user', 'admin', 'moderator']).default('user'),
-      
-      preferences: z.object({
-        newsletter: z.boolean().default(false),
-        theme: z.enum(['light', 'dark', 'system']).default('system'),
-        notifications: z.object({
-          email: z.boolean().default(true),
-          sms: z.boolean().default(false),
-          push: z.boolean().default(true),
-        }),
-      }),
-    }),
-  }).refine(data => data.accountInfo.password === data.accountInfo.confirmPassword, {
-    message: 'Passwords must match',
-    path: ['accountInfo', 'confirmPassword'],
-  })
-  
-  type UserForm = z.infer<typeof userSchema>
-  
-  function RegistrationForm() {
-    const { 
-      register, 
-      handleSubmit, 
-      formState: { errors, isSubmitting } 
-    } = useForm<UserForm>({
-      resolver: zodResolver(userSchema),
-      defaultValues: {
-        accountInfo: {
-          preferences: {
-            newsletter: false,
-            theme: 'system',
-            notifications: {
-              email: true,
-              sms: false,
-              push: true,
-            },
-          },
-        },
-      },
-    })
-    
-    const onSubmit = async (data: UserForm) => {
-      // Submit to API
-      console.log('Registration data:', data)
-    }
-    
-    return (
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Personal Info */}
-        <fieldset>
-          <legend>Personal Information</legend>
-          
-          <div>
-            <label>First Name</label>
-            <input {...register('personalInfo.firstName')} />
-            {errors.personalInfo?.firstName && (
-              <span>{errors.personalInfo.firstName.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Last Name</label>
-            <input {...register('personalInfo.lastName')} />
-            {errors.personalInfo?.lastName && (
-              <span>{errors.personalInfo.lastName.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Date of Birth</label>
-            <input type="date" {...register('personalInfo.dateOfBirth')} />
-            {errors.personalInfo?.dateOfBirth && (
-              <span>{errors.personalInfo.dateOfBirth.message}</span>
-            )}
-          </div>
-        </fieldset>
-        
-        {/* Contact Info */}
-        <fieldset>
-          <legend>Contact Information</legend>
-          
-          <div>
-            <label>Email</label>
-            <input type="email" {...register('contactInfo.email')} />
-            {errors.contactInfo?.email && (
-              <span>{errors.contactInfo.email.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Phone</label>
-            <input {...register('contactInfo.phone')} />
-            {errors.contactInfo?.phone && (
-              <span>{errors.contactInfo.phone.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Street</label>
-            <input {...register('contactInfo.address.street')} />
-            {errors.contactInfo?.address?.street && (
-              <span>{errors.contactInfo.address.street.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>City</label>
-            <input {...register('contactInfo.address.city')} />
-            {errors.contactInfo?.address?.city && (
-              <span>{errors.contactInfo.address.city.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>ZIP Code</label>
-            <input {...register('contactInfo.address.zipCode')} />
-            {errors.contactInfo?.address?.zipCode && (
-              <span>{errors.contactInfo.address.zipCode.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Country</label>
-            <input {...register('contactInfo.address.country')} />
-            {errors.contactInfo?.address?.country && (
-              <span>{errors.contactInfo.address.country.message}</span>
-            )}
-          </div>
-        </fieldset>
-        
-        {/* Account Info */}
-        <fieldset>
-          <legend>Account Information</legend>
-          
-          <div>
-            <label>Username</label>
-            <input {...register('accountInfo.username')} />
-            {errors.accountInfo?.username && (
-              <span>{errors.accountInfo.username.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Password</label>
-            <input type="password" {...register('accountInfo.password')} />
-            {errors.accountInfo?.password && (
-              <span>{errors.accountInfo.password.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Confirm Password</label>
-            <input type="password" {...register('accountInfo.confirmPassword')} />
-            {errors.accountInfo?.confirmPassword && (
-              <span>{errors.accountInfo.confirmPassword.message}</span>
-            )}
-          </div>
-          
-          <div>
-            <label>Role</label>
-            <select {...register('accountInfo.role')}>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-              <option value="moderator">Moderator</option>
-            </select>
-          </div>
-          
-          <div>
-            <label>
-              <input type="checkbox" {...register('accountInfo.preferences.newsletter')} />
-              Subscribe to newsletter
-            </label>
-          </div>
-          
-          <div>
-            <label>Theme</label>
-            <select {...register('accountInfo.preferences.theme')}>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-              <option value="system">System</option>
-            </select>
-          </div>
-          
-          <div>
-            <label>Email Notifications</label>
-            <input 
-              type="checkbox" 
-              {...register('accountInfo.preferences.notifications.email')} 
-            />
-          </div>
-          
-          <div>
-            <label>SMS Notifications</label>
-            <input 
-              type="checkbox" 
-              {...register('accountInfo.preferences.notifications.sms')} 
-            />
-          </div>
-          
-          <div>
-            <label>Push Notifications</label>
-            <input 
-              type="checkbox" 
-              {...register('accountInfo.preferences.notifications.push')} 
-            />
-          </div>
-        </fieldset>
-        
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Registering...' : 'Register'}
-        </button>
-      </form>
-    )
-  }
-  ```
-
-##### 15.13 🔧 API Integration with Zod
-- 📝 API Response Validation:
-  ```typescript
-  import { z } from 'zod'
-  
-  // Define API response schema
-  const ApiResponseSchema = z.object({
-    status: z.enum(['success', 'error']),
-    data: z.unknown(),
-    message: z.string().optional(),
-  })
-  
-  const UserSchema = z.object({
-    id: z.number(),
-    name: z.string(),
+  const schema = z.object({
     email: z.string().email(),
-    createdAt: z.string().datetime(),
-  })
-  
-  const UsersResponseSchema = ApiResponseSchema.extend({
-    data: z.array(UserSchema),
-    pagination: z.object({
-      page: z.number(),
-      totalPages: z.number(),
-      totalItems: z.number(),
-    }),
-  })
-  
-  // Fetch and validate API response
-  async function fetchUsers() {
-    try {
-      const response = await fetch('/api/users')
-      const json = await response.json()
-      
-      const validated = UsersResponseSchema.parse(json)
-      
-      if (validated.status === 'success') {
-        return validated.data
-      } else {
-        throw new Error(validated.message)
-      }
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        console.error('Invalid API response structure:', error.errors)
-      }
-      throw error
-    }
-  }
+    password: z.string().min(8),
+  });
+
+  const form = useForm({
+    resolver: zodResolver(schema),
+  });
   ```
+
+---
+
+##### **15.12 🔧 API Integration**
+
 - 📝 Request Validation:
+
   ```typescript
   const CreateUserSchema = z.object({
     name: z.string().min(2),
     email: z.string().email(),
-    password: z.string().min(8),
-    role: z.enum(['user', 'admin']).default('user'),
-  })
-  
-  type CreateUserInput = z.infer<typeof CreateUserSchema>
-  
-  async function createUser(input: CreateUserInput) {
-    // Validate input before sending
-    const validated = CreateUserSchema.parse(input)
-    
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(validated),
-    })
-    
-    return response.json()
+  });
+
+  async function createUser(data: unknown) {
+    const validated = CreateUserSchema.parse(data);
+    // validated is typed
   }
   ```
 
-##### 15.14 🎯 Environment Variables Validation
-- 📝 Validating Environment Variables:
+- 📝 Response Validation:
+
   ```typescript
-  import { z } from 'zod'
-  
-  const envSchema = z.object({
-    // App
-    NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-    PORT: z.string().transform(Number).default('3000'),
-    
-    // API
-    API_URL: z.string().url(),
-    API_KEY: z.string().min(32),
-    
-    // Database
-    DATABASE_URL: z.string().url(),
-    DATABASE_NAME: z.string(),
-    
-    // Redis
-    REDIS_URL: z.string().url().optional(),
-    
-    // Features
-    ENABLE_ANALYTICS: z.string()
-      .transform(val => val === 'true')
-      .default('false'),
-    
-    FEATURE_FLAGS: z.string()
-      .transform(val => val.split(','))
-      .default(''),
-  })
-  
-  // Validate process.env
-  function validateEnv() {
-    try {
-      const env = envSchema.parse(process.env)
-      console.log('✅ Environment variables validated')
-      return env
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        console.error('❌ Invalid environment variables:')
-        error.errors.forEach(err => {
-          console.error(`  - ${err.path.join('.')}: ${err.message}`)
-        })
-      }
-      process.exit(1)
-    }
-  }
-  
-  export const env = validateEnv()
+  const ApiResponseSchema = z.object({
+    status: z.enum(["success", "error"]),
+    data: z.unknown(),
+  });
+
+  const response = await fetch("/api/users");
+  const json = await response.json();
+  const validated = ApiResponseSchema.parse(json);
   ```
 
-##### 15.15 🔄 Custom Types and Branding
+---
+
+##### **15.13 🎯 Environment Variables Validation**
+
+- 📝 Validate `process.env`:
+
+  ```typescript
+  const envSchema = z.object({
+    NODE_ENV: z.enum(["development", "production", "test"]),
+    PORT: z.string().transform(Number),
+    DATABASE_URL: z.string().url(),
+  });
+
+  const env = envSchema.parse(process.env);
+  ```
+
+---
+
+##### **15.14 🔄 Custom Types and Branding**
+
 - 📝 Branded Types:
   ```typescript
-  import { z } from 'zod'
-  
-  // Create branded types
-  const UserIdSchema = z.string().uuid().brand<'UserId'>()
-  const EmailSchema = z.string().email().brand<'Email'>()
-  const PositiveNumberSchema = z.number().positive().brand<'PositiveNumber'>()
-  
-  type UserId = z.infer<typeof UserIdSchema>
-  type Email = z.infer<typeof EmailSchema>
-  
-  // Use branded types for type safety
-  function getUserById(id: UserId) {
-    // id has branded type, cannot be passed regular string
-  }
-  
-  const userId = UserIdSchema.parse('123e4567-e89b-12d3-a456-426614174000')
-  getUserById(userId) // ✅ OK
-  
-  // getUserById('regular-string') // ❌ Type error
-  ```
-- 📝 Custom Validation with Branding:
-  ```typescript
-  const ValidatedString = z.string().refine(
-    (val) => val.length >= 3,
-    'Must be at least 3 characters'
-  ).brand<'ValidatedString'>()
-  
-  function processValidated(input: z.infer<typeof ValidatedString>) {
-    // input is guaranteed to be validated
-  }
+  const UserIdSchema = z.string().uuid().brand<"UserId">();
+  type UserId = z.infer<typeof UserIdSchema>;
+  // UserId cannot be confused with regular string
   ```
 
-##### 15.16 🧪 Testing with Zod
-- 📝 Testing Validation:
+---
+
+##### **15.15 🧪 Testing**
+
+- 📝 Test validation:
+
   ```typescript
-  import { z } from 'zod'
-  
-  describe('UserSchema', () => {
-    const UserSchema = z.object({
-      name: z.string().min(2),
-      email: z.string().email(),
-      age: z.number().min(18),
-    })
-    
-    it('validates correct user data', () => {
-      const user = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        age: 25,
-      }
-      
-      expect(() => UserSchema.parse(user)).not.toThrow()
-    })
-    
-    it('fails with invalid email', () => {
-      const user = {
-        name: 'John Doe',
-        email: 'invalid',
-        age: 25,
-      }
-      
-      expect(() => UserSchema.parse(user)).toThrow()
-    })
-    
-    it('fails with underage user', () => {
-      const user = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        age: 16,
-      }
-      
-      try {
-        UserSchema.parse(user)
-        fail('Should have thrown')
-      } catch (error) {
-        expect(error).toBeInstanceOf(z.ZodError)
-        expect(error.issues[0].path).toEqual(['age'])
-      }
-    })
-    
-    it('returns correct data with safeParse', () => {
-      const user = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        age: 25,
-      }
-      
-      const result = UserSchema.safeParse(user)
-      
-      expect(result.success).toBe(true)
-      if (result.success) {
-        expect(result.data).toEqual(user)
-      }
-    })
-  })
+  it("validates correct data", () => {
+    expect(() => schema.parse(validData)).not.toThrow();
+  });
+
+  it("fails with invalid data", () => {
+    const result = schema.safeParse(invalidData);
+    expect(result.success).toBe(false);
+  });
   ```
 
-##### 15.17 🚀 Advanced Patterns
-- 📝 Recursive Schemas:
-  ```typescript
-  import { z } from 'zod'
-  
-  // Category with subcategories (recursive)
-  const CategorySchema: z.ZodType<any> = z.lazy(() => 
-    z.object({
-      id: z.number(),
-      name: z.string(),
-      subcategories: z.array(CategorySchema).optional(),
-    })
-  )
-  
-  type Category = z.infer<typeof CategorySchema>
-  
-  const category: Category = {
-    id: 1,
-    name: 'Electronics',
-    subcategories: [
-      {
-        id: 2,
-        name: 'Phones',
-        subcategories: [
-          { id: 3, name: 'Smartphones' },
-          { id: 4, name: 'Accessories' },
-        ],
-      },
-    ],
-  }
-  ```
-- 📝 Conditional Schemas:
-  ```typescript
-  const ProductSchema = z.object({
-    type: z.enum(['physical', 'digital']),
-    name: z.string(),
-    price: z.number(),
-  }).superRefine((data, ctx) => {
-    if (data.type === 'physical') {
-      // Physical products need weight and dimensions
-      if (!('weight' in data)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Physical products require weight',
-          path: ['weight'],
-        })
-      }
-      if (!('dimensions' in data)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Physical products require dimensions',
-          path: ['dimensions'],
-        })
-      }
-    } else if (data.type === 'digital') {
-      // Digital products need download link
-      if (!('downloadLink' in data)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Digital products require download link',
-          path: ['downloadLink'],
-        })
-      }
-    }
-  })
-  ```
+---
 
-##### 15.18 💻 Practical Projects
+##### **15.16 🚀 Advanced Patterns**
+
+- 📝 Recursive Schemas (using `z.lazy`)
+- 📝 Conditional Schemas (using `superRefine`)
+
+---
+
+##### **15.17 💻 Practical Projects**
+
 - 🏗️ User Registration System
 - 📝 Blog Post Validation
 - 🛒 Checkout Form Validation
@@ -10470,1279 +7193,424 @@ src/
 
 ---
 
-## 🎯 STAGE 16 — Next.js (React Framework)
-**Goal**: Master Next.js for building production-ready React applications with server-side rendering, static generation, and excellent developer experience.
-**Time**: 40 soat | 20 dars
+<br>
+<br>
+<br>
+<br>
+<br>
 
-#### 📚 Topics
+## 🎯 STAGE 16 — NEXT.JS (React Framework)
 
-##### 16.1 🚀 Introduction to Next.js
-- 🤔 What is Next.js?
-- 📜 History and Evolution (Vercel)
+**Goal**: Master Next.js for building production-ready React applications with SSR, SSG, and excellent developer experience.
+**Time**: 48 soat | 20 dars
+
+---
+
+#### 📚 **Topics**
+
+##### **16.1 🚀 Introduction to Next.js**
+
+- 🤔 What is Next.js? (React framework by Vercel)
 - 🎯 Why Next.js?
   - Server-Side Rendering (SSR)
   - Static Site Generation (SSG)
-  - File-based Routing
+  - File-based routing
   - API Routes
-  - Image Optimization
-  - Font Optimization
-  - Built-in CSS Support
-  - Fast Refresh
-- 🔄 Next.js vs Other Frameworks:
-  - vs Create React App
-  - vs Gatsby
-  - vs Remix
-  - vs Astro
+  - Image optimization
+  - Font optimization
+  - Built-in CSS support
+- 🔄 vs CRA, Gatsby, Remix, Astro
 - 📦 Installation:
   ```bash
-  npx create-next-app@latest my-app
-  # or
-  yarn create next-app my-app
-  # or
-  pnpm create next-app my-app
-  
-  # With TypeScript
   npx create-next-app@latest my-app --typescript
   ```
 
-##### 16.2 📁 Project Structure
-- 📝 Next.js Project Structure:
+---
+
+##### **16.2 📁 Project Structure (App Router)**
+
+- 📝 App Router (Next.js 13+):
   ```
-  my-app/
-  ├── app/                    # App Router (Next.js 13+)
-  │   ├── layout.tsx          # Root layout
-  │   ├── page.tsx            # Home page
-  │   ├── about/
-  │   │   └── page.tsx        # About page
-  │   ├── blog/
-  │   │   ├── page.tsx        # Blog listing
-  │   │   └── [slug]/
-  │   │       └── page.tsx    # Dynamic blog post
-  │   └── api/                 # API routes
-  │       └── hello/
-  │           └── route.ts     # API endpoint
-  ├── public/                  # Static assets
-  │   ├── images/
-  │   └── favicon.ico
-  ├── components/              # Reusable components
-  ├── lib/                     # Utility functions
-  ├── styles/                  # Global styles
-  │   └── globals.css
-  ├── next.config.js           # Next.js configuration
-  ├── package.json
-  └── tsconfig.json            # TypeScript config (if using TS)
+  app/
+  ├── layout.tsx          # Root layout
+  ├── page.tsx            # Home page
+  ├── about/
+  │   └── page.tsx        # /about
+  ├── blog/
+  │   ├── page.tsx        # /blog
+  │   └── [slug]/
+  │       └── page.tsx    # /blog/:slug
+  └── api/
+      └── hello/
+          └── route.ts    # API endpoint
+  ```
+- 📝 Layouts (nested layouts possible)
+
+---
+
+##### **16.3 🧭 App Router and Pages**
+
+- 📝 Pages:
+
+  ```tsx
+  // app/page.tsx
+  export default function HomePage() {
+    return <div>Home</div>;
+  }
+
+  // app/blog/[slug]/page.tsx
+  interface Props {
+    params: { slug: string };
+    searchParams: { [key: string]: string };
+  }
+
+  export default function BlogPost({ params, searchParams }: Props) {
+    return <div>Post: {params.slug}</div>;
+  }
   ```
 
-##### 16.3 🧭 App Router and Pages
-- 📝 App Router (Next.js 13+):
-  ```tsx
-  // app/page.tsx - Home page
-  export default function HomePage() {
-    return (
-      <div>
-        <h1>Welcome to Next.js!</h1>
-      </div>
-    )
-  }
-  
-  // app/about/page.tsx - About page
-  export default function AboutPage() {
-    return (
-      <div>
-        <h1>About Us</h1>
-      </div>
-    )
-  }
-  
-  // app/blog/[slug]/page.tsx - Dynamic route
-  interface BlogPostProps {
-    params: {
-      slug: string
-    }
-    searchParams: {
-      [key: string]: string | string[] | undefined
-    }
-  }
-  
-  export default function BlogPost({ params, searchParams }: BlogPostProps) {
-    return (
-      <div>
-        <h1>Blog Post: {params.slug}</h1>
-        <p>Query: {JSON.stringify(searchParams)}</p>
-      </div>
-    )
-  }
-  ```
 - 📝 Layouts:
   ```tsx
-  // app/layout.tsx - Root layout
-  import { Inter } from 'next/font/google'
-  
-  const inter = Inter({ subsets: ['latin'] })
-  
+  // app/layout.tsx
   export default function RootLayout({
     children,
   }: {
-    children: React.ReactNode
+    children: React.ReactNode;
   }) {
     return (
       <html lang="en">
-        <body className={inter.className}>
+        <body>
           <header>Header</header>
           <main>{children}</main>
           <footer>Footer</footer>
         </body>
       </html>
-    )
-  }
-  
-  // app/blog/layout.tsx - Nested layout for blog section
-  export default function BlogLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <div className="blog-layout">
-        <nav>Blog Navigation</nav>
-        {children}
-      </div>
-    )
+    );
   }
   ```
 
-##### 16.4 🔗 Navigation and Linking
+---
+
+##### **16.4 🔗 Navigation and Linking**
+
 - 📝 Link Component:
+
   ```tsx
   import Link from 'next/link'
   import { useRouter } from 'next/navigation'
-  
-  export default function Navigation() {
-    const router = useRouter()
-    
-    return (
-      <nav>
-        {/* Basic navigation */}
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/blog">Blog</Link>
-        
-        {/* With query parameters */}
-        <Link href="/search?q=nextjs">Search Next.js</Link>
-        
-        {/* Dynamic routes */}
-        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        
-        {/* Replace instead of push */}
-        <Link href="/dashboard" replace>Dashboard</Link>
-        
-        {/* Scroll to top disabled */}
-        <Link href="/contact" scroll={false}>Contact</Link>
-        
-        {/* Programmatic navigation */}
-        <button onClick={() => router.push('/about')}>
-          Go to About
-        </button>
-        
-        <button onClick={() => router.back()}>
-          Go Back
-        </button>
-        
-        <button onClick={() => router.forward()}>
-          Go Forward
-        </button>
-        
-        {/* Refresh current page */}
-        <button onClick={() => router.refresh()}>
-          Refresh
-        </button>
-      </nav>
-    )
-  }
+
+  <Link href="/about">About</Link>
+  <Link href={`/blog/${post.slug}`}>Read</Link>
+  <Link href="/dashboard" replace>Dashboard</Link>
+
+  const router = useRouter()
+  router.push('/about')
+  router.back()
+  router.refresh()
   ```
 
-##### 16.5 🎯 Data Fetching Methods
-- 📝 Server Components (Default in App Router):
+---
+
+##### **16.5 🎯 Data Fetching**
+
+- 📝 Server Components (default):
+
   ```tsx
   // app/users/page.tsx
   async function getUsers() {
-    const res = await fetch('https://api.example.com/users')
-    
-    if (!res.ok) {
-      throw new Error('Failed to fetch users')
-    }
-    
-    return res.json()
+    const res = await fetch("https://api.example.com/users");
+    return res.json();
   }
-  
+
   export default async function UsersPage() {
-    const users = await getUsers()
-    
+    const users = await getUsers();
     return (
       <div>
-        <h1>Users</h1>
-        <ul>
-          {users.map(user => (
-            <li key={user.id}>{user.name}</li>
-          ))}
-        </ul>
+        {users.map((u) => (
+          <div key={u.id}>{u.name}</div>
+        ))}
       </div>
-    )
+    );
   }
   ```
-- 📝 Client Components:
+
+- 📝 Client Components (`'use client'`):
   ```tsx
-  'use client'
-  
-  import { useState, useEffect } from 'react'
-  
-  export default function ClientComponent() {
-    const [data, setData] = useState(null)
-    
-    useEffect(() => {
-      fetch('/api/data')
-        .then(res => res.json())
-        .then(setData)
-    }, [])
-    
-    return <div>{/* Render client-side data */}</div>
-  }
+  "use client";
+  import { useState, useEffect } from "react";
   ```
 - 📝 Static Generation (SSG):
   ```tsx
-  // app/posts/[id]/page.tsx
   export async function generateStaticParams() {
-    const posts = await fetch('https://api.example.com/posts').then(res => res.json())
-    
-    return posts.map(post => ({
-      id: post.id.toString(),
-    }))
-  }
-  
-  export default async function PostPage({ params }: { params: { id: string } }) {
-    const post = await fetch(`https://api.example.com/posts/${params.id}`).then(res => res.json())
-    
-    return (
-      <div>
-        <h1>{post.title}</h1>
-        <p>{post.content}</p>
-      </div>
-    )
+    const posts = await fetch("https://api.example.com/posts").then((r) =>
+      r.json(),
+    );
+    return posts.map((post) => ({ id: post.id.toString() }));
   }
   ```
 
-##### 16.6 🖼️ Image Optimization
-- 📝 Next.js Image Component:
+---
+
+##### **16.6 🖼️ Image Optimization**
+
+- 📝 Image Component:
+
   ```tsx
   import Image from 'next/image'
-  
-  export default function OptimizedImage() {
-    return (
-      <div>
-        {/* Local image (automatically optimized) */}
-        <Image
-          src="/profile.jpg"
-          alt="Profile"
-          width={500}
-          height={500}
-          className="rounded-full"
-        />
-        
-        {/* Remote image (requires domain in config) */}
-        <Image
-          src="https://example.com/image.jpg"
-          alt="Remote Image"
-          width={800}
-          height={600}
-          priority // Prioritize loading
-        />
-        
-        {/* Responsive image with sizes */}
-        <Image
-          src="/hero.jpg"
-          alt="Hero"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          fill
-          className="object-cover"
-        />
-        
-        {/* Image with blur placeholder */}
-        <Image
-          src="/gallery/image.jpg"
-          alt="Gallery"
-          width={400}
-          height={300}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,..."
-        />
-      </div>
-    )
-  }
-  ```
-- ⚙️ next.config.js for images:
-  ```javascript
-  /** @type {import('next').NextConfig} */
-  const nextConfig = {
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'example.com',
-          port: '',
-          pathname: '/images/**',
-        },
-        {
-          protocol: 'https',
-          hostname: '*.cloudfront.net',
-        },
-      ],
-      formats: ['image/avif', 'image/webp'],
-      deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    },
-  }
-  
-  module.exports = nextConfig
+
+  <Image
+    src="/profile.jpg"
+    alt="Profile"
+    width={500}
+    height={500}
+    priority
+  />
+
+  <Image
+    src="https://example.com/image.jpg"
+    alt="Remote"
+    width={800}
+    height={600}
+    sizes="(max-width: 768px) 100vw, 50vw"
+    fill
+  />
   ```
 
-##### 16.7 🎨 Styling in Next.js
-- 📝 CSS Modules:
-  ```tsx
-  // app/components/Button.module.css
-  .button {
-    background: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .button:hover {
-    background: darkblue;
-  }
-  
-  // app/components/Button.tsx
-  import styles from './Button.module.css'
-  
-  export default function Button() {
-    return <button className={styles.button}>Click me</button>
-  }
-  ```
-- 📝 Global Styles:
-  ```css
-  /* app/globals.css */
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
-  @layer base {
-    h1 {
-      @apply text-3xl font-bold;
-    }
-    h2 {
-      @apply text-2xl font-semibold;
-    }
-  }
-  ```
-- 📝 CSS-in-JS with Tailwind:
-  ```tsx
-  import { cn } from '@/lib/utils'
-  
-  export default function StyledComponent({ className }) {
-    return (
-      <div className={cn(
-        "p-4 bg-white rounded-lg shadow-md",
-        "hover:shadow-lg transition-shadow",
-        className
-      )}>
-        Content
-      </div>
-    )
-  }
-  ```
+- ⚙️ `next.config.js` remote patterns
 
-##### 16.8 🔧 API Routes
-- 📝 Creating API Routes:
+---
+
+##### **16.7 🎨 Styling**
+
+- 📝 CSS Modules: `Button.module.css` → `import styles`
+- 📝 Global CSS: `app/globals.css`
+- 📝 Tailwind CSS (built-in support)
+
+---
+
+##### **16.8 🔧 API Routes**
+
+- 📝 Route Handlers:
+
   ```tsx
   // app/api/users/route.ts
-  import { NextResponse } from 'next/server'
-  
-  export async function GET(request: Request) {
-    const users = await db.users.findMany()
-    
-    return NextResponse.json(users)
+  import { NextResponse } from "next/server";
+
+  export async function GET() {
+    const users = await db.users.findMany();
+    return NextResponse.json(users);
   }
-  
+
   export async function POST(request: Request) {
-    try {
-      const body = await request.json()
-      const user = await db.users.create({ data: body })
-      
-      return NextResponse.json(user, { status: 201 })
-    } catch (error) {
-      return NextResponse.json(
-        { error: 'Failed to create user' },
-        { status: 500 }
-      )
-    }
+    const body = await request.json();
+    const user = await db.users.create({ data: body });
+    return NextResponse.json(user, { status: 201 });
   }
-  
+
   // app/api/users/[id]/route.ts
-  export async function GET(
-    request: Request,
-    { params }: { params: { id: string } }
-  ) {
-    const user = await db.users.findUnique({
-      where: { id: params.id }
-    })
-    
-    if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
-    }
-    
-    return NextResponse.json(user)
-  }
-  
-  export async function PUT(
-    request: Request,
-    { params }: { params: { id: string } }
-  ) {
-    const body = await request.json()
-    const user = await db.users.update({
-      where: { id: params.id },
-      data: body
-    })
-    
-    return NextResponse.json(user)
-  }
-  
   export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: { id: string } },
   ) {
-    await db.users.delete({
-      where: { id: params.id }
-    })
-    
-    return NextResponse.json({ success: true })
+    await db.users.delete({ where: { id: params.id } });
+    return NextResponse.json({ success: true });
   }
   ```
+
 - 📝 Middleware:
   ```tsx
   // middleware.ts
-  import { NextResponse } from 'next/server'
-  import type { NextRequest } from 'next/server'
-  
   export function middleware(request: NextRequest) {
-    const token = request.cookies.get('token')
-    const isAuthPage = request.nextUrl.pathname.startsWith('/login')
-    
-    if (!token && !isAuthPage) {
-      return NextResponse.redirect(new URL('/login', request.url))
+    const token = request.cookies.get("token");
+    if (!token && request.nextUrl.pathname.startsWith("/dashboard")) {
+      return NextResponse.redirect(new URL("/login", request.url));
     }
-    
-    if (token && isAuthPage) {
-      return NextResponse.redirect(new URL('/dashboard', request.url))
-    }
-  }
-  
-  export const config = {
-    matcher: ['/dashboard/:path*', '/login']
   }
   ```
 
-##### 16.9 🔐 Authentication
-- 📝 NextAuth.js Setup:
+---
+
+##### **16.9 🔐 Authentication (NextAuth)**
+
+- 📝 Setup:
   ```bash
   npm install next-auth
   ```
+- 📝 API Route:
+
   ```tsx
   // app/api/auth/[...nextauth]/route.ts
-  import NextAuth from 'next-auth'
-  import GithubProvider from 'next-auth/providers/github'
-  import GoogleProvider from 'next-auth/providers/google'
-  import CredentialsProvider from 'next-auth/providers/credentials'
-  
+  import NextAuth from "next-auth";
+  import GithubProvider from "next-auth/providers/github";
+
   const handler = NextAuth({
     providers: [
       GithubProvider({
         clientId: process.env.GITHUB_ID!,
         clientSecret: process.env.GITHUB_SECRET!,
       }),
-      GoogleProvider({
-        clientId: process.env.GOOGLE_ID!,
-        clientSecret: process.env.GOOGLE_SECRET!,
-      }),
-      CredentialsProvider({
-        name: 'credentials',
-        credentials: {
-          email: { label: 'Email', type: 'email' },
-          password: { label: 'Password', type: 'password' }
-        },
-        async authorize(credentials) {
-          // Validate credentials against database
-          const user = await db.users.findUnique({
-            where: { email: credentials?.email }
-          })
-          
-          if (user && await comparePasswords(credentials?.password, user.password)) {
-            return {
-              id: user.id,
-              email: user.email,
-              name: user.name
-            }
-          }
-          
-          return null
-        }
-      })
     ],
     callbacks: {
-      async jwt({ token, user }) {
-        if (user) {
-          token.id = user.id
-        }
-        return token
-      },
       async session({ session, token }) {
-        if (session.user) {
-          session.user.id = token.id as string
-        }
-        return session
-      }
+        session.user.id = token.sub;
+        return session;
+      },
     },
-    pages: {
-      signIn: '/login',
-      error: '/auth/error',
-    },
-    session: {
-      strategy: 'jwt',
-    },
-  })
-  
-  export { handler as GET, handler as POST }
-  ```
-- 📝 Using Authentication:
-  ```tsx
-  'use client'
-  
-  import { useSession, signIn, signOut } from 'next-auth/react'
-  
-  export default function AuthButton() {
-    const { data: session, status } = useSession()
-    
-    if (status === 'loading') {
-      return <div>Loading...</div>
-    }
-    
-    if (session) {
-      return (
-        <div>
-          <p>Welcome, {session.user?.name}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </div>
-      )
-    }
-    
-    return (
-      <div>
-        <button onClick={() => signIn('github')}>Sign in with GitHub</button>
-        <button onClick={() => signIn('google')}>Sign in with Google</button>
-      </div>
-    )
-  }
+  });
+
+  export { handler as GET, handler as POST };
   ```
 
-##### 16.10 🗄️ Database Integration
-- 📝 Prisma Setup:
+- 📝 Using Auth:
+
+  ```tsx
+  "use client";
+  import { useSession, signIn, signOut } from "next-auth/react";
+
+  const { data: session } = useSession();
+  ```
+
+---
+
+##### **16.10 🗄️ Database (Prisma)**
+
+- 📝 Setup:
   ```bash
   npm install prisma @prisma/client
   npx prisma init
   ```
+- 📝 Schema:
+
   ```prisma
-  // prisma/schema.prisma
-  generator client {
-    provider = "prisma-client-js"
-  }
-  
-  datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
-  }
-  
   model User {
-    id        String   @id @default(cuid())
-    email     String   @unique
-    name      String?
-    posts     Post[]
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id    String @id @default(cuid())
+    email String @unique
+    name  String?
+    posts Post[]
   }
-  
+
   model Post {
-    id        String   @id @default(cuid())
-    title     String
-    content   String?
-    published Boolean  @default(false)
-    author    User     @relation(fields: [authorId], references: [id])
-    authorId  String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id      String @id @default(cuid())
+    title   String
+    content String?
+    author  User   @relation(fields: [authorId], references: [id])
+    authorId String
   }
   ```
-- 📝 Database Client:
+
+- 📝 Client:
   ```tsx
   // lib/prisma.ts
-  import { PrismaClient } from '@prisma/client'
-  
-  const globalForPrisma = globalThis as unknown as {
-    prisma: PrismaClient | undefined
-  }
-  
-  export const prisma = globalForPrisma.prisma ?? new PrismaClient()
-  
-  if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
-  
-  // app/posts/page.tsx
-  import { prisma } from '@/lib/prisma'
-  
-  export default async function PostsPage() {
-    const posts = await prisma.post.findMany({
-      include: {
-        author: true
-      },
-      orderBy: {
-        createdAt: 'desc'
-      }
-    })
-    
-    return (
-      <div>
-        {posts.map(post => (
-          <article key={post.id}>
-            <h2>{post.title}</h2>
-            <p>By {post.author.name}</p>
-            <p>{post.content}</p>
-          </article>
-        ))}
-      </div>
-    )
-  }
+  import { PrismaClient } from "@prisma/client";
+  export const prisma = new PrismaClient();
   ```
 
-##### 16.11 🚀 Dynamic Routes and Catch-All Routes
-- 📝 Dynamic Routes:
-  ```tsx
-  // app/products/[category]/[id]/page.tsx
-  interface ProductPageProps {
-    params: {
-      category: string
-      id: string
-    }
-  }
-  
-  export default async function ProductPage({ params }: ProductPageProps) {
-    const product = await getProduct(params.id)
-    
-    return (
-      <div>
-        <h1>{product.name}</h1>
-        <p>Category: {params.category}</p>
-        <p>Price: ${product.price}</p>
-      </div>
-    )
-  }
-  ```
-- 📝 Catch-All Routes:
+---
+
+##### **16.11 🚀 Dynamic Routes**
+
+- 📝 Catch-All:
   ```tsx
   // app/docs/[...slug]/page.tsx
-  interface DocsPageProps {
-    params: {
-      slug: string[]
-    }
-  }
-  
-  export default async function DocsPage({ params }: DocsPageProps) {
-    // params.slug could be ['getting-started', 'installation']
-    // or ['api', 'reference', 'authentication']
-    
-    return (
-      <div>
-        <h1>Documentation</h1>
-        <p>Path: {params.slug.join(' / ')}</p>
-      </div>
-    )
-  }
+  // /docs/guide/installation → params.slug = ['guide', 'installation']
   ```
-- 📝 Optional Catch-All:
-  ```tsx
-  // app/settings/[[...tab]]/page.tsx
-  // Matches: /settings, /settings/profile, /settings/profile/edit
-  ```
+- 📝 Optional Catch-All: `[[...slug]]`
 
-##### 16.12 🎯 Server Actions
-- 📝 Server Actions (Next.js 14+):
+---
+
+##### **16.12 🎯 Server Actions (Next.js 14+)**
+
+- 📝 Server Actions:
+
   ```tsx
   // app/actions.ts
-  'use server'
-  
-  import { revalidatePath } from 'next/cache'
-  import { prisma } from '@/lib/prisma'
-  
+  "use server";
+  import { revalidatePath } from "next/cache";
+
   export async function createPost(formData: FormData) {
-    const title = formData.get('title') as string
-    const content = formData.get('content') as string
-    
-    if (!title || !content) {
-      throw new Error('Title and content are required')
-    }
-    
-    await prisma.post.create({
-      data: {
-        title,
-        content,
-        authorId: 'user-id'
-      }
-    })
-    
-    revalidatePath('/posts')
-  }
-  
-  export async function deletePost(id: string) {
-    await prisma.post.delete({
-      where: { id }
-    })
-    
-    revalidatePath('/posts')
-  }
-  ```
-- 📝 Using Server Actions:
-  ```tsx
-  // app/posts/new/page.tsx
-  import { createPost } from '@/app/actions'
-  
-  export default function NewPostPage() {
-    return (
-      <form action={createPost}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input type="text" id="title" name="title" required />
-        </div>
-        
-        <div>
-          <label htmlFor="content">Content</label>
-          <textarea id="content" name="content" required />
-        </div>
-        
-        <button type="submit">Create Post</button>
-      </form>
-    )
-  }
-  
-  // app/posts/page.tsx
-  import { deletePost } from '@/app/actions'
-  
-  export default async function PostsPage() {
-    const posts = await prisma.post.findMany()
-    
-    return (
-      <div>
-        {posts.map(post => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <form action={deletePost.bind(null, post.id)}>
-              <button type="submit">Delete</button>
-            </form>
-          </div>
-        ))}
-      </div>
-    )
+    const title = formData.get("title") as string;
+    await db.post.create({ data: { title } });
+    revalidatePath("/posts");
   }
   ```
 
-##### 16.13 🔧 Middleware and Edge Functions
-- 📝 Advanced Middleware:
+- 📝 Usage:
   ```tsx
-  // middleware.ts
-  import { NextResponse } from 'next/server'
-  import type { NextRequest } from 'next/server'
-  
-  export function middleware(request: NextRequest) {
-    const response = NextResponse.next()
-    
-    // Add custom headers
-    response.headers.set('x-custom-header', 'hello')
-    
-    // Rate limiting
-    const ip = request.ip ?? 'anonymous'
-    const rateLimit = getRateLimit(ip)
-    
-    if (rateLimit.exceeded) {
-      return new NextResponse('Too many requests', { status: 429 })
-    }
-    
-    // Geolocation-based redirect
-    const country = request.geo?.country
-    if (country === 'US' && request.nextUrl.pathname === '/') {
-      return NextResponse.redirect(new URL('/us', request.url))
-    }
-    
-    // A/B testing
-    const cookie = request.cookies.get('experiment')
-    if (!cookie) {
-      response.cookies.set('experiment', Math.random() > 0.5 ? 'A' : 'B')
-    }
-    
-    return response
-  }
-  
-  export const config = {
-    matcher: [
-      '/((?!api|_next/static|_next/image|favicon.ico).*)',
-    ],
-  }
+  <form action={createPost}>
+    <input name="title" />
+    <button type="submit">Submit</button>
+  </form>
   ```
 
-##### 16.14 📱 Internationalization (i18n)
-- 📝 Next.js i18n Setup:
-  ```javascript
-  // next.config.js
-  module.exports = {
-    i18n: {
-      locales: ['en', 'uz', 'ru'],
-      defaultLocale: 'en',
-      localeDetection: true,
-    },
-  }
-  ```
-- 📝 Using i18n:
-  ```tsx
-  // app/[lang]/layout.tsx
-  export default async function LangLayout({
-    children,
-    params,
-  }: {
-    children: React.ReactNode
-    params: { lang: string }
-  }) {
-    return (
-      <html lang={params.lang}>
-        <body>{children}</body>
-      </html>
-    )
-  }
-  
-  // app/[lang]/page.tsx
-  import { getDictionary } from '@/lib/dictionaries'
-  
-  export default async function HomePage({
-    params: { lang }
-  }: {
-    params: { lang: string }
-  }) {
-    const dict = await getDictionary(lang)
-    
-    return (
-      <div>
-        <h1>{dict.home.title}</h1>
-        <p>{dict.home.description}</p>
-      </div>
-    )
-  }
-  
-  // lib/dictionaries.ts
-  const dictionaries = {
-    en: () => import('./dictionaries/en.json').then(module => module.default),
-    uz: () => import('./dictionaries/uz.json').then(module => module.default),
-    ru: () => import('./dictionaries/ru.json').then(module => module.default),
-  }
-  
-  export const getDictionary = async (locale: string) => {
-    return dictionaries[locale as keyof typeof dictionaries]()
-  }
-  ```
+---
 
-##### 16.15 🚀 Performance Optimization
+##### **16.13 🚀 Performance Optimization**
+
 - 📝 Dynamic Imports:
   ```tsx
-  import dynamic from 'next/dynamic'
-  
-  const HeavyComponent = dynamic(
-    () => import('@/components/HeavyComponent'),
-    {
-      loading: () => <p>Loading...</p>,
-      ssr: false, // Disable SSR for client-only components
-    }
-  )
-  
-  export default function Page() {
-    return (
-      <div>
-        <h1>My Page</h1>
-        <HeavyComponent />
-      </div>
-    )
-  }
+  const HeavyComponent = dynamic(() => import("@/components/Heavy"), {
+    loading: () => <p>Loading...</p>,
+    ssr: false,
+  });
   ```
 - 📝 Font Optimization:
   ```tsx
-  import { Inter, Roboto_Mono } from 'next/font/google'
-  
-  const inter = Inter({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-inter',
-  })
-  
-  const robotoMono = Roboto_Mono({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-roboto-mono',
-  })
-  
-  export default function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
-        <body>{children}</body>
-      </html>
-    )
-  }
-  ```
-- 📝 Script Optimization:
-  ```tsx
-  import Script from 'next/script'
-  
-  export default function Page() {
-    return (
-      <>
-        <Script
-          src="https://example.com/analytics.js"
-          strategy="afterInteractive" // Load after page is interactive
-        />
-        
-        <Script
-          src="https://example.com/chat.js"
-          strategy="lazyOnload" // Load during idle time
-        />
-        
-        <Script
-          src="https://example.com/critical.js"
-          strategy="beforeInteractive" // Load before page is interactive
-        />
-      </>
-    )
-  }
+  import { Inter } from 'next/font/google'
+  const inter = Inter({ subsets: ['latin'] })
+  <html className={inter.className}>
   ```
 
-##### 16.16 🎯 SEO and Metadata
+---
+
+##### **16.14 🎯 SEO and Metadata**
+
 - 📝 Metadata API:
+
   ```tsx
   // app/page.tsx
-  import type { Metadata } from 'next'
-  
   export const metadata: Metadata = {
-    title: 'My Awesome Site',
-    description: 'This is my awesome Next.js site',
-    keywords: 'nextjs, react, typescript',
-    authors: [{ name: 'John Doe', url: 'https://johndoe.com' }],
-    openGraph: {
-      title: 'My Awesome Site',
-      description: 'This is my awesome Next.js site',
-      url: 'https://mysite.com',
-      siteName: 'My Site',
-      images: [
-        {
-          url: 'https://mysite.com/og-image.jpg',
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'My Awesome Site',
-      description: 'This is my awesome Next.js site',
-      images: ['https://mysite.com/twitter-image.jpg'],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    verification: {
-      google: 'google-site-verification-code',
-      yandex: 'yandex-verification-code',
-    },
-  }
-  
-  // Dynamic metadata
-  export async function generateMetadata({
-    params
-  }: {
-    params: { slug: string }
-  }): Promise<Metadata> {
-    const post = await getPost(params.slug)
-    
-    return {
-      title: post.title,
-      description: post.excerpt,
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        images: [post.image],
-      },
-    }
-  }
-  ```
-- 📝 Sitemap and Robots:
-  ```tsx
-  // app/sitemap.ts
-  export default async function sitemap() {
-    const baseUrl = 'https://mysite.com'
-    
-    const posts = await getPosts()
-    
-    const postUrls = posts.map(post => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: post.updatedAt,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    }))
-    
-    return [
-      {
-        url: baseUrl,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 1,
-      },
-      {
-        url: `${baseUrl}/about`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.5,
-      },
-      ...postUrls,
-    ]
-  }
-  
-  // app/robots.ts
-  export default function robots() {
-    return {
-      rules: {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin', '/private'],
-      },
-      sitemap: 'https://mysite.com/sitemap.xml',
-    }
+    title: "My Site",
+    description: "Description",
+    openGraph: { title: "My Site", images: ["/og.jpg"] },
+  };
+
+  // Dynamic
+  export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const post = await getPost(params.slug);
+    return { title: post.title };
   }
   ```
 
-##### 16.17 🧪 Testing Next.js Apps
-- 📝 Unit Testing:
-  ```bash
-  npm install --save-dev jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
-  ```
+---
+
+##### **16.15 🧪 Testing**
+
+- 📝 Jest + React Testing Library:
   ```tsx
-  // __tests__/Button.test.tsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import Button from '@/components/Button'
-  
-  describe('Button', () => {
-    it('renders correctly', () => {
-      render(<Button>Click me</Button>)
-      expect(screen.getByText('Click me')).toBeInTheDocument()
-    })
-    
-    it('handles click events', async () => {
-      const handleClick = jest.fn()
-      render(<Button onClick={handleClick}>Click me</Button>)
-      
-      await userEvent.click(screen.getByText('Click me'))
-      expect(handleClick).toHaveBeenCalled()
-    })
-  })
-  ```
-- 📝 Integration Testing:
-  ```tsx
-  // __tests__/api/users.test.ts
-  import { createMocks } from 'node-mocks-http'
-  import { GET, POST } from '@/app/api/users/route'
-  
-  describe('/api/users', () => {
-    it('returns users list', async () => {
-      const { req, res } = createMocks({
-        method: 'GET',
-      })
-      
-      const response = await GET(req)
-      const data = await response.json()
-      
-      expect(response.status).toBe(200)
-      expect(Array.isArray(data)).toBe(true)
-    })
-    
-    it('creates a new user', async () => {
-      const { req, res } = createMocks({
-        method: 'POST',
-        body: {
-          name: 'John Doe',
-          email: 'john@example.com',
-        },
-      })
-      
-      const response = await POST(req)
-      const data = await response.json()
-      
-      expect(response.status).toBe(201)
-      expect(data.name).toBe('John Doe')
-    })
-  })
+  test("renders button", () => {
+    render(<Button>Click</Button>);
+    expect(screen.getByText("Click")).toBeInTheDocument();
+  });
   ```
 
-##### 16.18 🚀 Deployment
-- 📝 Vercel Deployment:
-  ```bash
-  # Install Vercel CLI
-  npm i -g vercel
-  
-  # Deploy
-  vercel
-  
-  # Deploy to production
-  vercel --prod
-  ```
-- 📝 Environment Variables:
-  ```bash
-  # .env.local (development)
-  DATABASE_URL=postgresql://localhost:5432/mydb
-  API_KEY=dev-api-key
-  
-  # .env.production (production)
-  DATABASE_URL=postgresql://prod:password@prod-db:5432/mydb
-  API_KEY=prod-api-key
-  ```
-- 📝 Docker Deployment:
+---
+
+##### **16.16 🚀 Deployment**
+
+- 📝 Vercel (recommended)
+- 📝 Docker:
   ```dockerfile
-  # Dockerfile
-  FROM node:18-alpine AS base
-  
-  # Install dependencies
-  FROM base AS deps
-  WORKDIR /app
-  COPY package.json package-lock.json ./
-  RUN npm ci
-  
-  # Build app
-  FROM base AS builder
-  WORKDIR /app
-  COPY --from=deps /app/node_modules ./node_modules
+  FROM node:18-alpine
   COPY . .
-  RUN npm run build
-  
-  # Production image
-  FROM base AS runner
-  WORKDIR /app
-  ENV NODE_ENV production
-  
-  RUN addgroup --system --gid 1001 nodejs
-  RUN adduser --system --uid 1001 nextjs
-  
-  COPY --from=builder /app/public ./public
-  COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-  COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-  
-  USER nextjs
+  RUN npm ci && npm run build
   EXPOSE 3000
-  ENV PORT 3000
-  
-  CMD ["node", "server.js"]
+  CMD ["npm", "start"]
   ```
 
-##### 16.19 🎯 Advanced Patterns
-- 📝 Route Handlers with Validation:
-  ```tsx
-  // app/api/posts/route.ts
-  import { z } from 'zod'
-  import { prisma } from '@/lib/prisma'
-  
-  const PostSchema = z.object({
-    title: z.string().min(3),
-    content: z.string().min(10),
-    published: z.boolean().default(false),
-  })
-  
-  export async function POST(request: Request) {
-    try {
-      const body = await request.json()
-      
-      // Validate input
-      const validated = PostSchema.parse(body)
-      
-      // Create post
-      const post = await prisma.post.create({
-        data: validated
-      })
-      
-      return NextResponse.json(post, { status: 201 })
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return NextResponse.json(
-          { error: 'Validation failed', details: error.errors },
-          { status: 400 }
-        )
-      }
-      
-      return NextResponse.json(
-        { error: 'Internal server error' },
-        { status: 500 }
-      )
-    }
-  }
-  ```
-- 📝 Incremental Static Regeneration (ISR):
-  ```tsx
-  // app/blog/[slug]/page.tsx
-  export default async function BlogPost({ params }: { params: { slug: string } }) {
-    const post = await fetch(`https://api.example.com/posts/${params.slug}`, {
-      next: {
-        revalidate: 3600 // Revalidate every hour
-      }
-    }).then(res => res.json())
-    
-    return <article>{/* Post content */}</article>
-  }
-  
-  // Or in generateStaticParams
-  export async function generateStaticParams() {
-    const posts = await fetch('https://api.example.com/posts', {
-      next: { revalidate: 3600 }
-    }).then(res => res.json())
-    
-    return posts.map(post => ({
-      slug: post.slug
-    }))
-  }
-  ```
+---
 
-##### 16.20 💻 Practical Projects
+##### **16.17 💻 Practical Projects**
+
 - 🏗️ Full-stack Blog Platform
 - 📝 E-commerce Store with Cart
 - 🔐 Authentication System
@@ -11766,74 +7634,57 @@ src/
 
 ---
 
-## 🎯 STAGE 17 — Jest (Unit Testing)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 17 — JEST (Unit Testing)
+
 **Goal**: Master Jest for writing comprehensive unit tests, ensuring code reliability and preventing regressions.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 10 dars
 
-#### 📚 Topics
+---
 
-##### 17.1 🧪 Introduction to Testing
+#### 📚 **Topics**
+
+##### **17.1 🧪 Introduction to Testing**
+
 - 🤔 What is Testing?
 - 🎯 Why Testing Matters:
   - Catch bugs early
   - Prevent regressions
   - Documentation
   - Confidence in refactoring
-  - Better code design
 - 📊 Types of Tests:
-  - Unit Tests (testing individual functions/components)
-  - Integration Tests (testing multiple units together)
-  - End-to-End Tests (testing complete user flows)
-- 🔧 Testing Pyramid
-- 📦 What is Jest?
-  - Facebook's testing framework
-  - Zero configuration
-  - Fast and isolated
-  - Built-in assertions
-  - Mocking capabilities
-  - Code coverage
+  - Unit Tests (individual functions/components)
+  - Integration Tests (multiple units together)
+  - End-to-End Tests (complete user flows)
+- 📦 What is Jest? (Facebook's testing framework)
 
-##### 17.2 ⚙️ Jest Setup
+---
+
+##### **17.2 ⚙️ Jest Setup**
+
 - 📝 Installation:
   ```bash
-  # For React/JavaScript project
-  npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react
-  
-  # For TypeScript project
-  npm install --save-dev jest @types/jest ts-jest @babel/preset-typescript
-  
-  # For React Testing Library
-  npm install --save-dev @testing-library/react @testing-library/jest-dom
-  
-  # Configuration file
-  npm init jest@latest
+  npm install --save-dev jest @types/jest ts-jest @testing-library/react @testing-library/jest-dom
   ```
-- 📝 jest.config.js:
+- 📝 `jest.config.js`:
   ```javascript
-  // jest.config.js
   module.exports = {
-    testEnvironment: 'jsdom',
-    setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+    testEnvironment: "jsdom",
+    setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
     moduleNameMapper: {
-      '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-      '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
-      '^@/(.*)$': '<rootDir>/src/$1'
+      "\\.(css|less|scss)$": "identity-obj-proxy",
+      "^@/(.*)$": "<rootDir>/src/$1",
     },
-    collectCoverageFrom: [
-      'src/**/*.{js,jsx,ts,tsx}',
-      '!src/**/*.d.ts',
-      '!src/index.tsx',
-      '!src/reportWebVitals.ts'
-    ],
+    collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
     coverageThreshold: {
-      global: {
-        branches: 80,
-        functions: 80,
-        lines: 80,
-        statements: 80
-      }
-    }
-  }
+      global: { branches: 80, functions: 80, lines: 80, statements: 80 },
+    },
+  };
   ```
 - 📝 package.json scripts:
   ```json
@@ -11841,975 +7692,258 @@ src/
     "scripts": {
       "test": "jest",
       "test:watch": "jest --watch",
-      "test:coverage": "jest --coverage",
-      "test:ci": "jest --ci --coverage --maxWorkers=2"
+      "test:coverage": "jest --coverage"
     }
   }
   ```
 
-##### 17.3 📝 Basic Test Structure
-- 📝 Writing Your First Test:
+---
+
+##### **17.3 📝 Basic Test Structure**
+
+- 📝 First Test:
+
   ```javascript
   // math.js
   export function add(a, b) {
-    return a + b
+    return a + b;
   }
-  
-  export function subtract(a, b) {
-    return a - b
-  }
-  
+
   // math.test.js
-  import { add, subtract } from './math'
-  
-  test('adds 1 + 2 to equal 3', () => {
-    expect(add(1, 2)).toBe(3)
-  })
-  
-  test('subtracts 5 - 3 to equal 2', () => {
-    expect(subtract(5, 3)).toBe(2)
-  })
-  
-  // Using describe to group tests
-  describe('Math functions', () => {
-    describe('add', () => {
-      it('should add positive numbers correctly', () => {
-        expect(add(2, 3)).toBe(5)
-      })
-      
-      it('should add negative numbers correctly', () => {
-        expect(add(-2, -3)).toBe(-5)
-      })
-      
-      it('should add zero correctly', () => {
-        expect(add(5, 0)).toBe(5)
-      })
-    })
-    
-    describe('subtract', () => {
-      it('should subtract positive numbers correctly', () => {
-        expect(subtract(5, 3)).toBe(2)
-      })
-      
-      it('should subtract negative numbers correctly', () => {
-        expect(subtract(-5, -3)).toBe(-2)
-      })
-    })
-  })
+  import { add } from "./math";
+
+  test("adds 1 + 2 to equal 3", () => {
+    expect(add(1, 2)).toBe(3);
+  });
+
+  describe("Math functions", () => {
+    it("should add positive numbers", () => {
+      expect(add(2, 3)).toBe(5);
+    });
+  });
   ```
 
-##### 17.4 🎯 Matchers and Assertions
+---
+
+##### **17.4 🎯 Matchers**
+
 - 📝 Common Matchers:
+
   ```javascript
-  test('common matchers', () => {
-    // Equality
-    expect(2 + 2).toBe(4)
-    expect({ name: 'John' }).toEqual({ name: 'John' })
-    
-    // Truthiness
-    expect(true).toBeTruthy()
-    expect(false).toBeFalsy()
-    expect(null).toBeNull()
-    expect(undefined).toBeUndefined()
-    expect(null).toBeDefined()
-    
-    // Numbers
-    expect(10).toBeGreaterThan(5)
-    expect(10).toBeGreaterThanOrEqual(10)
-    expect(5).toBeLessThan(10)
-    expect(5).toBeLessThanOrEqual(5)
-    
-    // Floating point numbers
-    expect(0.1 + 0.2).toBeCloseTo(0.3)
-    
-    // Strings
-    expect('Hello World').toMatch(/World/)
-    expect('Hello').toHaveLength(5)
-    
-    // Arrays
-    expect([1, 2, 3]).toContain(2)
-    expect([1, 2, 3]).toHaveLength(3)
-    
-    // Objects
-    const user = { name: 'John', age: 30 }
-    expect(user).toHaveProperty('name')
-    expect(user).toHaveProperty('age', 30)
-    
-    // Exceptions
-    expect(() => {
-      throw new Error('Something went wrong')
-    }).toThrow()
-    
-    expect(() => {
-      throw new Error('Invalid input')
-    }).toThrow('Invalid input')
-  })
-  ```
-- 📝 Custom Matchers:
-  ```javascript
-  // Extending Jest with custom matchers
-  expect.extend({
-    toBeWithinRange(received, floor, ceiling) {
-      const pass = received >= floor && received <= ceiling
-      if (pass) {
-        return {
-          message: () => `expected ${received} not to be within range ${floor} - ${ceiling}`,
-          pass: true
-        }
-      } else {
-        return {
-          message: () => `expected ${received} to be within range ${floor} - ${ceiling}`,
-          pass: false
-        }
-      }
-    }
-  })
-  
-  test('custom matcher', () => {
-    expect(10).toBeWithinRange(5, 15)
-    expect(20).not.toBeWithinRange(5, 15)
-  })
+  // Equality
+  expect(2 + 2).toBe(4); // primitive
+  expect({ name: "John" }).toEqual({ name: "John" }); // object
+
+  // Truthiness
+  expect(true).toBeTruthy();
+  expect(false).toBeFalsy();
+  expect(null).toBeNull();
+  expect(undefined).toBeUndefined();
+
+  // Numbers
+  expect(10).toBeGreaterThan(5);
+  expect(0.1 + 0.2).toBeCloseTo(0.3);
+
+  // Strings
+  expect("Hello World").toMatch(/World/);
+
+  // Arrays
+  expect([1, 2, 3]).toContain(2);
+
+  // Objects
+  expect(user).toHaveProperty("name");
+
+  // Exceptions
+  expect(() => {
+    throw new Error();
+  }).toThrow();
   ```
 
-##### 17.5 🔄 Testing Asynchronous Code
-- 📝 Callbacks:
-  ```javascript
-  // fetchData.js
-  export function fetchData(callback) {
-    setTimeout(() => {
-      callback('peanut butter')
-    }, 100)
-  }
-  
-  // fetchData.test.js
-  test('callback data', done => {
-    function callback(data) {
-      try {
-        expect(data).toBe('peanut butter')
-        done()
-      } catch (error) {
-        done(error)
-      }
-    }
-    
-    fetchData(callback)
-  })
-  ```
+---
+
+##### **17.5 🔄 Testing Async Code**
+
 - 📝 Promises:
+
   ```javascript
-  // fetchData.js
-  export function fetchData() {
-    return Promise.resolve('peanut butter')
-  }
-  
-  export function fetchDataReject() {
-    return Promise.reject('error occurred')
-  }
-  
-  // fetchData.test.js
-  test('promise resolves', () => {
-    return fetchData().then(data => {
-      expect(data).toBe('peanut butter')
-    })
-  })
-  
-  test('promise rejects', () => {
-    return fetchDataReject().catch(error => {
-      expect(error).toBe('error occurred')
-    })
-  })
-  ```
-- 📝 Async/Await:
-  ```javascript
-  test('async/await resolves', async () => {
-    const data = await fetchData()
-    expect(data).toBe('peanut butter')
-  })
-  
-  test('async/await rejects', async () => {
-    await expect(fetchDataReject()).rejects.toBe('error occurred')
-  })
-  
-  // Combining with resolves/rejects
-  test('resolves matcher', async () => {
-    await expect(fetchData()).resolves.toBe('peanut butter')
-  })
-  
-  test('rejects matcher', async () => {
-    await expect(fetchDataReject()).rejects.toBe('error occurred')
-  })
+  test("promise resolves", () => {
+    return fetchData().then((data) => {
+      expect(data).toBe("peanut butter");
+    });
+  });
+
+  test("async/await", async () => {
+    const data = await fetchData();
+    expect(data).toBe("peanut butter");
+  });
+
+  test("resolves matcher", async () => {
+    await expect(fetchData()).resolves.toBe("peanut butter");
+  });
   ```
 
-##### 17.6 🔧 Setup and Teardown
-- 📝 Before and After Hooks:
+---
+
+##### **17.6 🔧 Setup and Teardown**
+
+- 📝 Hooks:
   ```javascript
-  // Global hooks
-  beforeAll(() => {
-    console.log('Run once before all tests')
-    // Initialize database connection
-    // Setup test data
-  })
-  
-  afterAll(() => {
-    console.log('Run once after all tests')
-    // Close database connection
-    // Clean up
-  })
-  
-  beforeEach(() => {
-    console.log('Run before each test')
-    // Reset state
-    // Create fresh test data
-  })
-  
-  afterEach(() => {
-    console.log('Run after each test')
-    // Clean up after each test
-  })
-  
-  // Scoped hooks (inside describe)
-  describe('User operations', () => {
-    let user
-    
-    beforeEach(() => {
-      user = {
-        id: 1,
-        name: 'John Doe',
-        email: 'john@example.com'
-      }
-    })
-    
-    test('user has correct name', () => {
-      expect(user.name).toBe('John Doe')
-    })
-    
-    test('user has correct email', () => {
-      expect(user.email).toBe('john@example.com')
-    })
-  })
+  beforeAll(() => console.log("once before all"));
+  afterAll(() => console.log("once after all"));
+  beforeEach(() => console.log("before each test"));
+  afterEach(() => console.log("after each test"));
   ```
 
-##### 17.7 🎭 Mocking Functions
+---
+
+##### **17.7 🎭 Mocking Functions**
+
 - 📝 Mock Functions:
+
   ```javascript
-  // userService.js
-  export function sendWelcomeEmail(user) {
-    // Send email logic
-  }
-  
-  export function registerUser(name, email, sendEmail = sendWelcomeEmail) {
-    const user = { id: Date.now(), name, email }
-    sendEmail(user)
-    return user
-  }
-  
-  // userService.test.js
-  import { registerUser } from './userService'
-  
-  test('registerUser sends welcome email', () => {
-    const mockSendEmail = jest.fn()
-    
-    const user = registerUser('John Doe', 'john@example.com', mockSendEmail)
-    
-    expect(mockSendEmail).toHaveBeenCalled()
-    expect(mockSendEmail).toHaveBeenCalledTimes(1)
-    expect(mockSendEmail).toHaveBeenCalledWith(user)
-    expect(mockSendEmail).toHaveBeenLastCalledWith(user)
-  })
-  
-  test('mock function implementation', () => {
-    const mock = jest.fn(x => x * 2)
-    
-    expect(mock(5)).toBe(10)
-    expect(mock).toHaveBeenCalledWith(5)
-  })
-  
-  test('mock return values', () => {
-    const mock = jest.fn()
-    mock.mockReturnValueOnce('first call')
-      .mockReturnValueOnce('second call')
-      .mockReturnValue('default')
-    
-    expect(mock()).toBe('first call')
-    expect(mock()).toBe('second call')
-    expect(mock()).toBe('default')
-    expect(mock()).toBe('default')
-  })
-  ```
-- 📝 Mock Implementation:
-  ```javascript
-  test('mock implementation', () => {
-    const mock = jest.fn()
-    mock.mockImplementation((a, b) => a + b)
-    
-    expect(mock(1, 2)).toBe(3)
-  })
-  
-  test('mock implementation once', () => {
-    const mock = jest.fn()
-    mock.mockImplementationOnce(() => 'first')
-      .mockImplementationOnce(() => 'second')
-    
-    expect(mock()).toBe('first')
-    expect(mock()).toBe('second')
-    expect(mock()).toBe(undefined)
-  })
+  const mock = jest.fn();
+  mock.mockReturnValue("value");
+  mock.mockResolvedValue("async value");
+
+  test("mock called", () => {
+    mock("arg1");
+    expect(mock).toHaveBeenCalled();
+    expect(mock).toHaveBeenCalledWith("arg1");
+    expect(mock).toHaveBeenCalledTimes(1);
+  });
   ```
 
-##### 17.8 📦 Mocking Modules
-- 📝 Mocking Modules:
+---
+
+##### **17.8 📦 Mocking Modules**
+
+- 📝 Module Mock:
+
   ```javascript
-  // api.js
-  import axios from 'axios'
-  
-  export async function fetchUsers() {
-    const response = await axios.get('/api/users')
-    return response.data
-  }
-  
-  // api.test.js
-  jest.mock('axios')
-  import axios from 'axios'
-  import { fetchUsers } from './api'
-  
-  test('fetchUsers returns user data', async () => {
-    const mockUsers = [{ id: 1, name: 'John' }]
-    axios.get.mockResolvedValue({ data: mockUsers })
-    
-    const users = await fetchUsers()
-    
-    expect(users).toEqual(mockUsers)
-    expect(axios.get).toHaveBeenCalledWith('/api/users')
-    expect(axios.get).toHaveBeenCalledTimes(1)
-  })
-  
-  test('fetchUsers handles error', async () => {
-    const error = new Error('Network error')
-    axios.get.mockRejectedValue(error)
-    
-    await expect(fetchUsers()).rejects.toThrow('Network error')
-  })
-  ```
-- 📝 Manual Mocks:
-  ```javascript
-  // __mocks__/fs.js
-  const fs = jest.createMockFromModule('fs')
-  
-  let mockFiles = {}
-  
-  function __setMockFiles(newMockFiles) {
-    mockFiles = newMockFiles
-  }
-  
-  function readFileSync(filePath) {
-    return mockFiles[filePath]
-  }
-  
-  fs.__setMockFiles = __setMockFiles
-  fs.readFileSync = readFileSync
-  
-  module.exports = fs
-  
-  // fileReader.test.js
-  jest.mock('fs')
-  const fs = require('fs')
-  const { readConfig } = require('./fileReader')
-  
-  beforeEach(() => {
-    fs.__setMockFiles({
-      '/config.json': JSON.stringify({ port: 3000 })
-    })
-  })
-  
-  test('readConfig reads configuration', () => {
-    const config = readConfig('/config.json')
-    expect(config).toEqual({ port: 3000 })
-  })
+  jest.mock("axios");
+  import axios from "axios";
+
+  axios.get.mockResolvedValue({ data: mockUsers });
+
+  test("fetches users", async () => {
+    const users = await fetchUsers();
+    expect(axios.get).toHaveBeenCalledWith("/api/users");
+  });
   ```
 
-##### 17.9 ⏱️ Timers Mocking
-- 📝 Mocking Timers:
+---
+
+##### **17.9 ⏱️ Timers Mocking**
+
+- 📝 Fake Timers:
+
   ```javascript
-  // timer.js
-  export function delayedHello(callback) {
-    setTimeout(() => {
-      callback('Hello')
-    }, 1000)
-  }
-  
-  export function repeatAction(action, interval, times) {
-    let count = 0
-    const intervalId = setInterval(() => {
-      action()
-      count++
-      if (count >= times) {
-        clearInterval(intervalId)
-      }
-    }, interval)
-  }
-  
-  // timer.test.js
-  jest.useFakeTimers()
-  
-  test('delayedHello calls callback after 1 second', () => {
-    const callback = jest.fn()
-    
-    delayedHello(callback)
-    
-    expect(callback).not.toBeCalled()
-    
-    jest.advanceTimersByTime(1000)
-    
-    expect(callback).toBeCalled()
-    expect(callback).toBeCalledWith('Hello')
-  })
-  
-  test('repeatAction repeats specified times', () => {
-    const action = jest.fn()
-    
-    repeatAction(action, 500, 3)
-    
-    expect(action).not.toBeCalled()
-    
-    jest.advanceTimersByTime(1500)
-    
-    expect(action).toBeCalledTimes(3)
-  })
-  
-  afterAll(() => {
-    jest.useRealTimers()
-  })
+  jest.useFakeTimers();
+
+  test("delayed callback", () => {
+    const callback = jest.fn();
+    delayedHello(callback);
+
+    jest.advanceTimersByTime(1000);
+    expect(callback).toHaveBeenCalled();
+  });
+
+  afterAll(() => jest.useRealTimers());
   ```
 
-##### 17.10 🧪 Testing React Components (Basic)
-- 📝 Testing React with Jest:
+---
+
+##### **17.10 🧪 Testing React Components**
+
+- 📝 React Testing Library:
+
   ```jsx
-  // Button.jsx
-  import React from 'react'
-  
-  export function Button({ onClick, children, disabled }) {
-    return (
-      <button 
-        onClick={onClick}
-        disabled={disabled}
-        className="btn"
-      >
-        {children}
-      </button>
-    )
-  }
-  
-  // Button.test.jsx
-  import React from 'react'
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { Button } from './Button'
-  
-  describe('Button component', () => {
-    it('renders correctly', () => {
-      render(<Button>Click me</Button>)
-      
-      const button = screen.getByRole('button', { name: /click me/i })
-      expect(button).toBeInTheDocument()
-      expect(button).toHaveClass('btn')
-    })
-    
-    it('handles click events', async () => {
-      const handleClick = jest.fn()
-      
-      render(<Button onClick={handleClick}>Click me</Button>)
-      
-      const button = screen.getByRole('button')
-      await userEvent.click(button)
-      
-      expect(handleClick).toHaveBeenCalledTimes(1)
-    })
-    
-    it('can be disabled', () => {
-      render(<Button disabled>Disabled button</Button>)
-      
-      const button = screen.getByRole('button')
-      expect(button).toBeDisabled()
-    })
-  })
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+
+  test("button click", async () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click</Button>);
+
+    await userEvent.click(screen.getByText("Click"));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
   ```
 
-##### 17.11 📊 Code Coverage
-- 📝 Understanding Coverage:
-  ```bash
-  # Run tests with coverage
-  npm test -- --coverage
-  
-  # Coverage thresholds in jest.config.js
-  ```
-- 📝 Coverage Reports:
-  ```
-  --------------------|---------|----------|---------|---------|-------------------
-  File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-  --------------------|---------|----------|---------|---------|-------------------
-  All files          |   85.71 |    66.66 |   83.33 |   85.71 |                  
-  src/components     |     100 |      100 |     100 |     100 |                  
-    Button.jsx       |     100 |      100 |     100 |     100 |                  
-  src/utils          |   71.42 |       50 |      75 |   71.42 |                  
-    math.js          |   71.42 |       50 |      75 |   71.42 | 8,12             
-  --------------------|---------|----------|---------|---------|-------------------
-  ```
-- 📝 Coverage Types:
-  ```javascript
-  // Line coverage - percentage of executable lines executed
-  // Branch coverage - percentage of conditional branches executed
-  // Function coverage - percentage of functions called
-  // Statement coverage - percentage of statements executed
-  
-  export function calculateDiscount(price, isMember, hasCoupon) {
-    let discount = 0
-    
-    if (isMember) {  // Branch 1
-      discount += 0.1
-    }
-    
-    if (hasCoupon) {  // Branch 2
-      discount += 0.2
-    }
-    
-    return price * (1 - discount)
-  }
-  ```
+---
 
-##### 17.12 🎯 Snapshot Testing
-- 📝 Snapshot Tests:
+##### **17.11 📊 Code Coverage**
+
+- 📝 Run: `npm test -- --coverage`
+- 📝 Coverage Reports show:
+  - Statements (%)
+  - Branches (%)
+  - Functions (%)
+  - Lines (%)
+
+---
+
+##### **17.12 🎯 Snapshot Testing**
+
+- 📝 Snapshot:
   ```jsx
-  // UserProfile.jsx
-  export function UserProfile({ user }) {
-    return (
-      <div className="profile">
-        <img src={user.avatar} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <ul>
-          {user.skills.map(skill => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
-  
-  // UserProfile.test.jsx
-  import { render } from '@testing-library/react'
-  import { UserProfile } from './UserProfile'
-  
-  test('UserProfile matches snapshot', () => {
-    const user = {
-      name: 'John Doe',
-      email: 'john@example.com',
-      avatar: '/avatar.jpg',
-      skills: ['React', 'TypeScript', 'Node.js']
-    }
-    
-    const { container } = render(<UserProfile user={user} />)
-    expect(container).toMatchSnapshot()
-  })
-  
-  // When component changes intentionally:
+  test("renders correctly", () => {
+    const { container } = render(<Component />);
+    expect(container).toMatchSnapshot();
+  });
   // Press 'u' in watch mode to update snapshots
-  // Or run: npm test -- -u
-  ```
-- 📝 Inline Snapshots:
-  ```javascript
-  test('inline snapshot', () => {
-    const user = {
-      id: 1,
-      name: 'John Doe',
-      createdAt: new Date('2024-01-01')
-    }
-    
-    expect(user).toMatchInlineSnapshot(`
-      {
-        "createdAt": 2024-01-01T00:00:00.000Z,
-        "id": 1,
-        "name": "John Doe",
-      }
-    `)
-  })
   ```
 
-##### 17.13 🔄 Testing Integration
-- 📝 Integration Tests:
-  ```javascript
-  // userManager.js
-  import { validateUser } from './validation'
-  import { saveUser } from './database'
-  import { sendWelcomeEmail } from './email'
-  
-  export async function createUser(userData) {
-    const validatedUser = validateUser(userData)
-    const savedUser = await saveUser(validatedUser)
-    await sendWelcomeEmail(savedUser)
-    return savedUser
-  }
-  
-  // userManager.test.js
-  jest.mock('./validation')
-  jest.mock('./database')
-  jest.mock('./email')
-  
-  import { validateUser } from './validation'
-  import { saveUser } from './database'
-  import { sendWelcomeEmail } from './email'
-  import { createUser } from './userManager'
-  
-  test('createUser orchestrates the entire process', async () => {
-    const userData = { name: 'John', email: 'john@example.com' }
-    const validatedUser = { ...userData, isValid: true }
-    const savedUser = { ...validatedUser, id: 1 }
-    
-    validateUser.mockReturnValue(validatedUser)
-    saveUser.mockResolvedValue(savedUser)
-    sendWelcomeEmail.mockResolvedValue()
-    
-    const result = await createUser(userData)
-    
-    expect(result).toEqual(savedUser)
-    expect(validateUser).toHaveBeenCalledWith(userData)
-    expect(saveUser).toHaveBeenCalledWith(validatedUser)
-    expect(sendWelcomeEmail).toHaveBeenCalledWith(savedUser)
-  })
-  ```
+---
 
-##### 17.14 🧩 Testing Custom Hooks
-- 📝 Testing Hooks:
+##### **17.13 🧩 Testing Custom Hooks**
+
+- 📝 `renderHook`:
+
   ```javascript
-  // useCounter.js
-  import { useState, useCallback } from 'react'
-  
-  export function useCounter(initialValue = 0) {
-    const [count, setCount] = useState(initialValue)
-    
-    const increment = useCallback(() => {
-      setCount(c => c + 1)
-    }, [])
-    
-    const decrement = useCallback(() => {
-      setCount(c => c - 1)
-    }, [])
-    
-    const reset = useCallback(() => {
-      setCount(initialValue)
-    }, [initialValue])
-    
-    return { count, increment, decrement, reset }
-  }
-  
-  // useCounter.test.js
-  import { renderHook, act } from '@testing-library/react'
-  import { useCounter } from './useCounter'
-  
-  test('should initialize with default value', () => {
-    const { result } = renderHook(() => useCounter())
-    
-    expect(result.current.count).toBe(0)
-  })
-  
-  test('should initialize with custom value', () => {
-    const { result } = renderHook(() => useCounter(10))
-    
-    expect(result.current.count).toBe(10)
-  })
-  
-  test('should increment counter', () => {
-    const { result } = renderHook(() => useCounter(5))
-    
+  import { renderHook, act } from "@testing-library/react";
+
+  test("increments counter", () => {
+    const { result } = renderHook(() => useCounter(0));
+
     act(() => {
-      result.current.increment()
-    })
-    
-    expect(result.current.count).toBe(6)
-  })
-  
-  test('should decrement counter', () => {
-    const { result } = renderHook(() => useCounter(5))
-    
-    act(() => {
-      result.current.decrement()
-    })
-    
-    expect(result.current.count).toBe(4)
-  })
-  
-  test('should reset counter', () => {
-    const { result } = renderHook(() => useCounter(5))
-    
-    act(() => {
-      result.current.increment()
-      result.current.increment()
-      result.current.reset()
-    })
-    
-    expect(result.current.count).toBe(5)
-  })
+      result.current.increment();
+    });
+
+    expect(result.current.count).toBe(1);
+  });
   ```
 
-##### 17.15 🎭 Mocking Context and Providers
-- 📝 Testing with Context:
-  ```jsx
-  // ThemeContext.jsx
-  import React, { createContext, useContext, useState } from 'react'
-  
-  const ThemeContext = createContext()
-  
-  export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState('light')
-    
-    const toggleTheme = () => {
-      setTheme(prev => prev === 'light' ? 'dark' : 'light')
-    }
-    
-    return (
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        {children}
-      </ThemeContext.Provider>
-    )
-  }
-  
-  export function useTheme() {
-    const context = useContext(ThemeContext)
-    if (!context) {
-      throw new Error('useTheme must be used within ThemeProvider')
-    }
-    return context
-  }
-  
-  // ThemedButton.jsx
-  export function ThemedButton() {
-    const { theme, toggleTheme } = useTheme()
-    
-    return (
-      <button 
-        onClick={toggleTheme}
-        className={`btn-${theme}`}
-      >
-        Current theme: {theme}
-      </button>
-    )
-  }
-  
-  // ThemedButton.test.jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { ThemeProvider, ThemedButton } from './ThemeContext'
-  
-  const customRender = (ui, { providerProps, ...renderOptions }) => {
-    return render(
-      <ThemeProvider {...providerProps}>
-        {ui}
-      </ThemeProvider>,
-      renderOptions
-    )
-  }
-  
-  test('button shows current theme', () => {
-    render(
-      <ThemeProvider>
-        <ThemedButton />
-      </ThemeProvider>
-    )
-    
-    expect(screen.getByText(/Current theme: light/i)).toBeInTheDocument()
-  })
-  
-  test('clicking button toggles theme', async () => {
-    render(
-      <ThemeProvider>
-        <ThemedButton />
-      </ThemeProvider>
-    )
-    
-    const button = screen.getByRole('button')
-    await userEvent.click(button)
-    
-    expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
-  })
-  ```
+---
 
-##### 17.16 🔧 Debugging Tests
-- 📝 Debugging Techniques:
-  ```javascript
-  test('debugging example', () => {
-    const user = {
-      name: 'John',
-      age: 30,
-      address: {
-        city: 'New York',
-        country: 'USA'
-      }
-    }
-    
-    // Log values
-    console.log('User:', user)
-    
-    // Use debugger
-    debugger
-    
-    // Use Jest's debug mode
-    // Run: node --inspect-brk node_modules/.bin/jest --runInBand
-    
-    expect(user.name).toBe('John')
-  })
-  ```
-- 📝 Jest Watch Mode:
-  ```bash
-  # Watch mode options
-  # Press 'f' to run only failed tests
-  # Press 'p' to filter by filename
-  # Press 't' to filter by test name
-  # Press 'q' to quit
-  # Press 'Enter' to run all tests
-  ```
+##### **17.14 🚀 Advanced Features**
 
-##### 17.17 🚀 Advanced Jest Features
-- 📝 Test.each (Parameterized Tests):
+- 📝 `test.each` (parameterized):
   ```javascript
-  // math.js
-  export function power(base, exponent) {
-    return Math.pow(base, exponent)
-  }
-  
-  // math.test.js
-  describe('power function', () => {
-    test.each([
-      [2, 3, 8],
-      [3, 2, 9],
-      [5, 0, 1],
-      [2, -1, 0.5],
-    ])('power(%i, %i) should return %i', (base, exponent, expected) => {
-      expect(power(base, exponent)).toBeCloseTo(expected)
-    })
-  })
-  
-  // With template literals
-  test.each`
-    base | exponent | expected
-    ${2} | ${3}     | ${8}
-    ${3} | ${2}     | ${9}
-    ${5} | ${0}     | ${1}
-  `('returns $expected when $base^$exponent', ({ base, exponent, expected }) => {
-    expect(power(base, exponent)).toBe(expected)
-  })
+  test.each([
+    [2, 3, 8],
+    [3, 2, 9],
+  ])("power(%i, %i) = %i", (base, exp, expected) => {
+    expect(power(base, exp)).toBe(expected);
+  });
   ```
-- 📝 Test.todo:
-  ```javascript
-  describe('Calculator', () => {
-    test.todo('should add two numbers')
-    test.todo('should subtract two numbers')
-    test.todo('should multiply two numbers')
-    test.todo('should handle division by zero')
-  })
-  ```
-- 📝 Only and Skip:
-  ```javascript
-  // Run only this test
-  test.only('critical test', () => {
-    expect(true).toBe(true)
-  })
-  
-  // Skip this test
-  test.skip('not implemented yet', () => {
-    expect(true).toBe(true)
-  })
-  
-  describe.only('important suite', () => {
-    // Only this describe runs
-  })
-  
-  describe.skip('legacy tests', () => {
-    // These tests are skipped
-  })
-  ```
+- 📝 `test.only` / `test.skip`
+- 📝 `test.todo`
 
-##### 17.18 🎯 Testing Best Practices
-- 📝 Test Organization:
-  ```javascript
-  // 1. Arrange - setup test data
-  // 2. Act - perform the action
-  // 3. Assert - verify results
-  
-  test('should calculate total price with discount', () => {
-    // Arrange
-    const cart = [
-      { price: 100, quantity: 2 },
-      { price: 50, quantity: 1 }
-    ]
-    const discount = 0.1
-    
-    // Act
-    const total = calculateTotal(cart, discount)
-    
-    // Assert
-    expect(total).toBe(225) // (200 + 50) * 0.9
-  })
-  ```
-- 📝 Naming Conventions:
-  ```javascript
-  // Good
-  test('returns user when valid ID is provided', () => {})
-  test('throws error when user is not found', () => {})
-  test('updates user email successfully', () => {})
-  
-  // Avoid
-  test('user test', () => {})
-  test('check function', () => {})
-  ```
-- 📝 What to Test:
-  ```javascript
-  // DO test:
-  // - Public API functions
-  // - Edge cases (empty, null, undefined)
-  // - Error conditions
-  // - Business logic
-  
-  // DON'T test:
-  // - Implementation details
-  // - Third-party libraries
-  // - Simple getters/setters
-  // - Configuration files
-  ```
+---
 
-##### 17.19 🔧 Continuous Integration
-- 📝 GitHub Actions Setup:
-  ```yaml
-  # .github/workflows/test.yml
-  name: Tests
-  
-  on:
-    push:
-      branches: [ main, develop ]
-    pull_request:
-      branches: [ main ]
-  
-  jobs:
-    test:
-      runs-on: ubuntu-latest
-      
-      steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Run tests
-        run: npm test -- --coverage
-        
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
-  ```
+##### **17.15 🎯 Best Practices**
 
-##### 17.20 💻 Practical Projects
+- 📝 AAA Pattern: Arrange → Act → Assert
+- 📝 Descriptive test names
+- 📝 Test behavior, not implementation
+- 📝 Keep tests isolated
+- 📝 Mock external dependencies
+
+---
+
+##### **17.16 💻 Practical Projects**
+
 - 🏗️ Utility Functions Testing
 - 📝 React Component Testing
 - 🔐 Authentication Logic Testing
@@ -12828,13 +7962,21 @@ src/
 
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## 🎯 STAGE 18 — React Testing Library (Component Testing)
+
 **Goal**: Master React Testing Library for testing React components in a user-centric way, ensuring applications work correctly from the user's perspective.
 **Time**: 20 soat | 10 dars
 
 #### 📚 Topics
 
 ##### 18.1 🧪 Introduction to React Testing Library
+
 - 🤔 What is React Testing Library?
 - 📜 Philosophy: "Test your software the way users use it"
 - 🎯 Why React Testing Library?
@@ -12851,16 +7993,18 @@ src/
 - 📝 Setup:
   ```javascript
   // src/setupTests.js
-  import '@testing-library/jest-dom'
+  import "@testing-library/jest-dom";
   ```
 
 ##### 18.2 🎯 Core Concepts
+
 - 📝 Queries (Finding Elements):
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  
-  test('queries examples', () => {
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+
+  test("queries examples", () => {
     render(
       <div>
         <button>Click me</button>
@@ -12871,57 +8015,59 @@ src/
         <input id="email" />
         <img alt="profile" src="/image.jpg" />
         <span data-testid="custom">Custom element</span>
-      </div>
-    )
-    
+      </div>,
+    );
+
     // getBy - throws if not found
-    const button = screen.getByText('Click me')
-    const closeButton = screen.getByLabelText('close')
-    const input = screen.getByPlaceholderText('Enter name')
-    const alert = screen.getByRole('alert')
-    const emailInput = screen.getByLabelText('Email:')
-    const image = screen.getByAltText('profile')
-    const custom = screen.getByTestId('custom')
-    
+    const button = screen.getByText("Click me");
+    const closeButton = screen.getByLabelText("close");
+    const input = screen.getByPlaceholderText("Enter name");
+    const alert = screen.getByRole("alert");
+    const emailInput = screen.getByLabelText("Email:");
+    const image = screen.getByAltText("profile");
+    const custom = screen.getByTestId("custom");
+
     // queryBy - returns null if not found (no error)
-    const missing = screen.queryByText('Not found')
-    expect(missing).toBeNull()
-    
+    const missing = screen.queryByText("Not found");
+    expect(missing).toBeNull();
+
     // findBy - for async elements (returns Promise)
     // const asyncElement = await screen.findByText('Loaded')
-  })
+  });
   ```
+
 - 📝 Query Types:
   ```jsx
-  test('query types', () => {
+  test("query types", () => {
     render(
       <div>
         <button>Submit</button>
         <button>Submit</button>
         <div>Content</div>
-      </div>
-    )
-    
+      </div>,
+    );
+
     // getByText - throws if multiple matches
     // const button = screen.getByText('Submit') // Throws!
-    
+
     // getAllByText - returns array of matches
-    const buttons = screen.getAllByText('Submit')
-    expect(buttons).toHaveLength(2)
-    
+    const buttons = screen.getAllByText("Submit");
+    expect(buttons).toHaveLength(2);
+
     // queryAllByText - returns array (empty if none)
-    const missing = screen.queryAllByText('Not found')
-    expect(missing).toHaveLength(0)
-    
+    const missing = screen.queryAllByText("Not found");
+    expect(missing).toHaveLength(0);
+
     // findByText - for async
     // const element = await screen.findByText('Loaded')
-    
+
     // findAllByText - for async multiple
     // const elements = await screen.findAllByText('Item')
-  })
+  });
   ```
 
 ##### 18.3 🎨 Priority Order for Queries
+
 - 📝 Query Priority (from most to least recommended):
   ```jsx
   test('query priority', () => {
@@ -12931,45 +8077,52 @@ src/
         <button>Save</button>
         <a href="/about">About</button>
         <input type="checkbox" />
-        
+
         {/* 2. Semantic queries */}
         <h1>Title</h1>
         <p>Paragraph</p>
-        
+
         {/* 3. Test IDs (use as last resort) */}
         <div data-testid="custom">Content</div>
       </div>
     )
-    
+
     // 1. Accessible queries (role, label, text)
     screen.getByRole('button', { name: /save/i })
     screen.getByLabelText(/email/i)
     screen.getByPlaceholderText(/name/i)
     screen.getByText(/about/i)
     screen.getByDisplayValue(/initial value/i)
-    
+
     // 2. Semantic queries
     screen.getByAltText(/profile/i)
     screen.getByTitle(/tooltip/i)
-    
+
     // 3. Test ID (last resort)
     screen.getByTestId('custom')
   })
   ```
 
 ##### 18.4 🔧 User Events
+
 - 📝 userEvent vs fireEvent:
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+
   function Form() {
-    const [value, setValue] = useState('')
-    const [submitted, setSubmitted] = useState(false)
-    
+    const [value, setValue] = useState("");
+    const [submitted, setSubmitted] = useState(false);
+
     return (
-      <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
-        <input 
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setSubmitted(true);
+        }}
+      >
+        <input
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Enter text"
@@ -12977,67 +8130,69 @@ src/
         <button type="submit">Submit</button>
         {submitted && <div>Form submitted!</div>}
       </form>
-    )
+    );
   }
-  
-  test('userEvent simulates real user interactions', async () => {
-    const user = userEvent.setup()
-    render(<Form />)
-    
+
+  test("userEvent simulates real user interactions", async () => {
+    const user = userEvent.setup();
+    render(<Form />);
+
     // Type in input
-    const input = screen.getByPlaceholderText('Enter text')
-    await user.type(input, 'Hello World')
-    expect(input).toHaveValue('Hello World')
-    
+    const input = screen.getByPlaceholderText("Enter text");
+    await user.type(input, "Hello World");
+    expect(input).toHaveValue("Hello World");
+
     // Click button
-    const button = screen.getByRole('button')
-    await user.click(button)
-    
+    const button = screen.getByRole("button");
+    await user.click(button);
+
     // Check result
-    expect(screen.getByText('Form submitted!')).toBeInTheDocument()
-  })
-  
-  test('userEvent advanced interactions', async () => {
-    const user = userEvent.setup()
-    render(<ComplexForm />)
-    
+    expect(screen.getByText("Form submitted!")).toBeInTheDocument();
+  });
+
+  test("userEvent advanced interactions", async () => {
+    const user = userEvent.setup();
+    render(<ComplexForm />);
+
     // Keyboard interactions
-    await user.keyboard('{Shift>}A{/Shift}') // Shift + A
-    
+    await user.keyboard("{Shift>}A{/Shift}"); // Shift + A
+
     // Tab navigation
-    await user.tab()
-    
+    await user.tab();
+
     // Select options
-    await user.selectOptions(screen.getByRole('listbox'), 'option2')
-    
+    await user.selectOptions(screen.getByRole("listbox"), "option2");
+
     // Upload file
-    const file = new File(['hello'], 'hello.png', { type: 'image/png' })
-    await user.upload(screen.getByLabelText(/upload/i), file)
-    
+    const file = new File(["hello"], "hello.png", { type: "image/png" });
+    await user.upload(screen.getByLabelText(/upload/i), file);
+
     // Double click
-    await user.dblClick(screen.getByText('Double click me'))
-    
+    await user.dblClick(screen.getByText("Double click me"));
+
     // Hover
-    await user.hover(screen.getByText('Hover me'))
-  })
+    await user.hover(screen.getByText("Hover me"));
+  });
   ```
 
 ##### 18.5 🎯 Testing Forms
+
 - 📝 Form Testing:
+
   ```jsx
   // LoginForm.jsx
   export function LoginForm({ onSubmit }) {
     const [formData, setFormData] = useState({
-      email: '',
-      password: '',
-      rememberMe: false
-    })
-    
+      email: "",
+      password: "",
+      rememberMe: false,
+    });
+
     const handleSubmit = (e) => {
-      e.preventDefault()
-      onSubmit(formData)
-    }
-    
+      e.preventDefault();
+      onSubmit(formData);
+    };
+
     return (
       <form onSubmit={handleSubmit}>
         <div>
@@ -13046,336 +8201,347 @@ src/
             id="email"
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             required
           />
         </div>
-        
+
         <div>
           <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             required
           />
         </div>
-        
+
         <div>
           <label>
             <input
               type="checkbox"
               checked={formData.rememberMe}
-              onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
+              onChange={(e) =>
+                setFormData({ ...formData, rememberMe: e.target.checked })
+              }
             />
             Remember me
           </label>
         </div>
-        
+
         <button type="submit">Login</button>
       </form>
-    )
+    );
   }
-  
+
   // LoginForm.test.jsx
-  describe('LoginForm', () => {
-    it('submits form data correctly', async () => {
-      const user = userEvent.setup()
-      const handleSubmit = jest.fn()
-      
-      render(<LoginForm onSubmit={handleSubmit} />)
-      
+  describe("LoginForm", () => {
+    it("submits form data correctly", async () => {
+      const user = userEvent.setup();
+      const handleSubmit = jest.fn();
+
+      render(<LoginForm onSubmit={handleSubmit} />);
+
       // Fill form
-      await user.type(screen.getByLabelText(/email/i), 'john@example.com')
-      await user.type(screen.getByLabelText(/password/i), 'password123')
-      await user.click(screen.getByLabelText(/remember me/i))
-      
+      await user.type(screen.getByLabelText(/email/i), "john@example.com");
+      await user.type(screen.getByLabelText(/password/i), "password123");
+      await user.click(screen.getByLabelText(/remember me/i));
+
       // Submit form
-      await user.click(screen.getByRole('button', { name: /login/i }))
-      
+      await user.click(screen.getByRole("button", { name: /login/i }));
+
       // Assert
       expect(handleSubmit).toHaveBeenCalledWith({
-        email: 'john@example.com',
-        password: 'password123',
-        rememberMe: true
-      })
-    })
-    
-    it('validates required fields', async () => {
-      const user = userEvent.setup()
-      const handleSubmit = jest.fn()
-      
-      render(<LoginForm onSubmit={handleSubmit} />)
-      
+        email: "john@example.com",
+        password: "password123",
+        rememberMe: true,
+      });
+    });
+
+    it("validates required fields", async () => {
+      const user = userEvent.setup();
+      const handleSubmit = jest.fn();
+
+      render(<LoginForm onSubmit={handleSubmit} />);
+
       // Try to submit without filling
-      await user.click(screen.getByRole('button', { name: /login/i }))
-      
+      await user.click(screen.getByRole("button", { name: /login/i }));
+
       // Form shouldn't submit
-      expect(handleSubmit).not.toHaveBeenCalled()
-      
+      expect(handleSubmit).not.toHaveBeenCalled();
+
       // Check HTML5 validation
-      const emailInput = screen.getByLabelText(/email/i)
-      expect(emailInput).toBeRequired()
-    })
-  })
+      const emailInput = screen.getByLabelText(/email/i);
+      expect(emailInput).toBeRequired();
+    });
+  });
   ```
 
 ##### 18.6 🔄 Testing Async Operations
+
 - 📝 Async Component Testing:
+
   ```jsx
   // UserList.jsx
   export function UserList() {
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-      fetch('/api/users')
-        .then(res => res.json())
-        .then(data => {
-          setUsers(data)
-          setLoading(false)
+      fetch("/api/users")
+        .then((res) => res.json())
+        .then((data) => {
+          setUsers(data);
+          setLoading(false);
         })
-        .catch(err => {
-          setError(err.message)
-          setLoading(false)
-        })
-    }, [])
-    
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error}</div>
-    
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+        });
+    }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
+
     return (
       <ul>
-        {users.map(user => (
+        {users.map((user) => (
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
-    )
+    );
   }
-  
+
   // UserList.test.jsx
-  describe('UserList', () => {
+  describe("UserList", () => {
     beforeEach(() => {
-      global.fetch = jest.fn()
-    })
-    
+      global.fetch = jest.fn();
+    });
+
     afterEach(() => {
-      jest.resetAllMocks()
-    })
-    
-    it('displays loading state initially', () => {
-      global.fetch.mockImplementation(() => new Promise(() => {}))
-      
-      render(<UserList />)
-      
-      expect(screen.getByText('Loading...')).toBeInTheDocument()
-    })
-    
-    it('displays users after successful fetch', async () => {
+      jest.resetAllMocks();
+    });
+
+    it("displays loading state initially", () => {
+      global.fetch.mockImplementation(() => new Promise(() => {}));
+
+      render(<UserList />);
+
+      expect(screen.getByText("Loading...")).toBeInTheDocument();
+    });
+
+    it("displays users after successful fetch", async () => {
       const mockUsers = [
-        { id: 1, name: 'John Doe' },
-        { id: 2, name: 'Jane Smith' }
-      ]
-      
+        { id: 1, name: "John Doe" },
+        { id: 2, name: "Jane Smith" },
+      ];
+
       global.fetch.mockResolvedValue({
         ok: true,
-        json: async () => mockUsers
-      })
-      
-      render(<UserList />)
-      
+        json: async () => mockUsers,
+      });
+
+      render(<UserList />);
+
       // Wait for loading to finish and users to appear
-      await waitForElementToBeRemoved(() => screen.queryByText('Loading...'))
-      
-      expect(screen.getByText('John Doe')).toBeInTheDocument()
-      expect(screen.getByText('Jane Smith')).toBeInTheDocument()
-    })
-    
-    it('displays error message on fetch failure', async () => {
-      global.fetch.mockRejectedValue(new Error('Network error'))
-      
-      render(<UserList />)
-      
+      await waitForElementToBeRemoved(() => screen.queryByText("Loading..."));
+
+      expect(screen.getByText("John Doe")).toBeInTheDocument();
+      expect(screen.getByText("Jane Smith")).toBeInTheDocument();
+    });
+
+    it("displays error message on fetch failure", async () => {
+      global.fetch.mockRejectedValue(new Error("Network error"));
+
+      render(<UserList />);
+
       await waitFor(() => {
-        expect(screen.getByText(/Error: Network error/i)).toBeInTheDocument()
-      })
-    })
-  })
+        expect(screen.getByText(/Error: Network error/i)).toBeInTheDocument();
+      });
+    });
+  });
   ```
 
 ##### 18.7 🎭 Testing with Context
+
 - 📝 Context Testing:
+
   ```jsx
   // ThemeContext.jsx
-  const ThemeContext = createContext()
-  
+  const ThemeContext = createContext();
+
   export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState('light')
-    
+    const [theme, setTheme] = useState("light");
+
     const toggleTheme = () => {
-      setTheme(prev => prev === 'light' ? 'dark' : 'light')
-    }
-    
+      setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    };
+
     return (
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         {children}
       </ThemeContext.Provider>
-    )
+    );
   }
-  
+
   export function useTheme() {
-    return useContext(ThemeContext)
+    return useContext(ThemeContext);
   }
-  
+
   // ThemedButton.jsx
   export function ThemedButton() {
-    const { theme, toggleTheme } = useTheme()
-    
+    const { theme, toggleTheme } = useTheme();
+
     return (
-      <button 
-        onClick={toggleTheme}
-        className={`btn-${theme}`}
-      >
+      <button onClick={toggleTheme} className={`btn-${theme}`}>
         Current theme: {theme}
       </button>
-    )
+    );
   }
-  
+
   // ThemedButton.test.jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { ThemeProvider, ThemedButton } from './ThemeContext'
-  
-  describe('ThemedButton', () => {
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+  import { ThemeProvider, ThemedButton } from "./ThemeContext";
+
+  describe("ThemedButton", () => {
     const renderWithTheme = (component) => {
-      return render(
-        <ThemeProvider>
-          {component}
-        </ThemeProvider>
-      )
-    }
-    
-    it('displays initial theme', () => {
-      renderWithTheme(<ThemedButton />)
-      
-      expect(screen.getByText(/Current theme: light/i)).toBeInTheDocument()
-    })
-    
-    it('toggles theme when clicked', async () => {
-      const user = userEvent.setup()
-      renderWithTheme(<ThemedButton />)
-      
-      const button = screen.getByRole('button')
-      await user.click(button)
-      
-      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
-    })
-    
+      return render(<ThemeProvider>{component}</ThemeProvider>);
+    };
+
+    it("displays initial theme", () => {
+      renderWithTheme(<ThemedButton />);
+
+      expect(screen.getByText(/Current theme: light/i)).toBeInTheDocument();
+    });
+
+    it("toggles theme when clicked", async () => {
+      const user = userEvent.setup();
+      renderWithTheme(<ThemedButton />);
+
+      const button = screen.getByRole("button");
+      await user.click(button);
+
+      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument();
+    });
+
     // Testing with custom context value
-    it('works with custom theme value', () => {
+    it("works with custom theme value", () => {
       const customThemeValue = {
-        theme: 'dark',
-        toggleTheme: jest.fn()
-      }
-      
+        theme: "dark",
+        toggleTheme: jest.fn(),
+      };
+
       render(
         <ThemeContext.Provider value={customThemeValue}>
           <ThemedButton />
-        </ThemeContext.Provider>
-      )
-      
-      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument()
-    })
-  })
+        </ThemeContext.Provider>,
+      );
+
+      expect(screen.getByText(/Current theme: dark/i)).toBeInTheDocument();
+    });
+  });
   ```
 
 ##### 18.8 🔄 Testing with Redux
+
 - 📝 Redux Testing:
+
   ```jsx
   // counterSlice.js
   const counterSlice = createSlice({
-    name: 'counter',
+    name: "counter",
     initialState: { value: 0 },
     reducers: {
-      increment: (state) => { state.value += 1 },
-      decrement: (state) => { state.value -= 1 },
-    }
-  })
-  
+      increment: (state) => {
+        state.value += 1;
+      },
+      decrement: (state) => {
+        state.value -= 1;
+      },
+    },
+  });
+
   // Counter.jsx
   export function Counter() {
-    const count = useSelector(state => state.counter.value)
-    const dispatch = useDispatch()
-    
+    const count = useSelector((state) => state.counter.value);
+    const dispatch = useDispatch();
+
     return (
       <div>
         <h2>Count: {count}</h2>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(decrement())}>-</button>
       </div>
-    )
+    );
   }
-  
+
   // Counter.test.jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { Provider } from 'react-redux'
-  import { configureStore } from '@reduxjs/toolkit'
-  import counterReducer from './counterSlice'
-  import { Counter } from './Counter'
-  
-  describe('Counter with Redux', () => {
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+  import { Provider } from "react-redux";
+  import { configureStore } from "@reduxjs/toolkit";
+  import counterReducer from "./counterSlice";
+  import { Counter } from "./Counter";
+
+  describe("Counter with Redux", () => {
     const renderWithRedux = (
       component,
       {
         preloadedState,
         store = configureStore({
           reducer: { counter: counterReducer },
-          preloadedState
-        })
-      } = {}
+          preloadedState,
+        }),
+      } = {},
     ) => {
       return {
         ...render(<Provider store={store}>{component}</Provider>),
-        store
-      }
-    }
-    
-    it('renders with initial state', () => {
-      renderWithRedux(<Counter />)
-      
-      expect(screen.getByText('Count: 0')).toBeInTheDocument()
-    })
-    
-    it('increments counter', async () => {
-      const user = userEvent.setup()
+        store,
+      };
+    };
+
+    it("renders with initial state", () => {
+      renderWithRedux(<Counter />);
+
+      expect(screen.getByText("Count: 0")).toBeInTheDocument();
+    });
+
+    it("increments counter", async () => {
+      const user = userEvent.setup();
       const { store } = renderWithRedux(<Counter />, {
-        preloadedState: { counter: { value: 5 } }
-      })
-      
-      await user.click(screen.getByText('+'))
-      
-      expect(screen.getByText('Count: 6')).toBeInTheDocument()
-      expect(store.getState().counter.value).toBe(6)
-    })
-    
-    it('decrements counter', async () => {
-      const user = userEvent.setup()
+        preloadedState: { counter: { value: 5 } },
+      });
+
+      await user.click(screen.getByText("+"));
+
+      expect(screen.getByText("Count: 6")).toBeInTheDocument();
+      expect(store.getState().counter.value).toBe(6);
+    });
+
+    it("decrements counter", async () => {
+      const user = userEvent.setup();
       renderWithRedux(<Counter />, {
-        preloadedState: { counter: { value: 10 } }
-      })
-      
-      await user.click(screen.getByText('-'))
-      
-      expect(screen.getByText('Count: 9')).toBeInTheDocument()
-    })
-  })
+        preloadedState: { counter: { value: 10 } },
+      });
+
+      await user.click(screen.getByText("-"));
+
+      expect(screen.getByText("Count: 9")).toBeInTheDocument();
+    });
+  });
   ```
 
 ##### 18.9 🧭 Testing React Router
+
 - 📝 Router Testing:
+
   ```jsx
   // App.jsx
   export function App() {
@@ -13385,468 +8551,495 @@ src/
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
         </nav>
-        
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/user/:id" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
-    )
+    );
   }
-  
+
   // App.test.jsx
-  import { render, screen } from '@testing-library/react'
-  import userEvent from '@testing-library/user-event'
-  import { MemoryRouter, Routes, Route } from 'react-router-dom'
-  import { App, Home, About, UserProfile } from './App'
-  
-  describe('Routing', () => {
-    it('navigates to about page', async () => {
-      const user = userEvent.setup()
-      
+  import { render, screen } from "@testing-library/react";
+  import userEvent from "@testing-library/user-event";
+  import { MemoryRouter, Routes, Route } from "react-router-dom";
+  import { App, Home, About, UserProfile } from "./App";
+
+  describe("Routing", () => {
+    it("navigates to about page", async () => {
+      const user = userEvent.setup();
+
       render(
-        <MemoryRouter initialEntries={['/']}>
+        <MemoryRouter initialEntries={["/"]}>
           <App />
-        </MemoryRouter>
-      )
-      
-      expect(screen.getByText(/home page/i)).toBeInTheDocument()
-      
-      await user.click(screen.getByRole('link', { name: /about/i }))
-      
-      expect(screen.getByText(/about page/i)).toBeInTheDocument()
-    })
-    
-    it('displays 404 for unknown routes', () => {
+        </MemoryRouter>,
+      );
+
+      expect(screen.getByText(/home page/i)).toBeInTheDocument();
+
+      await user.click(screen.getByRole("link", { name: /about/i }));
+
+      expect(screen.getByText(/about page/i)).toBeInTheDocument();
+    });
+
+    it("displays 404 for unknown routes", () => {
       render(
-        <MemoryRouter initialEntries={['/unknown']}>
+        <MemoryRouter initialEntries={["/unknown"]}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<div>404 Not Found</div>} />
           </Routes>
-        </MemoryRouter>
-      )
-      
-      expect(screen.getByText('404 Not Found')).toBeInTheDocument()
-    })
-    
-    it('renders user profile with correct id', () => {
+        </MemoryRouter>,
+      );
+
+      expect(screen.getByText("404 Not Found")).toBeInTheDocument();
+    });
+
+    it("renders user profile with correct id", () => {
       render(
-        <MemoryRouter initialEntries={['/user/123']}>
+        <MemoryRouter initialEntries={["/user/123"]}>
           <Routes>
             <Route path="/user/:id" element={<UserProfile />} />
           </Routes>
-        </MemoryRouter>
-      )
-      
-      expect(screen.getByText('User ID: 123')).toBeInTheDocument()
-    })
-  })
+        </MemoryRouter>,
+      );
+
+      expect(screen.getByText("User ID: 123")).toBeInTheDocument();
+    });
+  });
   ```
 
 ##### 18.10 🎨 Testing Styled Components
+
 - 📝 Testing with CSS-in-JS:
+
   ```jsx
   // StyledButton.jsx
-  import styled from 'styled-components'
-  
+  import styled from "styled-components";
+
   const Button = styled.button`
-    background: ${props => props.primary ? 'blue' : 'gray'};
+    background: ${(props) => (props.primary ? "blue" : "gray")};
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    
+
     &:hover {
-      background: ${props => props.primary ? 'darkblue' : 'darkgray'};
+      background: ${(props) => (props.primary ? "darkblue" : "darkgray")};
     }
-  `
-  
+  `;
+
   export function StyledButton({ primary, children }) {
-    return <Button primary={primary}>{children}</Button>
+    return <Button primary={primary}>{children}</Button>;
   }
-  
+
   // StyledButton.test.jsx
-  describe('StyledButton', () => {
-    it('applies primary styles', () => {
-      render(<StyledButton primary>Click me</StyledButton>)
-      
-      const button = screen.getByText('Click me')
-      
+  describe("StyledButton", () => {
+    it("applies primary styles", () => {
+      render(<StyledButton primary>Click me</StyledButton>);
+
+      const button = screen.getByText("Click me");
+
       // Check computed styles
       expect(button).toHaveStyle({
-        background: 'blue',
-        color: 'white'
-      })
-    })
-    
-    it('applies secondary styles', () => {
-      render(<StyledButton>Click me</StyledButton>)
-      
-      const button = screen.getByText('Click me')
-      
+        background: "blue",
+        color: "white",
+      });
+    });
+
+    it("applies secondary styles", () => {
+      render(<StyledButton>Click me</StyledButton>);
+
+      const button = screen.getByText("Click me");
+
       expect(button).toHaveStyle({
-        background: 'gray',
-        color: 'white'
-      })
-    })
-    
+        background: "gray",
+        color: "white",
+      });
+    });
+
     // For more complex style testing, use snapshot
-    it('matches snapshot', () => {
-      const { container } = render(<StyledButton primary>Click me</StyledButton>)
-      
-      expect(container.firstChild).toMatchSnapshot()
-    })
-  })
+    it("matches snapshot", () => {
+      const { container } = render(
+        <StyledButton primary>Click me</StyledButton>,
+      );
+
+      expect(container.firstChild).toMatchSnapshot();
+    });
+  });
   ```
 
 ##### 18.11 🎯 Testing Accessibility
+
 - 📝 Accessibility Testing:
+
   ```jsx
-  import { axe, toHaveNoViolations } from 'jest-axe'
-  
-  expect.extend(toHaveNoViolations)
-  
-  describe('Accessibility', () => {
-    it('should have no accessibility violations', async () => {
+  import { axe, toHaveNoViolations } from "jest-axe";
+
+  expect.extend(toHaveNoViolations);
+
+  describe("Accessibility", () => {
+    it("should have no accessibility violations", async () => {
       const { container } = render(
         <form>
           <label htmlFor="name">Name</label>
           <input id="name" type="text" />
-          
+
           <label htmlFor="email">Email</label>
           <input id="email" type="email" />
-          
+
           <button type="submit">Submit</button>
-        </form>
-      )
-      
-      const results = await axe(container)
-      expect(results).toHaveNoViolations()
-    })
-    
-    it('detects accessibility issues', async () => {
+        </form>,
+      );
+
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
+    it("detects accessibility issues", async () => {
       // Missing labels - bad accessibility
       const { container } = render(
         <div>
           <input type="text" placeholder="Name" />
           <input type="email" placeholder="Email" />
           <button>Submit</button>
-        </div>
-      )
-      
-      const results = await axe(container)
-      expect(results.violations.length).toBeGreaterThan(0)
-    })
-  })
+        </div>,
+      );
+
+      const results = await axe(container);
+      expect(results.violations.length).toBeGreaterThan(0);
+    });
+  });
   ```
 
 ##### 18.12 🔧 Custom Render Functions
+
 - 📝 Custom Render with Providers:
+
   ```jsx
   // test-utils.jsx
-  import { render } from '@testing-library/react'
-  import { ThemeProvider } from './contexts/ThemeContext'
-  import { AuthProvider } from './contexts/AuthContext'
-  import { Provider } from 'react-redux'
-  import { store } from './store'
-  
+  import { render } from "@testing-library/react";
+  import { ThemeProvider } from "./contexts/ThemeContext";
+  import { AuthProvider } from "./contexts/AuthContext";
+  import { Provider } from "react-redux";
+  import { store } from "./store";
+
   const AllTheProviders = ({ children }) => {
     return (
       <Provider store={store}>
         <ThemeProvider>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </Provider>
-    )
-  }
-  
+    );
+  };
+
   const customRender = (ui, options) =>
-    render(ui, { wrapper: AllTheProviders, ...options })
-  
+    render(ui, { wrapper: AllTheProviders, ...options });
+
   // Re-export everything
-  export * from '@testing-library/react'
-  export { customRender as render }
-  
+  export * from "@testing-library/react";
+  export { customRender as render };
+
   // Component.test.jsx
-  import { render, screen } from './test-utils'
-  
-  test('component works with all providers', () => {
-    render(<MyComponent />)
-    
-    expect(screen.getByText('Content')).toBeInTheDocument()
-  })
+  import { render, screen } from "./test-utils";
+
+  test("component works with all providers", () => {
+    render(<MyComponent />);
+
+    expect(screen.getByText("Content")).toBeInTheDocument();
+  });
   ```
 
 ##### 18.13 🎭 Mocking Advanced Scenarios
+
 - 📝 Mocking Date/Time:
+
   ```jsx
   // TimeDisplay.jsx
   export function TimeDisplay() {
-    const [time, setTime] = useState(new Date())
-    
+    const [time, setTime] = useState(new Date());
+
     useEffect(() => {
-      const timer = setInterval(() => setTime(new Date()), 1000)
-      return () => clearInterval(timer)
-    }, [])
-    
-    return <div>{time.toLocaleTimeString()}</div>
+      const timer = setInterval(() => setTime(new Date()), 1000);
+      return () => clearInterval(timer);
+    }, []);
+
+    return <div>{time.toLocaleTimeString()}</div>;
   }
-  
+
   // TimeDisplay.test.jsx
-  describe('TimeDisplay', () => {
+  describe("TimeDisplay", () => {
     beforeEach(() => {
-      jest.useFakeTimers()
-      jest.setSystemTime(new Date('2024-01-01T12:00:00'))
-    })
-    
+      jest.useFakeTimers();
+      jest.setSystemTime(new Date("2024-01-01T12:00:00"));
+    });
+
     afterEach(() => {
-      jest.useRealTimers()
-    })
-    
-    it('displays current time', () => {
-      render(<TimeDisplay />)
-      
-      expect(screen.getByText('12:00:00 PM')).toBeInTheDocument()
-    })
-    
-    it('updates time every second', () => {
-      render(<TimeDisplay />)
-      
-      jest.advanceTimersByTime(1000)
-      
-      expect(screen.getByText('12:00:01 PM')).toBeInTheDocument()
-    })
-  })
+      jest.useRealTimers();
+    });
+
+    it("displays current time", () => {
+      render(<TimeDisplay />);
+
+      expect(screen.getByText("12:00:00 PM")).toBeInTheDocument();
+    });
+
+    it("updates time every second", () => {
+      render(<TimeDisplay />);
+
+      jest.advanceTimersByTime(1000);
+
+      expect(screen.getByText("12:00:01 PM")).toBeInTheDocument();
+    });
+  });
   ```
+
 - 📝 Mocking Local Storage:
+
   ```jsx
   // storage.js
   export const storage = {
     getItem: (key) => localStorage.getItem(key),
     setItem: (key, value) => localStorage.setItem(key, value),
-    removeItem: (key) => localStorage.removeItem(key)
-  }
-  
+    removeItem: (key) => localStorage.removeItem(key),
+  };
+
   // storage.test.js
   const localStorageMock = (() => {
-    let store = {}
-    
+    let store = {};
+
     return {
       getItem: jest.fn((key) => store[key] || null),
-      setItem: jest.fn((key, value) => { store[key] = value.toString() }),
-      removeItem: jest.fn((key) => { delete store[key] }),
-      clear: jest.fn(() => { store = {} })
-    }
-  })()
-  
-  Object.defineProperty(window, 'localStorage', { value: localStorageMock })
-  
-  describe('storage', () => {
+      setItem: jest.fn((key, value) => {
+        store[key] = value.toString();
+      }),
+      removeItem: jest.fn((key) => {
+        delete store[key];
+      }),
+      clear: jest.fn(() => {
+        store = {};
+      }),
+    };
+  })();
+
+  Object.defineProperty(window, "localStorage", { value: localStorageMock });
+
+  describe("storage", () => {
     beforeEach(() => {
-      localStorageMock.clear()
-      jest.clearAllMocks()
-    })
-    
-    it('sets and gets items', () => {
-      storage.setItem('theme', 'dark')
-      
-      expect(localStorage.setItem).toHaveBeenCalledWith('theme', 'dark')
-      
-      const value = storage.getItem('theme')
-      expect(localStorage.getItem).toHaveBeenCalledWith('theme')
-      expect(value).toBe('dark')
-    })
-  })
+      localStorageMock.clear();
+      jest.clearAllMocks();
+    });
+
+    it("sets and gets items", () => {
+      storage.setItem("theme", "dark");
+
+      expect(localStorage.setItem).toHaveBeenCalledWith("theme", "dark");
+
+      const value = storage.getItem("theme");
+      expect(localStorage.getItem).toHaveBeenCalledWith("theme");
+      expect(value).toBe("dark");
+    });
+  });
   ```
 
 ##### 18.14 🧪 Testing Error Boundaries
+
 - 📝 Error Boundary Testing:
+
   ```jsx
   // ErrorBoundary.jsx
   export class ErrorBoundary extends React.Component {
     constructor(props) {
-      super(props)
-      this.state = { hasError: false }
+      super(props);
+      this.state = { hasError: false };
     }
-    
+
     static getDerivedStateFromError(error) {
-      return { hasError: true }
+      return { hasError: true };
     }
-    
+
     componentDidCatch(error, errorInfo) {
-      console.error('Error caught:', error, errorInfo)
+      console.error("Error caught:", error, errorInfo);
     }
-    
+
     render() {
       if (this.state.hasError) {
-        return <div>Something went wrong</div>
+        return <div>Something went wrong</div>;
       }
-      
-      return this.props.children
+
+      return this.props.children;
     }
   }
-  
+
   // ErrorBoundary.test.jsx
-  describe('ErrorBoundary', () => {
+  describe("ErrorBoundary", () => {
     const ProblemChild = () => {
-      throw new Error('Test error')
-    }
-    
-    it('catches errors and displays fallback UI', () => {
+      throw new Error("Test error");
+    };
+
+    it("catches errors and displays fallback UI", () => {
       // Suppress error console logs during test
-      jest.spyOn(console, 'error').mockImplementation(() => {})
-      
+      jest.spyOn(console, "error").mockImplementation(() => {});
+
       render(
         <ErrorBoundary>
           <ProblemChild />
-        </ErrorBoundary>
-      )
-      
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument()
-      
-      console.error.mockRestore()
-    })
-    
-    it('renders children when no error', () => {
+        </ErrorBoundary>,
+      );
+
+      expect(screen.getByText("Something went wrong")).toBeInTheDocument();
+
+      console.error.mockRestore();
+    });
+
+    it("renders children when no error", () => {
       render(
         <ErrorBoundary>
           <div>Normal content</div>
-        </ErrorBoundary>
-      )
-      
-      expect(screen.getByText('Normal content')).toBeInTheDocument()
-    })
-  })
+        </ErrorBoundary>,
+      );
+
+      expect(screen.getByText("Normal content")).toBeInTheDocument();
+    });
+  });
   ```
 
 ##### 18.15 🚀 Performance Testing
+
 - 📝 Component Rendering Performance:
+
   ```jsx
-  import { render, screen } from '@testing-library/react'
-  import { Profiler } from 'react'
-  
-  describe('Performance', () => {
-    it('renders within acceptable time', () => {
-      const onRender = jest.fn()
-      
+  import { render, screen } from "@testing-library/react";
+  import { Profiler } from "react";
+
+  describe("Performance", () => {
+    it("renders within acceptable time", () => {
+      const onRender = jest.fn();
+
       render(
         <Profiler id="test" onRender={onRender}>
           <ExpensiveComponent />
-        </Profiler>
-      )
-      
+        </Profiler>,
+      );
+
       // First render duration
-      const [id, phase, actualDuration] = onRender.mock.calls[0]
-      
-      expect(actualDuration).toBeLessThan(100) // Less than 100ms
-    })
-    
-    it('memoizes correctly', () => {
-      const renderSpy = jest.fn()
-      
+      const [id, phase, actualDuration] = onRender.mock.calls[0];
+
+      expect(actualDuration).toBeLessThan(100); // Less than 100ms
+    });
+
+    it("memoizes correctly", () => {
+      const renderSpy = jest.fn();
+
       const MemoComponent = React.memo(({ value }) => {
-        renderSpy()
-        return <div>{value}</div>
-      })
-      
-      const { rerender } = render(<MemoComponent value="test" />)
-      
-      expect(renderSpy).toHaveBeenCalledTimes(1)
-      
+        renderSpy();
+        return <div>{value}</div>;
+      });
+
+      const { rerender } = render(<MemoComponent value="test" />);
+
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+
       // Rerender with same props - should not re-render
-      rerender(<MemoComponent value="test" />)
-      
-      expect(renderSpy).toHaveBeenCalledTimes(1)
-    })
-  })
+      rerender(<MemoComponent value="test" />);
+
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+    });
+  });
   ```
 
 ##### 18.16 🔄 Testing Custom Hooks
+
 - 📝 Advanced Hook Testing:
+
   ```jsx
   // useLocalStorage.js
   export function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
       try {
-        const item = window.localStorage.getItem(key)
-        return item ? JSON.parse(item) : initialValue
+        const item = window.localStorage.getItem(key);
+        return item ? JSON.parse(item) : initialValue;
       } catch (error) {
-        return initialValue
+        return initialValue;
       }
-    })
-    
+    });
+
     const setValue = (value) => {
       try {
-        const valueToStore = value instanceof Function ? value(storedValue) : value
-        setStoredValue(valueToStore)
-        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+        const valueToStore =
+          value instanceof Function ? value(storedValue) : value;
+        setStoredValue(valueToStore);
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    }
-    
-    return [storedValue, setValue]
+    };
+
+    return [storedValue, setValue];
   }
-  
+
   // useLocalStorage.test.js
-  describe('useLocalStorage', () => {
+  describe("useLocalStorage", () => {
     beforeEach(() => {
-      window.localStorage.clear()
-    })
-    
-    it('returns initial value', () => {
-      const { result } = renderHook(() => useLocalStorage('key', 'initial'))
-      
-      expect(result.current[0]).toBe('initial')
-    })
-    
-    it('reads existing value from localStorage', () => {
-      window.localStorage.setItem('key', JSON.stringify('stored'))
-      
-      const { result } = renderHook(() => useLocalStorage('key', 'initial'))
-      
-      expect(result.current[0]).toBe('stored')
-    })
-    
-    it('updates localStorage when value changes', () => {
-      const { result, rerender } = renderHook(() => useLocalStorage('key', 'initial'))
-      
+      window.localStorage.clear();
+    });
+
+    it("returns initial value", () => {
+      const { result } = renderHook(() => useLocalStorage("key", "initial"));
+
+      expect(result.current[0]).toBe("initial");
+    });
+
+    it("reads existing value from localStorage", () => {
+      window.localStorage.setItem("key", JSON.stringify("stored"));
+
+      const { result } = renderHook(() => useLocalStorage("key", "initial"));
+
+      expect(result.current[0]).toBe("stored");
+    });
+
+    it("updates localStorage when value changes", () => {
+      const { result, rerender } = renderHook(() =>
+        useLocalStorage("key", "initial"),
+      );
+
       act(() => {
-        const [, setValue] = result.current
-        setValue('updated')
-      })
-      
-      expect(result.current[0]).toBe('updated')
-      expect(JSON.parse(window.localStorage.getItem('key'))).toBe('updated')
-    })
-    
-    it('handles function updates', () => {
-      const { result } = renderHook(() => useLocalStorage('key', 0))
-      
+        const [, setValue] = result.current;
+        setValue("updated");
+      });
+
+      expect(result.current[0]).toBe("updated");
+      expect(JSON.parse(window.localStorage.getItem("key"))).toBe("updated");
+    });
+
+    it("handles function updates", () => {
+      const { result } = renderHook(() => useLocalStorage("key", 0));
+
       act(() => {
-        const [, setValue] = result.current
-        setValue(prev => prev + 1)
-      })
-      
-      expect(result.current[0]).toBe(1)
-    })
-  })
+        const [, setValue] = result.current;
+        setValue((prev) => prev + 1);
+      });
+
+      expect(result.current[0]).toBe(1);
+    });
+  });
   ```
 
 ##### 18.17 🎯 Testing Portals
+
 - 📝 Portal Testing:
+
   ```jsx
   // Modal.jsx
-  import { createPortal } from 'react-dom'
-  
+  import { createPortal } from "react-dom";
+
   export function Modal({ isOpen, onClose, children }) {
-    if (!isOpen) return null
-    
+    if (!isOpen) return null;
+
     return createPortal(
       <div role="dialog" aria-modal="true">
         <div className="modal-backdrop" onClick={onClose} />
@@ -13855,55 +9048,61 @@ src/
           {children}
         </div>
       </div>,
-      document.body
-    )
+      document.body,
+    );
   }
-  
+
   // Modal.test.jsx
-  describe('Modal', () => {
-    it('renders nothing when closed', () => {
-      render(<Modal isOpen={false}>Content</Modal>)
-      
-      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    })
-    
-    it('renders portal content when open', () => {
-      render(<Modal isOpen={true}>Modal content</Modal>)
-      
-      const dialog = screen.getByRole('dialog')
-      expect(dialog).toBeInTheDocument()
-      expect(screen.getByText('Modal content')).toBeInTheDocument()
-      
+  describe("Modal", () => {
+    it("renders nothing when closed", () => {
+      render(<Modal isOpen={false}>Content</Modal>);
+
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
+
+    it("renders portal content when open", () => {
+      render(<Modal isOpen={true}>Modal content</Modal>);
+
+      const dialog = screen.getByRole("dialog");
+      expect(dialog).toBeInTheDocument();
+      expect(screen.getByText("Modal content")).toBeInTheDocument();
+
       // Check that it's rendered in body, not in the original location
-      expect(document.body).toContainElement(dialog)
-    })
-    
-    it('calls onClose when backdrop clicked', async () => {
-      const user = userEvent.setup()
-      const handleClose = jest.fn()
-      
-      render(<Modal isOpen={true} onClose={handleClose}>Content</Modal>)
-      
-      await user.click(screen.getByRole('dialog').firstChild)
-      
-      expect(handleClose).toHaveBeenCalled()
-    })
-  })
+      expect(document.body).toContainElement(dialog);
+    });
+
+    it("calls onClose when backdrop clicked", async () => {
+      const user = userEvent.setup();
+      const handleClose = jest.fn();
+
+      render(
+        <Modal isOpen={true} onClose={handleClose}>
+          Content
+        </Modal>,
+      );
+
+      await user.click(screen.getByRole("dialog").firstChild);
+
+      expect(handleClose).toHaveBeenCalled();
+    });
+  });
   ```
 
 ##### 18.18 🧪 Testing Responsive Design
+
 - 📝 Responsive Component Testing:
+
   ```jsx
   // ResponsiveMenu.jsx
   export function ResponsiveMenu() {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
-    
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
     useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 768)
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
-    }, [])
-    
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return isMobile ? (
       <div className="mobile-menu">☰</div>
     ) : (
@@ -13912,114 +9111,123 @@ src/
         <li>About</li>
         <li>Contact</li>
       </ul>
-    )
+    );
   }
-  
+
   // ResponsiveMenu.test.jsx
-  describe('ResponsiveMenu', () => {
-    const originalInnerWidth = window.innerWidth
-    
+  describe("ResponsiveMenu", () => {
+    const originalInnerWidth = window.innerWidth;
+
     afterEach(() => {
-      window.innerWidth = originalInnerWidth
-    })
-    
-    it('renders mobile menu on small screens', () => {
-      window.innerWidth = 500
-      
-      render(<ResponsiveMenu />)
-      
-      expect(screen.getByText('☰')).toBeInTheDocument()
-      expect(screen.queryByRole('list')).not.toBeInTheDocument()
-    })
-    
-    it('renders desktop menu on large screens', () => {
-      window.innerWidth = 1024
-      
-      render(<ResponsiveMenu />)
-      
-      expect(screen.getByRole('list')).toBeInTheDocument()
-      expect(screen.getByText('Home')).toBeInTheDocument()
-      expect(screen.getByText('About')).toBeInTheDocument()
-      expect(screen.getByText('Contact')).toBeInTheDocument()
-    })
-    
-    it('updates when window resizes', () => {
-      window.innerWidth = 1024
-      
-      render(<ResponsiveMenu />)
-      
-      expect(screen.getByRole('list')).toBeInTheDocument()
-      
+      window.innerWidth = originalInnerWidth;
+    });
+
+    it("renders mobile menu on small screens", () => {
+      window.innerWidth = 500;
+
+      render(<ResponsiveMenu />);
+
+      expect(screen.getByText("☰")).toBeInTheDocument();
+      expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    });
+
+    it("renders desktop menu on large screens", () => {
+      window.innerWidth = 1024;
+
+      render(<ResponsiveMenu />);
+
+      expect(screen.getByRole("list")).toBeInTheDocument();
+      expect(screen.getByText("Home")).toBeInTheDocument();
+      expect(screen.getByText("About")).toBeInTheDocument();
+      expect(screen.getByText("Contact")).toBeInTheDocument();
+    });
+
+    it("updates when window resizes", () => {
+      window.innerWidth = 1024;
+
+      render(<ResponsiveMenu />);
+
+      expect(screen.getByRole("list")).toBeInTheDocument();
+
       act(() => {
-        window.innerWidth = 500
-        window.dispatchEvent(new Event('resize'))
-      })
-      
-      expect(screen.getByText('☰')).toBeInTheDocument()
-    })
-  })
+        window.innerWidth = 500;
+        window.dispatchEvent(new Event("resize"));
+      });
+
+      expect(screen.getByText("☰")).toBeInTheDocument();
+    });
+  });
   ```
 
 ##### 18.19 🚀 Testing Patterns and Anti-patterns
+
 - 📝 Good Testing Patterns:
+
   ```jsx
   // ✅ GOOD: Test behavior, not implementation
-  test('counter increments when button clicked', async () => {
-    const user = userEvent.setup()
-    render(<Counter />)
-    
-    await user.click(screen.getByRole('button', { name: /increment/i }))
-    
-    expect(screen.getByText('Count: 1')).toBeInTheDocument()
-  })
-  
+  test("counter increments when button clicked", async () => {
+    const user = userEvent.setup();
+    render(<Counter />);
+
+    await user.click(screen.getByRole("button", { name: /increment/i }));
+
+    expect(screen.getByText("Count: 1")).toBeInTheDocument();
+  });
+
   // ✅ GOOD: Use semantic queries
-  test('form submits with correct data', async () => {
-    render(<LoginForm />)
-    
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument()
-  })
-  
+  test("form submits with correct data", async () => {
+    render(<LoginForm />);
+
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
+  });
+
   // ✅ GOOD: Test error states
-  test('displays error message on failed submission', async () => {
-    jest.spyOn(api, 'login').mockRejectedValue(new Error('Invalid credentials'))
-    
-    render(<LoginForm />)
-    
-    await user.click(screen.getByRole('button'))
-    
-    expect(await screen.findByText(/invalid credentials/i)).toBeInTheDocument()
-  })
+  test("displays error message on failed submission", async () => {
+    jest
+      .spyOn(api, "login")
+      .mockRejectedValue(new Error("Invalid credentials"));
+
+    render(<LoginForm />);
+
+    await user.click(screen.getByRole("button"));
+
+    expect(await screen.findByText(/invalid credentials/i)).toBeInTheDocument();
+  });
   ```
+
 - 📝 Anti-patterns to Avoid:
+
   ```jsx
   // ❌ BAD: Testing implementation details
-  test('calls setState with correct value', () => {
-    const setStateMock = jest.fn()
-    jest.spyOn(React, 'useState').mockImplementation(() => [false, setStateMock])
-    
-    render(<Component />)
-    
-    expect(setStateMock).toHaveBeenCalledWith(true)
-  })
-  
+  test("calls setState with correct value", () => {
+    const setStateMock = jest.fn();
+    jest
+      .spyOn(React, "useState")
+      .mockImplementation(() => [false, setStateMock]);
+
+    render(<Component />);
+
+    expect(setStateMock).toHaveBeenCalledWith(true);
+  });
+
   // ❌ BAD: Using test IDs unnecessarily
-  test('renders button', () => {
-    render(<Button data-testid="submit-button">Submit</Button>)
-    
-    expect(screen.getByTestId('submit-button')).toBeInTheDocument()
+  test("renders button", () => {
+    render(<Button data-testid="submit-button">Submit</Button>);
+
+    expect(screen.getByTestId("submit-button")).toBeInTheDocument();
     // Better: screen.getByRole('button', { name: /submit/i })
-  })
-  
+  });
+
   // ❌ BAD: Testing multiple things in one test
-  test('form works correctly', async () => {
+  test("form works correctly", async () => {
     // Tests validation, submission, success message, and cleanup all in one
     // Better: split into separate tests
-  })
+  });
   ```
 
 ##### 18.20 💻 Practical Projects
+
 - 🏗️ Complete Form Testing Suite
 - 📝 Todo Application Testing
 - 🔐 Authentication Flow Testing
@@ -14038,912 +9246,433 @@ src/
 
 ---
 
-## 🎯 STAGE 19 — Playwright (End-to-End Testing)
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🎯 STAGE 19 — PLAYWRIGHT (End-to-End Testing)
+
 **Goal**: Master Playwright for writing reliable end-to-end tests that simulate real user interactions across multiple browsers.
-**Time**: 20 soat | 10 dars
+**Time**: 24 soat | 10 dars
 
-#### 📚 Topics
+---
 
-##### 19.1 🎭 Introduction to Playwright
-- 🤔 What is Playwright?
-- 📜 History (Microsoft, 2020)
+#### 📚 **Topics**
+
+##### **19.1 🎭 Introduction to Playwright**
+
+- 🤔 What is Playwright? (Microsoft's E2E testing framework)
 - 🎯 Why Playwright?
-  - Cross-browser testing (Chromium, Firefox, WebKit)
+  - Cross-browser (Chromium, Firefox, WebKit)
   - Auto-waiting for elements
   - Network interception
   - Mobile emulation
   - Visual testing
   - Parallel execution
-  - TypeScript support
-- 🔄 Playwright vs Cypress vs Selenium
+- 🔄 vs Cypress, Selenium
 - 📦 Installation:
   ```bash
   npm init playwright@latest
-  # or
-  yarn create playwright
-  # or
-  pnpm create playwright
-  ```
-- 📁 Project Structure:
-  ```
-  playwright-project/
-  ├── tests/
-  │   ├── example.spec.ts
-  │   └── login.spec.ts
-  ├── playwright.config.ts
-  ├── package.json
-  └── playwright-report/
   ```
 
-##### 19.2 ⚙️ Playwright Configuration
-- 📝 playwright.config.ts:
+---
+
+##### **19.2 ⚙️ Playwright Configuration**
+
+- 📝 `playwright.config.ts`:
   ```typescript
-  import { defineConfig, devices } from '@playwright/test'
-  
   export default defineConfig({
-    testDir: './tests',
+    testDir: "./tests",
     fullyParallel: true,
-    forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 1 : undefined,
-    reporter: [
-      ['html'],
-      ['json', { outputFile: 'test-results.json' }],
-      ['junit', { outputFile: 'junit.xml' }]
-    ],
-    
+    reporter: [["html"], ["json"]],
     use: {
-      baseURL: 'http://localhost:3000',
-      trace: 'on-first-retry',
-      screenshot: 'only-on-failure',
-      video: 'retain-on-failure',
+      baseURL: "http://localhost:3000",
+      trace: "on-first-retry",
+      screenshot: "only-on-failure",
+      video: "retain-on-failure",
     },
-    
     projects: [
-      {
-        name: 'chromium',
-        use: { ...devices['Desktop Chrome'] },
-      },
-      {
-        name: 'firefox',
-        use: { ...devices['Desktop Firefox'] },
-      },
-      {
-        name: 'webkit',
-        use: { ...devices['Desktop Safari'] },
-      },
-      {
-        name: 'Mobile Chrome',
-        use: { ...devices['Pixel 5'] },
-      },
-      {
-        name: 'Mobile Safari',
-        use: { ...devices['iPhone 12'] },
-      },
+      { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+      { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+      { name: "Mobile Chrome", use: { ...devices["Pixel 5"] } },
     ],
-    
     webServer: {
-      command: 'npm run dev',
-      url: 'http://localhost:3000',
+      command: "npm run dev",
+      url: "http://localhost:3000",
       reuseExistingServer: !process.env.CI,
-      timeout: 120 * 1000,
     },
-  })
+  });
   ```
 
-##### 19.3 📝 Writing Your First Test
-- 📝 Basic Test Example:
+---
+
+##### **19.3 📝 Writing Your First Test**
+
+- 📝 Basic Test:
+
   ```typescript
-  // tests/example.spec.ts
-  import { test, expect } from '@playwright/test'
-  
-  test('has title', async ({ page }) => {
-    await page.goto('https://example.com')
-    
-    // Expect a title "to contain" a substring.
-    await expect(page).toHaveTitle(/Example Domain/)
-  })
-  
-  test('get started link', async ({ page }) => {
-    await page.goto('https://example.com')
-    
-    // Click the get started link.
-    await page.getByRole('link', { name: 'More information' }).click()
-    
-    // Expects page to have a heading with the name of Installation.
-    await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible()
-  })
+  import { test, expect } from "@playwright/test";
+
+  test("has title", async ({ page }) => {
+    await page.goto("https://example.com");
+    await expect(page).toHaveTitle(/Example Domain/);
+  });
+
+  test("click link", async ({ page }) => {
+    await page.goto("https://example.com");
+    await page.getByRole("link", { name: "More information" }).click();
+    await expect(
+      page.getByRole("heading", { name: "Installation" }),
+    ).toBeVisible();
+  });
   ```
-- 📝 Test Hooks:
+
+- 📝 Hooks:
   ```typescript
-  import { test, expect } from '@playwright/test'
-  
-  test.describe('User Dashboard', () => {
+  test.describe("Dashboard", () => {
     test.beforeEach(async ({ page }) => {
-      // Run before each test
-      await page.goto('/dashboard')
-      await page.waitForLoadState('networkidle')
-    })
-    
+      await page.goto("/dashboard");
+    });
+
     test.afterEach(async ({ page }) => {
-      // Run after each test
-      await page.close()
-    })
-    
-    test.beforeAll(async () => {
-      // Run once before all tests
-      console.log('Starting tests...')
-    })
-    
-    test.afterAll(async () => {
-      // Run once after all tests
-      console.log('Tests completed')
-    })
-    
-    test('should display user profile', async ({ page }) => {
-      await expect(page.getByText('Welcome, John')).toBeVisible()
-    })
-  })
+      await page.close();
+    });
+  });
   ```
 
-##### 19.4 🔍 Locators and Selectors
-- 📝 Different Locator Strategies:
+---
+
+##### **19.4 🔍 Locators**
+
+- 📝 Locator Strategies:
+
   ```typescript
-  test('locator strategies', async ({ page }) => {
-    await page.goto('/products')
-    
-    // By role (recommended)
-    await page.getByRole('button', { name: 'Submit' }).click()
-    await page.getByRole('link', { name: 'Products' }).click()
-    await page.getByRole('heading', { name: 'Shopping Cart' })
-    
-    // By text
-    await page.getByText('Add to cart').click()
-    await page.getByText('Total: $99.99')
-    
-    // By label
-    await page.getByLabel('Email').fill('user@example.com')
-    await page.getByLabel('Password', { exact: true }).fill('password123')
-    
-    // By placeholder
-    await page.getByPlaceholder('Search products...').fill('laptop')
-    
-    // By alt text
-    await page.getByAltText('Product image').click()
-    
-    // By title
-    await page.getByTitle('Close modal').click()
-    
-    // By test id
-    await page.getByTestId('submit-button').click()
-    
-    // CSS selectors
-    await page.locator('.product-card').first().click()
-    await page.locator('#main-nav').hover()
-    
-    // XPath
-    await page.locator('xpath=//button[text()="Submit"]').click()
-    
-    // Chaining locators
-    const productCard = page.locator('.product-card').filter({ hasText: 'Laptop' })
-    await productCard.locator('button.add-to-cart').click()
-  })
-  ```
-- 📝 Filtering Locators:
-  ```typescript
-  test('filtering locators', async ({ page }) => {
-    await page.goto('/products')
-    
-    // Filter by text
-    const laptops = page.locator('.product-card').filter({ hasText: 'Laptop' })
-    await expect(laptops).toHaveCount(3)
-    
-    // Filter by child element
-    const inStock = page.locator('.product-card').filter({ 
-      has: page.locator('.in-stock-badge') 
-    })
-    
-    // First, last, nth
-    await page.locator('.product-card').first().click()
-    await page.locator('.product-card').last().click()
-    await page.locator('.product-card').nth(2).click()
-    
-    // and, or
-    const buttons = page.locator('button').and(page.locator('.primary'))
-    const cards = page.locator('.card').or(page.locator('.product'))
-  })
+  // By role (recommended)
+  await page.getByRole("button", { name: "Submit" }).click();
+
+  // By text
+  await page.getByText("Add to cart").click();
+
+  // By label
+  await page.getByLabel("Email").fill("user@example.com");
+
+  // By placeholder
+  await page.getByPlaceholder("Search...").fill("laptop");
+
+  // By test id
+  await page.getByTestId("submit-button").click();
+
+  // CSS selectors
+  await page.locator(".product-card").first().click();
+
+  // Chaining
+  await page
+    .locator(".product")
+    .filter({ hasText: "Laptop" })
+    .locator("button")
+    .click();
   ```
 
-##### 19.5 🎯 Actions and Interactions
-- 📝 User Actions:
+---
+
+##### **19.5 🎯 Actions**
+
+- 📝 User Interactions:
+
   ```typescript
-  test('user interactions', async ({ page }) => {
-    await page.goto('/interactions')
-    
-    // Click
-    await page.getByRole('button', { name: 'Submit' }).click()
-    await page.getByRole('button', { name: 'Delete' }).dblclick()
-    await page.getByRole('button', { name: 'Menu' }).click({ button: 'right' })
-    
-    // Keyboard
-    await page.getByLabel('Search').fill('playwright')
-    await page.getByLabel('Search').press('Enter')
-    await page.keyboard.press('Control+A')
-    await page.keyboard.type('Hello World')
-    
-    // Checkboxes and radio
-    await page.getByLabel('Accept terms').check()
-    await page.getByLabel('Subscribe').uncheck()
-    expect(await page.getByLabel('Accept terms').isChecked()).toBe(true)
-    
-    // Select options
-    await page.getByLabel('Country').selectOption('USA')
-    await page.getByLabel('Languages').selectOption(['en', 'es'])
-    
-    // Hover and focus
-    await page.getByText('Menu').hover()
-    await page.getByLabel('Username').focus()
-    
-    // Drag and drop
-    await page.locator('#source').dragTo(page.locator('#target'))
-    
-    // Upload files
-    await page.getByLabel('Upload file').setInputFiles('path/to/file.jpg')
-    await page.getByLabel('Upload files').setInputFiles(['file1.jpg', 'file2.jpg'])
-    
-    // Scroll
-    await page.getByText('Load more').scrollIntoViewIfNeeded()
-    await page.mouse.wheel(0, 500)
-    
-    // Wait for element
-    await page.waitForSelector('.loading', { state: 'hidden' })
-    await page.waitForFunction(() => window.scrollY > 100)
-  })
+  // Click
+  await page.getByRole("button").click();
+  await page.getByRole("button").dblclick();
+
+  // Fill input
+  await page.getByLabel("Email").fill("user@example.com");
+  await page.getByLabel("Email").press("Enter");
+
+  // Check/Uncheck
+  await page.getByLabel("Accept terms").check();
+  await page.getByLabel("Accept terms").uncheck();
+
+  // Select
+  await page.getByLabel("Country").selectOption("USA");
+
+  // Hover
+  await page.getByText("Menu").hover();
+
+  // Upload
+  await page.getByLabel("Upload").setInputFiles("file.jpg");
+
+  // Drag & drop
+  await page.locator("#source").dragTo(page.locator("#target"));
   ```
 
-##### 19.6 🔄 Assertions and Expectations
+---
+
+##### **19.6 🔄 Assertions**
+
 - 📝 Playwright Assertions:
+
   ```typescript
-  test('assertions', async ({ page }) => {
-    await page.goto('/profile')
-    
-    // Visibility
-    await expect(page.getByText('Profile')).toBeVisible()
-    await expect(page.getByText('Loading')).toBeHidden()
-    
-    // Text content
-    await expect(page.getByLabel('Username')).toHaveValue('john_doe')
-    await expect(page.locator('.greeting')).toContainText('Welcome')
-    await expect(page.locator('.title')).toHaveText('Dashboard')
-    
-    // Count
-    await expect(page.locator('.product')).toHaveCount(10)
-    await expect(page.locator('.cart-item')).toHaveCount(0)
-    
-    // Attributes
-    await expect(page.getByRole('button')).toHaveAttribute('disabled')
-    await expect(page.getByLabel('Email')).toHaveAttribute('type', 'email')
-    
-    // CSS properties
-    await expect(page.locator('.error')).toHaveCSS('color', 'rgb(255, 0, 0)')
-    
-    // URL
-    await expect(page).toHaveURL('/dashboard')
-    await expect(page).toHaveURL(/.*dashboard.*/)
-    
-    // Title
-    await expect(page).toHaveTitle(/My App/)
-    
-    // Screenshot comparison
-    await expect(page).toHaveScreenshot('dashboard.png', {
-      maxDiffPixels: 100
-    })
-    
-    // Element screenshot
-    await expect(page.locator('.profile-card')).toHaveScreenshot()
-  })
+  // Visibility
+  await expect(page.getByText("Welcome")).toBeVisible();
+  await expect(page.getByText("Loading")).toBeHidden();
+
+  // Text
+  await expect(page.getByLabel("Name")).toHaveValue("John");
+  await expect(page.locator(".title")).toContainText("Dashboard");
+
+  // Count
+  await expect(page.locator(".item")).toHaveCount(5);
+
+  // Attributes
+  await expect(page.getByRole("button")).toHaveAttribute("disabled");
+
+  // URL
+  await expect(page).toHaveURL("/dashboard");
+  await expect(page).toHaveTitle(/My App/);
+
+  // Screenshot
+  await expect(page).toHaveScreenshot("homepage.png");
   ```
 
-##### 19.7 🌐 Network Interception
-- 📝 Mocking API Responses:
+---
+
+##### **19.7 🌐 Network Interception**
+
+- 📝 Mocking API:
+
   ```typescript
-  test('mock API responses', async ({ page }) => {
-    // Mock API response
-    await page.route('**/api/users', async route => {
+  test("mock API", async ({ page }) => {
+    await page.route("**/api/users", async (route) => {
       await route.fulfill({
         status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify([
-          { id: 1, name: 'John Doe' },
-          { id: 2, name: 'Jane Smith' }
-        ])
-      })
-    })
-    
-    await page.goto('/users')
-    
-    // Wait for mocked data
-    await expect(page.getByText('John Doe')).toBeVisible()
-  })
-  
-  test('intercept and modify requests', async ({ page }) => {
-    // Modify request headers
-    await page.route('**/api/*', async route => {
-      const headers = {
-        ...route.request().headers(),
-        'Authorization': 'Bearer token123'
-      }
-      await route.continue({ headers })
-    })
-    
-    // Block specific requests
-    await page.route('**/analytics.js', route => route.abort())
-    
-    // Delay responses
-    await page.route('**/api/slow-endpoint', async route => {
-      await page.waitForTimeout(2000)
-      await route.continue()
-    })
-    
-    await page.goto('/dashboard')
-  })
-  
-  test('wait for network requests', async ({ page }) => {
-    // Wait for specific request
-    const responsePromise = page.waitForResponse('**/api/data')
-    await page.getByRole('button', { name: 'Load data' }).click()
-    const response = await responsePromise
-    
-    const data = await response.json()
-    expect(data).toBeDefined()
-    
-    // Wait for all network idle
-    await page.waitForLoadState('networkidle')
-  })
+        body: JSON.stringify([{ id: 1, name: "John" }]),
+      });
+    });
+
+    await page.goto("/users");
+    await expect(page.getByText("John")).toBeVisible();
+  });
+
+  // Block requests
+  await page.route("**/analytics.js", (route) => route.abort());
+
+  // Wait for response
+  const responsePromise = page.waitForResponse("**/api/data");
+  await page.getByRole("button").click();
+  const response = await responsePromise;
   ```
 
-##### 19.8 📱 Mobile Testing
+---
+
+##### **19.8 📱 Mobile Testing**
+
 - 📝 Mobile Emulation:
+
   ```typescript
-  import { test, expect, devices } from '@playwright/test'
-  
-  test.use({
-    ...devices['iPhone 12'],
-    locale: 'en-US',
-    geolocation: { longitude: 12.4924, latitude: 41.8902 },
-    permissions: ['geolocation']
-  })
-  
-  test('mobile testing', async ({ page }) => {
-    await page.goto('/')
-    
-    // Check mobile view
-    const viewportSize = page.viewportSize()
-    expect(viewportSize?.width).toBe(390) // iPhone 12 width
-    
-    // Test touch interactions
-    await page.locator('.menu-button').tap() // Touch tap
-    
-    // Test mobile navigation
-    await expect(page.getByRole('button', { name: 'Menu' })).toBeVisible()
-    await page.getByRole('button', { name: 'Menu' }).tap()
-    
-    // Test geolocation
-    await page.goto('/nearby-stores')
-    await page.waitForSelector('.stores-list')
-    
-    // Test orientation
-    await page.setViewportSize({ width: 844, height: 390 }) // Landscape
-    await expect(page.locator('.landscape-view')).toBeVisible()
-  })
+  test.use({ ...devices["iPhone 12"] });
+
+  test("mobile test", async ({ page }) => {
+    await page.goto("/");
+    await page.locator(".menu-button").tap(); // touch tap
+  });
   ```
 
-##### 19.9 📸 Visual Testing
-- 📝 Screenshot Testing:
+---
+
+##### **19.9 📸 Visual Testing**
+
+- 📝 Screenshot Comparison:
   ```typescript
-  test('visual comparison', async ({ page }) => {
-    await page.goto('/')
-    
-    // Full page screenshot
-    await expect(page).toHaveScreenshot('homepage.png', {
+  test("visual test", async ({ page }) => {
+    await page.goto("/");
+
+    // Full page
+    await expect(page).toHaveScreenshot("home.png", {
       fullPage: true,
       maxDiffPixels: 100,
-      threshold: 0.2
-    })
-    
-    // Element screenshot
-    const header = page.locator('header')
-    await expect(header).toHaveScreenshot('header.png')
-    
-    // Specific area
-    await page.screenshot({
-      path: 'screenshots/dashboard.png',
-      clip: { x: 0, y: 0, width: 800, height: 600 }
-    })
-  })
-  
-  test('visual testing with mask', async ({ page }) => {
-    await page.goto('/profile')
-    
+    });
+
+    // Element
+    await expect(page.locator("header")).toHaveScreenshot("header.png");
+
     // Mask dynamic content
-    await expect(page).toHaveScreenshot('profile.png', {
-      mask: [
-        page.locator('.avatar-image'), // Mask avatar that might change
-        page.locator('.timestamp') // Mask timestamps
-      ]
-    })
-  })
+    await expect(page).toHaveScreenshot("profile.png", {
+      mask: [page.locator(".avatar"), page.locator(".timestamp")],
+    });
+  });
   ```
 
-##### 19.10 🔧 Debugging and Reporting
+---
+
+##### **19.10 🔧 Debugging**
+
 - 📝 Debugging Tools:
+
   ```typescript
-  test('debugging', async ({ page }) => {
-    // Use Playwright Inspector
-    // Run with: PWDEBUG=1 npm test
-    
-    // Pause for debugging
-    await page.pause()
-    
-    // Console logging
-    page.on('console', msg => {
-      console.log(`Browser console: ${msg.text()}`)
-    })
-    
-    // Network logging
-    page.on('request', request => {
-      console.log(`Request: ${request.method()} ${request.url()}`)
-    })
-    
-    page.on('response', response => {
-      console.log(`Response: ${response.status()} ${response.url()}`)
-    })
-    
-    // Error handling
-    page.on('pageerror', error => {
-      console.error(`Page error: ${error.message}`)
-    })
-    
-    await page.goto('/')
-  })
-  
-  // Generate trace
-  test('trace example', async ({ page, context }) => {
-    // Start tracing
-    await context.tracing.start({ screenshots: true, snapshots: true })
-    
-    await page.goto('/')
-    await page.getByRole('button', { name: 'Submit' }).click()
-    
-    // Stop tracing and save
-    await context.tracing.stop({ path: 'trace.zip' })
-  })
+  // Pause for debugging (run with PWDEBUG=1)
+  await page.pause();
+
+  // Console logging
+  page.on("console", (msg) => console.log(msg.text()));
+
+  // Trace
+  await context.tracing.start({ screenshots: true, snapshots: true });
+  // ... test actions
+  await context.tracing.stop({ path: "trace.zip" });
   ```
 
-##### 19.11 🔄 Test Organization
-- 📝 Test Groups and Tags:
+---
+
+##### **19.11 🔄 Test Organization**
+
+- 📝 Tags and Groups:
+
   ```typescript
-  import { test, expect } from '@playwright/test'
-  
-  // Tag tests
-  test.describe('Login', () => {
-    test('successful login @smoke', async ({ page }) => {
-      // Smoke test
-    })
-    
-    test('failed login @regression', async ({ page }) => {
-      // Regression test
-    })
-  })
-  
-  // Run with tags: npx playwright test --grep "@smoke"
-  
-  // Skip tests
-  test.skip('flaky test', async ({ page }) => {
-    // This test will be skipped
-  })
-  
-  // Only run specific tests
-  test.only('critical test', async ({ page }) => {
-    // Only this test runs
-  })
-  
-  // Conditional test
-  test('mobile only', async ({ page, browserName }) => {
-    test.skip(browserName === 'chromium', 'Chromium not supported')
-    // Test implementation
-  })
-  
-  // Parametrized tests
-  const users = ['admin', 'user', 'guest']
-  
-  for (const role of users) {
-    test(`login as ${role}`, async ({ page }) => {
-      await loginAsRole(page, role)
-      await expect(page).toHaveURL(`/${role}/dashboard`)
-    })
-  }
+  test("login @smoke", async ({ page }) => {});
+
+  test.skip("flaky test", async ({ page }) => {});
+  test.only("critical test", async ({ page }) => {});
+
+  // Run with: npx playwright test --grep "@smoke"
   ```
 
-##### 19.12 🚀 Parallel Execution
-- 📝 Running Tests in Parallel:
+---
+
+##### **19.12 🎭 Advanced Scenarios**
+
+- 📝 Multiple Pages:
   ```typescript
-  // playwright.config.ts
-  export default defineConfig({
-    workers: 4, // Run 4 tests in parallel
-    fullyParallel: true, // Run all tests in parallel
-    
-    // Or configure per project
-    projects: [
-      {
-        name: 'chromium',
-        use: { ...devices['Desktop Chrome'] },
-        fullyParallel: true,
-        workers: 2
-      }
-    ]
-  })
-  
-  // Sharding tests in CI
-  // Run: npx playwright test --shard=1/4
-  // Run: npx playwright test --shard=2/4
+  test("multiple pages", async ({ context }) => {
+    const page1 = await context.newPage();
+    const page2 = await context.newPage();
+    await page1.bringToFront();
+  });
+  ```
+- 📝 Frames:
+  ```typescript
+  const frame = page.frameLocator("#my-iframe");
+  await frame.getByRole("button").click();
+  ```
+- 📝 Dialogs:
+  ```typescript
+  page.on("dialog", async (dialog) => {
+    await dialog.accept();
+  });
   ```
 
-##### 19.13 🎭 Advanced Scenarios
-- 📝 Handling Multiple Pages/Tabs:
-  ```typescript
-  test('multiple pages', async ({ context }) => {
-    const page1 = await context.newPage()
-    await page1.goto('/')
-    
-    const page2 = await context.newPage()
-    await page2.goto('/about')
-    
-    // Switch between pages
-    await page1.bringToFront()
-    
-    // Handle popup
-    const popupPromise = context.waitForEvent('page')
-    await page1.getByRole('link', { name: 'Open popup' }).click()
-    const popup = await popupPromise
-    await popup.waitForLoadState()
-  })
-  ```
-- 📝 Handling Frames:
-  ```typescript
-  test('iframes', async ({ page }) => {
-    await page.goto('/with-iframe')
-    
-    // Get frame
-    const frame = page.frame({ url: /.*embed.*/ })
-    
-    // Or by locator
-    const frameLocator = page.frameLocator('#my-iframe')
-    
-    // Interact with frame elements
-    await frameLocator.getByRole('button', { name: 'Submit' }).click()
-  })
-  ```
-- 📝 Handling Dialogs:
-  ```typescript
-  test('dialogs', async ({ page }) => {
-    // Handle alert
-    page.on('dialog', async dialog => {
-      expect(dialog.type()).toBe('alert')
-      await dialog.accept()
-    })
-    
-    // Handle confirm
-    page.on('dialog', async dialog => {
-      expect(dialog.message()).toBe('Are you sure?')
-      await dialog.accept()
-    })
-    
-    // Handle prompt
-    page.on('dialog', async dialog => {
-      await dialog.accept('My input value')
-    })
-    
-    await page.getByRole('button', { name: 'Show alert' }).click()
-  })
-  ```
+---
 
-##### 19.14 🧪 Testing Authentication
-- 📝 Authentication Flows:
+##### **19.13 🔐 Authentication State**
+
+- 📝 Save Auth State:
+
   ```typescript
   // auth.setup.ts
-  import { test as setup, expect } from '@playwright/test'
-  
-  const authFile = 'playwright/.auth/user.json'
-  
-  setup('authenticate', async ({ page }) => {
-    await page.goto('/login')
-    
-    await page.getByLabel('Email').fill('user@example.com')
-    await page.getByLabel('Password').fill('password123')
-    await page.getByRole('button', { name: 'Sign in' }).click()
-    
-    await page.waitForURL('/dashboard')
-    
-    // Save authentication state
-    await page.context().storageState({ path: authFile })
-  })
-  
-  // Use authenticated state in tests
-  test.use({ storageState: 'playwright/.auth/user.json' })
-  
-  test('authenticated test', async ({ page }) => {
-    await page.goto('/dashboard')
-    await expect(page.getByText('Welcome back')).toBeVisible()
-  })
+  setup("authenticate", async ({ page }) => {
+    await page.goto("/login");
+    await page.getByLabel("Email").fill("user@example.com");
+    await page.getByLabel("Password").fill("password");
+    await page.getByRole("button").click();
+    await page.context().storageState({ path: "auth.json" });
+  });
+
+  // Use in tests
+  test.use({ storageState: "auth.json" });
   ```
 
-##### 19.15 📊 Performance Testing
-- 📝 Measuring Performance:
+---
+
+##### **19.14 📊 Performance Testing**
+
+- 📝 Metrics:
+
   ```typescript
-  test('performance metrics', async ({ page }) => {
-    // Start tracing
-    await page.tracing.start({ screenshots: true, snapshots: true })
-    
-    await page.goto('/')
-    
-    // Get performance metrics
-    const metrics = await page.metrics()
-    console.log('Performance metrics:', metrics)
-    
-    // Get navigation timing
-    const timing = await page.evaluate(() => JSON.stringify(window.performance.timing))
-    console.log('Navigation timing:', timing)
-    
-    // Measure specific action
-    const start = Date.now()
-    await page.getByRole('button', { name: 'Load data' }).click()
-    await page.waitForResponse('**/api/data')
-    const duration = Date.now() - start
-    console.log(`Data load took ${duration}ms`)
-    
-    // Check Web Vitals
-    const webVitals = await page.evaluate(() => {
-      return {
-        LCP: performance.getEntriesByType('largest-contentful-paint')[0],
-        FID: performance.getEntriesByType('first-input')[0],
-        CLS: performance.getEntriesByType('layout-shift')
-      }
-    })
-    
-    // Stop tracing
-    await page.tracing.stop({ path: 'trace.json' })
-  })
+  const metrics = await page.metrics();
+  console.log(metrics);
+
+  const start = Date.now();
+  await page.getByRole("button").click();
+  await page.waitForResponse("**/api/data");
+  console.log(`Load time: ${Date.now() - start}ms`);
   ```
 
-##### 19.16 🔧 Custom Fixtures
-- 📝 Creating Custom Fixtures:
-  ```typescript
-  // fixtures.ts
-  import { test as base, expect } from '@playwright/test'
-  import { LoginPage } from './pages/login-page'
-  import { DashboardPage } from './pages/dashboard-page'
-  
-  // Extend test with custom fixtures
-  export const test = base.extend({
-    loginPage: async ({ page }, use) => {
-      const loginPage = new LoginPage(page)
-      await use(loginPage)
-    },
-    
-    dashboardPage: async ({ page }, use) => {
-      const dashboardPage = new DashboardPage(page)
-      await use(dashboardPage)
-    },
-    
-    authenticatedPage: async ({ page }, use) => {
-      await page.goto('/login')
-      await page.getByLabel('Email').fill('user@example.com')
-      await page.getByLabel('Password').fill('password123')
-      await page.getByRole('button', { name: 'Sign in' }).click()
-      await page.waitForURL('/dashboard')
-      await use(page)
-    }
-  })
-  
-  export { expect }
-  
-  // Use fixtures in tests
-  import { test, expect } from './fixtures'
-  
-  test('login page test', async ({ loginPage }) => {
-    await loginPage.navigate()
-    await loginPage.login('user@example.com', 'password123')
-    await expect(loginPage.successMessage).toBeVisible()
-  })
-  
-  test('dashboard test', async ({ authenticatedPage }) => {
-    await expect(authenticatedPage.getByText('Welcome')).toBeVisible()
-  })
-  ```
+---
 
-##### 19.17 🏗️ Page Object Model
-- 📝 Page Object Pattern:
+##### **19.15 🏗️ Page Object Model**
+
+- 📝 Page Objects:
+
   ```typescript
   // pages/login-page.ts
   export class LoginPage {
     constructor(private page: Page) {}
-    
-    // Locators
-    private emailInput = this.page.getByLabel('Email')
-    private passwordInput = this.page.getByLabel('Password')
-    private submitButton = this.page.getByRole('button', { name: 'Sign in' })
-    private errorMessage = this.page.getByTestId('error-message')
-    
-    // Actions
-    async navigate() {
-      await this.page.goto('/login')
-    }
-    
+
+    private emailInput = this.page.getByLabel("Email");
+    private passwordInput = this.page.getByLabel("Password");
+    private submitButton = this.page.getByRole("button");
+
     async login(email: string, password: string) {
-      await this.emailInput.fill(email)
-      await this.passwordInput.fill(password)
-      await this.submitButton.click()
+      await this.emailInput.fill(email);
+      await this.passwordInput.fill(password);
+      await this.submitButton.click();
     }
-    
-    async getErrorMessage() {
-      return this.errorMessage.textContent()
-    }
-    
-    // Assertions
-    async expectLoginSuccess() {
-      await expect(this.page).toHaveURL('/dashboard')
-    }
-    
-    async expectErrorMessage(message: string) {
-      await expect(this.errorMessage).toContainText(message)
+
+    async expectSuccess() {
+      await expect(this.page).toHaveURL("/dashboard");
     }
   }
-  
-  // pages/dashboard-page.ts
-  export class DashboardPage {
-    constructor(private page: Page) {}
-    
-    private welcomeMessage = this.page.getByTestId('welcome')
-    private logoutButton = this.page.getByRole('button', { name: 'Logout' })
-    
-    async logout() {
-      await this.logoutButton.click()
-    }
-    
-    async getWelcomeMessage() {
-      return this.welcomeMessage.textContent()
-    }
-  }
-  
-  // tests/login.spec.ts
-  import { test, expect } from '@playwright/test'
-  import { LoginPage } from '../pages/login-page'
-  import { DashboardPage } from '../pages/dashboard-page'
-  
-  test('successful login', async ({ page }) => {
-    const loginPage = new LoginPage(page)
-    const dashboardPage = new DashboardPage(page)
-    
-    await loginPage.navigate()
-    await loginPage.login('user@example.com', 'password123')
-    await loginPage.expectLoginSuccess()
-    
-    const message = await dashboardPage.getWelcomeMessage()
-    expect(message).toContain('Welcome')
-  })
-  
-  test('failed login', async ({ page }) => {
-    const loginPage = new LoginPage(page)
-    
-    await loginPage.navigate()
-    await loginPage.login('wrong@email.com', 'wrongpass')
-    await loginPage.expectErrorMessage('Invalid credentials')
-  })
+
+  // test
+  test("login", async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    await loginPage.login("user@example.com", "password");
+    await loginPage.expectSuccess();
+  });
   ```
 
-##### 19.18 🔄 API Testing with Playwright
-- 📝 Testing APIs:
+---
+
+##### **19.16 🔄 API Testing**
+
+- 📝 API Tests:
   ```typescript
-  import { request, test, expect } from '@playwright/test'
-  
-  test('API testing', async ({ request }) => {
-    // GET request
-    const users = await request.get('/api/users')
-    expect(users.ok()).toBeTruthy()
-    const usersData = await users.json()
-    expect(usersData).toHaveLength(10)
-    
-    // POST request
-    const newUser = await request.post('/api/users', {
-      data: {
-        name: 'John Doe',
-        email: 'john@example.com'
-      }
-    })
-    expect(newUser.status()).toBe(201)
-    const userData = await newUser.json()
-    expect(userData.id).toBeDefined()
-    
-    // PUT request
-    const updated = await request.put(`/api/users/${userData.id}`, {
-      data: {
-        name: 'John Updated'
-      }
-    })
-    expect(updated.status()).toBe(200)
-    
-    // DELETE request
-    const deleted = await request.delete(`/api/users/${userData.id}`)
-    expect(deleted.status()).toBe(204)
-  })
-  
-  test('API with authentication', async ({ request }) => {
-    const response = await request.get('/api/private', {
-      headers: {
-        'Authorization': 'Bearer token123'
-      }
-    })
-    expect(response.status()).toBe(200)
-  })
+  test("API test", async ({ request }) => {
+    const response = await request.get("/api/users");
+    expect(response.ok()).toBeTruthy();
+    const users = await response.json();
+    expect(users).toHaveLength(10);
+
+    const newUser = await request.post("/api/users", {
+      data: { name: "John", email: "john@example.com" },
+    });
+    expect(newUser.status()).toBe(201);
+  });
   ```
 
-##### 19.19 🚀 CI/CD Integration
+---
+
+##### **19.17 🚀 CI/CD Integration**
+
 - 📝 GitHub Actions:
   ```yaml
-  # .github/workflows/playwright.yml
-  name: Playwright Tests
-  
-  on:
-    push:
-      branches: [main, develop]
-    pull_request:
-      branches: [main]
-  
-  jobs:
-    test:
-      timeout-minutes: 60
-      runs-on: ubuntu-latest
-      
-      steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-        
-      - name: Run Playwright tests
-        run: npx playwright test
-        
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
-  ```
-- 📝 Docker Integration:
-  ```dockerfile
-  FROM mcr.microsoft.com/playwright:v1.40.0-focal
-  
-  WORKDIR /app
-  
-  COPY package*.json ./
-  RUN npm ci
-  
-  COPY . .
-  
-  CMD ["npx", "playwright", "test"]
+  - name: Run Playwright tests
+    run: npx playwright test
+  - uses: actions/upload-artifact@v3
+    if: always()
+    with:
+      name: playwright-report
+      path: playwright-report/
   ```
 
-##### 19.20 💻 Practical Projects
-- 🏗️ E2E Testing for E-commerce Site
+---
+
+##### **19.18 💻 Practical Projects**
+
+- 🏗️ E-commerce Site E2E Testing
 - 📝 Authentication Flow Testing
 - 🛒 Shopping Cart E2E Tests
 - 📱 Mobile Responsive Testing
@@ -14961,42 +9690,47 @@ src/
 
 ---
 
-**[Stage 19 (Playwright) tayyor]**
+<br>
+<br>
+<br>
+<br>
+<br>
 
-## 📊 COMPLETE TIMELINE
+## 📊 COMPLETE TIMELINE (YANGILANGAN)
 
-| Stage | Topic | Soat | Darslar (2h) | Haftalar (3 dars/hafta) |
-|-------|-------|------|--------------|------------------------|
-| 1 | HTML5 | 20 | 10 | 3.3 |
-| 2 | CSS3 | 40 | 20 | 6.7 |
-| 3 | JavaScript | 60 | 30 | 10 |
-| 4 | Git | 20 | 10 | 3.3 |
-| 5 | TypeScript | 30 | 15 | 5 |
-| 6 | Vite | 15 | 8 | 2.7 |
-| 7 | React | 60 | 30 | 10 |
-| 8 | React Router | 20 | 10 | 3.3 |
-| 9 | Context API | 15 | 8 | 2.7 |
-| 10 | Redux Toolkit | 25 | 12 | 4 |
-| 11 | Fetch API & Axios | 20 | 10 | 3.3 |
-| 12 | Tailwind CSS | 25 | 12 | 4 |
-| 13 | Shadcn UI | 20 | 10 | 3.3 |
-| 14 | React Hook Form | 20 | 10 | 3.3 |
-| 15 | Zod | 15 | 8 | 2.7 |
-| 16 | Next.js | 40 | 20 | 6.7 |
-| 17 | Jest | 20 | 10 | 3.3 |
-| 18 | React Testing Library | 20 | 10 | 3.3 |
-| 19 | Playwright | 20 | 10 | 3.3 |
-| **JAMI** | | **485** | **243** | **~81 hafta** |
+| Stage    | Topic                 | Soat    | Darslar (2h) | Haftalar (3 dars/hafta) |
+| -------- | --------------------- | ------- | ------------ | ----------------------- |
+| 1        | HTML5                 | 28      | 14           | 4.7                     |
+| 2        | CSS3                  | 48      | 24           | 8                       |
+| 3        | JavaScript            | 72      | 36           | 12                      |
+| 4        | Git                   | 24      | 12           | 4                       |
+| 5        | TypeScript            | 36      | 18           | 6                       |
+| 6        | Vite                  | 18      | 9            | 3                       |
+| 7        | React                 | 72      | 36           | 12                      |
+| 8        | React Router          | 24      | 12           | 4                       |
+| 9        | Context API           | 18      | 9            | 3                       |
+| 10       | Redux Toolkit         | 30      | 15           | 5                       |
+| 11       | Fetch API & Axios     | 24      | 12           | 4                       |
+| 12       | Tailwind CSS          | 30      | 15           | 5                       |
+| 13       | Shadcn UI             | 24      | 12           | 4                       |
+| 14       | React Hook Form       | 24      | 12           | 4                       |
+| 15       | Zod                   | 18      | 9            | 3                       |
+| 16       | Next.js               | 48      | 24           | 8                       |
+| 17       | Jest                  | 24      | 12           | 4                       |
+| 18       | React Testing Library | 24      | 12           | 4                       |
+| 19       | Playwright            | 24      | 12           | 4                       |
+| **JAMI** |                       | **630** | **315**      | **~105 hafta**          |
 
-### 📅 Jami vaqt: 18-20 oy (haftasiga 3 dars bilan)
+### 📅 Jami vaqt: **24-26 oy** (haftasiga 3 dars bilan)
 
 ---
 
 ## 🎯 LEARNING PATH RECOMMENDATIONS
 
 ### **For Beginners (0-6 months experience)**
+
 ```
-Focus on Stages 1-5 (6 oy)
+Focus on Stages 1-5 (7 oy)
 ├── HTML5, CSS3 fundamentals
 ├── JavaScript core concepts
 ├── Git version control
@@ -15005,8 +9739,9 @@ Focus on Stages 1-5 (6 oy)
 ```
 
 ### **For Intermediate (6-12 months experience)**
+
 ```
-Focus on Stages 6-10 (5 oy)
+Focus on Stages 6-10 (7 oy)
 ├── Modern build tools (Vite)
 ├── React fundamentals
 ├── Routing and navigation
@@ -15015,8 +9750,9 @@ Focus on Stages 6-10 (5 oy)
 ```
 
 ### **For Advanced (1-2 years experience)**
+
 ```
-Focus on Stages 11-15 (4 oy)
+Focus on Stages 11-15 (6 oy)
 ├── HTTP requests (Fetch, Axios)
 ├── Styling with Tailwind
 ├── UI components (Shadcn UI)
@@ -15025,8 +9761,9 @@ Focus on Stages 11-15 (4 oy)
 ```
 
 ### **For Expert (2-3 years experience)**
+
 ```
-Focus on Stages 16-19 (5 oy)
+Focus on Stages 16-19 (6 oy)
 ├── Full-stack with Next.js
 ├── Unit testing with Jest
 ├── Component testing with RTL
@@ -15068,63 +9805,101 @@ Level 4: Lead Developer (Stages 16-19)
 
 ## 🔧 RECOMMENDED TOOLS
 
-| Category | Tools |
-|----------|-------|
-| **Code Editor** | VS Code, WebStorm, Sublime Text |
-| **Extensions** | ESLint, Prettier, GitLens, Thunder Client |
-| **Package Manager** | npm, yarn, pnpm |
-| **Version Control** | Git, GitHub, GitLab, Bitbucket |
-| **Design Tools** | Figma, Adobe XD, Sketch |
-| **API Testing** | Postman, Insomnia, Thunder Client |
-| **Browser DevTools** | Chrome DevTools, Firefox DevTools |
-| **Performance** | Lighthouse, WebPageTest |
-| **Testing** | Jest, React Testing Library, Playwright |
-| **CI/CD** | GitHub Actions, GitLab CI, Jenkins |
-| **Deployment** | Vercel, Netlify, AWS, Cloudflare |
+| Category             | Tools                                                                |
+| -------------------- | -------------------------------------------------------------------- |
+| **Code Editor**      | VS Code, WebStorm, Sublime Text                                      |
+| **Extensions**       | ESLint, Prettier, GitLens, Thunder Client, Tailwind CSS IntelliSense |
+| **Package Manager**  | npm, yarn, pnpm                                                      |
+| **Version Control**  | Git, GitHub, GitLab, Bitbucket                                       |
+| **Design Tools**     | Figma, Adobe XD, Sketch                                              |
+| **API Testing**      | Postman, Insomnia, Thunder Client                                    |
+| **Browser DevTools** | Chrome DevTools, Firefox DevTools                                    |
+| **Performance**      | Lighthouse, WebPageTest                                              |
+| **Testing**          | Jest, React Testing Library, Playwright                              |
+| **CI/CD**            | GitHub Actions, GitLab CI, Jenkins                                   |
+| **Deployment**       | Vercel, Netlify, AWS, Cloudflare                                     |
 
 ---
 
 ## 📚 RESOURCES
 
 ### **Official Documentation**
+
 - [MDN Web Docs](https://developer.mozilla.org)
 - [React Documentation](https://react.dev)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs)
 - [Playwright Documentation](https://playwright.dev/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Redux Toolkit Docs](https://redux-toolkit.js.org)
 
 ### **Books**
+
 - "Eloquent JavaScript" by Marijn Haverbeke
 - "You Don't Know JS" by Kyle Simpson
 - "The Road to React" by Robin Wieruch
 - "Testing JavaScript" by Kent C. Dodds
 - "Fullstack React" by Accomazzo, Murray, Lerner
+- "Designing Data-Intensive Applications" by Martin Kleppmann
 
 ### **Practice Platforms**
+
 - [LeetCode](https://leetcode.com)
 - [HackerRank](https://hackerrank.com)
 - [Codewars](https://codewars.com)
 - [Frontend Mentor](https://frontendmentor.io)
 - [Exercism](https://exercism.org)
+- [CSSBattle](https://cssbattle.dev)
 
 ### **YouTube Channels**
+
 - Traversy Media
 - Web Dev Simplified
 - Fireship
 - Kent C. Dodds
 - Jack Herrington
+- The Net Ninja
+- Academind
 
 ### **Blogs and Newsletters**
+
 - [dev.to](https://dev.to)
 - [CSS-Tricks](https://css-tricks.com)
 - [Smashing Magazine](https://smashingmagazine.com)
 - [JavaScript Weekly](https://javascriptweekly.com)
 - [React Newsletter](https://reactnewsletter.com)
+- [Frontend Focus](https://frontendfoc.us)
+
+---
+
+## 🎯 PROJEKTLAR (Umumiy)
+
+### **Asosiy Projectlar**
+
+1. **Portfolio Website** (HTML5, CSS3, JavaScript) — Stage 1-3
+2. **Weather App** (Fetch API, Tailwind) — Stage 11-12
+3. **E-commerce Store** (React, Context, Redux) — Stage 7-10
+4. **Blog Platform** (Next.js, TypeScript, Tailwind) — Stage 16
+5. **Task Management App** (React Hook Form, Zod) — Stage 14-15
+6. **Dashboard** (React, Shadcn UI, Charts) — Stage 13
+7. **Full-stack Blog** (Next.js, Prisma, Auth) — Stage 16
+8. **Testing Suite** (Jest, RTL, Playwright) — Stage 17-19
+
+### **Final Capstone Project**
+
+**"E-commerce Platform"** — barcha stage'larni o'z ichiga olgan to'liq loyiha:
+
+- Frontend: Next.js, TypeScript, Tailwind, Shadcn UI
+- State: Redux Toolkit
+- Forms: React Hook Form + Zod
+- Testing: Jest, RTL, Playwright
+- Deployment: Vercel
+- Git: GitHub Actions (CI/CD)
 
 ---
 
 <p align="center">
-  <strong>© Frontend Full Stack Roadmap 2026</strong>
+  <strong>© Frontend Full Stack Roadmap</strong>
   <br>
   <strong>Elmurod Azodov | @the_elmurod</strong>
 </p>
