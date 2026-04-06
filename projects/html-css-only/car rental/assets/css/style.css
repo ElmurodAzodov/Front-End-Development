@@ -3,10 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    /* border: none; */
+    border: none;
     outline: none;
     font-family: "Work Sans", sans-serif;
-    border: 1px solid black;
 }
 
 header {
