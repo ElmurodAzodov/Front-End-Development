@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    border: none;
+    /* border: none; */
     outline: none;
     font-family: "Work Sans", sans-serif;
+    border: 1px solid black;
 }
 
 header {
@@ -52,8 +53,7 @@ header .logo img {
 }
 
 header .call img {
-    width: 24px;
-    height: 24px;
+    padding: 16px;
     border-radius: 50%;
     background-color: #5937E0;
     
