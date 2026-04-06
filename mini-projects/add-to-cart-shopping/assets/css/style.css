@@ -235,7 +235,7 @@ header .shopping span {
 .list .item button:hover {
   background-color: #3a3f4a;
 }
-
+ 
 .list-card li {
   display: grid;
   grid-template-columns: 70px 120px 80px 50px 80px;
