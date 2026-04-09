@@ -491,6 +491,7 @@ Grid'ning eng kuchli tomoni shundaki, siz HTML'da 5-element bo‘lgan narsani CS
 <br>
 <br>
 
+
 ### 🎯 Alignment in Grid (Grid'da Tekislash)
 
 Grid'da tekislash xususiyatlari ikki o'q bo'ylab ishlaydi:
