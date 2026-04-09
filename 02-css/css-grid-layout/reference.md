@@ -578,6 +578,7 @@ _Natija:_ Har bir katak ichidagi element mukammal markazda turadi.
 
 Bu xususiyatlar faqat **Grid konteynerining o'lchami**, ichidagi **barcha kataklar umumiy o'lchamidan katta bo'lganda** ishlaydi. Ya'ni konteynerda **ortiqcha bo'sh joy** mavjud bo'lsa.
 
+
 ---
 
 
