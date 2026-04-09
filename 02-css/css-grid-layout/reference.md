@@ -580,6 +580,7 @@ Bu xususiyatlar faqat **Grid konteynerining o'lchami**, ichidagi **barcha katakl
 
 ---
 
+
 #### 4. 🔸 `justify-content` (To'rni Gorizontal Tekislash)
 
 Butun Grid to'rini konteyner ichida gorizontal (chap-o'ng) bo'ylab tekislaydi.
