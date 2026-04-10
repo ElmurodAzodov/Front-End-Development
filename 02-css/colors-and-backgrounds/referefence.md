@@ -3614,3 +3614,4 @@ Barcha background xususiyatlarini bitta qatorda yozish.
 
 
 
+
