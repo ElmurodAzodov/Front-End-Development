@@ -73,22 +73,30 @@ header .call img {
     margin: auto;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .hero-left {
     width: 686px;
     height: 503px;
-    border: 2px solid magenta;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .hero-left h1 {
     color: snow;
-
+    font-size: 60px;
 }
 
+.hero-left button {
+    width: 154px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: #FF9E0C;
+    color: snow;
+}
 
 
 
@@ -143,4 +151,31 @@ header .call img {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+}
+
+
+/* info block */
+
+.info-block {
+    width: 1440px;
+    height: 314px;
+    margin: auto;   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info-block > div {
+    width: 357px;
+    height: 194px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.info-block > div > img {
+    width: 64px;
+    height: 64px;
 }
