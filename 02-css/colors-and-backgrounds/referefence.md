@@ -3612,7 +3612,2588 @@ Barcha background xususiyatlarini bitta qatorda yozish.
 <br>
 <br>
 
+# 🌫️ CSS Gradients - To'liq Qo'llanma
 
+## 📋 Gradient nima?
 
+Gradient - bu ikki yoki undan ortiq ranglar orasidagi silliq o'tish. CSS da gradientlar **fon rasmi** sifatida ishlatiladi va `background-image` xususiyati orqali qo'llanadi.
 
+---
 
+## 1️⃣ Linear Gradient (Chiziqli Gradient)
+
+Ranglar bir nuqtadan ikkinchi nuqtaga to'g'ri chiziq bo'ylab o'tadi.
+
+### 📝 Sintaksis:
+
+```css
+.element {
+    /* Asosiy sintaksis */
+    background-image: linear-gradient(yo'nalish, rang1, rang2, ...);
+
+    /* Misollar */
+    background-image: linear-gradient(red, blue);
+    background-image: linear-gradient(to right, red, blue);
+    background-image: linear-gradient(45deg, red, blue);
+    background-image: linear-gradient(to bottom right, red, orange, yellow);
+}
+```
+
+### 🎯 Yo'nalishlar:
+
+| Qiymat         | Tavsif                                  |
+| -------------- | --------------------------------------- |
+| `to top`       | Pastdan yuqoriga (0deg)                 |
+| `to right`     | Chapdan o'ngga (90deg)                  |
+| `to bottom`    | Yuqoridan pastga (180deg) - **default** |
+| `to left`      | O'ngdan chapga (270deg)                 |
+| `to top right` | Pastki-chapdan yuqori-o'ngga            |
+| `45deg`        | 45 gradus burchak ostida                |
+
+### 💻 To'liq misol:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        background: #f0f2f5;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #34495e;
+        margin: 20px 0 15px;
+      }
+
+      .gradient-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .gradient-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-preview {
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .gradient-code {
+        background: #1a1a2e;
+        color: #4ecdc4;
+        padding: 12px;
+        font-family: "Courier New", monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      /* Basic directions */
+      .lg-default {
+        background-image: linear-gradient(#ff6b6b, #4ecdc4);
+      }
+      .lg-to-right {
+        background-image: linear-gradient(to right, #ff6b6b, #4ecdc4);
+      }
+      .lg-to-bottom-right {
+        background-image: linear-gradient(to bottom right, #ff6b6b, #4ecdc4);
+      }
+      .lg-angle {
+        background-image: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      }
+
+      /* Multiple colors */
+      .lg-multi-1 {
+        background-image: linear-gradient(to right, #ff6b6b, #ffe66d, #4ecdc4);
+      }
+      .lg-multi-2 {
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .lg-rainbow {
+        background-image: linear-gradient(
+          to right,
+          #ff0000,
+          #ff8800,
+          #ffff00,
+          #00ff00,
+          #0088ff,
+          #0000ff,
+          #8800ff
+        );
+      }
+
+      /* Color stops */
+      .lg-stops {
+        background-image: linear-gradient(
+          to right,
+          #ff6b6b 0%,
+          #4ecdc4 50%,
+          #ffe66d 100%
+        );
+      }
+      .lg-hard-stop {
+        background-image: linear-gradient(
+          to right,
+          #ff6b6b 0%,
+          #ff6b6b 50%,
+          #4ecdc4 50%,
+          #4ecdc4 100%
+        );
+      }
+
+      /* With transparency */
+      .lg-transparent {
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 107, 107, 0.8),
+          rgba(78, 205, 196, 0.3)
+        );
+      }
+
+      .overlay-demo {
+        position: relative;
+        height: 200px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .overlay-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100" height="100" fill="%233498db"/%3E%3Ccircle cx="50" cy="50" r="30" fill="%23e74c3c" opacity="0.6"/%3E%3C/svg%3E');
+        background-size: cover;
+      }
+
+      .overlay-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.2),
+          transparent
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .note-box {
+        background: #e8f4f8;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        margin: 20px 0;
+      }
+
+      .angle-demo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+
+      .angle-item {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📐 Linear Gradient (Chiziqli Gradient)</h1>
+
+    <div class="section">
+      <h2>🎯 Yo'nalishlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview lg-default">Default (to bottom)</div>
+          <div class="gradient-code">linear-gradient(#ff6b6b, #4ecdc4)</div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-to-right">to right</div>
+          <div class="gradient-code">
+            linear-gradient(to right, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-to-bottom-right">to bottom right</div>
+          <div class="gradient-code">
+            linear-gradient(to bottom right, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-angle">45deg</div>
+          <div class="gradient-code">
+            linear-gradient(45deg, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📐 Burchaklar (deg)</h2>
+      <div class="angle-demo">
+        <div
+          class="angle-item"
+          style="background: linear-gradient(0deg, #ff6b6b, #4ecdc4);"
+        >
+          0deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"
+        >
+          45deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(90deg, #ff6b6b, #4ecdc4);"
+        >
+          90deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4);"
+        >
+          135deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(180deg, #ff6b6b, #4ecdc4);"
+        >
+          180deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(225deg, #ff6b6b, #4ecdc4);"
+        >
+          225deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(270deg, #ff6b6b, #4ecdc4);"
+        >
+          270deg
+        </div>
+        <div
+          class="angle-item"
+          style="background: linear-gradient(315deg, #ff6b6b, #4ecdc4);"
+        >
+          315deg
+        </div>
+      </div>
+      <p style="color: #666; margin-top: 15px;">
+        ⚡ 0deg = pastdan yuqoriga | 90deg = chapdan o'ngga | 180deg = yuqoridan
+        pastga
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🌈 Ko'p rangli gradientlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview lg-multi-1">3 ta rang</div>
+          <div class="gradient-code">
+            linear-gradient(to right, #ff6b6b, #ffe66d, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-multi-2">Foizlar bilan</div>
+          <div class="gradient-code">
+            linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-rainbow">Kamalak</div>
+          <div class="gradient-code">
+            linear-gradient(to right, #ff0000, #ff8800, #ffff00...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📍 Color Stops (Rang to'xtash nuqtalari)</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview lg-stops">50% da o'rta rang</div>
+          <div class="gradient-code">
+            linear-gradient(to right, #ff6b6b 0%, #4ecdc4 50%, #ffe66d 100%)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-hard-stop">Keskin o'tish</div>
+          <div class="gradient-code">
+            linear-gradient(to right, #ff6b6b 0%, #ff6b6b 50%, #4ecdc4 50%)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview lg-transparent">Shaffoflik bilan</div>
+          <div class="gradient-code">
+            linear-gradient(to right, rgba(255,107,107,0.8),
+            rgba(78,205,196,0.3))
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>💡 Color Stop:</strong> Har bir rang uchun foiz yoki uzunlik
+        birligida to'xtash nuqtasini belgilash mumkin. Bu gradient qayerda
+        boshlanishi va tugashini aniq nazorat qilish imkonini beradi.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎭 Overlay (Rasm ustiga gradient)</h2>
+      <div class="overlay-demo">
+        <div class="overlay-bg"></div>
+        <div class="overlay-gradient">Gradient Overlay</div>
+      </div>
+      <div
+        style="background: #1a1a2e; color: #4ecdc4; padding: 15px; border-radius: 8px; margin-top: 15px; font-family: monospace;"
+      >
+        background-image: linear-gradient(135deg, rgba(0,0,0,0.7), transparent),
+        url('rasm.jpg');
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 2️⃣ Radial Gradient (Radial Gradient)
+
+Ranglar markaziy nuqtadan tashqariga doira yoki ellips shaklida tarqaladi.
+
+### 📝 Sintaksis:
+
+```css
+.element {
+  /* Asosiy */
+  background-image: radial-gradient(circle, rang1, rang2);
+
+  /* Shakl va o'lcham */
+  background-image: radial-gradient(circle at center, red, blue);
+  background-image: radial-gradient(ellipse at top left, red, blue);
+
+  /* O'lcham kalit so'zlari */
+  background-image: radial-gradient(circle closest-side, red, blue);
+  background-image: radial-gradient(circle farthest-corner, red, blue);
+}
+```
+
+### 🎯 Shakllar va o'lchamlar:
+
+| Qiymat            | Tavsif                             |
+| ----------------- | ---------------------------------- |
+| `circle`          | Doira shakli                       |
+| `ellipse`         | Ellips shakli (default)            |
+| `closest-side`    | Eng yaqin chetga qadar             |
+| `closest-corner`  | Eng yaqin burchakka qadar          |
+| `farthest-side`   | Eng uzoq chetga qadar              |
+| `farthest-corner` | Eng uzoq burchakka qadar (default) |
+
+### 💻 To'liq misol:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        background: #f0f2f5;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #34495e;
+        margin: 20px 0 15px;
+      }
+
+      .gradient-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .gradient-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-preview {
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .gradient-code {
+        background: #1a1a2e;
+        color: #4ecdc4;
+        padding: 12px;
+        font-family: "Courier New", monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      /* Radial basic */
+      .rg-default {
+        background-image: radial-gradient(#ff6b6b, #4ecdc4);
+      }
+      .rg-circle {
+        background-image: radial-gradient(circle, #ff6b6b, #4ecdc4);
+      }
+      .rg-ellipse {
+        background-image: radial-gradient(ellipse, #ff6b6b, #4ecdc4);
+      }
+
+      /* Positions */
+      .rg-at-top {
+        background-image: radial-gradient(circle at top, #ff6b6b, #4ecdc4);
+      }
+      .rg-at-left {
+        background-image: radial-gradient(circle at left, #ff6b6b, #4ecdc4);
+      }
+      .rg-at-top-left {
+        background-image: radial-gradient(circle at top left, #ff6b6b, #4ecdc4);
+      }
+      .rg-at-30-70 {
+        background-image: radial-gradient(circle at 30% 70%, #ff6b6b, #4ecdc4);
+      }
+
+      /* Sizes */
+      .rg-closest-side {
+        background-image: radial-gradient(
+          circle closest-side at 30% 40%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d
+        );
+      }
+      .rg-farthest-side {
+        background-image: radial-gradient(
+          circle farthest-side at 30% 40%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d
+        );
+      }
+      .rg-closest-corner {
+        background-image: radial-gradient(
+          circle closest-corner at 30% 40%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d
+        );
+      }
+      .rg-farthest-corner {
+        background-image: radial-gradient(
+          circle farthest-corner at 30% 40%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d
+        );
+      }
+
+      /* Multiple colors */
+      .rg-multi {
+        background-image: radial-gradient(
+          circle,
+          #ff6b6b,
+          #ffe66d,
+          #4ecdc4,
+          #764ba2
+        );
+      }
+      .rg-stops {
+        background-image: radial-gradient(
+          circle,
+          #ff6b6b 0%,
+          #4ecdc4 50%,
+          #ffe66d 100%
+        );
+      }
+
+      /* Special effects */
+      .rg-sun {
+        background-image: radial-gradient(
+          circle at 20% 30%,
+          #ffe66d,
+          #ff6b6b,
+          #c0392b
+        );
+      }
+      .rg-spotlight {
+        background-color: #1a1a2e;
+        background-image: radial-gradient(
+          circle at 30% 50%,
+          rgba(255, 255, 255, 0.8),
+          transparent 70%
+        );
+      }
+
+      .size-comparison {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .size-item {
+        text-align: center;
+      }
+
+      .size-preview {
+        height: 120px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+      }
+
+      .note-box {
+        background: #e8f4f8;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎯 Radial Gradient</h1>
+
+    <div class="section">
+      <h2>📌 Asosiy radial gradientlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rg-default">Default (ellipse)</div>
+          <div class="gradient-code">radial-gradient(#ff6b6b, #4ecdc4)</div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-circle">Circle</div>
+          <div class="gradient-code">
+            radial-gradient(circle, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-ellipse">Ellipse</div>
+          <div class="gradient-code">
+            radial-gradient(ellipse, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📍 Markaz nuqtasi (at position)</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rg-at-top">at top</div>
+          <div class="gradient-code">
+            radial-gradient(circle at top, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-at-left">at left</div>
+          <div class="gradient-code">
+            radial-gradient(circle at left, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-at-top-left">at top left</div>
+          <div class="gradient-code">
+            radial-gradient(circle at top left, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-at-30-70">at 30% 70%</div>
+          <div class="gradient-code">
+            radial-gradient(circle at 30% 70%, #ff6b6b, #4ecdc4)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📏 O'lcham kalit so'zlari</h2>
+      <div class="size-comparison">
+        <div class="size-item">
+          <div class="size-preview rg-closest-side"></div>
+          <div class="gradient-code" style="font-size: 10px;">closest-side</div>
+        </div>
+        <div class="size-item">
+          <div class="size-preview rg-farthest-side"></div>
+          <div class="gradient-code" style="font-size: 10px;">
+            farthest-side
+          </div>
+        </div>
+        <div class="size-item">
+          <div class="size-preview rg-closest-corner"></div>
+          <div class="gradient-code" style="font-size: 10px;">
+            closest-corner
+          </div>
+        </div>
+        <div class="size-item">
+          <div class="size-preview rg-farthest-corner"></div>
+          <div class="gradient-code" style="font-size: 10px;">
+            farthest-corner
+          </div>
+        </div>
+      </div>
+      <p style="color: #666; text-align: center;">
+        Markaz nuqtasi: 30% 40% | O'lcham kalit so'zlari gradient qancha
+        masofaga tarqalishini belgilaydi
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🌈 Ko'p rangli va maxsus effektlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rg-multi">Ko'p rangli</div>
+          <div class="gradient-code">
+            radial-gradient(circle, #ff6b6b, #ffe66d, #4ecdc4, #764ba2)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-stops">Color stops bilan</div>
+          <div class="gradient-code">
+            radial-gradient(circle, #ff6b6b 0%, #4ecdc4 50%, #ffe66d 100%)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-sun">Quyosh effekti</div>
+          <div class="gradient-code">
+            radial-gradient(circle at 20% 30%, #ffe66d, #ff6b6b, #c0392b)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rg-spotlight">Spotlight effekti</div>
+          <div class="gradient-code">
+            radial-gradient(circle at 30% 50%, rgba(255,255,255,0.8),
+            transparent 70%)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎨 Amaliy misollar</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h3>🌅 Quyosh botishi</h3>
+          <div
+            style="height: 150px; border-radius: 12px; 
+                    background: radial-gradient(circle at 20% 80%, #ff6b6b, #ffa502, #eccc68, #2f3542);
+                "
+          ></div>
+        </div>
+        <div>
+          <h3>💡 Chiroq effekti</h3>
+          <div
+            style="height: 150px; border-radius: 12px; background: #1a1a2e;
+                    background-image: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.3) 40%, transparent 70%);
+                "
+          ></div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>💡 Radial Gradient ishlatish:</strong><br />
+        • <code>circle</code> - kvadrat konteynerlar uchun ideal<br />
+        • <code>ellipse</code> - to'g'ri to'rtburchak konteynerlar uchun
+        (default)<br />
+        • <code>at position</code> - yorug'lik manbai effektlari uchun juda
+        foydali
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 3️⃣ Conic Gradient (Konus Gradient)
+
+Ranglar markaziy nuqta atrofida aylana bo'ylab tarqaladi (pirog diagrammasi kabi).
+
+### 📝 Sintaksis:
+
+```css
+.element {
+  /* Asosiy */
+  background-image: conic-gradient(red, blue);
+
+  /* Boshlanish burchagi */
+  background-image: conic-gradient(from 45deg, red, blue);
+
+  /* Markaz nuqtasi */
+  background-image: conic-gradient(at 50% 50%, red, blue);
+
+  /* Burchak va markaz birga */
+  background-image: conic-gradient(from 90deg at 30% 40%, red, blue);
+
+  /* Color stops */
+  background-image: conic-gradient(
+    red 0deg,
+    blue 90deg,
+    green 180deg,
+    yellow 270deg,
+    red 360deg
+  );
+}
+```
+
+### 💻 To'liq misol:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        background: #f0f2f5;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #34495e;
+        margin: 20px 0 15px;
+      }
+
+      .gradient-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .gradient-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-preview {
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .gradient-code {
+        background: #1a1a2e;
+        color: #4ecdc4;
+        padding: 12px;
+        font-family: "Courier New", monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      /* Conic basic */
+      .cg-default {
+        background-image: conic-gradient(
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d,
+          #764ba2,
+          #ff6b6b
+        );
+      }
+      .cg-from {
+        background-image: conic-gradient(
+          from 45deg,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d,
+          #764ba2,
+          #ff6b6b
+        );
+      }
+      .cg-at {
+        background-image: conic-gradient(
+          at 30% 40%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d,
+          #764ba2,
+          #ff6b6b
+        );
+      }
+      .cg-from-at {
+        background-image: conic-gradient(
+          from 90deg at 70% 30%,
+          #ff6b6b,
+          #4ecdc4,
+          #ffe66d,
+          #764ba2,
+          #ff6b6b
+        );
+      }
+
+      /* Pie chart style */
+      .cg-pie-1 {
+        background-image: conic-gradient(
+          #ff6b6b 0deg 90deg,
+          #4ecdc4 90deg 180deg,
+          #ffe66d 180deg 270deg,
+          #764ba2 270deg 360deg
+        );
+      }
+
+      .cg-pie-2 {
+        background-image: conic-gradient(
+          #e74c3c 0% 25%,
+          #3498db 25% 60%,
+          #2ecc71 60% 85%,
+          #f39c12 85% 100%
+        );
+      }
+
+      /* Color wheel */
+      .cg-color-wheel {
+        background-image: conic-gradient(
+          #ff0000,
+          #ff8800,
+          #ffff00,
+          #88ff00,
+          #00ff00,
+          #00ff88,
+          #00ffff,
+          #0088ff,
+          #0000ff,
+          #8800ff,
+          #ff00ff,
+          #ff0088,
+          #ff0000
+        );
+      }
+
+      /* Checkerboard */
+      .cg-checker {
+        background-image: conic-gradient(
+          #2c3e50 0deg 90deg,
+          #34495e 90deg 180deg,
+          #2c3e50 180deg 270deg,
+          #34495e 270deg 360deg
+        );
+        background-size: 40px 40px;
+      }
+
+      .pie-chart-demo {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .pie-container {
+        text-align: center;
+      }
+
+      .pie {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+
+      .pie-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+      }
+
+      .legend-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+      }
+
+      .note-box {
+        background: #e8f4f8;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🌀 Conic Gradient (Konus Gradient)</h1>
+
+    <div class="section">
+      <h2>📌 Asosiy conic gradientlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview cg-default">Default</div>
+          <div class="gradient-code">
+            conic-gradient(#ff6b6b, #4ecdc4, #ffe66d, #764ba2, #ff6b6b)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview cg-from">from 45deg</div>
+          <div class="gradient-code">
+            conic-gradient(from 45deg, #ff6b6b, #4ecdc4...)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview cg-at">at 30% 40%</div>
+          <div class="gradient-code">
+            conic-gradient(at 30% 40%, #ff6b6b, #4ecdc4...)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview cg-from-at">from + at</div>
+          <div class="gradient-code">
+            conic-gradient(from 90deg at 70% 30%, ...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🥧 Pirog Diagrammasi (Pie Chart)</h2>
+      <div class="pie-chart-demo">
+        <div class="pie-container">
+          <div class="pie cg-pie-1"></div>
+          <div class="pie-legend">
+            <div class="legend-item">
+              <span class="legend-color" style="background: #ff6b6b;"></span>
+              25%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #4ecdc4;"></span>
+              25%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #ffe66d;"></span>
+              25%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #764ba2;"></span>
+              25%
+            </div>
+          </div>
+        </div>
+        <div class="pie-container">
+          <div class="pie cg-pie-2"></div>
+          <div class="pie-legend">
+            <div class="legend-item">
+              <span class="legend-color" style="background: #e74c3c;"></span>
+              25%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #3498db;"></span>
+              35%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #2ecc71;"></span>
+              25%
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background: #f39c12;"></span>
+              15%
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="background: #1a1a2e; color: #4ecdc4; padding: 15px; border-radius: 8px; margin-top: 20px; font-family: monospace;"
+      >
+        conic-gradient(<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;#e74c3c 0% 25%,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;#3498db 25% 60%,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;#2ecc71 60% 85%,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;#f39c12 85% 100%<br />
+        );
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎨 Rang G'ildiragi va Patternlar</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview cg-color-wheel">Rang g'ildiragi</div>
+          <div class="gradient-code">
+            conic-gradient(#ff0000, #ff8800, #ffff00, #00ff00, #0000ff, #ff00ff,
+            #ff0000)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview cg-checker">Checkerboard</div>
+          <div class="gradient-code">
+            conic-gradient(#2c3e50 0deg 90deg, #34495e 90deg 180deg...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔄 Loading Spinner (CSS-only)</h2>
+      <style>
+        .spinner-demo {
+          display: flex;
+          gap: 30px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .spinner-1 {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: conic-gradient(
+            from 0deg,
+            #3498db,
+            #e74c3c,
+            #2ecc71,
+            #f39c12,
+            #3498db
+          );
+          animation: spin 2s linear infinite;
+        }
+
+        .spinner-2 {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            #3498db 360deg
+          );
+          -webkit-mask: radial-gradient(
+            circle 30px at center,
+            transparent 100%,
+            black 100%
+          );
+          mask: radial-gradient(
+            circle 30px at center,
+            transparent 100%,
+            black 100%
+          );
+          animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+      <div class="spinner-demo">
+        <div>
+          <div class="spinner-1"></div>
+          <p style="text-align: center; margin-top: 10px;">To'liq spinner</p>
+        </div>
+        <div>
+          <div class="spinner-2"></div>
+          <p style="text-align: center; margin-top: 10px;">Halqa spinner</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>🎯 Conic Gradient afzalliklari:</strong><br />
+        • Pirog diagrammalari va statistika ko'rsatkichlari uchun ideal<br />
+        • CSS-only loading spinnerlar yaratish<br />
+        • Rang g'ildiragi va rang tanlash interfeyslari<br />
+        • Geometrik patternlar yaratish
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 4️⃣ Repeating Gradients
+
+Gradient patternlarini takrorlash orqali chiziqli, doiraviy va konus shaklidagi takrorlanuvchi patternlar yaratish.
+
+### 📝 Sintaksis:
+
+```css
+.element {
+  /* Repeating Linear */
+  background-image: repeating-linear-gradient(45deg, red, blue 20px);
+
+  /* Repeating Radial */
+  background-image: repeating-radial-gradient(circle, red, blue 20px);
+
+  /* Repeating Conic */
+  background-image: repeating-conic-gradient(
+    from 0deg,
+    red 0deg 10deg,
+    blue 10deg 20deg
+  );
+}
+```
+
+### 💻 To'liq misol:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        background: #f0f2f5;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #34495e;
+        margin: 20px 0 15px;
+      }
+
+      .gradient-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .gradient-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .gradient-preview {
+        height: 150px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .gradient-code {
+        background: #1a1a2e;
+        color: #4ecdc4;
+        padding: 12px;
+        font-family: "Courier New", monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      /* Repeating Linear */
+      .rl-stripes {
+        background-image: repeating-linear-gradient(
+          45deg,
+          #ff6b6b 0px,
+          #ff6b6b 10px,
+          #4ecdc4 10px,
+          #4ecdc4 20px
+        );
+      }
+      .rl-pattern {
+        background-image: repeating-linear-gradient(
+          0deg,
+          #667eea 0px,
+          #667eea 2px,
+          transparent 2px,
+          transparent 8px
+        );
+        background-color: #f8f9fa;
+      }
+      .rl-barber {
+        background-image: repeating-linear-gradient(
+          45deg,
+          #2c3e50 0px,
+          #2c3e50 15px,
+          #e74c3c 15px,
+          #e74c3c 30px,
+          #ecf0f1 30px,
+          #ecf0f1 45px
+        );
+      }
+
+      /* Repeating Radial */
+      .rr-circles {
+        background-image: repeating-radial-gradient(
+          circle at center,
+          #ff6b6b 0px,
+          #ff6b6b 10px,
+          #4ecdc4 10px,
+          #4ecdc4 20px
+        );
+      }
+      .rr-dots {
+        background-image: repeating-radial-gradient(
+          circle at 20px 20px,
+          #3498db 0px,
+          #3498db 8px,
+          transparent 8px,
+          transparent 16px
+        );
+        background-color: #f0f0f0;
+      }
+      .rr-target {
+        background-image: repeating-radial-gradient(
+          circle at center,
+          #2c3e50 0px,
+          #2c3e50 5px,
+          #e74c3c 5px,
+          #e74c3c 10px,
+          #2c3e50 10px,
+          #2c3e50 15px
+        );
+      }
+
+      /* Repeating Conic */
+      .rc-pie {
+        background-image: repeating-conic-gradient(
+          from 0deg,
+          #ff6b6b 0deg 30deg,
+          #4ecdc4 30deg 60deg,
+          #ffe66d 60deg 90deg
+        );
+      }
+      .rc-starburst {
+        background-image: repeating-conic-gradient(
+          from 0deg,
+          #2c3e50 0deg 15deg,
+          #e74c3c 15deg 30deg
+        );
+      }
+      .rc-sunburst {
+        background-image: repeating-conic-gradient(
+          from 0deg,
+          #f39c12 0deg 5deg,
+          #e67e22 5deg 10deg,
+          transparent 10deg 20deg
+        );
+        background-color: #1a1a2e;
+      }
+
+      /* Amaliy patternlar */
+      .notebook-pattern {
+        background-color: #fff;
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            #e0e0e0 0px,
+            #e0e0e0 1px,
+            transparent 1px,
+            transparent 30px
+          ),
+          linear-gradient(to right, #ff9999, transparent 50px);
+      }
+
+      .carbon-fiber {
+        background-color: #1a1a2e;
+        background-image:
+          repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 8px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 8px
+          );
+      }
+
+      .note-box {
+        background: #e8f4f8;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔄 Repeating Gradients</h1>
+
+    <div class="section">
+      <h2>📏 Repeating Linear Gradient</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rl-stripes">Chiziqlar</div>
+          <div class="gradient-code">
+            repeating-linear-gradient(45deg, #ff6b6b 0px 10px, #4ecdc4 10px
+            20px)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rl-pattern">Daftar chiziqlari</div>
+          <div class="gradient-code">
+            repeating-linear-gradient(0deg, #667eea 0px 2px, transparent 2px
+            8px)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rl-barber">Sartarosh ustuni</div>
+          <div class="gradient-code">
+            repeating-linear-gradient(45deg, #2c3e50 0px 15px, #e74c3c 15px
+            30px...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⭕ Repeating Radial Gradient</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rr-circles">Konsentrik doiralar</div>
+          <div class="gradient-code">
+            repeating-radial-gradient(circle, #ff6b6b 0px 10px, #4ecdc4 10px
+            20px)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rr-dots">Nuqtalar</div>
+          <div class="gradient-code">
+            repeating-radial-gradient(circle at 20px 20px, #3498db 0px 8px,
+            transparent 8px 16px)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rr-target">Nishon</div>
+          <div class="gradient-code">
+            repeating-radial-gradient(circle, #2c3e50 0px 5px, #e74c3c 5px
+            10px...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🌀 Repeating Conic Gradient</h2>
+      <div class="gradient-grid">
+        <div class="gradient-card">
+          <div class="gradient-preview rc-pie">Pirog bo'laklari</div>
+          <div class="gradient-code">
+            repeating-conic-gradient(from 0deg, #ff6b6b 0deg 30deg, #4ecdc4
+            30deg 60deg...)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rc-starburst">Yulduz portlashi</div>
+          <div class="gradient-code">
+            repeating-conic-gradient(from 0deg, #2c3e50 0deg 15deg, #e74c3c
+            15deg 30deg)
+          </div>
+        </div>
+        <div class="gradient-card">
+          <div class="gradient-preview rc-sunburst">Quyosh nurlari</div>
+          <div class="gradient-code">
+            repeating-conic-gradient(from 0deg, #f39c12 0deg 5deg, #e67e22 5deg
+            10deg...)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎨 Amaliy Patternlar</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h3>📓 Daftar varag'i</h3>
+          <div
+            class="gradient-preview notebook-pattern"
+            style="height: 150px; color: #333; text-shadow: none;"
+          >
+            Yozuv uchun...
+          </div>
+        </div>
+        <div>
+          <h3>🏎️ Karbon tolasi</h3>
+          <div class="gradient-preview carbon-fiber" style="height: 150px;">
+            Carbon Fiber
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>💡 Repeating Gradient sirlari:</strong><br />
+        • Ranglar orasidagi masofani <strong>px</strong>,
+        <strong>%</strong> yoki <strong>deg</strong> da aniq belgilang<br />
+        • Oxirgi rang to'xtash nuqtasi pattern takrorlanish oralig'ini
+        belgilaydi<br />
+        • <code>transparent</code> ishlatib murakkab patternlar yaratish
+        mumkin<br />
+        • Fon rangi (<code>background-color</code>) bilan birga ishlatish
+        tavsiya etiladi
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 📊 Barcha Gradient Turlari - Taqqoslash Jadvali
+
+| Gradient Turi        | Sintaksis                                                                     | Asosiy Qo'llanish               | Misol                                                             |
+| -------------------- | ----------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------- |
+| **Linear**           | `linear-gradient(yo'nalish, rang1, rang2)`                                    | Fonlar, overlay, tugmalar       | `linear-gradient(to right, red, blue)`                            |
+| **Radial**           | `radial-gradient(shakl size at pozitsiya, rang1, rang2)`                      | Spotlight, yorug'lik effektlari | `radial-gradient(circle at top, red, blue)`                       |
+| **Conic**            | `conic-gradient(from burchak at pozitsiya, rang1, rang2)`                     | Pirog diagrammalar, spinner     | `conic-gradient(red 0deg, blue 90deg)`                            |
+| **Repeating Linear** | `repeating-linear-gradient(yo'nalish, rang1 0px 10px, rang2 10px 20px)`       | Chiziqli patternlar             | `repeating-linear-gradient(45deg, red 0px 10px, blue 10px 20px)`  |
+| **Repeating Radial** | `repeating-radial-gradient(shakl, rang1 0px 10px, rang2 10px 20px)`           | Konsentrik doiralar             | `repeating-radial-gradient(circle, red 0px 10px, blue 10px 20px)` |
+| **Repeating Conic**  | `repeating-conic-gradient(from burchak, rang1 0deg 15deg, rang2 15deg 30deg)` | Yulduz portlashi, nurlar        | `repeating-conic-gradient(red 0deg 30deg, blue 30deg 60deg)`      |
+
+---
+
+## 🎯 Gradientlar bilan ishlash bo'yicha maslahatlar
+
+| Maslahat         | Tavsif                                                                  |
+| ---------------- | ----------------------------------------------------------------------- |
+| **Ranglar soni** | 2-4 ta rang optimal, ko'p rang vizual tartibsizlik keltirishi mumkin    |
+| **Kontrast**     | Matn gradient ustida bo'lsa, yetarli kontrast bo'lishiga e'tibor bering |
+| **Overlay**      | Rasm ustiga gradient qo'yib matn o'qilishini yaxshilang                 |
+| **Color stops**  | Keskin o'tishlar uchun bir xil rangni ikki marta bering                 |
+| **Performance**  | Murakkab gradientlar ko'p bo'lsa, sayt sekinlashishi mumkin             |
+| **Fallback**     | Har doim `background-color` fallback sifatida qo'shing                  |
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 🎭 Opacity va 🌈 backdrop-filter - To'liq Qo'llanma
+
+## 📋 Umumiy ma'lumot
+
+CSS da shaffoflik va fonni xiralashtirish effektlari zamonaviy veb-dizaynning muhim qismidir. `opacity` elementning butunlay shaffofligini boshqarsa, `backdrop-filter` element ORQASIDAGI kontentga filtr qo'llash imkonini beradi.
+
+---
+
+## 1️⃣ Opacity (Shaffoflik)
+
+Elementning butunlay shaffoflik darajasini belgilaydi.
+
+### 📝 Sintaksis:
+
+```css
+.element {
+  opacity: 1; /* To'liq ko'rinadigan (default) */
+  opacity: 0.5; /* 50% shaffof */
+  opacity: 0.25; /* 75% shaffof */
+  opacity: 0; /* To'liq shaffof (ko'rinmaydi, lekin joyni egallaydi) */
+}
+```
+
+### ⚠️ Muhim xususiyatlar:
+
+| Xususiyat           | Tavsif                                                       |
+| ------------------- | ------------------------------------------------------------ |
+| **Qiymat oralig'i** | 0 dan 1 gacha (0 = ko'rinmas, 1 = to'liq ko'rinadi)          |
+| **Meros**           | Nasldan naslga o'tmaydi, lekin butun elementga ta'sir qiladi |
+| **Bola elementlar** | Hamma bola elementlar ham shaffof bo'ladi                    |
+| **Interaktivlik**   | `opacity: 0` element ko'rinmaydi, lekin bosilishi mumkin     |
+
+### 💻 To'liq misol:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: #34495e;
+        margin: 20px 0 15px;
+      }
+
+      .opacity-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+      }
+
+      .opacity-card {
+        text-align: center;
+      }
+
+      .opacity-preview {
+        height: 120px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .opacity-label {
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* Opacity qiymatlari */
+      .op-100 {
+        opacity: 1;
+      }
+      .op-90 {
+        opacity: 0.9;
+      }
+      .op-75 {
+        opacity: 0.75;
+      }
+      .op-50 {
+        opacity: 0.5;
+      }
+      .op-25 {
+        opacity: 0.25;
+      }
+      .op-10 {
+        opacity: 0.1;
+      }
+      .op-0 {
+        opacity: 0;
+      }
+
+      /* Bola elementlar bilan */
+      .parent-box {
+        background: #2c3e50;
+        padding: 20px;
+        border-radius: 12px;
+        opacity: 0.7;
+      }
+
+      .child-box {
+        background: #e74c3c;
+        padding: 15px;
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+      }
+
+      /* Hover effektlar */
+      .hover-card {
+        background: #3498db;
+        padding: 20px;
+        border-radius: 12px;
+        color: white;
+        text-align: center;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+
+      .hover-card:hover {
+        opacity: 0.7;
+      }
+
+      /* Opacity vs RGBA taqqoslash */
+      .comparison-demo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .comp-item {
+        text-align: center;
+      }
+
+      .comp-preview {
+        height: 150px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 15px;
+        background-image:
+          url('data:image/svg+xml,%3Csvg width="40" height="40" xmlns="http://www.w3.org/2000/svg"%3E%3Cpattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="10" cy="10" r="3" fill="white" opacity="0.3"/%3E%3C/pattern%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)"/%3E%3C/svg%3E'),
+          linear-gradient(135deg, #667eea, #764ba2);
+      }
+
+      .opacity-box {
+        background: #e74c3c;
+        padding: 20px;
+        border-radius: 8px;
+        opacity: 0.5;
+      }
+
+      .rgba-box {
+        background: rgba(231, 76, 60, 0.5);
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .note-box {
+        background: #fff3cd;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #ffc107;
+        margin: 20px 0;
+      }
+
+      .warning-box {
+        background: #f8d7da;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border-left: 4px solid #dc3545;
+        margin: 20px 0;
+      }
+
+      /* Animatsiya */
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .pulse-demo {
+        background: #e74c3c;
+        color: white;
+        padding: 20px 40px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        animation: pulse 2s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: white; margin-bottom: 30px;">🎭 Opacity (Shaffoflik)</h1>
+
+    <div class="section">
+      <h2>📊 Opacity qiymatlari (0 dan 1 gacha)</h2>
+      <div class="opacity-grid">
+        <div class="opacity-card">
+          <div class="opacity-preview op-100">1.0</div>
+          <div class="opacity-label">opacity: 1 (100%)</div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-preview op-90">0.9</div>
+          <div class="opacity-label">opacity: 0.9 (90%)</div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-preview op-75">0.75</div>
+          <div class="opacity-label">opacity: 0.75 (75%)</div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-preview op-50">0.5</div>
+          <div class="opacity-label">opacity: 0.5 (50%)</div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-preview op-25">0.25</div>
+          <div class="opacity-label">opacity: 0.25 (25%)</div>
+        </div>
+        <div class="opacity-card">
+          <div class="opacity-preview op-10">0.1</div>
+          <div class="opacity-label">opacity: 0.1 (10%)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⚠️ Bola elementlarga ta'siri</h2>
+      <div class="parent-box">
+        <div class="child-box">
+          <strong>Bola element</strong><br />
+          Ota element opacity: 0.7
+        </div>
+      </div>
+      <p style="margin-top: 15px; color: #666;">
+        📌 Ota elementga opacity berilsa, BARCHA bola elementlar ham shaffof
+        bo'ladi. Bu holatni oldini olish uchun
+        <code>background: rgba()</code> ishlating.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🔄 Opacity vs RGBA</h2>
+      <div class="comparison-demo">
+        <div class="comp-item">
+          <div class="comp-preview">
+            <div class="opacity-box">opacity: 0.5</div>
+          </div>
+          <p><strong>Opacity</strong> - Matn ham shaffof</p>
+        </div>
+        <div class="comp-item">
+          <div class="comp-preview">
+            <div class="rgba-box">rgba(231, 76, 60, 0.5)</div>
+          </div>
+          <p><strong>RGBA</strong> - Faqat fon shaffof, matn o'qiladi</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>💡 Qachon opacity, qachon RGBA ishlatish kerak?</strong><br />
+        • <strong>opacity</strong> - Butun element (matn, icon, border) shaffof
+        bo'lishi kerak bo'lsa<br />
+        • <strong>RGBA/HSLA</strong> - Faqat fon shaffof, matn o'qilishi kerak
+        bo'lsa
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎬 Hover va Animatsiyalar</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h3>Hover effekti</h3>
+          <div class="hover-card">
+            <p style="font-size: 20px; margin: 0;">🖱️ Ustiga keling</p>
+            <p style="margin: 10px 0 0; opacity: 0.8;">
+              transition: opacity 0.3s
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3>Pulse animatsiya</h3>
+          <div class="pulse-demo">💓 Pulse effekti</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>👻 opacity: 0 vs visibility: hidden vs display: none</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #f8f9fa;">
+            <th style="padding: 12px; text-align: left;">Xususiyat</th>
+            <th style="padding: 12px; text-align: left;">Ko'rinish</th>
+            <th style="padding: 12px; text-align: left;">Joyni egallaydi</th>
+            <th style="padding: 12px; text-align: left;">Bosiladi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px;"><code>opacity: 0</code></td>
+            <td style="padding: 12px;">❌ Ko'rinmaydi</td>
+            <td style="padding: 12px;">✅ Ha</td>
+            <td style="padding: 12px;">✅ Ha</td>
+          </tr>
+          <tr style="background: #f8f9fa;">
+            <td style="padding: 12px;"><code>visibility: hidden</code></td>
+            <td style="padding: 12px;">❌ Ko'rinmaydi</td>
+            <td style="padding: 12px;">✅ Ha</td>
+            <td style="padding: 12px;">❌ Yo'q</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;"><code>display: none</code></td>
+            <td style="padding: 12px;">❌ Ko'rinmaydi</td>
+            <td style="padding: 12px;">❌ Yo'q</td>
+            <td style="padding: 12px;">❌ Yo'q</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box" style="margin-top: 20px;">
+        <strong>⚠️ Muhim:</strong> <code>opacity: 0</code> element ko'rinmas
+        bo'ladi, lekin foydalanuvchi uni bosishi mumkin! Agar element
+        bosilmasligini istasangiz, <code>visibility: hidden</code> yoki
+        <code>pointer-events: none</code> ishlating.
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 2️⃣ backdrop-filter (Glassmorphism)
+
+Element ORQASIDAGI kontentga blur, rang o'zgartirish kabi filtrlar qo'llash imkonini beradi.
+
+### 📝 Sintaksis:
+
+```css
+.element {
+  /* Blur (xiralashtirish) */
+  backdrop-filter: blur(10px);
+
+  /* Rang o'zgartirish */
+  backdrop-filter: sepia(0.5);
+  backdrop-filter: grayscale(1);
+
+  /* Yorqinlik/kontrast */
+  backdrop-filter: brightness(1.2);
+  backdrop-filter: contrast(1.5);
+
+  /* Bir nechta filtr */
+  backdrop-filter: blur(10px) brightness(0.8) saturate(1.5);
+
+  /* Hech qanday filtr */
+  backdrop-filter: none;
+}
+```
+
+### 🎯 Filtr funksiyalari:
+
+| Funksiya          | Tavsif                    | Qiymat oralig'i                 |
+| ----------------- | ------------------------- | ------------------------------- |
+| `blur(px)`        | Xiralashtirish            | 0px va undan katta              |
+| `brightness(%)`   | Yorqinlik                 | 0% va undan katta (1 = 100%)    |
+| `contrast(%)`     | Kontrast                  | 0% va undan katta (1 = 100%)    |
+| `grayscale(%)`    | Oq-qora                   | 0 - 1 (0 = rangli, 1 = oq-qora) |
+| `sepia(%)`        | Sepia effekti             | 0 - 1                           |
+| `saturate(%)`     | To'yinganlik              | 0 va undan katta (1 = 100%)     |
+| `hue-rotate(deg)` | Rang ohangini aylantirish | 0deg - 360deg                   |
+| `invert(%)`       | Invertatsiya              | 0 - 1                           |
+| `opacity(%)`      | Shaffoflik                | 0 - 1                           |
+
+### 💻 To'liq misol - Glassmorphism:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding: 30px;
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: relative;
+      }
+
+      /* Dekorativ fon elementlari */
+      .bg-decoration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .bg-circle-1 {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #ff6b6b, #feca57);
+        top: 10%;
+        left: 5%;
+        opacity: 0.6;
+        filter: blur(60px);
+      }
+
+      .bg-circle-2 {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #48dbfb, #1dd1a1);
+        bottom: 10%;
+        right: 5%;
+        opacity: 0.6;
+        filter: blur(80px);
+      }
+
+      .bg-circle-3 {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #ff9ff3, #f368e0);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.4;
+        filter: blur(50px);
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      h1 {
+        color: white;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        color: white;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 10px;
+      }
+
+      h3 {
+        color: white;
+        margin: 20px 0 15px;
+      }
+
+      .filter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .filter-card {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .filter-preview {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .filter-code {
+        background: rgba(0, 0, 0, 0.5);
+        color: #4ecdc4;
+        padding: 12px;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      /* Turli filtrlar */
+      .bf-blur {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .bf-blur-more {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .bf-brightness {
+        backdrop-filter: brightness(1.5);
+        -webkit-backdrop-filter: brightness(1.5);
+      }
+      .bf-grayscale {
+        backdrop-filter: grayscale(1);
+        -webkit-backdrop-filter: grayscale(1);
+      }
+      .bf-sepia {
+        backdrop-filter: sepia(0.8);
+        -webkit-backdrop-filter: sepia(0.8);
+      }
+      .bf-combined {
+        backdrop-filter: blur(10px) brightness(0.8) saturate(1.5);
+        -webkit-backdrop-filter: blur(10px) brightness(0.8) saturate(1.5);
+      }
+
+      /* Glassmorphism kartalar */
+      .glass-card-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 20px 0;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        color: white;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .glass-card h3 {
+        margin: 0 0 15px;
+        color: white;
+      }
+
+      .glass-card p {
+        margin: 0;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .glass-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      /* Modal oyna */
+      .glass-modal {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 24px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 20px auto;
+        color: white;
+      }
+
+      .glass-modal h3 {
+        margin: 0 0 20px;
+        text-align: center;
+      }
+
+      .glass-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        color: white;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+
+      .glass-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .glass-input:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .glass-button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s;
+      }
+
+      .glass-button:hover {
+        background: rgba(255, 255, 255, 0.4);
+        transform: scale(1.02);
+      }
+
+      /* Navbar */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50px;
+        padding: 15px 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .glass-nav .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .glass-nav .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .glass-nav .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: background 0.3s;
+      }
+
+      .glass-nav .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      .note-box {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 15px 20px;
+        border-radius: 15px;
+        border-left: 4px solid #ffc107;
+        margin: 20px 0;
+        color: white;
+      }
+
+      .warning-box {
+        background: rgba(220, 53, 69, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 15px 20px;
+        border-radius: 15px;
+        border-left: 4px solid #dc3545;
+        margin: 20px 0;
+        color: white;
+      }
+
+      .browser-support {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .browser-badge {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .browser-badge.supported {
+        border-color: #2ecc71;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-decoration">
+      <div class="bg-circle-1"></div>
+      <div class="bg-circle-2"></div>
+      <div class="bg-circle-3"></div>
+    </div>
+
+    <div class="content">
+      <h1>🌈 backdrop-filter (Glassmorphism)</h1>
+
+      <!-- Glass Navbar -->
+      <div class="glass-nav">
+        <div class="logo">✨ Glass UI</div>
+        <div class="nav-links">
+          <a href="#">Bosh sahifa</a>
+          <a href="#">Haqida</a>
+          <a href="#">Aloqa</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🔮 backdrop-filter: blur()</h2>
+        <div class="filter-grid">
+          <div class="filter-card">
+            <div class="filter-preview bf-blur">blur(10px)</div>
+            <div class="filter-code">backdrop-filter: blur(10px);</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-preview bf-blur-more">blur(20px)</div>
+            <div class="filter-code">backdrop-filter: blur(20px);</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-preview bf-brightness">brightness(1.5)</div>
+            <div class="filter-code">backdrop-filter: brightness(1.5);</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-preview bf-grayscale">grayscale(1)</div>
+            <div class="filter-code">backdrop-filter: grayscale(1);</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-preview bf-sepia">sepia(0.8)</div>
+            <div class="filter-code">backdrop-filter: sepia(0.8);</div>
+          </div>
+          <div class="filter-card">
+            <div class="filter-preview bf-combined">Birlashtirilgan</div>
+            <div class="filter-code">
+              backdrop-filter: blur(10px) brightness(0.8) saturate(1.5);
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>💎 Glassmorphism Kartalar</h2>
+        <div class="glass-card-demo">
+          <div class="glass-card">
+            <div class="glass-icon">🚀</div>
+            <h3>Tezkorlik</h3>
+            <p>
+              Yengil va tezkor dizayn. backdrop-filter orqali zamonaviy UI
+              yarating.
+            </p>
+          </div>
+          <div class="glass-card">
+            <div class="glass-icon">🎨</div>
+            <h3>Dizayn</h3>
+            <p>
+              Shisha effekti orqali chuqurlik va qatlamlilik hissini yarating.
+            </p>
+          </div>
+          <div class="glass-card">
+            <div class="glass-icon">🔒</div>
+            <h3>Xavfsizlik</h3>
+            <p>Zamonaviy brauzerlarda to'liq qo'llab-quvvatlanadi.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🔐 Glassmorphism Modal (Login)</h2>
+        <div class="glass-modal">
+          <h3>👤 Hisobga kirish</h3>
+          <input
+            type="text"
+            class="glass-input"
+            placeholder="Foydalanuvchi nomi"
+          />
+          <input type="password" class="glass-input" placeholder="Parol" />
+          <button class="glass-button">Kirish</button>
+          <p
+            style="text-align: center; margin-top: 20px; opacity: 0.8; font-size: 14px;"
+          >
+            Hisobingiz yo'qmi?
+            <a href="#" style="color: white;">Ro'yxatdan o'tish</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>📋 backdrop-filter barcha funksiyalari</h2>
+        <table style="width: 100%; border-collapse: collapse; color: white;">
+          <thead>
+            <tr style="background: rgba(255,255,255,0.1);">
+              <th style="padding: 12px; text-align: left;">Funksiya</th>
+              <th style="padding: 12px; text-align: left;">Tavsif</th>
+              <th style="padding: 12px; text-align: left;">Misol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px;"><code>blur()</code></td>
+              <td>Xiralashtirish</td>
+              <td><code>blur(5px)</code></td>
+            </tr>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <td style="padding: 10px;"><code>brightness()</code></td>
+              <td>Yorqinlik</td>
+              <td><code>brightness(1.2)</code></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;"><code>contrast()</code></td>
+              <td>Kontrast</td>
+              <td><code>contrast(1.5)</code></td>
+            </tr>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <td style="padding: 10px;"><code>grayscale()</code></td>
+              <td>Oq-qora</td>
+              <td><code>grayscale(0.8)</code></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;"><code>hue-rotate()</code></td>
+              <td>Rang aylantirish</td>
+              <td><code>hue-rotate(90deg)</code></td>
+            </tr>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <td style="padding: 10px;"><code>invert()</code></td>
+              <td>Invertatsiya</td>
+              <td><code>invert(0.8)</code></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;"><code>opacity()</code></td>
+              <td>Shaffoflik</td>
+              <td><code>opacity(0.5)</code></td>
+            </tr>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <td style="padding: 10px;"><code>saturate()</code></td>
+              <td>To'yinganlik</td>
+              <td><code>saturate(2)</code></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;"><code>sepia()</code></td>
+              <td>Sepia effekti</td>
+              <td><code>sepia(0.7)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>🌐 Brauzer qo'llab-quvvatlashi</h2>
+        <div class="browser-support">
+          <div class="browser-badge supported">✅ Chrome 76+</div>
+          <div class="browser-badge supported">✅ Edge 79+</div>
+          <div class="browser-badge supported">✅ Safari 9+ (webkit)</div>
+          <div class="browser-badge supported">✅ Firefox 103+</div>
+          <div class="browser-badge supported">✅ Opera 63+</div>
+        </div>
+
+        <div class="warning-box" style="margin-top: 20px;">
+          <strong>⚠️ Muhim:</strong> Safari brauzeri uchun
+          <code>-webkit-backdrop-filter</code>
+          prefiksini qo'shish kerak. Har doim ikkala xususiyatni ham yozing!
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>💡 Glassmorphism uchun to'liq formula</h2>
+        <div
+          style="background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 20px; border-radius: 15px;"
+        >
+          <code style="color: #4ecdc4; font-size: 14px; display: block;">
+            .glass {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;/* Shaffof fon */<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;background: rgba(255, 255, 255, 0.1);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;/* Yoki yarim shaffof rang */<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;background: rgba(255, 255, 255, 0.2);<br /><br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;/* Xiralashtirish */<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;backdrop-filter: blur(10px);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;-webkit-backdrop-filter: blur(10px);<br /><br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;/* Chegara */<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;border: 1px solid rgba(255, 255, 255,
+            0.2);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;border-radius: 20px;<br /><br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;/* Soya */<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;box-shadow: 0 8px 32px rgba(0, 0, 0,
+            0.1);<br />
+            }
+          </code>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## 3️⃣ Opacity vs backdrop-filter - Taqqoslash
+
+| Xususiyat               | Opacity                               | backdrop-filter                           |
+| ----------------------- | ------------------------------------- | ----------------------------------------- |
+| **Ta'sir doirasi**      | Butun element                         | Faqat element ORQASIDAGI kontent          |
+| **Bola elementlar**     | Hamma bola elementlar shaffof bo'ladi | Bola elementlarga ta'sir qilmaydi         |
+| **Filtr imkoniyatlari** | Faqat shaffoflik                      | Blur, rang o'zgartirish, kontrast va h.k. |
+| **Ishlatilishi**        | Oddiy shaffoflik                      | Glassmorphism, modal oynalar              |
+| **Performance**         | Yengil                                | Nisbatan og'irroq                         |
+
+---
+
+## 📊 Opacity va backdrop-filter - Xulosa
+
+### 🎭 Opacity ishlatiladigan holatlar:
+
+- Elementni butunlay shaffof qilish kerak bo'lganda
+- Hover effektlari uchun
+- Animatsiyalar va o'tishlar uchun
+- Loading skeletonlar uchun
+- Disabled holatlar uchun
+
+### 🌈 backdrop-filter ishlatiladigan holatlar:
+
+- Glassmorphism dizaynlar
+- Modal oynalar va popuplar
+- Navbar va headerlar (sticky bo'lganda)
+- Bildirishnomalar va toast xabarlar
+- Rasm ustidagi matn bloklari
+
+### ⚡ Performance maslahatlari:
+
+| Maslahat          | Tavsif                                                                  |
+| ----------------- | ----------------------------------------------------------------------- |
+| **Kam ishlatish** | `backdrop-filter` ko'p ishlatilsa, sahifa sekinlashishi mumkin          |
+| **Fallback**      | `backdrop-filter` ishlamagan brauzerlar uchun `background` bering       |
+| **Prefiks**       | Safari uchun `-webkit-backdrop-filter` qo'shing                         |
+| **Qatlamlar**     | `will-change: backdrop-filter` ishlatib performanceni optimallashtirish |
+
+---
