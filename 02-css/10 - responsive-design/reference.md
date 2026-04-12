@@ -340,3 +340,8 @@ Container query esa — element ichidagi blok o‘lchamini tekshiradi
 - ekran emas, **ota element (container)** kichrayganda style o‘zgaradi
 
 ---
+
+<br>
+<br>
+
+
