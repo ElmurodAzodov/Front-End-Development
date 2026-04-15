@@ -907,3 +907,187 @@ body {
 
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# ✨ CSS Pseudo-elements
+
+Pseudo-elements — elementning **real DOMda yo‘q, lekin CSS orqali yaratiladigan yoki bo‘laklari** bilan ishlash imkonini beradi.
+
+---
+
+# 🧩 ::before va ::after
+
+Element ichiga **virtual content qo‘shadi**.
+
+---
+
+## ➕ ::before
+
+Element contentidan **oldin** chiqadi.
+
+### 📌 Sintaksis:
+
+```css id="b1x9qp"
+selector::before {
+  content: "";
+}
+```
+
+### ✅ Misol:
+
+```css id="c8m2tv"
+h1::before {
+  content: "🔥 ";
+}
+```
+
+```html id="h3v8kd"
+<h1>CSS</h1>
+```
+
+### 📌 Natija:
+
+🔥 CSS
+
+---
+
+## ➕ ::after
+
+Element contentidan **keyin** chiqadi.
+
+```css id="a9m2qp"
+h1::after {
+  content: " 🚀";
+}
+```
+
+### 📌 Natija:
+
+CSS 🚀
+
+---
+
+## ⚠️ Muhim qoida:
+
+```css id="x1v8kd"
+::before,
+::after {
+  content: ""; /* majburiy */
+}
+```
+
+---
+
+# 🔤 ::first-letter
+
+Elementning **birinchi harfi**ni stil qiladi.
+
+```css id="f8m2qp"
+p::first-letter {
+  font-size: 40px;
+  color: red;
+}
+```
+
+```html id="p2v9kd"
+<p>hello world</p>
+```
+
+### 📌 Natija:
+
+- H katta va qizil bo‘ladi
+
+---
+
+# 📄 ::first-line
+
+Elementning **birinchi qatori**ni stil qiladi.
+
+```css id="l9x2qp"
+p::first-line {
+  color: blue;
+  font-weight: bold;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Ekran o‘lchamiga qarab birinchi qator o‘zgaradi
+
+---
+
+# 🖱 ::selection
+
+Foydalanuvchi textni **belgilaganda (highlight)** ishlaydi.
+
+```css id="s8m2qp"
+::selection {
+  background: yellow;
+  color: black;
+}
+```
+
+### 📌 Natija:
+
+- Text select qilinganda rang o‘zgaradi
+
+---
+
+# 🧾 ::placeholder
+
+Input ichidagi **placeholder text**ni stil qiladi.
+
+```css id="p1v9qp"
+input::placeholder {
+  color: gray;
+  font-style: italic;
+}
+```
+
+```html id="i8m2kd"
+<input placeholder="Ismingizni kiriting" />
+```
+
+---
+
+# 📍 ::marker
+
+List elementlaridagi **bullet yoki number**ni stil qiladi.
+
+```css id="m2v8qp"
+li::marker {
+  color: red;
+  font-size: 20px;
+}
+```
+
+```html id="l8x2kd"
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
+```
+
+### 📌 Natija:
+
+- Bullet qizil va katta bo‘ladi
+
+---
+
+# 🧠 Xulosa
+
+| Pseudo-element | Vazifasi                          |
+| -------------- | --------------------------------- |
+| ::before       | elementdan oldin content qo‘shadi |
+| ::after        | elementdan keyin content qo‘shadi |
+| ::first-letter | birinchi harfni stil qiladi       |
+| ::first-line   | birinchi qatorni stil qiladi      |
+| ::selection    | select qilingan text              |
+| ::placeholder  | input placeholder                 |
+| ::marker       | list bullet/number                |
+
+---
