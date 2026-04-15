@@ -211,3 +211,211 @@ p.text {
 <br>
 <br>
 
+# 🔗 CSS Combinators
+
+Combinatorlar — elementlar orasidagi **munosabat (relationship)** orqali tanlash imkonini beradi.
+
+---
+
+## 🌳 Descendant Combinator (space)
+
+Berilgan element ichidagi **barcha avlod (nested)** elementlarni tanlaydi.
+
+### 📌 Sintaksis:
+
+```css
+parent descendant {
+  property: value;
+}
+```
+
+### ✅ Misol:
+
+```css
+div p {
+  color: blue;
+}
+```
+
+```html
+<div>
+  <p>Bu ishlaydi</p>
+  <section>
+    <p>Bu ham ishlaydi</p>
+  </section>
+</div>
+
+<p>Bu ishlamaydi</p>
+```
+
+### 🔍 Qanday ishlaydi:
+
+- `div` ichidagi **har qanday chuqurlikdagi** `p` lar tanlanadi
+- To‘g‘ridan-to‘g‘ri child bo‘lishi shart emas
+
+### ⚠️ Xususiyat:
+
+- Juda keng qamrovli (barcha nested elementlar)
+- Ba’zan ortiqcha ta’sir berishi mumkin
+
+---
+
+## 👶 Child Combinator (>)
+
+Faqat **to‘g‘ridan-to‘g‘ri child (1-level)** elementlarni tanlaydi.
+
+### 📌 Sintaksis:
+
+```css
+parent > child {
+  property: value;
+}
+```
+
+### ✅ Misol:
+
+```css
+div > p {
+  color: red;
+}
+```
+
+```html
+<div>
+  <p>Bu ishlaydi</p>
+
+  <section>
+    <p>Bu ishlamaydi</p>
+  </section>
+</div>
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Faqat `div` ning **bevosita farzandlari**
+- Nested (ichkaridagi ichkarisi) elementlarga ta’sir qilmaydi
+
+### ⚠️ Xususiyat:
+
+- Descendant’dan aniqroq va xavfsizroq
+
+---
+
+## ➕ Adjacent Sibling Combinator (+)
+
+Berilgan elementdan keyin **darhol keladigan bitta qo‘shni element**ni tanlaydi.
+
+### 📌 Sintaksis:
+
+```css
+element1 + element2 {
+  property: value;
+}
+```
+
+### ✅ Misol:
+
+```css
+h1 + p {
+  color: green;
+}
+```
+
+```html
+<h1>Title</h1>
+<p>Bu ishlaydi</p>
+
+<p>Bu ishlamaydi</p>
+```
+
+### 🔍 Qanday ishlaydi:
+
+- `h1` dan keyingi **faqat 1 ta birinchi `p`**
+- Agar boshqa element bo‘lsa, ishlamaydi
+
+### ⚠️ Xususiyat:
+
+- Juda aniq va tor tanlash
+
+---
+
+## 🔗 General Sibling Combinator (~)
+
+Berilgan elementdan keyin keladigan **barcha sibling (aka-uka)** elementlarni tanlaydi.
+
+### 📌 Sintaksis:
+
+```css
+element1 ~ element2 {
+  property: value;
+}
+```
+
+### ✅ Misol:
+
+```css
+h1 ~ p {
+  color: orange;
+}
+```
+
+```html
+<h1>Title</h1>
+
+<p>Bu ishlaydi</p>
+<p>Bu ham ishlaydi</p>
+
+<div>Bu yo‘q</div>
+<p>Bu ham ishlaydi</p>
+```
+
+### 🔍 Qanday ishlaydi:
+
+- `h1` dan keyingi **barcha `p` lar**
+- Faqat bir xil parent ichida ishlaydi
+
+### ⚠️ Xususiyat:
+
+- Adjacent (`+`) ga qaraganda kengroq
+
+---
+
+## 🧠 Farqlarni qisqacha solishtirish
+
+| Combinator       | Belgisi     | Qamrov                    |
+| ---------------- | ----------- | ------------------------- |
+| Descendant       | ` ` (space) | Barcha ichki elementlar   |
+| Child            | `>`         | Faqat 1-level child       |
+| Adjacent Sibling | `+`         | Keyingi bitta element     |
+| General Sibling  | `~`         | Keyingi barcha siblinglar |
+
+---
+
+## 🧩 Real kombinatsiya misoli
+
+```css
+div > p + span {
+  color: purple;
+}
+```
+
+```html
+<div>
+  <p>Paragraph</p>
+  <span>Bu ishlaydi</span>
+</div>
+```
+
+### 🔍 Tahlil:
+
+1. `div > p` → faqat child `p`
+2. `p + span` → `p` dan keyingi `span`
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
