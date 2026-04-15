@@ -419,3 +419,491 @@ div > p + span {
 <br>
 <br>
 
+# 🎭 CSS Attribute Selectors
+
+Attribute selectorlar — HTML elementlarning **atributlari (attributes)** orqali tanlash imkonini beradi.
+
+---
+
+## 📌 [attr] — Attribute mavjud bo‘lishi
+
+Elementda shu attribute bor-yo‘qligini tekshiradi.
+
+### ✅ Sintaksis:
+
+```css id="a1qk9m"
+[attr] {
+  property: value;
+}
+```
+
+### 🔍 Misol:
+
+```css id="x9k2ld"
+[disabled] {
+  opacity: 0.5;
+}
+```
+
+```html id="q2m8pn"
+<button disabled>Click</button> <button>Click</button>
+```
+
+### 📌 Natija:
+
+- Faqat `disabled` attribute bor button ishlaydi
+
+---
+
+## 🎯 [attr="value"] — Aniq moslik
+
+Attribute qiymati **to‘liq teng** bo‘lishi kerak.
+
+### ✅ Sintaksis:
+
+```css id="c8v0re"
+[attr="value"] {
+  property: value;
+}
+```
+
+### 🔍 Misol:
+
+```css id="p4m1sa"
+input[type="text"] {
+  border: 2px solid blue;
+}
+```
+
+```html id="t7x9kd"
+<input type="text" /> <input type="password" />
+```
+
+### 📌 Natija:
+
+- Faqat `type="text"` ishlaydi
+
+---
+
+## 🚀 [attr^="value"] — Boshlanishi bo‘yicha
+
+Attribute qiymati **shu qiymat bilan boshlansa** tanlanadi.
+
+### ✅ Sintaksis:
+
+```css id="v1k8ld"
+[attr^="value"] {
+  property: value;
+}
+```
+
+### 🔍 Misol:
+
+```css id="r8n2qp"
+a[href^="https"] {
+  color: green;
+}
+```
+
+```html id="m3q8ty"
+<a href="https://google.com">Google</a> <a href="http://example.com">Example</a>
+```
+
+### 📌 Natija:
+
+- Faqat `https` bilan boshlangan linklar ishlaydi
+
+---
+
+## 🧲 [attr$="value"] — Tugashi bo‘yicha
+
+Attribute qiymati **shu qiymat bilan tugasa** tanlanadi.
+
+### ✅ Sintaksis:
+
+```css id="l9p3wv"
+[attr$="value"] {
+  property: value;
+}
+```
+
+### 🔍 Misol:
+
+```css id="n2x8qp"
+a[href$=".pdf"] {
+  color: red;
+}
+```
+
+```html id="k8v1mn"
+<a href="file.pdf">PDF</a> <a href="image.png">Image</a>
+```
+
+### 📌 Natija:
+
+- Faqat `.pdf` bilan tugagan fayllar
+
+---
+
+## 🔎 [attr*="value"] — Ichida bor bo‘lishi
+
+Attribute qiymati ichida **har qanday joyda shu text bo‘lsa** tanlanadi.
+
+### ✅ Sintaksis:
+
+```css id="b7m0qp"
+[attr*="value"] {
+  property: value;
+}
+```
+
+### 🔍 Misol:
+
+```css id="d9k2lt"
+a[href*="google"] {
+  color: blue;
+}
+```
+
+```html id="h3p8vn"
+<a href="https://google.com">Google</a>
+<a href="https://mygooglepage.com">My Page</a>
+<a href="https://example.com">Example</a>
+```
+
+### 📌 Natija:
+
+- `google` so‘zi bor barcha linklar ishlaydi
+
+---
+
+## 🧠 Xulosa (Farqlar)
+
+| Selector          | Ma’nosi            | Misol              |
+| ----------------- | ------------------ | ------------------ |
+| `[attr]`          | attribute bor      | `[disabled]`       |
+| `[attr="value"]`  | to‘liq teng        | `[type="text"]`    |
+| `[attr^="value"]` | boshidan boshlansa | `[href^="https"]`  |
+| `[attr$="value"]` | oxiridan tugasa    | `[href$=".pdf"]`   |
+| `[attr*="value"]` | ichida bo‘lsa      | `[href*="google"]` |
+
+---
+
+## 🧩 Real amaliy misol
+
+```css id="q1m9xz"
+input[name^="user"] {
+  border: 2px solid green;
+}
+
+input[type="email"] {
+  background: lightyellow;
+}
+
+a[href$=".pdf"] {
+  color: red;
+}
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 🎨 CSS Pseudo-classes
+
+Pseudo-classlar — elementning **holati (state)** yoki **struktura ichidagi o‘rni**ga qarab stil berish uchun ishlatiladi.
+
+---
+
+# 🖱 Interactivity States
+
+## 🟢 :hover — ustiga sichqoncha kelganda
+
+```css id="h1x9qv"
+button:hover {
+  background: green;
+  color: white;
+}
+```
+
+```html id="k2m8pd"
+<button>Hover me</button>
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Mouse element ustiga borganda aktiv bo‘ladi
+- Desktopda juda ko‘p ishlatiladi
+
+---
+
+## 🔴 :active — bosilgan paytda
+
+```css id="a8v2lm"
+button:active {
+  transform: scale(0.95);
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Mouse bosib turgan paytda ishlaydi
+- Click momentni ko‘rsatadi
+
+---
+
+## 🎯 :focus — input yoki element focus olganda
+
+```css id="f3n9kp"
+input:focus {
+  border: 2px solid blue;
+  outline: none;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Input ichiga cursor kirganda
+- Tab bilan navigatsiyada ham ishlaydi
+
+---
+
+## 👁 :focus-visible — faqat keyboard focus
+
+```css id="v9m2qs"
+button:focus-visible {
+  outline: 2px solid orange;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Faqat klaviatura (TAB) orqali fokus bo‘lsa ishlaydi
+- Mouse clickda ko‘rsatmaydi
+
+---
+
+# 🧱 Structural Pseudo-classes
+
+## 🥇 :first-child
+
+```css id="p1x8kd"
+li:first-child {
+  color: red;
+}
+```
+
+```html id="q8m2tv"
+<ul>
+  <li>1</li>
+  <!-- ishlaydi -->
+  <li>2</li>
+</ul>
+```
+
+---
+
+## 🥉 :last-child
+
+```css id="l9v2ps"
+li:last-child {
+  color: blue;
+}
+```
+
+---
+
+## 🔢 :nth-child(n)
+
+```css id="n2k8vq"
+li:nth-child(2) {
+  color: green;
+}
+```
+
+### 📌 Qoidalar:
+
+- `2` → ikkinchi element
+- `odd` → toq
+- `even` → juft
+- `3n` → har 3-element
+
+---
+
+## 🎯 :nth-of-type()
+
+```css id="t8v1mx"
+p:nth-of-type(2) {
+  color: purple;
+}
+```
+
+### 🔍 Farqi:
+
+- `nth-child` → umumiy pozitsiya
+- `nth-of-type` → faqat o‘sha tur (tag) ichida
+
+---
+
+# 🚫 Logical / Filtering Pseudo-classes
+
+## ❌ :not()
+
+```css id="x7m2qp"
+button:not(.primary) {
+  background: gray;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Berilgan shartga mos kelmaydigan elementlar
+
+---
+
+## 🧠 :is()
+
+```css id="s8v1kd"
+:is(h1, h2, h3) {
+  color: red;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Bir nechta selectorni qisqartirish
+
+---
+
+## 🎯 :where()
+
+```css id="w3m9qp"
+:where(h1, h2, h3) {
+  margin: 0;
+}
+```
+
+### 🔍 Farqi:
+
+- `:is()` → specificity bor
+- `:where()` → specificity = 0 (eng past)
+
+---
+
+## 🧩 :has() — parent selector (juda kuchli)
+
+```css id="h9v2kl"
+div:has(img) {
+  border: 2px solid green;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- Ichida `img` bo‘lgan `div` ni tanlaydi
+- CSSda “parent selection” imkonini beradi
+
+---
+
+# 🔗 Link States
+
+## 🔵 :link
+
+```css id="l2x8pq"
+a:link {
+  color: blue;
+}
+```
+
+- hali bosilmagan link
+
+---
+
+## 🟣 :visited
+
+```css id="v8m2qn"
+a:visited {
+  color: purple;
+}
+```
+
+- oldin ochilgan link
+
+---
+
+# 📋 Form States
+
+## ☑️ :checked
+
+```css id="c1v9mx"
+input:checked {
+  accent-color: green;
+}
+```
+
+- checkbox/radio belgilangan holat
+
+---
+
+## 🚫 :disabled
+
+```css id="d9x2kp"
+button:disabled {
+  opacity: 0.5;
+}
+```
+
+---
+
+## ✅ :enabled
+
+```css id="e3m8tv"
+input:enabled {
+  border: 1px solid black;
+}
+```
+
+---
+
+# 🌐 :root — global scope
+
+```css id="r8v1qp"
+:root {
+  --main-color: blue;
+  --font-size: 16px;
+}
+```
+
+### 🔍 Qanday ishlaydi:
+
+- HTML documentning eng yuqori darajasi
+- CSS variables shu yerda saqlanadi
+
+### 📌 Misol:
+
+```css id="u1m9kd"
+body {
+  color: var(--main-color);
+  font-size: var(--font-size);
+}
+```
+
+---
+
+# 🧠 Xulosa
+
+| Category    | Pseudo-classes           |
+| ----------- | ------------------------ |
+| Interaction | :hover, :active, :focus  |
+| Structure   | :first-child, :nth-child |
+| Logic       | :not, :is, :where, :has  |
+| Links       | :link, :visited          |
+| Forms       | :checked, :disabled      |
+| Global      | :root                    |
+
+---
+
