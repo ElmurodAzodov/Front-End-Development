@@ -21,6 +21,7 @@ Agar viewport qo‘yilmasa, sayt mobil telefonda kichik (desktop kabi) ko‘rina
 
 ### 🔹 Tushuntirish:
 
+
 - `width=device-width` → ekran kengligini qurilma ekraniga teng qiladi
 - `initial-scale=1.0` → zoom 100% bo‘ladi
 
