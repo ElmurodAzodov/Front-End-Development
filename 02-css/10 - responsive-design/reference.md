@@ -33,6 +33,7 @@ Agar viewport qo‘yilmasa, sayt mobil telefonda kichik (desktop kabi) ko‘rina
 
 ---
 
+
 ## 📏 2. Media Queries
 
 ### 🔹 Nazariya
