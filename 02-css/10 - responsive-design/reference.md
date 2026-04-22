@@ -28,6 +28,7 @@ Agar viewport qo‘yilmasa, sayt mobil telefonda kichik (desktop kabi) ko‘rina
 
 ### 🔹 Natija:
 
+
 ✔ sayt telefon, planshet, desktopda moslashadi
 
 ---
