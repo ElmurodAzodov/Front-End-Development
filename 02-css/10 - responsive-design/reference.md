@@ -18,6 +18,7 @@ Agar viewport qo‘yilmasa, sayt mobil telefonda kichik (desktop kabi) ko‘rina
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
+
 ### 🔹 Tushuntirish:
 
 - `width=device-width` → ekran kengligini qurilma ekraniga teng qiladi
