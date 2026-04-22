@@ -13,6 +13,7 @@ Agar viewport qo‘yilmasa, sayt mobil telefonda kichik (desktop kabi) ko‘rina
 
 ### 🔹 HTML ichida ishlatiladi:
 
+
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
