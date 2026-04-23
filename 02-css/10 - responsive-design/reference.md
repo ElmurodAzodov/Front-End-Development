@@ -59,6 +59,7 @@ Ya’ni: “agar ekran shunday bo‘lsa, mana bu CSS ishlasin”.
 
 ### 🔹 Oddiy misol:
 
+
 ```css
 body {
   background: white;
