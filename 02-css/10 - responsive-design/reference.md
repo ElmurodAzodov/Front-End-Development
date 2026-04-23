@@ -92,6 +92,7 @@ Ekran kengligiga qarab ishlaydi.
 
 ### 🔹 Misol:
 
+
 ```css
 @media (max-width: 768px) {
   .box {
