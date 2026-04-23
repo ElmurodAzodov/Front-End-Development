@@ -65,6 +65,7 @@ body {
   background: white;
 }
 
+
 @media (max-width: 600px) {
   body {
     background: lightgray;
