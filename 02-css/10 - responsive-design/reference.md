@@ -46,6 +46,7 @@ Ya’ni: “agar ekran shunday bo‘lsa, mana bu CSS ishlasin”.
 
 ### 🔹 Syntax:
 
+
 ```css
 @media (shart) {
   selector {
