@@ -1022,3 +1022,526 @@ typeof null === "object"; // historical bug
 <br>
 <br>
 <br>
+
+# Type Checking — ULTIMATE REFERENCE
+
+---
+
+## 1. 📖 Definition
+
+**Type Checking (tipni tekshirish)** — bu JavaScript’da o‘zgaruvchining **qaysi data type (ma’lumot turi)** ga tegishli ekanligini aniqlash jarayoni.
+
+JavaScript **dynamically typed (dinamik tiplangan)** til bo‘lgani uchun:
+
+- variable tipi oldindan belgilanmaydi
+- runtime (ishlash vaqtida) aniqlanadi
+
+Shuning uchun type checking:
+
+- xatolarni oldini olish
+- noto‘g‘ri operatsiyalarni aniqlash
+- API validation qilish
+
+uchun muhim hisoblanadi.
+
+---
+
+## 2. 🎯 Nima uchun kerak (Why it exists)
+
+### Muammo:
+
+JavaScript’da quyidagi holatlar keng tarqalgan:
+
+```js
+"5" + 2; // "52"
+"5" - 2; // 3
+```
+
+👉 implicit coercion (majburiy tur o‘zgarishi) sabab:
+
+- buglar paydo bo‘ladi
+- noto‘g‘ri natijalar chiqadi
+
+---
+
+### Yechim:
+
+Type checking orqali:
+
+- aniq type bilan ishlash
+- xavfsiz kod yozish
+- runtime errorlarni kamaytirish
+
+---
+
+## 3. ⚙️ Qanday ishlaydi (Under the hood)
+
+### 🧠 Internal [[Class]] va Tag System
+
+JavaScript engine (masalan V8) har bir qiymatga ichki **[[Type]] yoki [[Class]]** beradi:
+
+```text
+Number → "number"
+String → "string"
+Object → "object"
+Array → "object" (muammo!)
+```
+
+---
+
+### 🔥 typeof operator ichida nima bo‘ladi?
+
+`typeof`:
+
+- qiymatni tekshiradi
+- string qaytaradi
+
+```text
+typeof value → string
+```
+
+---
+
+### ⚠️ Historical bug:
+
+```js
+typeof null === "object";
+```
+
+👉 Sababi:
+
+- eski implementation (32-bit tag system)
+- null pointer → object sifatida belgilangan
+
+---
+
+## 4. 🧩 Sintaksis va asosiy ishlatish
+
+---
+
+# 🔍 1. typeof operator (tipni aniqlash operatori)
+
+---
+
+## 📖 Definition
+
+**typeof operator** — qiymatning tipini aniqlab, string qaytaradi.
+
+---
+
+## 🧩 Syntax
+
+```js
+typeof value;
+```
+
+---
+
+## 📊 Natijalar
+
+| Value        | Natija      |
+| ------------ | ----------- |
+| 10           | "number"    |
+| "hi"         | "string"    |
+| true         | "boolean"   |
+| undefined    | "undefined" |
+| null         | ❌ "object" |
+| {}           | "object"    |
+| []           | "object"    |
+| function(){} | "function"  |
+
+---
+
+## ⚠️ Edge case
+
+```js
+typeof null; // "object" ❌
+```
+
+---
+
+```js
+typeof []; // "object" ❌ (arrayni aniqlamaydi)
+```
+
+---
+
+## 🧠 Best Practice
+
+```js
+if (value === null)
+```
+
+---
+
+```js
+if (Array.isArray(value))
+```
+
+---
+
+---
+
+# 🧱 2. instanceof operator (instance tekshirish operatori)
+
+---
+
+## 📖 Definition
+
+**instanceof operator** — object ma’lum constructor’dan (konstruktor funksiyadan) yaratilganmi yoki yo‘qmi tekshiradi.
+
+---
+
+## 🧩 Syntax
+
+```js
+obj instanceof Constructor;
+```
+
+---
+
+## 🧠 Under the hood
+
+`instanceof`:
+👉 prototype chain (prototip zanjiri) bo‘ylab tekshiradi
+
+```text
+obj.__proto__ → Constructor.prototype
+```
+
+---
+
+## 🧩 Misollar
+
+```js
+[] instanceof Array // true
+{} instanceof Object // true
+```
+
+---
+
+```js
+function User() {}
+const u = new User();
+
+u instanceof User; // true
+```
+
+---
+
+## ⚠️ Edge case
+
+### ❌ Cross-realm muammo (iframe, worker)
+
+```js
+iframeArray instanceof Array; // false
+```
+
+👉 Sababi: boshqa global context
+
+---
+
+## ⚠️ Primitive bilan ishlamaydi
+
+```js
+"hello" instanceof String; // false
+```
+
+---
+
+## 🧠 Best Practice
+
+- faqat objectlar uchun ishlat
+- array uchun emas (Array.isArray ishlat)
+
+---
+
+---
+
+# 🔢 3. Number.isNaN() vs isNaN()
+
+---
+
+## 📖 Definition
+
+**NaN (Not a Number — son emas)** ni tekshirish uchun 2 xil metod mavjud.
+
+---
+
+## ❌ isNaN() (global funksiya — global tekshiruvchi)
+
+---
+
+### 📌 Tavsif:
+
+- value’ni number’ga o‘giradi (type coercion — majburiy tur o‘zgarishi)
+- keyin tekshiradi
+
+---
+
+### 🧩 Misollar
+
+```js
+isNaN("hello"); // true ❌
+```
+
+👉 Sababi:
+
+```js
+Number("hello") → NaN
+```
+
+---
+
+## ✅ Number.isNaN() (aniq tekshiruvchi)
+
+---
+
+### 📌 Tavsif:
+
+- faqat NaN bo‘lsa true qaytaradi
+- coercion qilmaydi
+
+---
+
+### 🧩 Misollar
+
+```js
+Number.isNaN(NaN); // true
+Number.isNaN("hello"); // false ✅
+```
+
+---
+
+## 📊 Taqqoslash
+
+| Method       | Coercion | Accurate |
+| ------------ | -------- | -------- |
+| isNaN        | ✅ bor   | ❌ yo‘q  |
+| Number.isNaN | ❌ yo‘q  | ✅ aniq  |
+
+---
+
+## 🧠 Best Practice
+
+```js
+Number.isNaN(value);
+```
+
+---
+
+---
+
+# 📦 4. Array.isArray() (array tekshiruvchi)
+
+---
+
+## 📖 Definition
+
+**Array.isArray()** — qiymat array (massiv) ekanligini aniqlaydi.
+
+---
+
+## 🧩 Syntax
+
+```js
+Array.isArray(value);
+```
+
+---
+
+## 🧩 Misollar
+
+```js
+Array.isArray([]); // true
+Array.isArray({}); // false
+```
+
+---
+
+## ⚙️ Under the hood
+
+- internal [[Class]] tekshiradi
+- cross-realm muammosiz ishlaydi
+
+---
+
+## ⚠️ typeof bilan farqi
+
+```js
+typeof []; // "object" ❌
+```
+
+---
+
+## 🧠 Best Practice
+
+👉 har doim:
+
+```js
+Array.isArray(value);
+```
+
+---
+
+## 6. 🔄 Real-world misollar
+
+---
+
+### API validation
+
+```js
+function process(data) {
+  if (!Array.isArray(data)) {
+    throw new Error("Array bo‘lishi kerak");
+  }
+
+  return data.map((x) => x * 2);
+}
+```
+
+---
+
+### Safe type checking
+
+```js
+function safeParse(input) {
+  if (typeof input !== "string") return null;
+
+  try {
+    return JSON.parse(input);
+  } catch {
+    return null;
+  }
+}
+```
+
+---
+
+## 7. ⚠️ Keng tarqalgan xatolar
+
+---
+
+### ❌ typeof bilan array tekshirish
+
+```js
+typeof arr === "array"; // ❌ noto‘g‘ri
+```
+
+---
+
+### ❌ isNaN ishlatish
+
+```js
+isNaN("123abc"); // true ❌
+```
+
+---
+
+### ❌ instanceof primitive
+
+```js
+5 instanceof Number; // false
+```
+
+---
+
+## 8. 🧠 Best Practices
+
+---
+
+- `typeof` → primitive uchun
+- `instanceof` → object uchun
+- `Array.isArray` → array uchun
+- `Number.isNaN` → NaN uchun
+
+---
+
+## 9. 🚀 Performance va Memory
+
+---
+
+- `typeof` → eng tez
+- `instanceof` → prototype chain traversal (sekinroq)
+- `Array.isArray` → optimized native
+
+---
+
+## 10. 🆚 Eski vs Yangi
+
+| Eski         | Yangi         |
+| ------------ | ------------- |
+| isNaN        | Number.isNaN  |
+| typeof array | Array.isArray |
+
+---
+
+## 11. 🎯 Pro Tips
+
+---
+
+### 🔥 Universal type check
+
+```js
+Object.prototype.toString.call(value);
+```
+
+---
+
+```js
+Object.prototype.toString.call([]);
+// "[object Array]"
+```
+
+---
+
+### 🔥 Custom type guard
+
+```js
+function isObject(val) {
+  return val !== null && typeof val === "object";
+}
+```
+
+---
+
+## 12. ❓ Interview Questions
+
+1. typeof null nima?
+   → "object" (bug)
+
+2. arrayni qanday tekshirasan?
+   → Array.isArray
+
+3. instanceof qanday ishlaydi?
+   → prototype chain
+
+4. isNaN vs Number.isNaN?
+   → coercion vs strict
+
+5. typeof function?
+   → "function"
+
+6. primitive instanceof?
+   → ishlamaydi
+
+7. cross-realm muammo?
+   → instanceof
+
+8. typeof []?
+   → object
+
+9. NaN === NaN?
+   → false
+
+10. eng xavfsiz type check?
+    → combination
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
