@@ -1545,3 +1545,516 @@ function isObject(val) {
 <br>
 <br>
 
+# Type Conversion (Tipni o‘zgartirish) — ULTIMATE REFERENCE
+
+---
+
+## 1. 📖 Definition
+
+**Type Conversion (tipni o‘zgartirish)** — bu JavaScript’da bir data type (ma’lumot turi) ni boshqa turga o‘zgartirish jarayoni.
+
+JavaScript’da bu 2 xil bo‘ladi:
+
+- **Explicit conversion (aniq/qo‘lda o‘zgartirish)**
+- **Implicit conversion / Type coercion (avtomatik o‘zgartirish)**
+
+---
+
+## 2. 🎯 Nima uchun kerak (Why it exists)
+
+### Muammo:
+
+JavaScript dynamic typed (dinamik tiplangan), ya’ni:
+
+```js
+let x = "10";
+let y = 5;
+```
+
+Bu yerda:
+
+- biri string (matn)
+- biri number (son)
+
+👉 Agar conversion bo‘lmasa:
+
+- operatsiyalar noto‘g‘ri ishlaydi
+- buglar chiqadi
+
+---
+
+### Yechim:
+
+Type conversion orqali:
+
+- tur moslashadi
+- operatsiyalar to‘g‘ri bajariladi
+- input validation qilinadi
+
+---
+
+## 3. ⚙️ Qanday ishlaydi (Under the hood)
+
+JavaScript engine (masalan V8) ichida:
+
+### 🔥 Abstract Operations (ichki operatsiyalar)
+
+```text
+ToNumber()
+ToString()
+ToBoolean()
+```
+
+Bu funksiyalar:
+
+- operatorlar ishlaganda avtomatik chaqiriladi
+
+---
+
+### 🔁 Misol:
+
+```js
+"5" - 1;
+```
+
+Engine:
+
+```text
+ToNumber("5") → 5
+5 - 1 → 4
+```
+
+---
+
+### ⚠️ Murakkab misol:
+
+```js
+[] + {};
+```
+
+```text
+ToPrimitive([]) → ""
+ToPrimitive({}) → "[object Object]"
+Natija: "[object Object]"
+```
+
+---
+
+## 4. 🧩 Explicit Conversion (aniq o‘zgartirish)
+
+---
+
+# 🔢 1. Number() (songa o‘girish)
+
+---
+
+## 📖 Definition
+
+`Number()` — qiymatni number (son) ga o‘giradi.
+
+---
+
+## 🧩 Syntax
+
+```js
+Number(value);
+```
+
+---
+
+## 🧩 Misollar
+
+```js
+Number("123"); // 123
+Number("123.45"); // 123.45
+Number(""); // 0
+Number("hello"); // NaN
+```
+
+---
+
+## ⚠️ Edge cases
+
+```js
+Number(null); // 0
+Number(undefined); // NaN
+```
+
+---
+
+## 🧠 Best Practice
+
+- har doim input validation bilan ishlat
+
+---
+
+---
+
+# 🔤 2. String() (matnga o‘girish)
+
+---
+
+## 📖 Definition
+
+`String()` — qiymatni string (matn) ga o‘giradi.
+
+---
+
+## 🧩 Misollar
+
+```js
+String(123); // "123"
+String(true); // "true"
+String(null); // "null"
+```
+
+---
+
+## ⚠️ Edge case
+
+```js
+String(Symbol()); // ❌ Error
+```
+
+---
+
+---
+
+# 🔘 3. Boolean() (mantiqiy qiymatga o‘girish)
+
+---
+
+## 📖 Definition
+
+`Boolean()` — qiymatni true/false ga o‘giradi
+
+---
+
+## 🧩 Misollar
+
+```js
+Boolean(1); // true
+Boolean(0); // false
+Boolean(""); // false
+Boolean("hi"); // true
+```
+
+---
+
+## 📊 Falsy values (false bo‘ladigan qiymatlar)
+
+```js
+false;
+0;
+("");
+null;
+undefined;
+NaN;
+```
+
+---
+
+---
+
+# 🔢 4. parseInt() (butun songa o‘girish)
+
+---
+
+## 📖 Definition
+
+`parseInt()` — string’dan integer (butun son) chiqaradi
+
+---
+
+## 🧩 Syntax
+
+```js
+parseInt(string, radix);
+```
+
+---
+
+## 🧩 Misollar
+
+```js
+parseInt("123"); // 123
+parseInt("123px"); // 123
+parseInt("10", 2); // 2
+```
+
+---
+
+## ⚠️ Edge case
+
+```js
+parseInt("abc"); // NaN
+```
+
+---
+
+---
+
+# 🔢 5. parseFloat() (kasr songa o‘girish)
+
+---
+
+## 📖 Definition
+
+`parseFloat()` — string’dan float (kasr son) chiqaradi
+
+---
+
+## 🧩 Misollar
+
+```js
+parseFloat("10.5"); // 10.5
+parseFloat("10.5px"); // 10.5
+```
+
+---
+
+---
+
+# 🔄 Implicit Conversion (type coercion — avtomatik o‘zgartirish)
+
+---
+
+## 📖 Definition
+
+**Implicit conversion (avtomatik o‘zgartirish)** — JavaScript operator ishlaganda type’ni o‘zi o‘zgartiradi.
+
+---
+
+## ⚙️ Qanday ishlaydi
+
+Operatorga qarab:
+
+| Operator | Conversion        |
+| -------- | ----------------- |
+| +        | stringga o‘giradi |
+| -, \*, / | numberga o‘giradi |
+
+---
+
+## 🧩 Misollar
+
+```js
+"5" + 2; // "52"
+"5" - 2; // 3
+true + 1; // 2
+```
+
+---
+
+## ⚠️ Murakkab misollar
+
+```js
+[] + []       // ""
+[] + {}       // "[object Object]"
+{} + []       // 0
+```
+
+---
+
+## 🧠 Best Practice
+
+👉 implicit conversion’dan qoch
+
+---
+
+---
+
+# 🔁 toString() method (stringga o‘girish metodi)
+
+---
+
+## 📖 Definition
+
+`toString()` — object yoki primitive’ni stringga o‘giradi
+
+---
+
+## 🧩 Misollar
+
+```js
+(123).toString(); // "123"
+true.toString(); // "true"
+```
+
+---
+
+## ⚠️ Edge case
+
+```js
+null.toString(); // ❌ Error
+undefined.toString(); // ❌ Error
+```
+
+---
+
+## 🧠 Alternative
+
+```js
+String(null); // "null"
+```
+
+---
+
+---
+
+## 6. 🔄 Real-world misollar
+
+---
+
+### Form input parsing
+
+```js
+function getAge(input) {
+  const age = Number(input);
+
+  if (Number.isNaN(age)) {
+    throw new Error("Invalid age");
+  }
+
+  return age;
+}
+```
+
+---
+
+### Boolean logic
+
+```js
+const isLoggedIn = Boolean(user);
+```
+
+---
+
+### URL params
+
+```js
+const page = parseInt(query.page, 10) || 1;
+```
+
+---
+
+---
+
+## 7. ⚠️ Keng tarqalgan xatolar (Pitfalls)
+
+---
+
+### ❌ + operator noto‘g‘ri ishlatish
+
+```js
+"5" + 2; // "52"
+```
+
+---
+
+### ❌ parseInt radixsiz
+
+```js
+parseInt("08"); // noaniq
+```
+
+---
+
+### ❌ NaN tekshirish
+
+```js
+NaN === NaN; // false
+```
+
+---
+
+---
+
+## 8. 🧠 Best Practices
+
+---
+
+- Har doim explicit conversion ishlat
+- `Number.isNaN` ishlat
+- `parseInt` bilan radix ber
+- `===` ishlat
+
+---
+
+---
+
+## 9. 🚀 Performance va Memory
+
+---
+
+- implicit conversion → unpredictable
+- explicit conversion → optimized
+
+---
+
+---
+
+## 10. 🆚 Eski vs Yangi
+
+| Eski       | Yangi        |
+| ---------- | ------------ |
+| isNaN      | Number.isNaN |
+| + coercion | Number()     |
+
+---
+
+---
+
+## 11. 🎯 Pro Tips
+
+---
+
+### 🔥 Unary plus
+
+```js
++"123"; // 123
+```
+
+---
+
+### 🔥 Double NOT (!!)
+
+```js
+!!value; // boolean
+```
+
+---
+
+### 🔥 Safe number parse
+
+```js
+const num = Number(value) || 0;
+```
+
+---
+
+---
+
+## 12. ❓ Interview Questions
+
+1. implicit vs explicit?
+2. NaN nima?
+3. parseInt vs Number?
+4. - operator qanday ishlaydi?
+5. [] + {} natija?
+6. Boolean falsy?
+7. toString qayerda ishlamaydi?
+8. Number(null)?
+9. Number(undefined)?
+10. coercion xavfi?
+
+---
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
