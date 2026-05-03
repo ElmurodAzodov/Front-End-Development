@@ -2049,12 +2049,3 @@ const num = Number(value) || 0;
 10. coercion xavfi?
 
 ---
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
