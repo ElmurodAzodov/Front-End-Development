@@ -386,3 +386,4 @@ Element orqa tomoni ko‘rinishini boshqaradi (flip kartalar uchun juda muhim).
 - `will-change: transform;` ni vaqtincha qo‘shing.
 
 ---
+
