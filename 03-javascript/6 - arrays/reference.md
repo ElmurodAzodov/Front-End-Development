@@ -4401,3 +4401,355 @@ arr.find(...)
 ```
 
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 📦 Multidimensional Arrays (JS)
+
+Multidimensional array — bu **array ichida array** bo‘lishidir. Eng ko‘p ishlatiladigani 2D (ikki o‘lchovli) array.
+
+---
+
+# 🔹 1. 2D Array (eng asosiy)
+
+## Misol: matrix
+
+```js id="a1m9q7"
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+```
+
+---
+
+# 🔹 Elementga kirish
+
+Indexlar zanjir bo‘lib ishlaydi:
+
+```js id="k8q2m1"
+console.log(matrix[0][0]); // 1
+console.log(matrix[1][2]); // 6
+console.log(matrix[2][1]); // 8
+```
+
+---
+
+# 🔹 Qanday ishlaydi?
+
+```txt id="x7m2q9"
+matrix[row][column]
+```
+
+- `matrix[1]` → 2-qator
+- `matrix[1][2]` → shu qatordagi 3-element
+
+---
+
+# 🔹 Loop qilish (2D array)
+
+```js id="v4q8m2"
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log(matrix[i][j]);
+  }
+}
+```
+
+---
+
+# 🔹 Real use-case
+
+## Game grid
+
+```js id="t1m7q8"
+const board = [
+  ["X", "O", "X"],
+  ["O", "X", "O"],
+  ["X", "X", "O"],
+];
+```
+
+---
+
+# 🔹 3D Array (kamroq ishlatiladi)
+
+```js id="q6m2v8"
+const cube = [
+  [
+    [1, 2],
+    [3, 4],
+  ],
+  [
+    [5, 6],
+    [7, 8],
+  ],
+];
+```
+
+---
+
+# 🔹 Access
+
+```js id="m9q1x7"
+console.log(cube[1][0][1]); // 6
+```
+
+---
+
+# 🎯 Array Destructuring (ES6+)
+
+Destructuring — array ichidagi qiymatlarni **o‘zgaruvchilarga ajratib olish**.
+
+---
+
+# 🔹 1. Oddiy destructuring
+
+```js id="k4m7q2"
+const arr = [1, 2, 3];
+
+const [a, b, c] = arr;
+
+console.log(a, b, c);
+```
+
+Natija:
+
+```js id="v2q8m1"
+1 2 3
+```
+
+---
+
+# 🔹 2. Qisman olish
+
+```js id="x1m9q4"
+const arr = [10, 20, 30, 40];
+
+const [first, second] = arr;
+
+console.log(first, second);
+```
+
+---
+
+# 🔹 3. Skip qilish
+
+```js id="q7m3v8"
+const arr = [1, 2, 3];
+
+const [a, , c] = arr;
+
+console.log(a, c);
+```
+
+Natija:
+
+```js id="m8q1x2"
+1 3
+```
+
+---
+
+# 🔹 4. Default value
+
+```js id="v6m2q9"
+const arr = [1];
+
+const [a, b = 10] = arr;
+
+console.log(a, b);
+```
+
+Natija:
+
+```js id="t3q7m1"
+1 10
+```
+
+---
+
+# 🔹 5. Rest operator
+
+```js id="k9m1v4"
+const arr = [1, 2, 3, 4];
+
+const [a, ...rest] = arr;
+
+console.log(a);
+console.log(rest);
+```
+
+Natija:
+
+```js id="q2m8x7"
+(1)[(2, 3, 4)];
+```
+
+---
+
+# 🔹 6. Swap (eng muhim trick)
+
+```js id="m5q1v9"
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+console.log(a, b);
+```
+
+Natija:
+
+```js id="x7m3q8"
+2 1
+```
+
+---
+
+# 🔹 7. Nested destructuring
+
+```js id="v1q8m2"
+const arr = [1, [2, 3]];
+
+const [a, [b, c]] = arr;
+
+console.log(a, b, c);
+```
+
+Natija:
+
+```js id="m4q9x1"
+1 2 3
+```
+
+---
+
+# 🔹 8. Function bilan destructuring
+
+```js id="q8m2v7"
+function getCoords() {
+  return [10, 20];
+}
+
+const [x, y] = getCoords();
+
+console.log(x, y);
+```
+
+---
+
+# ⏱️ Array Performance
+
+Array performance — katta data bilan ishlaganda juda muhim.
+
+---
+
+# 🔹 1. Access (juda tez)
+
+```js id="m7q2x9"
+arr[i];
+```
+
+👉 **O(1)** — juda tez
+
+---
+
+# 🔹 2. push/pop (tez)
+
+```js id="v3m8q1"
+arr.push();
+arr.pop();
+```
+
+👉 **O(1)**
+
+---
+
+# 🔹 3. shift/unshift (sekinroq)
+
+```js id="q1m7v4"
+arr.shift();
+arr.unshift();
+```
+
+👉 **O(n)**
+
+Sabab: hamma elementlar siljiydi
+
+---
+
+# 🔹 4. splice (o‘rta-sekin)
+
+```js id="m8q2x7"
+arr.splice();
+```
+
+👉 **O(n)**
+
+---
+
+# 🔹 5. map/filter/reduce
+
+```js id="v6q1m9"
+arr.map(...)
+arr.filter(...)
+arr.reduce(...)
+```
+
+👉 **O(n)**
+
+---
+
+# 🔹 6. sort (sekin)
+
+```js id="q9m3v2"
+arr.sort();
+```
+
+👉 **O(n log n)**
+
+---
+
+# 🔹 7. includes/indexOf (sekinroq)
+
+```js id="m2q8x1"
+arr.includes(x);
+```
+
+👉 **O(n)**
+
+---
+
+# 🔥 Performance comparison
+
+| Operation     | Speed      |
+| ------------- | ---------- |
+| arr[i]        | ⭐⭐⭐⭐⭐ |
+| push/pop      | ⭐⭐⭐⭐⭐ |
+| map/filter    | ⭐⭐⭐⭐   |
+| splice        | ⭐⭐⭐     |
+| shift/unshift | ⭐⭐       |
+| sort          | ⭐⭐       |
+
+---
+
+# 🎯 MUHIM REAL INSIGHT
+
+## Array performance qoidasi:
+
+> “Boshidan ishlash sekin, oxiridan ishlash tez”
+
+---
+
+# 🔹 Nega?
+
+- boshidan (`shift/unshift`) → barcha elementlar siljiydi
+- oxiridan (`push/pop`) → faqat bitta element o‘zgaradi
+
+---
