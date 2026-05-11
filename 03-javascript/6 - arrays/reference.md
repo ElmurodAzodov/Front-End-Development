@@ -1695,3 +1695,906 @@ Bu JavaScript arraylaridagi eng muhim farqlardan biri.
 <br>
 <br>
 
+# 📏 Array Properties: `length`
+
+JavaScript arraylaridagi eng muhim propertylardan biri:
+
+```js id="8tzahv"
+length
+```
+
+`length` array ichidagi elementlar sonini bildiradi.
+
+---
+
+# Sintaksis
+
+```js id="c2e5e6"
+array.length
+```
+
+---
+
+# Oddiy misol
+
+```js id="g8r71u"
+const fruits = ["apple", "banana", "orange"];
+
+console.log(fruits.length);
+```
+
+Natija:
+
+```js id="9n1v45"
+3
+```
+
+---
+
+# `length` nima qaytaradi?
+
+Arraydagi:
+
+> eng katta index + 1
+
+ni qaytaradi.
+
+Bu juda muhim.
+
+---
+
+# Misol
+
+```js id="jsr7kp"
+const arr = ["a", "b", "c"];
+```
+
+Indexlar:
+
+| Index | Value |
+| ----- | ----- |
+| 0     | "a"   |
+| 1     | "b"   |
+| 2     | "c"   |
+
+Eng katta index:
+
+```js id="4uj8tq"
+2
+```
+
+Shuning uchun:
+
+```js id="jlwmck"
+length === 3
+```
+
+---
+
+# Bo‘sh array
+
+```js id="bmv1b7"
+const arr = [];
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="um0i1u"
+0
+```
+
+---
+
+# Length dynamic property
+
+`length` avtomatik yangilanadi.
+
+---
+
+# Element qo‘shilganda
+
+```js id="5gmbhb"
+const arr = [1, 2];
+
+arr.push(3);
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="0m5y6g"
+3
+```
+
+---
+
+# Index orqali qo‘shilganda
+
+```js id="8thvcz"
+const arr = [1, 2];
+
+arr[2] = 3;
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="x5vz1u"
+3
+```
+
+---
+
+# Massive index
+
+```js id="o4q74k"
+const arr = [];
+
+arr[100] = "hello";
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="6xob9m"
+101
+```
+
+---
+
+# Nega 101?
+
+Sabab:
+
+Eng katta index:
+
+```js id="0khb9r"
+100
+```
+
+Length:
+
+```js id="q6zcm1"
+100 + 1
+```
+
+---
+
+# Sparse Array va length
+
+```js id="zwwa6s"
+const arr = [];
+
+arr[5] = "x";
+
+console.log(arr);
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="civ7to"
+[empty × 5, "x"]
+6
+```
+
+---
+
+# Muhim tushuncha
+
+`length`:
+
+❌ haqiqiy elementlar sonini emas
+
+✅ eng katta index + 1 ni saqlaydi.
+
+---
+
+# Real element count emas
+
+Misol:
+
+```js id="t8kt1t"
+const arr = [];
+
+arr[1000] = "x";
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="3m3q2l"
+1001
+```
+
+Lekin real element faqat bitta.
+
+---
+
+# `length` writable property
+
+Bu juda muhim.
+
+JavaScript’da:
+
+```js id="w0m8f8"
+length
+```
+
+ni o‘zgartirish mumkin.
+
+---
+
+# Length kamaytirish
+
+```js id="6l3xtf"
+const arr = [1, 2, 3, 4];
+
+arr.length = 2;
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="4v6cdu"
+[1, 2]
+```
+
+---
+
+# Nima bo‘ldi?
+
+Array truncate qilindi.
+
+Elementlar o‘chirildi.
+
+---
+
+# Memory behavior
+
+```js id="y3h5sj"
+const arr = [1,2,3,4];
+
+arr.length = 1;
+```
+
+Qoladigan array:
+
+```js id="h1u5mq"
+[1]
+```
+
+Qolgan elementlar remove qilinadi.
+
+---
+
+# Length 0 qilish
+
+Arrayni tozalashning mashhur usuli.
+
+```js id="w9uoq6"
+const arr = [1,2,3];
+
+arr.length = 0;
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="ln8qnm"
+[]
+```
+
+---
+
+# Bu juda tez ishlaydi
+
+Sabab:
+engine optimized.
+
+---
+
+# Length oshirish
+
+```js id="5wdb5x"
+const arr = [1,2];
+
+arr.length = 5;
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="xv2v3v"
+[1, 2, empty × 3]
+```
+
+---
+
+# Empty slots yaratiladi
+
+Bu sparse array.
+
+---
+
+# Muhim farq
+
+```js id="kn7hzt"
+[undefined, undefined]
+```
+
+vs
+
+```js id="g4xk4v"
+new Array(2)
+```
+
+Ikkinchisida empty slots bor.
+
+---
+
+# Tekshirish
+
+```js id="r0ktn8"
+0 in [undefined]
+```
+
+Natija:
+
+```js id="8zhz7r"
+true
+```
+
+---
+
+```js id="0qv7s8"
+0 in new Array(2)
+```
+
+Natija:
+
+```js id="v8phvq"
+false
+```
+
+---
+
+# Length va loop
+
+Eng ko‘p ishlatiladigan pattern:
+
+```js id="h10uxl"
+const arr = ["a", "b", "c"];
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+```
+
+---
+
+# Nega `< length`?
+
+Indexlar:
+
+```txt id="xh6z6o"
+0 1 2
+```
+
+Length:
+
+```txt id="jlwmk0"
+3
+```
+
+Oxirgi valid index:
+
+```js id="6tr8o0"
+length - 1
+```
+
+---
+
+# Common bug
+
+## ❌ Xato
+
+```js id="f5wbqz"
+for (let i = 0; i <= arr.length; i++)
+```
+
+Bu:
+
+```js id="c6nl0s"
+arr[arr.length]
+```
+
+ga kiradi.
+
+Natija:
+
+```js id="pkh8l8"
+undefined
+```
+
+---
+
+# To‘g‘ri
+
+```js id="w03i7m"
+i < arr.length
+```
+
+---
+
+# Length cache qilish
+
+Performance optimization.
+
+---
+
+# Oddiy
+
+```js id="s4q7tx"
+for (let i = 0; i < arr.length; i++)
+```
+
+Har iterationda `length` o‘qiladi.
+
+---
+
+# Cache version
+
+```js id="cb0h4w"
+for (let i = 0, len = arr.length; i < len; i++)
+```
+
+---
+
+# Zamonaviy engine
+
+Ko‘pincha optimization qiladi.
+
+Lekin katta looplarda ishlatiladi.
+
+---
+
+# Array methods va length
+
+Ko‘p array methodlar `length` asosida ishlaydi.
+
+---
+
+# forEach
+
+```js id="7l0o5k"
+arr.forEach(...)
+```
+
+`length` bo‘yicha iterate qiladi.
+
+---
+
+# map
+
+```js id="eoq7v8"
+arr.map(...)
+```
+
+ham `length` ishlatadi.
+
+---
+
+# Sparse array behavior
+
+```js id="3aq1j6"
+const arr = new Array(5);
+
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="7ikd8r"
+5
+```
+
+Lekin:
+
+```js id="hzpg6w"
+arr.forEach(x => console.log(x));
+```
+
+Hech narsa chiqarmaydi.
+
+---
+
+# Sabab
+
+Empty slotlar iterate qilinmaydi.
+
+---
+
+# delete operator va length
+
+Bu juda muhim.
+
+---
+
+# delete element
+
+```js id="9d95yq"
+const arr = [1,2,3];
+
+delete arr[1];
+
+console.log(arr);
+console.log(arr.length);
+```
+
+Natija:
+
+```js id="l6dpkm"
+[1, empty, 3]
+3
+```
+
+---
+
+# Length kamaymadi
+
+Sabab:
+`delete` slotni bo‘shatadi.
+
+Element remove qilmaydi.
+
+---
+
+# To‘g‘ri remove usuli
+
+```js id="62zy65"
+arr.splice(1,1)
+```
+
+---
+
+# Length descriptor
+
+`length` oddiy property emas.
+
+Special internal behavior bor.
+
+---
+
+# Property descriptor
+
+```js id="g2m4b8"
+Object.getOwnPropertyDescriptor([], "length");
+```
+
+Natija taxminan:
+
+```js id="1p8oy0"
+{
+  value: 0,
+  writable: true,
+  enumerable: false,
+  configurable: false
+}
+```
+
+---
+
+# Writable
+
+```js id="1zh8m8"
+arr.length = 0
+```
+
+ishlaydi.
+
+---
+
+# Enumerable emas
+
+Looplarda ko‘rinmaydi.
+
+---
+
+# Configurable emas
+
+Delete qilib bo‘lmaydi.
+
+---
+
+# Maximum array length
+
+JavaScript array max length:
+
+```js id="4d2m9e"
+2^32 - 1
+```
+
+ya’ni:
+
+```js id="pczk46"
+4294967295
+```
+
+---
+
+# Invalid length
+
+```js id="3u2h0h"
+const arr = [];
+
+arr.length = -1;
+```
+
+Natija:
+
+```js id="ckf0jm"
+RangeError
+```
+
+---
+
+# Float ham mumkin emas
+
+```js id="11l4az"
+arr.length = 3.5
+```
+
+Error.
+
+---
+
+# Valid length
+
+* integer
+* > = 0
+* <= 2³²−1
+
+---
+
+# Array constructor bilan bog‘liqligi
+
+```js id="f0ljpc"
+new Array(5)
+```
+
+Bu:
+
+```js id="3qjjfj"
+length = 5
+```
+
+bo‘lgan sparse array yaratadi.
+
+---
+
+# fill bilan
+
+```js id="tn8dn8"
+new Array(5).fill(0)
+```
+
+Natija:
+
+```js id="m3ajlz"
+[0,0,0,0,0]
+```
+
+---
+
+# Last element patterns
+
+## Oxirgi element
+
+```js id="0yks7m"
+arr[arr.length - 1]
+```
+
+---
+
+# Ikkinchi oxirgi
+
+```js id="1sj5om"
+arr[arr.length - 2]
+```
+
+---
+
+# at() bilan
+
+```js id="lj1y8e"
+arr.at(-1)
+```
+
+---
+
+# Empty array muammosi
+
+```js id="s91m40"
+const arr = [];
+
+console.log(arr[arr.length - 1]);
+```
+
+Natija:
+
+```js id="4xpv0m"
+undefined
+```
+
+Sabab:
+
+```js id="j6wvh6"
+arr[-1]
+```
+
+bo‘ladi.
+
+---
+
+# Array-like objects
+
+`length` array-like objectlarda ham ishlatiladi.
+
+---
+
+# Misol
+
+```js id="xk4m2g"
+const obj = {
+  0: "a",
+  1: "b",
+  length: 2
+};
+```
+
+---
+
+# Array.from()
+
+```js id="2i2nd9"
+Array.from(obj)
+```
+
+Natija:
+
+```js id="v6ovtz"
+["a", "b"]
+```
+
+---
+
+# Function arguments
+
+Eski JS’da:
+
+```js id="h8dyjz"
+function test() {
+  console.log(arguments.length);
+}
+
+test(1,2,3);
+```
+
+Natija:
+
+```js id="mr8w4s"
+3
+```
+
+---
+
+# Summary
+
+# `length` nima?
+
+```js id="d1ytk3"
+array.length
+```
+
+→ eng katta index + 1
+
+---
+
+# Muhim behaviorlar
+
+## Auto update
+
+```js id="bg1mkk"
+arr.push()
+```
+
+length oshadi.
+
+---
+
+## Writable
+
+```js id="t4tn1w"
+arr.length = 0
+```
+
+array clear qiladi.
+
+---
+
+## Sparse arrays
+
+```js id="2xpgxu"
+arr[100] = "x"
+```
+
+→ length `101`
+
+---
+
+## delete
+
+```js id="2ww2eh"
+delete arr[1]
+```
+
+length kamaymaydi.
+
+---
+
+# Muhim formulalar
+
+Oxirgi element:
+
+```js id="2b42zx"
+arr[arr.length - 1]
+```
+
+Loop:
+
+```js id="lsm3zd"
+for(let i = 0; i < arr.length; i++)
+```
+
+---
+
+# Eng ko‘p ishlatiladigan patternlar
+
+## Array clear
+
+```js id="1rj22l"
+arr.length = 0
+```
+
+---
+
+## Last item
+
+```js id="3dbep7"
+arr.at(-1)
+```
+
+yoki:
+
+```js id="5hyltu"
+arr[arr.length - 1]
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
