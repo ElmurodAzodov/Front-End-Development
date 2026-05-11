@@ -3886,3 +3886,518 @@ Ko‘p buglar shu yerda chiqadi.
 
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 🔄 Iteration Methods (JavaScript Array)
+
+Iteration methods — array ustida **loop qilish, transform qilish, filterlash, tekshirish va hisoblash** uchun ishlatiladi.
+
+Bu metodlar callback function qabul qiladi va array elementlari bilan ishlaydi.
+
+---
+
+# 🔹 1. `forEach()` — oddiy loop
+
+Array elementlarini aylanib chiqadi, lekin yangi array qaytarmaydi.
+
+---
+
+## Sintaksis
+
+```js id="f1a8kq"
+array.forEach((value, index, array) => {});
+```
+
+---
+
+## Misol
+
+```js id="m4q7w1"
+const arr = [1, 2, 3];
+
+arr.forEach((value) => {
+  console.log(value);
+});
+```
+
+Natija:
+
+```js id="t9v2x8"
+1;
+2;
+3;
+```
+
+---
+
+## Index bilan
+
+```js id="h6m3q9"
+arr.forEach((value, index) => {
+  console.log(index, value);
+});
+```
+
+---
+
+## Muhim
+
+- ❌ return yo‘q
+- ❌ break / continue ishlamaydi
+- ❌ yangi array yaratmaydi
+
+---
+
+# 🔹 2. `map()` — transform qilish
+
+Har bir elementni o‘zgartirib yangi array yaratadi.
+
+---
+
+## Sintaksis
+
+```js id="k8q2v6"
+array.map((value, index, array) => {});
+```
+
+---
+
+## Misol
+
+```js id="a7m1t4"
+const arr = [1, 2, 3];
+
+const result = arr.map((x) => x * 2);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="n3v9q1"
+[2, 4, 6];
+```
+
+---
+
+## Muhim
+
+- ✅ yangi array qaytaradi
+- ❌ original array o‘zgarmaydi
+
+---
+
+## Real use-case
+
+```js id="u2x8m5"
+const users = [{ name: "Ali" }, { name: "Vali" }];
+
+const names = users.map((u) => u.name);
+```
+
+---
+
+# 🔹 3. `filter()` — filter qilish
+
+Shartga mos elementlarni tanlab yangi array yaratadi.
+
+---
+
+## Sintaksis
+
+```js id="q5m7x1"
+array.filter((value, index, array) => condition);
+```
+
+---
+
+## Misol
+
+```js id="w1t8k3"
+const arr = [1, 2, 3, 4];
+
+const result = arr.filter((x) => x % 2 === 0);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="c9v2m8"
+[2, 4];
+```
+
+---
+
+## Muhim
+
+- ❌ original array o‘zgarmaydi
+- ❌ false elementlar olib tashlanadi
+
+---
+
+# 🔹 4. `reduce()` — yig‘ish (accumulate)
+
+Arrayni bitta qiymatga aylantiradi.
+
+---
+
+## Sintaksis
+
+```js id="r2m8q5"
+array.reduce((acc, value, index, array) => {}, initialValue);
+```
+
+---
+
+## Misol (sum)
+
+```js id="v7m1x9"
+const arr = [1, 2, 3];
+
+const sum = arr.reduce((acc, val) => acc + val, 0);
+
+console.log(sum);
+```
+
+Natija:
+
+```js id="k4q8w2"
+6;
+```
+
+---
+
+## Qanday ishlaydi?
+
+```txt id="x8m2v1"
+acc = 0
+1 → 1
+2 → 3
+3 → 6
+```
+
+---
+
+## Real use-case
+
+Object group qilish:
+
+```js id="p5m1q7"
+const users = [{ age: 20 }, { age: 30 }];
+
+const total = users.reduce((sum, u) => sum + u.age, 0);
+```
+
+---
+
+# 🔹 5. `reduceRight()`
+
+`reduce()` bilan bir xil, lekin o‘ngdan chapga ishlaydi.
+
+---
+
+## Misol
+
+```js id="z2m8q1"
+const arr = ["a", "b", "c"];
+
+const result = arr.reduceRight((acc, val) => acc + val);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="t7q1m4"
+"cba";
+```
+
+---
+
+# 🔹 6. `every()` — hammasi true bo‘lishi kerak
+
+Barcha elementlar shartga mosligini tekshiradi.
+
+---
+
+## Misol
+
+```js id="h4m7q2"
+const arr = [2, 4, 6];
+
+console.log(arr.every((x) => x % 2 === 0));
+```
+
+Natija:
+
+```js id="n8q1v6"
+true;
+```
+
+---
+
+## Agar bittasi false bo‘lsa
+
+```js id="k3m9x1"
+[2, 3, 4].every((x) => x % 2 === 0);
+```
+
+Natija:
+
+```js id="w2q7m8"
+false;
+```
+
+---
+
+# 🔹 7. `some()` — kamida bittasi true
+
+Hech bo‘lmasa bitta element shartga mos bo‘lsa true qaytaradi.
+
+---
+
+## Misol
+
+```js id="m7q2v9"
+const arr = [1, 2, 3];
+
+console.log(arr.some((x) => x > 2));
+```
+
+Natija:
+
+```js id="v1m8q3"
+true;
+```
+
+---
+
+## Hech biri mos bo‘lmasa
+
+```js id="q8m2x7"
+[1, 2, 3].some((x) => x > 10);
+```
+
+Natija:
+
+```js id="t4q9m1"
+false;
+```
+
+---
+
+# 🔹 8. `flat()` — array flatten qilish (ES10+)
+
+Nested arraylarni tekislaydi.
+
+---
+
+## Misol
+
+```js id="a9m2q8"
+const arr = [1, [2, 3], [4]];
+
+console.log(arr.flat());
+```
+
+Natija:
+
+```js id="k1q7m4"
+[1, 2, 3, 4];
+```
+
+---
+
+## Depth (chuqurlik)
+
+```js id="x2m8q1"
+const arr = [1, [2, [3]]];
+
+console.log(arr.flat(2));
+```
+
+Natija:
+
+```js id="v8m3q7"
+[1, 2, 3];
+```
+
+---
+
+## Infinity flatten
+
+```js id="q1m7x9"
+arr.flat(Infinity);
+```
+
+---
+
+# 🔹 9. `flatMap()` — map + flat (ES10+)
+
+Avval map qiladi, keyin flatten qiladi (1 level).
+
+---
+
+## Misol
+
+```js id="m8q1v7"
+const arr = [1, 2, 3];
+
+const result = arr.flatMap((x) => [x, x * 2]);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="t2m7q4"
+[1, 2, 2, 4, 3, 6];
+```
+
+---
+
+## Oddiy equivalent
+
+```js id="v4m9q1"
+arr.map(...).flat()
+```
+
+---
+
+# 🔹 10. `findLast()` (ES2023)
+
+Oxiridan boshlab birinchi mos elementni topadi.
+
+---
+
+## Misol
+
+```js id="q7m2v8"
+const arr = [1, 2, 3, 4, 5];
+
+const result = arr.findLast((x) => x % 2 === 0);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="m1q8v3"
+4;
+```
+
+---
+
+# 🔹 11. `findLastIndex()` (ES2023)
+
+Oxiridan boshlab mos indexni topadi.
+
+---
+
+## Misol
+
+```js id="x8q2m7"
+const arr = [1, 2, 3, 4, 5];
+
+const index = arr.findLastIndex((x) => x % 2 === 0);
+
+console.log(index);
+```
+
+Natija:
+
+```js id="v2m7q9"
+3;
+```
+
+---
+
+# 🔥 MUHIM FARQLAR
+
+---
+
+## map vs forEach
+
+| Method  | Natija      |
+| ------- | ----------- |
+| map     | yangi array |
+| forEach | hech narsa  |
+
+---
+
+## filter vs find
+
+| Method | Natija        |
+| ------ | ------------- |
+| filter | array         |
+| find   | bitta element |
+
+---
+
+## reduce vs map
+
+| Method | Vazifa    |
+| ------ | --------- |
+| map    | transform |
+| reduce | yig‘ish   |
+
+---
+
+## every vs some
+
+| Method | Ma’no         |
+| ------ | ------------- |
+| every  | hammasi true  |
+| some   | kamida 1 true |
+
+---
+
+## flat vs flatMap
+
+| Method  | Vazifa     |
+| ------- | ---------- |
+| flat    | tekislash  |
+| flatMap | map + flat |
+
+---
+
+# 🧠 REAL WORLD PATTERNLAR
+
+---
+
+## Sum
+
+```js id="r8m1q7"
+arr.reduce((a, b) => a + b, 0);
+```
+
+---
+
+## Filter + map
+
+```js id="m4q7v9"
+arr.filter(...).map(...)
+```
+
+---
+
+## Check validation
+
+```js id="q9m1x8"
+arr.every(isValid);
+```
+
+---
+
+## Search
+
+```js id="v7q2m4"
+arr.find(...)
+```
+
+---
