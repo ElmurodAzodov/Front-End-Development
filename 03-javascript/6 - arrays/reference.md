@@ -1700,7 +1700,7 @@ Bu JavaScript arraylaridagi eng muhim farqlardan biri.
 JavaScript arraylaridagi eng muhim propertylardan biri:
 
 ```js id="8tzahv"
-length
+length;
 ```
 
 `length` array ichidagi elementlar sonini bildiradi.
@@ -1710,7 +1710,7 @@ length
 # Sintaksis
 
 ```js id="c2e5e6"
-array.length
+array.length;
 ```
 
 ---
@@ -1726,7 +1726,7 @@ console.log(fruits.length);
 Natija:
 
 ```js id="9n1v45"
-3
+3;
 ```
 
 ---
@@ -1760,13 +1760,13 @@ Indexlar:
 Eng katta index:
 
 ```js id="4uj8tq"
-2
+2;
 ```
 
 Shuning uchun:
 
 ```js id="jlwmck"
-length === 3
+length === 3;
 ```
 
 ---
@@ -1782,7 +1782,7 @@ console.log(arr.length);
 Natija:
 
 ```js id="um0i1u"
-0
+0;
 ```
 
 ---
@@ -1806,7 +1806,7 @@ console.log(arr.length);
 Natija:
 
 ```js id="0m5y6g"
-3
+3;
 ```
 
 ---
@@ -1824,7 +1824,7 @@ console.log(arr.length);
 Natija:
 
 ```js id="x5vz1u"
-3
+3;
 ```
 
 ---
@@ -1842,7 +1842,7 @@ console.log(arr.length);
 Natija:
 
 ```js id="6xob9m"
-101
+101;
 ```
 
 ---
@@ -1854,13 +1854,13 @@ Sabab:
 Eng katta index:
 
 ```js id="0khb9r"
-100
+100;
 ```
 
 Length:
 
 ```js id="q6zcm1"
-100 + 1
+100 + 1;
 ```
 
 ---
@@ -1910,7 +1910,7 @@ console.log(arr.length);
 Natija:
 
 ```js id="3m3q2l"
-1001
+1001;
 ```
 
 Lekin real element faqat bitta.
@@ -1924,7 +1924,7 @@ Bu juda muhim.
 JavaScript’da:
 
 ```js id="w0m8f8"
-length
+length;
 ```
 
 ni o‘zgartirish mumkin.
@@ -1944,7 +1944,7 @@ console.log(arr);
 Natija:
 
 ```js id="4v6cdu"
-[1, 2]
+[1, 2];
 ```
 
 ---
@@ -1960,7 +1960,7 @@ Elementlar o‘chirildi.
 # Memory behavior
 
 ```js id="y3h5sj"
-const arr = [1,2,3,4];
+const arr = [1, 2, 3, 4];
 
 arr.length = 1;
 ```
@@ -1968,7 +1968,7 @@ arr.length = 1;
 Qoladigan array:
 
 ```js id="h1u5mq"
-[1]
+[1];
 ```
 
 Qolgan elementlar remove qilinadi.
@@ -1980,7 +1980,7 @@ Qolgan elementlar remove qilinadi.
 Arrayni tozalashning mashhur usuli.
 
 ```js id="w9uoq6"
-const arr = [1,2,3];
+const arr = [1, 2, 3];
 
 arr.length = 0;
 
@@ -1990,7 +1990,7 @@ console.log(arr);
 Natija:
 
 ```js id="ln8qnm"
-[]
+[];
 ```
 
 ---
@@ -2005,7 +2005,7 @@ engine optimized.
 # Length oshirish
 
 ```js id="5wdb5x"
-const arr = [1,2];
+const arr = [1, 2];
 
 arr.length = 5;
 
@@ -2029,13 +2029,13 @@ Bu sparse array.
 # Muhim farq
 
 ```js id="kn7hzt"
-[undefined, undefined]
+[undefined, undefined];
 ```
 
 vs
 
 ```js id="g4xk4v"
-new Array(2)
+new Array(2);
 ```
 
 Ikkinchisida empty slots bor.
@@ -2045,25 +2045,25 @@ Ikkinchisida empty slots bor.
 # Tekshirish
 
 ```js id="r0ktn8"
-0 in [undefined]
+0 in [undefined];
 ```
 
 Natija:
 
 ```js id="8zhz7r"
-true
+true;
 ```
 
 ---
 
 ```js id="0qv7s8"
-0 in new Array(2)
+0 in new Array(2);
 ```
 
 Natija:
 
 ```js id="v8phvq"
-false
+false;
 ```
 
 ---
@@ -2099,7 +2099,7 @@ Length:
 Oxirgi valid index:
 
 ```js id="6tr8o0"
-length - 1
+length - 1;
 ```
 
 ---
@@ -2115,7 +2115,7 @@ for (let i = 0; i <= arr.length; i++)
 Bu:
 
 ```js id="c6nl0s"
-arr[arr.length]
+arr[arr.length];
 ```
 
 ga kiradi.
@@ -2123,7 +2123,7 @@ ga kiradi.
 Natija:
 
 ```js id="pkh8l8"
-undefined
+undefined;
 ```
 
 ---
@@ -2131,7 +2131,7 @@ undefined
 # To‘g‘ri
 
 ```js id="w03i7m"
-i < arr.length
+i < arr.length;
 ```
 
 ---
@@ -2205,13 +2205,13 @@ console.log(arr.length);
 Natija:
 
 ```js id="7ikd8r"
-5
+5;
 ```
 
 Lekin:
 
 ```js id="hzpg6w"
-arr.forEach(x => console.log(x));
+arr.forEach((x) => console.log(x));
 ```
 
 Hech narsa chiqarmaydi.
@@ -2233,7 +2233,7 @@ Bu juda muhim.
 # delete element
 
 ```js id="9d95yq"
-const arr = [1,2,3];
+const arr = [1, 2, 3];
 
 delete arr[1];
 
@@ -2244,8 +2244,8 @@ console.log(arr.length);
 Natija:
 
 ```js id="l6dpkm"
-[1, empty, 3]
-3
+[1, empty, 3];
+3;
 ```
 
 ---
@@ -2262,7 +2262,7 @@ Element remove qilmaydi.
 # To‘g‘ri remove usuli
 
 ```js id="62zy65"
-arr.splice(1,1)
+arr.splice(1, 1);
 ```
 
 ---
@@ -2297,7 +2297,7 @@ Natija taxminan:
 # Writable
 
 ```js id="1zh8m8"
-arr.length = 0
+arr.length = 0;
 ```
 
 ishlaydi.
@@ -2321,13 +2321,13 @@ Delete qilib bo‘lmaydi.
 JavaScript array max length:
 
 ```js id="4d2m9e"
-2^32 - 1
+2 ^ (32 - 1);
 ```
 
 ya’ni:
 
 ```js id="pczk46"
-4294967295
+4294967295;
 ```
 
 ---
@@ -2343,7 +2343,7 @@ arr.length = -1;
 Natija:
 
 ```js id="ckf0jm"
-RangeError
+RangeError;
 ```
 
 ---
@@ -2351,7 +2351,7 @@ RangeError
 # Float ham mumkin emas
 
 ```js id="11l4az"
-arr.length = 3.5
+arr.length = 3.5;
 ```
 
 Error.
@@ -2360,22 +2360,22 @@ Error.
 
 # Valid length
 
-* integer
-* > = 0
-* <= 2³²−1
+- integer
+- > = 0
+- <= 2³²−1
 
 ---
 
 # Array constructor bilan bog‘liqligi
 
 ```js id="f0ljpc"
-new Array(5)
+new Array(5);
 ```
 
 Bu:
 
 ```js id="3qjjfj"
-length = 5
+length = 5;
 ```
 
 bo‘lgan sparse array yaratadi.
@@ -2385,13 +2385,13 @@ bo‘lgan sparse array yaratadi.
 # fill bilan
 
 ```js id="tn8dn8"
-new Array(5).fill(0)
+new Array(5).fill(0);
 ```
 
 Natija:
 
 ```js id="m3ajlz"
-[0,0,0,0,0]
+[0, 0, 0, 0, 0];
 ```
 
 ---
@@ -2401,7 +2401,7 @@ Natija:
 ## Oxirgi element
 
 ```js id="0yks7m"
-arr[arr.length - 1]
+arr[arr.length - 1];
 ```
 
 ---
@@ -2409,7 +2409,7 @@ arr[arr.length - 1]
 # Ikkinchi oxirgi
 
 ```js id="1sj5om"
-arr[arr.length - 2]
+arr[arr.length - 2];
 ```
 
 ---
@@ -2417,7 +2417,7 @@ arr[arr.length - 2]
 # at() bilan
 
 ```js id="lj1y8e"
-arr.at(-1)
+arr.at(-1);
 ```
 
 ---
@@ -2433,13 +2433,13 @@ console.log(arr[arr.length - 1]);
 Natija:
 
 ```js id="4xpv0m"
-undefined
+undefined;
 ```
 
 Sabab:
 
 ```js id="j6wvh6"
-arr[-1]
+arr[-1];
 ```
 
 bo‘ladi.
@@ -2458,7 +2458,7 @@ bo‘ladi.
 const obj = {
   0: "a",
   1: "b",
-  length: 2
+  length: 2,
 };
 ```
 
@@ -2467,13 +2467,13 @@ const obj = {
 # Array.from()
 
 ```js id="2i2nd9"
-Array.from(obj)
+Array.from(obj);
 ```
 
 Natija:
 
 ```js id="v6ovtz"
-["a", "b"]
+["a", "b"];
 ```
 
 ---
@@ -2487,13 +2487,13 @@ function test() {
   console.log(arguments.length);
 }
 
-test(1,2,3);
+test(1, 2, 3);
 ```
 
 Natija:
 
 ```js id="mr8w4s"
-3
+3;
 ```
 
 ---
@@ -2503,7 +2503,7 @@ Natija:
 # `length` nima?
 
 ```js id="d1ytk3"
-array.length
+array.length;
 ```
 
 → eng katta index + 1
@@ -2515,7 +2515,7 @@ array.length
 ## Auto update
 
 ```js id="bg1mkk"
-arr.push()
+arr.push();
 ```
 
 length oshadi.
@@ -2525,7 +2525,7 @@ length oshadi.
 ## Writable
 
 ```js id="t4tn1w"
-arr.length = 0
+arr.length = 0;
 ```
 
 array clear qiladi.
@@ -2535,7 +2535,7 @@ array clear qiladi.
 ## Sparse arrays
 
 ```js id="2xpgxu"
-arr[100] = "x"
+arr[100] = "x";
 ```
 
 → length `101`
@@ -2545,7 +2545,7 @@ arr[100] = "x"
 ## delete
 
 ```js id="2ww2eh"
-delete arr[1]
+delete arr[1];
 ```
 
 length kamaymaydi.
@@ -2557,7 +2557,7 @@ length kamaymaydi.
 Oxirgi element:
 
 ```js id="2b42zx"
-arr[arr.length - 1]
+arr[arr.length - 1];
 ```
 
 Loop:
@@ -2573,7 +2573,7 @@ for(let i = 0; i < arr.length; i++)
 ## Array clear
 
 ```js id="1rj22l"
-arr.length = 0
+arr.length = 0;
 ```
 
 ---
@@ -2581,13 +2581,13 @@ arr.length = 0
 ## Last item
 
 ```js id="3dbep7"
-arr.at(-1)
+arr.at(-1);
 ```
 
 yoki:
 
 ```js id="5hyltu"
-arr[arr.length - 1]
+arr[arr.length - 1];
 ```
 
 ---
@@ -2597,4 +2597,1292 @@ arr[arr.length - 1]
 <br>
 <br>
 <br>
+
+# 🛠️ Basic Array Methods
+
+JavaScript array methodlari array bilan ishlashning asosiy qismi hisoblanadi.
+
+Bu methodlar:
+
+- element qo‘shadi
+- o‘chiradi
+- qidiradi
+- transform qiladi
+- nusxa yaratadi
+- sort qiladi
+- stringga aylantiradi
+- immutable operation bajaradi
+
+Methodlarni 3 katta bo‘limga ajratamiz:
+
+1. Adding / Removing
+2. Accessing
+3. Transforming
+
+---
+
+# 🔹 Adding / Removing Methods
+
+---
+
+# 1. `push()` — oxiriga qo‘shish
+
+Array oxiriga element qo‘shadi.
+
+---
+
+# Sintaksis
+
+```js id="a2m9vn"
+array.push(element1, element2);
+```
+
+---
+
+# Misol
+
+```js id="h7l8x9"
+const arr = [1, 2];
+
+arr.push(3);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="vj5m1p"
+[1, 2, 3];
+```
+
+---
+
+# Bir nechta element
+
+```js id="2n0q8x"
+const arr = [1];
+
+arr.push(2, 3, 4);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="2i4l7w"
+[1, 2, 3, 4];
+```
+
+---
+
+# Return value
+
+`push()` yangi length qaytaradi.
+
+```js id="2e4d1f"
+const arr = [1, 2];
+
+const result = arr.push(3);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="l6z8xt"
+3;
+```
+
+---
+
+# Mutation
+
+`push()` original arrayni o‘zgartiradi.
+
+---
+
+# Complexity
+
+```txt id="0z9m0v"
+O(1)
+```
+
+Juda tez.
+
+---
+
+# Stack konsepti
+
+`push()` stack data structure’da ishlatiladi.
+
+```js id="67h9tv"
+stack.push(value);
+```
+
+---
+
+# 2. `pop()` — oxiridan o‘chirish
+
+Oxirgi elementni remove qiladi.
+
+---
+
+# Sintaksis
+
+```js id="qqv4fj"
+array.pop();
+```
+
+---
+
+# Misol
+
+```js id="c7a0xq"
+const arr = [1, 2, 3];
+
+const removed = arr.pop();
+
+console.log(arr);
+console.log(removed);
+```
+
+Natija:
+
+```js id="m6f0qt"
+[1, 2];
+3;
+```
+
+---
+
+# Return value
+
+Remove qilingan elementni qaytaradi.
+
+---
+
+# Empty array
+
+```js id="8oq8qi"
+[].pop();
+```
+
+Natija:
+
+```js id="f4e2x9"
+undefined;
+```
+
+---
+
+# Complexity
+
+```txt id="j5h4r3"
+O(1)
+```
+
+---
+
+# Stack ishlatish
+
+```js id="k6r3n0"
+stack.pop();
+```
+
+---
+
+# 3. `unshift()` — boshiga qo‘shish
+
+Array boshiga element qo‘shadi.
+
+---
+
+# Sintaksis
+
+```js id="m4v6e1"
+array.unshift(element);
+```
+
+---
+
+# Misol
+
+```js id="g8r0tf"
+const arr = [2, 3];
+
+arr.unshift(1);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="z7n2lv"
+[1, 2, 3];
+```
+
+---
+
+# Bir nechta element
+
+```js id="z1r7hj"
+const arr = [3];
+
+arr.unshift(1, 2);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="q3n8wr"
+[1, 2, 3];
+```
+
+---
+
+# Return value
+
+Yangi length qaytaradi.
+
+---
+
+# Complexity
+
+```txt id="f7m0az"
+O(n)
+```
+
+---
+
+# Nega sekin?
+
+Barcha elementlar siljiydi.
+
+---
+
+# Oldin
+
+```txt id="r8f0ta"
+0:2
+1:3
+```
+
+---
+
+# Keyin
+
+```txt id="k6y7wa"
+0:1
+1:2
+2:3
+```
+
+---
+
+# 4. `shift()` — boshidan remove
+
+Birinchi elementni remove qiladi.
+
+---
+
+# Sintaksis
+
+```js id="q1g4y5"
+array.shift();
+```
+
+---
+
+# Misol
+
+```js id="x6f1jv"
+const arr = [1, 2, 3];
+
+const removed = arr.shift();
+
+console.log(arr);
+console.log(removed);
+```
+
+Natija:
+
+```js id="q9u8l1"
+[2, 3];
+1;
+```
+
+---
+
+# Complexity
+
+```txt id="p7e9w2"
+O(n)
+```
+
+---
+
+# Nega?
+
+Barcha indexlar qayta yoziladi.
+
+---
+
+# Queue structure
+
+```js id="h5t8zs"
+queue.shift();
+```
+
+---
+
+# 5. `splice()` — universal modify method
+
+Eng kuchli array methodlardan biri.
+
+---
+
+# Nimalar qila oladi?
+
+- remove
+- insert
+- replace
+
+hammasini bitta method bilan.
+
+---
+
+# Sintaksis
+
+```js id="7r8g2f"
+array.splice(start, deleteCount, item1, item2);
+```
+
+---
+
+# Parameters
+
+| Param       | Ma’no                    |
+| ----------- | ------------------------ |
+| start       | qayerdan boshlash        |
+| deleteCount | nechta remove            |
+| items       | qo‘shiladigan elementlar |
+
+---
+
+# 5.1 Remove qilish
+
+```js id="n3k1d8"
+const arr = [1, 2, 3, 4];
+
+arr.splice(1, 2);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="r9a6v7"
+[1, 4];
+```
+
+---
+
+# Qanday ishladi?
+
+Index `1` dan:
+
+```txt id="0g1r2z"
+2,3
+```
+
+remove qilindi.
+
+---
+
+# Return value
+
+```js id="m4k2p1"
+const arr = [1, 2, 3];
+
+const removed = arr.splice(1, 1);
+
+console.log(removed);
+```
+
+Natija:
+
+```js id="r7v3p6"
+[2];
+```
+
+---
+
+# 5.2 Insert qilish
+
+```js id="v2j6q1"
+const arr = [1, 4];
+
+arr.splice(1, 0, 2, 3);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="s1e8l2"
+[1, 2, 3, 4];
+```
+
+---
+
+# deleteCount = 0
+
+Remove qilmaydi.
+
+Faqat insert qiladi.
+
+---
+
+# 5.3 Replace qilish
+
+```js id="w8u0y4"
+const arr = [1, 2, 3];
+
+arr.splice(1, 1, "X");
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="m8k7a3"
+[1, "X", 3];
+```
+
+---
+
+# Negative index
+
+```js id="h0j9n4"
+const arr = [1, 2, 3, 4];
+
+arr.splice(-2, 1);
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="v6r2w8"
+[1, 2, 4];
+```
+
+---
+
+# Complexity
+
+```txt id="f8m3t1"
+O(n)
+```
+
+---
+
+# Mutation
+
+`splice()` original arrayni o‘zgartiradi.
+
+---
+
+# 🔹 Accessing Methods
+
+---
+
+# 6. `indexOf()`
+
+Element indexini topadi.
+
+---
+
+# Sintaksis
+
+```js id="z4t2j7"
+array.indexOf(value);
+```
+
+---
+
+# Misol
+
+```js id="u7p4c8"
+const arr = ["a", "b", "c"];
+
+console.log(arr.indexOf("b"));
+```
+
+Natija:
+
+```js id="n6r8e2"
+1;
+```
+
+---
+
+# Topilmasa
+
+```js id="s9w5q1"
+arr.indexOf("x");
+```
+
+Natija:
+
+```js id="r3e1v0"
+-1;
+```
+
+---
+
+# Strict equality ishlatadi
+
+```js id="o5u2h9"
+[1].indexOf("1");
+```
+
+Natija:
+
+```js id="q4n0k7"
+-1;
+```
+
+---
+
+# 7. `lastIndexOf()`
+
+Oxiridan qidiradi.
+
+---
+
+# Misol
+
+```js id="e3r6v2"
+const arr = [1, 2, 1, 3];
+
+console.log(arr.lastIndexOf(1));
+```
+
+Natija:
+
+```js id="b2m8f5"
+2;
+```
+
+---
+
+# 8. `includes()` (ES7)
+
+Element mavjudligini tekshiradi.
+
+---
+
+# Sintaksis
+
+```js id="u0y8k2"
+array.includes(value);
+```
+
+---
+
+# Misol
+
+```js id="h4t9z1"
+const arr = [1, 2, 3];
+
+console.log(arr.includes(2));
+```
+
+Natija:
+
+```js id="d8k3m6"
+true;
+```
+
+---
+
+# Topilmasa
+
+```js id="j7w2r5"
+false;
+```
+
+---
+
+# indexOf dan farqi
+
+## Oldin
+
+```js id="w6e3f1"
+arr.indexOf(2) !== -1;
+```
+
+---
+
+## Hozir
+
+```js id="y5u1n8"
+arr.includes(2);
+```
+
+ancha readable.
+
+---
+
+# NaN muammosi
+
+```js id="c8r2t7"
+[NaN].indexOf(NaN);
+```
+
+Natija:
+
+```js id="z3x0q4"
+-1;
+```
+
+---
+
+```js id="n1m7k9"
+[NaN].includes(NaN);
+```
+
+Natija:
+
+```js id="f0w4v2"
+true;
+```
+
+---
+
+# 9. `find()` (ES6)
+
+Condition bo‘yicha element topadi.
+
+---
+
+# Sintaksis
+
+```js id="v5p3x7"
+array.find(callback);
+```
+
+---
+
+# Misol
+
+```js id="a4u7m1"
+const users = [{ id: 1 }, { id: 2 }];
+
+const result = users.find((user) => user.id === 2);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="l7r9q0"
+{
+  id: 2;
+}
+```
+
+---
+
+# Topilmasa
+
+```js id="t1k6v8"
+undefined;
+```
+
+---
+
+# find vs filter
+
+## `find()`
+
+Birinchi match qaytaradi.
+
+---
+
+## `filter()`
+
+Barcha matchlarni array sifatida qaytaradi.
+
+---
+
+# 10. `findIndex()`
+
+Condition bo‘yicha index topadi.
+
+---
+
+# Misol
+
+```js id="m0q5j4"
+const arr = [5, 10, 15];
+
+const index = arr.findIndex((x) => x > 10);
+
+console.log(index);
+```
+
+Natija:
+
+```js id="e8w3t1"
+2;
+```
+
+---
+
+# Topilmasa
+
+```js id="u7j2c5"
+-1;
+```
+
+---
+
+# 11. `at()` (ES2022)
+
+Negative indexing uchun.
+
+---
+
+# Misol
+
+```js id="f2m9v6"
+const arr = [10, 20, 30];
+
+console.log(arr.at(-1));
+```
+
+Natija:
+
+```js id="k6w8q3"
+30;
+```
+
+---
+
+# Oddiy indexing bilan farqi
+
+```js id="x9p4r2"
+arr[-1];
+```
+
+ishlamaydi.
+
+---
+
+# `at(0)`
+
+```js id="h1q7e8"
+arr.at(0);
+```
+
+normal indexing kabi.
+
+---
+
+# 🔹 Transforming Methods
+
+---
+
+# 12. `concat()`
+
+Arraylarni birlashtiradi.
+
+---
+
+# Sintaksis
+
+```js id="s7r3m0"
+array.concat(otherArray);
+```
+
+---
+
+# Misol
+
+```js id="u4n8v2"
+const a = [1, 2];
+const b = [3, 4];
+
+const result = a.concat(b);
+
+console.log(result);
+```
+
+Natija:
+
+```js id="p6w1k5"
+[1, 2, 3, 4];
+```
+
+---
+
+# Mutation yo‘q
+
+Original arraylar o‘zgarmaydi.
+
+---
+
+# Multiple arrays
+
+```js id="z5t0x4"
+a.concat(b, c, d);
+```
+
+---
+
+# Spread alternative
+
+```js id="o2v7j1"
+[...a, ...b];
+```
+
+---
+
+# 13. `slice()`
+
+Arraydan portion oladi.
+
+---
+
+# Sintaksis
+
+```js id="v8m2p6"
+array.slice(start, end);
+```
+
+---
+
+# Misol
+
+```js id="t4q9x1"
+const arr = [1, 2, 3, 4];
+
+console.log(arr.slice(1, 3));
+```
+
+Natija:
+
+```js id="m7w5k0"
+[2, 3];
+```
+
+---
+
+# End inclusive emas
+
+```txt id="p8v1t7"
+1 → included
+3 → excluded
+```
+
+---
+
+# Copy array
+
+```js id="c0r4n2"
+const copy = arr.slice();
+```
+
+---
+
+# Negative indexes
+
+```js id="n6j3q8"
+arr.slice(-2);
+```
+
+Oxirgi 2 element.
+
+---
+
+# Mutation yo‘q
+
+Immutable method.
+
+---
+
+# 14. `join()`
+
+Arrayni stringga aylantiradi.
+
+---
+
+# Sintaksis
+
+```js id="d9m7w1"
+array.join(separator);
+```
+
+---
+
+# Misol
+
+```js id="j2q8v5"
+const arr = ["a", "b", "c"];
+
+console.log(arr.join("-"));
+```
+
+Natija:
+
+```js id="r4k0n6"
+"a-b-c";
+```
+
+---
+
+# Default separator
+
+```js id="u1w5x8"
+arr.join();
+```
+
+Natija:
+
+```js id="h7t2m9"
+"a,b,c";
+```
+
+---
+
+# Empty string
+
+```js id="x3v8q1"
+arr.join("");
+```
+
+Natija:
+
+```js id="n5m0k4"
+"abc";
+```
+
+---
+
+# 15. `reverse()`
+
+Arrayni teskari qiladi.
+
+---
+
+# Misol
+
+```js id="w8q2m7"
+const arr = [1, 2, 3];
+
+arr.reverse();
+
+console.log(arr);
+```
+
+Natija:
+
+```js id="t6r9v1"
+[3, 2, 1];
+```
+
+---
+
+# Mutation
+
+Original array o‘zgaradi.
+
+---
+
+# Complexity
+
+```txt id="k3m7q0"
+O(n)
+```
+
+---
+
+# 16. `sort()`
+
+Arrayni sort qiladi.
+
+---
+
+# Default behavior
+
+```js id="b9w2t4"
+[10, 2, 5].sort();
+```
+
+Natija:
+
+```js id="r1x6m8"
+[10, 2, 5];
+```
+
+---
+
+# Nega?
+
+String sifatida compare qiladi.
+
+---
+
+# To‘g‘ri numeric sort
+
+```js id="u7q1n5"
+[10, 2, 5].sort((a, b) => a - b);
+```
+
+Natija:
+
+```js id="f4m8w2"
+[2, 5, 10];
+```
+
+---
+
+# Descending
+
+```js id="g5r9x3"
+(a, b) => b - a;
+```
+
+---
+
+# Mutation
+
+`sort()` original arrayni o‘zgartiradi.
+
+---
+
+# String sort
+
+```js id="m8q3v6"
+["c", "a", "b"].sort();
+```
+
+Natija:
+
+```js id="n2t7w1"
+["a", "b", "c"];
+```
+
+---
+
+# Unicode sorting
+
+`sort()` Unicode order ishlatadi.
+
+---
+
+# 17. `toReversed()` (ES2023)
+
+Immutable reverse.
+
+---
+
+# Misol
+
+```js id="q6m1x8"
+const arr = [1, 2, 3];
+
+const result = arr.toReversed();
+
+console.log(result);
+console.log(arr);
+```
+
+Natija:
+
+```js id="w5r8n2"
+[3, 2, 1][(1, 2, 3)];
+```
+
+---
+
+# Difference
+
+| Method       | Mutable |
+| ------------ | ------- |
+| reverse()    | ✅      |
+| toReversed() | ❌      |
+
+---
+
+# 18. `toSorted()` (ES2023)
+
+Immutable sort.
+
+---
+
+# Misol
+
+```js id="t1m4q7"
+const arr = [3, 1, 2];
+
+const sorted = arr.toSorted();
+
+console.log(sorted);
+console.log(arr);
+```
+
+Natija:
+
+```js id="v8r2n5"
+[1, 2, 3][(3, 1, 2)];
+```
+
+---
+
+# Compare function ham ishlaydi
+
+```js id="f5q8m2"
+arr.toSorted((a, b) => a - b);
+```
+
+---
+
+# 19. `toSpliced()` (ES2023)
+
+Immutable splice.
+
+---
+
+# Misol
+
+```js id="r2m7q1"
+const arr = [1, 2, 3];
+
+const result = arr.toSpliced(1, 1);
+
+console.log(result);
+console.log(arr);
+```
+
+Natija:
+
+```js id="x9w4n6"
+[1, 3][(1, 2, 3)];
+```
+
+---
+
+# Difference
+
+| Method      | Mutable |
+| ----------- | ------- |
+| splice()    | ✅      |
+| toSpliced() | ❌      |
+
+---
+
+# Mutable vs Immutable
+
+---
+
+# Mutable methods
+
+Original arrayni o‘zgartiradi:
+
+- push
+- pop
+- shift
+- unshift
+- splice
+- reverse
+- sort
+
+---
+
+# Immutable methods
+
+Yangi array qaytaradi:
+
+- concat
+- slice
+- toSorted
+- toReversed
+- toSpliced
+
+---
+
+# Real-world recommendation
+
+Modern JavaScript’da immutable methods ko‘proq tavsiya qilinadi.
+
+Sabab:
+
+- predictable
+- safer
+- React bilan yaxshi ishlaydi
+- debugging oson
+
+---
+
+# Eng muhim methodlar
+
+Daily ishlatiladiganlar:
+
+```txt id="v0m6r2"
+push
+pop
+map
+filter
+find
+includes
+slice
+splice
+sort
+concat
+```
+
+---
+
+# Eng xavfli methodlar
+
+Mutation sabab:
+
+```txt id="y8w1q5"
+sort
+reverse
+splice
+```
+
+Ko‘p buglar shu yerda chiqadi.
+
+---
+
+# Summary Table
+
+| Method     | Vazifa                  | Mutable |
+| ---------- | ----------------------- | ------- |
+| push       | end add                 | ✅      |
+| pop        | end remove              | ✅      |
+| unshift    | start add               | ✅      |
+| shift      | start remove            | ✅      |
+| splice     | modify anywhere         | ✅      |
+| indexOf    | find index              | ❌      |
+| includes   | exists check            | ❌      |
+| find       | find element            | ❌      |
+| findIndex  | find index by condition | ❌      |
+| at         | negative indexing       | ❌      |
+| concat     | merge                   | ❌      |
+| slice      | extract/copy            | ❌      |
+| join       | to string               | ❌      |
+| reverse    | reverse                 | ✅      |
+| sort       | sort                    | ✅      |
+| toReversed | immutable reverse       | ❌      |
+| toSorted   | immutable sort          | ❌      |
+| toSpliced  | immutable splice        | ❌      |
+
+---
 
