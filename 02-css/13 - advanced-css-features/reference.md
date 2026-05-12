@@ -1074,3 +1074,654 @@ url("image.jpg")
 <br>
 <br>
 
+# CSS Filter Effects
+
+CSS Filter Effects — elementga vizual effekt beruvchi funksiyalar.
+
+Asosan:
+
+- image
+- background
+- video
+- div
+- icon
+
+larga ishlatiladi.
+
+---
+
+# `filter` property
+
+Barcha filter funksiyalar:
+
+```css
+filter:;
+```
+
+orqali ishlaydi.
+
+---
+
+# Sintaksis
+
+```css
+filter: function(value);
+```
+
+---
+
+# Bir nechta filter
+
+```css
+filter: blur(5px) brightness(120%);
+```
+
+---
+
+# 1. `blur()` — Xiralashtirish
+
+Elementni blur qiladi.
+
+---
+
+# Sintaksis
+
+```css
+filter: blur(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: blur(5px);
+}
+```
+
+---
+
+# Qanday ishlaydi
+
+| Qiymat | Natija        |
+| ------ | ------------- |
+| `0px`  | blur yo‘q     |
+| `5px`  | o‘rtacha blur |
+| `20px` | kuchli blur   |
+
+---
+
+# Real example
+
+```css
+.background {
+  filter: blur(10px);
+}
+```
+
+---
+
+# Glassmorphism example
+
+```css
+.card {
+  backdrop-filter: blur(10px);
+}
+```
+
+`backdrop-filter`
+→ orqa fonni blur qiladi.
+
+---
+
+# 2. `brightness()` — Yorug‘lik
+
+Element yorqinligini boshqaradi.
+
+---
+
+# Sintaksis
+
+```css
+filter: brightness(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: brightness(150%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija      |
+| ------ | ----------- |
+| `100%` | normal      |
+| `50%`  | qorong‘i    |
+| `200%` | juda yorqin |
+
+---
+
+# Decimal ham ishlaydi
+
+```css
+filter: brightness(1.5);
+```
+
+---
+
+# Hover effect
+
+```css
+img:hover {
+  filter: brightness(120%);
+}
+```
+
+---
+
+# 3. `contrast()` — Kontrast
+
+Qora-oq farqini kuchaytiradi.
+
+---
+
+# Sintaksis
+
+```css
+filter: contrast(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: contrast(200%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija          |
+| ------ | --------------- |
+| `100%` | normal          |
+| `0%`   | kulrang         |
+| `200%` | kuchli kontrast |
+
+---
+
+# Combined example
+
+```css
+filter: brightness(120%) contrast(140%);
+```
+
+---
+
+# 4. `grayscale()` — Oq-qora
+
+Rasmni grayscale qiladi.
+
+---
+
+# Sintaksis
+
+```css
+filter: grayscale(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: grayscale(100%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija         |
+| ------ | -------------- |
+| `0%`   | original       |
+| `100%` | full grayscale |
+
+---
+
+# Hover animation
+
+```css
+img {
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+img:hover {
+  filter: grayscale(0%);
+}
+```
+
+---
+
+# 5. `hue-rotate()` — Rang aylantirish
+
+Rang tonini aylantiradi.
+
+---
+
+# Sintaksis
+
+```css
+filter: hue-rotate(angle);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: hue-rotate(90deg);
+}
+```
+
+---
+
+# Values
+
+| Value    | Natija             |
+| -------- | ------------------ |
+| `0deg`   | original           |
+| `180deg` | katta o‘zgarish    |
+| `360deg` | originalga qaytadi |
+
+---
+
+# Animation example
+
+```css
+img {
+  animation: hue 3s linear infinite;
+}
+
+@keyframes hue {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+```
+
+---
+
+# 6. `invert()` — Ranglarni teskarilash
+
+Ranglarni invert qiladi.
+
+---
+
+# Sintaksis
+
+```css
+filter: invert(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: invert(100%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija   |
+| ------ | -------- |
+| `0%`   | original |
+| `100%` | invert   |
+
+---
+
+# Dark mode icon
+
+```css
+.icon {
+  filter: invert(1);
+}
+```
+
+---
+
+# 7. `saturate()` — Rang kuchi
+
+Rang to‘yinganligini boshqaradi.
+
+---
+
+# Sintaksis
+
+```css
+filter: saturate(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: saturate(200%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija      |
+| ------ | ----------- |
+| `100%` | normal      |
+| `0%`   | grayscale   |
+| `200%` | rang kuchli |
+
+---
+
+# Combined
+
+```css
+filter: saturate(150%) contrast(120%);
+```
+
+---
+
+# 8. `sepia()` — Sepia effect
+
+Rasmga eski foto effekti beradi.
+
+---
+
+# Sintaksis
+
+```css
+filter: sepia(value);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: sepia(100%);
+}
+```
+
+---
+
+# Values
+
+| Value  | Natija     |
+| ------ | ---------- |
+| `0%`   | original   |
+| `100%` | full sepia |
+
+---
+
+# Vintage effect
+
+```css
+filter: sepia(80%) contrast(120%) brightness(90%);
+```
+
+---
+
+# 9. `drop-shadow()` — Shadow
+
+Element shakliga mos shadow beradi.
+
+---
+
+# Farqi `box-shadow` bilan
+
+| `box-shadow`        | `drop-shadow()`     |
+| ------------------- | ------------------- |
+| to‘rtburchak shadow | real shape shadow   |
+| box asosida         | image alpha asosida |
+
+---
+
+# Sintaksis
+
+```css
+filter: drop-shadow(x y blur color);
+```
+
+---
+
+# Misol
+
+```css
+img {
+  filter: drop-shadow(5px 5px 10px black);
+}
+```
+
+---
+
+# SVG icon example
+
+```css
+.icon {
+  filter: drop-shadow(0 0 10px blue);
+}
+```
+
+---
+
+# Multiple shadows
+
+```css
+filter: drop-shadow(0 0 5px red) drop-shadow(0 0 10px blue);
+```
+
+---
+
+# Real examples
+
+# Blur background
+
+```css
+.overlay {
+  backdrop-filter: blur(20px);
+}
+```
+
+---
+
+# Black-white hover
+
+```css
+img {
+  filter: grayscale(100%);
+}
+
+img:hover {
+  filter: grayscale(0%);
+}
+```
+
+---
+
+# Neon effect
+
+```css
+.logo {
+  filter: drop-shadow(0 0 5px cyan) drop-shadow(0 0 20px cyan);
+}
+```
+
+---
+
+# Dark image overlay
+
+```css
+.hero img {
+  filter: brightness(40%);
+}
+```
+
+---
+
+# Multiple filters together
+
+```css
+filter: brightness(120%) contrast(110%) saturate(140%) blur(1px);
+```
+
+Filterlar chapdan o‘ngga ishlaydi.
+
+---
+
+# Performance haqida
+
+Ba’zi filterlar GPU ishlatadi.
+
+Eng og‘irlari:
+
+- blur()
+- backdrop-filter()
+
+Ko‘p ishlatilsa performance tushishi mumkin.
+
+---
+
+# Transition bilan ishlatish
+
+```css
+img {
+  transition: filter 0.3s;
+}
+
+img:hover {
+  filter: brightness(120%);
+}
+```
+
+---
+
+# Xulosa
+
+# `blur()`
+
+Xiralashtiradi.
+
+```css
+filter: blur(5px);
+```
+
+---
+
+# `brightness()`
+
+Yorug‘lik.
+
+```css
+filter: brightness(150%);
+```
+
+---
+
+# `contrast()`
+
+Kontrast.
+
+```css
+filter: contrast(200%);
+```
+
+---
+
+# `grayscale()`
+
+Oq-qora.
+
+```css
+filter: grayscale(100%);
+```
+
+---
+
+# `hue-rotate()`
+
+Rang aylanishi.
+
+```css
+filter: hue-rotate(90deg);
+```
+
+---
+
+# `invert()`
+
+Teskarilash.
+
+```css
+filter: invert(100%);
+```
+
+---
+
+# `saturate()`
+
+Rang kuchi.
+
+```css
+filter: saturate(200%);
+```
+
+---
+
+# `sepia()`
+
+Vintage effect.
+
+```css
+filter: sepia(100%);
+```
+
+---
+
+# `drop-shadow()`
+
+Shape-based shadow.
+
+```css
+filter: drop-shadow(5px 5px 10px black);
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
