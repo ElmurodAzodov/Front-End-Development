@@ -2574,3 +2574,272 @@ shape-outside: circle();
 <br>
 <br>
 <br>
+
+# CSS Grid Subgrid (`subgrid`)
+
+`subgrid` — CSS Grid ichida ishlatiladigan feature bo‘lib, **child grid elementga parent gridning track (column/row) strukturasi meros qilib beriladi**.
+
+👉 Oddiy qilib:
+
+- parent grid bor
+- child ham grid bo‘ladi
+- lekin child o‘z layoutini emas, parent grid liniyalarini ishlatadi
+
+---
+
+# 1. Muammo (subgrid nima uchun kerak?)
+
+Oddiy gridda:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+```
+
+Agar child ichida yana grid qilinsa:
+
+```css
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+```
+
+❌ muammo:
+
+- child grid parent bilan align bo‘lmaydi
+- columnlar “uzilib ketadi”
+- design tartibsiz bo‘ladi
+
+---
+
+# 2. Subgrid yechimi
+
+```css id="sub1"
+.card {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+```
+
+👉 Bu yerda `.card` parent gridning columnlarini ishlatadi.
+
+---
+
+# 3. Asosiy sintaksis
+
+```css id="sub2"
+grid-template-columns: subgrid;
+grid-template-rows: subgrid;
+```
+
+---
+
+# 4. Oddiy misol
+
+## HTML
+
+```html id="sub3"
+<div class="container">
+  <div class="card">
+    <h2>Title</h2>
+    <p>Description</p>
+  </div>
+</div>
+```
+
+---
+
+## CSS
+
+```css id="sub4"
+.container {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+}
+```
+
+---
+
+## Subgrid qo‘llash
+
+```css id="sub5"
+.card {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+```
+
+---
+
+## Natija
+
+- `.card` ichidagi elementlar
+- parent grid columnlariga aniq moslashadi
+
+---
+
+# 5. Rows bilan subgrid
+
+```css id="sub6"
+.container {
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+```
+
+```css id="sub7"
+.card {
+  display: grid;
+  grid-template-rows: subgrid;
+}
+```
+
+---
+
+# 6. Column + Row subgrid
+
+```css id="sub8"
+.card {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+```
+
+👉 to‘liq parent grid strukturasi childga o‘tadi
+
+---
+
+# 7. Real UI misol (card layout)
+
+## Parent grid
+
+```css id="sub9"
+.page {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+}
+```
+
+---
+
+## Card
+
+```css id="sub10"
+.card {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+```
+
+---
+
+## Natija
+
+- header
+- content
+- footer
+
+hammasi bir xil alignmentda turadi
+
+---
+
+# 8. Subgrid vs normal grid
+
+| Feature                | grid   | subgrid   |
+| ---------------------- | ------ | --------- |
+| Mustaqil layout        | ha     | yo‘q      |
+| Parent bilan alignment | yo‘q   | ha        |
+| Column control         | o‘zida | parentdan |
+| Design consistency     | qiyin  | oson      |
+
+---
+
+# 9. Qachon ishlatiladi?
+
+✔ Card design
+✔ Table-like layouts
+✔ Dashboard UI
+✔ Form alignment
+✔ Nested grid alignment
+
+---
+
+# 10. Muhim eslatma
+
+## Subgrid ishlashi uchun:
+
+- parent `display: grid` bo‘lishi kerak
+- child ham `display: grid` bo‘lishi kerak
+- browser support kerak (modern browserlar)
+
+---
+
+# 11. Eng kuchli use-case
+
+Form alignment:
+
+```css id="sub11"
+.form {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+```
+
+```css id="sub12"
+.field {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+```
+
+👉 label va inputlar hamma joyda bir xil line’da turadi
+
+---
+
+# 12. Visual natija tushunchasi
+
+Oddiy grid:
+
+```
+| A | B | C |
+```
+
+Subgrid:
+
+```
+Parent: | A | B | C |
+Child : | A | B | C |  (same lines)
+```
+
+---
+
+# Xulosa
+
+## `subgrid` nima?
+
+👉 child gridga parent grid layoutini meros qilib beruvchi CSS Grid feature.
+
+---
+
+## Asosiy yozilishi:
+
+```css id="sub13"
+grid-template-columns: subgrid;
+grid-template-rows: subgrid;
+```
+
+---
+
+## Eng katta foyda:
+
+- layout bir xil qoladi
+- alignment osonlashadi
+- nested grid muammolari yo‘qoladi
+
+---
