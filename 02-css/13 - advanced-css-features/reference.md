@@ -2188,3 +2188,389 @@ blend scope’ni cheklaydi.
 <br>
 <br>
 <br>
+
+# CSS Clip Path
+
+`clip-path` — elementning ko‘rinadigan qismini kesib (clip) shakl berish uchun ishlatiladi.
+
+Oddiy qilib:
+👉 elementni “shaklga solib kesib qo‘yadi”
+
+---
+
+# 1. `clip-path` umumiy ishlashi
+
+```css
+clip-path: shape();
+```
+
+Elementning faqat berilgan shakl ichidagi qismi ko‘rinadi, qolgan qismi yashirinadi.
+
+---
+
+# 2. `circle()` — doira shakli
+
+```css
+clip-path: circle();
+```
+
+---
+
+## Sintaksis
+
+```css
+clip-path: circle(radius at position);
+```
+
+---
+
+## Misol
+
+```css
+img {
+  clip-path: circle(50%);
+}
+```
+
+---
+
+## Markazni o‘zgartirish
+
+```css
+img {
+  clip-path: circle(40% at 30% 30%);
+}
+```
+
+---
+
+## Natija
+
+- rasm doira shaklga kiradi
+- faqat ichki qismi ko‘rinadi
+
+---
+
+# 3. `ellipse()` — ellips (oval)
+
+```css
+clip-path: ellipse();
+```
+
+---
+
+## Sintaksis
+
+```css
+clip-path: ellipse(rx ry at x y);
+```
+
+---
+
+## Misol
+
+```css
+img {
+  clip-path: ellipse(40% 30%);
+}
+```
+
+---
+
+## Position bilan
+
+```css
+img {
+  clip-path: ellipse(40% 30% at 50% 50%);
+}
+```
+
+---
+
+## Natija
+
+- gorizontal yoki vertical oval kesiladi
+
+---
+
+# 4. `polygon()` — ko‘p burchakli shakl
+
+Eng kuchli clip-path turi.
+
+---
+
+## Sintaksis
+
+```css
+clip-path: polygon(x y, x y, x y);
+```
+
+---
+
+## Misol (triangle)
+
+```css
+img {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+```
+
+---
+
+## Natija
+
+- uchburchak shakl
+
+---
+
+## Rectangle-like shape
+
+```css
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+```
+
+---
+
+## Star shape example
+
+```css
+clip-path: polygon(
+  50% 0%,
+  61% 35%,
+  98% 35%,
+  68% 57%,
+  79% 91%,
+  50% 70%,
+  21% 91%,
+  32% 57%,
+  2% 35%,
+  39% 35%
+);
+```
+
+---
+
+# 5. Clip-path example (real usage)
+
+```css
+.card {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+```
+
+---
+
+# Clip-path nima uchun ishlatiladi?
+
+- creative UI design
+- image cropping without editing
+- shape-based cards
+- hover effects
+- animations
+
+---
+
+# Hover animation example
+
+```css
+img {
+  clip-path: circle(20%);
+  transition: 0.4s;
+}
+
+img:hover {
+  clip-path: circle(50%);
+}
+```
+
+---
+
+# 6. `shape-outside` — text wrapping
+
+`shape-outside` element atrofida text qanday oqishini boshqaradi.
+
+👉 faqat `float` bilan ishlaydi.
+
+---
+
+# Muhim qoida
+
+```css
+shape-outside ishlashi uchun:
+float: left yoki right bo‘lishi shart
+```
+
+---
+
+# Sintaksis
+
+```css
+shape-outside: shape();
+```
+
+---
+
+# 7. Circle text wrap
+
+```css
+img {
+  float: left;
+  shape-outside: circle(50%);
+  width: 200px;
+  height: 200px;
+}
+```
+
+---
+
+## Natija
+
+- text rasm atrofida doira shaklida oqadi
+
+---
+
+# 8. Ellipse text wrap
+
+```css
+img {
+  float: left;
+  shape-outside: ellipse(50% 40%);
+}
+```
+
+---
+
+# 9. Polygon text wrap
+
+```css
+img {
+  float: left;
+  shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+```
+
+---
+
+# 10. shape-margin
+
+Text va shape orasidagi masofa.
+
+```css
+img {
+  shape-outside: circle(50%);
+  shape-margin: 20px;
+}
+```
+
+---
+
+# Clip-path vs shape-outside
+
+| Property      | Vazifa                     |
+| ------------- | -------------------------- |
+| clip-path     | elementni kesadi           |
+| shape-outside | text oqishini o‘zgartiradi |
+
+---
+
+# Real difference
+
+## clip-path
+
+👉 rasmni kesib tashlaydi
+
+## shape-outside
+
+👉 rasm o‘zgarmaydi, faqat text joylashuvi o‘zgaradi
+
+---
+
+# Combined example
+
+```css
+img {
+  float: left;
+  width: 200px;
+
+  clip-path: circle(50%);
+  shape-outside: circle(50%);
+}
+```
+
+---
+
+# Creative UI example
+
+```css
+.card {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+```
+
+---
+
+# Animation idea
+
+```css
+img {
+  clip-path: circle(20%);
+  transition: 0.5s;
+}
+
+img:hover {
+  clip-path: circle(50%);
+}
+```
+
+---
+
+# Performance note
+
+- clip-path → GPU accelerated
+- polygon → biroz heavy bo‘lishi mumkin
+
+---
+
+# Browser support
+
+- modern browserlarda yaxshi ishlaydi
+- eski browserlarda polygon cheklangan bo‘lishi mumkin
+
+---
+
+# Xulosa
+
+## clip-path
+
+Elementni shakl bo‘yicha kesadi:
+
+```css
+clip-path: circle();
+clip-path: ellipse();
+clip-path: polygon();
+```
+
+---
+
+## shape-outside
+
+Text oqishini shaklga moslaydi:
+
+```css
+shape-outside: circle();
+```
+
+---
+
+## Eng muhim farq
+
+- clip-path → ko‘rinishni o‘zgartiradi
+- shape-outside → text layoutni o‘zgartiradi
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
