@@ -1725,3 +1725,466 @@ filter: drop-shadow(5px 5px 10px black);
 <br>
 <br>
 
+# CSS Blend Modes
+
+Blend Modes — element ranglarini bir-biri bilan aralashtirish usuli.
+
+CSS’da 2 ta asosiy blend mavjud:
+
+- `mix-blend-mode`
+- `background-blend-mode`
+
+---
+
+# Blend Mode nima?
+
+2 ta layer:
+
+- image
+- background
+- text
+- color
+
+bir-biri bilan qanday aralashishini belgilaydi.
+
+Photoshop’dagi blend mode kabi ishlaydi.
+
+---
+
+# Asosiy blend mode values
+
+| Value         | Vazifa                 |
+| ------------- | ---------------------- |
+| `normal`      | oddiy                  |
+| `multiply`    | qoraytiradi            |
+| `screen`      | yorqinlashtiradi       |
+| `overlay`     | contrast blend         |
+| `darken`      | eng qorong‘isini oladi |
+| `lighten`     | eng yorug‘ini oladi    |
+| `color-dodge` | kuchli light           |
+| `color-burn`  | kuchli dark            |
+| `difference`  | farq                   |
+| `exclusion`   | yumshoq difference     |
+| `hue`         | hue saqlaydi           |
+| `saturation`  | saturation saqlaydi    |
+| `color`       | color blend            |
+| `luminosity`  | yorug‘lik blend        |
+
+---
+
+# 1. `mix-blend-mode`
+
+Elementni orqasidagi content bilan blend qiladi.
+
+---
+
+# Sintaksis
+
+```css
+mix-blend-mode: value;
+```
+
+---
+
+# Misol
+
+```html
+<div class="bg">
+  <h1>TEXT</h1>
+</div>
+```
+
+```css
+.bg {
+  background: orange;
+}
+
+h1 {
+  color: white;
+  mix-blend-mode: multiply;
+}
+```
+
+---
+
+# Qanday ishlaydi
+
+`h1`
+↓
+orqa fon bilan aralashadi.
+
+---
+
+# `multiply`
+
+Ranglarni ko‘paytiradi → qorayadi.
+
+```css
+mix-blend-mode: multiply;
+```
+
+---
+
+# `screen`
+
+Teskarisi:
+
+- yorqinlashtiradi.
+
+```css
+mix-blend-mode: screen;
+```
+
+---
+
+# `overlay`
+
+Contrast kuchayadi.
+
+```css
+mix-blend-mode: overlay;
+```
+
+---
+
+# Text blend example
+
+```css
+h1 {
+  font-size: 100px;
+  color: white;
+  mix-blend-mode: difference;
+}
+```
+
+---
+
+# `difference`
+
+Ranglarni teskarilashtirishga o‘xshaydi.
+
+Oq text qora fonda → oq
+oq text oq fonda → qora
+
+---
+
+# Real neon example
+
+```css
+.text {
+  color: cyan;
+  mix-blend-mode: screen;
+}
+```
+
+---
+
+# Image blend
+
+```css
+img {
+  mix-blend-mode: multiply;
+}
+```
+
+Image background bilan blend bo‘ladi.
+
+---
+
+# Transparent effect
+
+```css
+.logo {
+  mix-blend-mode: lighten;
+}
+```
+
+---
+
+# Isolation muammosi
+
+Ba’zida blend butun page bilan ishlaydi.
+
+Buni oldini olish:
+
+```css
+.container {
+  isolation: isolate;
+}
+```
+
+---
+
+# Nega kerak?
+
+`mix-blend-mode`
+faqat parent ichida ishlaydi.
+
+---
+
+# Example
+
+```css
+.wrapper {
+  isolation: isolate;
+}
+```
+
+---
+
+# 2. `background-blend-mode`
+
+Bu:
+
+- background layers
+  orasida blend qiladi.
+
+---
+
+# Sintaksis
+
+```css
+background-blend-mode: value;
+```
+
+---
+
+# Misol
+
+```css
+.box {
+  background-image: url(bg.jpg), linear-gradient(red, blue);
+
+  background-blend-mode: multiply;
+}
+```
+
+---
+
+# Qanday ishlaydi
+
+Background image
+
+- Gradient
+
+bir-biri bilan blend bo‘ladi.
+
+---
+
+# Overlay effect
+
+```css
+.hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(hero.jpg);
+
+  background-blend-mode: darken;
+}
+```
+
+---
+
+# Color overlay
+
+```css
+background-blend-mode: overlay;
+```
+
+Image ustiga cinematic effect beradi.
+
+---
+
+# Multiple backgrounds
+
+```css
+background-image: url(a.jpg), url(b.jpg), linear-gradient(red, blue);
+
+background-blend-mode: screen, multiply;
+```
+
+---
+
+# Blend mode count rule
+
+Agar:
+
+- 3 ta background bo‘lsa,
+- 2 ta blend mode yetadi.
+
+---
+
+# Real examples
+
+# Dark overlay image
+
+```css
+.hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(bg.jpg);
+
+  background-blend-mode: multiply;
+}
+```
+
+---
+
+# Artistic image
+
+```css
+img {
+  mix-blend-mode: color-dodge;
+}
+```
+
+---
+
+# Gradient + image blend
+
+```css
+.card {
+  background-image: linear-gradient(purple, cyan), url(photo.jpg);
+
+  background-blend-mode: soft-light;
+}
+```
+
+---
+
+# Text cutout effect
+
+```css
+h1 {
+  color: white;
+  mix-blend-mode: difference;
+}
+```
+
+---
+
+# Most used blend modes
+
+| Blend        | Effect      |
+| ------------ | ----------- |
+| `multiply`   | dark        |
+| `screen`     | light       |
+| `overlay`    | cinematic   |
+| `difference` | invert-like |
+| `lighten`    | lighter     |
+| `darken`     | darker      |
+
+---
+
+# `mix-blend-mode` vs `background-blend-mode`
+
+| Property                | Blend qiladi       |
+| ----------------------- | ------------------ |
+| `mix-blend-mode`        | element + orqa fon |
+| `background-blend-mode` | background layers  |
+
+---
+
+# Browser support
+
+Ikkalasi ham modern browserlarda ishlaydi.
+
+Lekin:
+
+- eski browserlarda muammo bo‘lishi mumkin.
+
+---
+
+# Performance
+
+Blend modes GPU ishlatadi.
+
+Ko‘p ishlatilsa:
+
+- rendering og‘irlashadi.
+
+---
+
+# Muhim eslatmalar
+
+# Blend ko‘rinishi uchun overlap kerak
+
+Agar element orqasida hech narsa bo‘lmasa:
+
+- effect bilinmaydi.
+
+---
+
+# `mix-blend-mode` stacking contextga bog‘liq
+
+Ba’zan:
+
+```css
+position
+z-index
+opacity
+transform
+```
+
+blend natijasini o‘zgartiradi.
+
+---
+
+# `isolation: isolate`
+
+Eng muhim fixlardan biri.
+
+```css
+.container {
+  isolation: isolate;
+}
+```
+
+---
+
+# Xulosa
+
+# `mix-blend-mode`
+
+Elementni orqa content bilan blend qiladi.
+
+```css
+mix-blend-mode: multiply;
+```
+
+---
+
+# `background-blend-mode`
+
+Background layerlarni blend qiladi.
+
+```css
+background-blend-mode: overlay;
+```
+
+---
+
+# Eng mashhur blendlar
+
+```css
+multiply
+screen
+overlay
+difference
+```
+
+---
+
+# Isolation
+
+```css
+isolation: isolate;
+```
+
+blend scope’ni cheklaydi.
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
