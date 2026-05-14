@@ -33,6 +33,7 @@ Variable yaratish uchun `--` bilan boshlanadi.
 }
 ```
 
+
 Bu yerda:
 
 - `--main-color` → blue
