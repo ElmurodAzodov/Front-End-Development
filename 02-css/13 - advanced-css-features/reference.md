@@ -48,6 +48,7 @@ Bu yerda:
 :root;
 ```
 
+
 bu HTML documentning eng yuqori elementi (`html`) hisoblanadi.
 
 `:root` ichida yozilgan variable butun sahifada ishlaydi.
