@@ -41,6 +41,7 @@ Bu yerda:
 
 ---
 
+
 # `:root` nima?
 
 ```css
