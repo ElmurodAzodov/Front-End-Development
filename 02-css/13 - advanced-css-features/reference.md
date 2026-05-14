@@ -23,6 +23,7 @@ Variable yaratish uchun `--` bilan boshlanadi.
 --variable-name: value;
 ```
 
+
 ## Misol
 
 ```css
@@ -2841,5 +2842,934 @@ grid-template-rows: subgrid;
 - layout bir xil qoladi
 - alignment osonlashadi
 - nested grid muammolari yo‘qoladi
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# CSS Container Queries (`@container`)
+
+`@container` — bu CSS’da **elementning o‘z parent container o‘lchamiga qarab style o‘zgarishini ta’minlaydi**.
+
+👉 Oddiy qilib:
+
+- `@media` → viewport (ekran)ga qaraydi
+- `@container` → elementning ichki containeriga qaraydi
+
+---
+
+# 1. Muammo (nima uchun kerak?)
+
+Oldin faqat shunday edi:
+
+```css id="c1"
+@media (max-width: 600px) {
+  .card {
+    font-size: 14px;
+  }
+}
+```
+
+❌ muammo:
+
+- faqat ekran o‘lchamiga bog‘liq
+- component boshqa joyga qo‘yilsa buziladi
+
+---
+
+# 2. Container Queries yechimi
+
+Endi component o‘z “ota blok”iga qaraydi:
+
+👉 masalan:
+
+- sidebar ichida kichik card
+- main ichida katta card
+
+---
+
+# 3. Asosiy 2 qadam
+
+## 1) Container belgilash
+
+```css id="c2"
+.card-wrapper {
+  container-type: inline-size;
+}
+```
+
+---
+
+## 2) Container query yozish
+
+```css id="c3"
+@container (min-width: 400px) {
+  .card {
+    font-size: 20px;
+  }
+}
+```
+
+---
+
+# 4. Container type turlari
+
+## `inline-size`
+
+```css id="c4"
+container-type: inline-size;
+```
+
+👉 faqat width bo‘yicha hisoblaydi
+
+---
+
+## `size`
+
+```css id="c5"
+container-type: size;
+```
+
+👉 width + height
+
+---
+
+## `normal`
+
+```css id="c6"
+container-type: normal;
+```
+
+👉 container query ishlamaydi
+
+---
+
+# 5. Oddiy real misol
+
+## HTML
+
+```html id="c7"
+<div class="sidebar">
+  <div class="card">Hello</div>
+</div>
+```
+
+---
+
+## CSS
+
+```css id="c8"
+.sidebar {
+  width: 300px;
+  container-type: inline-size;
+}
+```
+
+---
+
+## Container query
+
+```css id="c9"
+@container (min-width: 250px) {
+  .card {
+    font-size: 18px;
+  }
+}
+```
+
+---
+
+# 6. Katta container misol
+
+```css id="c10"
+.main {
+  width: 800px;
+  container-type: inline-size;
+}
+```
+
+```css id="c11"
+@container (min-width: 600px) {
+  .card {
+    display: flex;
+  }
+}
+```
+
+---
+
+# 7. Container name (nom berish)
+
+Agar bir nechta container bo‘lsa:
+
+```css id="c12"
+.card-wrapper {
+  container-type: inline-size;
+  container-name: card;
+}
+```
+
+---
+
+## Query bilan ishlatish
+
+```css id="c13"
+@container card (min-width: 400px) {
+  .card {
+    padding: 30px;
+  }
+}
+```
+
+---
+
+# 8. Media Query vs Container Query
+
+| Feature          | @media  | @container |
+| ---------------- | ------- | ---------- |
+| asos             | ekran   | element    |
+| scope            | global  | local      |
+| reuse            | qiyin   | oson       |
+| component design | kam mos | ideal      |
+
+---
+
+# 9. Real UI example (card system)
+
+## Container
+
+```css id="c14"
+.widget {
+  container-type: inline-size;
+}
+```
+
+---
+
+## Small layout
+
+```css id="c15"
+@container (max-width: 300px) {
+  .card {
+    flex-direction: column;
+  }
+}
+```
+
+---
+
+## Large layout
+
+```css id="c16"
+@container (min-width: 600px) {
+  .card {
+    flex-direction: row;
+  }
+}
+```
+
+---
+
+# 10. Responsive component (eng kuchli use-case)
+
+```css id="c17"
+.card {
+  display: flex;
+}
+```
+
+```css id="c18"
+@container (max-width: 400px) {
+  .card {
+    flex-direction: column;
+  }
+}
+```
+
+👉 card qayerda tursa ham moslashadi
+
+---
+
+# 11. Nesting imkoniyati
+
+```css id="c19"
+.container {
+  container-type: inline-size;
+}
+
+@container (min-width: 500px) {
+  .item {
+    font-size: 22px;
+  }
+}
+```
+
+---
+
+# 12. Qachon ishlatiladi?
+
+✔ reusable components
+✔ design systems
+✔ cards
+✔ widgets
+✔ dashboards
+✔ UI libraries
+
+---
+
+# 13. Muhim qoida
+
+👉 Container query ishlashi uchun container bo‘lishi SHART:
+
+```css id="c20"
+container-type: inline-size;
+```
+
+---
+
+# 14. Oddiy tushuncha
+
+- `@media` → “ekran katta/kichikmi?”
+- `@container` → “bu blok katta/kichikmi?”
+
+---
+
+# 15. Eng kuchli afzallik
+
+Component “self-aware” bo‘ladi:
+
+👉 qayerga qo‘yilsa ham o‘zini moslaydi
+
+---
+
+# Xulosa
+
+## Container Query nima?
+
+👉 element o‘lchamiga qarab style o‘zgartiradi
+
+---
+
+## Asosiy yozilishi:
+
+```css id="c21"
+@container (min-width: 400px) {
+  .card {
+    font-size: 18px;
+  }
+}
+```
+
+---
+
+## Container belgilash:
+
+```css id="c22"
+container-type: inline-size;
+```
+
+---
+
+## Eng katta foyda:
+
+- responsive components
+- reusable UI
+- media queryga bog‘liqlik kamayadi
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# CSS `:has()` — Parent Selector
+
+`:has()` — CSS’da **parent (ota) elementni child ichidagi holatga qarab style qilish** imkonini beradigan selector.
+
+👉 Eng muhim g‘oya:
+
+- oldin CSS faqat **pastga (parent → child)** ishlardi
+- `:has()` bilan **tepaga (child → parent)** ham ishlash mumkin bo‘ldi
+
+---
+
+# 1. Oddiy muammo
+
+Oldin CSS’da bunday narsa imkonsiz edi:
+
+❌ “Agar ichida input focus bo‘lsa, parentni o‘zgartir”
+
+---
+
+# 2. `:has()` yechimi
+
+```css id="h1"
+.parent:has(input:focus) {
+  border: 2px solid blue;
+}
+```
+
+👉 ma’nosi:
+
+- agar `.parent` ichida `input:focus` bo‘lsa
+- `.parent` ga style ber
+
+---
+
+# 3. Eng oddiy tushuncha
+
+```text id="h2"
+Parent ichidagi holat → Parentni o‘zgartir
+```
+
+---
+
+# 4. Basic syntax
+
+```css id="h3"
+selector:has(condition) {
+  styles
+}
+```
+
+---
+
+# 5. Input focus example
+
+## HTML
+
+```html id="h4"
+<div class="box">
+  <input type="text" />
+</div>
+```
+
+---
+
+## CSS
+
+```css id="h5"
+.box:has(input:focus) {
+  background: lightblue;
+}
+```
+
+---
+
+## Natija:
+
+- input fokus bo‘lsa
+- box rangi o‘zgaradi
+
+---
+
+# 6. Checkbox example
+
+```css id="h6"
+.card:has(input[type="checkbox"]:checked) {
+  background: green;
+}
+```
+
+👉 checkbox belgilanganda card o‘zgaradi
+
+---
+
+# 7. Image mavjudligini tekshirish
+
+```css id="h7"
+.post:has(img) {
+  padding: 20px;
+}
+```
+
+👉 agar post ichida rasm bo‘lsa
+
+---
+
+# 8. Empty state detection
+
+```css id="h8"
+.list:not(:has(li)) {
+  display: none;
+}
+```
+
+👉 agar list bo‘sh bo‘lsa yashir
+
+---
+
+# 9. Button ichida icon borligi
+
+```css id="h9"
+button:has(svg) {
+  padding-left: 30px;
+}
+```
+
+---
+
+# 10. Multiple conditions
+
+```css id="h10"
+.card:has(img):has(h2) {
+  border: 2px solid black;
+}
+```
+
+👉 card ichida rasm ham, title ham bo‘lsa
+
+---
+
+# 11. Real UI example (form validation)
+
+```css id="h11"
+.form-group:has(input:invalid) {
+  border: 1px solid red;
+}
+```
+
+👉 input xato bo‘lsa, parent qizil bo‘ladi
+
+---
+
+# 12. Hover based parent effect
+
+```css id="h12"
+.card:has(img:hover) {
+  transform: scale(1.05);
+}
+```
+
+👉 rasm ustiga hover qilinsa card kattalashadi
+
+---
+
+# 13. `:has()` vs old CSS
+
+## Old usul (imkonsiz):
+
+```css id="h13"
+/* Parentni childga qarab o‘zgartirib bo‘lmas edi */
+```
+
+---
+
+## Yangi usul:
+
+```css id="h14"
+.parent:has(child) {
+}
+```
+
+---
+
+# 14. Real dashboard example
+
+```css id="h15"
+.widget:has(.error) {
+  border-left: 4px solid red;
+}
+```
+
+---
+
+# 15. Navigation example
+
+```css id="h16"
+.menu-item:has(.active) {
+  background: blue;
+}
+```
+
+---
+
+# 16. Important limitation
+
+❗ `:has()` juda kuchli, lekin:
+
+- katta layoutlarda ehtiyot bo‘lish kerak
+- performancega ta’sir qilishi mumkin
+
+---
+
+# 17. Browser support
+
+Modern browserlarda ishlaydi:
+
+✔ Chrome
+✔ Edge
+✔ Safari
+✔ Firefox (yangi versiyalar)
+
+---
+
+# 18. Mental model
+
+Oddiy CSS:
+
+```text id="h17"
+Parent → Child
+```
+
+`:has()` bilan:
+
+```text id="h18"
+Child state → Parent
+```
+
+---
+
+# 19. Eng kuchli use cases
+
+✔ Form validation UI
+✔ Card states
+✔ Empty/filled detection
+✔ Dynamic layouts
+✔ Interactive components
+
+---
+
+# 20. Xulosa
+
+## `:has()` nima?
+
+👉 parent selector bo‘lib, child ichidagi holatga qarab parentni style qiladi
+
+---
+
+## Sintaksis:
+
+```css id="h19"
+.parent:has(child-condition) {
+}
+```
+
+---
+
+## Eng kuchli imkoniyati:
+
+- CSS’da “parent logic” qo‘shadi
+- JavaScript’siz interactivity beradi
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# CSS `@scope` Rule
+
+`@scope` — CSS’da **style’larni faqat ma’lum bir DOM (scope) ichida cheklab qo‘yish** uchun ishlatiladi.
+
+👉 Oddiy qilib:
+
+- CSS odatda global ishlaydi
+- `@scope` esa “bu style faqat shu blok ichida ishlasin” deydi
+
+---
+
+# 1. Muammo (nima uchun kerak?)
+
+Oldin CSS shunaqa edi:
+
+```css id="s1"
+.title {
+  color: red;
+}
+```
+
+❌ muammo:
+
+- `.title` hamma joyda ishlaydi
+- katta projectlarda conflict bo‘ladi
+
+---
+
+# 2. `@scope` yechimi
+
+```css id="s2"
+@scope (.card) {
+  .title {
+    color: blue;
+  }
+}
+```
+
+👉 ma’nosi:
+
+- `.card` ichidagi `.title` faqat shu scope’da ishlaydi
+
+---
+
+# 3. Asosiy tushuncha
+
+```text id="s3"
+Scope = CSS uchun “chegaralangan zona”
+```
+
+---
+
+# 4. Basic syntax
+
+```css id="s4"
+@scope (scope-root) {
+  styles
+}
+```
+
+---
+
+# 5. Oddiy misol
+
+## HTML
+
+```html id="s5"
+<div class="card">
+  <h2 class="title">Hello</h2>
+</div>
+
+<h2 class="title">Outside</h2>
+```
+
+---
+
+## CSS
+
+```css id="s6"
+@scope (.card) {
+  .title {
+    color: red;
+  }
+}
+```
+
+---
+
+## Natija:
+
+- `.card` ichidagi title → red
+- tashqaridagi title → o‘zgarmaydi
+
+---
+
+# 6. Scope root va scope limit
+
+`@scope` 2 qismdan iborat bo‘lishi mumkin:
+
+```css id="s7"
+@scope (.card) to (.footer) {
+  styles
+}
+```
+
+---
+
+👉 ma’nosi:
+
+- `.card` dan boshlanadi
+- `.footer` ga yetganda to‘xtaydi
+
+---
+
+# 7. Real example
+
+```css id="s8"
+@scope (.article) to (.end) {
+  p {
+    font-size: 18px;
+  }
+}
+```
+
+---
+
+# 8. Nested scope (ichma-ich)
+
+```css id="s9"
+@scope (.modal) {
+  h1 {
+    color: white;
+  }
+
+  @scope (.inner) {
+    p {
+      color: gray;
+    }
+  }
+}
+```
+
+---
+
+# 9. Component-based design
+
+```css id="s10"
+@scope (.card) {
+  .title {
+    font-weight: bold;
+  }
+
+  .text {
+    color: #666;
+  }
+}
+```
+
+👉 bu:
+
+- component CSS’ni isolate qiladi
+
+---
+
+# 10. `@scope` vs normal CSS
+
+| Feature             | normal CSS      | @scope |
+| ------------------- | --------------- | ------ |
+| global              | ha              | yo‘q   |
+| conflict            | bo‘lishi mumkin | yo‘q   |
+| component isolation | yo‘q            | ha     |
+| reuse safety        | past            | yuqori |
+
+---
+
+# 11. Real UI example
+
+## Card system
+
+```css id="s11"
+@scope (.product-card) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    color: gray;
+  }
+}
+```
+
+---
+
+# 12. Scoped reset example
+
+```css id="s12"
+@scope (.editor) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+}
+```
+
+👉 faqat editor ichida reset bo‘ladi
+
+---
+
+# 13. Scope + :scope pseudo
+
+```css id="s13"
+@scope (.card) {
+  :scope {
+    border: 1px solid black;
+  }
+}
+```
+
+👉 `:scope` = hozirgi scope root
+
+---
+
+# 14. Scope chaining
+
+```css id="s14"
+@scope (.page) {
+  @scope (.section) {
+    p {
+      color: blue;
+    }
+  }
+}
+```
+
+---
+
+# 15. Qachon ishlatiladi?
+
+✔ Design systems
+✔ Component libraries
+✔ Large projects
+✔ Avoid CSS conflicts
+✔ Scoped UI sections
+
+---
+
+# 16. Muhim eslatma
+
+❗ `@scope` hali yangi feature:
+
+- hamma browserlarda 100% universal emas
+- lekin modern browserlarda ishlaydi
+
+---
+
+# 17. Mental model
+
+## Old CSS:
+
+```text id="s15"
+Global CSS → hamma joyga ta’sir qiladi
+```
+
+## @scope:
+
+```text id="s16"
+Local CSS → faqat shu blok ichida ishlaydi
+```
+
+---
+
+# 18. Eng kuchli foyda
+
+👉 CSS modular bo‘ladi
+👉 conflict yo‘qoladi
+👉 component architecture kuchayadi
+
+---
+
+# Xulosa
+
+## `@scope` nima?
+
+👉 CSS style’larni faqat ma’lum DOM ichida cheklaydigan rule
+
+---
+
+## Asosiy yozilishi:
+
+```css id="s17"
+@scope (.container) {
+  .title {
+    color: red;
+  }
+}
+```
+
+---
+
+## Eng katta foyda:
+
+- scoped styling
+- clean architecture
+- component isolation
+- CSS conflict yo‘q
 
 ---
