@@ -1,4 +1,3 @@
-
 //^ 1. Voyaga yetgan va yetmaganligini aniqlash
 // let yosh = 12
 // if (yosh > 17) {
@@ -30,22 +29,19 @@
 // }
 
 //^ 5. Foydalanuvchi kiritgan son musbat va manfiy ekanligini aniqlansin, agarda 0 kiritsa siz 0 sonini kiritdingiz javobi ekranga chiqarilsin
-let son = -1
+let son = -1;
 if (son > 0) {
-    console.log("Siz musbat son kiritdingiz")
+  console.log("Siz musbat son kiritdingiz");
 } else if (son === 0) {
-    console.log("Siz nol sonini kiritdingiz")
-} else (
-    console.log("Siz manfiy son kiritingiz")
-)
+  console.log("Siz nol sonini kiritdingiz");
+} else console.log("Siz manfiy son kiritingiz");
 //^ 6. Foydalanuvchi "qweqwe" parolni kiritsa tizim ochildi aks holda noto'g'ri parol javobi ekranga chiqarilsin
-let parol = "qweqwe"
+let parol = "qweqwe";
 if (parol === "qweqwe") {
-    console.log("Tizim ochildi")
+  console.log("Tizim ochildi");
 } else {
-    console.log("Parol xato")
+  console.log("Parol xato");
 }
-
 
 //* JS amaliyot
 //^ 1. Bahoni aniqlash
@@ -53,4 +49,7 @@ if (parol === "qweqwe") {
 //^ Foydalanuvchi ball kiritsin.
 //^ Agar ball 70 va undan katta bo‘lsa "Siz imtihondan o'tdingiz" chiqsin, aks holda "Siz yiqildingiz" chiqsin.
 
+//^ 2. Son 100 dan katta yoki kichik
 
+//^ Foydalanuvchi son kiritsin.
+//^ Agar son 100 dan katta bo‘lsa "Katta son" chiqsin, aks holda "Kichik son" chiqsin.
