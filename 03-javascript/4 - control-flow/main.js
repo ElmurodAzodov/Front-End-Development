@@ -53,3 +53,8 @@ if (parol === "qweqwe") {
 
 //^ Foydalanuvchi son kiritsin.
 //^ Agar son 100 dan katta bo‘lsa "Katta son" chiqsin, aks holda "Kichik son" chiqsin.
+
+//^ 3. Login tekshirish
+
+//^ Foydalanuvchi login kiritsin.
+//^ Agar login "admin" bo‘lsa "Xush kelibsiz admin" chiqsin, aks holda "Login noto'g'ri" chiqsin.
