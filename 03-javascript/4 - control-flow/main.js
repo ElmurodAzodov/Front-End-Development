@@ -45,3 +45,12 @@ if (parol === "qweqwe") {
 } else {
     console.log("Parol xato")
 }
+
+
+//* JS amaliyot
+//^ 1. Bahoni aniqlash
+
+//^ Foydalanuvchi ball kiritsin.
+//^ Agar ball 70 va undan katta bo‘lsa "Siz imtihondan o'tdingiz" chiqsin, aks holda "Siz yiqildingiz" chiqsin.
+
+
