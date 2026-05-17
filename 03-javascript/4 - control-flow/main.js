@@ -58,3 +58,15 @@ if (parol === "qweqwe") {
 
 //^ Foydalanuvchi login kiritsin.
 //^ Agar login "admin" bo‘lsa "Xush kelibsiz admin" chiqsin, aks holda "Login noto'g'ri" chiqsin.
+
+
+//^ 4. Ikki sondan kattasini topish
+
+//^ Ikkita son berilgan.
+//^ Qaysi biri katta bo‘lsa, o‘sha son ekranga chiqarilsin.
+//^ Agar ikkalasi teng bo‘lsa "Sonlar teng" chiqsin.
+
+// Misol:
+
+let son1 = 20
+let son2 = 50
