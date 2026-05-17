@@ -1,72 +1,167 @@
-//^ 1. Voyaga yetgan va yetmaganligini aniqlash
-// let yosh = 12
-// if (yosh > 17) {
-//     console.log("Siz voyaga yetgansiz")
+//* ===============================
+//*      JS IF / ELSE MAVZUSI
+//* ===============================
+
+//! 1. Voyaga yetgan yoki yetmaganligini aniqlash
+//? Foydalanuvchi yosh kiritsin
+//^ Agar yosh 18 dan katta yoki teng bo‘lsa
+//^ "Siz voyaga yetgansiz" chiqsin
+//^ Aks holda "Siz voyaga yetmagansiz" chiqsin
+
+// let yosh = 12;
+
+// if (yosh >= 18) {
+//   console.log("Siz voyaga yetgansiz");
 // } else {
-//     console.log("Siz voyaga yetmagansiz")
+//   console.log("Siz voyaga yetmagansiz");
 // }
-//^ 2. Kiritilgan son juft yoki toqligini aniqlasin.
-// let son = 132
+
+//! 2. Son juft yoki toqligini aniqlash
+//? Foydalanuvchi son kiritsin
+//^ Agar son juft bo‘lsa
+//^ "Siz juft son kiritdingiz" chiqsin
+//^ Aks holda "Siz toq son kiritdingiz" chiqsin
+
+// let son = 132;
+
 // if (son % 2 === 0) {
-//     console.log("Siz juft son kiritdingiz")
-// }  else {
-//     console.log("Siz toq son kiritdingiz")
+//   console.log("Siz juft son kiritdingiz");
+// } else {
+//   console.log("Siz toq son kiritdingiz");
 // }
-//^ 3. O'quvchi sinfini kiritsin, agarda 11sonidan katta son kiritsa siz maktabni tugatdingiz aks holda siz hali o'quvchisiz javobini chiqaring
-// let sinf = 3
+
+//! 3. O‘quvchi maktabni tugatganmi?
+//? Foydalanuvchi sinf kiritsin
+//^ Agar sinf 11 dan katta bo‘lsa
+//^ "Siz maktabni tugatgansiz" chiqsin
+//^ Aks holda "Siz hali o‘quvchisiz" chiqsin
+
+// let sinf = 3;
+
 // if (sinf > 11) {
-//     console.log("Siz maktabni tugatgansiz")
+//   console.log("Siz maktabni tugatgansiz");
 // } else {
-//     console.log("Siz hali o'quvchisiz")
+//   console.log("Siz hali o‘quvchisiz");
 // }
 
-//^ 4. Foydalanuvchi 30 va undan katta son kiritganda bugun havo juda issiq aks holda bugun havo yaxshi javobi ekranga chiqarilsin
-// let daraja = 40
-// if (daraja < 30) {
-//     console.log("Bugun havo yaxshi")
+//! 4. Havo haroratini aniqlash
+//? Foydalanuvchi harorat kiritsin
+//^ Agar harorat 30 yoki undan katta bo‘lsa
+//^ "Bugun havo juda issiq" chiqsin
+//^ Aks holda "Bugun havo yaxshi" chiqsin
+
+// let daraja = 40;
+
+// if (daraja >= 30) {
+//   console.log("Bugun havo juda issiq");
 // } else {
-//     console.log("Bugun havo vapshe issiq")
+//   console.log("Bugun havo yaxshi");
 // }
 
-//^ 5. Foydalanuvchi kiritgan son musbat va manfiy ekanligini aniqlansin, agarda 0 kiritsa siz 0 sonini kiritdingiz javobi ekranga chiqarilsin
-let son = -1;
-if (son > 0) {
-  console.log("Siz musbat son kiritdingiz");
-} else if (son === 0) {
-  console.log("Siz nol sonini kiritdingiz");
-} else console.log("Siz manfiy son kiritingiz");
-//^ 6. Foydalanuvchi "qweqwe" parolni kiritsa tizim ochildi aks holda noto'g'ri parol javobi ekranga chiqarilsin
-let parol = "qweqwe";
-if (parol === "qweqwe") {
-  console.log("Tizim ochildi");
-} else {
-  console.log("Parol xato");
-}
+//! 5. Musbat, manfiy yoki nol son
+//? Foydalanuvchi son kiritsin
+//^ Agar son musbat bo‘lsa
+//^ "Siz musbat son kiritdingiz"
+//^ Agar 0 bo‘lsa
+//^ "Siz nol sonini kiritdingiz"
+//^ Aks holda
+//^ "Siz manfiy son kiritdingiz"
 
-//* JS amaliyot
-//^ 1. Bahoni aniqlash
+// let son = -1;
 
-//^ Foydalanuvchi ball kiritsin.
-//^ Agar ball 70 va undan katta bo‘lsa "Siz imtihondan o'tdingiz" chiqsin, aks holda "Siz yiqildingiz" chiqsin.
+// if (son > 0) {
+//   console.log("Siz musbat son kiritdingiz");
+// } else if (son === 0) {
+//   console.log("Siz nol sonini kiritdingiz");
+// } else {
+//   console.log("Siz manfiy son kiritdingiz");
+// }
 
-//^ 2. Son 100 dan katta yoki kichik
+//! 6. Parolni tekshirish
+//? Foydalanuvchi parol kiritsin
+//^ Agar parol "qweqwe" bo‘lsa
+//^ "Tizim ochildi" chiqsin
+//^ Aks holda "Parol xato" chiqsin
 
-//^ Foydalanuvchi son kiritsin.
-//^ Agar son 100 dan katta bo‘lsa "Katta son" chiqsin, aks holda "Kichik son" chiqsin.
+// let parol = "qweqwe";
 
-//^ 3. Login tekshirish
+// if (parol === "qweqwe") {
+//   console.log("Tizim ochildi");
+// } else {
+//   console.log("Parol xato");
+// }
 
-//^ Foydalanuvchi login kiritsin.
-//^ Agar login "admin" bo‘lsa "Xush kelibsiz admin" chiqsin, aks holda "Login noto'g'ri" chiqsin.
+//* ===============================
+//*        JS AMALIYOTLAR
+//* ===============================
 
+//TODO: 7. Bahoni aniqlash
+//? Ball kiriting
+//^ Agar ball 70 yoki undan katta bo‘lsa
+//^ "Siz imtihondan o'tdingiz"
+//^ Aks holda "Siz yiqildingiz"
 
-//^ 4. Ikki sondan kattasini topish
+//TODO: 8. Son 100 dan katta yoki kichik
+//? Son kiriting
+//^ Agar son 100 dan katta bo‘lsa
+//^ "Katta son"
+//^ Aks holda "Kichik son"
 
-//^ Ikkita son berilgan.
-//^ Qaysi biri katta bo‘lsa, o‘sha son ekranga chiqarilsin.
-//^ Agar ikkalasi teng bo‘lsa "Sonlar teng" chiqsin.
+//TODO: 9. Login tekshirish
+//? Login kiriting
+//^ Agar login "admin" bo‘lsa
+//^ "Xush kelibsiz admin"
+//^ Aks holda "Login noto‘g‘ri"
 
-// Misol:
+//TODO: 10. Ikki sondan kattasini topish
+//? Ikkita son berilgan
+//^ Kattasini chiqaring
+//^ Agar teng bo‘lsa
+//^ "Sonlar teng"
 
-let son1 = 20
-let son2 = 50
+// let son1 = 20;
+// let son2 = 50;
+
+//TODO: 11. Harorat tekshirish
+//? Harorat kiriting
+//^ 0 dan kichik → "Havo juda sovuq"
+//^ 0–20 oralig‘i → "Havo salqin"
+//^ 20 dan katta → "Havo issiq"
+
+//TODO: 12. Pul yetadimi?
+//? Pul miqdorini kiriting
+//^ Agar pul 50000 yoki undan ko‘p bo‘lsa
+//^ "Sotib olishingiz mumkin"
+//^ Aks holda "Pul yetarli emas"
+
+//TODO: 13. Son 3 va 5 ga bo‘linadimi?
+//? Son kiriting
+//^ Agar son 3 ga ham,
+//^ 5 ga ham bo‘linsa
+//^ "3 va 5 ga bo‘linadi"
+//^ Aks holda "Bo‘linmaydi"
+
+//TODO: 14. Yosh kategoriyasi
+//? Yosh kiriting
+//^ 0–6 → "Bola"
+//^ 7–17 → "O‘quvchi"
+//^ 18+ → "Katta odam"
+
+//TODO: 15. Login + parol tekshirish
+//? Login va parol kiriting
+//^ login === "admin"
+//^ parol === "12345"
+//^ To‘g‘ri bo‘lsa
+//^ "Tizimga xush kelibsiz"
+//^ Aks holda
+//^ "Login yoki parol xato"
+
+//TODO: 16. 3 ta sondan kattasini topish
+//? 3 ta son berilgan
+//^ Eng katta sonni chiqaring
+
+// let a = 15;
+// let b = 80;
+// let c = 45;
+
+//^ Natija: 80
