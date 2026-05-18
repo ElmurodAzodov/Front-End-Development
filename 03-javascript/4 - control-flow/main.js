@@ -108,30 +108,31 @@
 //     console.log("Siz imtihondan o'tdingiz")
 // }
 
-
 //TODO: 8. Son 100 dan katta yoki kichik
 //? Son kiriting
 //^ Agar son 100 dan katta bo‘lsa
 //^ "Katta son"
 //^ Aks holda "Kichik son"
 
-let son = prompt("Son kiriting:")
-if (son > 100) {
-    console.log("Katta son")
-} else {
-    console.log("Kichik son")
-}
-
+// let son = prompt("Son kiriting:")
+// if (son > 100) {
+//     console.log("Katta son")
+// } else {
+//     console.log("Kichik son")
+// }
 
 //TODO: 9. Login tekshirish
 //? Login kiriting
 //^ Agar login "admin" bo‘lsa
 //^ "Xush kelibsiz admin"
-//^ Aks holda "Login noto‘g‘ri"
+//^ Aks holda "Login noto'g'ri"
 
-
-
-
+// let login = prompt("Loginingizni kiriting:")
+// if (login === "admin") {
+//     console.log("Xush kelibsiz admin")
+// } else {
+//     console.log("Login noto'g'ri")
+// }
 
 //TODO: 10. Ikki sondan kattasini topish
 //? Ikkita son berilgan
@@ -139,14 +140,42 @@ if (son > 100) {
 //^ Agar teng bo‘lsa
 //^ "Sonlar teng"
 
-// let son1 = 20;
-// let son2 = 50;
+// alert("Ikkita son kiriting!")
+// let son1 = prompt("Birinchi sonni kiriting:")
+// let son2 = prompt("Ikkinchi sonni kiriting:")
+
+// if (son1 > son2) {
+//     console.log("Siz kiritgan birinchi soningiz katta!")
+// } else if (son1 < son2) {
+//     console.log("Siz kiritgan ikkinchi soningiz katta!")
+// } else {
+//     console.log("Siz kiritgan ikkita son bir-birlariga teng!")
+// }
+
+//  true = 1
+//  false = 0
+//  && - (va) kopaytirish
+//  || - (yoki) qoshish
+// let a = 2
+// let b = 3
+// if (a == 2 && a == b) {
+//     console.log("a soni 2ga teng va a va bbir biriga teng")
+// }
 
 //TODO: 11. Harorat tekshirish
 //? Harorat kiriting
 //^ 0 dan kichik → "Havo juda sovuq"
 //^ 0–20 oralig‘i → "Havo salqin"
 //^ 20 dan katta → "Havo issiq"
+
+// let harorat = prompt("Haroratni kiriting:")
+// if (harorat < 0) {
+//     console.log("Juda sovuq")
+// } else if (harorat >= 0 && harorat <= 20) {
+//     console.log("Havo salqin")
+// } else {
+//     console.log("Havo issiq")
+// }
 
 //TODO: 12. Pul yetadimi?
 //? Pul miqdorini kiriting
