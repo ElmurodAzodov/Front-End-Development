@@ -100,6 +100,14 @@
 //^ Agar ball 70 yoki undan katta bo‘lsa
 //^ "Siz imtihondan o'tdingiz"
 //^ Aks holda "Siz yiqildingiz"
+// alert("Diqqat savolga to'g'ri javob bering!")
+// let ball = prompt("Ball kiriting:")
+// if (ball < 70) {
+//     console.log("Siz imtihondan yiqildingiz")
+// } else {
+//     console.log("Siz imtihondan o'tdingiz")
+// }
+
 
 //TODO: 8. Son 100 dan katta yoki kichik
 //? Son kiriting
@@ -107,11 +115,23 @@
 //^ "Katta son"
 //^ Aks holda "Kichik son"
 
+let son = prompt("Son kiriting:")
+if (son > 100) {
+    console.log("Katta son")
+} else {
+    console.log("Kichik son")
+}
+
+
 //TODO: 9. Login tekshirish
 //? Login kiriting
 //^ Agar login "admin" bo‘lsa
 //^ "Xush kelibsiz admin"
 //^ Aks holda "Login noto‘g‘ri"
+
+
+
+
 
 //TODO: 10. Ikki sondan kattasini topish
 //? Ikkita son berilgan
