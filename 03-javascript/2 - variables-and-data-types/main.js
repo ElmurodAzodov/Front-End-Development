@@ -18,3 +18,21 @@
 // son = 13
 // console.log(son)
 
+// const son = 12
+// son = 13 // TypeError
+// console.log(son)
+
+// let son = 12
+// // console.log(son, typeof son)
+// console.log(son, typeof(son))
+
+// let text = "Primitive Data Types"
+
+// console.log(text)
+// console.log(typeof(text))
+
+
+// let a = true
+// let b = false
+// console.log(typeof(a), typeof(b))
+
