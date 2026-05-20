@@ -214,3 +214,112 @@
 // let c = 45;
 
 //^ Natija: 80
+
+
+//* ===============================
+//*   QO‘SHIMCHA 15 TA IF/ELSE MASALA
+//* ===============================
+
+//TODO: 17. Son musbat va juftmi?
+//? Son kiriting
+//^ Agar son musbat va juft bo‘lsa
+//^ "Musbat juft son"
+//^ Aks holda
+//^ "Mos kelmadi"
+
+// let son = 12
+
+
+
+
+//TODO: 18. Imtiyozli chegirma
+//? Xarid summasini kiriting
+//^ Agar summa 100000 dan katta bo‘lsa
+//^ "10% chegirma mavjud"
+//^ Aks holda
+//^ "Chegirma yo‘q"
+
+//TODO: 19. Hafta kuni dam olishmi?
+//? Hafta kuni kiriting
+//^ Agar "shanba" yoki "yakshanba" bo‘lsa
+//^ "Bugun dam olish kuni"
+//^ Aks holda
+//^ "Bugun ish kuni"
+
+//TODO: 20. Telefon quvvati
+//? Batareya foizini kiriting
+//^ 20 dan kichik → "Telefonni quvvatlang"
+//^ 20 yoki katta → "Quvvat yetarli"
+
+//TODO: 21. Son 10 va 50 oralig‘idami?
+//? Son kiriting
+//^ Agar son 10 va 50 oralig‘ida bo‘lsa
+//^ "Oraliqda"
+//^ Aks holda
+//^ "Oraliqda emas"
+
+//TODO: 22. Haydovchilik guvohnomasi
+//? Yosh kiriting
+//^ Agar yosh 18 yoki katta bo‘lsa
+//^ "Mashina haydashingiz mumkin"
+//^ Aks holda
+//^ "Yoshingiz yetmaydi"
+
+//TODO: 23. Email tekshirish
+//? Email kiriting
+//^ Agar email ichida "@" belgisi bo‘lsa
+//^ "Email to‘g‘ri"
+//^ Aks holda
+//^ "Email noto‘g‘ri"
+
+//TODO: 24. Son 2 xonali yoki yo‘q
+//? Son kiriting
+//^ Agar son 10–99 oralig‘ida bo‘lsa
+//^ "Bu 2 xonali son"
+//^ Aks holda
+//^ "Bu 2 xonali emas"
+
+//TODO: 25. Foydalanuvchi jinsi
+//? Jins kiriting ("erkak" yoki "ayol")
+//^ "erkak" → "Xush kelibsiz janob"
+//^ "ayol" → "Xush kelibsiz xonim"
+//^ Aks holda → "Noto‘g‘ri ma’lumot"
+
+//TODO: 26. Son kvadratini tekshirish
+//? Son kiriting
+//^ Agar sonning kvadrati 100 dan katta bo‘lsa
+//^ "Kvadrat katta"
+//^ Aks holda
+//^ "Kvadrat kichik"
+
+//TODO: 27. Trafik svetofori
+//? Rang kiriting
+//^ "qizil" → "To‘xtang"
+//^ "sariq" → "Tayyorlaning"
+//^ "yashil" → "Yuring"
+//^ Aks holda → "Noto‘g‘ri rang"
+
+//TODO: 28. Talaba stipendiyasi
+//? Ball kiriting
+//^ 90 yoki katta → "Stipendiya oldingiz"
+//^ Aks holda → "Stipendiya yo‘q"
+
+//TODO: 29. Son 7 ga bo‘linadimi?
+//? Son kiriting
+//^ Agar son 7 ga qoldiqsiz bo‘linsa
+//^ "7 ga bo‘linadi"
+//^ Aks holda
+//^ "7 ga bo‘linmaydi"
+
+//TODO: 30. Parol uzunligi
+//? Parol kiriting
+//^ Agar parol uzunligi 8 ta belgidan katta yoki teng bo‘lsa
+//^ "Kuchli parol"
+//^ Aks holda
+//^ "Parol juda qisqa"
+
+//TODO: 31. Internet tezligi
+//? Mbps kiriting
+//^ 100 yoki katta → "Internet juda tez"
+//^ 50–99 → "Internet yaxshi"
+//^ 50 dan kichik → "Internet sekin"
