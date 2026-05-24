@@ -243,7 +243,12 @@ if (son > 0 && son % 2 === 0) {
 //^ Aks holda
 //^ "Chegirma yo‘q"
 
-
+let summa = 100000
+if (summa > 100000) {
+    console.log("Chegirma mavjud")
+} else {
+    console.log("Chegirma mavjud emas")
+}
 
 //TODO: 19. Hafta kuni dam olishmi?
 //? Hafta kuni kiriting
