@@ -243,6 +243,8 @@ if (son > 0 && son % 2 === 0) {
 //^ Aks holda
 //^ "Chegirma yo‘q"
 
+
+
 //TODO: 19. Hafta kuni dam olishmi?
 //? Hafta kuni kiriting
 //^ Agar "shanba" yoki "yakshanba" bo‘lsa
