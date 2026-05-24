@@ -228,7 +228,11 @@
 //^ "Mos kelmadi"
 
 let son = 12
-
+if (son > 0 && son % 2 === 0) {
+    console.log("Musbat va juft son")
+} else {
+    console.log("Mos kelmadi")
+}
 
 
 
