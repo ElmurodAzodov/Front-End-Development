@@ -227,7 +227,7 @@
 //^ Aks holda
 //^ "Mos kelmadi"
 
-// let son = 12
+let son = 12
 
 
 
