@@ -215,7 +215,6 @@
 
 //^ Natija: 80
 
-
 //* ===============================
 //*   QO‘SHIMCHA 15 TA IF/ELSE MASALA
 //* ===============================
@@ -227,14 +226,12 @@
 //^ Aks holda
 //^ "Mos kelmadi"
 
-let son = 12
-if (son > 0 && son % 2 === 0) {
-    console.log("Musbat va juft son")
-} else {
-    console.log("Mos kelmadi")
-}
-
-
+// let son = 12
+// if (son > 0 && son % 2 === 0) {
+//     console.log("Musbat va juft son")
+// } else {
+//     console.log("Mos kelmadi")
+// }
 
 //TODO: 18. Imtiyozli chegirma
 //? Xarid summasini kiriting
@@ -243,12 +240,12 @@ if (son > 0 && son % 2 === 0) {
 //^ Aks holda
 //^ "Chegirma yo‘q"
 
-let summa = 100000
-if (summa > 100000) {
-    console.log("Chegirma mavjud")
-} else {
-    console.log("Chegirma mavjud emas")
-}
+// let summa = 100000
+// if (summa > 100000) {
+//     console.log("Chegirma mavjud")
+// } else {
+//     console.log("Chegirma mavjud emas")
+// }
 
 //TODO: 19. Hafta kuni dam olishmi?
 //? Hafta kuni kiriting
@@ -334,3 +331,86 @@ if (summa > 100000) {
 //^ 100 yoki katta → "Internet juda tez"
 //^ 50–99 → "Internet yaxshi"
 //^ 50 dan kichik → "Internet sekin"
+
+//& ============================================================
+// let day = 3;
+
+// switch (day) {
+//   case 1:
+//     console.log("Dushanba");
+//   case 2:
+//     console.log("Seshanba");
+//     break;
+//   case 3:
+//     console.log("Chorshanba");
+//   default:
+//     console.log("Noto'g'ri kun");
+// }
+
+// let fruit = "apple";
+
+// switch (fruit) {
+//   case "apple":
+//     break
+//     let yosh = 18
+//     if (yosh > 18) {
+//         console.log("Katta")
+//     } else {
+//         console.log("Kichik ekansiz")
+//     }
+
+//   case "banana":
+//     console.log("Bu meva");
+//     break;
+//   case "carrot":
+//     console.log("Bu sabzi");
+//     break;
+// }
+
+// console.log("Tashqi hudud")
+// Kichik ekansiz
+// Bu meva
+
+// Tashqi hudud
+
+//^ 1. Raqam kiritilgan (1-7) hafta kunining nomini chiqaring.
+// let kun = 3;
+
+//^ 2. Fasl aniqlash: Oy raqamiga qarab faslni chiqaring (1-12).
+let oy = 6;
+switch (true) {
+  case oy >= 3 && oy <= 5:
+    console.log("Bahor");
+    break;
+  case oy >= 6 && oy <= 8:
+    console.log("Yoz");
+    break;
+  case oy >= 9 && oy <= 11:
+    console.log("Kuz");
+    break;
+  case oy == 12 || (oy >= 1 && oy <= 2):
+    console.log("Qish");
+    break;
+  default:
+    console.log("Siz kiritgan raqamga mos oy topilmadi!");
+}
+// if (oy >= 3 && oy <= 5) {
+//     console.log("Bahor")
+// } else if(oy >= 6 && oy <= 8) {
+//     console.log("Yoz")
+// } else if (oy >= 9 && oy <= 11) {
+//     console.log("Kuz")
+// } else if (oy == 12 || (oy >= 1 && oy <= 2)) {
+//     console.log("Qish")
+// } else {
+//     console.log("Siz kiritgan raqamga mos oy topilmadi!")
+// }
+
+//! || && > <
+
+//^ 3. Foydalanuvchi kiritgan til boyicha natija chiqarsin.
+// let til = "eng"; //Hello
+// til = "uzb"; // Salom
+// til = "ru"; // Privet
+// til = "hind"; // Namaste
+// til = "korean"; // Annyonghaseyo
