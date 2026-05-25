@@ -152,6 +152,115 @@ if (user !== null && user !== undefined) { ... }
 
 ### 3. Switch Statement
 
+## `switch...case`
+
+`switch...case` — bu bir o'zgaruvchini **bir nechta qiymat bilan solishtirish** uchun ishlatiladigan boshqaruv strukturasi.
+
+### Asosiy sintaksis
+
+```javascript
+switch (ifoda) {
+  case qiymat1:
+    // qiymat1 bo'lganda bajariladigan kod
+    break;
+  case qiymat2:
+    // qiymat2 bo'lganda bajariladigan kod
+    break;
+  default:
+  // hech qaysi case mos kelmasa
+}
+```
+
+### Oddiy misol
+
+```javascript
+let kun = "Dushanba";
+
+switch (kun) {
+  case "Dushanba":
+    console.log("Hafta boshlandi!");
+    break;
+  case "Juma":
+    console.log("Hafta oxirlayapti!");
+    break;
+  case "Shanba":
+  case "Yakshanba":
+    console.log("Dam olish kuni!");
+    break;
+  default:
+    console.log("Oddiy ish kuni.");
+}
+
+// Natija: "Hafta boshlandi!"
+```
+
+### Muhim tushunchalar
+
+**1. `break` — to'xtatish**
+`break` bo'lmasa, kod keyingi `case`larga ham "tushib ketadi" (fall-through):
+
+```javascript
+let x = 1;
+
+switch (x) {
+  case 1:
+    console.log("Bir"); // ✅ chiqadi
+  case 2:
+    console.log("Ikki"); // ⚠️ ham chiqadi! (break yo'q)
+  case 3:
+    console.log("Uch"); // ⚠️ ham chiqadi!
+    break;
+}
+// Natija: "Bir", "Ikki", "Uch"
+```
+
+**2. `default` — standart holat**
+Hech qaysi `case` mos kelmasa ishlaydi (if-else dagi `else` kabi):
+
+```javascript
+let rang = "yashil";
+
+switch (rang) {
+  case "qizil":
+    console.log("To'xta!");
+    break;
+  case "sariq":
+    console.log("Ehtiyot bo'l!");
+    break;
+  default:
+    console.log("Noma'lum rang."); // chiqadi
+}
+```
+
+**3. Bir nechta case — bir natija**
+
+```javascript
+let oy = 3;
+
+switch (oy) {
+  case 12:
+  case 1:
+  case 2:
+    console.log("Qish");
+    break;
+  case 3:
+  case 4:
+  case 5:
+    console.log("Bahor"); // chiqadi
+    break;
+}
+```
+
+### `switch` vs `if...else`
+
+| Holat                              | Tavsiya     |
+| ---------------------------------- | ----------- |
+| Bitta o'zgaruvchi, ko'p qiymat     | `switch`    |
+| Murakkab shartlar (`>`, `<`, `&&`) | `if...else` |
+| 2-3 ta shart                       | `if...else` |
+
+---
+
 Biror o‘zgaruvchining qiymatiga qarab bir nechta holatni tekshirish uchun qulay.
 
 **Sintaksis:**
