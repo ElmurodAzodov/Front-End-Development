@@ -644,3 +644,467 @@ console.log(filename[filename.length - 1]); // "g" — uzoq yozuv
 <br>
 <br>
 
+# 🔤 Template Literals
+
+---
+
+## `${}` Interpolation — Qiymat kiritish
+
+```javascript
+// Oddiy o'zgaruvchi
+let name = "Ali";
+let age = 25;
+console.log(`Ism: ${name}, Yosh: ${age}`); // "Ism: Ali, Yosh: 25"
+
+// ✅ Har qanday expression yozsa bo'ladi
+let a = 10,
+  b = 20;
+console.log(`Yig'indi: ${a + b}`); // "Yig'indi: 30"
+console.log(`Katta son: ${a > b ? a : b}`); // "Katta son: 20"
+console.log(`Kvadrat: ${2 ** 8}`); // "Kvadrat: 256"
+console.log(`Hozir: ${new Date().getFullYear()}-yil`); // "Hozir: 2026-yil"
+
+// ✅ Funksiya chaqirish
+function greet(name) {
+  return `Salom, ${name}!`;
+}
+console.log(`Natija: ${greet("Vali")}`); // "Natija: Salom, Vali!"
+
+// ✅ Massiv va obyekt
+let fruits = ["olma", "banan", "uzum"];
+let user = { name: "Ali", role: "admin" };
+console.log(`Mevalar: ${fruits.join(", ")}`); // "Mevalar: olma, banan, uzum"
+console.log(`${user.name} (${user.role})`); // "Ali (admin)"
+
+// ✅ Ichma-ich template literal
+let items = ["HTML", "CSS", "JS"];
+console.log(`Texnologiyalar: ${items.map((i) => `[${i}]`).join(" ")}`);
+// "Texnologiyalar: [HTML] [CSS] [JS]"
+
+// ✅ Shartli ko'rsatish
+let score = 85;
+console.log(`Baho: ${score >= 90 ? "A" : score >= 80 ? "B" : "C"}`);
+// "Baho: B"
+```
+
+---
+
+## 📄 Multi-line Strings — Ko'p qatorli
+
+```javascript
+// ❌ Eski usul — \n yozish kerak, o'qish qiyin
+let old = "1-qator\n2-qator\n3-qator";
+
+// ✅ Template literal — xuddi shunday yozasan, xuddi shunday chiqadi
+let modern = `
+1-qator
+2-qator
+3-qator
+`;
+console.log(modern);
+// (bo'sh qator)
+// 1-qator
+// 2-qator
+// 3-qator
+// (bo'sh qator)
+
+// ⚠️ Birinchi \n ni oldini olish
+let clean = `1-qator
+2-qator
+3-qator`;
+console.log(clean);
+// 1-qator
+// 2-qator
+// 3-qator
+
+// ✅ Amaliy: HTML yasash
+let product = { name: "Noutbuk", price: 12000000, brand: "Dell" };
+
+let card = `
+<div class="card">
+  <h2>${product.name}</h2>
+  <p>Brend: ${product.brand}</p>
+  <p>Narx: ${product.price.toLocaleString()} so'm</p>
+</div>`;
+console.log(card);
+/*
+<div class="card">
+  <h2>Noutbuk</h2>
+  <p>Brend: Dell</p>
+  <p>Narx: 12,000,000 so'm</p>
+</div>
+*/
+
+// ✅ Amaliy: SQL query
+let table = "users";
+let status = "active";
+let limit = 10;
+
+let query = `
+  SELECT id, name, email
+  FROM ${table}
+  WHERE status = '${status}'
+  ORDER BY created_at DESC
+  LIMIT ${limit}
+`;
+console.log(query);
+
+// ✅ Amaliy: Email shablon
+function emailTemplate(user, resetLink) {
+  return `
+Hurmatli ${user.name},
+
+Parolingizni tiklash uchun quyidagi havolani bosing:
+${resetLink}
+
+Havola ${user.expireHours} soat davomida amal qiladi.
+
+Hurmat bilan,
+Jamoa
+    `.trim();
+}
+
+console.log(
+  emailTemplate(
+    { name: "Ali", expireHours: 24 },
+    "https://example.com/reset/abc123",
+  ),
+);
+```
+
+---
+
+## 🏷️ Tagged Templates — Maxsus qayta ishlash
+
+Tagged template — template literalni **funksiya orqali qayta ishlash** imkoniyati.
+
+```javascript
+// Sintaksis: tagFn`string ${val} string`
+//            ↑ bu funksiya chaqiruvi — qavslar yo'q!
+
+// Funksiya qanday argument oladi:
+function tag(strings, ...values) {
+  console.log(strings); // string qismlari — ARRAY
+  console.log(values); // ${} qiymatlari  — ARRAY
+}
+
+tag`Salom ${name}, yosh: ${age}!`;
+// strings → ["Salom ", ", yosh: ", "!"]
+// values  → ["Ali", 25]
+
+// ⚠️ strings.length = values.length + 1 — DOIM!
+```
+
+```javascript
+// ✅ Misol 1: Oddiy qayta yig'ish (xuddi oddiy template kabi)
+function normal(strings, ...values) {
+  let result = "";
+  strings.forEach((str, i) => {
+    result += str;
+    if (i < values.length) result += values[i];
+  });
+  return result;
+}
+
+let name = "Ali",
+  age = 25;
+console.log(normal`Ism: ${name}, Yosh: ${age}`);
+// "Ism: Ali, Yosh: 25"
+```
+
+```javascript
+// ✅ Misol 2: XSS himoya — HTML escape
+function safeHtml(strings, ...values) {
+  const escape = (str) =>
+    String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+
+  return strings.reduce((result, str, i) => {
+    return result + str + (i < values.length ? escape(values[i]) : "");
+  }, "");
+}
+
+// Foydalanuvchi zararli kod kiritgan:
+let userInput = '<script>alert("hacked!")</script>';
+let username = "Ali";
+
+// ❌ Oddiy template — xavfli!
+let unsafe = `<p>Salom, ${userInput}</p>`;
+console.log(unsafe);
+// <p>Salom, <script>alert("hacked!")</script></p>  ← XSS!
+
+// ✅ Tagged template — xavfsiz!
+let safe = safeHtml`<p>Salom, ${userInput}</p>`;
+console.log(safe);
+// <p>Salom, &lt;script&gt;alert(&quot;hacked!&quot;)&lt;/script&gt;</p> ✅
+```
+
+```javascript
+// ✅ Misol 3: i18n (tarjima tizimi)
+const translations = {
+  uz: { greeting: "Salom", bye: "Xayr" },
+  en: { greeting: "Hello", bye: "Goodbye" },
+  ru: { greeting: "Привет", bye: "Пока" },
+};
+
+function i18n(lang) {
+  return function (strings, ...values) {
+    return strings.reduce((result, str, i) => {
+      let val = values[i] !== undefined ? values[i] : "";
+      // kalit so'zni tarjima qilish
+      let translated = translations[lang]?.[val] || val;
+      return result + str + translated;
+    }, "");
+  };
+}
+
+let uz = i18n("uz");
+let en = i18n("en");
+
+console.log(uz`So'z: ${"greeting"}!`); // "So'z: Salom!"
+console.log(en`So'z: ${"greeting"}!`); // "So'z: Hello!"
+console.log(uz`Oxirgi: ${"bye"}`); // "Oxirgi: Xayr"
+```
+
+```javascript
+// ✅ Misol 4: highlight — qiymatlarni ajratib ko'rsatish (debug uchun)
+function highlight(strings, ...values) {
+  return strings.reduce((result, str, i) => {
+    let val =
+      values[i] !== undefined
+        ? `\x1b[33m${values[i]}\x1b[0m` // sariq rang (terminal)
+        : "";
+    return result + str + val;
+  }, "");
+}
+
+let item = "Noutbuk";
+let price = 12000000;
+console.log(highlight`Mahsulot: ${item}, narxi: ${price} so'm`);
+// "Mahsulot: [sariq]Noutbuk[reset], narxi: [sariq]12000000[reset] so'm"
+```
+
+---
+
+# 📝 Regular Expressions with Strings
+
+## Regex asoslari
+
+```javascript
+// Regex yaratish — 2 usul:
+let re1 = /pattern/flags;          // literal (tezroq, qulay)
+let re2 = new RegExp("pattern", "flags");  // konstruktor (dinamik)
+
+// Flags (bayroqlar):
+// g  — global (hammani topadi, faqat birinchisi emas)
+// i  — case-insensitive (katta-kichik farq qilmaydi)
+// m  — multiline (^ va $ har qator uchun ishlaydi)
+// s  — dotAll (. yangi qatorni ham qamrab oladi)
+```
+
+---
+
+## String metodlari + Regex
+
+### `match()` — Topish
+
+```javascript
+let str = "JavaScript 2024, Python 2023, Java 2022";
+
+// Birinchi mos kelganini topadi (g flagsiz)
+let first = str.match(/\d+/);
+console.log(first[0]); // "2024"
+console.log(first.index); // 11  — qayerda
+
+// ✅ g flag — HAMMASINI topadi, array qaytaradi
+let allNums = str.match(/\d+/g);
+console.log(allNums); // ["2024", "2023", "2022"]
+
+// ✅ i flag — katta-kichik farq qilmaydi
+let text = "Java JAVA java JaVa";
+console.log(text.match(/java/gi)); // ["Java", "JAVA", "java", "JaVa"]
+
+// ✅ Guruhlar bilan (capturing groups)
+let date = "Bugun: 2026-05-29";
+let result = date.match(/(\d{4})-(\d{2})-(\d{2})/);
+console.log(result[0]); // "2026-05-29"  — to'liq mos
+console.log(result[1]); // "2026"         — 1-guruh
+console.log(result[2]); // "05"           — 2-guruh
+console.log(result[3]); // "29"           — 3-guruh
+
+// Topilmasa — null qaytaradi
+console.log("hello".match(/\d+/)); // null
+console.log("hello".match(/\d+/)?.[0] ?? "topilmadi"); // "topilmadi"
+```
+
+---
+
+### `matchAll()` — Hammasini guruh bilan topish ES2020+
+
+```javascript
+let str = "cat:meow, dog:woof, bird:tweet";
+
+// matchAll — iterator qaytaradi, g flag MAJBURIY
+let matches = [...str.matchAll(/(\w+):(\w+)/g)];
+
+matches.forEach((m) => {
+  console.log(`Hayvon: ${m[1]}, Ovoz: ${m[2]}`);
+});
+// "Hayvon: cat,  Ovoz: meow"
+// "Hayvon: dog,  Ovoz: woof"
+// "Hayvon: bird, Ovoz: tweet"
+
+// ✅ Amaliy: barcha URL larni olish
+let html = `
+  <a href="https://google.com">Google</a>
+  <a href="https://github.com">GitHub</a>
+`;
+let urls = [...html.matchAll(/href="([^"]+)"/g)];
+urls.forEach((m) => console.log(m[1]));
+// "https://google.com"
+// "https://github.com"
+```
+
+---
+
+### `search()` — Index qidirish
+
+```javascript
+// indexOf ga o'xshash, lekin regex qabul qiladi
+let str = "Narx: 15000 so'm";
+
+console.log(str.search(/\d+/)); // 6  — raqam boshlangan index
+console.log(str.search(/[A-Z]/)); // 0  — katta harf
+console.log(str.search(/xyz/)); // -1 — topilmadi
+
+// ✅ indexOf vs search farqi:
+// indexOf — aniq string qidiradi (tezroq)
+// search  — regex qidiradi (moslashuvchan)
+```
+
+---
+
+### `replace()` + Regex
+
+```javascript
+// ✅ Regex bilan replace — kuchli kombinatsiya
+let str = "Telefon: +998-90-123-45-67";
+
+// Barcha tirechalarni olib tashlash
+console.log(str.replace(/-/g, ""));
+// "Telefon: +998901234567"
+
+// ✅ Capture group larni ishlatish ($1, $2...)
+let date = "2026-05-29";
+let reformatted = date.replace(/(\d{4})-(\d{2})-(\d{2})/, "$3/$2/$1");
+console.log(reformatted); // "29/05/2026"
+
+// ✅ Named groups — ($<name>)
+let swapped = "Ali Karimov".replace(
+  /(?<first>\w+)\s(?<last>\w+)/,
+  "$<last> $<first>",
+);
+console.log(swapped); // "Karimov Ali"
+
+// ✅ Callback bilan — har bir mos uchun funksiya
+let text = "narx: 5000, soliq: 500, jami: 5500";
+let result = text.replace(/\d+/g, (n) => (Number(n) * 1.1).toFixed(0));
+console.log(result);
+// "narx: 5500, soliq: 550, jami: 6050"
+
+// ✅ Amaliy: camelCase → snake_case
+function toSnakeCase(str) {
+  return str
+    .replace(/([A-Z])/g, "_$1")
+    .toLowerCase()
+    .replace(/^_/, "");
+}
+console.log(toSnakeCase("getUserName")); // "get_user_name"
+console.log(toSnakeCase("myVariableName")); // "my_variable_name"
+
+// ✅ Amaliy: telefon raqamini formatlash
+function formatPhone(phone) {
+  let digits = phone.replace(/\D/g, ""); // faqat raqamlar
+  return digits.replace(
+    /(\d{3})(\d{2})(\d{3})(\d{2})(\d{2})/,
+    "+$1 $2 $3-$4-$5",
+  );
+}
+console.log(formatPhone("998901234567")); // "+998 90 123-45-67"
+console.log(formatPhone("+99890-123-4567")); // "+998 90 123-45-67"
+```
+
+---
+
+### `split()` + Regex
+
+```javascript
+// ✅ Regex bilan split — moslashuvchan ajratish
+let str = "bir,ikki;uch  to'rt\tbesh";
+
+// Vergul, nuqtali vergul, bo'shliq, tab — barchasi separator
+let words = str.split(/[,;\s]+/);
+console.log(words); // ["bir", "ikki", "uch", "to'rt", "besh"]
+
+// ✅ Ko'p bo'shliqlarni birga ajratish
+let sentence = "men    juda    ko'p    bo'shliq";
+console.log(sentence.split(/\s+/));
+// ["men", "juda", "ko'p", "bo'shliq"]
+
+// ✅ Capture group bilan — separatorni saqlash
+let expr = "10+20-30*40";
+let parts = expr.split(/([+\-*\/])/);
+console.log(parts); // ["10", "+", "20", "-", "30", "*", "40"]
+```
+
+---
+
+## 🔑 Eng ko'p ishlatiladigan Regex patternlar
+
+```javascript
+// ✅ Email tekshirish
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+console.log(isValidEmail("ali@gmail.com")); // true
+console.log(isValidEmail("ali@")); // false
+console.log(isValidEmail("notanemail")); // false
+
+// ✅ Parol kuchliligi
+function checkPassword(pass) {
+  let hasUpper = /[A-Z]/.test(pass);
+  let hasLower = /[a-z]/.test(pass);
+  let hasDigit = /\d/.test(pass);
+  let hasLength = pass.length >= 8;
+  return hasUpper && hasLower && hasDigit && hasLength;
+}
+console.log(checkPassword("Secret123")); // true
+console.log(checkPassword("weak")); // false
+
+// ✅ Faqat raqammi?
+console.log(/^\d+$/.test("12345")); // true
+console.log(/^\d+$/.test("123a5")); // false
+
+// ✅ Bo'sh stringmi (faqat probel)?
+console.log(/^\s*$/.test("   ")); // true
+console.log(/^\s*$/.test("  a  ")); // false
+
+// ✅ Hashtag larni olish
+let post = "Bugun #javascript va #nodejs o'rgandim #webdev";
+let tags = post.match(/#\w+/g);
+console.log(tags); // ["#javascript", "#nodejs", "#webdev"]
+
+// ✅ Barcha HTML teglarini tozalash
+let html = "<h1>Salom</h1><p>Bu <b>matn</b></p>";
+let plain = html.replace(/<[^>]*>/g, "");
+console.log(plain); // "SalomBu matn"
+
+// ✅ Takrorlangan so'zlarni topish
+let text = "bu bu gap gap takror takror emas";
+let dups = text.match(/\b(\w+)\s+\1\b/g);
+console.log(dups); // ["bu bu", "gap gap", "takror takror"]
+```
