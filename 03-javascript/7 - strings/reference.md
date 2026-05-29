@@ -162,12 +162,479 @@ console.log(result); // "JELLO!"
 
 ---
 
-> ⚡ **Xulosa:**
->
-> - `''` `""` — klassik string yaratish
-> - `` ` ` `` — template literal, interpolation + multi-line uchun
-> - `.length` — belgilar soni (property, qavslar yo'q)
-> - **Immutability** — string o'zgarmas, methodlar har doim yangi string qaytaradi
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 🛠️ String Methods
+
+---
+
+## 🔠 Case — Harf o'zgartirish
+
+### `toUpperCase()` / `toLowerCase()`
+
+```javascript
+let str = "Hello World";
+
+console.log(str.toUpperCase()); // "HELLO WORLD"
+console.log(str.toLowerCase()); // "hello world"
+
+// ✅ Amaliy: case-insensitive taqqoslash
+let input = "ALI";
+let name = "ali";
+console.log(input.toLowerCase() === name.toLowerCase()); // true
+
+// ✅ Birinchi harf katta — klassik pattern
+let word = "javascript";
+let capitalized = word[0].toUpperCase() + word.slice(1);
+console.log(capitalized); // "Javascript"
+
+// ✅ Har so'zni katta harf bilan boshlash
+let title = "salom dunyo uzbekiston";
+let titled = title
+  .split(" ")
+  .map((w) => w[0].toUpperCase() + w.slice(1))
+  .join(" ");
+console.log(titled); // "Salom Dunyo Uzbekiston"
+```
+
+---
+
+## 🔍 Search — Qidirish
+
+### `indexOf()` / `lastIndexOf()`
+
+```javascript
+let str = "men javascript o'rganaman, javascript qiziq";
+//         0123456789...
+
+// indexOf — chapdan qidiradi, topilgan INDEX qaytaradi, topilmasa -1
+console.log(str.indexOf("javascript")); // 4
+console.log(str.indexOf("python")); // -1  — topilmadi
+
+// ✅ 2-argument — qayerdan boshlash
+console.log(str.indexOf("javascript", 10)); // 27  — 10-indexdan keyin qidiradi
+
+// lastIndexOf — o'ngdan qidiradi (oxirgi uchrashuvni topadi)
+console.log(str.lastIndexOf("javascript")); // 27
+console.log(str.lastIndexOf("javascript", 20)); // 4 — 20-indexgacha qidiradi
+
+// ✅ Amaliy: mavjudligini tekshirish
+if (str.indexOf("javascript") !== -1) {
+  console.log("Topildi! ✅");
+}
+
+// ✅ Amaliy: fayl kengaytmasini olish
+let filename = "photo.vacation.jpg";
+let lastDot = filename.lastIndexOf(".");
+let ext = filename.slice(lastDot + 1);
+console.log(ext); // "jpg"
+```
+
+---
+
+### `includes()` / `startsWith()` / `endsWith()`
+
+```javascript
+let str = "JavaScript juda kuchli til";
+
+// ✅ includes — mavjudmi? true/false qaytaradi
+console.log(str.includes("kuchli")); // true
+console.log(str.includes("python")); // false
+console.log(str.includes("Java", 5)); // false — 5-indexdan keyin qidiradi
+
+// ✅ startsWith — shu bilan boshlanadimi?
+console.log(str.startsWith("JavaScript")); // true
+console.log(str.startsWith("java")); // false  — case-sensitive!
+console.log(str.startsWith("juda", 11)); // true   — 11-indexdan boshlab tekshiradi
+
+// ✅ endsWith — shu bilan tugaydimi?
+console.log(str.endsWith("til")); // true
+console.log(str.endsWith("kuchli", 20)); // true   — faqat 20 belgigacha tekshiradi
+
+// ✅ Amaliy: fayl turini tekshirish
+let file = "resume.pdf";
+if (file.endsWith(".pdf")) {
+  console.log("Bu PDF fayl 📄");
+}
+
+// ✅ Amaliy: URL tekshirish
+let url = "https://github.com/ali";
+if (url.startsWith("https://")) {
+  console.log("Xavfsiz ulanish 🔒");
+}
+
+// ✅ Amaliy: spam filter
+let message = "Tabriklaymiz! 1,000,000 dollar yutdingiz!";
+let spamWords = ["yutdingiz", "sovg'a", "bepul"];
+let isSpam = spamWords.some((word) => message.includes(word));
+console.log(isSpam); // true 🚫
+```
+
+---
+
+## ✂️ Extract — Kesib olish
+
+### `slice(start, end)`
+
+```javascript
+let str = "JavaScript";
+//         0123456789
+//        -10-9-8...  (manfiy indexlar)
+
+// slice(start, end) — start dan end gacha (end kirmaydi)
+console.log(str.slice(0, 4)); // "Java"
+console.log(str.slice(4)); // "Script"  — oxirigacha
+console.log(str.slice(0)); // "JavaScript" — to'liq nusxa
+
+// ✅ Manfiy index — oxiridan hisoblaydi
+console.log(str.slice(-6)); // "Script"  — oxirgi 6 ta
+console.log(str.slice(-6, -3)); // "Scr"
+console.log(str.slice(0, -6)); // "Java"    — oxirgi 6 tasiz
+
+// ✅ Amaliy misollar
+let email = "ali@gmail.com";
+let domain = email.slice(email.indexOf("@") + 1);
+console.log(domain); // "gmail.com"
+
+let filename = "photo.jpg";
+let name = filename.slice(0, filename.lastIndexOf("."));
+console.log(name); // "photo"
+
+// Oxirgi N ta belgi
+let code = "ERR_404";
+console.log(code.slice(-3)); // "404"
+```
+
+---
+
+### `substring(start, end)`
+
+```javascript
+let str = "JavaScript";
+
+// substring — slice ga o'xshash, lekin farqlari bor
+console.log(str.substring(0, 4)); // "Java"
+console.log(str.substring(4)); // "Script"
+console.log(str.substring(4, 0)); // "Java" ⚠️ — argumentlarni almashtiradi!
+
+// ⚠️ Manfiy index ishlamaydi — 0 deb qabul qiladi
+console.log(str.substring(-3)); // "JavaScript"  — -3 → 0 bo'ldi
+
+// slice vs substring — farq
+let s = "Hello";
+console.log(s.slice(-3)); // "llo" ✅ — manfiy ishlaydi
+console.log(s.substring(-3)); // "Hello" ⚠️ — manfiy ishlamaydi
+
+// ✅ Qoida: substring o'rniga slice ishlating — aniqroq va kuchliroq
+```
+
+---
+
+### ⛔ `substr()` — DEPRECATED, ishlatmang!
+
+```javascript
+// ❌ substr(start, LENGTH) — ikkinchi argument COUNT, standartdan chiqarilgan
+let str = "JavaScript";
+console.log(str.substr(4, 6)); // "Script" — ishlaydi lekin ishlatmang!
+
+// ✅ O'rniga slice ishlating:
+console.log(str.slice(4, 10)); // "Script"  — xuddi shu natija
+```
+
+---
+
+## 🔀 Split/Join
+
+### `split(separator)`
+
+```javascript
+// String → Array ga aylantiradi
+let str = "ali,vali,soli,hasan";
+console.log(str.split(","));
+// ["ali", "vali", "soli", "hasan"]
+
+// Bo'sh string — har bir belgiga ajratadi
+console.log("hello".split(""));
+// ["h", "e", "l", "l", "o"]
+
+// Bo'shliq bo'yicha
+let sentence = "men dastur yozaman";
+console.log(sentence.split(" "));
+// ["men", "dastur", "yozaman"]
+
+// ✅ 2-argument — nechta element olish
+console.log(str.split(",", 2));
+// ["ali", "vali"]  — faqat 2 ta
+
+// ✅ Argumentsiz — butun stringni bitta elementga
+console.log("hello".split());
+// ["hello"]
+
+// ✅ Amaliy: CSV qayta ishlash
+let csv = "Ism,Yosh,Shahar\nAli,25,Tashkent\nVali,30,Samarkand";
+let rows = csv.split("\n");
+rows.forEach((row) => {
+  let cols = row.split(",");
+  console.log(cols);
+});
+// ["Ism", "Yosh", "Shahar"]
+// ["Ali", "25", "Tashkent"]
+// ["Vali", "30", "Samarkand"]
+
+// ✅ Amaliy: so'zlarni teskari tartibda
+let text = "men o'zbek tilini yaxshi ko'raman";
+let reversed = text.split(" ").reverse().join(" ");
+console.log(reversed); // "ko'raman yaxshi tilini o'zbek men"
+
+// ✅ Amaliy: string ni reverse qilish
+let word = "JavaScript";
+let rev = word.split("").reverse().join("");
+console.log(rev); // "tpircSavaJ"
+```
+
+---
+
+## 🔄 Replace — Almashtirish
+
+### `replace()` / `replaceAll()` ES2021+
+
+```javascript
+let str = "men katta shahar shahar yashayman";
+
+// replace — FAQAT BIRINCHI uchrashuvni almashtiradi
+console.log(str.replace("shahar", "qishloq"));
+// "men katta qishloq shahar yashayman"  — ikkinchisi qoldi!
+
+// ✅ replaceAll — BARCHASINI almashtiradi (ES2021+)
+console.log(str.replaceAll("shahar", "qishloq"));
+// "men katta qishloq qishloq yashayman"
+
+// ✅ Callback funksiya bilan — dinamik almashtirish
+let prices = "olma: 5000, banan: 3000, uzum: 8000";
+let result = prices.replace(/\d+/g, (num) => Number(num) * 2 + " so'm");
+console.log(result);
+// "olma: 10000 so'm, banan: 6000 so'm, uzum: 16000 so'm"
+
+// ✅ Amaliy: URL slug yasash
+let title = "Mening Birinchi Blog Postim";
+let slug = title.toLowerCase().replaceAll(" ", "-");
+console.log(slug); // "mening-birinchi-blog-postim"
+
+// ✅ Amaliy: karta raqamini yashirish
+let card = "1234 5678 9012 3456";
+let masked = card.slice(0, -4).replaceAll(/\d/g, "*") + card.slice(-4);
+console.log(masked); // "**** **** **** 3456"
+```
+
+---
+
+## ✂️ Trim — Bo'shliqlarni tozalash
+
+### `trim()` / `trimStart()` / `trimEnd()`
+
+```javascript
+let str = "   Salom Dunyo   ";
+//         ^^^             ^^^  — chet bo'shliqlar
+
+// trim — ikki tomondan tozalaydi
+console.log(str.trim()); // "Salom Dunyo"
+
+// trimStart (trimLeft) — faqat chapdan
+console.log(str.trimStart()); // "Salom Dunyo   "
+
+// trimEnd (trimRight) — faqat o'ngdan
+console.log(str.trimEnd()); // "   Salom Dunyo"
+
+// ✅ Amaliy: forma inputini tozalash
+function validateUsername(input) {
+  let clean = input.trim();
+  if (clean.length < 3) {
+    return "Username kamida 3 ta belgi bo'lishi kerak!";
+  }
+  return `Xush kelibsiz, ${clean}!`;
+}
+
+console.log(validateUsername("   ali   ")); // "Xush kelibsiz, ali!"
+console.log(validateUsername("  ab  ")); // "Username kamida 3 ta belgi..."
+
+// ✅ Amaliy: bo'sh qatorlarni filtrlash
+let text = "  qator1  \n  \n  qator2  \n   qator3   ";
+let lines = text
+  .split("\n")
+  .map((line) => line.trim())
+  .filter((line) => line.length > 0);
+console.log(lines); // ["qator1", "qator2", "qator3"]
+```
+
+---
+
+## 📐 Pad — To'ldirish
+
+### `padStart(length, char)` / `padEnd(length, char)` — ES8+
+
+```javascript
+// padStart — CHAPDAN to'ldiradi
+console.log("5".padStart(3, "0")); // "005"
+console.log("42".padStart(5, "0")); // "00042"
+console.log("hi".padStart(6, "*")); // "****hi"
+console.log("hi".padStart(6)); // "    hi"  — default: bo'shliq
+
+// padEnd — O'NGDAN to'ldiradi
+console.log("5".padEnd(3, "0")); // "500"
+console.log("hi".padEnd(6, ".")); // "hi...."
+
+// ⚠️ String allaqachon yetarli uzunlikda bo'lsa — o'zgarmaydi
+console.log("hello".padStart(3, "0")); // "hello"  — 5 > 3, shart yo'q
+
+// ✅ Amaliy: soat formati
+let h = "9",
+  m = "5",
+  s = "3";
+console.log(
+  `${h.padStart(2, "0")}:${m.padStart(2, "0")}:${s.padStart(2, "0")}`,
+);
+// "09:05:03"
+
+// ✅ Amaliy: tartib raqami
+for (let i = 1; i <= 5; i++) {
+  console.log(String(i).padStart(3, "0") + " - mahsulot");
+}
+// "001 - mahsulot"
+// "002 - mahsulot" ...
+
+// ✅ Amaliy: jadval formatlash
+let products = [
+  ["Olma", 5000],
+  ["Banan", 12000],
+  ["Uzum", 8000],
+];
+products.forEach(([name, price]) => {
+  console.log(name.padEnd(10, ".") + String(price).padStart(8) + " so'm");
+});
+// "Olma......    5000 so'm"
+// "Banan.....   12000 so'm"
+// "Uzum......    8000 so'm"
+```
+
+---
+
+## 🔁 Repeat — Takrorlash ES6+
+
+### `repeat(count)`
+
+```javascript
+// Stringni N marta takrorlaydi
+console.log("ha".repeat(3)); // "hahaha"
+console.log("*".repeat(5)); // "*****"
+console.log("ab".repeat(0)); // ""  — bo'sh string
+console.log("-".repeat(20)); // "--------------------"
+
+// ⚠️ Manfiy son yoki Infinity — RangeError!
+// console.log("a".repeat(-1));   // ❌ RangeError
+// console.log("a".repeat(Infinity)); // ❌ RangeError
+
+// ✅ Amaliy: separator chiziq
+function printSection(title) {
+  let line = "=".repeat(40);
+  console.log(line);
+  console.log(title.padStart((40 + title.length) / 2));
+  console.log(line);
+}
+printSection("NATIJALAR");
+// "========================================"
+// "                NATIJALAR"
+// "========================================"
+
+// ✅ Amaliy: progress bar
+function progressBar(percent) {
+  let filled = Math.round(percent / 5);
+  let empty = 20 - filled;
+  return "[" + "█".repeat(filled) + "░".repeat(empty) + "] " + percent + "%";
+}
+console.log(progressBar(0)); // "[░░░░░░░░░░░░░░░░░░░░] 0%"
+console.log(progressBar(60)); // "[████████████░░░░░░░░] 60%"
+console.log(progressBar(100)); // "[████████████████████] 100%"
+
+// ✅ Amaliy: indent (ko'chirma) yaratish
+function indent(code, level) {
+  return "  ".repeat(level) + code;
+}
+console.log(indent("function foo() {", 0));
+console.log(indent("return 42;", 2));
+console.log(indent("}", 0));
+```
+
+---
+
+## 🎯 Access — Belgiga kirish
+
+### `charAt()` / `charCodeAt()` / `at()` ES2022+
+
+```javascript
+let str = "JavaScript";
+//         0123456789
+
+// charAt(index) — o'sha indexdagi belgini qaytaradi
+console.log(str.charAt(0)); // "J"
+console.log(str.charAt(4)); // "S"
+console.log(str.charAt(99)); // ""  — bo'sh string (xato yo'q)
+
+// Bracket notation bilan farqi:
+console.log(str[0]); // "J"
+console.log(str[99]); // undefined  ← farqi shu!
+
+// charCodeAt(index) — belgining Unicode raqamini qaytaradi
+console.log(str.charCodeAt(0)); // 74   — "J" ning kodi
+console.log("A".charCodeAt(0)); // 65
+console.log("a".charCodeAt(0)); // 97
+console.log("0".charCodeAt(0)); // 48
+
+// ✅ String.fromCharCode — koddan belgi yasash (teskari)
+console.log(String.fromCharCode(74)); // "J"
+console.log(String.fromCharCode(65)); // "A"
+
+// ✅ at(index) — ES2022, MANFIY INDEX ishlaydi!
+console.log(str.at(0)); // "J"
+console.log(str.at(-1)); // "t"  — oxirgi belgi ✅
+console.log(str.at(-2)); // "p"  — oxiridan ikkinchi ✅
+console.log(str.at(99)); // undefined
+
+// ⚖️ Taqqoslash jadvali:
+//  Method         | Noto'g'ri index | Manfiy index
+//  str[i]         | undefined       | undefined
+//  charAt(i)      | ""              | "" (0 deb oladi)
+//  at(i)          | undefined       | ✅ oxiridan hisoblaydi
+
+// ✅ Amaliy: shifrlashtirish (ROT13)
+function rot13(str) {
+  return str
+    .split("")
+    .map((char) => {
+      let code = char.charCodeAt(0);
+      if (code >= 65 && code <= 90)
+        // A-Z
+        return String.fromCharCode(((code - 65 + 13) % 26) + 65);
+      if (code >= 97 && code <= 122)
+        // a-z
+        return String.fromCharCode(((code - 97 + 13) % 26) + 97);
+      return char;
+    })
+    .join("");
+}
+console.log(rot13("Hello")); // "Uryyb"
+console.log(rot13("Uryyb")); // "Hello"
+
+// ✅ Amaliy: oxirgi belgiga eng qulay usul
+let filename = "photo.jpg";
+console.log(filename.at(-1)); // "g"
+console.log(filename.at(-3)); // "j"
+// Oldin shunday yozilardi:
+console.log(filename[filename.length - 1]); // "g" — uzoq yozuv
+```
 
 ---
 
