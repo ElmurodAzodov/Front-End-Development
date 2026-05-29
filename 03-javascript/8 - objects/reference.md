@@ -288,3 +288,216 @@ const username = user.profile?.name ?? "Foydalanuvchi topilmadi";
 ```
 
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+**🛠️ Object Methods — Ob'ekt Metodlari**
+
+JavaScriptning `Object` built-in obyekti ko'plab foydali statik metodlarni taqdim etadi. Ular ob'ektlar bilan ishlashni ancha osonlashtiradi. Quyida eng muhim metodlar batafsil ko'rib chiqiladi.
+
+---
+
+### 1. **`Object.keys()`**, **`Object.values()`**, **`Object.entries()`** (ES2017+)
+
+Bu metodlar ob'ektning xususiyatlarini turli shakllarda qaytarish uchun ishlatiladi.
+
+| Metod              | Qaytaradigan natija               | Foydasi                                |
+| ------------------ | --------------------------------- | -------------------------------------- |
+| `Object.keys()`    | Kalitlar massivi (string[])       | Kalitlar ro'yxati kerak bo'lganda      |
+| `Object.values()`  | Qiymatlar massivi                 | Faqat qiymatlar kerak bo'lganda        |
+| `Object.entries()` | `[ [kalit, qiymat] ]` juftliklari | Eng kuchlisi — kalit va qiymatni birga |
+
+**Amaliy misollar:**
+
+```javascript
+const student = {
+  name: "Aziza",
+  age: 21,
+  major: "Computer Science",
+  isGraduated: false,
+};
+
+// 1. Object.keys()
+const keys = Object.keys(student);
+console.log(keys);
+// ["name", "age", "major", "isGraduated"]
+
+// 2. Object.values()
+const values = Object.values(student);
+console.log(values);
+// ["Aziza", 21, "Computer Science", false]
+
+// 3. Object.entries() — eng mashhuri
+const entries = Object.entries(student);
+console.log(entries);
+/*
+[
+  ["name", "Aziza"],
+  ["age", 21],
+  ["major", "Computer Science"],
+  ["isGraduated", false]
+]
+*/
+
+// entries bilan iteratsiya (eng zamonaviy usul)
+for (let [key, value] of Object.entries(student)) {
+  console.log(`${key} => ${value}`);
+}
+```
+
+---
+
+### 2. **`Object.assign()`** — Shallow Copy va Merging
+
+Ob'ektlarni birlashtirish va nusxa olish uchun ishlatiladi.
+
+```javascript
+const defaultSettings = {
+  theme: "light",
+  fontSize: 16,
+  notifications: true,
+};
+
+const userSettings = {
+  theme: "dark",
+  fontSize: 18,
+};
+
+// Merging (birlashtirish)
+const finalSettings = Object.assign({}, defaultSettings, userSettings);
+console.log(finalSettings);
+// { theme: "dark", fontSize: 18, notifications: true }
+```
+
+**Shallow Copy misoli:**
+
+```javascript
+const original = {
+  name: "Sardor",
+  address: { city: "Tashkent", street: "Chilonzor" },
+};
+
+const shallowCopy = Object.assign({}, original);
+
+shallowCopy.address.city = "Samarkand"; // ⚠️ Original ham o'zgaradi!
+console.log(original.address.city); // "Samarkand"
+```
+
+> **Eslatma**: `Object.assign()` faqat **shallow copy** qiladi. Chuqur nusxa uchun `structuredClone()` tavsiya etiladi.
+
+---
+
+### 3. **`Object.freeze()`** va **`Object.seal()`**
+
+Ob'ektni himoyalash uchun ishlatiladigan metodlar.
+
+#### **`Object.freeze()`** — To'liq muzlatish
+
+- Yangi xususiyat qo'shib bo'lmaydi
+- Mavjud xususiyatni o'zgartirib bo'lmaydi
+- Mavjud xususiyatni o'chirib bo'lmaydi
+
+```javascript
+const config = Object.freeze({
+  apiUrl: "https://api.example.com",
+  version: "1.2.0",
+});
+
+config.apiUrl = "https://new.com"; // ishlamaydi
+config.newProp = "test"; // ishlamaydi
+delete config.version; // ishlamaydi
+
+console.log(Object.isFrozen(config)); // true
+```
+
+#### **`Object.seal()`** — Muhrlash
+
+- Yangi xususiyat qo'shish mumkin emas
+- Mavjud xususiyatlarni o'zgartirsa bo'ladi
+- O'chirish mumkin emas
+
+```javascript
+const userProfile = Object.seal({
+  username: "elmurod",
+  points: 1500,
+});
+
+userProfile.points = 2000; // ✅ ruxsat
+userProfile.newField = "vip"; // ❌ ishlamaydi
+delete userProfile.username; // ❌ ishlamaydi
+
+console.log(Object.isSealed(userProfile)); // true
+```
+
+---
+
+### 4. **`Object.hasOwn()`** (ES2022+)
+
+`hasOwnProperty()` ning zamonaviy va xavfsizroq varianti.
+
+**Nima uchun yaxshiroq?**
+
+- `hasOwnProperty` ni ob'ekt meros qilib olishi mumkin (xavfli)
+- `Object.hasOwn()` statik metod, toza va ishonchli
+
+```javascript
+const obj = { name: "Madina" };
+
+// Eski usul
+console.log(obj.hasOwnProperty("name")); // true
+console.log(obj.hasOwnProperty("toString")); // false
+
+// Yangi tavsiya etiladigan usul
+console.log(Object.hasOwn(obj, "name")); // true
+console.log(Object.hasOwn(obj, "toString")); // false
+console.log(Object.hasOwn(obj, "undefinedProp")); // false
+```
+
+---
+
+### 5. **`Object.groupBy()`** (ES2024+)
+
+Massivdagi elementlarni berilgan kalit bo'yicha guruhlash uchun yangi qulay metod.
+
+```javascript
+const orders = [
+  { id: 1, status: "pending", amount: 150 },
+  { id: 2, status: "completed", amount: 300 },
+  { id: 3, status: "pending", amount: 75 },
+  { id: 4, status: "completed", amount: 500 },
+];
+
+// Status bo'yicha guruhlash
+const groupedByStatus = Object.groupBy(orders, (order) => order.status);
+
+console.log(groupedByStatus);
+/*
+{
+  pending: [
+    {id:1, status:"pending", amount:150},
+    {id:3, status:"pending", amount:75}
+  ],
+  completed: [
+    {id:2, status:"completed", amount:300},
+    {id:4, status:"completed", amount:500}
+  ]
+}
+*/
+
+// Murakkabroq misol
+const students = [
+  { name: "Ali", grade: "A", city: "Tashkent" },
+  { name: "Laylo", grade: "B", city: "Samarkand" },
+  { name: "Bobur", grade: "A", city: "Tashkent" },
+];
+
+const groupedByGrade = Object.groupBy(students, (s) => s.grade);
+const groupedByCity = Object.groupBy(students, (s) => s.city);
+```
+
+---
+
