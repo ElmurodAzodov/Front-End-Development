@@ -501,3 +501,229 @@ const groupedByCity = Object.groupBy(students, (s) => s.city);
 
 ---
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+**🔗 Object References and Copying — Ob'ekt Referenslari va Nusxa Olish**
+
+JavaScriptda ob'ektlar **reference** (havola) bo'yicha ishlaydi. Ya'ni, ob'ektni boshqa o'zgaruvchiga tenglashtirsangiz, u nusxa emas, **xuddi shu ob'ektga havola** bo'ladi.
+
+```javascript
+const original = { name: "Elmurod", age: 25 };
+const copy = original; // Bu nusxa emas!
+
+copy.age = 30;
+console.log(original.age); // 30 → original ham o'zgardi!
+```
+
+---
+
+### **Shallow Copy (Yuzaki Nusxa)**
+
+Faqat birinchi darajadagi xususiyatlarni nusxalaydi. Ichki ob'ektlar (nested) esa havola bo'lib qoladi.
+
+#### 1. **`Object.assign()`**
+
+```javascript
+const user = {
+  name: "Madina",
+  age: 22,
+  address: { city: "Tashkent", street: "Chilonzor" },
+};
+
+const shallowCopy = Object.assign({}, user);
+
+shallowCopy.name = "Laylo"; // ✅ birinchi daraja o'zgarmaydi
+shallowCopy.address.city = "Samarkand"; // ❌ ichki ob'ekt o'zgaradi!
+
+console.log(user.address.city); // "Samarkand"
+```
+
+#### 2. **Spread Operator `{...obj}`** (ES6+)
+
+```javascript
+const shallowCopy2 = { ...user };
+
+shallowCopy2.address.street = "Mirzo Ulug'bek";
+// original.address.street ham o'zgaradi
+```
+
+---
+
+### **Deep Copy (Chuqur Nusxa)**
+
+Barcha ichki ob'ektlarni ham to'liq nusxalaydi.
+
+#### **`structuredClone()`** — Eng yaxshi zamonaviy usul (ES2022+)
+
+```javascript
+const original = {
+  name: "Sardor",
+  address: { city: "Tashkent", coordinates: [41.2995, 69.2401] },
+  date: new Date(),
+  set: new Set([1, 2, 3]),
+};
+
+const deepCopy = structuredClone(original);
+
+deepCopy.address.city = "Buxoro";
+deepCopy.set.add(4);
+
+console.log(original.address.city); // "Tashkent" — o'zgarmadi
+console.log(original.set.has(4)); // false
+```
+
+**Afzalliklari:**
+
+- `Date`, `Map`, `Set`, `ArrayBuffer`, `RegExp` kabi murakkab turlarni to'g'ri nusxalaydi.
+- `JSON.parse(JSON.stringify())` dan ancha kuchli.
+
+**Eski usul (tavsiya etilmaydi):**
+
+```javascript
+const badCopy = JSON.parse(JSON.stringify(original)); // Date, Set, Function yo'qoladi
+```
+
+---
+
+### 🎯 **Object Destructuring — Ob'ektni Destruktizatsiya Qilish (ES6+)**
+
+Ob'ektning xususiyatlarini qulay tarzda olish usuli.
+
+#### **Asosiy Destructuring**
+
+```javascript
+const user = {
+  name: "Aziz",
+  age: 28,
+  city: "Tashkent",
+  profession: "Developer",
+};
+
+const { name, age, city } = user;
+console.log(name, age, city); // Aziz 28 Tashkent
+```
+
+#### **Default Qiymat va Alias**
+
+```javascript
+const {
+  name,
+  age = 18, // default
+  city: userCity = "Samarqand", // alias + default
+} = user;
+```
+
+#### **Nested Destructuring**
+
+```javascript
+const student = {
+  name: "Laylo",
+  info: {
+    age: 21,
+    address: {
+      city: "Fergana",
+      zip: "150100",
+    },
+  },
+  subjects: ["Math", "Physics", "English"],
+};
+
+const {
+  name,
+  info: {
+    age,
+    address: { city, zip },
+  },
+  subjects: [firstSubject, ...otherSubjects],
+} = student;
+
+console.log(city, zip, firstSubject); // Fergana 150100 Math
+```
+
+#### **Rest Operator (`...`)**
+
+```javascript
+const { name, age, ...rest } = student;
+console.log(rest); // qolgan barcha xususiyatlar
+```
+
+---
+
+### 🔄 **Iterating Objects — Ob'ektni Aylantirish**
+
+#### 1. **`for...in`** (Eski usul)
+
+```javascript
+const obj = { a: 1, b: 2, c: 3 };
+
+for (let key in obj) {
+  console.log(`${key}: ${obj[key]}`);
+}
+```
+
+**Muhim:** `for...in` prototype'dagi xususiyatlarni ham aylantirishi mumkin. Shuning uchun `hasOwnProperty` yoki `Object.hasOwn()` bilan tekshirish kerak.
+
+#### 2. **`Object.entries()` + `for...of`** (Eng tavsiya etiladigan)
+
+```javascript
+for (let [key, value] of Object.entries(obj)) {
+  console.log(`${key} → ${value}`);
+}
+```
+
+#### Boshqa qulay usullar:
+
+```javascript
+// Faqat kalitlar
+for (let key of Object.keys(obj)) { ... }
+
+// Faqat qiymatlar
+for (let value of Object.values(obj)) { ... }
+```
+
+---
+
+### 🔒 **Optional Chaining — Xavfsiz Kirish (?.)**
+
+Ob'ekt ichidagi chuqur xususiyatlarga xato chiqmasdan kirish imkonini beradi.
+
+```javascript
+const user = {
+  profile: {
+    name: "Jamshid",
+    social: {
+      telegram: "@jamshidjs",
+      instagram: null,
+    },
+  },
+};
+
+// Xavfsiz kirish
+console.log(user.profile?.social?.instagram); // null
+console.log(user.profile?.address?.city); // undefined (xato chiqmaydi!)
+console.log(user.settings?.theme?.color); // undefined
+```
+
+#### **Method chaqirish bilan**
+
+```javascript
+const result = user.getData?.(); // agar method mavjud bo'lmasa undefined
+```
+
+#### **Nullish Coalescing (`??`) bilan birga**
+
+```javascript
+const username = user.profile?.name ?? "Foydalanuvchi topilmadi";
+const theme = user.settings?.theme ?? "light";
+```
+
+**Foydasi:**
+
+- `TypeError: Cannot read property 'xxx' of undefined` xatolarini oldini oladi.
+- Kodni ancha qisqa va xavfsiz qiladi.
+
+---
