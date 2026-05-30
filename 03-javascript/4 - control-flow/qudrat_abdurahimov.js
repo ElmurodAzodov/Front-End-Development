@@ -28,10 +28,10 @@
 // }
 
 //^ Boolean 4
-let a = 3
-let b = 2
-if (a > 2 && b <= 3) {
-    console.log(true)
-} else {
-    console.log(false)
-}
+// let a = 3
+// let b = 2
+// if (a > 2 && b <= 3) {
+//     console.log(true)
+// } else {
+//     console.log(false)
+// }
