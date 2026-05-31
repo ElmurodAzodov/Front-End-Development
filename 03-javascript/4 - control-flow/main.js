@@ -183,13 +183,13 @@
 //^ "Sotib olishingiz mumkin"
 //^ Aks holda "Pul yetarli emas"
 
-let pul = +prompt("Pul miqdorini kiriting:");
+// let pul = +prompt("Pul miqdorini kiriting:");
 
-if (pul >= 50000) {
-  console.log("Sotib olishingiz mumkin");
-} else {
-  console.log("Pul yetarli emas");
-}
+// if (pul >= 50000) {
+//   console.log("Sotib olishingiz mumkin");
+// } else {
+//   console.log("Pul yetarli emas");
+// }
 
 //TODO: 13. Son 3 va 5 ga bo‘linadimi?
 //? Son kiriting
@@ -197,6 +197,14 @@ if (pul >= 50000) {
 //^ 5 ga ham bo‘linsa
 //^ "3 va 5 ga bo‘linadi"
 //^ Aks holda "Bo‘linmaydi"
+
+let son = +prompt("Son kiriting:");
+
+if (son % 3 === 0 && son % 5 === 0) {
+  console.log("3 va 5 ga bo‘linadi");
+} else {
+  console.log("Bo‘linmaydi");
+}
 
 //TODO: 14. Yosh kategoriyasi
 //? Yosh kiriting
