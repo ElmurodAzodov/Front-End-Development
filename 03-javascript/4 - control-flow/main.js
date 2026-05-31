@@ -212,15 +212,15 @@
 //^ 7–17 → "O‘quvchi"
 //^ 18+ → "Katta odam"
 
-let yosh = +prompt("Yosh kiriting:");
+// let yosh = +prompt("Yosh kiriting:");
 
-if (yosh >= 0 && yosh <= 6) {
-  console.log("Bola");
-} else if (yosh >= 7 && yosh <= 17) {
-  console.log("O‘quvchi");
-} else if (yosh >= 18) {
-  console.log("Katta odam");
-}
+// if (yosh >= 0 && yosh <= 6) {
+//   console.log("Bola");
+// } else if (yosh >= 7 && yosh <= 17) {
+//   console.log("O‘quvchi");
+// } else if (yosh >= 18) {
+//   console.log("Katta odam");
+// }
 
 //TODO: 15. Login + parol tekshirish
 //? Login va parol kiriting
@@ -230,6 +230,15 @@ if (yosh >= 0 && yosh <= 6) {
 //^ "Tizimga xush kelibsiz"
 //^ Aks holda
 //^ "Login yoki parol xato"
+
+let login = prompt("Login kiriting:");
+let parol = prompt("Parol kiriting:");
+
+if (login === "admin" && parol === "12345") {
+  console.log("Tizimga xush kelibsiz");
+} else {
+  console.log("Login yoki parol xato");
+}
 
 //TODO: 16. 3 ta sondan kattasini topish
 //? 3 ta son berilgan
