@@ -198,19 +198,29 @@
 //^ "3 va 5 ga bo‘linadi"
 //^ Aks holda "Bo‘linmaydi"
 
-let son = +prompt("Son kiriting:");
+// let son = +prompt("Son kiriting:");
 
-if (son % 3 === 0 && son % 5 === 0) {
-  console.log("3 va 5 ga bo‘linadi");
-} else {
-  console.log("Bo‘linmaydi");
-}
+// if (son % 3 === 0 && son % 5 === 0) {
+//   console.log("3 va 5 ga bo‘linadi");
+// } else {
+//   console.log("Bo‘linmaydi");
+// }
 
 //TODO: 14. Yosh kategoriyasi
 //? Yosh kiriting
 //^ 0–6 → "Bola"
 //^ 7–17 → "O‘quvchi"
 //^ 18+ → "Katta odam"
+
+let yosh = +prompt("Yosh kiriting:");
+
+if (yosh >= 0 && yosh <= 6) {
+  console.log("Bola");
+} else if (yosh >= 7 && yosh <= 17) {
+  console.log("O‘quvchi");
+} else if (yosh >= 18) {
+  console.log("Katta odam");
+}
 
 //TODO: 15. Login + parol tekshirish
 //? Login va parol kiriting
