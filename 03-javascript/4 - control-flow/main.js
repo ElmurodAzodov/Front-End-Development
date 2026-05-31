@@ -231,23 +231,30 @@
 //^ Aks holda
 //^ "Login yoki parol xato"
 
-let login = prompt("Login kiriting:");
-let parol = prompt("Parol kiriting:");
+// let login = prompt("Login kiriting:");
+// let parol = prompt("Parol kiriting:");
 
-if (login === "admin" && parol === "12345") {
-  console.log("Tizimga xush kelibsiz");
-} else {
-  console.log("Login yoki parol xato");
-}
+// if (login === "admin" && parol === "12345") {
+//   console.log("Tizimga xush kelibsiz");
+// } else {
+//   console.log("Login yoki parol xato");
+// }
 
 //TODO: 16. 3 ta sondan kattasini topish
 //? 3 ta son berilgan
 //^ Eng katta sonni chiqaring
 
-// let a = 15;
-// let b = 80;
-// let c = 45;
+let a = 15;
+let b = 80;
+let c = 45;
 
+if (a >= b && a >= c) {
+  console.log(a);
+} else if (b >= a && b >= c) {
+  console.log(b);
+} else {
+  console.log(c);
+}
 //^ Natija: 80
 
 //* ===============================
