@@ -244,17 +244,17 @@
 //? 3 ta son berilgan
 //^ Eng katta sonni chiqaring
 
-let a = 15;
-let b = 80;
-let c = 45;
+// let a = 15;
+// let b = 80;
+// let c = 45;
 
-if (a >= b && a >= c) {
-  console.log(a);
-} else if (b >= a && b >= c) {
-  console.log(b);
-} else {
-  console.log(c);
-}
+// if (a >= b && a >= c) {
+//   console.log(a);
+// } else if (b >= a && b >= c) {
+//   console.log(b);
+// } else {
+//   console.log(c);
+// }
 //^ Natija: 80
 
 //* ===============================
