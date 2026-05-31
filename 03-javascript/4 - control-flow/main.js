@@ -183,6 +183,14 @@
 //^ "Sotib olishingiz mumkin"
 //^ Aks holda "Pul yetarli emas"
 
+let pul = +prompt("Pul miqdorini kiriting:");
+
+if (pul >= 50000) {
+  console.log("Sotib olishingiz mumkin");
+} else {
+  console.log("Pul yetarli emas");
+}
+
 //TODO: 13. Son 3 va 5 ga bo‘linadimi?
 //? Son kiriting
 //^ Agar son 3 ga ham,
