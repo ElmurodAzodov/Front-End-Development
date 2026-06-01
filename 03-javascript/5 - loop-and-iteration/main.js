@@ -32,3 +32,8 @@
 //     console.log(i);
 //   }
 // }
+
+
+//^ 1. 0dan 1000gacha bo'lsan sonlarning kvadratini chiqaring
+//^ 2. 0dan 1000gacha bo'lgan sonlar orasidan 3 va 4ga bo'linadigan sonlarning kubini chiqaring
+//^ 3. 0dan 1000gacha bo'lgan sonlarning 5ga bo'linadiganlar orasidan 2ga qoldiqsiz bo'linadiganin chiqaring
