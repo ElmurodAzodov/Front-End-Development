@@ -35,5 +35,8 @@
 
 
 //^ 1. 0dan 1000gacha bo'lsan sonlarning kvadratini chiqaring
+for (let i = 0; i <= 1000; i++) {
+    console.log(i ** 2)
+}
 //^ 2. 0dan 1000gacha bo'lgan sonlar orasidan 3 va 4ga bo'linadigan sonlarning kubini chiqaring
 //^ 3. 0dan 1000gacha bo'lgan sonlarning 5ga bo'linadiganlar orasidan 2ga qoldiqsiz bo'linadiganin chiqaring
