@@ -110,13 +110,13 @@
 //--------------------------------------------------
 
 //TODO: 6. 1 dan 50 gacha bo'lgan sonlarning yig'indisini toping
-let natija = 0
-for (let i = 1; i <= 5; i++) {
-    natija = natija + i
-}
+// let natija = 0
+// for (let i = 1; i <= 5; i++) {
+//     natija = natija + i
+// }
 
-console.log(natija)
-console.log(`Umumiy natija ${natija}ga teng`)
+// console.log(natija)
+// console.log(`Umumiy natija ${natija}ga teng`)
 
 //--------------------------------------------------
 
