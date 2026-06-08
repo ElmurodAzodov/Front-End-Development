@@ -211,10 +211,10 @@
 
 
 // ❌ XATO — cheksiz tsikl
-let i = 0;
-while (i < 5) {
-  console.log(i); // i o'zgarmayapti!
-}
+// let i = 0;
+// while (i < 5) {
+//   console.log(i); // i o'zgarmayapti!
+// }
 
 // ✅ TO'G'RI
 let i = 0;
