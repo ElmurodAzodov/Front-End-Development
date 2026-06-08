@@ -198,9 +198,9 @@
 //^==================================================================================
 //^==================================================================================
 
-while (shart) {
-  // shart rost bo'lsa, bu yerdan ishlaydi
-}
+// while (shart) {
+//   // shart rost bo'lsa, bu yerdan ishlaydi
+// }
 
 
 // Foydalanuvchi to'g'ri javob berguncha so'rash
