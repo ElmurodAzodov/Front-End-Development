@@ -217,11 +217,11 @@
 // }
 
 // ✅ TO'G'RI
-let i = 0;
-while (i < 5) {
-  console.log(i);
-  i++; // shart o'zgaradi
-}
+// let i = 0;
+// while (i < 5) {
+//   console.log(i);
+//   i++; // shart o'zgaradi
+// }
 
 
 
