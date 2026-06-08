@@ -204,10 +204,10 @@
 
 
 // Foydalanuvchi to'g'ri javob berguncha so'rash
-let javob = "";
-while (javob !== "ha") {
-  javob = prompt("Davom etasizmi? (ha/yo'q)");
-}
+// let javob = "";
+// while (javob !== "ha") {
+//   javob = prompt("Davom etasizmi? (ha/yo'q)");
+// }
 
 
 // ❌ XATO — cheksiz tsikl
