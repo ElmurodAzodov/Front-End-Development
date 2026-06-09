@@ -216,4 +216,3 @@
 //   console.log(i);
 //   i++; // shart o'zgaradi
 // }
-
