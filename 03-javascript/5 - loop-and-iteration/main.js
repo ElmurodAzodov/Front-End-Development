@@ -197,6 +197,26 @@
 // while (shart) {
 //   // shart rost bo'lsa, bu yerdan ishlaydi
 // }
+// let son = 1
+// while (son <= 10) {
+//     console.log(son)
+//     son = son + 1
+// }
+
+
+let i = 0
+let yigindi = 0
+while (i <= 20) {
+    console.log(i)
+    // i = i + 1
+    yigindi = yigindi + i
+    i ++
+}
+console.log(yigindi)
+
+
+
+
 
 // Foydalanuvchi to'g'ri javob berguncha so'rash
 // let javob = "";
