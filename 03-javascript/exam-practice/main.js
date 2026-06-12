@@ -1,5 +1,5 @@
 //* ==================== Beginner (1-20) ====================
-
+//^ if/else, for, while
 // 1-masala
 // 5 va 7 sonlarining yig'indisini toping.
 let a1 = 5,
