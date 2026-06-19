@@ -7,6 +7,12 @@
 // 1 - Massiv yaratish va chiqarish
 // --------------------------------------------
 // [1, 2, 3, 4, 5] massivini yarating va har bir elementni konsolga chiqaring
+let sonlar = [0,1,2,3,4]
+
+for (let i of sonlar) {
+    console.log(i)
+}
+
 
 
 // --------------------------------------------
