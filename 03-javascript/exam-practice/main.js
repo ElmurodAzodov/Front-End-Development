@@ -2,10 +2,10 @@
 //^ if/else, for, while
 // 1-masala
 // 5 va 7 sonlarining yig'indisini toping.
-let a1 = 5,
-  b1 = 7;
-// Javob:
-
+// let a1 = 5,
+//   b1 = 7;
+// // Javob:
+// console.log(a1+b1)
 // 2-masala
 // 12 va 4 sonlarining ayirmasini toping.
 // Javob:
@@ -21,6 +21,11 @@ let a1 = 5,
 // 5-masala
 // "Salom" so'zini 3 marta konsolga chiqaring (for).
 // Javob:
+let ozgaruvchi = 3;
+while (ozgaruvchi > 0) {
+    console.log("Salom")
+    ozgaruvchi--
+}
 
 // 6-masala
 // 1 dan 5 gacha sonlarni chiqaring (for).
@@ -65,9 +70,9 @@ let x14 = 12,
 
 // 15-masala
 // "JavaScript" so'zidagi harflar sonini toping.
-let soz15 = "JavaScript";
+let uzunligi = "JavaScript";
 // Javob:
-
+console.log(uzunligi.length)
 // 16-masala
 // 1 dan 7 gacha toq sonlarni chiqaring (for).
 // Javob:

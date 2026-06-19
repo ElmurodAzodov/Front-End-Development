@@ -204,18 +204,18 @@
 // }
 
 
-let i = 0
-let yigindi = 0
-while (i <= 20) {
-    console.log(i)
-    // i = i + 1
-    yigindi = yigindi + i
-    i ++
-}
-console.log(yigindi)
+// let i = 0
+// let yigindi = 0
+// while (i <= 20) {
+//     console.log(i)
+//     // i = i + 1
+//     yigindi = yigindi + i
+//     i ++
+// }
+// console.log(yigindi)
 
 
-
+ 
 
 
 // Foydalanuvchi to'g'ri javob berguncha so'rash
@@ -237,3 +237,20 @@ console.log(yigindi)
 //   i++; // shart o'zgaradi
 // }
 
+// let son = 0;
+
+// do {
+//     // console.log("Son kiriting::")
+//     son = prompt("Son kiriting:")
+// } while(son != 7)
+
+// console.log("To'g'ri")
+
+let boshlanish = 1
+let N = parseInt(prompt("N ni kiriting: "))
+do {
+    console.log(boshlanish)
+    boshlanish++
+} while (boshlanish <= N)
+
+// parseInt() - bu malumotni numberga aylantiradi
