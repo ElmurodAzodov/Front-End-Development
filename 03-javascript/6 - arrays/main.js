@@ -7,19 +7,23 @@
 // 1 - Massiv yaratish va chiqarish
 // --------------------------------------------
 // [1, 2, 3, 4, 5] massivini yarating va har bir elementni konsolga chiqaring
-let sonlar = [0,1,2,3,4]
+// let sonlar = [0,1,2,3,4]
 
-for (let i of sonlar) {
-    console.log(i)
-}
+// for (let i of sonlar) {
+//     console.log(i)
+// }
 
-
+// for (let i = 0; i < sonlar.length; i++) {
+//     console.log(i)
+// }
 
 // --------------------------------------------
 // 2 - Oxiriga element qo'shish
 // --------------------------------------------
 // [10, 20, 30] massivining oxiriga 40 ni qo'shing va natijani chiqaring
-
+// let arr = [10, 20, 30]
+// let add = arr.push(40)
+// console.log(arr)
 
 // --------------------------------------------
 // 3 - Oxirgi elementni o'chirish
