@@ -44,14 +44,19 @@
 // 5 - Massiv uzunligini chiqarish
 // --------------------------------------------
 // [1, 2, 3, 4, 5, 6, 7] massivining uzunligini chiqaring
-let arr = [1, 2, 3, 4, 5, 6, 7]
-console.log(arr.length)
+// let arr = [1, 2, 3, 4, 5, 6, 7]
+// console.log(arr.length)
 
 // --------------------------------------------
 // 6 - Element borligini tekshirish
 // --------------------------------------------
 // [3, 7, 2, 9, 5] massivida 9 soni bor yoki yo'qligini tekshiring
-
+let arr = [3, 7, 2, 9, 5]
+for (let i of arr) {
+    if (i === 9) {
+        console.log("Ha, 9 soni bor!")
+    }
+}
 
 // --------------------------------------------
 // 7 - Birinchi elementni olish
