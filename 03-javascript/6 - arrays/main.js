@@ -51,18 +51,19 @@
 // 6 - Element borligini tekshirish
 // --------------------------------------------
 // [3, 7, 2, 9, 5] massivida 9 soni bor yoki yo'qligini tekshiring
-let arr = [3, 7, 2, 9, 5]
-for (let i of arr) {
-    if (i === 9) {
-        console.log("Ha, 9 soni bor!")
-    }
-}
+// let arr = [3, 7, 2, 9, 5]
+// for (let i of arr) {
+//     if (i === 9) {
+//         console.log("Ha, 9 soni bor!")
+//     }
+// }
 
 // --------------------------------------------
 // 7 - Birinchi elementni olish
 // --------------------------------------------
 // [100, 200, 300] massivining birinchi elementini oling
-
+let arr = [100, 200, 300]
+console.log(arr.shift())
 
 // --------------------------------------------
 // 8 - String'ni massivga aylantirish
