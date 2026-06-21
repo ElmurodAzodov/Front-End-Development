@@ -37,14 +37,15 @@
 // 4 - Indeks bo'yicha olish
 // --------------------------------------------
 // ["olma", "anor", "banan"] massivining 2-indeksidagi elementni chiqaring
-let mevalar = ["olma", "anor", "banan"]
-console.log(mevalar[2])
+// let mevalar = ["olma", "anor", "banan"]
+// console.log(mevalar[2])
 
 // --------------------------------------------
 // 5 - Massiv uzunligini chiqarish
 // --------------------------------------------
 // [1, 2, 3, 4, 5, 6, 7] massivining uzunligini chiqaring
-
+let arr = [1, 2, 3, 4, 5, 6, 7]
+console.log(arr.length)
 
 // --------------------------------------------
 // 6 - Element borligini tekshirish
