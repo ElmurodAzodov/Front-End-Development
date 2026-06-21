@@ -29,7 +29,9 @@
 // 3 - Oxirgi elementni o'chirish
 // --------------------------------------------
 // [5, 10, 15, 20] massivining oxirgi elementini o'chiring va natijani chiqaring
-
+let arr = [5, 10, 15, 20]
+arr.pop()
+console.log(arr)
 
 // --------------------------------------------
 // 4 - Indeks bo'yicha olish
