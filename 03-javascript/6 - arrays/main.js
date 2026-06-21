@@ -62,14 +62,19 @@
 // 7 - Birinchi elementni olish
 // --------------------------------------------
 // [100, 200, 300] massivining birinchi elementini oling
-let arr = [100, 200, 300]
-console.log(arr.shift())
+// let arr = [100, 200, 300]
+// console.log(arr.shift())
 
 // --------------------------------------------
 // 8 - String'ni massivga aylantirish
 // --------------------------------------------
 // "JavaScript" so'zini harflarga ajratib massiv qilib chiqaring
-
+let text = "JavaScript"
+let arr = []
+for (let i = 0; i < text.length; i++) {
+    arr.push(text[i])
+}
+console.log(arr)
 
 // --------------------------------------------
 // 9 - Massivni string'ga aylantirish
