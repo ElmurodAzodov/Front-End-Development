@@ -3,6 +3,10 @@
 // ==========================================
 
 // 1. 1 dan 10 gacha bo'lgan barcha sonlarni for yordamida chiqaring
+for (let i = 0; i <= 10; i++) {
+    console.log(i)
+}
+
 // 2. 1 dan 20 gacha bo'lgan juft sonlarni while yordamida chiqaring
 // 3. Foydalanuvchi 0 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
 // 4. Berilgan massivning barcha elementlarini for yordamida chiqaring
@@ -15,6 +19,7 @@
 // 11. 1 dan 50 gacha bo'lgan toq sonlarning yig'indisini for yordamida toping
 // 12. Berilgan massiv elementlarini teskari tartibda for yordamida chiqaring
 // 13. Foydalanuvchi kiritgan sonning raqamlari yig'indisini while yordamida toping
+
 // 14. Berilgan massivda nechta manfiy son borligini for yordamida hisoblang
 // 15. 1 dan 15 gacha bo'lgan sonlarning kvadratini for yordamida chiqaring
 // 16. Foydalanuvchi -1 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
