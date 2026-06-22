@@ -8,21 +8,51 @@
 // }
 
 // 2. 1 dan 20 gacha bo'lgan juft sonlarni while yordamida chiqaring
-let i = 1;
-while (i <= 20) {
-  if (i % 2 === 0) {
-    console.log(i);
-  }
-  i++;
-}
+// let i = 1;
+// while (i <= 20) {
+//   if (i % 2 === 0) {
+//     console.log(i);
+//   }
+//   i++;
+// }
 // 3. Foydalanuvchi 0 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
+// let son = 0
+// do {
+//     son = parseInt(prompt("Son kiriting: "))
+
+// } while(son !== 0)
+// console.log("Siz 0 kiritdingiz!")
 // 4. Berilgan massivning barcha elementlarini for yordamida chiqaring
+// let arr = ["Shohruz", 12, "46", false, true, undefined, Boolean, Number, String]
+// for (let i of arr) {
+//     console.log(i)
+// }
 // 5. Berilgan massivdagi musbat sonlar nechta ekanligini hisoblang (for)
+// let arr = [-1, 1, 3, -12, 6, 4, -22, 6]
+// let musbat = []
+// for (let i of arr) {
+//     if (i > 0) {
+//         musbat.push(i)
+//     }
+// }
+// console.log(musbat.length)
 // 6. 1 dan 100 gacha bo'lgan barcha sonlarning yig'indisini for yordamida toping
+// let sum = 0
+// for (let i = 1; i <= 100; i++) {
+//     sum += i
+// }
+// console.log(sum)
 // 7. Foydalanuvchi kiritgan sonning faktorialini for yordamida hisoblang
+let son = parseInt(prompt("Son kiriting: "));
+let kopaymasi = 1;
+for (let i = 1; i <= son; i++) {
+  kopaymasi *= i;
+}
+console.log(kopaymasi);
 // 8. Berilgan massivning eng katta elementini for yordamida toping
 // 9. Berilgan massivning eng kichik elementini for yordamida toping
 // 10. Foydalanuvchi kiritgan sonni teskari tartibda while yordamida chiqaring
+
 // 11. 1 dan 50 gacha bo'lgan toq sonlarning yig'indisini for yordamida toping
 // 12. Berilgan massiv elementlarini teskari tartibda for yordamida chiqaring
 // 13. Foydalanuvchi kiritgan sonning raqamlari yig'indisini while yordamida toping
