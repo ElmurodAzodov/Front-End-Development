@@ -29,37 +29,52 @@
 // 3 - Oxirgi elementni o'chirish
 // --------------------------------------------
 // [5, 10, 15, 20] massivining oxirgi elementini o'chiring va natijani chiqaring
-
+// let arr = [5, 10, 15, 20]
+// arr.pop()
+// console.log(arr)
 
 // --------------------------------------------
 // 4 - Indeks bo'yicha olish
 // --------------------------------------------
 // ["olma", "anor", "banan"] massivining 2-indeksidagi elementni chiqaring
-
+// let mevalar = ["olma", "anor", "banan"]
+// console.log(mevalar[2])
 
 // --------------------------------------------
 // 5 - Massiv uzunligini chiqarish
 // --------------------------------------------
 // [1, 2, 3, 4, 5, 6, 7] massivining uzunligini chiqaring
-
+// let arr = [1, 2, 3, 4, 5, 6, 7]
+// console.log(arr.length)
 
 // --------------------------------------------
 // 6 - Element borligini tekshirish
 // --------------------------------------------
 // [3, 7, 2, 9, 5] massivida 9 soni bor yoki yo'qligini tekshiring
-
+// let arr = [3, 7, 2, 9, 5]
+// for (let i of arr) {
+//     if (i === 9) {
+//         console.log("Ha, 9 soni bor!")
+//     }
+// }
 
 // --------------------------------------------
 // 7 - Birinchi elementni olish
 // --------------------------------------------
 // [100, 200, 300] massivining birinchi elementini oling
-
+// let arr = [100, 200, 300]
+// console.log(arr.shift())
 
 // --------------------------------------------
 // 8 - String'ni massivga aylantirish
 // --------------------------------------------
 // "JavaScript" so'zini harflarga ajratib massiv qilib chiqaring
-
+let text = "JavaScript"
+let arr = []
+for (let i = 0; i < text.length; i++) {
+    arr.push(text[i])
+}
+console.log(arr)
 
 // --------------------------------------------
 // 9 - Massivni string'ga aylantirish
