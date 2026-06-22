@@ -3,11 +3,18 @@
 // ==========================================
 
 // 1. 1 dan 10 gacha bo'lgan barcha sonlarni for yordamida chiqaring
-for (let i = 0; i <= 10; i++) {
-    console.log(i)
-}
+// for (let i = 0; i <= 10; i++) {
+//     console.log(i)
+// }
 
 // 2. 1 dan 20 gacha bo'lgan juft sonlarni while yordamida chiqaring
+let i = 1;
+while (i <= 20) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+  i++;
+}
 // 3. Foydalanuvchi 0 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
 // 4. Berilgan massivning barcha elementlarini for yordamida chiqaring
 // 5. Berilgan massivdagi musbat sonlar nechta ekanligini hisoblang (for)
