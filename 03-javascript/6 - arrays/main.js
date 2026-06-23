@@ -82,6 +82,7 @@ console.log(arr)
 // [1, 2, 3, 4] massivini "-" bilan ajratib string qilib chiqaring
 
 
+
 // --------------------------------------------
 // 10 - Massivni teskari qilish
 // --------------------------------------------
