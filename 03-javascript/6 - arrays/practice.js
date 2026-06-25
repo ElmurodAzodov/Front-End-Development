@@ -43,19 +43,29 @@
 // }
 // console.log(sum)
 // 7. Foydalanuvchi kiritgan sonning faktorialini for yordamida hisoblang
-let son = parseInt(prompt("Son kiriting: "));
-let kopaymasi = 1;
-for (let i = 1; i <= son; i++) {
-  kopaymasi *= i;
-}
-console.log(kopaymasi);
+// let son = parseInt(prompt("Son kiriting: "));
+// let kopaymasi = 1;
+// for (let i = 1; i <= son; i++) {
+//   kopaymasi *= i;
+// }
+// console.log(kopaymasi);
+// [1,2,3,4] - array / massiv
 // 8. Berilgan massivning eng katta elementini for yordamida toping
+let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,114,3,23,4,324,32,4,32,4,23,42,4,2,4,324]
+// for (let i = 0; i <= arr.length; i++) {
+//   console.log(arr[i])
+// }
+for (let i of arr) {
+  
+}
 // 9. Berilgan massivning eng kichik elementini for yordamida toping
 // 10. Foydalanuvchi kiritgan sonni teskari tartibda while yordamida chiqaring
 
 // 11. 1 dan 50 gacha bo'lgan toq sonlarning yig'indisini for yordamida toping
+let arr = []
 // 12. Berilgan massiv elementlarini teskari tartibda for yordamida chiqaring
 // 13. Foydalanuvchi kiritgan sonning raqamlari yig'indisini while yordamida toping
+let son = parseInt(prompt("son kiriting:"))
 
 // 14. Berilgan massivda nechta manfiy son borligini for yordamida hisoblang
 // 15. 1 dan 15 gacha bo'lgan sonlarning kvadratini for yordamida chiqaring
