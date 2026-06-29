@@ -84,6 +84,11 @@ let arr = [
 
 // 18. Foydalanuvchi kiritgan son 3 ga bo'linishini if yordamida tekshiring
 // 19. Berilgan massivning birinchi va oxirgi elementlarini if yordamida almashtiring
+if (arr[0] !== undefined && arr[-1] !== undefined) {
+    let oxiri = arr[-1]
+    let boshi = arr[0]
+
+}
 // 20. 1 dan 30 gacha bo'lgan 3 ga karrali sonlarni for yordamida chiqaring
 // 21. Berilgan massiv elementlarining o'rtacha qiymatini for yordamida toping
 // 22. Foydalanuvchi kiritgan sonning teskari ko'rinishini while yordamida chiqaring
