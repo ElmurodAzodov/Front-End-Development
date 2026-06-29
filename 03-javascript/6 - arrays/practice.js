@@ -78,9 +78,9 @@ let arr = [
 // console.log("To'xtadi bi asa...")
 // 17. Berilgan massivning 2-indeksidagi elementni if yordamida chiqaring
 
-if (arr[2] !== undefined) {
-  console.log(arr[2]);
-}
+// if (arr[2] !== undefined) {
+//   console.log(arr[2]);
+// }
 
 // 18. Foydalanuvchi kiritgan son 3 ga bo'linishini if yordamida tekshiring
 // 19. Berilgan massivning birinchi va oxirgi elementlarini if yordamida almashtiring
