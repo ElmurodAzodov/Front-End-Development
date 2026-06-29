@@ -51,7 +51,10 @@
 // console.log(kopaymasi);
 // [1,2,3,4] - array / massiv
 // 8. Berilgan massivning eng katta elementini for yordamida toping
-let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,114,3,23,4,324,32,4,32,4,23,42,4,2,4,324]
+let arr = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 114, 3, 23, 4, 324, 32, 4, 32, 4,
+  23, 42, 4, 2, 4, 324,
+];
 
 // for (let i = 0; i <= arr.length; i++) {
 //   console.log(arr[i])
@@ -68,7 +71,17 @@ let arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,114,3,23,4,324,32,4,32,4,23,42,4,2,4,32
 // 14. Berilgan massivda nechta manfiy son borligini for yordamida hisoblang
 // 15. 1 dan 15 gacha bo'lgan sonlarning kvadratini for yordamida chiqaring
 // 16. Foydalanuvchi -1 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
+// let i;
+// do {
+//     i = prompt("Son kiriting: ")
+// } while (i != -1)
+// console.log("To'xtadi bi asa...")
 // 17. Berilgan massivning 2-indeksidagi elementni if yordamida chiqaring
+
+if (arr[2] !== undefined) {
+  console.log(arr[2]);
+}
+
 // 18. Foydalanuvchi kiritgan son 3 ga bo'linishini if yordamida tekshiring
 // 19. Berilgan massivning birinchi va oxirgi elementlarini if yordamida almashtiring
 // 20. 1 dan 30 gacha bo'lgan 3 ga karrali sonlarni for yordamida chiqaring
