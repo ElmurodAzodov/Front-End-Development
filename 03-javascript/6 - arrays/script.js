@@ -76,16 +76,28 @@
 
 // console.log(arr);
 
-let arr = ["apple", "samsung", "xiaomi", "LG", "Artel", 12, 234, true, false];
-for (let [indeksi, qiymati] of arr.entries()) {
-  console.log(`${indeksi}-indeksda ${qiymati} qiymati turibdi!`);
-  
-}
+// let arr = ["apple", "samsung", "xiaomi", "LG", "Artel", 12, 234, true, false];
+// for (let [indeksi, qiymati] of arr.entries()) {
+//   console.log(`${indeksi}-indeksda ${qiymati} qiymati turibdi!`);
 
-for (let indeksi of arr.keys()) {
-  console.log(indeksi)
-}
+// }
 
-for (let qiymati of arr.values()) {
-  console.log(qiymati)
-}
+// for (let indeksi of arr.keys()) {
+//   console.log(indeksi)
+// }
+
+// for (let qiymati of arr.values()) {
+//   console.log(qiymati)
+// }
+
+// ===========================================================================
+
+let arr = [1, 2, [3, 4, 5, [6, 7], [8, 9]], 10, 11, [12, [13, [14, [15, 16]], 17, [18, 19], 20], 21], 23];
+
+// let yigindisi = arr.reduce((yigiladi, iterator) => yigiladi + iterator)
+// console.log(yigindisi)
+// console.log(arr[2][4][1]);
+//* 15, 17, 11, 19, 20, 21, 23
+console.log(arr[5][1][3][1])
+
+console.log(arr.flat(Infinity))
