@@ -1,17 +1,17 @@
-let names = [
-  "Saidjon",
-  "Shohjahon",
-  "Azamat",
-  "Suhrob",
-  "Jahongir",
-  "Bahrom",
-  "Asadbek",
-  "Tursunboy",
-  "Aminboy",
-  "Bekzod",
-  "Kamronbek",
-  "Kamoladdin",
-];
+// let names = [
+//   "Saidjon",
+//   "Shohjahon",
+//   "Azamat",
+//   "Suhrob",
+//   "Jahongir",
+//   "Bahrom",
+//   "Asadbek",
+//   "Tursunboy",
+//   "Aminboy",
+//   "Bekzod",
+//   "Kamronbek",
+//   "Kamoladdin",
+// ];
 // console.log(names.length)
 // for(let i = 0; i < names.length; i++) {
 //     console.log(names[i])
@@ -50,7 +50,7 @@ let names = [
 // console.log(names)
 // console.log(shiftMethod)
 
-let arr = [23, 54, 76, 54, 346, 234, 213, 12, 31, 3, 4, 5, 345, 3, 4, 53, 54];
+// let arr = [23, 54, 76, 54, 346, 234, 213, 12, 31, 3, 4, 5, 345, 3, 4, 53, 54];
 // arr.pop()
 // arr.push(1,2,3,4,5)
 // arr.unshift(1,2,3,4,5)
@@ -74,7 +74,18 @@ let arr = [23, 54, 76, 54, 346, 234, 213, 12, 31, 3, 4, 5, 345, 3, 4, 53, 54];
 // let findMetod = arr.findIndex(n => n > 300)
 // console.log(findMetod)
 
-
-
 // console.log(arr);
 
+let arr = ["apple", "samsung", "xiaomi", "LG", "Artel", 12, 234, true, false];
+for (let [indeksi, qiymati] of arr.entries()) {
+  console.log(`${indeksi}-indeksda ${qiymati} qiymati turibdi!`);
+  
+}
+
+for (let indeksi of arr.keys()) {
+  console.log(indeksi)
+}
+
+for (let qiymati of arr.values()) {
+  console.log(qiymati)
+}
