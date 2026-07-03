@@ -230,13 +230,13 @@
 // 42-topshiriq (push)
 // let log = [];
 // 1 dan 20 gacha bo'lgan sonlar orasidan faqat 3 ga bo'linadiganlarini push() bilan log massiviga qo'shing.
-let log = [];
-for (let i = 1; i <= 20; i++) {
-  if (i % 3 === 0) {
-    log.push(i);
-  }
-}
-console.log(log);
+// let log = [];
+// for (let i = 1; i <= 20; i++) {
+//   if (i % 3 === 0) {
+//     log.push(i);
+//   }
+// }
+// console.log(log);
 
 // 43-topshiriq (findIndex)
 // let parollar = ["12345", "qwerty", "Str0ng!Pass", "abcdef"];
@@ -291,6 +291,10 @@ console.log(log);
 // let vazifalar = ["A vazifa", "B vazifa", "C vazifa"];
 // let bajarilgan = [];
 // shift() yordamida vazifalarni birma-bir olib, bajarilgan massiviga push() qiling (tsikl bilan).
+let vazifalar = ["A vazifa", "B vazifa", "C vazifa"];
+let bajarilgan = [];
+
+
 
 // 55-topshiriq (entries)
 // let mahsulotlar = ["non", "sut", "tuxum"];
