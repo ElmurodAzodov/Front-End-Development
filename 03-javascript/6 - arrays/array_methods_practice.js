@@ -14,17 +14,24 @@
 
 // 1-topshiriq (flat)
 // Ichma-ich joylashgan [1, [2, [3, [4, 5]]], 6] massivini to'liq (Infinity chuqurlikda) tekislang.
-console.log([1, [2, [3, [4, 5]]], 6].flat(Infinity))
+// console.log([1, [2, [3, [4, 5]]], 6].flat(Infinity))
 
 // 2-topshiriq (push)
 // Bo'sh "savat" massivi yarating. Foydalanuvchi tanlagan 3 ta mahsulot nomini (o'zingiz kiriting)
 // push() yordamida qo'shing va oxirida savatdagi mahsulotlar sonini chop eting.
-
+let mahsulotlar = []
+let mahsulot;
+while (mahsulotlar.length < 3) {
+   mahsulot = prompt("Mahsulot nomini kiriting!: ")
+   mahsulotlar.push(mahsulot)
+}
+console.log(mahsulotlar)
 
 // 3-topshiriq (findIndex)
 // let talabalar = [{ism:"Ali", ball:75}, {ism:"Vali", ball:40}, {ism:"Guli", ball:90}];
 // Balli 50 dan past bo'lgan birinchi talabaning indeksini findIndex() bilan toping.
-
+// let talabalar = [{ism:"Ali", ball:75}, {ism:"Vali", ball:40}, {ism:"Guli", ball:90}]
+// console.log(talabalar.findIndex((n) => n.ball < 50))
 
 // 4-topshiriq (splice)
 // let arr = [10, 20, 30, 40, 50];
