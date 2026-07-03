@@ -19,13 +19,13 @@
 // 2-topshiriq (push)
 // Bo'sh "savat" massivi yarating. Foydalanuvchi tanlagan 3 ta mahsulot nomini (o'zingiz kiriting)
 // push() yordamida qo'shing va oxirida savatdagi mahsulotlar sonini chop eting.
-let mahsulotlar = []
-let mahsulot;
-while (mahsulotlar.length < 3) {
-   mahsulot = prompt("Mahsulot nomini kiriting!: ")
-   mahsulotlar.push(mahsulot)
-}
-console.log(mahsulotlar)
+// let mahsulotlar = []
+// let mahsulot;
+// while (mahsulotlar.length < 3) {
+//    mahsulot = prompt("Mahsulot nomini kiriting!: ")
+//    mahsulotlar.push(mahsulot)
+// }
+// console.log(mahsulotlar)
 
 // 3-topshiriq (findIndex)
 // let talabalar = [{ism:"Ali", ball:75}, {ism:"Vali", ball:40}, {ism:"Guli", ball:90}];
@@ -36,11 +36,14 @@ console.log(mahsulotlar)
 // 4-topshiriq (splice)
 // let arr = [10, 20, 30, 40, 50];
 // 2-indeksdan boshlab 2 ta elementni o'chirib, o'rniga 100 va 200 sonlarini joylashtiring. Natijani chop eting.
-
+let arr = [10, 20, 30, 40, 50];
+arr.splice(2, 2, 200, 100)
+console.log(arr)
 
 // 5-topshiriq (keys)
 // let mevalar = ["olma", "nok", "shaftoli", "gilos"];
 // keys() yordamida faqat juft indekslarni (0, 2, ...) konsolga chiqaring.
+let mevalar = ["olma", "nok", "shaftoli", "gilos"];
 
 
 // 6-topshiriq (pop)
