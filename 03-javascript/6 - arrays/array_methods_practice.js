@@ -53,17 +53,17 @@
 // let stack = [];
 // push() yordamida stackga 1,2,3,4,5 sonlarini qo'shing, so'ng pop() bilan ketma-ket 3 ta elementni
 // olib, ularning yig'indisini chop eting.
-let stack = [];
-let popStack = [];
-for (let i = 1; i <= 5; i++) {
-  stack.push(i);
-}
-for (let i = 0; i < 3; i++) {
-  // console.log(i)
-   popStack.push(stack.pop())
-}
-console.log(`Jami stack da (${stack}) lar qoldi`)
-console.log(`Olib tashlangan mahsulotlar (${popStack.reverse()})`)
+// let stack = [];
+// let popStack = [];
+// for (let i = 1; i <= 5; i++) {
+//   stack.push(i);
+// }
+// for (let i = 0; i < 3; i++) {
+//   // console.log(i)
+//    popStack.push(stack.pop())
+// }
+// console.log(`Jami stack da (${stack}) lar qoldi`)
+// console.log(`Olib tashlangan mahsulotlar (${popStack.reverse()})`)
 
 // 7-topshiriq (reduceRight)
 // let arr = ["JS", "dan", "salom"];
@@ -217,10 +217,26 @@ console.log(`Olib tashlangan mahsulotlar (${popStack.reverse()})`)
 // 41-topshiriq (flat)
 // let matritsa = [[1,2,3],[4,5,6],[7,8,9]];
 // flat() yordamida matritsani bir qatorli massivga aylantirib, reduce() bilan yig'indisini toping.
+// let matritsa = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
+// let birQatorliMassiv = matritsa.flat(Infinity);
+// let yigindi = birQatorliMassiv.reduce((acc, i) => acc + i, 0);
+// console.log(birQatorliMassiv);
+// console.log(yigindi);
 
 // 42-topshiriq (push)
 // let log = [];
 // 1 dan 20 gacha bo'lgan sonlar orasidan faqat 3 ga bo'linadiganlarini push() bilan log massiviga qo'shing.
+let log = [];
+for (let i = 1; i <= 20; i++) {
+  if (i % 3 === 0) {
+    log.push(i);
+  }
+}
+console.log(log);
 
 // 43-topshiriq (findIndex)
 // let parollar = ["12345", "qwerty", "Str0ng!Pass", "abcdef"];
