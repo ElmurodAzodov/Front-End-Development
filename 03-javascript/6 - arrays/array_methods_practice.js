@@ -55,7 +55,7 @@
 // olib, ularning yig'indisini chop eting.
 let stack = [];
 let popStack = [];
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 5; i++) {
   stack.push(i);
 }
 for (let i = 0; i < 3; i++) {
@@ -63,7 +63,7 @@ for (let i = 0; i < 3; i++) {
    popStack.push(stack.pop())
 }
 console.log(`Jami stack da (${stack}) lar qoldi`)
-console.log(`Olib tashlangan mahsulotlar ${popStack.reverse()}`)
+console.log(`Olib tashlangan mahsulotlar (${popStack.reverse()})`)
 
 // 7-topshiriq (reduceRight)
 // let arr = ["JS", "dan", "salom"];
