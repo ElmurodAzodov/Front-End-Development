@@ -86,6 +86,10 @@
 // let narxlar = [1000, 2500, 3200, 4700];
 // forEach() yordamida har bir narxga 15% QQS qo'shib, natijani "Narx: XXXX so'm" formatida chop eting
 // (asl massivni o'zgartirmasdan).
+let narxlar = [1000, 2500, 3200, 4700];
+narxlar.forEach((son, i) => {
+   console.log(`${i}-indeksdagi mahsulot narxi ${son*15/100+son} so'm`)
+})
 
 // 12-topshiriq (indexOf)
 // let harflar = ["a", "b", "c", "b", "d", "b"];
