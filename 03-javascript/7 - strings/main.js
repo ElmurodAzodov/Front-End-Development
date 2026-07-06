@@ -37,11 +37,11 @@ console.log(matn.startsWith("Kecha")) //true
 console.log(matn.endsWith(" ")) //true
 
 console.log(matn.slice(0, 7)) // Kecha j - bunda 0-indeksdan boshalab 7gacha qirqadi lekin 7-indeksni olmasdan 6-indeksni olib tugaydi
-console.log(matn.substring(0, 7))
+// console.log(matn.substring(0, 7))
 
-console.log(matn.substring(6, 19))
+// console.log(matn.substring(6, 19))
 
-console.log(matn.split(''))
+console.log(matn.split(""))
 console.log(matn.split(" "))
 console.log(matn.split(","))
 
