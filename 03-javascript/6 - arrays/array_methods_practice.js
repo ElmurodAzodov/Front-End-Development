@@ -295,14 +295,16 @@
 // let vazifalar = ["A vazifa", "B vazifa", "C vazifa"];
 // let bajarilgan = [];
 // shift() yordamida vazifalarni birma-bir olib, bajarilgan massiviga push() qiling (tsikl bilan).
-let vazifalar = ["A vazifa", "B vazifa", "C vazifa"];
-let bajarilgan = [];
-
-
+// let vazifalar = ["A vazifa", "B vazifa", "C vazifa"];
+// let bajarilgan = [];
 
 // 55-topshiriq (entries)
 // let mahsulotlar = ["non", "sut", "tuxum"];
 // entries() yordamida har bir mahsulotni "#0 - non" formatida (indeks boshida # bilan) chop eting.
+let mahsulotlar = ["non", "sut", "tuxum"];
+for (let i of mahsulotlar.entries()) {
+  console.log(`#${i[0]} - ${i[1]}`);
+}
 
 // 56-topshiriq (lastIndexOf)
 // let baholar = [5, 4, 5, 3, 5, 2];
