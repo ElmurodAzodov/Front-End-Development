@@ -309,6 +309,8 @@ for (let i of mahsulotlar.entries()) {
 // 56-topshiriq (lastIndexOf)
 // let baholar = [5, 4, 5, 3, 5, 2];
 // Eng yuqori bahoning (5) oxirgi marta qayerda uchraganini lastIndexOf() bilan toping.
+let baholar = [5, 4, 5, 3, 5, 2];
+console.log(`Eng yuqori bahoning (5) oxirgi marta ${baholar.lastIndexOf(5)}-indeksda uchraydi`)
 
 // 57-topshiriq (filter)
 // let foydalanuvchilar = [{ism:"Ali", yosh:17}, {ism:"Vali", yosh:22}, {ism:"Guli", yosh:15}];
