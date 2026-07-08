@@ -141,6 +141,13 @@
 // let mahsulotlar = [{nom:"stol", narx:150000}, {nom:"stul", narx:45000}, {nom:"shkaf", narx:300000}];
 // Narxi 100000 dan qimmat bo'lgan birinchi mahsulotning indeksini toping va shu mahsulotni
 // massivdan o'chirib tashlang (splice bilan).
+// let mahsulotlar = [{nom:"stol", narx:150000}, {nom:"stul", narx:45000}, {nom:"shkaf", narx:300000}];
+// mahsulotlar.forEach((mahsulot, i) => {
+//    let qiymati = Object.values(mahsulot)[1]
+//    if ( qiymati > 100000) {
+      
+//    }
+// })
 
 // 24-topshiriq (splice)
 // let arr = [1, 2, 3, 4, 5, 6, 7];
@@ -301,16 +308,16 @@
 // 55-topshiriq (entries)
 // let mahsulotlar = ["non", "sut", "tuxum"];
 // entries() yordamida har bir mahsulotni "#0 - non" formatida (indeks boshida # bilan) chop eting.
-let mahsulotlar = ["non", "sut", "tuxum"];
-for (let i of mahsulotlar.entries()) {
-  console.log(`#${i[0]} - ${i[1]}`);
-}
+// let mahsulotlar = ["non", "sut", "tuxum"];
+// for (let i of mahsulotlar.entries()) {
+//   console.log(`#${i[0]} - ${i[1]}`);
+// }
 
 // 56-topshiriq (lastIndexOf)
 // let baholar = [5, 4, 5, 3, 5, 2];
 // Eng yuqori bahoning (5) oxirgi marta qayerda uchraganini lastIndexOf() bilan toping.
-let baholar = [5, 4, 5, 3, 5, 2];
-console.log(`Eng yuqori bahoning (5) oxirgi marta ${baholar.lastIndexOf(5)}-indeksda uchraydi`)
+// let baholar = [5, 4, 5, 3, 5, 2];
+// console.log(`Eng yuqori bahoning (5) oxirgi marta ${baholar.lastIndexOf(5)}-indeksda uchraydi`)
 
 // 57-topshiriq (filter)
 // let foydalanuvchilar = [{ism:"Ali", yosh:17}, {ism:"Vali", yosh:22}, {ism:"Guli", yosh:15}];
