@@ -64,8 +64,8 @@
 // 2.3. Berilgan matnni so'zlarga ajrating (bo'shliq bo'yicha).
 // Input: "Men dastur yozaman"
 // Kutilyotgan natija: ["Men", "dastur", "yozaman"]
-let matn = prompt("Gapingizni yozing: ")
-console.log(matn.split(" "))
+// let matn = prompt("Gapingizni yozing: ")
+// console.log(matn.split(" "))
 
 // 2.4. Berilgan matndagi barcha "a" harflarini "o" ga almashtiring.
 // Input: "salom"
