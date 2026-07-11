@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Onlayn soat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy-deep: #080b18;
+        --navy: #111834;
+        --twilight: #26305c;
+        --gold: #e8b04b;
+        --gold-dim: #8a6a2e;
+        --ivory: #f3efe6;
+        --slate: #8b93a8;
+        --line: rgba(243, 239, 230, 0.12);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--navy-deep);
+        font-family: "Inter", sans-serif;
+      }
+      #sky {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(
+          ellipse at 50% 20%,
+          var(--navy) 0%,
+          var(--navy-deep) 70%
+        );
+        transition: background 3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--ivory);
+      }
+
+      /* Top arc: sun/moon position through the day */
+      #arc-wrap {
+        position: absolute;
+        top: 8vh;
+        width: 60vw;
+        max-width: 900px;
+        height: 120px;
+      }
+      #arc-wrap svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      #arc-track {
+        fill: none;
+        stroke: var(--line);
+        stroke-width: 1.5;
+      }
+      #arc-fill {
+        fill: none;
+        stroke: var(--gold-dim);
+        stroke-width: 1.5;
+      }
+      #sun-dot {
+        fill: var(--gold);
+      }
+
+      .eyebrow {
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        font-size: 0.85vw;
+        color: var(--slate);
+        font-weight: 500;
+        margin-bottom: 1.2vh;
+      }
+
+      #clock {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 300;
+        font-size: min(19vw, 240px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--ivory);
+        display: flex;
+        align-items: baseline;
+        font-variant-numeric: tabular-nums;
+      }
+      #seconds {
+        font-size: 0.32em;
+        color: var(--gold);
+        margin-left: 0.25em;
+        font-weight: 400;
+        opacity: 0.9;
+      }
+      #colon-blink {
+      }
+
+      #date-row {
+        margin-top: 2.4vh;
+        font-size: 1.35vw;
+        color: var(--ivory);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      #meta-row {
+        margin-top: 4vh;
+        display: flex;
+        gap: 4vw;
+        font-size: 0.85vw;
+        color: var(--slate);
+      }
+      .meta-item {
+        text-align: center;
+      }
+      .meta-label {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 0.65vw;
+        color: var(--gold-dim);
+        margin-bottom: 0.4vh;
+        font-weight: 500;
+      }
+      .meta-value {
+        color: var(--ivory);
+        font-size: 0.95vw;
+        font-weight: 500;
+      }
+
+      /* bottom day-progress bar : signature element */
+      #day-progress {
+        position: absolute;
+        bottom: 6vh;
+        width: 70vw;
+        max-width: 1100px;
+      }
+      #progress-track {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background: var(--line);
+      }
+      #progress-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        background: var(--gold);
+        width: 0%;
+        transition: width 1s linear;
+      }
+      #progress-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1vh;
+        font-size: 0.6vw;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--slate);
+      }
+
+      #fullscreen-btn {
+        position: absolute;
+        top: 3vh;
+        right: 3vh;
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--slate);
+        font-family: "Inter", sans-serif;
+        font-size: 0.7vw;
+        padding: 0.8vh 1.4vw;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+      }
+      #fullscreen-btn:hover {
+        border-color: var(--gold-dim);
+        color: var(--gold);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sky">
+      <button id="fullscreen-btn" onclick="toggleFullscreen()">
+        To'liq ekran
+      </button>
+
+      <div id="arc-wrap">
+        <svg viewBox="0 0 600 120">
+          <path id="arc-track" d="M 20 110 A 280 280 0 0 1 580 110"></path>
+          <path
+            id="arc-fill"
+            d="M 20 110 A 280 280 0 0 1 580 110"
+            stroke-dasharray="0 880"
+          ></path>
+          <circle id="sun-dot" cx="20" cy="110" r="5"></circle>
+        </svg>
+      </div>
+
+      <div class="eyebrow" id="day-name">Yuklanmoqda...</div>
+
+      <div id="clock">
+        <span id="time-main">00:00</span><span id="seconds">00</span>
+      </div>
+
+      <div id="date-row">-</div>
+
+      <div id="meta-row">
+        <div class="meta-item">
+          <div class="meta-label">Manzil</div>
+          <div class="meta-value" id="loc-name">Aniqlanmoqda...</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Vaqt mintaqasi</div>
+          <div class="meta-value" id="tz-name">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">UTC farqi</div>
+          <div class="meta-value" id="utc-offset">-</div>
+        </div>
+      </div>
+
+      <div id="day-progress">
+        <div id="progress-track">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="progress-labels">
+          <span>00:00</span>
+          <span id="progress-percent">0% kun o'tdi</span>
+          <span>24:00</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const dayNamesUz = [
+        "Yakshanba",
+        "Dushanba",
+        "Seshanba",
+        "Chorshanba",
+        "Payshanba",
+        "Juma",
+        "Shanba",
+      ];
+      const monthNamesUz = [
+        "Yanvar",
+        "Fevral",
+        "Mart",
+        "Aprel",
+        "May",
+        "Iyun",
+        "Iyul",
+        "Avgust",
+        "Sentabr",
+        "Oktabr",
+        "Noyabr",
+        "Dekabr",
+      ];
+
+      const timeMainEl = document.getElementById("time-main");
+      const secondsEl = document.getElementById("seconds");
+      const dayNameEl = document.getElementById("day-name");
+      const dateRowEl = document.getElementById("date-row");
+      const tzNameEl = document.getElementById("tz-name");
+      const utcOffsetEl = document.getElementById("utc-offset");
+      const locNameEl = document.getElementById("loc-name");
+      const skyEl = document.getElementById("sky");
+      const arcFill = document.getElementById("arc-fill");
+      const sunDot = document.getElementById("sun-dot");
+      const progressFill = document.getElementById("progress-fill");
+      const progressPercent = document.getElementById("progress-percent");
+
+      const ARC_LENGTH = 880;
+
+      const tzMap = {
+        "Asia/Tashkent": "Toshkent, O'zbekiston",
+        "Asia/Samarkand": "Samarqand, O'zbekiston",
+        "Asia/Almaty": "Almati, Qozog'iston",
+        "Asia/Bishkek": "Bishkek, Qirg'iziston",
+        "Asia/Dushanbe": "Dushanbe, Tojikiston",
+        "Asia/Ashgabat": "Ashxobod, Turkmaniston",
+        "Europe/Moscow": "Moskva, Rossiya",
+        "Europe/Istanbul": "Istanbul, Turkiya",
+        "Asia/Dubai": "Dubay, BAA",
+      };
+
+      function pad(n) {
+        return n.toString().padStart(2, "0");
+      }
+
+      function updateClock() {
+        const now = new Date();
+        const h = now.getHours();
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+
+        timeMainEl.textContent = pad(h) + ":" + pad(m);
+        secondsEl.textContent = pad(s);
+
+        dayNameEl.textContent = dayNamesUz[now.getDay()];
+        dateRowEl.textContent =
+          now.getDate() +
+          " " +
+          monthNamesUz[now.getMonth()] +
+          " " +
+          now.getFullYear() +
+          " yil";
+
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        tzNameEl.textContent = tz;
+        locNameEl.textContent =
+          tzMap[tz] || tz.split("/").pop().replace("_", " ");
+
+        const offsetMin = -now.getTimezoneOffset();
+        const offsetH = Math.floor(Math.abs(offsetMin) / 60);
+        const offsetM = Math.abs(offsetMin) % 60;
+        utcOffsetEl.textContent =
+          "UTC " +
+          (offsetMin >= 0 ? "+" : "-") +
+          offsetH +
+          (offsetM ? ":" + pad(offsetM) : "");
+
+        const secondsIntoDay = h * 3600 + m * 60 + s;
+        const dayFraction = secondsIntoDay / 86400;
+
+        arcFill.setAttribute(
+          "stroke-dasharray",
+          dayFraction * ARC_LENGTH + " " + ARC_LENGTH,
+        );
+        const angle = Math.PI * (1 - dayFraction);
+        const cx = 300 + 280 * Math.cos(angle);
+        const cy = 110 - 280 * Math.sin(angle);
+        sunDot.setAttribute("cx", cx);
+        sunDot.setAttribute("cy", cy);
+
+        progressFill.style.width = dayFraction * 100 + "%";
+        progressPercent.textContent =
+          Math.round(dayFraction * 100) + "% kun o'tdi";
+
+        updateSkyColor(h, m);
+      }
+
+      function updateSkyColor(h, m) {
+        const t = h + m / 60;
+        let c1, c2;
+        if (t >= 5 && t < 7) {
+          c1 = "#1B2440";
+          c2 = "#3A2E4A";
+        } else if (t >= 7 && t < 17) {
+          c1 = "#141C3A";
+          c2 = "#080B18";
+        } else if (t >= 17 && t < 19) {
+          c1 = "#2A2140";
+          c2 = "#0C0A18";
+        } else {
+          c1 = "#0A0E22";
+          c2 = "#050710";
+        }
+        skyEl.style.background = `radial-gradient(ellipse at 50% 20%, ${c1} 0%, ${c2} 70%)`;
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
