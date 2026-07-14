@@ -11,17 +11,24 @@
 // }
 
 // 1 dan 15 gacha faqat toq sonlarni chiqaring.
-for (let i = 1; i <= 15; i++) {
-    if (i % 2 !== 0) {
-        console.log(i)
-    }
-}
+// for (let i = 1; i <= 15; i++) {
+//     if (i % 2 !== 0) {
+//         console.log(i)
+//     }
+// }
 
 // 1 dan 50 gacha bo‘lgan sonlar ichida 5 ga bo‘linadiganlarini chiqaring.
 
 // let n = 7; o‘zgaruvchisi berilgan. 1 dan n gacha bo‘lgan sonlar
 // yig‘indisini hisoblang.
+let n = parseInt(prompt("Son kiriting: "))
+let yigindi = 0
 
+for (let i = 1; i <= n; i++) {
+    yigindi += i    
+}
+
+console.log(yigindi)
 // let son = 10; berilgan. 1 dan son gacha bo‘lgan sonlarning
 // ko‘paytmasini toping (1*2*3*...*son).
 
