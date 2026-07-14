@@ -2,9 +2,16 @@
 // for (let i = 1; i <= 10; i++) {
 //   console.log(i);
 // }
+
 // 1 dan 20 gacha faqat juft sonlarni chiqaring (if va for yordamida).
+// for (let i = 1; i <= 20; i++) {
+//     if (i % 2 == 0) {
+//         console.log(i)
+//     }
+// }
 
 // 1 dan 15 gacha faqat toq sonlarni chiqaring.
+
 
 // 1 dan 50 gacha bo‘lgan sonlar ichida 5 ga bo‘linadiganlarini chiqaring.
 
