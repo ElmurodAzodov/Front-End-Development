@@ -44,7 +44,6 @@ for (let i = 1; i <= 20; i++) {
         console.log(`${i} soni 3ga qoldiqsiz bo'linmaydi!`)
     }
 }
-
 // 1 dan 30 gacha bo‘lgan sonlar ichida 7 dan kichik bo‘lganlarini chiqaring.
 
 // let chegara = 12; o‘zgaruvchisi berilgan. 1 dan chegara gacha bo‘lgan
@@ -57,7 +56,11 @@ for (let i = 1; i <= 20; i++) {
 
 // 1 dan 100 gacha bo‘lgan sonlar ichida 3 ga ham, 5 ga ham
 // bo‘linadiganlarini chiqaring.
-
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log(i)
+    }
+}
 // let n = 23; berilgan. Shu son tub yoki murakkab ekanligini
 // aniqlang (for va if yordamida).
 
