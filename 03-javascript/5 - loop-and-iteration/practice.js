@@ -21,20 +21,29 @@
 
 // let n = 7; o‘zgaruvchisi berilgan. 1 dan n gacha bo‘lgan sonlar
 // yig‘indisini hisoblang.
-let n = parseInt(prompt("Son kiriting: "))
-let yigindi = 0
+// let n = parseInt(prompt("Son kiriting: "))
+// let yigindi = 0
 
-for (let i = 1; i <= n; i++) {
-    yigindi += i    
-}
+// for (let i = 1; i <= n; i++) {
+//     yigindi += i    
+// }
 
-console.log(yigindi)
+// console.log(yigindi)
+
 // let son = 10; berilgan. 1 dan son gacha bo‘lgan sonlarning
 // ko‘paytmasini toping (1*2*3*...*son).
 
 // let a = 15; soni berilgan. Agar a 3 ga bo‘linsa, "3 ga bo‘linadi"
 // deb chiqaring, aks holda "bo‘linmaydi" deb chiqaring. Buni 1 dan
 // 20 gacha bo‘lgan barcha sonlar uchun bajarib chiqing.
+
+for (let i = 1; i <= 20; i++) {
+    if (i % 3 === 0) {
+        console.log(`${i} soni 3ga qoldiqsiz bo'linadi!`)
+    } else {
+        console.log(`${i} soni 3ga qoldiqsiz bo'linmaydi!`)
+    }
+}
 
 // 1 dan 30 gacha bo‘lgan sonlar ichida 7 dan kichik bo‘lganlarini chiqaring.
 
