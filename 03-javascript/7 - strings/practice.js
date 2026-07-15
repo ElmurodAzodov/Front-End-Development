@@ -244,6 +244,7 @@ console.log(yigindi)
 // Input: "men dastur yozaman"
 // Kutilyotgan natija: "menDasturYozaman"
 
+
 // 3.7. Berilgan matndagi takrorlangan so'zlarni toping.
 // Input: "bu bu gap gap takror"
 // Kutilyotgan natija: ["bu", "gap"]
