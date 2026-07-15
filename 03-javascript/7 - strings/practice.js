@@ -227,6 +227,7 @@
 // 3.5. Berilgan matn ichidagi barcha raqamlarni topib, ularni yig'indisini hisoblang.
 // Input: "a1b2c3d4"
 // Kutilyotgan natija: 10
+
 let matn = "a1b2c3d4";
 // let yigindi = 0;
 // for (let i of matn.split("")) {
