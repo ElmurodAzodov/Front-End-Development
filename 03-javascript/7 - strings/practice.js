@@ -12,14 +12,21 @@
 // 1.1. Berilgan matnni barcha harflarini katta harflarga o'zgartiring.
 // Input: "salom dunyo"
 // Kutilyotgan natija: "SALOM DUNYO"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.toUpperCase())
 
 // 1.2. Berilgan matnning uzunligini toping.
 // Input: "JavaScript"
 // Kutilyotgan natija: 10
+// let matn = prompt("Matn kiriting: ")
+// let uzunlik = matn.length
+// console.log(`Siz kiritgan (${matn}) matnining uzunligi ${uzunlik} ga teng`)
 
 // 1.3. Berilgan matnning 5-indeksidagi belgini qaytaring.
 // Input: "Dasturlash"
 // Kutilyotgan natija: "r"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn[5])
 
 // 1.4. Berilgan matn "Hello" so'zi bilan boshlanishini tekshiring.
 // Input: "Hello world"
@@ -70,6 +77,8 @@
 // 2.4. Berilgan matndagi barcha "a" harflarini "o" ga almashtiring.
 // Input: "salom"
 // Kutilyotgan natija: "solom"
+// let text = "Men bugun anor va anjir mevalarini bozorga borib sotib oldim!"
+// console.log(text.replaceAll("a", "o"))
 
 // 2.5. Berilgan matnning oxirgi 4 ta belgisini oling.
 // Input: "Dasturlash"
@@ -162,6 +171,7 @@
 // 2.27. Berilgan matnning bosh harfini katta, qolganini kichik qiling.
 // Input: "jAVAsCRIPT"
 // Kutilyotgan natija: "Javascript"
+// let matn = prompt("Matn kiriting: ")
 
 // 2.28. Berilgan matnni teskari tartibda yozib, keyin yana teskari qiling.
 // Input: "abc"
@@ -170,11 +180,23 @@
 // 2.29. Berilgan matnni "a" belgisidan ajrating.
 // Input: "salom"
 // Kutilyotgan natija: ["s","lom"]
-
+// let matn = "salom"
+// console.log(matn.split("a"))
 // 2.30. Berilgan matndagi qaysi belgi eng ko'p qatnashganini toping.
 // Input: "aabbcc"
 // Kutilyotgan natija: "a" yoki "b" yoki "c"
-
+// let matn = prompt("Matn kiriting: ")
+// let belgiSoni = {}
+// let maksimumSoni = 0
+// let engKopBelgi = ""
+// for (let i of matn) {
+//     belgiSoni[i] = (belgiSoni[i] || 0) + 1
+//     if (belgiSoni[i] > maksimumSoni) {
+//         maksimumSoni = belgiSoni[i]
+//         engKopBelgi = i
+//     }
+// }
+// console.log(`Eng kop belgi ${engKopBelgi}`)
 // ===================================================
 // 3. QIYINROQ TOPSHIRIQLAR (40 ta)
 // ===================================================
@@ -182,7 +204,14 @@
 // 3.1. Berilgan matndagi har bir so'zning birinchi harfini katta qiling.
 // Input: "salom dunyo uzbekiston"
 // Kutilyotgan natija: "Salom Dunyo Uzbekiston"
+// let matn = "salom dunyo uzbekiston"
+// let arr = matn.split(" ")
+// let n = []
 
+// for (let i of arr) {
+//     n.push(i[0].toUpperCase() + i.slice(1))
+// }
+// console.log(n.join(" "))
 // 3.2. Berilgan matnni palindrome ekanligini tekshiring.
 // Input: "kiyik"
 // Kutilyotgan natija: true
@@ -198,6 +227,18 @@
 // 3.5. Berilgan matn ichidagi barcha raqamlarni topib, ularni yig'indisini hisoblang.
 // Input: "a1b2c3d4"
 // Kutilyotgan natija: 10
+let matn = "a1b2c3d4";
+// let yigindi = 0;
+// for (let i of matn.split("")) {
+//   if (parseInt(i)) {
+//     yigindi += parseInt(i);
+//   }
+// }
+// console.log(yigindi);
+
+let raqamlar = matn.match(/\d/g)
+let yigindi = raqamlar.reduce((sum, i) => sum + Number(i), 0)
+console.log(yigindi)
 
 // 3.6. Berilgan matnni camelCase ga o'tkazing.
 // Input: "men dastur yozaman"
