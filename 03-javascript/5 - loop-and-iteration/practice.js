@@ -25,7 +25,7 @@
 // let yigindi = 0
 
 // for (let i = 1; i <= n; i++) {
-//     yigindi += i    
+//     yigindi += i
 // }
 
 // console.log(yigindi)
@@ -37,13 +37,13 @@
 // deb chiqaring, aks holda "bo‘linmaydi" deb chiqaring. Buni 1 dan
 // 20 gacha bo‘lgan barcha sonlar uchun bajarib chiqing.
 
-for (let i = 1; i <= 20; i++) {
-    if (i % 3 === 0) {
-        console.log(`${i} soni 3ga qoldiqsiz bo'linadi!`)
-    } else {
-        console.log(`${i} soni 3ga qoldiqsiz bo'linmaydi!`)
-    }
-}
+// for (let i = 1; i <= 20; i++) {
+//     if (i % 3 === 0) {
+//         console.log(`${i} soni 3ga qoldiqsiz bo'linadi!`)
+//     } else {
+//         console.log(`${i} soni 3ga qoldiqsiz bo'linmaydi!`)
+//     }
+// }
 // 1 dan 30 gacha bo‘lgan sonlar ichida 7 dan kichik bo‘lganlarini chiqaring.
 
 // let chegara = 12; o‘zgaruvchisi berilgan. 1 dan chegara gacha bo‘lgan
@@ -56,16 +56,38 @@ for (let i = 1; i <= 20; i++) {
 
 // 1 dan 100 gacha bo‘lgan sonlar ichida 3 ga ham, 5 ga ham
 // bo‘linadiganlarini chiqaring.
-for (let i = 1; i <= 100; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-        console.log(i)
-    }
-}
+// for (let i = 1; i <= 100; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         console.log(i)
+//     }
+// }
 // let n = 23; berilgan. Shu son tub yoki murakkab ekanligini
 // aniqlang (for va if yordamida).
+// let n = 23
+// let tub = true
+
+// if (n < 2) {
+//     tub = false
+// } else {
+//     for (let i = 2; i * i <= n; i++) {
+//         if (n % i === 0) {
+//             tub = false
+//             break
+//         }
+//     }
+// }
+
+// console.log(`${n} ${tub ? "tub" : "murakkab"} son`)
 
 // 1 dan 30 gacha bo‘lgan sonlar ichida nechta juft son borligini
 // hisoblang va natijani chiqaring.
+// let juftSon = 0
+// for (let i = 1; i <= 30; i++) {
+//     if (i % 2 === 0) {
+//         juftSon += 1
+//     }
+// }
+// console.log(juftSon)
 
 // 1 dan 50 gacha bo‘lgan sonlar ichida nechta toq son borligini
 // hisoblang.
@@ -75,6 +97,11 @@ for (let i = 1; i <= 100; i++) {
 
 // let son = 123; (3 xonali son) berilgan. Raqamlari yig‘indisini
 // toping. Maslahat: sonni qismlarga bo‘lish uchun % va / dan foydalaning.
+let son = 123;
+let son1 = parseInt(son % 10);
+let son2 = parseInt(son / 100);
+let son3 = parseInt(son / 10 % 10)
+console.log(son1 + son2 + son3);
 
 // 1 dan 40 gacha bo‘lgan sonlar ichida raqamlari yig‘indisi 5 ga
 // teng bo‘lgan sonlarni chiqaring (masalan, 14, 23, 32).
