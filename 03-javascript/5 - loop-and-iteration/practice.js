@@ -124,21 +124,21 @@
 // tekshiring (3 xonali son uchun: raqamlari kubining yig‘indisi
 // o‘ziga teng bo‘lsa, masalan 1³+5³+3³=153).
 
-let son = Number(prompt("Son kiriting:"));
+// let son = Number(prompt("Son kiriting:"));
 
-if (son < 100 || son > 999) {
-  console.log("Iltimos, 3 xonali son kiriting.");
-} else {
-  let yuzlik = Math.floor(son / 100);
-  let onlik = Math.floor((son % 100) / 10);
-  let birlik = son % 10;
+// if (son < 100 || son > 999) {
+//   console.log("Iltimos, 3 xonali son kiriting.");
+// } else {
+//   let yuzlik = Math.floor(son / 100);
+//   let onlik = Math.floor((son % 100) / 10);
+//   let birlik = son % 10;
 
-  if (yuzlik ** 3 + onlik ** 3 + birlik ** 3 === son) {
-    console.log("Armstrong son");
-  } else {
-    console.log("Armstrong son emas");
-  }
-}
+//   if (yuzlik ** 3 + onlik ** 3 + birlik ** 3 === son) {
+//     console.log("Armstrong son");
+//   } else {
+//     console.log("Armstrong son emas");
+//   }
+// }
 
 // 1 dan 100 gacha bo‘lgan barcha sonlarni chiqaring, lekin:
 
