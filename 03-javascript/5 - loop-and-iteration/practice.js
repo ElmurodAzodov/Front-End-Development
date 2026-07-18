@@ -141,12 +141,23 @@
 // }
 
 // 1 dan 100 gacha bo‘lgan barcha sonlarni chiqaring, lekin:
-
 // 3 ga bo‘linadiganlar o‘rniga "Fizz"
-
 // 5 ga bo‘linadiganlar o‘rniga "Buzz"
-
 // 3 va 5 ga bo‘linadiganlar o‘rniga "FizzBuzz" deb chiqaring.
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+  } else {
+    console.log(i);
+  }
+}
+
+
 
 // let a = 1; va let b = 100; orasidagi barcha mukammal sonlarni
 // toping (mukammal son – o‘zidan boshqa bo‘luvchilari yig‘indisi o‘ziga teng, masalan 6 = 1+2+3).
