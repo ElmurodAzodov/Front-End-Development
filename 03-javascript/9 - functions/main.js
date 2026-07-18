@@ -69,6 +69,7 @@ const ikkiSonYig = function (a, b, c) {
 
 ikkiSonYig(1, 2, 3);
 
+
 //* Arrow Function
 const ayirmaa = (a, b, c) => a - b - c;
 

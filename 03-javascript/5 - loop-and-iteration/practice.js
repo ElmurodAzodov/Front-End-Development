@@ -97,11 +97,11 @@
 
 // let son = 123; (3 xonali son) berilgan. Raqamlari yig‘indisini
 // toping. Maslahat: sonni qismlarga bo‘lish uchun % va / dan foydalaning.
-let son = 123;
-let son1 = parseInt(son % 10);
-let son2 = parseInt(son / 100);
-let son3 = parseInt(son / 10 % 10)
-console.log(son1 + son2 + son3);
+// let son = 123;
+// let son1 = parseInt(son % 10);
+// let son2 = parseInt(son / 100);
+// let son3 = parseInt(son / 10 % 10)
+// console.log(son1 + son2 + son3);
 
 // 1 dan 40 gacha bo‘lgan sonlar ichida raqamlari yig‘indisi 5 ga
 // teng bo‘lgan sonlarni chiqaring (masalan, 14, 23, 32).
@@ -123,6 +123,16 @@ console.log(son1 + son2 + son3);
 // let son = 153; berilgan. Bu son Armstrong soni ekanligini
 // tekshiring (3 xonali son uchun: raqamlari kubining yig‘indisi
 // o‘ziga teng bo‘lsa, masalan 1³+5³+3³=153).
+
+// let son = parseInt(prompt("Son kiriting: "));
+// let son1 = parseInt(son / 100);
+// let son2 = parseInt((son % 100) / 10);
+// let son3 = parseInt(son % 10);
+// if (son1 ** 3 + son2 ** 3 + son3 ** 3 === son) {
+//   console.log("Siz kiritgan son armstrong sonidir!");
+// } else {
+//   console.log("Siz kiritgan son armstrong soni emas!");
+// }
 
 // 1 dan 100 gacha bo‘lgan barcha sonlarni chiqaring, lekin:
 
