@@ -1,598 +1,721 @@
-# 🔧 JavaScript Functions — To'liq Qo'llanma
 
-Bu hujjat JavaScript'dagi **funksiyalar** mavzusini boshidan oxirigacha, barcha turlari, parametr strukturalari va metodlari bilan birga tushuntiradi.
+# **Functions**
 
----
-
-## 📌 1. Funksiya nima?
-
-Funksiya — bu ma'lum bir vazifani bajarish uchun yozilgan, qayta-qayta chaqirilishi mumkin bo'lgan kod bloki.
-
-```javascript
-function salom() {
-  console.log("Salom, dunyo!");
-}
-
-salom(); // Salom, dunyo!
-```
-
-**Funksiyalardan foydalanish sabablari:**
-- Kodni takrorlamaslik (DRY — Don't Repeat Yourself)
-- Kodni bo'laklarga bo'lib, tushunarli qilish
-- Qayta ishlatish imkoniyati
-- Testlash va debugging osonlashadi
+JavaScript'da funksiyalar — bu **birinchi darajali obyektlar (first-class citizens)**. Ular kod qayta ishlatilishini, abstraksiyani va butun dasturlash paradigmalarini (funksional dasturlash) ta'minlaydi. Quyida barcha funksiya turlari, ularning xususiyatlari, farqlari va amaliy misollari keltirilgan.
 
 ---
 
-## 📌 2. Funksiya E'lon Qilish Turlari
-
-JavaScript'da funksiyalarni bir necha xil usulda yaratish mumkin.
-
-### 2.1 Function Declaration (Funksiya deklaratsiyasi)
+## 📝 1. Function Declaration (Funksiya deklaratsiyasi)
 
 ```javascript
-function yigindi(a, b) {
-  return a + b;
+function salomBer(ism) {
+  return `Salom, ${ism}!`;
 }
 
-console.log(yigindi(5, 3)); // 8
+console.log(salomBer("Ali")); // Salom, Ali!
 ```
 
-**Xususiyati:** Hoisting (ko'tarilish) bo'ladi — ya'ni funksiya e'lon qilinishidan oldin ham chaqirilishi mumkin.
+### 🔑 Asosiy xususiyatlari:
+
+- `function` kalit so'zi bilan boshlanadi va **nom majburiy**.
+- **Hoisting** — funksiya deklaratsiyasi butun tanasi bilan birga xotiraning yuqorisiga "ko'chiriladi". Shu sababli uni e'lon qilishdan **oldin ham chaqirish mumkin**:
 
 ```javascript
-console.log(kupaytma(2, 4)); // 8 — xato bermaydi
+salomlash(); // ✅ Ishlaydi — "Salom!"
 
-function kupaytma(a, b) {
-  return a * b;
+function salomlash() {
+  console.log("Salom!");
 }
 ```
 
-### 2.2 Function Expression (Funksiya ifodasi)
+⚠️ **Diqqat:** Function Expression va Arrow Function'lar hoisting qilinmaydi (faqat `var`dagi o'zgaruvchi nomi hoisting bo'ladi, qiymati emas).
 
-Funksiya o'zgaruvchiga qiymat sifatida beriladi.
+- Funksiya deklaratsiyasi blok ichida (`if`, `for`) ishlatilsa, strict mode'da xatti-harakati brauzerlarga qarab farq qilishi mumkin — shuning uchun **blok ichida function declaration ishlatishdan saqlaning**, buning o'rniga function expression ishlating.
 
-```javascript
-const ayirish = function (a, b) {
-  return a - b;
-};
+---
 
-console.log(ayirish(10, 4)); // 6
-```
-
-**Xususiyati:** Hoisting bo'lmaydi (faqat o'zgaruvchi hoisting bo'ladi, qiymati emas).
+## 📝 2. Function Expression (Funksiya ifodasi)
 
 ```javascript
-console.log(bolish(10, 2)); // ❌ Xato: Cannot access before initialization
+const salomBer = function (ism) {
+  return `Salom, ${ism}!`;
+};
 
-const bolish = function (a, b) {
-  return a / b;
+console.log(salomBer("Vali")); // Salom, Vali!
+```
+
+### 🔑 Asosiy xususiyatlari:
+
+- Funksiya bir o'zgaruvchiga **qiymat sifatida** biriktiriladi.
+- **Hoisting qilinmaydi** — faqat `let`/`const`/`var` o'zgaruvchisi hoisting bo'ladi, lekin qiymat (funksiya) yo'q:
+
+```javascript
+console.log(salom); // ❌ ReferenceError (let/const) yoki undefined (var)
+const salom = function () {
+  console.log("Salom!");
 };
 ```
 
-### 2.3 Named Function Expression
+- **Named Function Expression** — funksiyaga ichki nom berish mumkin, bu nom faqat funksiya ichida (rekursiya uchun) ko'rinadi:
 
 ```javascript
 const faktorial = function fakt(n) {
-  return n <= 1 ? 1 : n * fakt(n - 1);
+  return n <= 1 ? 1 : n * fakt(n - 1); // fakt faqat shu yerda ishlaydi
 };
-
 console.log(faktorial(5)); // 120
+console.log(typeof fakt); // ❌ ReferenceError — tashqarida ko'rinmaydi
 ```
 
-Bu yerda `fakt` nomi faqat funksiya ichida (rekursiya uchun) ko'rinadi, tashqarida ko'rinmaydi.
+---
 
-### 2.4 Arrow Function (Strelka funksiya) — ES6
+## 🏹 3. Arrow Functions (ES6+)
 
 ```javascript
-const yigindi = (a, b) => a + b;
-console.log(yigindi(3, 7)); // 10
+const qoshish = (a, b) => a + b;
+console.log(qoshish(2, 3)); // 5
 ```
 
-**Turli yozilish shakllari:**
+### 🔑 Sintaksis variantlari:
 
 ```javascript
 // Parametrsiz
-const salomAyt = () => console.log("Salom!");
+const salom = () => console.log("Salom!");
 
 // Bitta parametr — qavs shart emas
-const kvadrat = x => x * x;
+const kvadrat = (x) => x * x;
 
-// Ikkita va undan ko'p parametr — qavs shart
-const kupaytir = (a, b) => a * b;
+// Bir nechta parametr — qavs majburiy
+const qoshish = (a, b) => a + b;
 
-// Bir nechta qatorli tana — {} va return kerak
-const ozgartir = (son) => {
-  const natija = son * 2;
+// Ko'p qatorli tana — {} va return kerak
+const koshish2 = (a, b) => {
+  const natija = a + b;
   return natija;
 };
 
-// Obyekt qaytarish — qavs ichiga olinadi
-const obyektYarat = (nom, yosh) => ({ ism: nom, yosh: yosh });
+// Obyekt qaytarish — qavs ichiga olinadi (aks holda {} blok deb tushuniladi)
+const yaratObyekt = (ism, yosh) => ({ ism, yosh });
 ```
 
-**Arrow function bilan oddiy funksiya farqlari:**
+### 🔑 Arrow Function'ning oddiy funksiyadan farqlari (juda muhim!):
 
-| Xususiyat | Function Declaration/Expression | Arrow Function |
-|---|---|---|
-| `this` | O'zining `this`i bor | `this`ni tashqi (lexical) muhitdan oladi |
-| `arguments` obyekti | Bor | Yo'q |
-| Konstruktor sifatida (`new`) | Ishlatiladi | Ishlatilmaydi (xato beradi) |
-| Hoisting | Declaration — ha, Expression — yo'q | Yo'q |
-| Metod sifatida yozish | Tavsiya etiladi | Tavsiya etilmaydi |
+#### 1) `this` — leksik bog'lanish
+
+Arrow function o'zining `this`ini yaratmaydi, balki **o'rab turgan (tashqi) kontekstdan** `this`ni meros qilib oladi:
 
 ```javascript
-const obj = {
+const obyekt = {
   ism: "Elmurod",
-  // ❌ Arrow function 'this' bilan obj'ni ko'rmaydi
-  salom: () => {
-    console.log(this.ism); // undefined
+  oddiyFunksiya: function () {
+    console.log(this.ism); // "Elmurod" — this obyektga ishora qiladi
   },
-  // ✅ Oddiy funksiya to'g'ri ishlaydi
-  salom2: function () {
-    console.log(this.ism); // Elmurod
+  arrowFunksiya: () => {
+    console.log(this.ism); // undefined — this tashqi (global) kontekstdan olinadi
   },
+};
+
+obyekt.oddiyFunksiya(); // Elmurod
+obyekt.arrowFunksiya(); // undefined
+```
+
+**Amaliy foydasi** — callback ichida `this`ni saqlab qolish uchun ideal:
+
+```javascript
+class Timer {
+  constructor() {
+    this.soniya = 0;
+  }
+  start() {
+    // Oddiy function bo'lsa, setInterval ichida this — window/undefined bo'lardi
+    setInterval(() => {
+      this.soniya++;
+      console.log(this.soniya);
+    }, 1000);
+  }
+}
+```
+
+#### 2) `arguments` obyekti yo'q
+
+```javascript
+function oddiy() {
+  console.log(arguments); // [1, 2, 3] — ishlaydi
+}
+oddiy(1, 2, 3);
+
+const arrow = () => {
+  console.log(arguments); // ❌ ReferenceError
 };
 ```
 
-### 2.5 Function Constructor (kamdan-kam ishlatiladi)
+O'rniga **rest parameters** ishlatiladi: `(...args) => {...}`
+
+#### 3) `new` kalit so'zi bilan chaqirib bo'lmaydi
+
+Arrow function **konstruktor emas** — `prototype` xususiyatiga ega emas:
 
 ```javascript
-const yigindi = new Function("a", "b", "return a + b");
-console.log(yigindi(2, 3)); // 5
+const Odam = (ism) => {
+  this.ism = ism;
+};
+new Odam("Ali"); // ❌ TypeError: Odam is not a constructor
 ```
 
-⚠️ Xavfsizlik va performance sababli tavsiya etilmaydi (`eval`ga o'xshaydi).
+#### 4) `bind`, `call`, `apply` orqali `this`ni o'zgartirib bo'lmaydi
+
+#### 5) `yield` ishlatib bo'lmaydi (generator bo'la olmaydi)
 
 ---
 
-## 📌 3. Parametrlar va Argumentlar
+## 📤 4. Return Values (Qaytariladigan qiymatlar)
 
-**Parametr** — funksiya e'lon qilinganda ko'rsatilgan o'zgaruvchi nomi.
-**Argument** — funksiya chaqirilganda parametrga uzatilgan haqiqiy qiymat.
+### 🔹 Implicit return (Arrow function'da yashirin qaytarish)
 
-```javascript
-function salomla(ism) { // ism — parametr
-  console.log(`Salom, ${ism}!`);
-}
-
-salomla("Aziza"); // "Aziza" — argument
-```
-
-### 3.1 Default Parametrlar (ES6)
-
-Agar argument berilmasa yoki `undefined` bo'lsa, standart qiymat ishlatiladi.
+Agar arrow function'da `{}` bo'lmasa, ifoda natijasi avtomatik qaytariladi:
 
 ```javascript
-function salomla(ism = "Mehmon") {
-  console.log(`Salom, ${ism}!`);
-}
-
-salomla();        // Salom, Mehmon!
-salomla("Sardor"); // Salom, Sardor!
-salomla(undefined); // Salom, Mehmon!
-salomla(null);      // Salom, null! (null default'ni ishga tushirmaydi!)
+const kub = (x) => x ** 3; // return so'zisiz ham qaytaradi
+console.log(kub(3)); // 27
 ```
 
-Default qiymat sifatida boshqa parametrdan ham foydalanish mumkin:
+### 🔹 Explicit return (Ochiq/aniq qaytarish)
+
+`{}` ishlatilganda `return` kalit so'zi **majburiy**, aks holda `undefined` qaytadi:
 
 ```javascript
-function narxHisobla(narx, chegirma = 0, yakuniyNarx = narx - chegirma) {
-  return yakuniyNarx;
-}
-
-console.log(narxHisobla(100, 20)); // 80
+const kub = (x) => {
+  x ** 3;
+}; // ❌ undefined qaytaradi (return yo'q!)
+const kub2 = (x) => {
+  return x ** 3;
+}; // ✅ 27 qaytaradi
 ```
 
-### 3.2 Rest Parametrlar (`...`)
-
-Noaniq sondagi argumentlarni massiv shaklida qabul qilish uchun ishlatiladi.
+### 🔹 `return`siz funksiyalar — `undefined` qaytaradi
 
 ```javascript
-function yigindi(...sonlar) {
-  return sonlar.reduce((jami, son) => jami + son, 0);
+function salomAyt() {
+  console.log("Salom!");
+  // return yo'q
 }
 
-console.log(yigindi(1, 2, 3));       // 6
-console.log(yigindi(5, 10, 15, 20)); // 50
+const natija = salomAyt(); // "Salom!" konsolga chiqadi
+console.log(natija); // undefined
 ```
 
-**Qoidalar:**
-- Rest parametr faqat **oxirgi** parametr bo'lishi kerak
-- Bir funksiyada faqat **bitta** rest parametr bo'lishi mumkin
-
-```javascript
-function malumot(ism, yosh, ...hobbylar) {
-  console.log(ism, yosh, hobbylar);
-}
-
-malumot("Ali", 25, "futbol", "kitob o'qish", "dasturlash");
-// Ali 25 ['futbol', 'kitob o'qish', 'dasturlash']
-```
-
-### 3.3 `arguments` Obyekti (eski usul)
-
-Faqat oddiy `function`larda mavjud (arrow function'da yo'q). Massivsimon obyekt.
-
-```javascript
-function yigindi() {
-  console.log(arguments); // [Arguments] { '0': 1, '1': 2, '2': 3 }
-  let jami = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    jami += arguments[i];
-  }
-  return jami;
-}
-
-console.log(yigindi(1, 2, 3)); // 6
-```
-
-📌 **Zamonaviy JavaScript'da `arguments` o'rniga rest parametr (`...args`) ishlatish tavsiya etiladi**, chunki u haqiqiy massiv va barcha massiv metodlarini (`map`, `filter` va h.k.) qo'llab-quvvatlaydi.
-
-### 3.4 Destructuring Parametrlar
-
-**Obyektni destructuring qilish:**
-
-```javascript
-function foydalanuvchiYarat({ ism, yosh, shahar = "Toshkent" }) {
-  console.log(`${ism}, ${yosh} yosh, ${shahar}dan`);
-}
-
-foydalanuvchiYarat({ ism: "Laylo", yosh: 22 });
-// Laylo, 22 yosh, Toshkentdan
-```
-
-**Massivni destructuring qilish:**
-
-```javascript
-function koordinata([x, y, z = 0]) {
-  console.log(`x: ${x}, y: ${y}, z: ${z}`);
-}
-
-koordinata([10, 20]); // x: 10, y: 20, z: 0
-```
-
-### 3.5 Parametrlarni Aralashtirib Ishlatish
-
-```javascript
-function buyurtma(mahsulot, miqdor = 1, ...qoshimchalar) {
-  console.log(mahsulot, miqdor, qoshimchalar);
-}
-
-buyurtma("Pizza", 2, "pepsi", "salat");
-// Pizza 2 [ 'pepsi', 'salat' ]
-```
-
----
-
-## 📌 4. `return` Operatori
-
-Funksiyadan qiymat qaytarish uchun ishlatiladi. `return`dan keyingi kod bajarilmaydi.
+### 🔹 `return` funksiya ishlashini darhol to'xtatadi
 
 ```javascript
 function tekshir(son) {
-  if (son % 2 === 0) {
-    return "juft";
+  if (son < 0) {
+    return "Manfiy son!"; // shu yerda funksiya to'xtaydi
   }
-  return "toq";
-}
-
-console.log(tekshir(4)); // juft
-```
-
-⚠️ Agar `return` yozilmasa, funksiya avtomatik `undefined` qaytaradi.
-
-```javascript
-function hechNima() {
-  console.log("Ishladi");
-}
-
-console.log(hechNima()); // Ishladi \n undefined
-```
-
-⚠️ **Diqqat:** `return`dan keyin yangi qatorga o'tib qiymat yozish xato keltirib chiqaradi (ASI — Automatic Semicolon Insertion tufayli):
-
-```javascript
-function xato() {
-  return
-    { ism: "Test" }; // ❌ undefined qaytadi!
+  return "Musbat yoki nol";
 }
 ```
 
----
-
-## 📌 5. Funksiya Scope (Ko'lami) va Closure
-
-### 5.1 Scope turlari
+⚠️ **ASI (Automatic Semicolon Insertion) xatosi:**
 
 ```javascript
-let global = "Men global o'zgaruvchiman";
-
-function tashqi() {
-  let tashqiOzgaruvchi = "Men tashqi funksiyadaman";
-
-  function ichki() {
-    let ichkiOzgaruvchi = "Men ichki funksiyadaman";
-    console.log(global);          // ✅ ko'rinadi
-    console.log(tashqiOzgaruvchi); // ✅ ko'rinadi
-    console.log(ichkiOzgaruvchi);  // ✅ ko'rinadi
+function notogri() {
+  return; // ❌ bu yerga avtomatik ";" qo'yiladi!
+  {
+    ism: "Ali";
   }
-
-  ichki();
-  // console.log(ichkiOzgaruvchi); // ❌ xato — ko'rinmaydi
 }
-```
+console.log(notogri()); // undefined — xato natija!
 
-### 5.2 Closure (Yopiq funksiya)
-
-Closure — ichki funksiya tashqi funksiya o'zgaruvchilarini "eslab qolishi".
-
-```javascript
-function hisoblagich() {
-  let son = 0;
-  return function () {
-    son++;
-    return son;
-  };
-}
-
-const sanash = hisoblagich();
-console.log(sanash()); // 1
-console.log(sanash()); // 2
-console.log(sanash()); // 3
-```
-
-**Amaliy misol — xususiy (private) o'zgaruvchilar:**
-
-```javascript
-function bankHisobi(boshlangichBalans) {
-  let balans = boshlangichBalans;
-
+// To'g'ri yozish:
+function togri() {
   return {
-    pulQoshish(miqdor) {
-      balans += miqdor;
-      return balans;
-    },
-    pulYechish(miqdor) {
-      if (miqdor > balans) {
-        console.log("Balansda yetarli mablag' yo'q");
-        return balans;
-      }
-      balans -= miqdor;
-      return balans;
-    },
-    balansniKor() {
-      return balans;
-    },
+    ism: "Ali",
   };
 }
-
-const hisob = bankHisobi(1000);
-console.log(hisob.pulQoshish(500));  // 1500
-console.log(hisob.pulYechish(300));  // 1200
-console.log(hisob.balansniKor());    // 1200
-// balans o'zgaruvchisiga tashqaridan bevosita kirib bo'lmaydi
 ```
 
 ---
 
-## 📌 6. IIFE (Immediately Invoked Function Expression)
+## 📞 5. Function Parameters (Parametrlar)
 
-Yaratilishi bilan darhol ishga tushadigan funksiya.
+### 🔹 Required parameters (Majburiy parametrlar)
+
+```javascript
+function qoshish(a, b) {
+  return a + b;
+}
+qoshish(5); // NaN — b berilmagani uchun undefined bo'ladi, 5 + undefined = NaN
+```
+
+JavaScript'da parametrlar sonini moslashtirish **majburiy emas** — ortiqcha argumentlar e'tiborga olinmaydi, yetishmasa `undefined` bo'ladi.
+
+### 🔹 Default parameters (ES6+)
+
+```javascript
+function salomBer(ism = "Mehmon", til = "uz") {
+  if (til === "uz") return `Salom, ${ism}!`;
+  return `Hello, ${ism}!`;
+}
+
+salomBer(); // Salom, Mehmon!
+salomBer("Ali"); // Salom, Ali!
+salomBer("Ali", "en"); // Hello, Ali!
+```
+
+Default qiymat **oldingi parametrlarga bog'liq** bo'lishi ham mumkin:
+
+```javascript
+function hisobla(narx, chegirma = 0, yakuniyNarx = narx - chegirma) {
+  return yakuniyNarx;
+}
+console.log(hisobla(100, 20)); // 80
+```
+
+⚠️ Default qiymat faqat argument `undefined` bo'lganda ishlaydi, `null` bo'lsa ishlamaydi:
+
+```javascript
+function test(x = 10) {
+  console.log(x);
+}
+test(undefined); // 10
+test(null); // null
+```
+
+### 🔹 Rest parameters `...args` (ES6+)
+
+Noma'lum sondagi argumentlarni **massiv** shaklida yig'ib oladi:
+
+```javascript
+function jamla(...sonlar) {
+  return sonlar.reduce((jami, son) => jami + son, 0);
+}
+console.log(jamla(1, 2, 3, 4)); // 10
+```
+
+**Qoidalar:**
+
+- Rest parameter faqat **oxirgi parametr** bo'lishi kerak:
+
+```javascript
+function notogri(a, ...rest, b) {} // ❌ SyntaxError
+function togri(a, b, ...rest) {}   // ✅
+```
+
+- Bir funksiyada faqat **bitta** rest parameter bo'lishi mumkin.
+- Boshqa parametrlar bilan birga ishlatilishi mumkin:
+
+```javascript
+function tanishtir(ism, ...hobbilar) {
+  console.log(`${ism} sevimli mashg'ulotlari: ${hobbilar.join(", ")}`);
+}
+tanishtir("Elmurod", "dasturlash", "futbol", "kitob");
+// Elmurod sevimli mashg'ulotlari: dasturlash, futbol, kitob
+```
+
+`arguments`dan farqi: rest parameter — **haqiqiy massiv** (barcha massiv metodlari ishlaydi: `.map()`, `.filter()` va h.k.), `arguments` esa faqat massivsimon obyekt.
+
+### 🔹 Parameter destructuring (Parametrlarni yoyish)
+
+**Obyekt destructuring:**
+
+```javascript
+function foydalanuvchiChiqar({ ism, yosh, shahar = "Buxoro" }) {
+  console.log(`${ism}, ${yosh} yosh, ${shahar}`);
+}
+foydalanuvchiChiqar({ ism: "Ali", yosh: 25 });
+// Ali, 25 yosh, Buxoro
+```
+
+**Massiv destructuring:**
+
+```javascript
+function koordinata([x, y, z = 0]) {
+  console.log(`x:${x}, y:${y}, z:${z}`);
+}
+koordinata([10, 20]); // x:10, y:20, z:0
+```
+
+**Amaliy foyda** — nomlangan parametrlar (named arguments) effektini beradi, tartib muhim emas:
+
+```javascript
+function yaratElement({ tag, matn, klass }) {
+  const el = document.createElement(tag);
+  el.textContent = matn;
+  el.className = klass;
+  return el;
+}
+yaratElement({ matn: "Salom", tag: "div", klass: "box" }); // tartib muhim emas
+```
+
+---
+
+## 🌐 6. First-Class Functions (Birinchi darajali funksiyalar)
+
+JavaScript'da funksiyalar — **obyekt** hisoblanadi, shuning uchun ular:
+
+### 1) O'zgaruvchiga biriktirilishi mumkin
+
+```javascript
+const mening = function () {
+  return "Salom";
+};
+```
+
+### 2) Argument sifatida uzatilishi mumkin (Callback)
+
+```javascript
+function ishlaGa(son, callback) {
+  return callback(son);
+}
+
+function ikkiBaravar(x) {
+  return x * 2;
+}
+
+console.log(ishlaGa(5, ikkiBaravar)); // 10
+
+// Yoki anonim/arrow bilan:
+console.log(ishlaGa(5, (x) => x * 2)); // 10
+
+// Real hayotdagi misol:
+[1, 2, 3].forEach((son) => console.log(son * son)); // 1, 4, 9
+setTimeout(() => console.log("3 soniyadan keyin"), 3000);
+```
+
+### 3) Funksiyadan qaytarilishi mumkin (Higher-Order Function)
+
+**Higher-order function** — boshqa funksiyani argument sifatida oladigan **yoki** funksiya qaytaradigan funksiya:
+
+```javascript
+function koPaytiruvchiYarat(koeffitsient) {
+  return function (son) {
+    return son * koeffitsient;
+  };
+}
+
+const ikkigaKopaytir = koPaytiruvchiYarat(2);
+const ochtagaKopaytir = koPaytiruvchiYarat(8);
+
+console.log(ikkigaKopaytir(5)); // 10
+console.log(ochtagaKopaytir(5)); // 40
+```
+
+**Arrow function bilan qisqartirilgan (currying) shakli:**
+
+```javascript
+const koPaytiruvchiYarat = (koeffitsient) => (son) => son * koeffitsient;
+```
+
+### 4) Obyekt xususiyati sifatida saqlanishi mumkin
+
+```javascript
+const kalkulyator = {
+  qoshish: (a, b) => a + b,
+  ayirish: (a, b) => a - b,
+};
+```
+
+### 5) Massivda saqlanishi mumkin
+
+```javascript
+const amallar = [(x) => x + 1, (x) => x * 2, (x) => x ** 2];
+amallar.forEach((f) => console.log(f(5))); // 6, 10, 25
+```
+
+---
+
+## 🔄 7. Recursion (Rekursiya)
+
+Funksiya **o'zini o'zi chaqirishi** — rekursiya deyiladi. Har bir rekursiv funksiyada **2 ta muhim qism** bo'lishi shart:
+
+1. **Base case (asosiy holat)** — rekursiya to'xtaydigan shart.
+2. **Recursive case** — funksiya o'zini kichikroq masala bilan qayta chaqiradi.
+
+```javascript
+function faktorial(n) {
+  if (n <= 1) return 1; // 🛑 base case
+  return n * faktorial(n - 1); // 🔄 recursive case
+}
+console.log(faktorial(5)); // 120 (5*4*3*2*1)
+```
+
+**Fibonachchi qatori misolida:**
+
+```javascript
+function fibonachchi(n) {
+  if (n <= 1) return n; // base case
+  return fibonachchi(n - 1) + fibonachchi(n - 2);
+}
+console.log(fibonachchi(7)); // 13
+```
+
+**Ichma-ich massivni "tekislash" (flatten) — amaliy misol:**
+
+```javascript
+function tekislash(massiv) {
+  let natija = [];
+  for (const el of massiv) {
+    if (Array.isArray(el)) {
+      natija = natija.concat(tekislash(el)); // rekursiya
+    } else {
+      natija.push(el);
+    }
+  }
+  return natija;
+}
+console.log(tekislash([1, [2, 3, [4, 5, [6]]]])); // [1,2,3,4,5,6]
+```
+
+### ⚠️ Rekursiyaning xavfi — Stack Overflow
+
+```javascript
+function cheksiz(n) {
+  return cheksiz(n + 1); // base case yo'q!
+}
+cheksiz(1); // ❌ RangeError: Maximum call stack size exceeded
+```
+
+### 💡 Tail Call Optimization (TCO)
+
+Nazariy jihatdan, agar `return` so'zidan keyin **darhol** rekursiv chaqiruv bo'lsa (boshqa amal qilinmasa), bu "tail call" deyiladi va ba'zi tillar buni optimallashtiradi. Afsuski, **JavaScript dvigatellarining aksariyati (V8/Chrome/Node) TCO'ni qo'llab-quvvatlamaydi**, shuning uchun katta `n` uchun rekursiya o'rniga **loop** yoki **iterativ yechim** afzalroq.
+
+---
+
+## ⚡ 8. IIFE — Immediately Invoked Function Expression
+
+Funksiya e'lon qilinishi bilanoq **darhol chaqiriladigan** funksiya:
 
 ```javascript
 (function () {
   console.log("Men darhol ishga tushdim!");
 })();
 
-// Arrow function bilan
+// Arrow function bilan:
 (() => {
-  console.log("Men ham darhol ishga tushdim!");
+  console.log("Men ham darhol ishladim!");
 })();
 
-// Qiymat qaytarish bilan
+// Qiymat bilan qaytariladigan IIFE:
 const natija = (function () {
   return 5 + 5;
 })();
-
 console.log(natija); // 10
 ```
 
-**Ishlatilish sababi:** Global scope'ni ifloslantirmaslik va bir martalik ishga tushiriladigan kodni izolyatsiya qilish uchun.
+### 🔑 IIFE nima uchun kerak?
+
+**1) Global scope'ni ifloslantirmaslik (module pattern):**
+
+```javascript
+const hisoblagichModul = (function () {
+  let hisob = 0; // 🔒 tashqaridan ko'rinmaydi (private)
+
+  return {
+    ortir: () => ++hisob,
+    olish: () => hisob,
+  };
+})();
+
+hisoblagichModul.ortir();
+hisoblagichModul.ortir();
+console.log(hisoblagichModul.olish()); // 2
+console.log(hisoblagichModul.hisob); // undefined — tashqaridan yopiq
+```
+
+**2) Bir martalik initsializatsiya (masalan, konfiguratsiya sozlash):**
+
+```javascript
+const config = (function () {
+  const muhit = "production";
+  return { muhit, versiya: "1.0.0" };
+})();
+```
+
+**3) `var` bilan bog'liq eski muammolarni (loop + closure) hal qilish:**
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  (function (j) {
+    setTimeout(() => console.log(j), 100); // 0, 1, 2 — to'g'ri natija
+  })(i);
+}
+```
 
 ---
 
-## 📌 7. Higher-Order Functions (Yuqori darajali funksiyalar)
+## 📦 9. Function Scope and Closures (Funksiya doirasi va Yopiqlar)
 
-Boshqa funksiyani argument sifatida qabul qiladigan yoki funksiya qaytaradigan funksiyalar.
+### 🔹 Function Scope
 
-### 7.1 Funksiyani argument sifatida qabul qilish (Callback)
+`var` bilan e'lon qilingan o'zgaruvchi faqat **funksiya ichida** ko'rinadi (block scope emas):
 
 ```javascript
-function ishlov(massiv, callback) {
-  const natija = [];
-  for (let elem of massiv) {
-    natija.push(callback(elem));
+function test() {
+  if (true) {
+    var x = 10; // function-scoped
+    let y = 20; // block-scoped
   }
-  return natija;
+  console.log(x); // 10 — ko'rinadi
+  console.log(y); // ❌ ReferenceError — ko'rinmaydi
 }
-
-const ikkiBaravar = (son) => son * 2;
-console.log(ishlov([1, 2, 3], ikkiBaravar)); // [2, 4, 6]
 ```
 
-### 7.2 Funksiya qaytaradigan funksiya
+### 🔹 Closure (Yopiq/Yopilma) nima?
+
+**Closure** — bu funksiyaning o'zi yaratilgan **leksik muhitni (lexical environment)** "eslab qolishi" va tashqi funksiya bajarilib bo'lgandan keyin ham o'sha o'zgaruvchilarga kirisha olishi.
 
 ```javascript
-function kupaytuvchiYarat(kupaytuvchi) {
-  return function (son) {
-    return son * kupaytuvchi;
+function tashqiFunksiya() {
+  let hisob = 0; // bu o'zgaruvchi "yopiladi"
+
+  function ichkiFunksiya() {
+    hisob++;
+    return hisob;
+  }
+
+  return ichkiFunksiya;
+}
+
+const hisoblagich = tashqiFunksiya(); // tashqiFunksiya() ishlab bo'ldi, lekin...
+console.log(hisoblagich()); // 1
+console.log(hisoblagich()); // 2 — hisob o'zgaruvchisi "eslab qolingan"!
+console.log(hisoblagich()); // 3
+```
+
+`tashqiFunksiya()` allaqachon bajarilib bo'lgan bo'lsa-da, `ichkiFunksiya` hali ham `hisob` o'zgaruvchisiga kirisha oladi — chunki u closure orqali shu o'zgaruvchini "ushlab" qolgan.
+
+### 🔑 Closure'ning amaliy qo'llanilishi:
+
+**1) Xususiy (private) o'zgaruvchilar yaratish:**
+
+```javascript
+function bankHisobiYarat(boshlangichBalans) {
+  let balans = boshlangichBalans; // tashqaridan to'g'ridan-to'g'ri o'zgartirib bo'lmaydi
+
+  return {
+    balansniKor: () => balans,
+    pulSol: (miqdor) => (balans += miqdor),
+    pulOl: (miqdor) => {
+      if (miqdor > balans) {
+        console.log("Balans yetarli emas!");
+        return;
+      }
+      balans -= miqdor;
+    },
   };
 }
 
-const ikkigaKupaytir = kupaytuvchiYarat(2);
-const ochtagaKupaytir = kupaytuvchiYarat(8);
-
-console.log(ikkigaKupaytir(5)); // 10
-console.log(ochtagaKupaytir(5)); // 40
+const meningHisobim = bankHisobiYarat(1000);
+meningHisobim.pulSol(500);
+meningHisobim.pulOl(200);
+console.log(meningHisobim.balansniKor()); // 1300
+console.log(meningHisobim.balans); // undefined — to'g'ridan-to'g'ri kirish yo'q
 ```
 
-### 7.3 Massivning tayyor Higher-Order metodlari
+**2) Memoization (natijani keshlash orqali tezlashtirish):**
 
 ```javascript
-const sonlar = [1, 2, 3, 4, 5];
+function memoize(fn) {
+  const kesh = {}; // closure orqali "eslab qolinadi"
 
-// map — har bir elementni o'zgartiradi
-console.log(sonlar.map(son => son * 2)); // [2, 4, 6, 8, 10]
+  return function (n) {
+    if (n in kesh) {
+      console.log("Keshdan olindi:", n);
+      return kesh[n];
+    }
+    const natija = fn(n);
+    kesh[n] = natija;
+    return natija;
+  };
+}
 
-// filter — shartga mos elementlarni tanlaydi
-console.log(sonlar.filter(son => son % 2 === 0)); // [2, 4]
+function sekinKvadrat(n) {
+  for (let i = 0; i < 1e8; i++) {} // sun'iy sekinlik
+  return n * n;
+}
 
-// reduce — barcha elementlarni bitta qiymatga jamlaydi
-console.log(sonlar.reduce((jami, son) => jami + son, 0)); // 15
+const tezKvadrat = memoize(sekinKvadrat);
+console.log(tezKvadrat(5)); // hisoblanadi
+console.log(tezKvadrat(5)); // "Keshdan olindi" — darhol qaytadi
+```
 
-// forEach — har bir element uchun amal bajaradi (qiymat qaytarmaydi)
-sonlar.forEach(son => console.log(son));
+**3) Currying (funksiyani bosqichma-bosqich chaqirish):**
 
-// find — shartga mos birinchi elementni topadi
-console.log(sonlar.find(son => son > 3)); // 4
+```javascript
+function qoshish(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+console.log(qoshish(1)(2)(3)); // 6
 
-// some / every — shartni tekshiradi
-console.log(sonlar.some(son => son > 4));  // true
-console.log(sonlar.every(son => son > 0)); // true
+// Arrow bilan:
+const qoshish2 = (a) => (b) => (c) => a + b + c;
+```
+
+**4) Loop ichida closure muammosi (juda ko'p uchraydigan xato):**
+
+```javascript
+// ❌ NOTO'G'RI — var function-scoped bo'lgani uchun
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 100); // 4, 4, 4 chiqadi!
+}
+
+// ✅ TO'G'RI — let har bir iteratsiyada yangi scope yaratadi
+for (let i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 100); // 1, 2, 3 chiqadi
+}
 ```
 
 ---
 
-## 📌 8. `this` Kalit So'zi va Funksiya Metodlari
+## 🎁 Qo'shimcha (Senior darajasida bilish shart bo'lgan) mavzular
 
-`this` funksiya qanday chaqirilishiga qarab qiymat oladi.
-
-```javascript
-const shaxs = {
-  ism: "Aziz",
-  salomAyt() {
-    console.log(`Salom, men ${this.ism}man`);
-  },
-};
-
-shaxs.salomAyt(); // Salom, men Azizman
-```
-
-### 8.1 `call()` metodi
-
-Funksiyani darhol chaqiradi, `this` qiymatini va argumentlarni **birma-bir** beradi.
+### 🔸 `call`, `apply`, `bind` — `this`ni boshqarish
 
 ```javascript
+const odam1 = { ism: "Ali" };
+const odam2 = { ism: "Vali" };
+
 function salomla(shahar, mamlakat) {
   console.log(`Salom, men ${this.ism}, ${shahar}, ${mamlakat}dan`);
 }
 
-const odam = { ism: "Sardor" };
+salomla.call(odam1, "Buxoro", "O'zbekiston"); // this=odam1, argumentlar bittalab
+salomla.apply(odam2, ["Toshkent", "O'zbekiston"]); // this=odam2, argumentlar massivda
 
-salomla.call(odam, "Xorazm", "O'zbekiston");
-// Salom, men Sardor, Xorazm, O'zbekistondan
+const aliUchunSalom = salomla.bind(odam1); // yangi funksiya qaytaradi, darhol chaqirmaydi
+aliUchunSalom("Xorazm", "O'zbekiston");
 ```
 
-### 8.2 `apply()` metodi
+| Metod   | Chaqiradi darhol?            | Argumentlar          |
+| ------- | ---------------------------- | -------------------- |
+| `call`  | ✅ Ha                        | bittalab (`a, b, c`) |
+| `apply` | ✅ Ha                        | massiv (`[a, b, c]`) |
+| `bind`  | ❌ Yo'q (yangi fn qaytaradi) | bittalab             |
 
-`call()` bilan bir xil, lekin argumentlarni **massiv** shaklida qabul qiladi.
+### 🔸 Pure Functions (Sof funksiyalar)
 
-```javascript
-salomla.apply(odam, ["Xorazm", "O'zbekiston"]);
-// Salom, men Sardor, Xorazm, O'zbekistondan
-
-// Amaliy misol: massivdagi eng katta sonni topish
-const sonlar = [5, 12, 8, 130, 44];
-console.log(Math.max.apply(null, sonlar)); // 130
-// Zamonaviy usul: Math.max(...sonlar)
-```
-
-### 8.3 `bind()` metodi
-
-Funksiyani **darhol chaqirmaydi**, balki `this` biriktirilgan **yangi funksiya** qaytaradi.
+Funksional dasturlashning asosi — **bir xil argumentlar uchun doim bir xil natija** qaytaradi va **tashqi holatga (side effect) ta'sir qilmaydi**:
 
 ```javascript
-const azizSalom = salomla.bind(odam);
-azizSalom("Toshkent", "O'zbekiston");
-// Salom, men Sardor, Toshkent, O'zbekistondan
-
-// Qisman argument biriktirish (Partial Application)
-function yigindi(a, b, c) {
-  return a + b + c;
+// ✅ Pure — tashqarisiga ta'sir qilmaydi
+function qoshish(a, b) {
+  return a + b;
 }
 
-const beshQoshish = yigindi.bind(null, 5);
-console.log(beshQoshish(10, 15)); // 30 (5+10+15)
-```
-
-**Uchala metod taqqoslash jadvali:**
-
-| Metod | Chaqiradimi? | Argumentlar formati | Qaytaradigan qiymat |
-|---|---|---|---|
-| `call()` | Darhol | Birma-bir: `f.call(this, a, b)` | Funksiya natijasi |
-| `apply()` | Darhol | Massiv: `f.apply(this, [a, b])` | Funksiya natijasi |
-| `bind()` | Yo'q | Birma-bir: `f.bind(this, a, b)` | Yangi funksiya |
-
----
-
-## 📌 9. Rekursiya (Recursion)
-
-Funksiyaning o'zini-o'zi chaqirishi.
-
-```javascript
-function faktorial(n) {
-  if (n <= 1) return 1; // baza holati (base case)
-  return n * faktorial(n - 1); // rekursiv chaqiruv
-}
-
-console.log(faktorial(5)); // 120 (5*4*3*2*1)
-```
-
-**Fibonachchi ketma-ketligi misoli:**
-
-```javascript
-function fibonachchi(n) {
-  if (n <= 1) return n;
-  return fibonachchi(n - 1) + fibonachchi(n - 2);
-}
-
-console.log(fibonachchi(7)); // 13
-```
-
-⚠️ **Diqqat:** Har doim baza holati (to'xtash sharti) bo'lishi shart, aks holda "Maximum call stack size exceeded" xatosi chiqadi (cheksiz rekursiya).
-
----
-
-## 📌 10. Pure va Impure Funksiyalar
-
-### Pure Function (Sof funksiya)
-- Bir xil argument uchun har doim bir xil natija qaytaradi
-- Tashqi holatni o'zgartirmaydi (side-effect yo'q)
-
-```javascript
-function yigindi(a, b) {
-  return a + b; // faqat argumentlarga bog'liq
-}
-```
-
-### Impure Function (Nosof funksiya)
-
-```javascript
+// ❌ Impure — tashqi o'zgaruvchini o'zgartiradi (side effect)
 let jami = 0;
-function qoshish(son) {
-  jami += son; // tashqi o'zgaruvchini o'zgartiradi — side effect
+function qoshishImpure(a) {
+  jami += a;
   return jami;
 }
 ```
 
-📌 Pure funksiyalar testlash, debugging va funksional dasturlashda katta afzallikka ega.
+### 🔸 Generator Functions (`function*`)
 
----
-
-## 📌 11. Generator Funksiyalar (`function*`)
-
-Bajarilishni to'xtatib, keyin davom ettirish mumkin bo'lgan maxsus funksiyalar.
+Bajarilishni "to'xtatib-davom ettirish" imkonini beradi:
 
 ```javascript
 function* sonlarGenerator() {
@@ -602,109 +725,64 @@ function* sonlarGenerator() {
 }
 
 const gen = sonlarGenerator();
-console.log(gen.next()); // { value: 1, done: false }
-console.log(gen.next()); // { value: 2, done: false }
-console.log(gen.next()); // { value: 3, done: false }
-console.log(gen.next()); // { value: undefined, done: true }
-
-// for...of bilan
-for (const son of sonlarGenerator()) {
-  console.log(son); // 1, 2, 3
-}
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+console.log(gen.next().value); // 3
+console.log(gen.next().done); // true
 ```
 
----
-
-## 📌 12. Async Funksiyalar
-
-Asinxron (kutish talab qiladigan) amallar bilan ishlash uchun.
+### 🔸 `arguments` obyekti (faqat oddiy funksiyalarda)
 
 ```javascript
-function malumotOl() {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve("Ma'lumot keldi!"), 2000);
-  });
+function test() {
+  console.log(arguments.length); // nechta argument berilgani
+  console.log(arguments[0]); // birinchi argument
+  console.log(Array.from(arguments)); // haqiqiy massivga aylantirish
 }
-
-async function ishga() {
-  console.log("Boshlandi...");
-  const natija = await malumotOl(); // 2 soniya kutadi
-  console.log(natija); // Ma'lumot keldi!
-}
-
-ishga();
+test(1, 2, 3); // 3, 1, [1,2,3]
 ```
 
-**Xatolarni ushlash:**
+### 🔸 `Function.length` va `Function.name`
 
 ```javascript
-async function malumotOlish() {
-  try {
-    const javob = await fetch("https://api.example.com/data");
-    const data = await javob.json();
-    console.log(data);
-  } catch (xato) {
-    console.log("Xatolik yuz berdi:", xato.message);
-  }
-}
+function ornek(a, b, c = 1) {}
+console.log(ornek.length); // 2 — default va rest parametrlar hisobga olinmaydi
+console.log(ornek.name); // "ornek"
+
+const arrowFn = () => {};
+console.log(arrowFn.name); // "arrowFn" — o'zgaruvchi nomidan olinadi
 ```
 
----
-
-## 📌 13. Named vs Anonymous Funksiyalar
+### 🔸 `new Function()` — Function Constructor (kamdan-kam ishlatiladi)
 
 ```javascript
-// Named — nomi bor, stack trace'da ko'rinadi, debugging osonroq
-function ismliFunksiya() {}
-
-// Anonymous — nomi yo'q
-const anonim = function () {};
-
-// Arrow function ham odatda anonim bo'ladi
-const kvadrat = (x) => x * x;
-```
-
-📌 Xato yuz berganda named funksiyalar stack trace'da o'z nomi bilan ko'rinadi, bu debugging jarayonini osonlashtiradi.
-
----
-
-## 📌 14. Funksiya sifatida — `Function` obyekti va foydali metodlar
-
-```javascript
-function namuna(a, b, c) {
-  return a + b + c;
-}
-
-console.log(namuna.name);   // "namuna"
-console.log(namuna.length); // 3 (kutilayotgan parametrlar soni — rest va default hisobga olinmaydi)
-
-// toString() — funksiya kodini matn sifatida qaytaradi
-console.log(namuna.toString());
+const qoshish = new Function("a", "b", "return a + b");
+console.log(qoshish(2, 3)); // 5
+// ⚠️ eval() kabi xavfli — foydalanuvchidan kelgan matnni bajarish xavfsizlik muammosi tug'diradi
 ```
 
 ---
 
-## 📌 15. Xulosa — Qachon Qaysi Funksiya Turini Ishlatish Kerak?
+## 📊 Umumiy taqqoslash jadvali
 
-| Vaziyat | Tavsiya etiladigan tur |
-|---|---|
-| Obyekt metodi yaratish | Oddiy `function` (`this` uchun) |
-| Qisqa, bir qatorli mantiq | Arrow function |
-| Callback funksiya (`map`, `filter`) | Arrow function |
-| Hoisting kerak bo'lganda | Function Declaration |
-| Rekursiv, nomi kerak bo'lgan funksiya | Named Function Expression |
-| Konstruktor (`new` bilan) | Oddiy `function` |
-| Asinxron amal | `async function` |
-| Bosqichma-bosqich qiymat generatsiya qilish | `function*` (generator) |
-
----
-
-## 📎 Qo'shimcha Manbalar
-
-- [MDN — Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
-- [MDN — Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [MDN — Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+| Xususiyat               | Function Declaration   | Function Expression | Arrow Function              |
+| ----------------------- | ---------------------- | ------------------- | --------------------------- |
+| Hoisting                | ✅ To'liq (tana bilan) | ❌ Yo'q             | ❌ Yo'q                     |
+| O'z `this`i             | ✅ Bor                 | ✅ Bor              | ❌ Yo'q (tashqaridan oladi) |
+| `arguments` obyekti     | ✅ Bor                 | ✅ Bor              | ❌ Yo'q                     |
+| `new` bilan chaqirish   | ✅ Mumkin              | ✅ Mumkin           | ❌ Mumkin emas              |
+| Implicit return         | ❌ Yo'q                | ❌ Yo'q             | ✅ Bor (`{}`siz)            |
+| Metod sifatida ideal    | ✅ Ha                  | ✅ Ha               | ❌ Yo'q (`this` muammosi)   |
+| Callback sifatida ideal | O'rtacha               | O'rtacha            | ✅ Juda qulay               |
 
 ---
 
-*Ushbu qo'llanma JavaScript funksiyalari mavzusini to'liq qamrab olish uchun tayyorlangan. GitHub reference.md sifatida ishlatish uchun mos.*
+## ✅ Xulosa — Qachon nimani ishlatish kerak?
+
+- **Function Declaration** — global yordamchi funksiyalar, hoisting kerak bo'lganda.
+- **Function Expression** — shartli yaratiladigan funksiyalar, named recursion kerak bo'lsa.
+- **Arrow Function** — callback'lar (`map`, `filter`, `setTimeout`), `this`ni saqlab qolish kerak bo'lganda, qisqa bir qatorli funksiyalar.
+- **Object metodlari** uchun arrow emas, **oddiy function** ishlating (`this` muammosi tufayli).
+- **Closure** — private state, module pattern, memoization, event handler'larda holat saqlash uchun.
+- **Recursion** — daraxtsimon/ichma-ich strukturalar (DOM, JSON, fayl tizimi) bilan ishlashda.
+- **IIFE** — zamonaviy loyihalarda ES6 modullari (`import`/`export`) buni asosan almashtirgan, lekin legacy kodda va bir martalik initsializatsiyada hali ham uchraydi.
