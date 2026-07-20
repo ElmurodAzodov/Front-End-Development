@@ -316,12 +316,12 @@
 // 3.24. Berilgan matnni 3 ta qatorga bo'ling (har 3 belgidan).
 // Input: "abcdefghi"
 // Kutilyotgan natija: ["abc","def","ghi"]
-let matn = "abcdefghi";
-let natija = [];
-for (let i = 0; i <= matn.length; i += 3) {
-    natija.push(matn.slice(i, i+3))
-}
-console.log(natija)
+// let matn = "abcdefghi";
+// let natija = [];
+// for (let i = 0; i <= matn.length; i += 3) {
+//     natija.push(matn.slice(i, i+3))
+// }
+// console.log(natija)
 
 // 3.25. Berilgan matndagi barcha raqamlarni "X" bilan almashtiring.
 // Input: "Men 25 yoshdaman"
