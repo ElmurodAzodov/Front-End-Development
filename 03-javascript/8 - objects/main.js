@@ -60,12 +60,13 @@ const shoxruzbek = {
 };
 shoxruzbek.lager = "Lagerga bormadi";
 
-console.log(Object.values(shoxruzbek));
-console.log(Object.keys(shoxruzbek));
-console.log(Object.entries(shoxruzbek));
-console.log(Object.entries(shoxruzbek)[40]);
+// console.log(Object.values(shoxruzbek));
+// console.log(Object.keys(shoxruzbek));
+// console.log(Object.entries(shoxruzbek));
+// console.log(Object.entries(shoxruzbek)[40]);
+delete shoxruzbek.jins
+console.log(shoxruzbek);
 
-// console.log(shoxruzbek);
 
 // console.log(shoxruzbek.familiya);
 
