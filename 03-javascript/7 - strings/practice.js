@@ -228,7 +228,7 @@
 // Input: "a1b2c3d4"
 // Kutilyotgan natija: 10
 
-let matn = "a1b2c3d4";
+// let matn = "a1b2c3d4";
 // let yigindi = 0;
 // for (let i of matn.split("")) {
 //   if (parseInt(i)) {
@@ -237,9 +237,9 @@ let matn = "a1b2c3d4";
 // }
 // console.log(yigindi);
 
-let raqamlar = matn.match(/\d/g)
-let yigindi = raqamlar.reduce((sum, i) => sum + Number(i), 0)
-console.log(yigindi)
+// let raqamlar = matn.match(/\d/g)
+// let yigindi = raqamlar.reduce((sum, i) => sum + Number(i), 0)
+// console.log(yigindi)
 
 // 3.6. Berilgan matnni camelCase ga o'tkazing.
 // Input: "men dastur yozaman"
@@ -316,6 +316,12 @@ console.log(yigindi)
 // 3.24. Berilgan matnni 3 ta qatorga bo'ling (har 3 belgidan).
 // Input: "abcdefghi"
 // Kutilyotgan natija: ["abc","def","ghi"]
+let matn = "abcdefghi";
+let natija = [];
+for (let i = 0; i <= matn.length; i += 3) {
+    natija.push(matn.slice(i, i+3))
+}
+console.log(natija)
 
 // 3.25. Berilgan matndagi barcha raqamlarni "X" bilan almashtiring.
 // Input: "Men 25 yoshdaman"
