@@ -157,8 +157,6 @@ for (let i = 1; i <= 10; i++) {
 //   }
 // }
 
-
-
 // let a = 1; va let b = 100; orasidagi barcha mukammal sonlarni
 // toping (mukammal son – o‘zidan boshqa bo‘luvchilari yig‘indisi o‘ziga teng, masalan 6 = 1+2+3).
 
