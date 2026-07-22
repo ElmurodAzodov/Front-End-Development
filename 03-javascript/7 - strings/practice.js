@@ -395,6 +395,16 @@
 // 4.1. Berilgan matn ichidagi barcha qavslar ichidagi matnlarni ajratib oling.
 // Input: "Bugun (dushanba) kuni (dars) bor"
 // Kutilyotgan natija: ["dushanba", "dars"]
+let matn = "Bugun (dushanba) kuni (dars) bor"
+let arr = matn.split(" ")
+let newArr = []
+for (let i of arr) {
+    if (i[0] === "(") {
+        newArr.push(i.slice(1, -1))
+    }
+}
+console.log(newArr)
+
 
 // 4.2. Berilgan matnni tekshirib, u valid email manzili ekanligini aniqlang (regex bilan).
 // Input: "ali@gmail.com"
