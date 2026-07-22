@@ -142,3 +142,9 @@ function tanishtir(ism, ...hobbilar) {
 }
 console.log(tanishtir("Saidjon", "dasturlash", "futbol", "roblox", "anime"))
 
+// ___________________________________________________________
+
+function jamla(...sonlar) {
+  return sonlar.reduce((jami, son) => jami + son, 0);
+}
+console.log(jamla(1, 2, 3, 4))
