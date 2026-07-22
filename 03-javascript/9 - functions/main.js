@@ -129,8 +129,16 @@ function darajaa(b) {
 
 // _______________________________________________________
 
-function qoshish(a, b) {
-  return a + b;
+function qoshish(a, b, c) {
+  return a + b + c;
 }
-console.log(qoshish(5, 8))
+console.log(qoshish(5, 8)) //! NaN - Not a Number
+console.log(qoshish(5, 8, 4))
 console.log(qoshish(5)) //! NaN - Not a Number
+
+// __________________________________________________________
+function tanishtir(ism, ...hobbilar) {
+  return `${ism} sevimli mashg'ulotlari: ${hobbilar.join(", ")}larni sevadi!`
+}
+console.log(tanishtir("Saidjon", "dasturlash", "futbol", "roblox", "anime"))
+
