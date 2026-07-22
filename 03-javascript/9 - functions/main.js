@@ -107,7 +107,7 @@ function userData() {
   console.log(malumoti)
 }
 
-userData()
+// userData()
 
 // _______________________________________________________
 
@@ -115,12 +115,13 @@ function daraja(a) {
   return a ** 2
 }
 
-console.log(daraja(2))
+// console.log(daraja(2))
 
 // _______________________________________________________
 function darajaa(b) {
-  console.log(b ** 3)
-  return "Return funksiyaga qaytaradi"
+  console.log("salom")
+  return b
+  
 }
 
 // darajaa(2)
