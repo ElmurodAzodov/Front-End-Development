@@ -11,18 +11,16 @@
 // ulardan kattasini qaytaruvchi funksiya yozing.
 function masala1(a, b) {
   if (a > b) {
-    return "a soni katta"
+    return "a soni katta";
   } else {
-    return "b soni katta"
+    return "b soni katta";
   }
 }
-console.log(masala1(2, 3))
+// console.log(masala1(2, 3))
 
-// 2-masala: [if-else] Kiritilgan son musbat, manfiy yoki nol ekanligini aniqlovchi funksiya yozing. 
+// 2-masala: [if-else] Kiritilgan son musbat, manfiy yoki nol ekanligini aniqlovchi funksiya yozing.
 // Natija: "musbat", "manfiy" yoki "nol".
-function masala2(son) {
-
-}
+function masala2(son) {}
 
 // 3-masala: [if-else] Berilgan yosh bo'yicha kishi "bolalik" (0-12),
 // "o'smirlik" (13-17), "kattalar" (18dan katta) toifasiga tegishli ekanligini aniqlang.
@@ -70,7 +68,14 @@ function masala13(matn) {}
 function masala14(matn) {}
 
 // 15-masala: [array] Massiv elementlari yig'indisini hisoblovchi funksiya yozing.
-function masala15(massiv) {}
+function masala15(massiv) {
+  let y = 0;
+  for (let i of massiv) {
+    y += i;
+  }
+  return y;
+}
+console.log(masala15([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 // 16-masala: [array] Massivdagi eng katta elementni topuvchi funksiya yozing.
 function masala16(massiv) {}
@@ -459,11 +464,11 @@ function masala99(foydalanuvchilar, ism1, ism2) {}
 // umumiy reyting o'rni (1-o'rin, 2-o'rin va h.k.) hisoblansin
 // va natija saralangan massiv ko'rinishida qaytarilsin.
 function masala100(talabalar) {
-    const baholar = {
-        matematika: 5,
-        fizika: 2,
-        inglizTili: 9.5,
-    }
+  const baholar = {
+    matematika: 5,
+    fizika: 2,
+    inglizTili: 9.5,
+  };
 }
 
 // ==========================================================
