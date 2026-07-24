@@ -139,12 +139,19 @@ function masala26(son) {
     }
     return arr
 }
-console.log(masala26(5))
+// console.log(masala26(5))
 
 // 27-masala: [while] Berilgan sonni 2 ga bo'lib, natija 1 dan
 // kichik bo'lguncha bo'lish amalini necha marta bajarish
 // mumkinligini hisoblovchi funksiya yozing.
-function masala27(son) {}
+function masala27(son) {
+    let marta = 0
+    while () {
+        marta += 1
+    }
+    return marta
+}
+console.log(masala27(16))
 
 // 28-masala: [string] Berilgan matndagi unli harflar (a, o, e, i, u, ...)
 // sonini hisoblovchi funksiya yozing.
