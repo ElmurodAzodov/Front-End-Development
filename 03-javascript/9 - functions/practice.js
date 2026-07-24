@@ -10,8 +10,13 @@
 // 1-masala: [if-else] Ikkita sonni parametr sifatida qabul qilib,
 // ulardan kattasini qaytaruvchi funksiya yozing.
 function masala1(a, b) {
-  // yechim shu yerga yoziladi
+  if (a > b) {
+    return "a soni katta"
+  } else {
+    return "b soni katta"
+  }
 }
+console.log(masala1(2, 3))
 
 // 2-masala: [if-else] anligini
 // aniqlovchi funksiya yozing. Natija: "musbat", "manfiy" yoki "nol".
