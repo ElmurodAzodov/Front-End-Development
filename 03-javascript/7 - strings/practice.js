@@ -323,7 +323,6 @@
 // }
 // console.log(natija)
 
-
 // 3.25. Berilgan matndagi barcha raqamlarni "X" bilan almashtiring.
 // Input: "Men 25 yoshdaman"
 // Kutilyotgan natija: "Men XX yoshdaman"
