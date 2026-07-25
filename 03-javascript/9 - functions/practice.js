@@ -86,15 +86,19 @@ function masala15(massiv) {
 
 // 16-masala: [array] Massivdagi eng katta elementni topuvchi funksiya yozing.
 function masala16(massiv) {
-  let katta = 0;
+  let katta = massiv[0];
+
   for (let i of massiv) {
     if (i > katta) {
       katta = i;
     }
   }
+
   return katta;
 }
-// console.log(masala16([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+// console.log(masala16([1, 2, 3, 4, 5]));
+// console.log(masala16([-5, -2, -10]));
 // 17-masala: [array] Massivdagi eng kichik elementni topuvchi funksiya yozing.
 function masala17(massiv) {}
 
@@ -155,7 +159,7 @@ function masala27(son) {
   return marta;
 }
 
-console.log(masala27(16));
+// console.log(masala27(16));
 
 // 28-masala: [string] Berilgan matndagi unli harflar (a, o, e, i, u, ...)
 // sonini hisoblovchi funksiya yozing.
