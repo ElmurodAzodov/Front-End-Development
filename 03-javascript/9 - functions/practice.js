@@ -29,11 +29,11 @@ function masala3(yosh) {}
 // 4-masala: [for] 1 dan berilgan songacha bo'lgan barcha sonlar yig'indisini
 // hisoblovchi funksiya yozing.
 function masala4(son) {
-    let S = 0
-    for (let i = 1; i <= son; i++) {
-        S += i
-    }
-    return S
+  let S = 0;
+  for (let i = 1; i <= son; i++) {
+    S += i;
+  }
+  return S;
 }
 // console.log(masala4(100))
 
@@ -86,13 +86,13 @@ function masala15(massiv) {
 
 // 16-masala: [array] Massivdagi eng katta elementni topuvchi funksiya yozing.
 function masala16(massiv) {
-    let katta = 0
-    for (let i of massiv) {
-        if (i > katta) {
-            katta = i
-        }
+  let katta = 0;
+  for (let i of massiv) {
+    if (i > katta) {
+      katta = i;
     }
-    return katta
+  }
+  return katta;
 }
 // console.log(masala16([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 // 17-masala: [array] Massivdagi eng kichik elementni topuvchi funksiya yozing.
@@ -133,11 +133,11 @@ function masala25(a, b, c) {}
 // 26-masala: [for] 1 dan 10 gacha ko'paytirish jadvalini
 // (masalan 5 uchun: 5,10,15...) massiv ko'rinishida qaytaruvchi funksiya yozing.
 function masala26(son) {
-    let arr = []
-    for (let i = 1; i <= 10; i++) {
-        arr.push(son * i)
-    }
-    return arr
+  let arr = [];
+  for (let i = 1; i <= 10; i++) {
+    arr.push(son * i);
+  }
+  return arr;
 }
 // console.log(masala26(5))
 
@@ -145,13 +145,17 @@ function masala26(son) {
 // kichik bo'lguncha bo'lish amalini necha marta bajarish
 // mumkinligini hisoblovchi funksiya yozing.
 function masala27(son) {
-    let marta = 0
-    while () {
-        marta += 1
-    }
-    return marta
+  let marta = 0;
+
+  while (son >= 1) {
+    son /= 2;
+    marta++;
+  }
+
+  return marta;
 }
-console.log(masala27(16))
+
+console.log(masala27(16));
 
 // 28-masala: [string] Berilgan matndagi unli harflar (a, o, e, i, u, ...)
 // sonini hisoblovchi funksiya yozing.
