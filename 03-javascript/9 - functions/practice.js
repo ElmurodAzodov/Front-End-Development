@@ -98,6 +98,7 @@ function masala16(massiv) {
 }
 
 
+
 // console.log(masala16([1, 2, 3, 4, 5]));
 // console.log(masala16([-5, -2, -10]));
 // 17-masala: [array] Massivdagi eng kichik elementni topuvchi funksiya yozing.
