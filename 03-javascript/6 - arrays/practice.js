@@ -1,3 +1,33 @@
+let massiv = ["olma", "anor", "o'rik", "anjir", "shaftoli", "apelsin", "mandarin"]
+// 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
+// 2. Berilgan massivning boshidan 2 ta elementni shift() orqali olib tashlang
+// 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga 
+// "yangilik" so'zini qo'shing (splice)
+// 4. Berilgan massiv ichidagi "olma" so'zining indeksini indexOf() yordamida toping
+// 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf() 
+// yordamida toping
+// 6. Berilgan massivdan 10 dan katta bo'lgan birinchi sonni find() yordamida toping
+// 7. Berilgan massivdan 5 ga bo'linadigan birinchi sonning indeksini findIndex() 
+// yordamida toping
+// 8. Berilgan massivdan 3 ga karrali bo'lgan oxirgi sonni findLast() yordamida toping
+// 9. Berilgan massivdan 4 dan katta bo'lgan oxirgi sonning indeksini findLastIndex() 
+// yordamida toping
+// 10. Berilgan massivning barcha [indeks, qiymat] juftliklarini entries() 
+// yordamida chiqaring
+// 11. Berilgan massivning faqat indekslarini keys() yordamida chiqaring
+// 12. Berilgan massivning faqat qiymatlarini values() yordamida chiqaring
+// 13. Berilgan massivning boshiga 3 ta yangi element qo'shing (unshift)
+// 14. Berilgan massivning oxirgi elementini pop() qilib, yangi o'zgaruvchiga saqlang
+// 15. Berilgan massivdagi "nok" elementini topib, uning indeksini if yordamida 
+// tekshiring (indexOf)
+// 16. Berilgan massivdan 7 dan katta bo'lgan barcha sonlarni find() yordamida 
+// toping va yangi massivga yig'ing
+// 17. Berilgan massivning o'rtasidan 2 ta elementni splice() yordamida olib tashlang
+// 18. Berilgan massivning 0-indeksidagi elementni unshift() yordamida o'zgartiring
+// 19. Berilgan massivning [indeks, qiymat] juftliklarini entries() va for of yordamida 
+// faqat indeksi toq bo'lganlarini chiqaring
+// 20. Berilgan massivning qiymatlarini values() va for of yordamida yig'indisini hisoblang
+
 // ==========================================
 // ODDIY SAVOLLAR (1-30)
 // ==========================================
@@ -85,9 +115,8 @@ let arr = [
 // 18. Foydalanuvchi kiritgan son 3 ga bo'linishini if yordamida tekshiring
 // 19. Berilgan massivning birinchi va oxirgi elementlarini if yordamida almashtiring
 if (arr[0] !== undefined && arr[-1] !== undefined) {
-    let oxiri = arr[-1]
-    let boshi = arr[0]
-
+  let oxiri = arr[-1];
+  let boshi = arr[0];
 }
 // 20. 1 dan 30 gacha bo'lgan 3 ga karrali sonlarni for yordamida chiqaring
 // 21. Berilgan massiv elementlarining o'rtacha qiymatini for yordamida toping
