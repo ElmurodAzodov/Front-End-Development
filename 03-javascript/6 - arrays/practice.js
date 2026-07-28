@@ -30,7 +30,6 @@ let massiv = ["olma", "anor", "o'rik", "anjir", "shaftoli", "apelsin", "mandarin
 // faqat indeksi toq bo'lganlarini chiqaring
 // 20. Berilgan massivning qiymatlarini values() va for of yordamida yig'indisini hisoblang
 
-
 // ==========================================
 // ODDIY SAVOLLAR (1-30)
 // ==========================================
