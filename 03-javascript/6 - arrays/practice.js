@@ -1,3 +1,5 @@
+// Topshiriq metodlar 20ta
+
 let massiv = ["olma", "anor", "o'rik", "anjir", "shaftoli", "apelsin", "mandarin"]
 // 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
 // 2. Berilgan massivning boshidan 2 ta elementni shift() orqali olib tashlang
