@@ -41,9 +41,9 @@ sonlar.splice(1, 6, 0, 0, 0);
 console.log(oquvchilar.indexOf("Marjonaxon"))
 // console.log(sonlar)
 
-// console.log(oquvchilar)
-// console.log(saqlandi)
-// console.log(boshidanOchirdi)
+console.log(oquvchilar)
+console.log(saqlandi)
+console.log(boshidanOchirdi)
 
 //* TOPSHIRIQLAR
 
