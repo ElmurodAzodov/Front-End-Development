@@ -57,7 +57,7 @@ function masala7(son) {
   }
   return y;
 }
-console.log(masala7(12345));
+// console.log(masala7(123456789));
 
 // 8-masala: [while] Berilgan sondan boshlab 1 gacha teskari
 // hisoblovchi (countdown) funksiya yozing, natijalarni massivga yozib qaytaring.
