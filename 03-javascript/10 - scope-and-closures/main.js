@@ -40,11 +40,46 @@ const sonlar = [1, 2, 3, 4];
 // console.log(amalniBajar(sonlar, (x) => x ** 2)); // [1, 4, 9, 16]
 //! =====================================
 
-function chegirmaHisoblagichYarat(20) {
+function chegirmaHisoblagichYarat(foiz) {
   return function (narx) {
     return narx - (narx * foiz) / 100;
   };
 }
 
 const yozgiChegirma = chegirmaHisoblagichYarat(20);
-console.log(yozgiChegirma(1000)); // 800
+// console.log(yozgiChegirma(1000)); // 800
+
+//! =====================================
+
+
+// console.log(this)
+// console.log(this === window)
+
+//! =====================================
+
+const foydalanuvchi = {
+  ism: "Ali",
+  salomlash() {
+    console.log(`Salom, ${this.ism}`);
+  },
+};
+
+// foydalanuvchi.salomlash(); // "Salom, Ali" — to'g'ri
+
+// const ajratilganFunksiya = foydalanuvchi.salomlash;
+// ajratilganFunksiya(); // "Salom, undefined" — this endi obyektga bog'liq emas!
+
+//! =====================================
+
+const obyekt = {
+  ism: "Elmurod",
+  oddiyMetod: function () {
+    console.log(this.ism); // "Elmurod" — this = obyekt
+  },
+  arrowMetod: () => {
+    console.log(this.ism); // undefined — this obyektdan emas, tashqi (global) scope'dan olinadi
+  },
+};
+
+// obyekt.oddiyMetod(); // Elmurod
+// obyekt.arrowMetod(); // undefined
