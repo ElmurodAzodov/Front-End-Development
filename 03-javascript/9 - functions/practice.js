@@ -20,7 +20,15 @@ function masala1(a, b) {
 
 // 2-masala: [if-else] Kiritilgan son musbat, manfiy yoki nol ekanligini aniqlovchi funksiya yozing.
 // Natija: "musbat", "manfiy" yoki "nol".
-function masala2(son) {}
+function masala2(son) {
+  if (son > 0) {
+    return "musbat";
+  } else if (son < 0) {
+    return "manfiy";
+  } else {
+    return "nol";
+  }
+}
 
 // 3-masala: [if-else] Berilgan yosh bo'yicha kishi "bolalik" (0-12),
 // "o'smirlik" (13-17), "kattalar" (18dan katta) toifasiga tegishli ekanligini aniqlang.
