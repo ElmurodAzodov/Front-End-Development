@@ -29,6 +29,9 @@ function masala2(son) {
     return "nol";
   }
 }
+console.log(masala2(12))
+console.log(masala2(-2))
+
 
 // 3-masala: [if-else] Berilgan yosh bo'yicha kishi "bolalik" (0-12),
 // "o'smirlik" (13-17), "kattalar" (18dan katta) toifasiga tegishli ekanligini aniqlang.
