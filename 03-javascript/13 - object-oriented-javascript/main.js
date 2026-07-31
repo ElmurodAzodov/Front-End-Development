@@ -48,3 +48,4 @@ const talabaa2 = new Talaba("Sardor", 27, "Backend Developer");
 
 talabaa1.salomBerish(); // "Salom, men Azizaman"
 talabaa2.salomBerish(); // "Salom, men Azizaman"
+
