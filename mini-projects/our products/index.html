@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <h1 class="page-title">Our Products</h1>
+
+    <div class="products-grid">
+      <!-- 1 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge sale">-30%</span>
+          <img
+            src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80"
+            alt="Sylterine"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Sylterine')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button
+                class="overlay-action"
+                onclick="shareProduct('Sylterine')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Sylterine')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Sylterine</div>
+          <div class="product-desc">Stylish cafe chair</div>
+          <div class="product-price">
+            Rp 2.500.000<span class="old-price">Rp 3.500.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1503602642458-232111445657?w=600&q=80"
+            alt="Leviosa"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Leviosa')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Leviosa')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Leviosa')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Leviosa</div>
+          <div class="product-desc">Stylish cafe chair</div>
+          <div class="product-price">Rp 2.500.000</div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge sale">-50%</span>
+          <img
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+            alt="Lolito"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Lolito')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Lolito')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Lolito')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Lolito</div>
+          <div class="product-desc">Luxury big sofa</div>
+          <div class="product-price">
+            Rp 7.000.000<span class="old-price">Rp 14.000.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge new">New</span>
+          <img
+            src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=600&q=80"
+            alt="Respira"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Respira')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Respira')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Respira')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Respira</div>
+          <div class="product-desc">Minimalist fan</div>
+          <div class="product-price">Rp 500.000</div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1543198126-cc7d603e5107?w=600&q=80"
+            alt="Grifo"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Grifo')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Grifo')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Grifo')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Grifo</div>
+          <div class="product-desc">Night lamp</div>
+          <div class="product-price">Rp 1.500.000</div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge new">New</span>
+          <img
+            src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&q=80"
+            alt="Muggo"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Muggo')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Muggo')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Muggo')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Muggo</div>
+          <div class="product-desc">Small mug</div>
+          <div class="product-price">Rp 150.000</div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge sale">-50%</span>
+          <img
+            src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80"
+            alt="Pingky"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Pingky')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Pingky')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Pingky')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Pingky</div>
+          <div class="product-desc">Cute bed set</div>
+          <div class="product-price">
+            Rp 7.000.000<span class="old-price">Rp 14.000.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <span class="badge new">New</span>
+          <img
+            src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80"
+            alt="Potty"
+          />
+          <div class="overlay">
+            <button class="btn-add-cart" onclick="addToCart('Potty')">
+              Add to cart
+            </button>
+            <div class="overlay-actions">
+              <button class="overlay-action" onclick="shareProduct('Potty')">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.6" y1="10.5" x2="15.4" y2="6.5" />
+                  <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+                </svg>
+                Share
+              </button>
+              <button
+                class="overlay-action"
+                onclick="toggleLike(this, 'Potty')"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"
+                  />
+                </svg>
+                Like
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Potty</div>
+          <div class="product-desc">Minimalist flower pot</div>
+          <div class="product-price">Rp 500.000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-more-wrap">
+      <button class="btn-show-more">Show More</button>
+    </div>
+
+    <script>
+      function addToCart(name) {
+        alert(name + " savatchaga qo'shildi!");
+      }
+
+      function shareProduct(name) {
+        alert(name + " uchun ulashish oynasi ochiladi.");
+      }
+
+      function toggleLike(btn, name) {
+        btn.classList.toggle("liked");
+        const liked = btn.classList.contains("liked");
+        btn.lastChild.textContent = liked ? " Liked" : " Like";
+      }
+    </script>
+  </body>
+</html>
