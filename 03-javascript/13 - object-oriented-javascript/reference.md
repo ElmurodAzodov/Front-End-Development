@@ -1,947 +1,835 @@
-# **Object-Oriented JavaScript**
+# 🏛️ **Object-Oriented Programming (OOP) — JavaScript**
 
-JavaScript — **klassik OOP tillaridan (Java, C++) farqli**, **prototype-based (prototiplarga asoslangan)** til. ES6'dagi `class` sintaksisi esa haqiqiy klass emas — bu faqat **prototype mexanizmi ustidagi "shakar qoplama" (syntactic sugar)**. Shu sababli, OOP'ni chuqur tushunish uchun avval prototype tizimini, so'ngra `class` sintaksisini o'rganish to'g'ri yondashuv hisoblanadi.
+Ushbu qo'llanmada JavaScript'dagi OOP (Object-Oriented Programming — Obyektga Yo'naltirilgan Dasturlash) mavzusi boshidan oxirigacha, amaliy misollar bilan tushuntiriladi. Har bir bo'lim nazariya + kod + izoh tartibida berilgan.
 
 ---
 
-## 🏗️ 1. Constructor Functions (Konstruktor funksiyalar)
+## 📑 Mundarija
 
-`class` paydo bo'lishidan oldin (ES5 va undan avval), obyektlarni "shablon" asosida yaratish uchun **konstruktor funksiyalar** ishlatilgan. Konvensiyaga ko'ra, ular **katta harf bilan** boshlanadi.
+1. 🏗️ Constructor Functions
+2. 🔗 Prototypes va Prototype Chain
+3. 📦 ES6+ Classes
+4. 👪 Class Inheritance (`extends`)
+5. 🔧 `super` kalit so'zi
+6. 🏗️ Mixins
+7. 📦 Private Class Fields (`#privateField`)
+8. 🏷️ Public Class Fields
+9. 🔒 Private Methods
+10. 🎭 Polimorfizm va Method Overriding
+11. 🧩 Composition vs Inheritance
+12. 🏭 Factory Functions vs Classes
+13. ❄️ Object.freeze() — Immutability
+14. 🔁 Symbol.iterator — Custom Iteration
+15. 🎯 `new.target`, `toString`, `Symbol.toPrimitive`
+16. 📌 Xulosa va Best Practices
+
+---
+
+## 1. 🏗️ Constructor Functions
+
+Constructor function — bu oddiy funksiya bo'lib, `new` kalit so'zi bilan chaqirilganda yangi obyekt yaratish uchun ishlatiladi. ES6 class'lardan oldin JavaScript'da OOP shu usulda amalga oshirilgan.
+
+### `new` operatori
+
+`new` operatori chaqirilganda quyidagi 4 ta jarayon avtomatik ravishda bajariladi:
+
+1. Yangi bo'sh obyekt `{}` yaratiladi.
+2. Yangi obyektning `__proto__` xususiyati constructor funksiyaning `prototype`'iga bog'lanadi.
+3. Constructor funksiya ichidagi `this` shu yangi obyektga bog'lanadi (bind qilinadi).
+4. Agar constructor funksiya aniq bir obyekt qaytarmasa, yangi obyekt avtomatik qaytariladi.
 
 ```javascript
+// Constructor function — katta harf bilan boshlanadi (convention)
 function Odam(ism, yosh) {
+  // "this" - yangi yaratilayotgan obyektni bildiradi
   this.ism = ism;
   this.yosh = yosh;
-}
 
-Odam.prototype.salomla = function () {
-  return `Salom, men ${this.ism}, ${this.yosh} yoshdaman`;
-};
-
-const ali = new Odam("Ali", 25);
-console.log(ali.salomla()); // "Salom, men Ali, 25 yoshdaman"
-```
-
-### 🔹 `new` operatori — 4 bosqichli jarayon
-
-`new` kalit so'zi chaqirilganda, JavaScript dvigateli **avtomatik ravishda** quyidagi 4 ta amalni bajaradi:
-
-```javascript
-function Odam(ism) {
-  // new Odam("Ali") chaqirilganda, dvigatel "orqa fonda" quyidagilarni bajaradi:
-
-  // 1️⃣ Yangi bo'sh obyekt yaratiladi
-  // let this = {};
-
-  // 2️⃣ Yangi obyekt Odam.prototype'ga bog'lanadi
-  // Object.setPrototypeOf(this, Odam.prototype);
-
-  // 3️⃣ Funksiya tanasi bajariladi, 'this'ga xususiyatlar qo'shiladi
-  this.ism = ism;
-
-  // 4️⃣ Agar funksiya boshqa OBYEKT qaytarmasa, 'this' avtomatik qaytariladi
-  // return this; (yashirin)
-}
-
-const odam1 = new Odam("Vali");
-console.log(odam1.ism); // "Vali"
-console.log(odam1 instanceof Odam); // true
-```
-
-### ⚠️ Konstruktor obyekt qaytarsa — o'sha obyekt ustunlik qiladi
-
-```javascript
-function Mahsulot(nomi) {
-  this.nomi = nomi;
-  return { boshqaNomi: "men boshqacha obyektman" }; // obyekt qaytarilyapti!
-}
-
-const m = new Mahsulot("Noutbuk");
-console.log(m.nomi); // undefined
-console.log(m.boshqaNomi); // "men boshqacha obyektman" — return qilingan obyekt ustunlik qildi
-
-// Lekin agar oddiy QIYMAT (string, son) qaytarilsa — e'tiborga olinmaydi:
-function Mahsulot2(nomi) {
-  this.nomi = nomi;
-  return "men string qaytaryapman"; // e'tiborga olinmaydi
-}
-const m2 = new Mahsulot2("Sichqoncha");
-console.log(m2.nomi); // "Sichqoncha" — this baribir qaytariladi
-```
-
-### ⚠️ `new`siz chaqirilsa — jiddiy xato
-
-```javascript
-function Odam(ism) {
-  this.ism = ism;
-}
-
-const notogri = Odam("Ali"); // 'new' unutildi!
-console.log(notogri); // undefined
-console.log(window.ism); // "Ali" — global obyektga sizib chiqdi (strict mode bo'lmasa)!
-```
-
-**Himoya usuli (ES5 davrida keng ishlatilgan):**
-
-```javascript
-function Odam(ism) {
-  if (!(this instanceof Odam)) {
-    return new Odam(ism); // avtomatik to'g'rilaydi
-  }
-  this.ism = ism;
-}
-
-const ali = Odam("Ali"); // 'new'siz chaqirilsa ham to'g'ri ishlaydi
-console.log(ali.ism); // "Ali"
-```
-
-### 🔹 `this` konstruktorlarda
-
-Konstruktor ichida `this` — **hozir yaratilayotgan yangi instance**ga ishora qiladi (`new` bo'limida batafsil ko'rilgan). Bu — oddiy funksiya yoki metoddagi `this`dan farq qiladi, chunki uning qiymati **doim** yangi obyekt bo'ladi (agar boshqa obyekt qaytarilmasa).
-
-### 🔹 `instanceof` operatori
-
-`instanceof` — obyektning **prototype zanjirida** berilgan konstruktorning `prototype`si mavjudligini tekshiradi:
-
-```javascript
-function Hayvon(tur) {
-  this.tur = tur;
-}
-
-const mushuk = new Hayvon("mushuk");
-
-console.log(mushuk instanceof Hayvon); // true
-console.log(mushuk instanceof Object); // true — hamma narsa Object'dan meros oladi
-console.log(mushuk instanceof Array); // false
-```
-
-**`instanceof` qanday ishlaydi (ichki mexanizm):**
-
-```javascript
-// mushuk instanceof Hayvon quyidagicha tekshiradi:
-// mushuk.__proto__ === Hayvon.prototype ? true
-// aks holda mushuk.__proto__.__proto__ === Hayvon.prototype ? ...
-// va h.k., prototype zanjiri bo'ylab yuqoriga qarab, toki null'gacha
-```
-
-**Amaliy foydasi — turlarni tekshirish:**
-
-```javascript
-function tekshir(obyekt) {
-  if (obyekt instanceof Array) {
-    console.log("Bu massiv");
-  } else if (obyekt instanceof Date) {
-    console.log("Bu sana");
-  } else if (obyekt instanceof Error) {
-    console.log("Bu xatolik obyekti");
-  }
-}
-```
-
----
-
-## 🔗 2. Prototypes and Prototype Chain (Prototiplar va Prototip zanjiri)
-
-JavaScript'da **har bir obyekt** boshqa bir obyektga (uning **prototipi**ga) "ishora" qiladi. Agar obyektning o'zida xususiyat/metod topilmasa, JavaScript uni **prototip zanjiri (prototype chain)** bo'ylab qidiradi — bu esa **prototypal inheritance (prototiplar orqali meros olish)**ning asosidir.
-
-### 🔹 `__proto__` (legacy) vs `Object.getPrototypeOf()`
-
-`__proto__` — obyektning prototipiga kirish uchun **eski (legacy)**, lekin hali ham keng qo'llab-quvvatlanadigan xususiyat:
-
-```javascript
-const hayvon = {
-  ovozChiqar() {
-    console.log("Umumiy ovoz");
-  },
-};
-
-const it = {
-  ism: "Aka",
-};
-
-it.__proto__ = hayvon; // ⚠️ legacy — production kodida tavsiya etilmaydi
-
-it.ovozChiqar(); // "Umumiy ovoz" — o'zida yo'q, prototipdan topildi
-```
-
-**Zamonaviy, tavsiya etiladigan usul — `Object.getPrototypeOf()` / `Object.setPrototypeOf()`:**
-
-```javascript
-const hayvon = {
-  ovozChiqar() {
-    console.log("Umumiy ovoz");
-  },
-};
-
-const it = { ism: "Aka" };
-
-Object.setPrototypeOf(it, hayvon); // prototipni belgilash
-console.log(Object.getPrototypeOf(it) === hayvon); // true — prototipni olish
-
-it.ovozChiqar(); // "Umumiy ovoz"
-```
-
-### ⚠️ Nima uchun `__proto__` o'rniga `Object.getPrototypeOf()`?
-
-|              | `__proto__`                                                                                        | `Object.getPrototypeOf()` / `setPrototypeOf()`                                                                 |
-| ------------ | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Holati       | Legacy, ba'zi eski brauzerlarda yo'q bo'lishi mumkin                                               | ES6 standart, hamma joyda ishonchli                                                                            |
-| Ishlatilishi | Ba'zan noto'g'ri ishlatilib, xatoga olib keladi                                                    | Aniq va xavfsiz API                                                                                            |
-| Performance  | `setPrototypeOf` bilan prototipni **o'zgartirish** sekin (dvigatel optimallashtirishlarini buzadi) | Xuddi shu muammo, lekin obyekt **yaratilish paytida** prototipni belgilash tavsiya etiladi (`Object.create()`) |
-
-💡 **Eng yaxshi amaliyot:** Obyekt yaratilgandan keyin prototipni o'zgartirish o'rniga, **`Object.create()`** bilan boshidanoq to'g'ri prototip bilan yaratish tavsiya etiladi:
-
-```javascript
-const it2 = Object.create(hayvon); // yaratilishdayoq prototip belgilanadi
-it2.ism = "Bars";
-it2.ovozChiqar(); // "Umumiy ovoz"
-```
-
-### 🔹 `prototype` xususiyati — funksiyalarda
-
-**Har bir oddiy funksiya** (arrow function bundan mustasno) avtomatik ravishda `prototype` nomli xususiyatga ega bo'ladi. Bu — funksiya `new` bilan chaqirilganda, yaratiladigan barcha obyektlarning **umumiy "shablon" obyekti** bo'lib xizmat qiladi.
-
-```javascript
-function Odam(ism) {
-  this.ism = ism;
-}
-
-console.log(typeof Odam.prototype); // "object"
-
-// Metodlarni prototype'ga qo'shish — barcha instance'lar UNI ULASHADI (memory-efficient)
-Odam.prototype.salomla = function () {
-  return `Salom, men ${this.ism}`;
-};
-
-const ali = new Odam("Ali");
-const vali = new Odam("Vali");
-
-console.log(ali.salomla()); // "Salom, men Ali"
-console.log(vali.salomla()); // "Salom, men Vali"
-
-// Ikkalasi HAM XUDDI SHU metodni ishlatadi (xotirada bitta nusxa)
-console.log(ali.salomla === vali.salomla); // true
-
-// Instance'ning __proto__'si konstruktorning prototype'iga teng:
-console.log(ali.__proto__ === Odam.prototype); // true
-console.log(Object.getPrototypeOf(ali) === Odam.prototype); // true
-```
-
-### ⚠️ Nima uchun metodlarni `this.metod = function(){}` emas, `prototype`ga qo'shish kerak?
-
-```javascript
-// ❌ SAMARASIZ — har bir instance uchun YANGI funksiya yaratiladi (xotira isrofi)
-function OdamYomon(ism) {
-  this.ism = ism;
-  this.salomla = function () {
-    return `Salom, ${this.ism}`;
+  this.salomBer = function () {
+    console.log(`Salom, mening ismim ${this.ism}, men ${this.yosh} yoshdaman`);
   };
 }
-const a = new OdamYomon("Ali");
-const b = new OdamYomon("Vali");
-console.log(a.salomla === b.salomla); // false — ikkita ALOHIDA funksiya
 
-// ✅ SAMARALI — prototype orqali BITTA funksiya barcha instance'lar tomonidan ulashiladi
-function OdamYaxshi(ism) {
-  this.ism = ism;
-}
-OdamYaxshi.prototype.salomla = function () {
-  return `Salom, ${this.ism}`;
-};
-const c = new OdamYaxshi("Ali");
-const d = new OdamYaxshi("Vali");
-console.log(c.salomla === d.salomla); // true — bitta umumiy funksiya
+// "new" operatori bilan yangi obyekt yaratamiz
+const odam1 = new Odam("Elmurod", 25);
+const odam2 = new Odam("Aziza", 23);
+
+odam1.salomBer(); // Salom, mening ismim Elmurod, men 25 yoshdaman
+odam2.salomBer(); // Salom, mening ismim Aziza, men 23 yoshdaman
+
+console.log(odam1); // Odam { ism: 'Elmurod', yosh: 25, salomBer: [Function] }
 ```
 
-### 🔹 Prototypal Inheritance (Prototiplar orqali meros olish)
+⚠️ **Muhim eslatma:** Agar `new` operatorisiz chaqirilsa, `this` global obyektga (yoki strict mode'da `undefined`ga) bog'lanadi va xatolikka olib kelishi mumkin:
 
 ```javascript
-// Ota "klass"
-function Hayvon(ism) {
-  this.ism = ism;
-}
-Hayvon.prototype.ovozChiqar = function () {
-  console.log(`${this.ism} ovoz chiqarmoqda`);
-};
-
-// Bola "klass" — Hayvon'dan meros oladi
-function It(ism, zoti) {
-  Hayvon.call(this, ism); // Ota konstruktorini chaqirish (this bilan bog'lab)
-  this.zoti = zoti;
+function Mashina(model) {
+  "use strict";
+  this.model = model;
 }
 
-// Prototip zanjirini bog'lash — MUHIM QADAM
-It.prototype = Object.create(Hayvon.prototype);
-It.prototype.constructor = It; // constructor'ni to'g'rilash
-
-// It'ga xos metod qo'shish
-It.prototype.hurish = function () {
-  console.log(`${this.ism} vov-vov qilmoqda`);
-};
-
-const tobik = new It("Tobik", "Ovcharka");
-tobik.ovozChiqar(); // "Tobik ovoz chiqarmoqda" — Hayvon'dan meros olindi
-tobik.hurish(); // "Tobik vov-vov qilmoqda" — It'ning o'z metodi
-
-console.log(tobik instanceof It); // true
-console.log(tobik instanceof Hayvon); // true — prototip zanjiri orqali
+const m1 = Mashina("Chevrolet"); // TypeError: Cannot set properties of undefined
+// "new" so'zi ishlatilmagani uchun "this" undefined bo'ladi (strict mode'da)
 ```
 
-### 🔹 Prototype Chain qanday ishlaydi (vizual tushuntirish)
+### `this` konstruktorlarda
 
-```
-tobik  →  It.prototype  →  Hayvon.prototype  →  Object.prototype  →  null
-(ism,       (hurish)         (ovozChiqar)         (toString va h.k.)
- zoti)
-```
-
-Xususiyat/metod izlanganda, JavaScript **avval obyektning o'zidan**, topilmasa **prototipidan**, yana topilmasa **prototipning prototipidan** — toki `null`gacha davom etadi:
+Constructor ichida `this` — yangi yaratilayotgan obyektning o'zini bildiradi. Har bir metodni constructor ichida yozish xotira jihatidan samarasiz, chunki har bir yangi obyekt uchun metod qayta-qayta yaratiladi. Shuning uchun metodlarni **prototype** orqali qo'shish tavsiya etiladi (keyingi bo'limda ko'ramiz).
 
 ```javascript
-console.log(tobik.toString()); // "[object Object]" — Object.prototype'dan topildi (zanjir oxirigacha borildi)
+function Hisoblagich() {
+  this.qiymat = 0;
+}
+
+// Metodni prototype orqali qo'shish - barcha instance'lar bitta metodni bo'lishadi
+Hisoblagich.prototype.oshirish = function () {
+  this.qiymat++;
+};
+
+const h1 = new Hisoblagich();
+const h2 = new Hisoblagich();
+
+h1.oshirish();
+h1.oshirish();
+h2.oshirish();
+
+console.log(h1.qiymat); // 2
+console.log(h2.qiymat); // 1
+console.log(h1.oshirish === h2.oshirish); // true — bitta metod, xotira tejaladi
+```
+
+### `instanceof` operatori
+
+`instanceof` operatori berilgan obyekt ma'lum bir constructor funksiya (yoki class)ning prototype zanjirida mavjudligini tekshiradi.
+
+```javascript
+function Hayvon(nomi) {
+  this.nomi = nomi;
+}
+
+const mushuk = new Hayvon("Mushuk");
+
+console.log(mushuk instanceof Hayvon); // true
+console.log(mushuk instanceof Object); // true — har bir obyekt Object'dan meros oladi
+console.log([] instanceof Array); // true
+console.log([] instanceof Object); // true
+
+// instanceof qanday ishlaydi - ichki mexanizm:
+function mensInstanceof(obj, Constructor) {
+  let proto = Object.getPrototypeOf(obj);
+  while (proto !== null) {
+    if (proto === Constructor.prototype) return true;
+    proto = Object.getPrototypeOf(proto);
+  }
+  return false;
+}
+
+console.log(mensInstanceof(mushuk, Hayvon)); // true
 ```
 
 ---
 
-## 📦 3. ES6+ Classes (Zamonaviy klasslar)
+## 2. 🔗 Prototypes va Prototype Chain
 
-`class` — ES6 (2015) bilan kiritilgan, prototype mexanizmi ustidagi **sintaktik shakar (syntactic sugar)**. Ichki jihatdan baribir prototiplar ishlatiladi, lekin sintaksis Java/C++ dasturchilariga tanish va o'qilishi osonroq.
+JavaScript **prototype-based** (prototipga asoslangan) til hisoblanadi — bu degani, obyektlar boshqa obyektlardan to'g'ridan-to'g'ri meros olishi mumkin, klassik OOP tillaridagi kabi "class" tushunchasi shart emas (ES6 class'lar esa shunchaki prototype ustidan "syntactic sugar" hisoblanadi).
 
-### 🔹 `class` deklaratsiyasi va `constructor` metodi
+### `__proto__` (legacy) vs `Object.getPrototypeOf()`
+
+- `__proto__` — obyektning ichki `[[Prototype]]` xususiyatiga kirish uchun **legacy** (eski, tavsiya etilmaydigan) usul.
+- `Object.getPrototypeOf()` — bir xil ishni bajaruvchi **zamonaviy va tavsiya etiladigan** usul.
+
+```javascript
+const inson = {
+  yur: function () {
+    console.log("Men yuryapman");
+  },
+};
+
+const talaba = {
+  oqi: function () {
+    console.log("Men o'qiyapman");
+  },
+};
+
+// Legacy usul (ishlatish tavsiya etilmaydi, lekin bilish kerak)
+talaba.__proto__ = inson;
+
+// Zamonaviy va to'g'ri usul
+console.log(Object.getPrototypeOf(talaba) === inson); // true
+
+talaba.oqi(); // Men o'qiyapman
+talaba.yur(); // Men yuryapman - prototype orqali meros olindi
+
+// Prototype'ni o'rnatishning to'g'ri (tavsiya etilgan) usuli:
+const talaba2 = Object.create(inson); // "inson" - talaba2ning prototipi bo'ladi
+talaba2.yur(); // Men yuryapman
+```
+
+📌 **Nima uchun `__proto__` tavsiya etilmaydi?**
+
+- U dastlab hech qanday rasmiy standart emas edi, faqat brauzerlar tomonidan qo'llab-quvvatlangan (keyinchalik ES6'da "legacy" sifatida standartlashtirildi).
+- Ishlash tezligi (performance) past, chunki u getter/setter orqali ishlaydi.
+- `Object.getPrototypeOf()` / `Object.setPrototypeOf()` aniqroq va tezroq.
+
+### `prototype` xususiyati funksiyalarda
+
+Har bir oddiy funksiya (arrow function'dan tashqari) avtomatik ravishda `prototype` nomli obyektga ega bo'ladi. Bu obyekt shu funksiya `new` bilan chaqirilganda yaratiladigan barcha instance'larning umumiy "andozasi" hisoblanadi.
+
+```javascript
+function Kitob(nom, muallif) {
+  this.nom = nom;
+  this.muallif = muallif;
+}
+
+// "prototype" - bu Kitob() funksiyasining o'zida mavjud bo'lgan maxsus obyekt
+console.log(typeof Kitob.prototype); // "object"
+
+Kitob.prototype.malumot = function () {
+  return `"${this.nom}" - muallif: ${this.muallif}`;
+};
+
+const kitob1 = new Kitob("Alkimyogar", "Paulo Coelho");
+console.log(kitob1.malumot()); // "Alkimyogar" - muallif: Paulo Coelho
+
+// kitob1'ning o'z "prototype" xususiyati YO'Q, lekin __proto__ orqali
+// Kitob.prototype'ga ulangan:
+console.log(kitob1.prototype); // undefined
+console.log(Object.getPrototypeOf(kitob1) === Kitob.prototype); // true
+```
+
+⚠️ **Farqni eslab qoling:**
+
+- `Kitob.prototype` → funksiyaning o'zidagi xususiyat (andoza obyekt).
+- `kitob1.__proto__` yoki `Object.getPrototypeOf(kitob1)` → instance orqali shu andozaga bog'lanish.
+
+### Prototypal Inheritance (Prototip orqali meros)
+
+```javascript
+// Ota "class" (constructor)
+function Transport(nomi, tezligi) {
+  this.nomi = nomi;
+  this.tezligi = tezligi;
+}
+
+Transport.prototype.harakatlan = function () {
+  console.log(`${this.nomi} ${this.tezligi} km/soat tezlikda harakatlanmoqda`);
+};
+
+// Bola "class" (constructor)
+function Mashina(nomi, tezligi, marka) {
+  // Transport constructor'ini chaqirib, this'ni to'g'ri bog'laymiz
+  Transport.call(this, nomi, tezligi);
+  this.marka = marka;
+}
+
+// Prototype zanjirini bog'lash - Mashina.prototype endi Transport instance'idan meros oladi
+Mashina.prototype = Object.create(Transport.prototype);
+Mashina.prototype.constructor = Mashina; // constructor xususiyatini tiklash muhim!
+
+Mashina.prototype.signalBer = function () {
+  console.log(`${this.marka} signal berdi: Tuut-tuut!`);
+};
+
+const mashina1 = new Mashina("Sedan", 180, "Chevrolet");
+
+mashina1.harakatlan(); // Sedan 180 km/soat tezlikda harakatlanmoqda (Transport'dan meros)
+mashina1.signalBer(); // Chevrolet signal berdi: Tuut-tuut!
+
+console.log(mashina1 instanceof Mashina); // true
+console.log(mashina1 instanceof Transport); // true - prototype zanjiri orqali
+```
+
+**Prototype Chain (Prototip zanjiri) qanday ishlaydi:**
+
+```javascript
+// mashina1 -> Mashina.prototype -> Transport.prototype -> Object.prototype -> null
+console.log(Object.getPrototypeOf(mashina1) === Mashina.prototype); // true
+console.log(Object.getPrototypeOf(Mashina.prototype) === Transport.prototype); // true
+console.log(Object.getPrototypeOf(Transport.prototype) === Object.prototype); // true
+console.log(Object.getPrototypeOf(Object.prototype)); // null - zanjir tugadi
+```
+
+Metod yoki xususiyatga murojaat qilinganda, JavaScript avval obyektning o'zidan qidiradi, topmasa `__proto__` orqali zanjir bo'ylab yuqoriga (`Object.prototype`gacha) qidiradi. Agar hech joyda topilmasa — `undefined` qaytadi.
+
+---
+
+## 3. 📦 ES6+ Classes
+
+ES6 (2015)da kiritilgan `class` sintaksisi — prototype-based inheritance ustidan qurilgan **"syntactic sugar"** hisoblanadi (ya'ni, "class" ichki mexanizmda hamon prototype orqali ishlaydi, lekin yozish qulayroq va o'qilishi tushunarliroq).
+
+### `class` deklaratsiyasi va `constructor` metodi
 
 ```javascript
 class Odam {
+  // constructor - "new" bilan obyekt yaratilganda avtomatik chaqiriladigan maxsus metod
   constructor(ism, yosh) {
-    this.ism = ism; // instance xususiyati
+    this.ism = ism;
     this.yosh = yosh;
   }
 
-  salomla() {
-    return `Salom, men ${this.ism}, ${this.yosh} yoshdaman`;
+  // Instance metodi - avtomatik ravishda Odam.prototype'ga qo'shiladi
+  salomBer() {
+    console.log(`Salom, men ${this.ism}, ${this.yosh} yoshdaman`);
   }
 }
 
-const ali = new Odam("Ali", 25);
-console.log(ali.salomla()); // "Salom, men Ali, 25 yoshdaman"
+const odam1 = new Odam("Elmurod", 25);
+odam1.salomBer(); // Salom, men Elmurod, 25 yoshdaman
 
-// Tasdiq: class — aslida function'ning boshqacha shakli
-console.log(typeof Odam); // "function"
-console.log(ali instanceof Odam); // true
-
-// class'dagi metodlar ham prototype'da saqlanadi (function'dagi kabi)
-console.log(Odam.prototype.salomla === ali.salomla); // true
+// Isbot: class metodlari ham prototype orqali ishlaydi
+console.log(typeof Odam); // "function" - class aslida funksiya
+console.log(Odam.prototype.salomBer === odam1.salomBer); // true
 ```
 
-### ⚠️ `class`ning `function`dan muhim farqlari
+### Class Expression
+
+Class'larni deklaratsiya (yuqoridagidek) yoki **expression** ko'rinishida ham yozish mumkin:
 
 ```javascript
-// 1) class HOISTING qilinmaydi (TDZ'da qoladi)
-const p = new Odam2(); // ❌ ReferenceError
-class Odam2 {}
-
-// 2) class TANASI avtomatik STRICT MODE'da ishlaydi
-class Test {
-  metod() {
-    // bu yerda "use strict" yozilmasa ham strict mode qoidalari amal qiladi
+// Nomsiz class expression
+const Hayvon = class {
+  constructor(turi) {
+    this.turi = turi;
   }
-}
+};
 
-// 3) class konstruktorini 'new'siz chaqirib bo'lmaydi
-class Odam3 {
-  constructor() {}
-}
-Odam3(); // ❌ TypeError: Class constructor Odam3 cannot be invoked without 'new'
+// Nomli class expression (nom faqat class ichida ko'rinadi)
+const Qush = class Parranda {
+  uchish() {
+    console.log("Men uchyapman!");
+  }
+};
+
+const qush1 = new Qush();
+qush1.uchish(); // Men uchyapman!
 ```
 
-### 🔹 Instance Properties/Methods (Instance xususiyatlari va metodlari)
+### Instance Properties va Methods
 
-**Instance metodlari** — `class` tanasida yozilgan, prototype'ga qo'shiladigan va barcha instance'lar tomonidan ulashiladigan metodlar:
+**Instance property** — har bir alohida obyektga tegishli xususiyat (odatda constructor ichida `this` orqali belgilanadi).
+**Instance method** — barcha instance'lar tomonidan **umumiy foydalaniladigan** (prototype orqali) funksiya.
 
 ```javascript
-class Hisob {
-  constructor(balans) {
-    this.balans = balans; // instance xususiyati — har bir obyekt uchun ALOHIDA
+class BankHisobi {
+  constructor(egasi, balans) {
+    this.egasi = egasi; // instance property
+    this.balans = balans; // instance property
   }
 
-  pulSol(miqdor) {
-    // instance metodi — barcha instance'lar ULASHADI
-    this.balans += miqdor;
-    return this.balans;
+  // instance method
+  pulQoshish(summa) {
+    this.balans += summa;
+    console.log(`${summa} so'm qo'shildi. Yangi balans: ${this.balans}`);
   }
-}
 
-const hisob1 = new Hisob(1000);
-const hisob2 = new Hisob(500);
-
-hisob1.pulSol(200);
-console.log(hisob1.balans); // 1200
-console.log(hisob2.balans); // 500 — hisob1'ga ta'sir qilmadi (alohida xususiyat)
-console.log(hisob1.pulSol === hisob2.pulSol); // true — metod ulashilgan (bitta nusxa)
-```
-
-### 🔹 Class Fields (Instance Fields) — to'g'ridan-to'g'ri e'lon qilish (ES2022+ standart, amalda avvalroq keng qo'llab-quvvatlangan)
-
-```javascript
-class Hisob2 {
-  balans = 0; // class field — constructor'dan tashqarida to'g'ridan-to'g'ri e'lon qilinadi
-  valyuta = "UZS";
-
-  constructor(boshlangichBalans) {
-    this.balans = boshlangichBalans;
+  pulYechish(summa) {
+    if (summa > this.balans) {
+      console.log("Balансda yetarli mablag' yo'q!");
+      return;
+    }
+    this.balans -= summa;
+    console.log(`${summa} so'm yechildi. Yangi balans: ${this.balans}`);
   }
 }
 
-const h = new Hisob2(5000);
-console.log(h.balans, h.valyuta); // 5000 "UZS"
+const hisob1 = new BankHisobi("Elmurod", 1000000);
+hisob1.pulQoshish(500000); // 500000 so'm qo'shildi. Yangi balans: 1500000
+hisob1.pulYechish(200000); // 200000 so'm yechildi. Yangi balans: 1300000
 ```
 
-### 🔹 Static Properties/Methods (`static`)
+### Static Properties/Methods (`static`)
 
-**Static a'zolar** — instance'larga emas, **klassning o'ziga** tegishli bo'ladi. Instance orqali kirish mumkin emas, faqat klass nomi orqali chaqiriladi.
+`static` kalit so'zi bilan belgilangan xususiyat yoki metod **instance'larga emas, balki class'ning o'ziga** tegishli bo'ladi. Ular instance orqali emas, class nomi orqali chaqiriladi. Odatda **utility (yordamchi) funksiyalar** yoki **hisoblagichlar** uchun ishlatiladi.
 
 ```javascript
 class Matematika {
-  static PI = 3.14159; // static xususiyat
+  static PI = 3.14159; // static property
 
-  static kvadrat(x) {
-    // static metod
-    return x * x;
+  // static method
+  static kvadrat(son) {
+    return son * son;
   }
 
-  static {
-    // static blok (ES2022+) — klass yuklanganda BIR MARTA ishga tushadigan initsializatsiya
-    console.log("Matematika klassi yuklandi");
+  static doiraYuzi(radius) {
+    return Matematika.PI * Matematika.kvadrat(radius);
   }
 }
 
+// Instance yaratmasdan to'g'ridan-to'g'ri class orqali chaqiriladi
 console.log(Matematika.PI); // 3.14159
 console.log(Matematika.kvadrat(5)); // 25
+console.log(Matematika.doiraYuzi(10)); // 314.159
 
 const m = new Matematika();
-console.log(m.kvadrat); // undefined — instance orqali static metodga kirish mumkin emas!
+console.log(m.kvadrat); // undefined - static metod instance'da mavjud emas!
 ```
 
-**Amaliy misol — Factory pattern static metod orqali:**
+**Amaliy misol — static counter (obyektlar sonini hisoblash):**
 
 ```javascript
 class Foydalanuvchi {
-  constructor(ism, email) {
+  static soni = 0; // barcha instance'lar uchun umumiy hisoblagich
+
+  constructor(ism) {
     this.ism = ism;
-    this.email = email;
+    Foydalanuvchi.soni++; // har safar yangi instance yaratilganda +1
   }
 
-  // Static factory metod — yangi instance'larni "tayyor holatda" yaratish uchun
-  static mehmonYarat() {
-    return new Foydalanuvchi("Mehmon", "mehmon@example.com");
-  }
-
-  static jsonDanYarat(jsonMatn) {
-    const data = JSON.parse(jsonMatn);
-    return new Foydalanuvchi(data.ism, data.email);
+  static jamiFoydalanuvchi() {
+    return `Jami ${Foydalanuvchi.soni} ta foydalanuvchi ro'yxatdan o'tgan`;
   }
 }
 
-const mehmon = Foydalanuvchi.mehmonYarat();
-console.log(mehmon.ism); // "Mehmon"
+new Foydalanuvchi("Ali");
+new Foydalanuvchi("Vali");
+new Foydalanuvchi("Hasan");
+
+console.log(Foydalanuvchi.jamiFoydalanuvchi()); // Jami 3 ta foydalanuvchi ro'yxatdan o'tgan
 ```
 
-**Amaliy misol — Static hisoblagich (barcha instance'lar sonini kuzatish):**
+### Static Blocks (ES2022)
+
+Static blocklar — class yuklanganda **bir marta** ishga tushadigan murakkab initsializatsiya (boshlang'ich sozlash) kodini yozish imkonini beradi.
 
 ```javascript
-class Mahsulot {
-  static jamiSoni = 0; // klassga tegishli, barcha instance'lar UMUMIY
+class Konfiguratsiya {
+  static sozlamalar;
 
-  constructor(nomi) {
-    this.nomi = nomi;
-    Mahsulot.jamiSoni++; // static xususiyatni oshirish
+  // Static block - class e'lon qilinganda darhol bajariladi
+  static {
+    console.log("Konfiguratsiya yuklanmoqda...");
+    // Masalan, murakkab hisob-kitob yoki tashqi manbadan ma'lumot olish
+    Konfiguratsiya.sozlamalar = {
+      til: "uz",
+      versiya: "1.0.0",
+    };
   }
 }
 
-new Mahsulot("Noutbuk");
-new Mahsulot("Sichqoncha");
-new Mahsulot("Klaviatura");
-
-console.log(Mahsulot.jamiSoni); // 3
+console.log(Konfiguratsiya.sozlamalar); // { til: 'uz', versiya: '1.0.0' }
 ```
 
-### 🔹 Getters and Setters (`get`, `set`)
+### Getters va Setters (`get`, `set`)
 
-**Getter/Setter** — xususiyatga **metod kabi mantiq qo'shib**, lekin **oddiy xususiyat kabi** (qavssiz) murojaat qilish imkonini beradi.
+Getter va setter'lar xususiyatlarga **metod sifatida emas, oddiy property sifatida** murojaat qilish imkonini beradi, lekin orqa fonda mantiq (validatsiya, hisoblash va h.k.) bajarish imkoniyatini saqlab qoladi.
 
 ```javascript
 class Toʻrtburchak {
   constructor(kenglik, balandlik) {
-    this.kenglik = kenglik;
-    this.balandlik = balandlik;
+    this._kenglik = kenglik; // pastki chiziqcha - "ichki" xususiyat ekanini bildiradi (convention)
+    this._balandlik = balandlik;
   }
 
-  // Getter — hisoblangan qiymatni "xususiyat" ko'rinishida taqdim etadi
+  // getter - metodni oddiy xususiyatdek o'qish imkonini beradi
   get yuza() {
-    return this.kenglik * this.balandlik;
+    return this._kenglik * this._balandlik;
   }
 
-  get perimetr() {
-    return 2 * (this.kenglik + this.balandlik);
+  get kenglik() {
+    return this._kenglik;
   }
 
-  // Setter — qiymat belgilanganda validatsiya/logika qo'shish imkonini beradi
-  set olcham(qiymat) {
-    if (qiymat <= 0) {
-      throw new Error("O'lcham musbat bo'lishi kerak!");
+  // setter - qiymat o'rnatishda validatsiya qilish imkonini beradi
+  set kenglik(yangiQiymat) {
+    if (yangiQiymat <= 0) {
+      console.log("Xatolik: kenglik musbat son bo'lishi kerak!");
+      return;
     }
-    this.kenglik = qiymat;
-    this.balandlik = qiymat;
+    this._kenglik = yangiQiymat;
   }
 }
 
-const tt = new Toʻrtburchak(4, 5);
-console.log(tt.yuza); // 20 — METOD emas, XUSUSIYAT kabi chaqirilyapti (qavssiz!)
-console.log(tt.perimetr); // 18
+const tb = new Toʻrtburchak(5, 10);
 
-tt.olcham = 10; // setter chaqiriladi — kvadratga aylantiradi
-console.log(tt.yuza); // 100
+console.log(tb.yuza); // 50 - metod emas, xuddi oddiy propertydek chaqirildi (qavssiz!)
+console.log(tb.kenglik); // 5
 
-tt.olcham = -5; // ❌ Error: O'lcham musbat bo'lishi kerak!
+tb.kenglik = 8; // setter ishga tushadi
+console.log(tb.yuza); // 80
+
+tb.kenglik = -3; // Xatolik: kenglik musbat son bo'lishi kerak!
+console.log(tb.kenglik); // 8 - o'zgarmadi, chunki validatsiyadan o'tmadi
 ```
 
-**Amaliy misol — private field bilan validatsiya qilingan xususiyat:**
+### Computed Method Names
+
+Metod nomlarini **dinamik** (kvadrat qavs `[]` yordamida, ishga tushirish vaqtida hisoblanadigan) tarzda belgilash mumkin.
 
 ```javascript
-class Foydalanuvchi {
-  #yosh; // private field (keyinroq batafsil ko'rib chiqamiz)
+const metodNomi = "salomBer";
+const prefiks = "hisobla";
 
-  constructor(ism, yosh) {
-    this.ism = ism;
-    this.yosh = yosh; // setter orqali o'tadi
-  }
-
-  get yosh() {
-    return this.#yosh;
-  }
-
-  set yosh(qiymat) {
-    if (qiymat < 0 || qiymat > 150) {
-      throw new Error("Yosh noto'g'ri!");
-    }
-    this.#yosh = qiymat;
-  }
-}
-
-const foydalanuvchi = new Foydalanuvchi("Ali", 25);
-console.log(foydalanuvchi.yosh); // 25
-foydalanuvchi.yosh = -10; // ❌ Error: Yosh noto'g'ri!
-```
-
-### 🔹 Computed Method Names (Hisoblangan metod nomlari)
-
-Metod nomini **dinamik ravishda**, `[]` ichida ifoda orqali belgilash mumkin:
-
-```javascript
-const metodNomi = "salomla";
-const dinamikXususiyat = "maxsusMetod";
-
-class Sinov {
+class Dinamik {
+  // Computed method name - kvadrat qavs ichida ifoda yoziladi
   [metodNomi]() {
-    return "Salom!";
+    console.log("Salom, bu computed method!");
   }
 
-  [`${dinamikXususiyat}_v2`]() {
-    return "Dinamik nomli metod";
+  [`${prefiks}Yigindi`](a, b) {
+    return a + b;
   }
 
-  // Ifoda orqali ham hisoblash mumkin
-  ["kvadrat" + "Ol"](x) {
-    return x * x;
+  // Symbol'lar bilan ham ishlatish mumkin
+  [Symbol.iterator]() {
+    console.log("Maxsus iterator chaqirildi");
   }
 }
 
-const s = new Sinov();
-console.log(s.salomla()); // "Salom!"
-console.log(s.maxsusMetod_v2()); // "Dinamik nomli metod"
-console.log(s.kvadratOl(5)); // 25
+const d = new Dinamik();
+d.salomBer(); // Salom, bu computed method!
+console.log(d.hisoblaYigindi(3, 4)); // 7
 ```
-
-**Amaliy foydasi** — masalan, metodlarni tashqi konfiguratsiya asosida dinamik yaratish, yoki `Symbol`lardan metod nomi sifatida foydalanish (`[Symbol.iterator]() {...}`).
 
 ---
 
-## 👪 4. Class Inheritance (`extends`)
+## 4. 👪 Class Inheritance (`extends`)
 
-`extends` kalit so'zi — bir klassni ikkinchisidan **meros olishga (inherit)** imkon beradi. Bu — ichki jihatdan prototype zanjirini avtomatik bog'lab beradi.
+`extends` kalit so'zi bir class'ni boshqa class'dan meros olish (inheritance) imkonini beradi. Bu prototype chain'ni avtomatik ravishda to'g'ri bog'lab beradi (yuqorida biz `Object.create()` bilan qo'lda qilgan ishni `extends` o'zi bajaradi).
 
 ```javascript
+// Ota (parent / base / super) class
 class Hayvon {
   constructor(ism) {
     this.ism = ism;
   }
 
   ovozChiqar() {
-    console.log(`${this.ism} ovoz chiqarmoqda`);
+    console.log(`${this.ism} qandaydir ovoz chiqarmoqda`);
   }
 
   malumot() {
-    return `Bu — ${this.ism}`;
+    return `Bu - ${this.ism}`;
   }
 }
 
+// Bola (child / derived / sub) class
 class It extends Hayvon {
   constructor(ism, zoti) {
-    super(ism); // Ota konstruktorini chaqirish — MAJBURIY!
+    super(ism); // Ota class'ning constructor'ini chaqirish - MAJBURIY!
     this.zoti = zoti;
   }
 
-  // Metodni qayta belgilash (Override / Method Overriding)
+  // Metodni qayta belgilash (override qilish)
   ovozChiqar() {
-    console.log(`${this.ism} vov-vov qilmoqda`);
-  }
-
-  // Yangi, faqat It'ga xos metod
-  dumChayqash() {
-    console.log(`${this.ism} dumini chayqamoqda`);
+    console.log(`${this.ism} (${this.zoti}) - Vov-vov!`);
   }
 }
 
-const tobik = new It("Tobik", "Ovcharka");
+const it1 = new It("Rex", "Ovcharka");
 
-tobik.ovozChiqar(); // "Tobik vov-vov qilmoqda" — o'zgartirilgan metod ishlaydi
-tobik.malumot(); // Hayvon'dan meros olingan metod ham ishlaydi
-tobik.dumChayqash(); // "Tobik dumini chayqamoqda" — faqat It'da mavjud
+it1.ovozChiqar(); // Rex (Ovcharka) - Vov-vov! (override qilingan versiya ishladi)
+console.log(it1.malumot()); // Bu - Rex (Ota class'dan meros olingan, o'zgartirilmagan)
 
-console.log(tobik instanceof It); // true
-console.log(tobik instanceof Hayvon); // true — meros orqali
+console.log(it1 instanceof It); // true
+console.log(it1 instanceof Hayvon); // true - meros orqali
 ```
 
-### 🔑 Ko'p bosqichli meros (Multi-level Inheritance)
+⚠️ **Muhim qoida:** Agar bola class'da `constructor` yozilgan bo'lsa, `this` ishlatilishidan oldin albatta `super()` chaqirilishi **shart**, aks holda `ReferenceError` chiqadi:
 
 ```javascript
-class Hayvon {
+class Mushuk extends Hayvon {
   constructor(ism) {
-    this.ism = ism;
-  }
-  yur() {
-    console.log(`${this.ism} yurmoqda`);
+    this.ism = ism; // ❌ ReferenceError: Must call super constructor before accessing 'this'
   }
 }
+```
 
-class It extends Hayvon {
-  hurish() {
-    console.log(`${this.ism} hurmoqda`);
-  }
+Agar bola class'da `constructor` umuman yozilmasa, JavaScript avtomatik ravishda quyidagini yaratadi:
+
+```javascript
+constructor(...args) {
+  super(...args);
 }
-
-class Kuchukcha extends It {
-  oynash() {
-    console.log(`${this.ism} o'ynamoqda`);
-  }
-}
-
-const kuchuk = new Kuchukcha("Bars");
-kuchuk.yur(); // Hayvon'dan
-kuchuk.hurish(); // It'dan
-kuchuk.oynash(); // Kuchukcha'ning o'zidan
-
-console.log(kuchuk instanceof Hayvon); // true — zanjir orqali
 ```
 
 ---
 
-## 🔧 5. `super` Kalit So'zi
+## 5. 🔧 `super` Kalit So'zi
 
-`super` — meros oluvchi (child) klassdan **ota (parent) klass**ga murojaat qilish uchun ishlatiladi. Ikki xil ko'rinishda ishlaydi:
+`super` kalit so'zi ikki xil vaziyatda ishlatiladi:
 
-### 🔹 `super(...)` — ota konstruktorini chaqirish
+### 5.1. `super()` — Ota constructor'ini chaqirish
 
 ```javascript
-class Hayvon {
-  constructor(ism) {
-    this.ism = ism;
-    this.tirik = true;
-  }
-}
-
-class Mushuk extends Hayvon {
-  constructor(ism, rang) {
-    super(ism); // Hayvon konstruktorini chaqiradi — this.ism va this.tirik'ni o'rnatadi
+class Shakl {
+  constructor(rang) {
     this.rang = rang;
   }
 }
 
-const mushuk = new Mushuk("Pushti", "kulrang");
-console.log(mushuk.ism, mushuk.tirik, mushuk.rang); // Pushti true kulrang
+class Kvadrat extends Shakl {
+  constructor(rang, tomon) {
+    super(rang); // Shakl constructor'ini chaqiradi, this.rang = rang qiladi
+    this.tomon = tomon;
+  }
+}
+
+const kv = new Kvadrat("Qizil", 5);
+console.log(kv.rang, kv.tomon); // Qizil 5
 ```
 
-### ⚠️ MUHIM QOIDA: `super()` — `this`dan OLDIN chaqirilishi SHART
+### 5.2. `super.metodNomi()` — Ota class metodini chaqirish
+
+Bu ota class'ning metodini **butunlay almashtirmasdan**, uni kengaytirish (extend qilish) uchun juda foydali.
 
 ```javascript
-class Mushuk2 extends Hayvon {
-  constructor(ism) {
-    console.log(this.ism); // ❌ ReferenceError: Must call super constructor before accessing 'this'
-    super(ism);
-  }
-}
-```
-
-Sabab: child klassda `this` — faqat `super()` chaqirilgandan **keyin** yaratiladi (chunki aslida ota konstruktori `this`ni "quradi").
-
-### 🔹 `super.metod()` — ota klassning metodini chaqirish
-
-```javascript
-class Hayvon {
-  ovozChiqar() {
-    console.log("Umumiy hayvon ovozi");
-  }
-}
-
-class It extends Hayvon {
-  ovozChiqar() {
-    super.ovozChiqar(); // ota metodini AVVAL chaqiramiz
-    console.log("...va keyin vov-vov!"); // so'ngra o'zimizniki qo'shamiz
-  }
-}
-
-const tobik = new It();
-tobik.ovozChiqar();
-// Umumiy hayvon ovozi
-// ...va keyin vov-vov!
-```
-
-**Amaliy misol — ota metodini "kengaytirish" (extend, override emas):**
-
-```javascript
-class Shakl {
-  malumot() {
-    return "Bu — geometrik shakl";
-  }
-}
-
-class Doira extends Shakl {
-  constructor(radius) {
-    super();
-    this.radius = radius;
+class Ishchi {
+  constructor(ism, maosh) {
+    this.ism = ism;
+    this.maosh = maosh;
   }
 
   malumot() {
-    return `${super.malumot()}, aniqrog'i, radiusi ${this.radius} bo'lgan doira`;
+    return `${this.ism} - maoshi: ${this.maosh} so'm`;
   }
 }
 
-const doira = new Doira(5);
-console.log(doira.malumot());
-// "Bu — geometrik shakl, aniqrog'i, radiusi 5 bo'lgan doira"
+class Menejer extends Ishchi {
+  constructor(ism, maosh, jamoaSoni) {
+    super(ism, maosh);
+    this.jamoaSoni = jamoaSoni;
+  }
+
+  malumot() {
+    // Ota class metodini chaqirib, natijasini kengaytiryapmiz
+    const otaMalumot = super.malumot();
+    return `${otaMalumot}, boshqaradigan jamoasi: ${this.jamoaSoni} kishi`;
+  }
+}
+
+const menejer1 = new Menejer("Elmurod", 8000000, 12);
+console.log(menejer1.malumot());
+// Elmurod - maoshi: 8000000 so'm, boshqaradigan jamoasi: 12 kishi
 ```
 
-### 🔹 Static metodlarda `super`
+### `super` static metodlarda
 
 ```javascript
-class Hayvon {
-  static turHaqida() {
-    return "Umumiy hayvonlar";
+class A {
+  static salom() {
+    return "Salom A'dan";
   }
 }
 
-class It extends Hayvon {
-  static turHaqida() {
-    return `${super.turHaqida()} — itlar oilasi`;
+class B extends A {
+  static salom() {
+    return super.salom() + " va B'dan"; // static context'da ham super ishlaydi
   }
 }
 
-console.log(It.turHaqida()); // "Umumiy hayvonlar — itlar oilasi"
+console.log(B.salom()); // Salom A'dan va B'dan
 ```
 
 ---
 
-## 🏗️ 6. Mixins (Ko'p meros olishning alternativi)
+## 6. 🏗️ Mixins (Ko'p meros olishning muqobili)
 
-JavaScript klasslari **faqat bitta** ota klassdan meros olishi mumkin (`extends` — yagona meros, single inheritance). Agar bir klass bir nechta manbadan funksionallikni "qo'shib olishi" kerak bo'lsa, **Mixin** pattern ishlatiladi.
+JavaScript'da class'lar faqat **bitta** ota class'dan meros olishi mumkin (`extends` faqat bitta argument qabul qiladi) — bu **single inheritance** deb ataladi. Ammo ba'zan bir nechta class'ning funksionalligini birlashtirish kerak bo'ladi. Bunga **mixin** pattern yordam beradi.
 
-> **Mixin** — boshqa klasslarga metodlar "qo'shib beradigan" oddiy obyekt yoki funksiya.
-
-### 🔹 Obyekt-mixin (`Object.assign` orqali)
+Mixin — bu boshqa class'larga metodlarni "qo'shib qo'yadigan" oddiy obyekt yoki funksiya hisoblanadi.
 
 ```javascript
-const uchishMumkin = {
-  uch() {
-    console.log(`${this.ism} uchmoqda`);
-  },
-};
-
-const suzishMumkin = {
+// Mixin 1 - suzish qobiliyati
+const SuzuvchiMixin = {
   suz() {
     console.log(`${this.ism} suzmoqda`);
   },
 };
 
-class Parranda {
+// Mixin 2 - uchish qobiliyati
+const UchuvchiMixin = {
+  uch() {
+    console.log(`${this.ism} uchmoqda`);
+  },
+};
+
+class Hayvon {
   constructor(ism) {
     this.ism = ism;
   }
 }
 
-// Ikkala mixin'ni Parranda.prototype'ga "qo'shib qo'yamiz"
-Object.assign(Parranda.prototype, uchishMumkin, suzishMumkin);
+class Orkinos extends Hayvon {}
 
-const orda = new Parranda("O'rdak");
-orda.uch(); // "O'rdak uchmoqda"
-orda.suz(); // "O'rdak suzmoqda"
+// Object.assign yordamida mixin'larni prototype'ga qo'shamiz
+Object.assign(Orkinos.prototype, SuzuvchiMixin);
+
+const orkinos1 = new Orkinos("Vili");
+orkinos1.suz(); // Vili suzmoqda
+
+// Bir nechta mixin'ni birlashtirish mumkin (bu "multiple inheritance"ga o'xshash natija beradi)
+class G'oz extends Hayvon {}
+Object.assign(G'oz.prototype, SuzuvchiMixin, UchuvchiMixin);
+
+const goz1 = new G'oz("Tim");
+goz1.suz(); // Tim suzmoqda
+goz1.uch(); // Tim uchmoqda
 ```
 
-### 🔹 Funksional Mixin (yanada moslashuvchan, "klass fabrikasi")
+**Funksional mixin pattern** (ko'proq moslashuvchan, "factory function" uslubida):
 
 ```javascript
-const Uchuvchi = (Base) =>
-  class extends Base {
-    uch() {
-      console.log(`${this.ism} uchmoqda`);
+// Mixin - class qabul qilib, yangilangan class qaytaruvchi funksiya
+const Serializable = (BazaClass) =>
+  class extends BazaClass {
+    toJSON() {
+      return JSON.stringify(this);
     }
   };
 
-const Suzuvchi = (Base) =>
-  class extends Base {
-    suz() {
-      console.log(`${this.ism} suzmoqda`);
+const Comparable = (BazaClass) =>
+  class extends BazaClass {
+    tengmi(boshqa) {
+      return JSON.stringify(this) === JSON.stringify(boshqa);
     }
   };
 
-class HayvonAsosi {
-  constructor(ism) {
-    this.ism = ism;
+class Mahsulot {
+  constructor(nomi, narxi) {
+    this.nomi = nomi;
+    this.narxi = narxi;
   }
 }
 
-// Bir nechta mixin'ni ZANJIR shaklida "qatlamlab" qo'llash
-class Ordak extends Suzuvchi(Uchuvchi(HayvonAsosi)) {}
+// Mixin'larni zanjir shaklida qo'llash
+class ToʻliqMahsulot extends Comparable(Serializable(Mahsulot)) {}
 
-const ordak = new Ordak("Ordak");
-ordak.uch(); // "Ordak uchmoqda"
-ordak.suz(); // "Ordak suzmoqda"
+const mahsulot1 = new ToʻliqMahsulot("Noutbuk", 12000000);
+console.log(mahsulot1.toJSON()); // {"nomi":"Noutbuk","narxi":12000000}
+
+const mahsulot2 = new ToʻliqMahsulot("Noutbuk", 12000000);
+console.log(mahsulot1.tengmi(mahsulot2)); // true
 ```
-
-### 💡 Mixin qachon kerak?
-
-- Bir nechta **bog'liq bo'lmagan** klasslarga bir xil funksionallikni (masalan, `EventEmitter`, `Serializable`, `Loggable`) qo'shish kerak bo'lganda.
-- "is-a" (bu — X turi) emas, **"can-do" (bu — Y qila oladi)** munosabatini ifodalash kerak bo'lganda.
-- Klassik ko'p-meros (multiple inheritance) muammosini (masalan, "olmos muammosi") oldini olgan holda, funksionallikni qayta ishlatish kerak bo'lganda.
 
 ---
 
-## 📦 7. Private Class Fields (`#privateField`) — ES2022+
+## 7. 📦 Private Class Fields (`#privateField`) — ES2022+
 
-`#` belgisi bilan boshlangan xususiyat/metod — **haqiqiy private (maxfiy)** hisoblanadi. Ular faqat **klass ichida** ko'rinadi, tashqaridan (hattoki `Object.keys()`, konsoldan ham) kirish mumkin emas.
+`#` belgisi bilan boshlangan xususiyatlar **private** (maxfiy) hisoblanadi — ular faqat class ichidan kirish mumkin, class tashqarisidan (hatto instance orqali ham) ko'rinmaydi va o'zgartirib bo'lmaydi.
 
 ```javascript
-class BankHisobi {
-  #balans; // private field e'lon qilish
+class BankKarta {
+  #pin; // private field - class tashqarisida mutlaqo ko'rinmaydi
+  #balans = 0; // private field, boshlang'ich qiymat bilan
 
-  constructor(boshlangichBalans) {
+  constructor(egasi, pin, boshlangichBalans) {
+    this.egasi = egasi; // public field
+    this.#pin = pin;
     this.#balans = boshlangichBalans;
   }
 
+  pulYechish(summa, kiritilganPin) {
+    if (kiritilganPin !== this.#pin) {
+      console.log("Xato PIN kod!");
+      return;
+    }
+    if (summa > this.#balans) {
+      console.log("Balansda yetarli mablag' yo'q!");
+      return;
+    }
+    this.#balans -= summa;
+    console.log(`${summa} so'm yechildi. Qolgan balans: ${this.#balans}`);
+  }
+
   balansniKor() {
-    return this.#balans; // faqat klass ICHIDA kirish mumkin
-  }
-
-  pulSol(miqdor) {
-    if (miqdor <= 0) throw new Error("Miqdor musbat bo'lishi kerak");
-    this.#balans += miqdor;
+    return this.#balans;
   }
 }
 
-const hisob = new BankHisobi(1000);
-console.log(hisob.balansniKor()); // 1000
+const karta1 = new BankKarta("Elmurod", "1234", 5000000);
 
-console.log(hisob.#balans); // ❌ SyntaxError: Private field '#balans' must be declared in an enclosing class
-console.log(hisob.balans); // undefined — bu boshqa, "balans" (# siz) xususiyati umuman yo'q
-console.log(Object.keys(hisob)); // [] — private field ko'rinmaydi
+karta1.pulYechish(1000000, "1234"); // 1000000 so'm yechildi. Qolgan balans: 4000000
+console.log(karta1.balansniKor()); // 4000000
+
+// Tashqaridan private field'ga kirishga urinish:
+console.log(karta1.#balans); // ❌ SyntaxError: Private field '#balans' must be declared in an enclosing class
+console.log(karta1.#pin); // ❌ SyntaxError - hatto o'qishga ham urinib bo'lmaydi
+
+// Private field mavjudligini tekshirish (ichkarida):
+class Tekshiruv {
+  #maxfiy = true;
+
+  static mavjudmi(obj) {
+    return #maxfiy in obj; // "in" operatori bilan private field mavjudligini tekshirish (ES2022)
+  }
+}
+console.log(Tekshiruv.mavjudmi(new Tekshiruv())); // true
 ```
 
-### 🔑 Nima uchun `_balans` (konvensiya) emas, `#balans` (haqiqiy private)?
-
-Eski, ES6'gacha bo'lgan davrda dasturchilar "bu private" degan **konvensiyani** bildirish uchun `_` prefiksidan foydalanishgan, lekin bu **hech qanday texnik himoya bermas edi**:
+📌 **Nima uchun kerak?** Private field'lar **encapsulation** (inkapsulyatsiya) prinsipini to'liq amalga oshiradi — obyektning ichki holatini tashqi ta'sirdan himoya qiladi. ES2022'gacha buning uchun `WeakMap` yoki closure'lardan foydalanilardi (quyida solishtirish uchun misol):
 
 ```javascript
-class EskiUsul {
-  constructor(balans) {
-    this._balans = balans; // faqat KONVENSIYA — "tegmang" degani, lekin texnik jihatdan ochiq
+// ES2022'dan OLDINGI eski usul - WeakMap orqali "private" imitatsiya qilish
+const _balans = new WeakMap();
+
+class EskiBankKarta {
+  constructor(boshlangichBalans) {
+    _balans.set(this, boshlangichBalans);
+  }
+
+  balansniKor() {
+    return _balans.get(this);
   }
 }
-
-const h = new EskiUsul(1000);
-h._balans = 999999; // ❌ hech narsa to'xtatmaydi — to'g'ridan-to'g'ri o'zgartirib bo'ladi!
-```
-
-`#` bilan esa bu **til darajasida** himoyalangan — tashqaridan umuman kirib bo'lmaydi.
-
-### 🔹 Private field'larni tekshirish — `in` operatori
-
-```javascript
-class Hisob {
-  #balans = 0;
-
-  static balansiBormi(obyekt) {
-    return #balans in obyekt; // xavfsiz tekshirish
-  }
-}
-
-console.log(Hisob.balansiBormi(new Hisob())); // true
-console.log(Hisob.balansiBormi({})); // false
+// Bu usul ishlaydi, lekin # sintaksisiga qaraganda ancha noqulay va uzun
 ```
 
 ---
 
-## 🏷️ 8. Public Class Fields — ES2022+ (amalda avvalroq keng qo'llanilgan)
+## 8. 🏷️ Public Class Fields — ES2022+
 
-**Public class field** — `constructor`dan tashqarida, to'g'ridan-to'g'ri klass tanasida e'lon qilinadigan instance xususiyatlari.
+Public field'lar `constructor` yozmasdan class ichida to'g'ridan-to'g'ri xususiyat e'lon qilish imkonini beradi. Bu kod qisqaroq va toza bo'lishiga yordam beradi.
 
 ```javascript
-class Foydalanuvchi {
-  // Public class fields — constructor'siz to'g'ridan-to'g'ri e'lon qilinadi
-  ism = "Noma'lum";
-  faol = true;
-  royxatdanOtganVaqt = new Date();
+class Mahsulot {
+  // Public class fields - constructor'dan tashqarida to'g'ridan-to'g'ri e'lon qilinadi
+  nomi = "Noma'lum mahsulot"; // boshlang'ich (default) qiymat bilan
+  narxi = 0;
+  soni = 1;
 
-  constructor(ism) {
-    if (ism) this.ism = ism; // constructor ichida qiymatni o'zgartirish mumkin
+  constructor(nomi, narxi) {
+    this.nomi = nomi; // agar konstruktorda qiymat berilsa, default qiymat ustidan yoziladi
+    this.narxi = narxi;
+  }
+
+  jamiNarx() {
+    return this.narxi * this.soni;
   }
 }
 
-const f1 = new Foydalanuvchi();
-console.log(f1.ism, f1.faol); // "Noma'lum" true
+const mahsulot1 = new Mahsulot("Telefon", 3000000);
+console.log(mahsulot1.nomi); // Telefon
+console.log(mahsulot1.soni); // 1 - default qiymat ishlatildi
+console.log(mahsulot1.jamiNarx()); // 3000000
 
-const f2 = new Foydalanuvchi("Ali");
-console.log(f2.ism); // "Ali"
-```
-
-### 🔑 Class Field'ning eng katta afzalligi — Arrow Function metodlar
-
-Class field sifatida yozilgan arrow function — **avtomatik ravishda `this`ni instance'ga bog'laydi**, `.bind(this)` yozish shart emas:
-
-```javascript
+// Public field'larning yana bir foydasi: arrow function metodlarida
+// "this" muammosini hal qiladi (this har doim to'g'ri bog'lanadi)
 class Tugma {
-  ism = "Yubor";
+  matn = "Bosing";
 
-  // Oddiy metod — event handler sifatida uzatilsa 'this' yo'qoladi
-  bosildiOddiy() {
-    console.log(this.ism); // callback sifatida chaqirilsa, xato beradi
+  // Odatiy metod - "this" chaqirilish kontekstiga bog'liq bo'lib qolishi mumkin
+  oddiyBosildi() {
+    console.log(this.matn);
   }
 
-  // Class field + arrow function — 'this' DOIM klass instance'iga bog'langan
+  // Arrow function public field sifatida - "this" doim class instance'iga bog'lanadi
   bosildi = () => {
-    console.log(`${this.ism} tugmasi bosildi`); // har doim to'g'ri ishlaydi
+    console.log(this.matn);
   };
 }
 
-const t = new Tugma();
-const { bosildi } = t; // metodni "ajratib olsak" ham...
-bosildi(); // ✅ "Yubor tugmasi bosildi" — arrow function bo'lgani uchun ishlaydi
+const tugma1 = new Tugma();
+const { oddiyBosildi, bosildi } = tugma1; // metodlarni obyektdan "ajratib olamiz"
 
-document.querySelector("button").addEventListener("click", t.bosildi); // bind() shart emas!
+// oddiyBosildi(); // ❌ TypeError: Cannot read properties of undefined (this yo'qoldi)
+bosildi(); // ✅ Bosing - this to'g'ri ishladi, chunki arrow function'ni "bind" qilib bo'lmaydi
 ```
 
 ---
 
-## 🔒 9. Private Methods — ES2022+
+## 9. 🔒 Private Methods — ES2022+
 
-Xuddi private field'lar kabi, metodlar ham `#` bilan **private** qilinishi mumkin — ular faqat klass ichidan chaqirilishi mumkin.
+Xuddi private field'lar kabi, metodlarni ham `#` bilan private qilish mumkin. Bu class'ning **ichki (implementation) mantiqini** tashqi dunyodan yashirish uchun ishlatiladi — faqat kerakli (public) metodlar orqali muloqot qilinadi.
 
 ```javascript
 class Parol {
@@ -951,80 +839,397 @@ class Parol {
     this.#qiymat = qiymat;
   }
 
-  // Private metod — faqat klass ichida ishlatiladigan "yordamchi" logika
-  #kuchliMi() {
-    return this.#qiymat.length >= 8 && /\d/.test(this.#qiymat);
+  // Private method - faqat class ichidan chaqirilishi mumkin
+  #kuchliligiTekshir() {
+    const uzunlik = this.#qiymat.length >= 8;
+    const raqamBor = /\d/.test(this.#qiymat);
+    const kattaHarf = /[A-Z]/.test(this.#qiymat);
+    return uzunlik && raqamBor && kattaHarf;
   }
 
-  tekshir() {
-    // public metod, ICHIDA private metodni chaqiradi
-    if (this.#kuchliMi()) {
-      return "Parol kuchli ✅";
+  // Public method - ichkarida private metodni ishlatadi
+  yaroqlimi() {
+    if (this.#kuchliligiTekshir()) {
+      return "Parol yetarlicha kuchli ✅";
     }
-    return "Parol zaif — kamida 8 belgi va 1 raqam bo'lsin ❌";
+    return "Parol zaif — kamida 8ta belgi, 1ta raqam va 1ta katta harf bo'lsin ❌";
   }
 }
 
-const p = new Parol("abc123456");
-console.log(p.tekshir()); // "Parol kuchli ✅"
+const parol1 = new Parol("Salom123");
+console.log(parol1.yaroqlimi()); // Parol yetarlicha kuchli ✅
 
-p.#kuchliMi(); // ❌ SyntaxError — tashqaridan chaqirib bo'lmaydi
+const parol2 = new Parol("salom");
+console.log(parol2.yaroqlimi()); // Parol zaif...
+
+parol1.#kuchliligiTekshir(); // ❌ SyntaxError: Private field '#kuchliligiTekshir' must be declared in an enclosing class
 ```
 
-### 🔹 Private Static Metodlar
+**Private static metodlar** ham xuddi shunday e'lon qilinadi:
 
 ```javascript
 class Validator {
-  static #minUzunlik = 8; // private STATIC field
+  static #emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  static #uzunlikTogrimi(matn) {
-    // private static metod
-    return matn.length >= Validator.#minUzunlik;
+  static #tekshir(qiymat, regex) {
+    return regex.test(qiymat);
   }
 
-  static tekshir(matn) {
-    if (!Validator.#uzunlikTogrimi(matn)) {
-      return "Juda qisqa!";
-    }
-    return "To'g'ri";
+  static emailToʻgʻrimi(email) {
+    return Validator.#tekshir(email, Validator.#emailRegex);
   }
 }
 
-console.log(Validator.tekshir("salom123")); // "To'g'ri"
-Validator.#uzunlikTogrimi("test"); // ❌ SyntaxError — tashqaridan chaqirib bo'lmaydi
+console.log(Validator.emailToʻgʻrimi("test@mail.com")); // true
+console.log(Validator.emailToʻgʻrimi("notoʻgʻri")); // false
 ```
 
-### 💡 Private a'zolarning amaliy foydasi (Encapsulation)
+---
 
-- **Ichki implementatsiyani yashirish** — foydalanuvchi (boshqa dasturchi) faqat "public interfeys" bilan ishlaydi, ichki detallar bilan "bosh og'rig'i" bo'lmaydi.
-- **Xavfsizlik** — muhim ma'lumotlar (parol, balans, token) tashqi kod tomonidan tasodifan yoki ataylab o'zgartirilishining oldini oladi.
-- **Refactoring erkinligi** — private metod/field'larni implementatsiyani o'zgartirganda xavotirsiz qayta yozish mumkin, chunki ular tashqi kodga "ta'sir qilmaydi" (chunki ular umuman ko'rinmagan).
+## 10. 🎭 Polimorfizm va Method Overriding
+
+**Polimorfizm** (ko'p shakllilik) — OOP'ning asosiy prinsiplaridan biri bo'lib, turli class'lardagi obyektlar **bir xil nomdagi metodga** turlicha javob berishi (turlicha ishlashi) imkonini beradi.
+
+```javascript
+class Shakl {
+  yuzaHisobla() {
+    return 0; // asosiy (default) implementatsiya
+  }
+}
+
+class Doira extends Shakl {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+
+  // Method overriding - ota class metodi qayta yoziladi
+  yuzaHisobla() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+class Toʻrtburchak extends Shakl {
+  constructor(kenglik, balandlik) {
+    super();
+    this.kenglik = kenglik;
+    this.balandlik = balandlik;
+  }
+
+  yuzaHisobla() {
+    return this.kenglik * this.balandlik;
+  }
+}
+
+// Polimorfizm - bitta funksiya turli obyektlar bilan turlicha ishlaydi
+const shakllar = [new Doira(5), new Toʻrtburchak(4, 6)];
+
+shakllar.forEach((shakl) => {
+  // Har bir obyekt o'zining "yuzaHisobla" versiyasini chaqiradi - bu polimorfizm!
+  console.log(`Yuza: ${shakl.yuzaHisobla().toFixed(2)}`);
+});
+// Yuza: 78.54
+// Yuza: 24.00
+```
 
 ---
 
-## 📊 Umumiy xulosa jadvali
+## 11. 🧩 Composition vs Inheritance
 
-| Konsepsiya             | Maqsadi                                              | Kalit so'z/sintaksis              |
-| ---------------------- | ---------------------------------------------------- | --------------------------------- |
-| Constructor Function   | Obyekt yaratish shabloni (pre-ES6)                   | `function` + `new`                |
-| `instanceof`           | Obyekt qaysi konstruktordan yaratilganini tekshirish | `obj instanceof Ctor`             |
-| Prototype Chain        | Meros olish mexanizmi                                | `__proto__`, `prototype`          |
-| ES6 `class`            | Zamonaviy, o'qilishi oson OOP sintaksisi             | `class`, `constructor`            |
-| Static a'zolar         | Klassga tegishli (instance'ga emas)                  | `static`                          |
-| Getter/Setter          | Xususiyat kabi ko'rinuvchi hisoblangan qiymat        | `get`, `set`                      |
-| `extends`              | Klasslar orasida meros                               | `class B extends A`               |
-| `super`                | Ota klassga murojaat                                 | `super()`, `super.metod()`        |
-| Mixin                  | Ko'p manbadan funksionallik qo'shish                 | `Object.assign`, funksional mixin |
-| Private Fields/Methods | Haqiqiy inkapsulyatsiya                              | `#fieldNomi`                      |
-| Public Class Fields    | Constructor'siz xususiyat e'lon qilish               | `fieldNomi = qiymat`              |
+Ba'zan `extends` orqali chuqur meros zanjiri qurish kod murakkabligini oshirib yuboradi ("fragile base class" muammosi). Shu sababli zamonaviy dasturlashda ko'pincha **"composition over inheritance"** (meros olishdan ko'ra tarkiblashni afzal ko'rish) prinsipi tavsiya etiladi.
+
+```javascript
+// INHERITANCE (meros) - qattiq bog'liqlik yaratadi
+class Robot {
+  yur() {
+    console.log("Yuryapman");
+  }
+  gapir() {
+    console.log("Gapiryapman");
+  }
+  uch() {
+    console.log("Uchyapman");
+  } // Har bir robot uchishi shart emas!
+}
+
+// COMPOSITION (tarkiblash) - moslashuvchan, faqat kerakli qobiliyatlarni qo'shadi
+const yuruvchi = {
+  yur() {
+    console.log(`${this.ism} yuryapti`);
+  },
+};
+
+const gapiruvchi = {
+  gapir() {
+    console.log(`${this.ism} gapiryapti`);
+  },
+};
+
+const uchuvchi = {
+  uch() {
+    console.log(`${this.ism} uchyapti`);
+  },
+};
+
+// Har bir robotga faqat kerakli qobiliyatlarni "composition" orqali qo'shamiz
+function robotYarat(ism, ...qobiliyatlar) {
+  const robot = { ism };
+  return Object.assign(robot, ...qobiliyatlar);
+}
+
+const oddiyRobot = robotYarat("R2D2", yuruvchi, gapiruvchi); // uchmaydi
+const uchuvchiRobot = robotYarat("Drone-X", yuruvchi, uchuvchi); // gapirmaydi
+
+oddiyRobot.yur(); // R2D2 yuryapti
+uddiyRobot?.uch; // mavjud emas - xatolik chiqarmaydi, chunki funksiya umuman yo'q
+uchuvchiRobot.uch(); // Drone-X uchyapti
+```
+
+📌 **Qachon qaysi birini tanlash kerak?**
+
+- **Inheritance** — "is-a" (bu — ... turi) munosabat bo'lganda (masalan, `It` — bu `Hayvon`).
+- **Composition** — "has-a" / "can-do" (bunda ... bor / bu ... qila oladi) munosabat bo'lganda (masalan, robot uchish **qobiliyatiga ega**, lekin "uchuvchi turi" emas).
 
 ---
 
-## ✅ Yakuniy xulosa
+## 12. 🏭 Factory Functions vs Classes
 
-- JavaScript OOP'ning yuragi — **prototype zanjiri**. `class` — bu mexanizmni yashiradigan qulay sintaksis, lekin "orqa fonda" baribir prototiplar ishlaydi.
-- **Metodlarni har doim `prototype`ga (yoki `class` tanasiga) qo'shing**, `constructor` ichida emas — bu xotirani tejaydi va performance'ni yaxshilaydi.
-- **`super()`ni child konstruktorda eng birinchi qatorda** chaqiring — `this`dan foydalanishdan oldin bu majburiy.
-- Zamonaviy loyihalarda **`#private` field/metodlardan** faol foydalaning — bu haqiqiy inkapsulyatsiya beradi, `_` prefiksi kabi shunchaki konvensiya emas.
-- **Mixin'lar** — yagona merosning cheklovini chetlab o'tishning eng toza usuli, ayniqsa "can-do" munosabatlarini ifodalashda foydali.
-- **Getter/Setter** — validatsiya va hisoblangan xususiyatlar uchun kodni ancha o'qilishi oson qiladi, ayniqsa private field bilan birga ishlatilganda.
+**Factory function** — `new` operatorisiz obyekt yaratadigan oddiy funksiya. Ba'zi loyihalarda class'lar o'rniga qo'llaniladi, chunki `this` va `new` bilan bog'liq muammolarni chetlab o'tadi.
+
+```javascript
+// Factory function - "new" kerak emas
+function odamYarat(ism, yosh) {
+  return {
+    ism,
+    yosh,
+    salomBer() {
+      console.log(`Salom, men ${ism}`);
+    },
+  };
+}
+
+const odam1 = odamYarat("Elmurod", 25); // "new" so'zisiz chaqiriladi
+odam1.salomBer(); // Salom, men Elmurod
+
+// Solishtirish uchun xuddi shu narsa class bilan:
+class OdamClass {
+  constructor(ism, yosh) {
+    this.ism = ism;
+    this.yosh = yosh;
+  }
+  salomBer() {
+    console.log(`Salom, men ${this.ism}`);
+  }
+}
+const odam2 = new OdamClass("Aziza", 23); // "new" so'zi SHART
+```
+
+| Xususiyat                     | Factory Function                             | Class                            |
+| ----------------------------- | -------------------------------------------- | -------------------------------- |
+| `new` kerakmi?                | Yo'q                                         | Ha (odatda)                      |
+| `this` muammolari             | Yo'q (closure ishlatiladi)                   | Bo'lishi mumkin                  |
+| Xotira sarfi (metodlar)       | Har instance uchun metod nusxalanishi mumkin | Prototype orqali umumiy, tejamli |
+| Private data                  | Closure orqali oson                          | `#` field kerak (ES2022+)        |
+| `instanceof` bilan tekshirish | Ishlamaydi                                   | Ishlaydi                         |
+
+---
+
+## 13. ❄️ Object.freeze() — Immutability (O'zgarmaslik)
+
+`Object.freeze()` obyektni **"muzlatadi"** — uning xususiyatlarini o'zgartirish, qo'shish yoki o'chirishni taqiqlaydi. Bu ma'lumotlarni tasodifiy o'zgarishlardan himoya qilish uchun ishlatiladi (masalan, konfiguratsiya obyektlari yoki "constant" qiymatlar uchun).
+
+```javascript
+class Sozlamalar {
+  constructor() {
+    this.til = "uz";
+    this.versiya = "1.0.0";
+    Object.freeze(this); // instance yaratilgandan so'ng uni "muzlatamiz"
+  }
+}
+
+const sozlama1 = new Sozlamalar();
+
+sozlama1.til = "en"; // hech qanday xatolik chiqmaydi (silent fail, strict mode'da emas)
+console.log(sozlama1.til); // "uz" - o'zgarmadi, chunki obyekt muzlatilgan
+
+sozlama1.yangiXususiyat = "test"; // qo'shib bo'lmaydi
+console.log(sozlama1.yangiXususiyat); // undefined
+
+// Muzlatilganligini tekshirish:
+console.log(Object.isFrozen(sozlama1)); // true
+
+// Diqqat: Object.freeze() faqat "shallow" (sayoz) ishlaydi -
+// ichki obyektlar hamon o'zgartirilishi mumkin!
+const obj = Object.freeze({ ichki: { qiymat: 1 } });
+obj.ichki.qiymat = 999; // BU ISHLAYDI, chunki faqat tashqi qatlam muzlatilgan
+console.log(obj.ichki.qiymat); // 999
+```
+
+---
+
+## 14. 🔁 Symbol.iterator — Custom Iteration
+
+`Symbol.iterator` — bu maxsus "well-known symbol" bo'lib, obyektni `for...of` sikli, spread operator (`...`) va destructuring bilan ishlatish imkonini beradi (ya'ni, obyektni **iterable** — sanaladigan qiladi).
+
+```javascript
+class Diapazon {
+  constructor(boshlanish, tugash) {
+    this.boshlanish = boshlanish;
+    this.tugash = tugash;
+  }
+
+  // Symbol.iterator - class'ni "iterable" (sanaladigan) qiladi
+  [Symbol.iterator]() {
+    let joriy = this.boshlanish;
+    const tugash = this.tugash;
+
+    return {
+      next() {
+        if (joriy <= tugash) {
+          return { value: joriy++, done: false };
+        }
+        return { value: undefined, done: true };
+      },
+    };
+  }
+}
+
+const diapazon1 = new Diapazon(1, 5);
+
+// Endi class'ni for...of orqali sanash mumkin!
+for (const son of diapazon1) {
+  console.log(son); // 1, 2, 3, 4, 5 - ketma-ket chiqadi
+}
+
+// Spread operator bilan ham ishlaydi
+console.log([...diapazon1]); // [1, 2, 3, 4, 5]
+
+// Destructuring bilan ham ishlaydi
+const [birinchi, ikkinchi] = diapazon1;
+console.log(birinchi, ikkinchi); // 1 2
+```
+
+---
+
+## 15. 🎯 `new.target`, `toString()`, `Symbol.toPrimitive`
+
+### `new.target`
+
+`new.target` — funksiya `new` bilan chaqirilganmi yoki yo'qmi, shuningdek qaysi class orqali chaqirilganini aniqlash uchun ishlatiladi. Bu **abstract class** (mavhum class, to'g'ridan-to'g'ri instance yaratib bo'lmaydigan class) yaratishda foydali.
+
+```javascript
+class MavhumShakl {
+  constructor() {
+    // Agar to'g'ridan-to'g'ri MavhumShakl orqali instance yaratilsa - xatolik chiqaramiz
+    if (new.target === MavhumShakl) {
+      throw new Error(
+        "MavhumShakl'dan to'g'ridan-to'g'ri instance yaratib bo'lmaydi!",
+      );
+    }
+  }
+
+  yuzaHisobla() {
+    throw new Error(
+      "yuzaHisobla() metodi bola class'da albatta yozilishi kerak!",
+    );
+  }
+}
+
+class Kvadrat extends MavhumShakl {
+  constructor(tomon) {
+    super();
+    this.tomon = tomon;
+  }
+  yuzaHisobla() {
+    return this.tomon ** 2;
+  }
+}
+
+const kv = new Kvadrat(4);
+console.log(kv.yuzaHisobla()); // 16
+
+const mavhum = new MavhumShakl(); // ❌ Error: MavhumShakl'dan to'g'ridan-to'g'ri instance yaratib bo'lmaydi!
+```
+
+### `toString()` metodini qayta yozish
+
+Obyekt matn (string) sifatida ishlatilganda (masalan, template literal ichida yoki `console.log` bilan birlashtirilganda) qanday ko'rinishini boshqarish uchun ishlatiladi.
+
+```javascript
+class Pul {
+  constructor(summa, valyuta) {
+    this.summa = summa;
+    this.valyuta = valyuta;
+  }
+
+  // Object.prototype.toString()'ni override qilamiz
+  toString() {
+    return `${this.summa} ${this.valyuta}`;
+  }
+}
+
+const narx = new Pul(50000, "so'm");
+
+console.log(`Narx: ${narx}`); // Narx: 50000 so'm - avtomatik toString() chaqirildi
+console.log("Narx: " + narx); // Narx: 50000 so'm
+console.log(String(narx)); // 50000 so'm
+```
+
+### `Symbol.toPrimitive`
+
+Obyekt raqam, matn yoki umumiy (default) kontekstda ishlatilganda qanday "primitive" qiymatga aylanishini to'liq nazorat qilish uchun ishlatiladi.
+
+```javascript
+class Harorat {
+  constructor(daraja) {
+    this.daraja = daraja;
+  }
+
+  [Symbol.toPrimitive](tur) {
+    if (tur === "number") {
+      return this.daraja; // Masalan: +harorat1
+    }
+    if (tur === "string") {
+      return `${this.daraja}°C`; // Masalan: `${harorat1}`
+    }
+    return `Harorat: ${this.daraja}`; // "default" holat, masalan: harorat1 + ""
+  }
+}
+
+const harorat1 = new Harorat(25);
+
+console.log(+harorat1); // 25 - "number" konteksti
+console.log(`${harorat1}`); // 25°C - "string" konteksti
+console.log(harorat1 + ""); // Harorat: 25 - "default" konteksti
+```
+
+---
+
+## 16. 📌 Xulosa va Best Practices
+
+✅ **Class ishlatishning to'g'ri yondashuvlari:**
+
+1. **Encapsulation** (inkapsulyatsiya) — ichki holatni `#private` field'lar bilan yashiring, faqat public metodlar orqali muloqot qiling.
+2. **"is-a" munosabat bo'lsagina `extends` ishlating** — aks holda composition'ni afzal ko'ring.
+3. **Chuqur meros zanjiridan saqlaning** — 2-3 darajadan chuqurroq `extends` zanjiri kodni tushunishni qiyinlashtiradi.
+4. **Metodlarni prototype orqali (yoki class ichida) yozing**, constructor ichida emas — xotira tejash uchun.
+5. **`super()`ni har doim eslab qoling** — agar bola class'da constructor bo'lsa.
+6. **Static'ni faqat "class'ga tegishli" narsalar uchun ishlating** (masalan, utility funksiyalar, hisoblagichlar) — instance ma'lumotlari uchun emas.
+7. **Getter/setter'larni validatsiya va hisoblangan (computed) xususiyatlar uchun ishlating**, ortiqcha murakkablashtirmang.
+
+### Umumiy taqqoslash jadvali
+
+| Tushuncha               | Nima uchun ishlatiladi                                                                  |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| Constructor Function    | Class'lardan oldingi eski usul, hozir kam ishlatiladi                                   |
+| Prototype               | Metodlarni instance'lar orasida xotira tejab bo'lishish                                 |
+| Class                   | Zamonaviy, o'qilishi oson OOP sintaksisi                                                |
+| `extends` / `super`     | Inheritance orqali kod qayta ishlatish                                                  |
+| Mixins                  | Bir nechta manbadan funksionallik olish (single inheritance chegarasini chetlab o'tish) |
+| `#private` field/method | Ma'lumotlarni tashqi ta'sirdan himoya qilish (encapsulation)                            |
+| Composition             | Moslashuvchan, kam bog'liq (loosely coupled) arxitektura qurish                         |
+| Factory functions       | `new`/`this` murakkabliklarisiz oddiy obyekt yaratish                                   |
+
+---
+
+**Muallif izohi:** Ushbu qo'llanma JavaScript'dagi OOP tushunchalarini konstruktor funksiyalardan tortib eng zamonaviy ES2022+ imkoniyatlarigacha (`#private field`, static blocks) qamrab oladi. Har bir bo'limni amaliy misollar bilan mustaqil sinab ko'rish tavsiya etiladi — bu tushunishni sezilarli darajada mustahkamlaydi.
