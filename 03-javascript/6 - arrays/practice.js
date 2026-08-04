@@ -16,7 +16,7 @@ let massiv1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 // 9. Berilgan massivdan 4 dan katta bo'lgan oxirgi sonning indeksini findLastIndex() 
 // yordamida toping
 // 10. Berilgan massivning barcha [indeks, qiymat] juftliklarini entries() 
-// yordamida chiqaring
+// yordamida chiqaring 
 // 11. Berilgan massivning faqat indekslarini keys() yordamida chiqaring
 // 12. Berilgan massivning faqat qiymatlarini values() yordamida chiqaring
 // 13. Berilgan massivning boshiga 3 ta yangi element qo'shing (unshift)

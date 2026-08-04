@@ -1,4 +1,38 @@
 
+let ism = "Dastonbek"
+let ism1 = "Konsarello"
+let familiya = "Komilov"
+let yosh = 15
+let hobbiy = "uxlash, darsda uxlash va o'yin o'ynash"
+let joylashuviRespublika = "O'zbekiston"
+let joylashuviViloyat = "Xorazm"
+let joylashuviTuman = "Hazorasp"
+let uyManzili = "Temirchi mahallasi 123-uy"
+// console.log(ism.length)
+console.log(ism[3])
+console.log(hobbiy.toUpperCase())
+console.log(hobbiy.toLowerCase())
+
+
+// console.log(`Assalomu alaykum, mening ismim ${ism1}, 
+//     familiyam esa ${familiya}. Men kecha ${yosh} 
+//     yoshga kirdim, lekin men haligacha yosh boladekman, 
+//     sababi mening hobbiylarim ${hobbiy} lardan iborat!!!`)
+
+
+// let password = "secret123";
+// if (password.length < 8) {
+//   console.log("Parol juda qisqa!");
+// } else {
+//   console.log("Parol uzunligi yetarli ✅");
+// }
+
+
+
+
+
+// ============================================================
+
 // let text = "Salom mening ismim Shohruzbek"
 // let text = 'Salom mening ismim Mo"minjon'
 // console.log(text)
@@ -22,7 +56,7 @@
 // ========================================================
 //* String Methods
 
-let matn = "Kecha, juda kuchli, yomg'ir shamol bo'ldi va tinmay 2soat yomg'ir yog'di! "
+// let matn = "Kecha, juda kuchli, yomg'ir shamol bo'ldi va tinmay 2soat yomg'ir yog'di! "
 // let kattaHarf = matn.toUpperCase()
 // console.log(kattaHarf)
 
@@ -45,14 +79,14 @@ let matn = "Kecha, juda kuchli, yomg'ir shamol bo'ldi va tinmay 2soat yomg'ir yo
 // console.log(matn.split(" "))
 // console.log(matn.split(","))
 
-console.log(matn.replace("2soat", "3soat"))
-console.log(matn.replace("yomg'ir", "qor"))
-console.log(matn.replaceAll("yomg'ir", "qor"))
-console.log("Saidjon".padStart(20, "S"))
-console.log('Suhrob'.padStart(20, "W"))
-console.log("Shohjahon".padEnd(30, "bekjon"))
-console.log("shohruzbek".padEnd(20, "yatay"))
-console.log("shohruzbek".padEnd(200, " foydasi yo'q "))
+// console.log(matn.replace("2soat", "3soat"))
+// console.log(matn.replace("yomg'ir", "qor"))
+// console.log(matn.replaceAll("yomg'ir", "qor"))
+// console.log("Saidjon".padStart(20, "S"))
+// console.log('Suhrob'.padStart(20, "W"))
+// console.log("Shohjahon".padEnd(30, "bekjon"))
+// console.log("shohruzbek".padEnd(20, "yatay"))
+// console.log("shohruzbek".padEnd(200, " foydasi yo'q "))
 // console.log(matn)
 
 
