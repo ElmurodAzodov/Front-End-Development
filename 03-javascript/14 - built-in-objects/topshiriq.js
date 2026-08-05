@@ -8,7 +8,8 @@ const hozirgiYil = new Date().getFullYear()
 console.log(hozirgiYil)
 
 //* 3-topshiriq. Hozirgi oy raqamini (0-11 oralig'ida) konsolga chiqaruvchi dastur yozing.
-
+const hozirgiOy = new Date().getMonth()
+console.log(hozirgiOy)
 
 //* 4-topshiriq. Hozirgi kun raqamini (1-31 oralig'ida) konsolga chiqaruvchi dastur yozing.
 
