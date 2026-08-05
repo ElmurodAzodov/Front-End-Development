@@ -1,4 +1,3 @@
-
 //* 1-topshiriq. Hozirgi sana va vaqtni konsolga chiqaruvchi dastur yozing.
 // const sana = new Date()
 // console.log(sana)
@@ -20,12 +19,14 @@
 // console.log(hozirgiVaqt)
 
 //* 7-topshiriq. Hozirgi sanani o'zbek tilida ko'rsatuvchi dastur yozing. (Intl.DateTimeFormat dan foydalaning)
-const sana = new Date(2026, 7, 3, 14, 30);
+// const sana = new Date(2026, 7, 3, 14, 30);
 
-const uzFormat = new Intl.DateTimeFormat("uz-UZ");
-console.log(uzFormat.format(sana));
+// const uzFormat = new Intl.DateTimeFormat("uz-UZ");
+// console.log(uzFormat.format(sana));
 
 //* 8-topshiriq. Hozirgi vaqtga 5 soat qo'shib, yangi vaqtni konsolga chiqaruvchi dastur yozing.
+const hozirgiVaqt = new Date().getHours() + 5;
+console.log(hozirgiVaqt);
 
 // Math Object (9-19 topshiriqlar)
 //* 9-topshiriq. Math.PI yordamida Pi sonini konsolga chiqaring.
