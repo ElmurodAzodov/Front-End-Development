@@ -9,6 +9,7 @@ let joylashuviViloyat = "Xorazm"
 let joylashuviTuman = "Hazorasp"
 let uyManzili = "Temirchi mahallasi 123-uy"
 let bio = "Boburjon ismli o'quvchi, ustozini boshini ko'p og'ritib ba'zida keraksiz savollar beradi"
+let boburjon = "Boburjon har kuni darsda shu so'zni aytadi: "
 // console.log(ism.length)
 console.log(ism[3])
 console.log(hobbiy.toUpperCase())
@@ -21,6 +22,14 @@ console.log(hobbiy.startsWith("Darsda"))
 console.log(hobbiy.endsWith("o'ynash"))
 console.log(uyManzili.slice(9, 18))
 console.log(bio.split("b"))
+console.log(bio.split(" "))
+console.log(bio.replace("Boburjon", "Sherzodjon"))
+console.log(bio.replaceAll("o", "a"))
+console.log(bio.padStart(120, "Boburjon"))
+console.log(bio.padEnd(1000, ""))
+console.log(boburjon.padEnd(100, " ustoz "))
+// console.log(bio.length)
+console.log(boburjon.length)
 
 
 
