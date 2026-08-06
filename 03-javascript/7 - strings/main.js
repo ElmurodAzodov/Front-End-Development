@@ -1,17 +1,27 @@
 
 let ism = "Dastonbek"
-let ism1 = "Konsarello"
+let ism1 = 'Boburjon'
 let familiya = "Komilov"
 let yosh = 15
-let hobbiy = "uxlash, darsda uxlash va o'yin o'ynash"
+let hobbiy = "uxLash, Darsda uxlash va o'Yin o'ynash"
 let joylashuviRespublika = "O'zbekiston"
 let joylashuviViloyat = "Xorazm"
 let joylashuviTuman = "Hazorasp"
 let uyManzili = "Temirchi mahallasi 123-uy"
+let bio = "Boburjon ismli o'quvchi, ustozini boshini ko'p og'ritib ba'zida keraksiz savollar beradi"
 // console.log(ism.length)
 console.log(ism[3])
 console.log(hobbiy.toUpperCase())
 console.log(hobbiy.toLowerCase())
+console.log(hobbiy.indexOf("a"))
+console.log(hobbiy.indexOf("w"))
+console.log(hobbiy.lastIndexOf("o'ynash"))
+console.log(hobbiy.includes("uxlash"))
+console.log(hobbiy.startsWith("Darsda"))
+console.log(hobbiy.endsWith("o'ynash"))
+console.log(uyManzili.slice(9, 18))
+console.log(bio.split("b"))
+
 
 
 // console.log(`Assalomu alaykum, mening ismim ${ism1}, 
