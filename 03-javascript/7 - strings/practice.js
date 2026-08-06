@@ -31,10 +31,13 @@
 // 1.4. Berilgan matn "Hello" so'zi bilan boshlanishini tekshiring.
 // Input: "Hello world"
 // Kutilyotgan natija: true
+let matn = prompt("Matn kiriting: ")
+console.log(matn.startsWith("Hello"))
 
 // 1.5. Berilgan matnni barcha harflarini kichik harflarga o'zgartiring.
 // Input: "WEB DASTURLASH"
 // Kutilyotgan natija: "web dasturlash"
+
 
 // 1.6. Berilgan matnning 3-indeksidagi belgini charAt() yordamida oling.
 // Input: "Kompyuter"
@@ -394,15 +397,15 @@
 // 4.1. Berilgan matn ichidagi barcha qavslar ichidagi matnlarni ajratib oling.
 // Input: "Bugun (dushanba) kuni (dars) bor"
 // Kutilyotgan natija: ["dushanba", "dars"]
-let matn = "Bugun (dushanba) kuni (dars) bor"
-let arr = matn.split(" ")
-let newArr = []
-for (let i of arr) {
-    if (i[0] === "(") {
-        newArr.push(i.slice(1, -1))
-    }
-}
-console.log(newArr)
+// let matn = "Bugun (dushanba) kuni (dars) bor"
+// let arr = matn.split(" ")
+// let newArr = []
+// for (let i of arr) {
+//     if (i[0] === "(") {
+//         newArr.push(i.slice(1, -1))
+//     }
+// }
+// console.log(newArr)
 
 
 // 4.2. Berilgan matnni tekshirib, u valid email manzili ekanligini aniqlang (regex bilan).
