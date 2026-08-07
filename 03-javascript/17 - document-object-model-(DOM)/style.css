@@ -9,4 +9,5 @@
     height: 400px;
     margin: 50px auto;
     background-color: red;
+    flex-wrap: wrap;
 }
