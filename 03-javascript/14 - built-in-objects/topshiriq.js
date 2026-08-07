@@ -69,16 +69,16 @@
 
 // JSON Object (25-27 topshiriqlar)
 //* 25-topshiriq. {name: "Ali", age: 25} ob'ektini JSON string formatiga o'giring va konsolga chiqaring.
-let user = {
-  name: "Ali",
-  age: 25,
-  jobs: "Developer",
-};
-console.log(JSON.stringify(user))
+// let user = {
+//   name: "Ali",
+//   age: 25,
+//   jobs: "Developer",
+// };
+// console.log(JSON.stringify(user))
 
 //* 26-topshiriq. '{"name":"Ali","age":25}' JSON stringini JavaScript ob'ektiga o'giring va konsolga chiqaring.
-let jsonUser = '{"name":"Ali","age":25}'
-console.log(JSON.parse(jsonUser))
+// let jsonUser = '{"name":"Ali","age":25}'
+// console.log(JSON.parse(jsonUser))
 
 //* 27-topshiriq. {name: "Ali", age: 25, password: "123"} ob'ektini JSON ga o'giring, faqat name va age maydonlari qolsin. (replacer funksiyasidan foydalaning)
 
