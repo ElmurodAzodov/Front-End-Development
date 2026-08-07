@@ -25,8 +25,8 @@
 // console.log(uzFormat.format(sana));
 
 //* 8-topshiriq. Hozirgi vaqtga 5 soat qo'shib, yangi vaqtni konsolga chiqaruvchi dastur yozing.
-const hozirgiVaqt = new Date().getHours() + 5;
-console.log(hozirgiVaqt);
+// const hozirgiVaqt = new Date().getHours() + 5;
+// console.log(hozirgiVaqt);
 
 // Math Object (9-19 topshiriqlar)
 //* 9-topshiriq. Math.PI yordamida Pi sonini konsolga chiqaring.
@@ -57,8 +57,13 @@ console.log(hozirgiVaqt);
 //* 21-topshiriq. 42 soni butun son ekanligini tekshiring va natijani (true/false) konsolga chiqaring.
 
 //* 22-topshiriq. "salom" matnini Number() yordamida songa o'girib, natija NaN ekanligini tekshiring va konsolga chiqaring.
+// let matn = "Salom"
+// console.log(Number.isNaN(Number(matn)))
+// console.log(Number.isNaN(Number("12")))
 
 //* 23-topshiriq. Infinity qiymati cheksiz son ekanligini tekshiring va natijani konsolga chiqaring.
+// console.log(Number.isFinite(Infinity))
+// console.log(Number.isFinite(10/3))
 
 //* 24-topshiriq. "3.14" matnini Number.parseFloat() yordamida haqiqiy songa o'giring va konsolga chiqaring.
 
