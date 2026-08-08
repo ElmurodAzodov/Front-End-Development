@@ -31,13 +31,14 @@
 // 1.4. Berilgan matn "Hello" so'zi bilan boshlanishini tekshiring.
 // Input: "Hello world"
 // Kutilyotgan natija: true
-let matn = prompt("Matn kiriting: ")
-console.log(matn.startsWith("Hello"))
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.startsWith("Hello"))
 
 // 1.5. Berilgan matnni barcha harflarini kichik harflarga o'zgartiring.
 // Input: "WEB DASTURLASH"
 // Kutilyotgan natija: "web dasturlash"
-
+let matn = prompt("Matn kiriting: ")
+console.log(matn.toLowerCase())
 
 // 1.6. Berilgan matnning 3-indeksidagi belgini charAt() yordamida oling.
 // Input: "Kompyuter"
