@@ -37,28 +37,38 @@
 // 1.5. Berilgan matnni barcha harflarini kichik harflarga o'zgartiring.
 // Input: "WEB DASTURLASH"
 // Kutilyotgan natija: "web dasturlash"
-let matn = prompt("Matn kiriting: ")
-console.log(matn.toLowerCase())
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.toLowerCase())
 
 // 1.6. Berilgan matnning 3-indeksidagi belgini charAt() yordamida oling.
 // Input: "Kompyuter"
 // Kutilyotgan natija: "p"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.charAt(3))
 
 // 1.7. Berilgan matndagi bo'shliqlarni olib tashlang (trim).
 // Input: "   Salom   "
 // Kutilyotgan natija: "Salom"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.trim())
 
 // 1.8. Berilgan matn "!" bilan tugashini tekshiring.
 // Input: "Assalomu alaykum!"
 // Kutilyotgan natija: true
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.endsWith("!"))
 
 // 1.9. Berilgan matn ichida "js" so'zi borligini tekshiring.
 // Input: "Men js o'rganyapman"
 // Kutilyotgan natija: true
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.includes("js"))
 
 // 1.10. Berilgan matnni 3 marta takrorlang.
 // Input: "ha"
 // Kutilyotgan natija: "hahaha"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn.repeat())
 
 // ===================================================
 // 2. O'RTACHA TOPSHIRIQLAR (30 ta)
@@ -71,12 +81,14 @@ console.log(matn.toLowerCase())
 // 2.2. Berilgan matnning birinchi harfini katta qiling.
 // Input: "javascript"
 // Kutilyotgan natija: "Javascript"
+// let matn = prompt("Matn kiriting: ")
+// console.log(matn[0].toUpperCase() + matn.slice(1))
 
 // 2.3. Berilgan matnni so'zlarga ajrating (bo'shliq bo'yicha).
 // Input: "Men dastur yozaman"
 // Kutilyotgan natija: ["Men", "dastur", "yozaman"]
-// let matn = prompt("Gapingizni yozing: ")
-// console.log(matn.split(" "))
+let matn = prompt("Gapingizni yozing: ")
+console.log(matn.split(" "))
 
 // 2.4. Berilgan matndagi barcha "a" harflarini "o" ga almashtiring.
 // Input: "salom"
