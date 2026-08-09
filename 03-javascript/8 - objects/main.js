@@ -12,6 +12,7 @@
 //     maqsad: "boy bo'lish"
 // }
 
+
 // console.log(ism, yosh, malumoti, qiziqishlari, maqsad)
 // console.log(data)
 
