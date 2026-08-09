@@ -14,6 +14,7 @@
 
 
 
+
 // console.log(ism, yosh, malumoti, qiziqishlari, maqsad)
 // console.log(data)
 
