@@ -65,3 +65,25 @@
 // box_6.style.height = "200px";
 
 //* ======================================================================
+
+// const div1 = document.getElementById("div1")
+// const div_1 = document.getElementsByClassName("div-1")
+// const divv1 = document.querySelector(".div-1 p")
+// const divv11 = document.querySelectorAll(".div-1")
+
+// divv1.innerHTML = "<b>Salom</b>"
+
+// divv11.forEach((el) => {
+//     console.log(el)
+// })
+
+// console.log(divv1.children)
+
+
+//* ======================================================================
+
+// const div1 = document.getElementById("div1")
+// const b = document.querySelector(".div-1 b")
+
+// b.textContent = "Saidjon"
+// div1.innerHTML = "<h2> Suhrob</h2>"
