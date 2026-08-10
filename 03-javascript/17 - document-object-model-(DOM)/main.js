@@ -94,6 +94,7 @@ const p = document.createElement("p")
 p.textContent = "Shoxruzbek"
 document.body.append(p)
 p.style.color = "red"
-
+p.className = "p1"
+p.id = "p1"
 
 // p.remove()
