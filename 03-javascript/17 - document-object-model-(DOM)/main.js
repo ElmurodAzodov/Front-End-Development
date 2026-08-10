@@ -87,3 +87,13 @@
 
 // b.textContent = "Saidjon"
 // div1.innerHTML = "<h2> Suhrob</h2>"
+
+//* ======================================================================
+
+const p = document.createElement("p")
+p.textContent = "Shoxruzbek"
+document.body.append(p)
+p.style.color = "red"
+
+
+// p.remove()
