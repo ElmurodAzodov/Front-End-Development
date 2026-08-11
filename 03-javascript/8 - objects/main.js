@@ -94,7 +94,7 @@ console.log(shoxruzbek);
 //    qoshish(5, 7) -> 12
 
 // 4. Function expression shaklida "ayirish" funksiyasini yozing
-//    (o'zgaruvchiga funksiya sifatida biriktiring).
+//    (o'zgaruvchiga funksiya sifatida biriktiring). 
 
 // 5. Arrow function shaklida "kopaytirish" funksiyasini yozing:
 //    kopaytirish(4, 6) -> 24
