@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.div1, .div2 {
+  width: 400px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: cadetblue;
+  color: snow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 10px auto;
+  padding: 20px;
+}
+h2 {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+}
