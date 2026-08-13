@@ -1,33 +1,44 @@
 // Topshiriq metodlar 20ta
 
-let massiv = ["olma", "anor", "o'rik", "anjir", "shaftoli", "apelsin", "mandarin"]
-let massiv1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+let massiv = [
+  "olma",
+  "anor",
+  "o'rik",
+  "anjir",
+  "shaftoli",
+  "apelsin",
+  "mandarin",
+];
+let massiv1 = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25,
+];
 // 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
 // 2. Berilgan massivning boshidan 2 ta elementni shift() orqali olib tashlang
-// 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga 
+// 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga
 // "yangilik" so'zini qo'shing (splice)
 // 4. Berilgan massiv ichidagi "olma" so'zining indeksini indexOf() yordamida toping
-// 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf() 
+// 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf()
 // yordamida toping
 // 6. Berilgan massivdan 10 dan katta bo'lgan birinchi sonni find() yordamida toping
-// 7. Berilgan massivdan 5 ga bo'linadigan birinchi sonning indeksini findIndex() 
+// 7. Berilgan massivdan 5 ga bo'linadigan birinchi sonning indeksini findIndex()
 // yordamida toping
 // 8. Berilgan massivdan 3 ga karrali bo'lgan oxirgi sonni findLast() yordamida toping
-// 9. Berilgan massivdan 4 dan katta bo'lgan oxirgi sonning indeksini findLastIndex() 
+// 9. Berilgan massivdan 4 dan katta bo'lgan oxirgi sonning indeksini findLastIndex()
 // yordamida toping
-// 10. Berilgan massivning barcha [indeks, qiymat] juftliklarini entries() 
-// yordamida chiqaring 
+// 10. Berilgan massivning barcha [indeks, qiymat] juftliklarini entries()
+// yordamida chiqaring
 // 11. Berilgan massivning faqat indekslarini keys() yordamida chiqaring
 // 12. Berilgan massivning faqat qiymatlarini values() yordamida chiqaring
 // 13. Berilgan massivning boshiga 3 ta yangi element qo'shing (unshift)
 // 14. Berilgan massivning oxirgi elementini pop() qilib, yangi o'zgaruvchiga saqlang
-// 15. Berilgan massivdagi "nok" elementini topib, uning indeksini if yordamida 
+// 15. Berilgan massivdagi "nok" elementini topib, uning indeksini if yordamida
 // tekshiring (indexOf)
-// 16. Berilgan massivdan 7 dan katta bo'lgan barcha sonlarni find() yordamida 
+// 16. Berilgan massivdan 7 dan katta bo'lgan barcha sonlarni find() yordamida
 // toping va yangi massivga yig'ing
 // 17. Berilgan massivning o'rtasidan 2 ta elementni splice() yordamida olib tashlang
 // 18. Berilgan massivning 0-indeksidagi elementni unshift() yordamida o'zgartiring
-// 19. Berilgan massivning [indeks, qiymat] juftliklarini entries() va for of yordamida 
+// 19. Berilgan massivning [indeks, qiymat] juftliklarini entries() va for of yordamida
 // faqat indeksi toq bo'lganlarini chiqaring
 // 20. Berilgan massivning qiymatlarini values() va for of yordamida yig'indisini hisoblang
 
@@ -85,8 +96,8 @@ let massiv1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 // [1,2,3,4] - array / massiv
 // 8. Berilgan massivning eng katta elementini for yordamida toping
 let arr = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 114, 3, 23, 4, 324, 32, 4, 32, 4,
-  23, 42, 4, 2, 4, 324,
+  1, 2, 3, -4, 5, 6, 7, 8, 9, -10, 11, -12, 13, 114, 3, 23, 4, 324, 32, 4, 32,
+  4, 23, 42, 4, 2, 4, 324,
 ];
 
 // for (let i = 0; i <= arr.length; i++) {
@@ -97,11 +108,20 @@ let arr = [
 // 10. Foydalanuvchi kiritgan sonni teskari tartibda while yordamida chiqaring
 
 // 11. 1 dan 50 gacha bo'lgan toq sonlarning yig'indisini for yordamida toping
+
 // 12. Berilgan massiv elementlarini teskari tartibda for yordamida chiqaring
 // 13. Foydalanuvchi kiritgan sonning raqamlari yig'indisini while yordamida toping
 // let son = parseInt(prompt("son kiriting:"))
 
 // 14. Berilgan massivda nechta manfiy son borligini for yordamida hisoblang
+let manfiy = 0;
+for (let i of arr) {
+  if (i < 0) {
+    manfiy += 1;
+  }
+}
+console.log(manfiy);
+
 // 15. 1 dan 15 gacha bo'lgan sonlarning kvadratini for yordamida chiqaring
 // 16. Foydalanuvchi -1 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
 // let i;
