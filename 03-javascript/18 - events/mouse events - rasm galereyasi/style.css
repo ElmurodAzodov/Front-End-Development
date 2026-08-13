@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #16213e;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.image-card {
+  background: #0f3460;
+  padding: 60px 20px;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  color: white;
+  font-size: 18px;
+}
+
+.image-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.image-card:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+/* Turli xil ranglar */
+#card1 {
+  background: #e94560;
+}
+#card2 {
+  background: #533483;
+}
+#card3 {
+  background: #0f3460;
+}
+
+.info-panel {
+  background: #0f3460;
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+}
+
+.info-panel p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+#cursorPos,
+#lastEvent {
+  color: #e94560;
+  font-weight: bold;
+}

@@ -87,8 +87,8 @@
 // 2.3. Berilgan matnni so'zlarga ajrating (bo'shliq bo'yicha).
 // Input: "Men dastur yozaman"
 // Kutilyotgan natija: ["Men", "dastur", "yozaman"]
-let matn = prompt("Gapingizni yozing: ")
-console.log(matn.split(" "))
+// let matn = prompt("Gapingizni yozing: ");
+// console.log(matn.split(" "));
 
 // 2.4. Berilgan matndagi barcha "a" harflarini "o" ga almashtiring.
 // Input: "salom"
@@ -123,6 +123,9 @@ console.log(matn.split(" "))
 // 2.11. Berilgan matndagi barcha raqamlarni toping.
 // Input: "Narx: 15000 so'm"
 // Kutilyotgan natija: ["15000"]
+const text = "Narx: 15000 so'm";
+const numbers = text.match(/\d+/g);
+console.log(numbers);
 
 // 2.12. Berilgan matnni array elementlaridan birlashtiring.
 // Input: ["Men", "o'qiyman"], " "
@@ -419,7 +422,6 @@ console.log(matn.split(" "))
 //     }
 // }
 // console.log(newArr)
-
 
 // 4.2. Berilgan matnni tekshirib, u valid email manzili ekanligini aniqlang (regex bilan).
 // Input: "ali@gmail.com"
