@@ -13,7 +13,5 @@ btn.addEventListener("click", () => {
   btn.style.cursor = "default";
 
   // Ovozni ijro etish
-  sound.play().catch((err) => {
-    console.warn("Ovoz chiqarilmadi:", err);
-  });
+  sound.play()
 });

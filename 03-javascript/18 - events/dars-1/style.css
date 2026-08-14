@@ -1,0 +1,26 @@
+* {
+    padding: 0; margin: 0; box-sizing: border-box; transition: 1s;
+}
+
+.container {
+    width: 1440px;
+    height: 800px;
+    background-color: antiquewhite;
+    margin: 20px auto;
+    padding: 20px;
+}
+#btn1, #btn2 {
+    width: 120px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: #555;
+    color: snow;
+    font-size: 25px;
+}
+#btn1:hover, #btn2:hover {
+    transform: scale(1.2);
+}
+#btn1:active, #btn2:active {
+    transform: scale(0.8);
+}
