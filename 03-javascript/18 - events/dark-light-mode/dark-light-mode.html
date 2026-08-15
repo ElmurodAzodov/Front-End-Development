@@ -3,37 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Dark / Light Mode — Oddiy dars</title>
-    <style>
-      /* Oddiy light mode ranglari */
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding-top: 100px;
-        background-color: white;
-        color: black;
-        transition: 1s;
-      }
-
-      /* Dark mode uchun alohida klass.
-     Bu klass JS orqali <body> ga qo'shiladi yoki olib tashlanadi. */
-      .dark {
-        background-color: #1a1a1a;
-        color: white;
-      }
-
-      button {
-        font-size: 40px;
-        padding: 20px 20px;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        background-color: #eee;
-      }
-
-      .dark button {
-        background-color: #333;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Dark mode and Light mode</h1>
@@ -42,23 +12,6 @@
     <!-- Boshida quyosh turadi (chunki hozir light mode) -->
     <button id="myButton">☀️</button>
 
-    <script>
-      // 1-QADAM: tugmani DOM'dan topib olamiz
-      const button = document.getElementById("myButton");
-
-      // 2-QADAM: tugma bosilganda ishlaydigan funksiya yozamiz
-      button.addEventListener("click", function () {
-        // 3-QADAM: body'da "dark" klassi bor-yo'qligini tekshiramiz
-        // classList.toggle() — klass bo'lsa o'chiradi, bo'lmasa qo'shadi
-        document.body.classList.toggle("dark");
-
-        // 4-QADAM: hozir dark mode yoqilganmi, tekshiramiz
-        if (document.body.classList.contains("dark")) {
-          button.textContent = "🌙"; // dark mode bo'lsa — oy
-        } else {
-          button.textContent = "☀️"; // light mode bo'lsa — quyosh
-        }
-      });
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

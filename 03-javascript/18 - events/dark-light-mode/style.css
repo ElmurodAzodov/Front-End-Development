@@ -1,0 +1,29 @@
+/* Oddiy light mode ranglari */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px;
+  background-color: white;
+  color: black;
+  transition: 1s;
+}
+
+/* Dark mode uchun alohida klass.
+     Bu klass JS orqali <body> ga qo'shiladi yoki olib tashlanadi. */
+.dark {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+button {
+  font-size: 40px;
+  padding: 20px 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.dark button {
+  background-color: #333;
+}
