@@ -146,8 +146,8 @@
 // 2.16. Berilgan fayl nomining kengaytmasini oling.
 // Input: "document.pdf"
 // Kutilyotgan natija: "pdf"
-let str = "document.pdf"
-console.log(str.split(".").pop())
+// let str = "document.pdf"
+// console.log(str.split(".").pop())
 
 // 2.17. Berilgan matnni "*" belgisi bilan 10 ta belgigacha to'ldiring (chapdan).
 // Input: "abc"
@@ -158,10 +158,14 @@ console.log(str.split(".").pop())
 // 2.18. Berilgan matn ichida "JS" so'zi nechanchi indeksda joylashganini toping.
 // Input: "Men JS o'rganyapman"
 // Kutilyotgan natija: 4
+// let matn = "Men JS o'rganyapman"
+// console.log(matn.indexOf("JS"))
 
 // 2.19. Berilgan matndagi barcha probellarni vergulga almashtiring.
-// Input: "bir ikk uch"
-// Kutilyotgan natija: "bir,ikk,uch"
+// Input: "bir ikki uch"
+// Kutilyotgan natija: "bir,ikki,uch"
+let matn = "bir ikki uch"
+console.log(matn.replaceAll(" ", ","))
 
 // 2.20. Berilgan matnning har bir belgisini alohida array elementiga aylantiring.
 // Input: "salom"
