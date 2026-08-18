@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      .todo {
+        width: 400px;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .form {
+        display: flex;
+        gap: 10px;
+      }
+
+      input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      button {
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .add-btn {
+        background: green;
+        color: white;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        margin-top: 10px;
+        background: #f5f5f5;
+        border-radius: 6px;
+      }
+
+      li span {
+        cursor: pointer;
+      }
+
+      li.completed span {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .delete-btn {
+        background: red;
+        color: white;
+      }
+
+      .count {
+        margin-top: 15px;
+        color: #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="todo">
+      <h1>Todo List</h1>
+
+      <div class="form">
+        <input type="text" id="todoInput" placeholder="Vazifa yozing..." />
+
+        <button class="add-btn" id="addBtn">Qo‘shish</button>
+      </div>
+
+      <ul id="todoList"></ul>
+
+      <div class="count">Vazifalar soni: <span id="count">0</span></div>
+    </div>
+
+    <script>
+      const input = document.querySelector("#todoInput");
+      const addBtn = document.querySelector("#addBtn");
+      const todoList = document.querySelector("#todoList");
+      const count = document.querySelector("#count");
+
+      addBtn.addEventListener("click", addTodo);
+
+      function addTodo() {
+        const text = input.value.trim();
+
+        if (text === "") {
+          alert("Vazifa yozing!");
+          return;
+        }
+
+        const li = document.createElement("li");
+
+        li.innerHTML = `
+                <span>${text}</span>
+                <button class="delete-btn">O‘chirish</button>
+            `;
+
+        todoList.appendChild(li);
+
+        input.value = "";
+
+        updateCount();
+
+        // Vazifani bajarilgan qilish
+        li.querySelector("span").addEventListener("click", () => {
+          li.classList.toggle("completed");
+        });
+
+        // Vazifani o‘chirish
+        li.querySelector(".delete-btn").addEventListener("click", () => {
+          li.remove();
+          updateCount();
+        });
+      }
+
+      function updateCount() {
+        count.textContent = todoList.children.length;
+      }
+    </script>
+  </body>
+</html>
