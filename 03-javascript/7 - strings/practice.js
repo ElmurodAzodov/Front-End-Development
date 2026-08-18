@@ -171,6 +171,7 @@ console.log(matn.replaceAll(" ", ","))
 // Input: "salom"
 // Kutilyotgan natija: ["s","a","l","o","m"]
 
+
 // 2.21. Berilgan matn "https://" bilan boshlanishini tekshiring.
 // Input: "https://google.com"
 // Kutilyotgan natija: true
