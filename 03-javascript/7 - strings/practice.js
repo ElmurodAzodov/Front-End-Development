@@ -123,9 +123,9 @@
 // 2.11. Berilgan matndagi barcha raqamlarni toping.
 // Input: "Narx: 15000 so'm"
 // Kutilyotgan natija: ["15000"]
-const text = "Narx: 15000 so'm";
-const numbers = text.match(/\d+/g);
-console.log(numbers);
+// const text = "Narx: 15000 so'm";
+// const numbers = text.match(/\d+/g);
+// console.log(numbers);
 
 // 2.12. Berilgan matnni array elementlaridan birlashtiring.
 // Input: ["Men", "o'qiyman"], " "
@@ -150,6 +150,8 @@ console.log(numbers);
 // 2.17. Berilgan matnni "*" belgisi bilan 10 ta belgigacha to'ldiring (chapdan).
 // Input: "abc"
 // Kutilyotgan natija: "*******abc"
+let str = "abc";
+console.log(str.padStart(10, "*"));
 
 // 2.18. Berilgan matn ichida "JS" so'zi nechanchi indeksda joylashganini toping.
 // Input: "Men JS o'rganyapman"
