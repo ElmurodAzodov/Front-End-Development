@@ -117,15 +117,19 @@
         updateCount();
 
         li.querySelector("span").addEventListener("click", () => {
-            li.classList.toggle("completed")
-        })
+          li.classList.toggle("completed");
+        });
 
         li.querySelector(".delete-btn").addEventListener("click", () => {
-            li.remove()
-            updateCount()
-        })
+          let javob = prompt("Siz rostan ham o'chirmoqchimisiz: ha/yoq");
+          if (javob.toLocaleLowerCase() === "ha") {
+            li.remove();
+          } else if (javob.toLocaleLowerCase() === "yoq") {
+            li.style.backgroundColor = "orange";
+          }
 
-
+          updateCount();
+        });
 
         function updateCount() {
           count.textContent = todoList.children.length;
