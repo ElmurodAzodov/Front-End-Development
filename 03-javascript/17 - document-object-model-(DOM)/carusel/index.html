@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Card Slider</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: Arial, sans-serif;
+
+        background: #f1f5f9;
+      }
+
+      .container {
+        width: 900px;
+        max-width: 90%;
+      }
+
+      /* CARDLAR KO'RINADIGAN JOY */
+
+      .cards-wrapper {
+        overflow: hidden;
+        border-radius: 15px;
+      }
+
+      /* BARCHA CARDLAR */
+
+      .cards {
+        display: flex;
+        gap: 20px;
+
+        overflow-x: auto;
+
+        scroll-behavior: smooth;
+
+        scrollbar-width: none;
+      }
+
+      .cards::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* CARD */
+
+      .card {
+        min-width: 280px;
+        height: 200px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background: white;
+
+        border-radius: 15px;
+
+        font-size: 30px;
+        font-weight: bold;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+        flex-shrink: 0;
+      }
+
+      /* BUTTONS */
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+
+        gap: 15px;
+
+        margin-top: 25px;
+      }
+
+      button {
+        padding: 12px 25px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: #2563eb;
+        color: white;
+
+        font-size: 16px;
+
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      button:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+      }
+
+      /* TELEFON */
+
+      @media (max-width: 600px) {
+        .container {
+          max-width: 90%;
+        }
+
+        .card {
+          min-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="cards-wrapper">
+        <div class="cards" id="cards">
+          <div class="card">Card 1</div>
+          <div class="card">Card 2</div>
+          <div class="card">Card 3</div>
+          <div class="card">Card 4</div>
+          <div class="card">Card 5</div>
+          <div class="card">Card 6</div>
+          <div class="card">Card 7</div>
+          <div class="card">Card 8</div>
+          <div class="card">Card 9</div>
+          <div class="card">Card 10</div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="left">← Chapga</button>
+
+        <button id="right">O'ngga →</button>
+      </div>
+    </div>
+
+    <script>
+      // CARDS CONTAINER
+
+      let cards = document.querySelector("#cards");
+
+      // BUTTONLAR
+
+      let left = document.querySelector("#left");
+
+      let right = document.querySelector("#right");
+
+      // CARDLARNI OLAMIZ
+
+      let card = document.querySelector(".card");
+
+      // BITTA CARD + GAP
+
+      function getCardWidth() {
+        let cardWidth = card.offsetWidth;
+
+        let gap = 20;
+
+        return cardWidth + gap;
+      }
+
+      // O'NGGA
+
+      right.addEventListener("click", function () {
+        cards.scrollBy({
+          left: getCardWidth(),
+          behavior: "smooth",
+        });
+      });
+
+      // CHAPGA
+
+      left.addEventListener("click", function () {
+        cards.scrollBy({
+          left: -getCardWidth(),
+          behavior: "smooth",
+        });
+      });
+
+      // BUTTONLARNI TEKSHIRISH
+
+      function updateButtons() {
+        // ENG CHAP HOLAT
+
+        if (cards.scrollLeft <= 0) {
+          left.disabled = true;
+        } else {
+          left.disabled = false;
+        }
+
+        // ENG O'NG HOLAT
+
+        let maxScroll = cards.scrollWidth - cards.clientWidth;
+
+        if (cards.scrollLeft >= maxScroll - 1) {
+          right.disabled = true;
+        } else {
+          right.disabled = false;
+        }
+      }
+
+      // SCROLL BO'LGANDA
+
+      cards.addEventListener("scroll", function () {
+        updateButtons();
+      });
+
+      // BOSHLANG'ICH HOLAT
+
+      updateButtons();
+    </script>
+  </body>
+</html>
