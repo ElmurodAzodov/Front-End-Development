@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>To-Do List</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: Arial, sans-serif;
+
+        background:
+          radial-gradient(circle at top left, #6366f1, transparent 35%),
+          radial-gradient(circle at bottom right, #06b6d4, transparent 35%),
+          #0f172a;
+
+        padding: 20px;
+      }
+
+      /* CONTAINER */
+
+      .todo {
+        width: 100%;
+        max-width: 550px;
+
+        padding: 30px;
+
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        backdrop-filter: blur(20px);
+
+        border-radius: 24px;
+
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      /* HEADER */
+
+      .header {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .header h1 {
+        color: white;
+        font-size: 36px;
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        color: #cbd5e1;
+        font-size: 15px;
+      }
+
+      /* INPUT */
+
+      .input-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input {
+        flex: 1;
+
+        padding: 14px 16px;
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+
+        outline: none;
+
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+
+        font-size: 15px;
+
+        transition: 0.2s;
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+
+      input:focus {
+        border-color: #818cf8;
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* BUTTON */
+
+      button {
+        border: none;
+        cursor: pointer;
+
+        font-size: 14px;
+        font-weight: bold;
+
+        border-radius: 10px;
+
+        transition: 0.2s;
+      }
+
+      #addBtn {
+        padding: 0 20px;
+
+        background: #6366f1;
+        color: white;
+      }
+
+      #addBtn:hover {
+        background: #4f46e5;
+        transform: translateY(-2px);
+      }
+
+      /* INFO */
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 15px;
+
+        color: #cbd5e1;
+        font-size: 14px;
+      }
+
+      #count {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        min-width: 28px;
+        height: 28px;
+
+        padding: 0 8px;
+
+        background: #6366f1;
+        color: white;
+
+        border-radius: 50px;
+
+        font-weight: bold;
+      }
+
+      /* LIST */
+
+      ul {
+        list-style: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        max-height: 350px;
+        overflow-y: auto;
+
+        margin-bottom: 20px;
+      }
+
+      /* TASK */
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 14px;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 14px;
+
+        color: white;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      li:hover {
+        background: rgba(255, 255, 255, 0.14);
+        transform: translateY(-2px);
+      }
+
+      /* TASK TEXT */
+
+      .task-text {
+        flex: 1;
+
+        font-size: 15px;
+
+        word-break: break-word;
+      }
+
+      /* COMPLETED */
+
+      .completed .task-text {
+        text-decoration: line-through;
+        color: #94a3b8;
+      }
+
+      .completed {
+        opacity: 0.6;
+      }
+
+      /* ACTION BUTTONS */
+
+      .edit,
+      .delete {
+        padding: 8px 10px;
+
+        color: white;
+
+        flex-shrink: 0;
+      }
+
+      .edit {
+        background: #f59e0b;
+      }
+
+      .edit:hover {
+        background: #d97706;
+      }
+
+      .delete {
+        background: #ef4444;
+      }
+
+      .delete:hover {
+        background: #dc2626;
+      }
+
+      /* DELETE ALL */
+
+      #deleteAll {
+        width: 100%;
+
+        padding: 13px;
+
+        background: rgba(239, 68, 68, 0.15);
+
+        border: 1px solid rgba(239, 68, 68, 0.3);
+
+        color: #fca5a5;
+      }
+
+      #deleteAll:hover {
+        background: #ef4444;
+        color: white;
+      }
+
+      /* SCROLLBAR */
+
+      ul::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ul::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ul::-webkit-scrollbar-thumb {
+        background: #6366f1;
+        border-radius: 10px;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 500px) {
+        .todo {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 30px;
+        }
+
+        .input-box {
+          flex-direction: column;
+        }
+
+        #addBtn {
+          padding: 13px;
+        }
+
+        li {
+          align-items: flex-start;
+        }
+
+        .edit,
+        .delete {
+          padding: 7px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="todo">
+      <!-- HEADER -->
+
+      <div class="header">
+        <h1>My Tasks</h1>
+        <p>Bugungi vazifalaringizni boshqaring</p>
+      </div>
+
+      <!-- INPUT -->
+
+      <div class="input-box">
+        <input id="input" type="text" placeholder="Yangi vazifa yozing..." />
+
+        <button id="addBtn">Qo'shish</button>
+      </div>
+
+      <!-- INFO -->
+
+      <div class="info">
+        <span>Jami vazifalar</span>
+
+        <span id="count">0</span>
+      </div>
+
+      <!-- TASKS -->
+
+      <ul id="list"></ul>
+
+      <!-- DELETE ALL -->
+
+      <button id="deleteAll">🗑 Barchasini o'chirish</button>
+    </div>
+
+    <script>
+      // ELEMENTLARNI OLISH
+
+      let input = document.querySelector("#input");
+      let addBtn = document.querySelector("#addBtn");
+      let list = document.querySelector("#list");
+      let count = document.querySelector("#count");
+      let deleteAll = document.querySelector("#deleteAll");
+
+      // VAZIFA QO'SHISH
+
+      addBtn.addEventListener("click", function () {
+        let text = input.value.trim();
+
+        if (text === "") {
+          return;
+        }
+
+        // LI YARATISH
+
+        let li = document.createElement("li");
+
+        // TEXT YARATISH
+
+        let taskText = document.createElement("span");
+
+        taskText.textContent = text;
+
+        taskText.classList.add("task-text");
+
+        // BAJARILGAN QILISH
+
+        li.addEventListener("click", function () {
+          li.classList.toggle("completed");
+        });
+
+        // O'CHIRISH TUGMASI
+
+        let deleteBtn = document.createElement("button");
+
+        deleteBtn.textContent = "O'chirish";
+
+        deleteBtn.classList.add("delete");
+
+        deleteBtn.addEventListener("click", function (event) {
+          event.stopPropagation();
+
+          li.remove();
+
+          updateCount();
+        });
+
+        // TAHRIRLASH TUGMASI
+
+        let editBtn = document.createElement("button");
+
+        editBtn.textContent = "Tahrirlash";
+
+        editBtn.classList.add("edit");
+
+        editBtn.addEventListener("click", function (event) {
+          event.stopPropagation();
+
+          let newText = prompt("Yangi vazifani yozing:", taskText.textContent);
+
+          if (newText !== null && newText.trim() !== "") {
+            taskText.textContent = newText.trim();
+          }
+        });
+
+        // ELEMENTLARNI LI ICHIGA QO'SHISH
+
+        li.appendChild(taskText);
+
+        li.appendChild(editBtn);
+
+        li.appendChild(deleteBtn);
+
+        // LI NI UL ICHIGA QO'SHISH
+
+        list.appendChild(li);
+
+        // INPUTNI TOZALASH
+
+        input.value = "";
+
+        input.focus();
+
+        // SONNI YANGILASH
+
+        updateCount();
+      });
+
+      // ENTER BOSILGANDA QO'SHISH
+
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          addBtn.click();
+        }
+      });
+
+      // VAZIFALAR SONINI YANGILASH
+
+      function updateCount() {
+        count.textContent = list.children.length;
+      }
+
+      // BARCHASINI O'CHIRISH
+
+      deleteAll.addEventListener("click", function () {
+        if (list.children.length === 0) {
+          return;
+        }
+
+        list.innerHTML = "";
+
+        updateCount();
+      });
+    </script>
+  </body>
+</html>

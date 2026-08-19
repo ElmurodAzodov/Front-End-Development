@@ -1,0 +1,635 @@
+```html
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>To-Do List</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+
+        font-family: Arial, sans-serif;
+
+        background:
+          radial-gradient(circle at top left, #6366f1, transparent 35%),
+          radial-gradient(circle at bottom right, #06b6d4, transparent 35%),
+          #0f172a;
+      }
+
+      .todo {
+        width: 100%;
+        max-width: 550px;
+
+        padding: 30px;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        backdrop-filter: blur(20px);
+
+        border-radius: 24px;
+
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      /* HEADER */
+
+      .header {
+        text-align: center;
+
+        margin-bottom: 25px;
+      }
+
+      .header h1 {
+        color: white;
+
+        font-size: 36px;
+
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        color: #cbd5e1;
+
+        font-size: 15px;
+      }
+
+      /* INPUT */
+
+      .input-box {
+        display: flex;
+
+        gap: 10px;
+
+        margin-bottom: 20px;
+      }
+
+      input {
+        flex: 1;
+
+        padding: 14px 16px;
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        border-radius: 12px;
+
+        outline: none;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        color: white;
+
+        font-size: 15px;
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+
+      input:focus {
+        border-color: #818cf8;
+
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* ADD BUTTON */
+
+      #addBtn {
+        padding: 0 20px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background: #6366f1;
+
+        color: white;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      #addBtn:hover {
+        background: #4f46e5;
+
+        transform: translateY(-2px);
+      }
+
+      /* INFO */
+
+      .info {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        margin-bottom: 15px;
+
+        color: #cbd5e1;
+
+        font-size: 14px;
+      }
+
+      #count {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        min-width: 28px;
+
+        height: 28px;
+
+        padding: 0 8px;
+
+        background: #6366f1;
+
+        color: white;
+
+        border-radius: 50px;
+
+        font-weight: bold;
+      }
+
+      /* LIST */
+
+      ul {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        max-height: 350px;
+
+        overflow-y: auto;
+
+        margin-bottom: 20px;
+
+        padding: 0;
+      }
+
+      /* TASK */
+
+      li {
+        list-style: none;
+
+        padding: 15px;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 14px;
+
+        color: white;
+
+        transition: 0.2s;
+      }
+
+      li:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* TASK TEXT */
+
+      .task-text {
+        display: block;
+
+        font-size: 16px;
+
+        line-height: 1.5;
+
+        word-break: break-word;
+
+        cursor: pointer;
+      }
+
+      /* ACTIONS */
+
+      .actions {
+        display: flex;
+
+        gap: 8px;
+
+        margin-top: 12px;
+
+        padding-top: 10px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .actions button {
+        flex: 1;
+
+        padding: 9px;
+
+        border: none;
+
+        border-radius: 9px;
+
+        color: white;
+
+        font-size: 13px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      .edit {
+        background: rgba(245, 158, 11, 0.2);
+
+        color: #fbbf24 !important;
+      }
+
+      .edit:hover {
+        background: #f59e0b;
+
+        color: white !important;
+      }
+
+      .delete {
+        background: rgba(239, 68, 68, 0.2);
+
+        color: #f87171 !important;
+      }
+
+      .delete:hover {
+        background: #ef4444;
+
+        color: white !important;
+      }
+
+      /* COMPLETED */
+
+      .completed .task-text {
+        text-decoration: line-through;
+
+        color: #94a3b8;
+      }
+
+      .completed {
+        opacity: 0.6;
+      }
+
+      /* EDIT MODE */
+
+      .edit-input {
+        width: 100%;
+
+        padding: 12px;
+
+        border: 1px solid #6366f1;
+
+        border-radius: 10px;
+
+        outline: none;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        color: white;
+
+        font-size: 16px;
+      }
+
+      .save {
+        background: rgba(34, 197, 94, 0.2);
+
+        color: #4ade80 !important;
+      }
+
+      .save:hover {
+        background: #22c55e;
+
+        color: white !important;
+      }
+
+      .cancel {
+        background: rgba(148, 163, 184, 0.2);
+
+        color: #cbd5e1 !important;
+      }
+
+      .cancel:hover {
+        background: #64748b;
+
+        color: white !important;
+      }
+
+      /* DELETE ALL */
+
+      #deleteAll {
+        width: 100%;
+
+        padding: 13px;
+
+        border: 1px solid rgba(239, 68, 68, 0.3);
+
+        border-radius: 12px;
+
+        background: rgba(239, 68, 68, 0.15);
+
+        color: #fca5a5;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      #deleteAll:hover {
+        background: #ef4444;
+
+        color: white;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 500px) {
+        .todo {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 30px;
+        }
+
+        .input-box {
+          flex-direction: column;
+        }
+
+        #addBtn {
+          padding: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="todo">
+      <div class="header">
+        <h1>My Tasks</h1>
+
+        <p>Bugungi vazifalaringizni boshqaring</p>
+      </div>
+
+      <!-- INPUT -->
+
+      <div class="input-box">
+        <input id="input" type="text" placeholder="Yangi vazifa yozing..." />
+
+        <button id="addBtn">Qo'shish</button>
+      </div>
+
+      <!-- COUNT -->
+
+      <div class="info">
+        <span>Jami vazifalar</span>
+
+        <span id="count">0</span>
+      </div>
+
+      <!-- LIST -->
+
+      <ul id="list"></ul>
+
+      <!-- DELETE ALL -->
+
+      <button id="deleteAll">🗑 Barchasini o'chirish</button>
+    </div>
+
+    <script>
+      // ELEMENTLARNI OLAMIZ
+
+      let input = document.querySelector("#input");
+
+      let addBtn = document.querySelector("#addBtn");
+
+      let list = document.querySelector("#list");
+
+      let count = document.querySelector("#count");
+
+      let deleteAll = document.querySelector("#deleteAll");
+
+      // VAZIFA QO'SHISH
+
+      addBtn.addEventListener("click", function () {
+        let text = input.value.trim();
+
+        if (text === "") {
+          return;
+        }
+
+        // LI
+
+        let li = document.createElement("li");
+
+        // TEXT
+
+        let taskText = document.createElement("span");
+
+        taskText.textContent = text;
+
+        taskText.classList.add("task-text");
+
+        // BAJARILGAN QILISH
+
+        taskText.addEventListener("click", function () {
+          li.classList.toggle("completed");
+        });
+
+        // ACTIONS
+
+        let actions = document.createElement("div");
+
+        actions.classList.add("actions");
+
+        // EDIT BUTTON
+
+        let editBtn = document.createElement("button");
+
+        editBtn.textContent = "✏️ Tahrirlash";
+
+        editBtn.classList.add("edit");
+
+        // DELETE BUTTON
+
+        let deleteBtn = document.createElement("button");
+
+        deleteBtn.textContent = "🗑 O'chirish";
+
+        deleteBtn.classList.add("delete");
+
+        // EDIT
+
+        editBtn.addEventListener("click", function () {
+          // INPUT YARATAMIZ
+
+          let editInput = document.createElement("input");
+
+          editInput.value = taskText.textContent;
+
+          editInput.classList.add("edit-input");
+
+          // BUTTONLAR
+
+          let saveBtn = document.createElement("button");
+
+          saveBtn.textContent = "✓ Saqlash";
+
+          saveBtn.classList.add("save");
+
+          let cancelBtn = document.createElement("button");
+
+          cancelBtn.textContent = "✕ Bekor qilish";
+
+          cancelBtn.classList.add("cancel");
+
+          // ACTIONSNI TOZALAYMIZ
+
+          actions.innerHTML = "";
+
+          // YANGI BUTTONLARNI QO'SHAMIZ
+
+          actions.appendChild(saveBtn);
+
+          actions.appendChild(cancelBtn);
+
+          // TEXT O'RNIGA INPUT
+
+          taskText.replaceWith(editInput);
+
+          // INPUTGA FOCUS
+
+          editInput.focus();
+
+          // SAQLASH
+
+          saveBtn.addEventListener("click", function () {
+            let newText = editInput.value.trim();
+
+            if (newText === "") {
+              return;
+            }
+
+            taskText.textContent = newText;
+
+            editInput.replaceWith(taskText);
+
+            actions.innerHTML = "";
+
+            actions.appendChild(editBtn);
+
+            actions.appendChild(deleteBtn);
+          });
+
+          // BEKOR QILISH
+
+          cancelBtn.addEventListener("click", function () {
+            editInput.replaceWith(taskText);
+
+            actions.innerHTML = "";
+
+            actions.appendChild(editBtn);
+
+            actions.appendChild(deleteBtn);
+          });
+
+          // ENTER = SAQLASH
+
+          editInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              saveBtn.click();
+            }
+
+            if (event.key === "Escape") {
+              cancelBtn.click();
+            }
+          });
+        });
+
+        // DELETE
+
+        deleteBtn.addEventListener("click", function () {
+          li.remove();
+
+          updateCount();
+        });
+
+        // ACTIONS ICHIGA BUTTONLAR
+
+        actions.appendChild(editBtn);
+
+        actions.appendChild(deleteBtn);
+
+        // LI ICHIGA
+
+        li.appendChild(taskText);
+
+        li.appendChild(actions);
+
+        // LISTGA QO'SHAMIZ
+
+        list.appendChild(li);
+
+        // INPUTNI TOZALAYMIZ
+
+        input.value = "";
+
+        input.focus();
+
+        // COUNT
+
+        updateCount();
+      });
+
+      // ENTER BILAN QO'SHISH
+
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          addBtn.click();
+        }
+      });
+
+      // COUNT YANGILASH
+
+      function updateCount() {
+        count.textContent = list.children.length;
+      }
+
+      // BARCHASINI O'CHIRISH
+
+      deleteAll.addEventListener("click", function () {
+        list.innerHTML = "";
+
+        updateCount();
+      });
+    </script>
+  </body>
+</html>
+```

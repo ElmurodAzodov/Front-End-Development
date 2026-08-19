@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+      }
+
+      .todo {
+        width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 65%;
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #eee;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+
+      .delete {
+        float: right;
+      }
+
+      .edit {
+        float: right;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo">
+      <h1>To-Do List</h1>
+
+      <input id="input" type="text" placeholder="Vazifa yozing" />
+
+      <button id="addBtn">Qo'shish</button>
+
+      <p>Vazifalar soni: <span id="count">0</span></p>
+
+      <ul id="list"></ul>
+
+      <button id="deleteAll">Barchasini o'chirish</button>
+    </div>
+
+    <script>
+      let input = document.querySelector("#input");
+      let addBtn = document.querySelector("#addBtn");
+      let list = document.querySelector("#list");
+      let count = document.querySelector("#count");
+      let deleteAll = document.querySelector("#deleteAll");
+
+      // VAZIFA QO'SHISH
+      addBtn.addEventListener("click", function () {
+        let text = input.value;
+
+        if (text === "") {
+          return;
+        }
+
+        let li = document.createElement("li");
+
+        li.textContent = text;
+
+        // BAJARILGAN QILISH
+        li.addEventListener("click", function () {
+          li.classList.toggle("completed");
+        });
+
+        // O'CHIRISH TUGMASI
+        let deleteBtn = document.createElement("button");
+
+        deleteBtn.textContent = "O'chirish";
+
+        deleteBtn.classList.add("delete");
+
+        deleteBtn.addEventListener("click", function (event) {
+          event.stopPropagation();
+
+          li.remove();
+
+          updateCount();
+        });
+
+        // TAHRIRLASH TUGMASI
+        let editBtn = document.createElement("button");
+
+        editBtn.textContent = "Tahrirlash";
+
+        editBtn.classList.add("edit");
+
+        editBtn.addEventListener("click", function (event) {
+          event.stopPropagation();
+
+          let newText = prompt(
+            "Yangi vazifani yozing:",
+            li.firstChild.textContent,
+          );
+
+          if (newText !== null && newText !== "") {
+            li.firstChild.textContent = newText;
+          }
+        });
+
+        li.appendChild(deleteBtn);
+        li.appendChild(editBtn);
+
+        list.appendChild(li);
+
+        input.value = "";
+
+        updateCount();
+      });
+
+      // ENTER BOSILGANDA QO'SHISH
+      input.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          addBtn.click();
+        }
+      });
+
+      // VAZIFALAR SONINI YANGILASH
+      function updateCount() {
+        count.textContent = list.children.length;
+      }
+
+      // BARCHASINI O'CHIRISH
+      deleteAll.addEventListener("click", function () {
+        list.innerHTML = "";
+
+        updateCount();
+      });
+    </script>
+  </body>
+</html>
