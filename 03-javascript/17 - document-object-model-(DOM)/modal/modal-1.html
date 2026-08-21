@@ -23,18 +23,19 @@
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;
         inset: 0;
-        /* display: none;
+        display: none;
         justify-content: center;
-        align-items: center; */
+        align-items: center;
       }
       .modal-content {
         width: 350px;
         padding: 30px;
-
         background-color: white;
         border-radius: 10px;
-
         text-align: center;
+      }
+      .modal.active {
+        display: flex;
       }
     </style>
   </head>
@@ -50,5 +51,21 @@
         <button class="close-btn">Yopish</button>
       </div>
     </div>
+
+    <script>
+      const openBtn = document.querySelector(".open-btn");
+
+      const closeBtn = document.querySelector(".close-btn");
+
+      const modal = document.querySelector(".modal");
+
+      openBtn.addEventListener("click", function () {
+        modal.classList.add("active");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        modal.classList.remove("active");
+      });
+    </script>
   </body>
 </html>
