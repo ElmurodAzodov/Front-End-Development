@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        transition: 1s;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        /* top: 0; bottom: 0; right: 0; left: 0; */
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal.active {
+        display: flex;
+      }
+      .modal-content {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="open-btn">Tizimga kirish</button>
+
+    <div class="modal">
+      <form class="modal-content">
+        <label for="ism">Ismingizni yozing:</label>
+        <input type="text" name="ism" id="ism" />
+        <label for="parol">Parolingizni kiriting:</label>
+        <input type="password" name="parol" id="parol" />
+        <button class="send">Yuborish</button>
+
+        <button class="close-btn">Yopish</button>
+      </form>
+    </div>
+
+    <script>
+      const openBtn = document.querySelector(".open-btn");
+      const closeBtn = document.querySelector(".close-btn");
+      const modal = document.querySelector(".modal");
+
+      openBtn.addEventListener("click", () => {
+        modal.classList.add("active");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
