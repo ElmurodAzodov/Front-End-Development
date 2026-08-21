@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-content">
+        <h1 class="logo">MyShop</h1>
+
+        <button class="cart-btn" id="cartBtn">
+          🛒 Savat
+          <span id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+      <h2 class="title">Mahsulotlar</h2>
+
+      <!-- Products -->
+      <section class="products" id="products">
+        <div class="product-card">
+          <div class="product-image">📱</div>
+
+          <h3>Smartfon</h3>
+
+          <p class="price">3 500 000 so'm</p>
+
+          <button
+            class="add-btn"
+            data-id="1"
+            data-name="Smartfon"
+            data-price="3500000"
+          >
+            Savatga qo'shish
+          </button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">💻</div>
+
+          <h3>Noutbuk</h3>
+
+          <p class="price">8 500 000 so'm</p>
+
+          <button
+            class="add-btn"
+            data-id="2"
+            data-name="Noutbuk"
+            data-price="8500000"
+          >
+            Savatga qo'shish
+          </button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🎧</div>
+
+          <h3>Quloqchin</h3>
+
+          <p class="price">450 000 so'm</p>
+
+          <button
+            class="add-btn"
+            data-id="3"
+            data-name="Quloqchin"
+            data-price="450000"
+          >
+            Savatga qo'shish
+          </button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">⌚</div>
+
+          <h3>Smart Watch</h3>
+
+          <p class="price">750 000 so'm</p>
+
+          <button
+            class="add-btn"
+            data-id="4"
+            data-name="Smart Watch"
+            data-price="750000"
+          >
+            Savatga qo'shish
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart">
+        <div class="cart-header">
+          <h2>Savat</h2>
+
+          <button id="closeCart">✕</button>
+        </div>
+
+        <!-- Cart products -->
+        <div class="cart-items" id="cartItems">
+          <p class="empty-cart">Savat hozircha bo'sh</p>
+        </div>
+
+        <!-- Cart footer -->
+        <div class="cart-footer">
+          <div class="total">
+            <span>Jami:</span>
+
+            <strong id="totalPrice"> 0 so'm </strong>
+          </div>
+
+          <button class="order-btn">Buyurtma berish</button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
