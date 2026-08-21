@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ochish tugmasi */
+.open-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.open-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal ochilganda */
+.modal.active {
+  display: flex;
+}
+
+/* Modal ichidagi qism */
+.modal-content {
+  position: relative;
+
+  width: 400px;
+  max-width: 90%;
+
+  padding: 30px;
+
+  background-color: white;
+  border-radius: 12px;
+
+  text-align: center;
+
+  animation: modalOpen 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* X tugmasi */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+
+  border: none;
+  background: none;
+
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Tasdiqlash */
+.confirm-btn {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #16a34a;
+  color: white;
+
+  cursor: pointer;
+}
+
+@keyframes modalOpen {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
