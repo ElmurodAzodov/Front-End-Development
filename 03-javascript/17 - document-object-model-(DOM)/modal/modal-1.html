@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Modal Window</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Modalni ochish tugmasi */
+      .open-btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+
+        background-color: blue;
+        color: white;
+
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Modal */
+      .modal {
+        position: fixed;
+        inset: 0;
+
+        background-color: rgba(0, 0, 0, 0.5);
+
+        display: none;
+
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Modal ochilganda */
+      .modal.active {
+        display: flex;
+      }
+
+      /* Modal ichidagi oyna */
+      .modal-content {
+        width: 350px;
+        padding: 30px;
+
+        background-color: white;
+        border-radius: 10px;
+
+        text-align: center;
+      }
+
+      .modal-content h2 {
+        margin-bottom: 15px;
+      }
+
+      .modal-content p {
+        margin-bottom: 20px;
+      }
+
+      /* Yopish tugmasi */
+      .close-btn {
+        padding: 8px 20px;
+
+        border: none;
+        border-radius: 6px;
+
+        background-color: red;
+        color: white;
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Modalni ochish -->
+    <button class="open-btn">Modalni ochish</button>
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Salom!</h2>
+
+        <p>Bu mening modal oynacham.</p>
+
+        <button class="close-btn">Yopish</button>
+      </div>
+    </div>
+
+    <script>
+      // HTML elementlarini olish
+      const openBtn = document.querySelector(".open-btn");
+      const closeBtn = document.querySelector(".close-btn");
+      const modal = document.querySelector(".modal");
+
+      // Modalni ochish
+      openBtn.addEventListener("click", function () {
+        modal.classList.add("active");
+      });
+
+      // Modalni yopish
+      closeBtn.addEventListener("click", function () {
+        modal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
