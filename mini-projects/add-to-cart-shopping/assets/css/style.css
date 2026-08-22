@@ -203,7 +203,7 @@ header .shopping span {
 
 .list .item img {
   width: 90%;
-  height: 150px;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px;
 }
