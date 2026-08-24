@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth Demo — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="brand">
+    <span class="brand__dot"></span>
+    web-storage-auth
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard__header">
+      <h1 class="dashboard__welcome">Xush kelibsiz, <span id="user-name">...</span></h1>
+      <button id="logout-btn" class="btn btn--ghost">Chiqish</button>
+    </div>
+
+    <div class="grid">
+      <div class="stat">
+        <div class="stat__label">Email</div>
+        <div class="stat__value" id="stat-email">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Kirgan vaqti</div>
+        <div class="stat__value" id="stat-login-time">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Sessiya tokeni (sessionStorage)</div>
+        <div class="stat__value" id="stat-token">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Oxirgi login (cookie)</div>
+        <div class="stat__value" id="stat-cookie">—</div>
+      </div>
+    </div>
+
+    <p class="hint">
+      Bu sahifa faqat tizimga kirgan foydalanuvchilar uchun ochiladi. Agar
+      "Meni eslab qol" belgilanmagan bo'lsa, shu tabni yopsangiz sessiya
+      o'chib ketadi (sessionStorage). "Chiqish" tugmasini bossangiz, shu
+      saytning boshqa ochiq tablari ham avtomatik chiqib ketadi (storage
+      event orqali sinxronlashtirilgan).
+    </p>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

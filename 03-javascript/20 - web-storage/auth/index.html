@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth Demo — Kirish / Ro'yxatdan o'tish</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="brand">
+    <span class="brand__dot"></span>
+    web-storage-auth
+  </div>
+
+  <div class="card">
+    <p class="card__eyebrow">localStorage · sessionStorage · cookies</p>
+    <h1 class="card__title">Auth Demo</h1>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Kirish</button>
+      <button class="tab" data-tab="register">Ro'yxatdan o'tish</button>
+    </div>
+
+    <!-- KIRISH FORMASI -->
+    <form id="login-form" class="form active">
+      <div class="field">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="login-password">Parol</label>
+        <input type="password" id="login-password" required autocomplete="current-password" />
+      </div>
+      <label class="checkbox-row">
+        <input type="checkbox" id="login-remember" />
+        Meni eslab qol (localStorage)
+      </label>
+      <button type="submit" class="btn">Tizimga kirish</button>
+      <p id="login-message" class="message"></p>
+    </form>
+
+    <!-- RO'YXATDAN O'TISH FORMASI -->
+    <form id="register-form" class="form">
+      <div class="field">
+        <label for="register-name">To'liq ism</label>
+        <input type="text" id="register-name" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="register-password">Parol</label>
+        <input type="password" id="register-password" required minlength="6" autocomplete="new-password" />
+      </div>
+      <button type="submit" class="btn">Ro'yxatdan o'tish</button>
+      <p id="register-message" class="message"></p>
+    </form>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
