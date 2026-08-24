@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      User Registration and Login System Using HTML, CSS and JavaScript with
+      Source Code
+    </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- SIGN UP -->
+      <div id="signupBox" class="box">
+        <h2>Sign Up</h2>
+
+        <input type="text" id="signupName" placeholder="Ismingiz" />
+
+        <input type="email" id="signupEmail" placeholder="Email" />
+
+        <input type="password" id="signupPassword" placeholder="Parol" />
+
+        <button id="signupBtn">Sign Up</button>
+
+        <p>
+          Akkountingiz bormi?
+          <span id="showLogin"> Login </span>
+        </p>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginBox" class="box hidden">
+        <h2>Login</h2>
+
+        <input type="email" id="loginEmail" placeholder="Email" />
+
+        <input type="password" id="loginPassword" placeholder="Parol" />
+
+        <button id="loginBtn">Login</button>
+
+        <p>
+          Akkountingiz yo'qmi?
+          <span id="showSignup"> Sign Up </span>
+        </p>
+      </div>
+
+      <!-- HOME -->
+      <div id="homeBox" class="box hidden">
+        <h2>
+          Xush kelibsiz,
+          <span id="userName"></span>
+        </h2>
+
+        <p>Siz tizimga muvaffaqiyatli kirdingiz.</p>
+
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
