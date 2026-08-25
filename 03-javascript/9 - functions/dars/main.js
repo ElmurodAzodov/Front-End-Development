@@ -1,21 +1,33 @@
 
-//* Function Declaration
+// //* Function Declaration
 
-function salomMatni() {
-    console.log("Assalomu alaykum, bu function declaration")
+// function salomMatni() {
+//     console.log("Assalomu alaykum, bu function declaration")
+// }
+
+// salomMatni()
+
+// //* Function Expression
+
+// const salomMatniChiqar = function () {
+//     console.log("Assalomu alaykum, bu function expression")
+// }
+
+// salomMatniChiqar()
+
+// //* Arrow Functions
+// const salomMatniChiqaruvchi = () => console.log("Bu arrow functions")
+
+// salomMatniChiqaruvchi()
+
+
+//* ========================================================================
+
+
+function kattaHarfgaOzgartiruvchi(matn) {
+    return String(matn).toUpperCase()
 }
 
-salomMatni()
+console.log(kattaHarfgaOzgartiruvchi("Men dasturchiman"))
+console.log(kattaHarfgaOzgartiruvchi("kiritilgan matnni katta harfga o'zgartirdi"))
 
-//* Function Expression
-
-const salomMatniChiqar = function () {
-    console.log("Assalomu alaykum, bu function expression")
-}
-
-salomMatniChiqar()
-
-//* Arrow Functions
-const salomMatniChiqaruvchi = () => console.log("Bu arrow functions")
-
-salomMatniChiqaruvchi()
