@@ -48,6 +48,13 @@
         --font-display: "Fraunces", Georgia, serif;
         --font-body: "Inter", "Segoe UI", sans-serif;
         --font-mono: "IBM Plex Mono", monospace;
+        --nav-h: 76px;
+      }
+
+      @media (max-width: 560px) {
+        :root {
+          --nav-h: 64px;
+        }
       }
 
       [data-theme="dark"] {
@@ -115,7 +122,7 @@
       }
 
       section[id] {
-        scroll-margin-top: 84px;
+        scroll-margin-top: calc(var(--nav-h) + 8px);
       }
 
       :focus-visible {
@@ -261,7 +268,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 76px;
+        height: var(--nav-h);
       }
       .nav-logo {
         display: flex;
@@ -316,6 +323,12 @@
         align-items: center;
         gap: 10px;
       }
+      .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
       .cart-btn {
         position: relative;
       }
@@ -354,10 +367,11 @@
       @media (max-width: 900px) {
         .nav-menu {
           position: fixed;
-          top: 76px;
+          top: var(--nav-h);
           left: 0;
           width: 100%;
-          height: calc(100vh - 76px);
+          height: calc(100vh - var(--nav-h));
+          height: calc(100dvh - var(--nav-h));
           background: var(--bg);
           border-top: 1px solid var(--line);
           flex-direction: column;
@@ -380,12 +394,12 @@
         .nav-list a {
           font-size: 1.15rem;
         }
-        .nav-actions {
+        .nav-menu .nav-actions {
           flex-direction: column;
           align-items: stretch;
           gap: 12px;
         }
-        .nav-actions .btn {
+        .nav-menu .nav-actions .btn {
           width: 100%;
         }
         .nav-actions-row {
@@ -403,14 +417,32 @@
         }
       }
 
+      @media (max-width: 560px) {
+        .nav-container {
+          padding: 0 16px;
+        }
+        .nav-logo span {
+          font-size: 1.2rem;
+        }
+        .nav-icons {
+          gap: 4px;
+        }
+        .btn-icon {
+          width: 36px;
+          height: 36px;
+          font-size: 0.92rem;
+        }
+      }
+
       /* ===================================================
          HERO
       =================================================== */
       .hero {
         position: relative;
         height: 100vh;
-        min-height: 560px;
-        margin-top: 76px;
+        height: 100dvh;
+        min-height: 500px;
+        margin-top: var(--nav-h);
         overflow: hidden;
       }
       .hero-slider {
@@ -606,7 +638,7 @@
 
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr));
         gap: 26px;
       }
       .product-card {
@@ -758,6 +790,15 @@
           order: -1;
         }
       }
+      @media (max-width: 480px) {
+        .about-stats {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+        }
+        .stat-num {
+          font-size: clamp(1.3rem, 6vw, 2rem);
+        }
+      }
 
       /* ===================================================
          CONTACT
@@ -873,6 +914,24 @@
         text-decoration: underline;
       }
 
+      @media (max-width: 560px) {
+        .products-section {
+          padding: 70px 0 60px;
+        }
+        .about-section {
+          padding: 60px 0;
+        }
+        .contact-section {
+          padding: 60px 0;
+        }
+        .section-head {
+          margin-bottom: 32px;
+        }
+        .product-grid {
+          gap: 18px;
+        }
+      }
+
       /* ===================================================
          MODAL
       =================================================== */
@@ -902,6 +961,14 @@
         border: 1px solid var(--line);
         max-height: 90vh;
         overflow-y: auto;
+      }
+      @media (max-width: 480px) {
+        .modal {
+          padding: 12px;
+        }
+        .modal-content {
+          padding: 30px 22px;
+        }
       }
       @keyframes modalIn {
         from {
@@ -1207,7 +1274,7 @@
           </div>
         </div>
 
-        <div class="nav-actions" style="gap: 8px">
+        <div class="nav-icons">
           <button
             class="btn-icon"
             id="themeToggle"
