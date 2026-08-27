@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Navbar Modal + Storage</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      /* =========================
+           NAVBAR
+        ========================= */
+
+      .navbar {
+        width: 100%;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .nav-buttons button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .login-btn {
+        background-color: #2563eb;
+        color: white;
+      }
+
+      .signup-btn {
+        background-color: #16a34a;
+        color: white;
+      }
+
+      .logout-btn {
+        background-color: #dc2626;
+        color: white;
+      }
+
+      /* =========================
+           MODAL
+        ========================= */
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      /* =========================
+           MODAL CONTENT
+        ========================= */
+
+      .modal-content {
+        width: 400px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 12px;
+        position: relative;
+      }
+
+      .modal-content h2 {
+        margin-bottom: 20px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        border: none;
+        background: none;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      /* =========================
+           FORM
+        ========================= */
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+      }
+
+      .form-group input:focus {
+        border-color: #2563eb;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background-color: #2563eb;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /* Xatolik va muvaffaqiyat xabarlari */
+      .error-msg {
+        color: #dc2626;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: none;
+      }
+
+      .success-msg {
+        color: #16a34a;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: none;
+      }
+
+      /* Foydalanuvchi ma'lumotlari */
+      .user-info {
+        display: none;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .user-info.show {
+        display: flex;
+      }
+
+      .nav-buttons.hide {
+        display: none;
+      }
+
+      .user-name {
+        font-weight: bold;
+        color: #2563eb;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+      <div class="logo">MyWebsite</div>
+
+      <!-- Login/SignUp tugmalari -->
+      <div class="nav-buttons" id="navButtons">
+        <button class="login-btn">Login</button>
+        <button class="signup-btn">Sign Up</button>
+      </div>
+
+      <!-- Foydalanuvchi tizimga kirganda ko'rinadi -->
+      <div class="user-info" id="userInfo">
+        <span class="user-name" id="userNameDisplay">User</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
+    </nav>
+
+    <!-- =========================
+         LOGIN MODAL
+    ========================= -->
+
+    <div class="modal" id="loginModal">
+      <div class="modal-content">
+        <button class="close-btn">&times;</button>
+        <h2>Login</h2>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="Emailingizni kiriting"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Parolingizni kiriting"
+            />
+          </div>
+
+          <div class="error-msg" id="loginError">
+            Email yoki parol noto'g'ri!
+          </div>
+          <div class="success-msg" id="loginSuccess">✅ Tizimga kirdingiz!</div>
+
+          <button type="submit" class="submit-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- =========================
+         SIGN UP MODAL
+    ========================= -->
+
+    <div class="modal" id="signupModal">
+      <div class="modal-content">
+        <button class="close-btn">&times;</button>
+        <h2>Sign Up</h2>
+
+        <form id="signupForm">
+          <div class="form-group">
+            <label>Ism</label>
+            <input
+              type="text"
+              id="signupName"
+              placeholder="Ismingizni kiriting"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="signupEmail"
+              placeholder="Emailingizni kiriting"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="signupPassword"
+              placeholder="Parol yarating (min 4 ta)"
+            />
+          </div>
+
+          <div class="error-msg" id="signupError">
+            Bu email allaqachon ro'yxatdan o'tgan yoki parol juda qisqa!
+          </div>
+          <div class="success-msg" id="signupSuccess">
+            ✅ Ro'yxatdan o'tdingiz!
+          </div>
+
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // ================================================
+      // 1. STORAGE YORDAMCHI FUNKSIYALAR
+      // ================================================
+
+      // Barcha foydalanuvchilarni olish
+      function getUsers() {
+        const users = localStorage.getItem("users");
+        return users ? JSON.parse(users) : [];
+      }
+
+      // Foydalanuvchilarni saqlash
+      function saveUsers(users) {
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+      // Hozirgi foydalanuvchini olish
+      function getCurrentUser() {
+        const user = localStorage.getItem("currentUser");
+        return user ? JSON.parse(user) : null;
+      }
+
+      // Hozirgi foydalanuvchini saqlash
+      function saveCurrentUser(user) {
+        localStorage.setItem("currentUser", JSON.stringify(user));
+      }
+
+      // Hozirgi foydalanuvchini o'chirish (logout)
+      function removeCurrentUser() {
+        localStorage.removeItem("currentUser");
+      }
+
+      // ================================================
+      // 2. INTERFACE YANGILASH
+      // ================================================
+
+      function updateUI() {
+        const currentUser = getCurrentUser();
+
+        if (currentUser) {
+          // Foydalanuvchi kirdi
+          document.getElementById("navButtons").classList.add("hide");
+          document.getElementById("userInfo").classList.add("show");
+          document.getElementById("userNameDisplay").textContent =
+            currentUser.name;
+        } else {
+          // Foydalanuvchi chiqdi
+          document.getElementById("navButtons").classList.remove("hide");
+          document.getElementById("userInfo").classList.remove("show");
+        }
+      }
+
+      // ================================================
+      // 3. DOM ELEMENTLARI
+      // ================================================
+
+      const loginBtn = document.querySelector(".login-btn");
+      const signupBtn = document.querySelector(".signup-btn");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      const loginModal = document.getElementById("loginModal");
+      const signupModal = document.getElementById("signupModal");
+
+      const closeBtns = document.querySelectorAll(".close-btn");
+
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      const loginEmail = document.getElementById("loginEmail");
+      const loginPassword = document.getElementById("loginPassword");
+
+      const signupName = document.getElementById("signupName");
+      const signupEmail = document.getElementById("signupEmail");
+      const signupPassword = document.getElementById("signupPassword");
+
+      const loginError = document.getElementById("loginError");
+      const loginSuccess = document.getElementById("loginSuccess");
+      const signupError = document.getElementById("signupError");
+      const signupSuccess = document.getElementById("signupSuccess");
+
+      // ================================================
+      // 4. MODAL OCHISH/YOPISH
+      // ================================================
+
+      loginBtn.addEventListener("click", function () {
+        loginModal.classList.add("active");
+        loginError.style.display = "none";
+        loginSuccess.style.display = "none";
+        loginForm.reset();
+      });
+
+      signupBtn.addEventListener("click", function () {
+        signupModal.classList.add("active");
+        signupError.style.display = "none";
+        signupSuccess.style.display = "none";
+        signupForm.reset();
+      });
+
+      closeBtns.forEach(function (button) {
+        button.addEventListener("click", function () {
+          loginModal.classList.remove("active");
+          signupModal.classList.remove("active");
+        });
+      });
+
+      window.addEventListener("click", function (e) {
+        if (e.target === loginModal) loginModal.classList.remove("active");
+        if (e.target === signupModal) signupModal.classList.remove("active");
+      });
+
+      // ================================================
+      // 5. SIGN UP - RO'YXATDAN O'TISH
+      // ================================================
+
+      signupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = signupName.value.trim();
+        const email = signupEmail.value.trim().toLowerCase();
+        const password = signupPassword.value.trim();
+
+        // Parol uzunligini tekshirish
+        if (password.length < 4) {
+          signupError.textContent =
+            "Parol kamida 4 ta belgidan iborat bo'lishi kerak!";
+          signupError.style.display = "block";
+          signupSuccess.style.display = "none";
+          return;
+        }
+
+        const users = getUsers();
+
+        // Email mavjudligini tekshirish
+        const existingUser = users.find((user) => user.email === email);
+
+        if (existingUser) {
+          signupError.textContent = "Bu email allaqachon ro'yxatdan o'tgan!";
+          signupError.style.display = "block";
+          signupSuccess.style.display = "none";
+          return;
+        }
+
+        // Yangi foydalanuvchi yaratish
+        const newUser = {
+          id: Date.now(),
+          name: name,
+          email: email,
+          password: password,
+        };
+
+        users.push(newUser);
+        saveUsers(users);
+
+        // Muvaffaqiyatli ro'yxatdan o'tdi
+        signupSuccess.style.display = "block";
+        signupError.style.display = "none";
+        signupForm.reset();
+
+        // Modalni yopamiz va avtomatik login qilamiz
+        setTimeout(() => {
+          signupModal.classList.remove("active");
+          saveCurrentUser(newUser);
+          updateUI();
+          alert(`✅ Ro'yxatdan o'tdingiz! Xush kelibsiz, ${newUser.name}`);
+        }, 1000);
+      });
+
+      // ================================================
+      // 6. LOGIN - TIZIMGA KIRISH
+      // ================================================
+
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = loginEmail.value.trim().toLowerCase();
+        const password = loginPassword.value.trim();
+
+        const users = getUsers();
+
+        // Foydalanuvchini qidirish
+        const user = users.find(
+          (u) => u.email === email && u.password === password,
+        );
+
+        if (user) {
+          // Muvaffaqiyatli login
+          loginSuccess.style.display = "block";
+          loginError.style.display = "none";
+
+          saveCurrentUser(user);
+          loginForm.reset();
+
+          setTimeout(() => {
+            loginModal.classList.remove("active");
+            updateUI();
+            alert(`✅ Tizimga kirdingiz! Xush kelibsiz, ${user.name}`);
+          }, 1000);
+        } else {
+          // Xato
+          loginError.style.display = "block";
+          loginSuccess.style.display = "none";
+        }
+      });
+
+      // ================================================
+      // 7. LOGOUT - TIZIMDAN CHIQISH
+      // ================================================
+
+      logoutBtn.addEventListener("click", function () {
+        removeCurrentUser();
+        updateUI();
+        alert("👋 Tizimdan chiqdingiz!");
+      });
+
+      // ================================================
+      // 8. SAYT YUKLANGANDA
+      // ================================================
+
+      updateUI();
+
+      // Konsol uchun qulay buyruqlar
+      console.log("📦 localStorage'dagi barcha foydalanuvchilar:", getUsers());
+      console.log("👤 Hozirgi foydalanuvchi:", getCurrentUser());
+
+      // Konsolda ishlatish uchun
+      window.showUsers = function () {
+        console.table(getUsers());
+      };
+
+      window.clearAllUsers = function () {
+        localStorage.removeItem("users");
+        localStorage.removeItem("currentUser");
+        updateUI();
+        alert("✅ Barcha foydalanuvchilar o'chirildi!");
+      };
+
+      console.log("🔧 Konsol buyruqlari:");
+      console.log("  showUsers()     - barcha foydalanuvchilarni ko'rsatish");
+      console.log("  clearAllUsers() - barcha foydalanuvchilarni o'chirish");
+    </script>
+  </body>
+</html>
