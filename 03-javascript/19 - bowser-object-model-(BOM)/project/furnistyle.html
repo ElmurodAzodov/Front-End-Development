@@ -425,7 +425,7 @@
         color: var(--ink);
       }
 
-      @media (max-width: 980px) {
+      @media (max-width: 900px) {
         .nav-search {
           display: none;
         }
@@ -1179,12 +1179,16 @@
       .pd-modal .modal-content {
         max-width: 1080px;
         padding: 0;
-        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
         border-radius: var(--radius-lg);
       }
       .pd-body {
-        max-height: 90vh;
-        overflow-y: auto;
+        /* modal-content itself is the single scroll container (max-height:
+           90vh + overflow-y:auto from the generic .modal-content rule);
+           pd-body must NOT set its own max-height/overflow or the two
+           scroll containers fight each other and clip content on short
+           viewports (e.g. landscape mobile). */
       }
       .pd-breadcrumb {
         padding: 22px 30px 0;
@@ -2741,31 +2745,72 @@
         }
 
         /* ============================================================
-           STORAGE (artifact-safe: uses window.storage, not localStorage)
+           STORAGE
 
-           Users / session / cart / wishlist / orders / theme are loaded
-           ONCE into in-memory cache variables at startup. All reads and
-           writes go through the cache, and every write is mirrored to
-           window.storage in the background when it's available, so
-           data survives reloads inside an artifact while never being
-           blocked on it (works fine even if window.storage is absent).
+           This file is a standalone website: most people will open it
+           directly in a normal browser (double-click the download, or
+           host it somewhere), where `window.storage` (the Claude-artifact
+           bridge) does not exist at all. Relying on it alone silently
+           dropped every write, which is why login / theme / cart looked
+           like they "didn't save" — nothing was ever actually persisted.
+
+           Fix: use `window.storage` when it's present (e.g. inside a
+           Claude artifact preview), otherwise fall back to the browser's
+           own localStorage (works in any real browser, across reloads
+           and restarts). If neither is available (storage disabled),
+           data still works correctly for the current page session, it
+           just won't survive a reload — everything degrades gracefully.
         ============================================================ */
-        const hasStorage = typeof window.storage !== "undefined";
+        const hasWindowStorage = typeof window.storage !== "undefined";
+        let hasLocalStorage = false;
+        try {
+          const testKey = "__furnistyle_test__";
+          window.localStorage.setItem(testKey, "1");
+          window.localStorage.removeItem(testKey);
+          hasLocalStorage = true;
+        } catch (e) {
+          hasLocalStorage = false;
+        }
+        const LS_PREFIX = "furnistyle:";
 
-        async function storageRead(key, fallback) {
-          if (!hasStorage) return fallback;
+        function lsRead(key, fallback) {
+          if (!hasLocalStorage) return fallback;
           try {
-            const r = await window.storage.get(key, false);
-            return r ? JSON.parse(r.value) : fallback;
+            const raw = window.localStorage.getItem(LS_PREFIX + key);
+            return raw !== null ? JSON.parse(raw) : fallback;
           } catch (e) {
             return fallback;
           }
         }
+        function lsWrite(key, value) {
+          if (!hasLocalStorage) return;
+          try {
+            window.localStorage.setItem(LS_PREFIX + key, JSON.stringify(value));
+          } catch (e) {
+            console.error("localStorage error:", e);
+          }
+        }
+
+        async function storageRead(key, fallback) {
+          if (hasWindowStorage) {
+            try {
+              const r = await window.storage.get(key, false);
+              if (r) return JSON.parse(r.value);
+            } catch (e) {
+              /* key not found or bridge unavailable — fall through */
+            }
+          }
+          return lsRead(key, fallback);
+        }
         function storageWrite(key, value) {
-          if (!hasStorage) return;
-          window.storage.set(key, JSON.stringify(value), false).catch((e) => {
-            console.error("Storage error:", e);
-          });
+          // Always mirror to localStorage so the data survives even if
+          // this page is later opened outside the Claude artifact bridge.
+          lsWrite(key, value);
+          if (hasWindowStorage) {
+            window.storage.set(key, JSON.stringify(value), false).catch((e) => {
+              console.error("Storage error:", e);
+            });
+          }
         }
 
         const cache = {
