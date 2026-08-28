@@ -26,7 +26,7 @@ body {
   color: #1e293b;
 }
 
-/* .cart-btn {
+.cart-btn {
   background: white;
   border: 1px solid #e2e8f0;
   padding: 0.75rem 1.8rem;
@@ -38,4 +38,27 @@ body {
   gap: 12px;
   cursor: pointer;
   transition: 0.2s;
+}
+
+.cart-btn:hover {
+    background: #3b82f6;
+    transform: scale(1.02);
+}
+
+.cart-badge {
+    background: #3b82f6;
+    color: white;
+    border-radius: 40px;
+    padding: 0.15rem 0.7rem;
+    min-width: 28px;
+    text-align: center;
+}
+
+/* .product-grid {
+    border: 1px solid red;
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
 } */
