@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add to card</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+
+    <header class="header">
+        <h1><i class="fas fa-store"></i> Mahsulotlar</h1>
+        <button class="cart-btn" id="openCartBtn">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Savat</span>
+            <span class="cart-badge" id="cartCounter">0</span>
+        </button>
+    </header>
+
+
+    <div class="products-grid" id="productGrid">
+
+    </div>
+
+    <div class="cart-modal-overlay" id="cartOverlay">
+
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-header">
+            <h2><i class="fas fa-shopping-bag"></i>Savat</h2>
+            <button class="close-modal-btn" id="closeCartBtn">&times</button>
+        </div>
+
+        <div class="cart-items-container" id="cartItemsContainer">
+            <div class="empty-cart-msg" id="emptyCartMsg">
+                <i class="fas fa-box-open"></i>
+                <p>Savat hozircha bo'sh</p>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Jami:</span>
+                <span id="cartTotalPrice">0 so'm</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./main.js"></script>
+  </body>
+</html>
