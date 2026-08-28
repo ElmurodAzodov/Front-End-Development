@@ -1,55 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>add to card</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Savatcha</title>
+    <!-- Font Awesome ikonkalar -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-
+    <!-- HEADER: Sarlavha va savat tugmasi -->
     <header class="header">
-        <h1><i class="fas fa-store"></i> Mahsulotlar</h1>
-        <button class="cart-btn" id="openCartBtn">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Savat</span>
-            <span class="cart-badge" id="cartCounter">0</span>
-        </button>
+      <h1><i class="fas fa-store"></i> Mahsulotlar</h1>
+      <button class="cart-btn" id="openCartBtn">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Savat</span>
+        <span class="cart-badge" id="cartCounter">0</span>
+      </button>
     </header>
 
+    <!-- MAHSULOTLAR GRID -->
+    <div class="products-grid" id="productsGrid"></div>
 
-    <div class="products-grid" id="productGrid">
-
-    </div>
-
-    <div class="cart-modal-overlay" id="cartOverlay">
-
-    </div>
-
+    <!-- MODAL (savat oynasi) -->
+    <div class="cart-modal-overlay" id="cartOverlay"></div>
     <div class="cart-modal" id="cartModal">
-        <div class="cart-modal-header">
-            <h2><i class="fas fa-shopping-bag"></i>Savat</h2>
-            <button class="close-modal-btn" id="closeCartBtn">&times</button>
-        </div>
+      <div class="cart-modal-header">
+        <h2><i class="fas fa-shopping-bag"></i> Savatcha</h2>
+        <button class="close-modal-btn" id="closeCartBtn">&times;</button>
+      </div>
 
-        <div class="cart-items-container" id="cartItemsContainer">
-            <div class="empty-cart-msg" id="emptyCartMsg">
-                <i class="fas fa-box-open"></i>
-                <p>Savat hozircha bo'sh</p>
-            </div>
+      <div class="cart-items-container" id="cartItemsContainer">
+        <div class="empty-cart-msg" id="emptyCartMsg">
+          <i class="fas fa-box-open"></i>
+          <p>Savat hozircha bo'sh</p>
         </div>
+      </div>
 
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Jami:</span>
-                <span id="cartTotalPrice">0 so'm</span>
-            </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Jami:</span>
+          <span id="cartTotalPrice">0 so‘m</span>
         </div>
+      </div>
     </div>
-
-
-
 
     <script src="./main.js"></script>
   </body>
