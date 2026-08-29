@@ -1,18 +1,18 @@
 // Topshiriq metodlar 20ta
 
-let massiv = [
-  "olma",
-  "anor",
-  "o'rik",
-  "anjir",
-  "shaftoli",
-  "apelsin",
-  "mandarin",
-];
-let massiv1 = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-  23, 24, 25,
-];
+// let massiv = [
+//   "olma",
+//   "anor",
+//   "o'rik",
+//   "anjir",
+//   "shaftoli",
+//   "apelsin",
+//   "mandarin",
+// ];
+// let massiv1 = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+//   23, 24, 25,
+// ];
 // 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
 // 2. Berilgan massivning boshidan 2 ta elementni shift() orqali olib tashlang
 // 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga
@@ -105,6 +105,9 @@ let arr = [
 // }
 
 // 9. Berilgan massivning eng kichik elementini for yordamida toping
+let sonlar = [1, 2, 3, 4, 0, 5, 6, 7, 8, 9];
+for (let i = 0; i <= sonlar.length; i++) {}
+
 // 10. Foydalanuvchi kiritgan sonni teskari tartibda while yordamida chiqaring
 
 // 11. 1 dan 50 gacha bo'lgan toq sonlarning yig'indisini for yordamida toping
@@ -114,13 +117,13 @@ let arr = [
 // let son = parseInt(prompt("son kiriting:"))
 
 // 14. Berilgan massivda nechta manfiy son borligini for yordamida hisoblang
-let manfiy = 0;
-for (let i of arr) {
-  if (i < 0) {
-    manfiy += 1;
-  }
-}
-console.log(manfiy);
+// let manfiy = 0;
+// for (let i of arr) {
+//   if (i < 0) {
+//     manfiy += 1;
+//   }
+// }
+// console.log(manfiy);
 
 // 15. 1 dan 15 gacha bo'lgan sonlarning kvadratini for yordamida chiqaring
 // 16. Foydalanuvchi -1 raqamini kiritguncha sonlarni qabul qilishni davom ettiring (do/while)
@@ -137,13 +140,28 @@ console.log(manfiy);
 
 // 18. Foydalanuvchi kiritgan son 3 ga bo'linishini if yordamida tekshiring
 // 19. Berilgan massivning birinchi va oxirgi elementlarini if yordamida almashtiring
-if (arr[0] !== undefined && arr[-1] !== undefined) {
-  let oxiri = arr[-1];
-  let boshi = arr[0];
-}
+// if (arr[0] !== undefined && arr[-1] !== undefined) {
+//   let oxiri = arr[-1];
+//   let boshi = arr[0];
+// }
 // 20. 1 dan 30 gacha bo'lgan 3 ga karrali sonlarni for yordamida chiqaring
+for (let i = 1; i <= 30; i++) {
+  if (i % 3 === 0) {
+    console.log(i);
+  }
+}
+
 // 21. Berilgan massiv elementlarining o'rtacha qiymatini for yordamida toping
+let massiv = [1, 2, 3, 4, 5];
+let yigindi = 0;
+let uzunlik = massiv.length;
+for (let i = 0; i < massiv.length; i++) {
+  yigindi += massiv[i];
+}
+console.log(`O'rtacha qiymati ${yigindi / uzunlik} ga teng!`);
+
 // 22. Foydalanuvchi kiritgan sonning teskari ko'rinishini while yordamida chiqaring
+
 // 23. Berilgan massivdagi barcha musbat sonlarning yig'indisini for yordamida toping
 // 24. 10 dan 1 gacha bo'lgan sonlarni teskari tartibda for yordamida chiqaring
 // 25. Berilgan massivda 5 raqami bor yoki yo'qligini for va if yordamida tekshiring
