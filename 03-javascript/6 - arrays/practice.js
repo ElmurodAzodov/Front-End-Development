@@ -24,6 +24,9 @@
 // console.log(massiv);
 // 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga
 // "yangilik" so'zini qo'shing (splice)
+massiv.splice(2, 3, "yangilik");
+
+console.log(massiv);
 // 4. Berilgan massiv ichidagi "olma" so'zining indeksini indexOf() yordamida toping
 // 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf()
 // yordamida toping
