@@ -14,6 +14,9 @@
 //   23, 24, 25,
 // ];
 // 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
+massiv.push("JavaScript");
+
+console.log(massiv);
 // 2. Berilgan massivning boshidan 2 ta elementni shift() orqali olib tashlang
 // 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga
 // "yangilik" so'zini qo'shing (splice)
