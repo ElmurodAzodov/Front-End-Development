@@ -112,18 +112,18 @@
 // console.log(kopaymasi);
 // [1,2,3,4] - array / massiv
 // 8. Berilgan massivning eng katta elementini for yordamida toping
-let arr = [
-  1, 2, 3, -4, 5, 6, 7, 8, 9, -10, 11, -12, 13, 114, 3, 23, 4, 324, 32, 4, 32,
-  4, 23, 42, 4, 2, 4, 324,
-];
+// let arr = [
+//   1, 2, 3, -4, 5, 6, 7, 8, 9, -10, 11, -12, 13, 114, 3, 23, 4, 324, 32, 4, 32,
+//   4, 23, 42, 4, 2, 4, 324,
+// ];
 
 // for (let i = 0; i <= arr.length; i++) {
 //   console.log(arr[i])
 // }
 
 // 9. Berilgan massivning eng kichik elementini for yordamida toping
-let sonlar = [1, 2, 3, 4, 0, 5, 6, 7, 8, 9];
-for (let i = 0; i <= sonlar.length; i++) {}
+// let sonlar = [1, 2, 3, 4, 0, 5, 6, 7, 8, 9];
+// for (let i = 0; i <= sonlar.length; i++) {}
 
 // 10. Foydalanuvchi kiritgan sonni teskari tartibda while yordamida chiqaring
 
@@ -162,20 +162,20 @@ for (let i = 0; i <= sonlar.length; i++) {}
 //   let boshi = arr[0];
 // }
 // 20. 1 dan 30 gacha bo'lgan 3 ga karrali sonlarni for yordamida chiqaring
-for (let i = 1; i <= 30; i++) {
-  if (i % 3 === 0) {
-    console.log(i);
-  }
-}
+// for (let i = 1; i <= 30; i++) {
+//   if (i % 3 === 0) {
+//     console.log(i);
+//   }
+// }
 
 // 21. Berilgan massiv elementlarining o'rtacha qiymatini for yordamida toping
-let massiv = [1, 2, 3, 4, 5];
-let yigindi = 0;
-let uzunlik = massiv.length;
-for (let i = 0; i < massiv.length; i++) {
-  yigindi += massiv[i];
-}
-console.log(`O'rtacha qiymati ${yigindi / uzunlik} ga teng!`);
+// let massiv = [1, 2, 3, 4, 5];
+// let yigindi = 0;
+// let uzunlik = massiv.length;
+// for (let i = 0; i < massiv.length; i++) {
+//   yigindi += massiv[i];
+// }
+// console.log(`O'rtacha qiymati ${yigindi / uzunlik} ga teng!`);
 
 // 22. Foydalanuvchi kiritgan sonning teskari ko'rinishini while yordamida chiqaring
 
