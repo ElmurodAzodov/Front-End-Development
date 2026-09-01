@@ -24,10 +24,13 @@
 // console.log(massiv);
 // 3. Berilgan massivning 2-indeksidan boshlab 3 ta elementni o'chirib, o'rniga
 // "yangilik" so'zini qo'shing (splice)
-massiv.splice(2, 3, "yangilik");
+// massiv.splice(2, 3, "yangilik");
 
-console.log(massiv);
+// console.log(massiv);
 // 4. Berilgan massiv ichidagi "olma" so'zining indeksini indexOf() yordamida toping
+let olmaIndex = massiv.indexOf("olma");
+
+console.log(olmaIndex);
 // 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf()
 // yordamida toping
 // 6. Berilgan massivdan 10 dan katta bo'lgan birinchi sonni find() yordamida toping
