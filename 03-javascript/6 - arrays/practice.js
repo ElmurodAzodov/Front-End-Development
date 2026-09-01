@@ -9,10 +9,10 @@
 //   "apelsin",
 //   "mandarin",
 // ];
-// let massiv1 = [
-//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-//   23, 24, 25,
-// ];
+let massiv1 = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25,
+];
 // 1. Berilgan massivga oxiriga "JavaScript" so'zini push() orqali qo'shing
 // massiv.push("JavaScript");
 
@@ -28,11 +28,15 @@
 
 // console.log(massiv);
 // 4. Berilgan massiv ichidagi "olma" so'zining indeksini indexOf() yordamida toping
-let olmaIndex = massiv.indexOf("olma");
+// let olmaIndex = massiv.indexOf("olma");
 
-console.log(olmaIndex);
+// console.log(olmaIndex);
 // 5. Berilgan massiv ichidagi 5 sonining oxirgi marta uchragan indeksini lastIndexOf()
 // yordamida toping
+let beshIndex = massiv1.lastIndexOf(5);
+
+console.log(beshIndex);
+
 // 6. Berilgan massivdan 10 dan katta bo'lgan birinchi sonni find() yordamida toping
 // 7. Berilgan massivdan 5 ga bo'linadigan birinchi sonning indeksini findIndex()
 // yordamida toping
