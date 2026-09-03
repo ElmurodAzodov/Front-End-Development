@@ -170,13 +170,13 @@ function masala25(a, b, c) {}
 
 // 26-masala: [for] 1 dan 10 gacha ko'paytirish jadvalini
 // (masalan 5 uchun: 5,10,15...) massiv ko'rinishida qaytaruvchi funksiya yozing.
-function masala26(son) {
-  let arr = [];
-  for (let i = 1; i <= 10; i++) {
-    arr.push(son * i);
-  }
-  return arr;
-}
+// function masala26(son) {
+//   let arr = [];
+//   for (let i = 1; i <= 10; i++) {
+//     arr.push(son * i);
+//   }
+//   return arr;
+// }
 // console.log(masala26(5))
 
 // 27-masala: [while] Berilgan sonni 2 ga bo'lib, natija 1 dan
