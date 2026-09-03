@@ -20,15 +20,15 @@ function masala1(a, b) {
 
 // 2-masala: [if-else] Kiritilgan son musbat, manfiy yoki nol ekanligini aniqlovchi funksiya yozing.
 // Natija: "musbat", "manfiy" yoki "nol".
-function masala2(son) {
-  if (son > 0) {
-    return "musbat";
-  } else if (son < 0) {
-    return "manfiy";
-  } else {
-    return "nol";
-  }
-}
+// function masala2(son) {
+//   if (son > 0) {
+//     return "musbat";
+//   } else if (son < 0) {
+//     return "manfiy";
+//   } else {
+//     return "nol";
+//   }
+// }
 // console.log(masala2(12))
 // console.log(masala2(-2))
 
