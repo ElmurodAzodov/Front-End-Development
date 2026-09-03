@@ -124,16 +124,16 @@ function masala14(matn) {}
 // console.log(masala16([1, 2, 3, 4, 5]));
 // console.log(masala16([-5, -2, -10]));
 // 17-masala: [array] Massivdagi eng kichik elementni topuvchi funksiya yozing.
-function masala17(massiv) {
-  let kichik = massiv[0];
+// function masala17(massiv) {
+//   let kichik = massiv[0];
 
-  for (let i of massiv) {
-    if (i < kichik) {
-      kichik = i;
-    }
-  }
-  return kichik;
-}
+//   for (let i of massiv) {
+//     if (i < kichik) {
+//       kichik = i;
+//     }
+//   }
+//   return kichik;
+// }
 // console.log(masala17([4, 3, 2, 5, 6, 7, 8, 1, 0]));
 
 // 18-masala: [array] Massiv elementlarini ikkiga ko'paytirib,
