@@ -109,17 +109,17 @@ function masala14(matn) {}
 // console.log(masala15([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 // 16-masala: [array] Massivdagi eng katta elementni topuvchi funksiya yozing.
-function masala16(massiv) {
-  let katta = massiv[0];
+// function masala16(massiv) {
+//   let katta = massiv[0];
 
-  for (let i of massiv) {
-    if (i > katta) {
-      katta = i;
-    }
-  }
+//   for (let i of massiv) {
+//     if (i > katta) {
+//       katta = i;
+//     }
+//   }
 
-  return katta;
-}
+//   return katta;
+// }
 
 // console.log(masala16([1, 2, 3, 4, 5]));
 // console.log(masala16([-5, -2, -10]));
