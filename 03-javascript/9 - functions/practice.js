@@ -59,17 +59,17 @@ function masala6() {}
 
 // 7-masala: [while] Berilgan sonning raqamlar yig'indisini
 // while sikli yordamida hisoblang. Masalan: 123 -> 1+2+3 = 6
-function masala7(son) {
-  let son1 = String(son);
-  let arr = son1.split("");
-  let y = 0;
-  let i = 0;
-  while (i <= arr.length) {
-    y += Number(i);
-    i++;
-  }
-  return y;
-}
+// function masala7(son) {
+//   let son1 = String(son);
+//   let arr = son1.split("");
+//   let y = 0;
+//   let i = 0;
+//   while (i <= arr.length) {
+//     y += Number(i);
+//     i++;
+//   }
+//   return y;
+// }
 // console.log(masala7(123456789));
 
 // 8-masala: [while] Berilgan sondan boshlab 1 gacha teskari
