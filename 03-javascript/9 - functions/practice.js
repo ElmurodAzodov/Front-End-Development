@@ -534,13 +534,13 @@ function masala99(foydalanuvchilar, ism1, ism2) {}
 // tuzuvchi funksiya yozing: har bir talaba uchun o'rtacha ball,
 // umumiy reyting o'rni (1-o'rin, 2-o'rin va h.k.) hisoblansin
 // va natija saralangan massiv ko'rinishida qaytarilsin.
-function masala100(talabalar) {
-  const baholar = {
-    matematika: 5,
-    fizika: 2,
-    inglizTili: 9.5,
-  };
-}
+// function masala100(talabalar) {
+//   const baholar = {
+//     matematika: 5,
+//     fizika: 2,
+//     inglizTili: 9.5,
+//   };
+// }
 
 // ==========================================================
 // Eslatma: har bir funksiyani mustaqil yeching va test qilish
