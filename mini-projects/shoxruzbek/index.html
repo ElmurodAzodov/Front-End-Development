@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoxruzbek Matyokubov — Junior Frontend Dasturchi</title>
+    <meta
+      name="description"
+      content="Shoxruzbek Matyokubov, Junior Frontend Dasturchi. HTML, CSS, JavaScript va Bootstrap yordamida zamonaviy veb-saytlar yarataman."
+    />
+
+    <!-- Google Fonts: Poppins (sarlavhalar uchun) va Inter (matn uchun) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ============================================
+     HEADER
+     ============================================ -->
+    <header id="site-header">
+      <div class="container">
+        <a href="#top" class="logo">Shoxruzbek<span>.dev</span></a>
+
+        <div class="nav-scrim" id="nav-scrim"></div>
+        <nav class="main-nav" id="main-nav">
+          <ul>
+            <li><a href="#top" class="nav-link">Asosiy</a></li>
+            <li><a href="#projects" class="nav-link">Loyihalar</a></li>
+            <li><a href="#skills" class="nav-link">Ko'nikmalar</a></li>
+            <li><a href="#contact" class="nav-link">Aloqa</a></li>
+          </ul>
+        </nav>
+
+        <a href="#contact" class="nav-cta">Bog'lanish</a>
+
+        <!-- Burger menyu (mobil) -->
+        <button
+          class="burger"
+          id="burger-btn"
+          aria-label="Menyuni ochish"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================
+     HERO
+     ============================================ -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div>
+          <span class="hero-tag"
+            ><span class="dot"></span> Yangi loyihalar uchun ochiqman</span
+          >
+          <h1>
+            Salom, men Shoxruzbek —<br /><span class="role"
+              >Junior Frontend Dasturchi</span
+            >
+          </h1>
+          <p class="hero-bio">
+            Men junior frontend dasturchisiman. Veb-saytlar yaratish va ularni
+            interaktiv qilishni yaxshi ko'raman. Yangi texnologiyalarni
+            o'rganishga va amaliy loyihalarda qo'llashga tayyorman.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Loyihalarni ko'rish</a>
+            <a href="#contact" class="btn btn-ghost">Bog'lanish</a>
+          </div>
+
+          <div class="hero-meta">
+            <div><strong>3+</strong><span>Bajarilgan loyihalar</span></div>
+            <div><strong>9</strong><span>Texnologiya va vositalar</span></div>
+            <div><strong>2024</strong><span>Frontend yo'nalishida</span></div>
+          </div>
+        </div>
+
+        <!-- Terminal ko'rinishidagi kod kartochkasi -->
+        <div class="code-card">
+          <div class="code-card-head">
+            <span class="dot-r"></span><span class="dot-y"></span
+            ><span class="dot-g"></span>
+            <span class="code-card-title">shoxruzbek.js</span>
+          </div>
+          <div class="code-card-body">
+            <div><span class="k">const</span> developer = {</div>
+            <div>
+              &nbsp;&nbsp;name: <span class="s">'Shoxruzbek Matyokubov'</span>,
+            </div>
+            <div>
+              &nbsp;&nbsp;role:
+              <span class="s">'Junior Frontend Dasturchi'</span>,
+            </div>
+            <div>
+              &nbsp;&nbsp;location:
+              <span class="s">'Xorazm, O'zbekiston'</span>,
+            </div>
+            <div>
+              &nbsp;&nbsp;stack: [<span class="s">'HTML5'</span>,
+              <span class="s">'CSS3'</span>,
+              <span class="s">'JavaScript'</span>,
+            </div>
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s"
+                >'Bootstrap'</span
+              >],
+            </div>
+            <div>&nbsp;&nbsp;learning: <span class="k">true</span>,</div>
+            <div>&nbsp;&nbsp;<span id="typed-line"></span></div>
+            <div>};</div>
+            <div>&nbsp;</div>
+            <div>
+              <span class="c">// g'oyani interfeysga aylantiraman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     LOYIHALAR
+     ============================================ -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow-num">Loyihalar</span>
+            <h2 class="section-title">Amaliyotda sinab ko'rilgan ishlar</h2>
+            <p class="section-lead">
+              HTML, CSS va JavaScript asosida qurilgan, real ehtiyojlarga
+              mo'ljallangan uchta landing page.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <!-- Loyiha 1: FurniStyle -->
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <svg
+                viewBox="0 0 400 250"
+                preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="400" height="250" fill="#2c3e50" />
+                <rect x="0" y="170" width="400" height="80" fill="#243342" />
+                <!-- stol -->
+                <rect
+                  x="70"
+                  y="150"
+                  width="140"
+                  height="10"
+                  rx="2"
+                  fill="#ecf0f1"
+                />
+                <rect x="80" y="160" width="8" height="40" fill="#ecf0f1" />
+                <rect x="192" y="160" width="8" height="40" fill="#ecf0f1" />
+                <!-- stul -->
+                <rect
+                  x="250"
+                  y="110"
+                  width="70"
+                  height="10"
+                  rx="2"
+                  fill="#3498db"
+                />
+                <rect
+                  x="250"
+                  y="60"
+                  width="10"
+                  height="60"
+                  rx="2"
+                  fill="#3498db"
+                />
+                <rect
+                  x="250"
+                  y="60"
+                  width="70"
+                  height="10"
+                  rx="2"
+                  fill="#3498db"
+                />
+                <rect x="255" y="120" width="8" height="35" fill="#3498db" />
+                <rect x="307" y="120" width="8" height="35" fill="#3498db" />
+                <!-- lampa -->
+                <circle
+                  cx="100"
+                  cy="70"
+                  r="22"
+                  fill="none"
+                  stroke="#ecf0f1"
+                  stroke-width="3"
+                />
+                <line
+                  x1="100"
+                  y1="20"
+                  x2="100"
+                  y2="48"
+                  stroke="#ecf0f1"
+                  stroke-width="3"
+                />
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>FurniStyle — Mebel do'koni sayti</h3>
+              <p>
+                Zamonaviy mebel do'koni uchun chiroyli va funksional landing
+                page. Mahsulotlar katalogi, filtrlash tizimi va zakaz berish
+                formasi mavjud.
+              </p>
+              <div class="tech-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a
+                href="https://furnistyle-eta.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >Ko'rish →</a
+              >
+            </div>
+          </article>
+
+          <!-- Loyiha 2: Car Rental -->
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <svg
+                viewBox="0 0 400 250"
+                preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="400" height="250" fill="#3498db" />
+                <rect x="0" y="185" width="400" height="65" fill="#2f7dbd" />
+                <path
+                  d="M60 175 Q80 130 140 128 L260 128 Q310 130 330 175 Z"
+                  fill="#2c3e50"
+                />
+                <rect
+                  x="95"
+                  y="140"
+                  width="70"
+                  height="35"
+                  rx="4"
+                  fill="#3498db"
+                />
+                <rect
+                  x="175"
+                  y="140"
+                  width="80"
+                  height="35"
+                  rx="4"
+                  fill="#3498db"
+                />
+                <circle cx="120" cy="180" r="24" fill="#1b2733" />
+                <circle cx="120" cy="180" r="10" fill="#ecf0f1" />
+                <circle cx="280" cy="180" r="24" fill="#1b2733" />
+                <circle cx="280" cy="180" r="10" fill="#ecf0f1" />
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>Car Rental — Avtomobil ijarasi sayti</h3>
+              <p>
+                Avtomobil ijarasi xizmati uchun responsive landing page.
+                Mashinalar ro'yxati, narxlar jadvali va bron qilish tizimi.
+              </p>
+              <div class="tech-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span
+                ><span>Bootstrap</span>
+              </div>
+              <a
+                href="https://car-rental-landing-page-seven.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >Ko'rish →</a
+              >
+            </div>
+          </article>
+
+          <!-- Loyiha 3: LaslesVPN -->
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <svg
+                viewBox="0 0 400 250"
+                preserveAspectRatio="xMidYMid slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="400" height="250" fill="#1b2733" />
+                <path
+                  d="M200 40 L260 65 V125 C260 165 235 195 200 210 C165 195 140 165 140 125 V65 Z"
+                  fill="none"
+                  stroke="#3498db"
+                  stroke-width="4"
+                />
+                <path
+                  d="M175 128 L192 145 L228 105"
+                  fill="none"
+                  stroke="#ecf0f1"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="200"
+                  cy="128"
+                  r="90"
+                  fill="none"
+                  stroke="#2f7dbd"
+                  stroke-width="1"
+                  opacity=".5"
+                />
+                <circle
+                  cx="200"
+                  cy="128"
+                  r="110"
+                  fill="none"
+                  stroke="#2f7dbd"
+                  stroke-width="1"
+                  opacity=".3"
+                />
+              </svg>
+            </div>
+            <div class="project-body">
+              <h3>LaslesVPN — VPN xizmati sayti</h3>
+              <p>
+                VPN xizmati uchun zamonaviy va ishonchli landing page. Tariflar,
+                xususiyatlar va mijozlar sharhlari bo'limlari.
+              </p>
+              <div class="tech-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a
+                href="https://laslesvpn-landing-page-three.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                >Ko'rish →</a
+              >
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     KO'NIKMALAR
+     ============================================ -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div>
+          <span class="eyebrow-num reveal">Ko'nikmalar</span>
+          <h2 class="section-title reveal">Ishlatadigan texnologiyalarim</h2>
+          <p class="section-lead reveal">
+            Frontend ishlab chiqishning asosiy vositalari va ular bilan ishlash
+            darajam.
+          </p>
+
+          <div style="margin-top: 40px" class="reveal" id="skill-bars">
+            <div class="skill-row">
+              <div class="skill-label"><span>HTML5</span><span>90%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill" data-percent="90"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>CSS3</span><span>85%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill" data-percent="85"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label">
+                <span>JavaScript</span><span>75%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-percent="75"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label">
+                <span>Bootstrap</span><span>80%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-percent="80"></div>
+              </div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-label"><span>Git</span><span>75%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill" data-percent="75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools-panel reveal">
+          <h4>Qo'shimcha vositalar</h4>
+          <div class="tool-grid">
+            <div>Figma<br /><small style="opacity: 0.6">70%</small></div>
+            <div>GitHub<br /><small style="opacity: 0.6">80%</small></div>
+            <div>Canva<br /><small style="opacity: 0.6">65%</small></div>
+            <div>
+              AI vositalari<br /><small style="opacity: 0.6">70%</small>
+            </div>
+            <div>Git<br /><small style="opacity: 0.6">75%</small></div>
+            <div>Bootstrap<br /><small style="opacity: 0.6">80%</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     TA'LIM
+     ============================================ -->
+    <section class="education" id="education">
+      <div class="container">
+        <span class="eyebrow-num reveal">Ta'lim</span>
+        <h2 class="section-title reveal">O'quv yo'lim</h2>
+
+        <div style="margin-top: 20px">
+          <div class="edu-item reveal">
+            <div class="edu-period">2024 — hozirgacha</div>
+            <div class="edu-body">
+              <h3>Frontend dasturlash bo'yicha mustaqil o'qish</h3>
+              <p>
+                HTML, CSS, JavaScript va Bootstrap asoslarini mustaqil o'rgandim
+                va amaliy loyihalarda qo'lladim.
+              </p>
+            </div>
+          </div>
+          <div class="edu-item reveal">
+            <div class="edu-period">2024 — hozirgacha</div>
+            <div class="edu-body">
+              <h3>Online kurslar va amaliy loyihalar</h3>
+              <p>
+                Turli onlayn platformalardagi kurslar orqali bilimimni
+                chuqurlashtirib, portfoliomdagi loyihalarni yaratdim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     ALOQA
+     ============================================ -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div>
+          <span class="eyebrow-num reveal">Aloqa</span>
+          <h2 class="section-title reveal">Keling, gaplashamiz</h2>
+          <p class="section-lead reveal">
+            Loyiha taklifi bormi yoki shunchaki savol berishni xohlaysizmi —
+            quyidagi ma'lumotlar orqali bog'lanishingiz mumkin.
+          </p>
+
+          <div class="reveal">
+            <div class="contact-info-item">
+              <div class="icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z" stroke="none" />
+                  <path d="M3 6l9 6 9-6M4 4h16v16H4z" />
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:shoxruzbekmatyokubov@gmail.com"
+                  >shoxruzbekmatyokubov@gmail.com</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.17a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:+998930010203">+998 93 001 0203</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <strong>Manzil</strong>
+                <span class="value"
+                  >Xorazm viloyati, Hazorasp tumani, Damirchi mahallasi</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contact-form" class="reveal" novalidate>
+          <div class="form-row">
+            <div class="field" id="field-name">
+              <label for="name">Ism</label>
+              <input type="text" id="name" name="name" placeholder="Ismingiz" />
+              <span class="error-msg">Iltimos, ismingizni kiriting.</span>
+            </div>
+            <div class="field" id="field-email">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@example.com"
+              />
+              <span class="error-msg">To'g'ri email manzil kiriting.</span>
+            </div>
+          </div>
+
+          <div class="field" id="field-subject">
+            <label for="subject">Mavzu</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Xabar mavzusi"
+            />
+            <span class="error-msg">Iltimos, mavzuni kiriting.</span>
+          </div>
+
+          <div class="field" id="field-message">
+            <label for="message">Xabar</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Xabaringizni shu yerga yozing..."
+            ></textarea>
+            <span class="error-msg"
+              >Xabar kamida 10 ta belgidan iborat bo'lishi kerak.</span
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%; justify-content: center"
+          >
+            Yuborish
+          </button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================
+     FOOTER
+     ============================================ -->
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a href="#top" class="logo">Shoxruzbek<span>.dev</span></a>
+            <p
+              style="
+                margin-top: 12px;
+                max-width: 320px;
+                color: #a9b7c2;
+                font-size: 0.9rem;
+              "
+            >
+              Junior frontend dasturchi. Veb-saytlarni interaktiv va
+              foydalanuvchiga qulay qilib yarataman.
+            </p>
+            <div class="social-row">
+              <a
+                href="mailto:shoxruzbekmatyokubov@gmail.com"
+                aria-label="Email"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ecf0f1"
+                  stroke-width="2"
+                >
+                  <path d="M3 6l9 6 9-6M4 4h16v16H4z" />
+                </svg>
+              </a>
+              <!-- GitHub: profil havolangizni shu yerga qo'shing -->
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#ecf0f1">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"
+                  />
+                </svg>
+              </a>
+              <!-- Telegram: username'ingizni shu yerga qo'shing -->
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#ecf0f1">
+                  <path
+                    d="M22 3 2 10.6l6 2.1L20 6l-9.4 8.9L10 20l3-4 4.7 3.5L22 3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-contacts">
+            <a href="mailto:shoxruzbekmatyokubov@gmail.com"
+              >shoxruzbekmatyokubov@gmail.com</a
+            >
+            <a href="tel:+998930010203">+998 93 001 0203</a>
+            <a href="#projects">Loyihalar</a>
+            <a href="#skills">Ko'nikmalar</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span
+            >&copy; <span id="year"></span> Shoxruzbek Matyokubov. Barcha
+            huquqlar himoyalangan.</span
+          >
+          <span>Xorazm, O'zbekiston</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
