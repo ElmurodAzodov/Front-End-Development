@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Mobile uchun kerak -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Responsive Navbar</title>
+
+    <style>
+      /* =========================
+           CSS
+        ========================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: black;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 20px 50px;
+      }
+
+      /* Logo */
+      .logo {
+        color: white;
+        font-size: 25px;
+      }
+
+      /* Menu */
+      .menu {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      /* Hamburger */
+      .menu-btn {
+        display: none;
+
+        background: none;
+        border: none;
+
+        color: white;
+        font-size: 30px;
+
+        cursor: pointer;
+      }
+
+      /* =========================
+           MOBILE
+        ========================= */
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 20px;
+        }
+
+        /* Mobileda menyuni yashiramiz */
+        .menu {
+          display: none;
+        }
+
+        /* active bo'lganda menyu chiqadi */
+        .menu.active {
+          display: flex;
+          flex-direction: column;
+
+          position: absolute;
+          top: 70px;
+          left: 0;
+
+          width: 100%;
+
+          background-color: black;
+
+          padding: 20px;
+          gap: 20px;
+        }
+
+        /* Hamburgerni ko'rsatamiz */
+        .menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         HTML
+    ========================= -->
+
+    <nav class="navbar">
+      <!-- Logo -->
+      <h2 class="logo">MyLogo</h2>
+
+      <!-- Menu -->
+      <ul class="menu">
+        <li>
+          <a href="#">Home</a>
+        </li>
+
+        <li>
+          <a href="#">About</a>
+        </li>
+
+        <li>
+          <a href="#">Services</a>
+        </li>
+
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Hamburger -->
+      <button class="menu-btn">☰</button>
+    </nav>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+      // Hamburger tugmasini topamiz
+      const menuBtn = document.querySelector(".menu-btn");
+
+      // Menyuni topamiz
+      const menu = document.querySelector(".menu");
+
+      // Hamburger bosilganda
+      menuBtn.addEventListener("click", function () {
+        // active class qo'shadi / olib tashlaydi
+        menu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
