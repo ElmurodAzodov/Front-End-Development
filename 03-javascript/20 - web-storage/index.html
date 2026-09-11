@@ -16,20 +16,20 @@
       // localStorage.clear()
       const ism = localStorage.getItem("ism");
       console.log(ism, typeof ism);
-
+      
       // localStorage.removeItem("ism2")
-
+      
       console.log(localStorage.length);
-
-      // for (let i = 0; i < localStorage.length; i++) {
-      //   const key = localStorage.key(i);
-      //   const value = localStorage.getItem(key);
-      //   console.log(`${key}: ${value}`);
-      // }
-
-
-
-
+      
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        console.log(`${key}: ${value}`);
+      }
+      
+      
+      
+      // localStorage.clear()
 
 
 
