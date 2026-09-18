@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 1s;
+}
+
+body {
+  text-align: center;
+  padding: 50px;
+}
+
+.carusel-window {
+  width: 600px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.carusel-track {
+  display: flex;
+}
+.card {
+  min-width: 200px;
+  height: 150px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.controls {
+  margin: 20px 0px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: snow;
+}
