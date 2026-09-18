@@ -1,13 +1,17 @@
 const track = document.getElementById("track");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const card = document.querySelectorAll(".card")
+
+const cardLength = card.length // kartalar uzunligi
 
 let currentIndex = 0;
 
 const cardWidth = 210;
 
+
 nextBtn.addEventListener("click", () => {
-  if (currentIndex < 3) {
+  if (currentIndex < cardLength) {
     currentIndex++;
     updateCarousel();
   }
