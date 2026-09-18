@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore All Vehicles</title>
+    <style>
+        /* --- Umumiy Sozlamalar --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* --- Sarlavha Qismi --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .view-all {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .view-all:hover {
+            color: #000;
+        }
+
+        .view-all svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* --- Tablar (Tabs) --- */
+        .tabs {
+            display: flex;
+            gap: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding-bottom: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #777;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab.active {
+            color: #111;
+            font-weight: 600;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3b82f6; /* Ko'k chiziq */
+        }
+
+        .tab:hover {
+            color: #111;
+        }
+
+        /* --- Mashinalar Ro'yxati (Grid) --- */
+        .vehicles-grid {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: none; /* Firefox uchun scrollbarni yashirish */
+        }
+
+        .vehicles-grid::-webkit-scrollbar {
+            display: none; /* Chrome uchun scrollbarni yashirish */
+        }
+
+        /* --- Karta Dizayni --- */
+        .card {
+            display: flex;
+            background-color: #2d3138; /* To'q kulrang fon */
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 480px; /* Kartaning minimal kengligi */
+            height: 220px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 50%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Rasm ustidagi ikonka */
+        .image-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .image-badge:hover {
+            background-color: #fff;
+        }
+
+        .image-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #333;
+        }
+
+        .card-info {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .car-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .car-subtitle {
+            font-size: 11px;
+            color: #a0a0a0;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        /* Xususiyatlar (Features) */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .feature-item svg {
+            width: 14px;
+            height: 14px;
+            fill: #ccc;
+            flex-shrink: 0;
+        }
+
+        /* Narx va Tafsilotlar */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid #3d4149;
+            padding-top: 15px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .details-link {
+            font-size: 12px;
+            color: #ccc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+        }
+
+        .details-link:hover {
+            color: #fff;
+        }
+
+        .details-link svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        /* --- Pastki Navigatsiya Tugmalari --- */
+        .navigation {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #e0e0e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .nav-btn:hover {
+            border-color: #999;
+            background-color: #f9f9f9;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* --- "Green Price" Badge (Uchinchi karta uchun) --- */
+        .green-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #4ade80;
+            color: #064e3b;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sarlavha -->
+    <div class="header">
+        <h1>Explore All Vehicles</h1>
+        <a href="#" class="view-all">
+            View All
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+    </div>
+
+    <!-- Tablar -->
+    <div class="tabs">
+        <div class="tab active" data-tab="in-stock">In Stock</div>
+        <div class="tab" data-tab="new-cars">New Cars</div>
+        <div class="tab" data-tab="used-cars">Used Cars</div>
+    </div>
+
+    <!-- Mashinalar Konteyneri -->
+    <div class="vehicles-grid" id="vehiclesGrid">
+        <!-- 1-Karta -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2071&auto=format&fit=crop');">
+                <div class="image-badge">
+                    <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </div>
+            <div class="card-info">
+                <div>
+                    <h3 class="car-title">T-Cross – 2023</h3>
+                    <p class="car-subtitle">4.0 D5 PowerPulse Momentum 5dr AWd</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            15 Miles
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.42 0-8 3.58-8 8v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-4.42-3.58-8-8-8zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"/></svg>
+                            Petrol
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7z"/></svg>
+                            CVT
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <span class="price">$15,000</span>
+                    <a href="#" class="details-link">
+                        View Details
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2-Karta -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop');">
+                <div class="image-badge">
+                    <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </div>
+            <div class="card-info">
+                <div>
+                    <h3 class="car-title">C-Class – 2023</h3>
+                    <p class="car-subtitle">4.0 D5 PowerPulse Momentum 5dr AWd</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            50 Miles
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.42 0-8 3.58-8 8v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-4.42-3.58-8-8-8zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"/></svg>
+                            Petrol
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7z"/></svg>
+                            Automatic
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <span class="price">$150,000</span>
+                    <a href="#" class="details-link">
+                        View Details
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-Karta (Green Price badge bilan) -->
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');">
+                <div class="green-badge">Green Price</div>
+                <div class="image-badge">
+                    <svg viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </div>
+            <div class="card-info">
+                <div>
+                    <h3 class="car-title">Bentley – 2023</h3>
+                    <p class="car-subtitle">4.0 D5 PowerPulse Momentum 5dr AWd</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            10 Miles
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.42 0-8 3.58-8 8v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-4.42-3.58-8-8-8zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z"/></svg>
+                            Petrol
+                        </div>
+                        <div class="feature-item">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h10v2H7z"/></svg>
+                            Automatic
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <span class="price">$250,000</span>
+                    <a href="#" class="details-link">
+                        View Details
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigatsiya Tugmalari -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" disabled>
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </button>
+        <button class="nav-btn" id="nextBtn">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    // --- Tablarni almashtirish logikasi ---
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Avvalgi aktiv tabni o'chirish
+            document.querySelector('.tab.active').classList.remove('active');
+            // Yangi tabni aktiv qilish
+            tab.classList.add('active');
+            
+            // Bu yerda siz ma'lumotlarni filtrlash logikasini qo'shishingiz mumkin
+            console.log(`${tab.textContent} tabi tanlandi`);
+        });
+    });
+
+    // --- Slayder Navigatsiyasi ---
+    const grid = document.getElementById('vehiclesGrid');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Scroll holatini tekshirish funksiyasi
+    function updateButtons() {
+        if (grid.scrollLeft <= 0) {
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.disabled = false;
+        }
+
+        // Agar oxiriga yetgan bo'lsa
+        if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 5) {
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.disabled = false;
+        }
+    }
+
+    // O'ngga surish
+    nextBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: 500, behavior: 'smooth' });
+    });
+
+    // Chapga surish
+    prevBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: -500, behavior: 'smooth' });
+    });
+
+    // Scroll bo'lganda tugmalarni yangilash
+    grid.addEventListener('scroll', updateButtons);
+    
+    // Sahifa yuklanganda tugmalarni tekshirish
+    window.addEventListener('load', updateButtons);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Oddiy Karusel Darsi</title>
+    <style>
+      /* style.css */
+
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+
+      /* 1. OYNA: Faqat shu joy ko'rinadi */
+      .carousel-window {
+        width: 600px; /* Oyna kengligi */
+        overflow: hidden; /* Tashqarisini yashirish */
+        margin: 0 auto; /* Markazga qo'yish */
+        border: 2px solid #ccc;
+        border-radius: 10px;
+      }
+
+      /* 2. YO'LAK: Kartalar shu yerda turadi */
+      .carousel-track {
+        display: flex; /* Yonma-yon terish */
+        transition: transform 0.5s ease; /* Silliq harakatlanish */
+      }
+
+      /* 3. KARTA: Har bir quti */
+      .card {
+        min-width: 200px; /* Karta kengligi (o'zgarmas) */
+        height: 150px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        border-radius: 8px;
+      }
+
+      /* Tugmalar dizayni */
+      .controls {
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Mening Karuselim</h2>
+
+    <!-- 1. Karusel Oynasi (Ko'rinadigan qism) -->
+    <div class="carousel-window">
+      <!-- 2. Karusel Yo'lagi (Kartalar ketma-ket turadigan joy) -->
+      <div class="carousel-track" id="track">
+        <!-- 3. Kartalar -->
+        <div class="card" style="background-color: #ff9f43">Karta 1</div>
+        <div class="card" style="background-color: #54a0ff">Karta 2</div>
+        <div class="card" style="background-color: #5f27cd">Karta 3</div>
+        <div class="card" style="background-color: #10ac84">Karta 4</div>
+        <div class="card" style="background-color: #ee5253">Karta 5</div>
+      </div>
+    </div>
+
+    <!-- 4. Boshqaruv Tugmalari -->
+    <div class="controls">
+      <button id="prevBtn">⬅️ Chapga</button>
+      <button id="nextBtn">O'ngga ➡️</button>
+    </div>
+
+    <script>
+      // script.js
+
+      // Elementlarni tanlab olamiz
+      const track = document.getElementById("track");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Boshlang'ich holat (0-pozitsiya)
+      let currentIndex = 0;
+
+      // Bitta karta kengligi (CSS dagi 200px + 2*5px margin = 210px)
+      const cardWidth = 210;
+
+      // O'ngga tugmasi bosilganda
+      nextBtn.addEventListener("click", () => {
+        // Agar oxirgi kartaga yetmagan bo'lsa
+        if (currentIndex < 3) {
+          // Jami 5 ta karta, 3 tasi ko'rinadi (5-3=2, lekin biz 3 deb olamiz cheklov uchun)
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+
+      // Chapga tugmasi bosilganda
+      prevBtn.addEventListener("click", () => {
+        // Agar boshidan o'tib ketmagan bo'lsa
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+
+      // Karuselni yangilash funksiyasi
+      function updateCarousel() {
+        // Yo'lakni chapga surish (minus qiymat)
+        // Masalan: -210px, -420px ...
+        const moveAmount = -currentIndex * cardWidth;
+
+        // CSS transform orqali harakatlantirish
+        track.style.transform = `translateX(${moveAmount}px)`;
+      }
+    </script>
+  </body>
+</html>
