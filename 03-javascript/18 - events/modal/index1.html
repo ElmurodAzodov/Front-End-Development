@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>modal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <style>
       * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        transition: 1s;
+        transition: 0.4s;
       }
       .container {
         width: 100%;
@@ -33,13 +37,16 @@
       .modal-container {
         width: 400px;
         height: 100px;
-        border-radius: 20px;
+        border-radius: 50px;
         background-color: black;
         color: snow;
         display: flex;
         justify-content: space-around;
         align-items: center;
         font-size: 20px;
+      }
+      .modal-container:hover {
+        transform: scale(1.9);
       }
       .modal-container button {
         background-color: red;
@@ -48,8 +55,11 @@
         color: snow;
         font-weight: bold;
         border-radius: 50%;
-        padding: 4px 12px;
+        padding: 10px;
         cursor: pointer;
+      }
+      .modal-container button:hover {
+        transform: scale(1.5);
       }
       .open-btn {
         width: 120px;
@@ -62,6 +72,9 @@
         font-size: 20px;
         text-transform: uppercase;
       }
+      .open-btn:hover {
+        transform: scale(1.5);
+      }
     </style>
   </head>
   <body>
@@ -70,7 +83,7 @@
       <div class="modal">
         <div class="modal-container">
           <h2>Bu modal oyna</h2>
-          <button class="close-btn">x</button>
+          <button class="close-btn"><i class="ri-close-line"></i></button>
         </div>
       </div>
     </div>
