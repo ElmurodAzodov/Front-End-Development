@@ -87,6 +87,13 @@
       closeBtn.addEventListener("click", () => {
         modal.classList.remove("active");
       });
+
+      // har qanday joyga bosilganda
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
     </script>
   </body>
 </html>
