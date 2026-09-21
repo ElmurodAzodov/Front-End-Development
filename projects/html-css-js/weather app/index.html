@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ob-havo Ilovasi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌤️ Ob-havo Ilovasi</h1>
+
+      <!-- Joylashuvni aniqlash tugmasi -->
+      <button id="locationBtn" class="location-btn">
+        📍 Joylashuvimni aniqlash
+      </button>
+
+      <div class="divider"><span>yoki</span></div>
+
+      <!-- Qo'lda qidirish -->
+      <div class="search-box">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Shahar nomini yozing..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">Qidirish</button>
+      </div>
+
+      <!-- Loading -->
+      <p id="loadingMsg" class="loading hidden">⏳ Yuklanmoqda...</p>
+
+      <!-- Xato -->
+      <p id="errorMsg" class="error hidden"></p>
+
+      <!-- Ob-havo kartasi -->
+      <div id="weatherResult" class="weather-card hidden">
+        <h2 id="cityName">—</h2>
+        <div class="weather-icon" id="weatherIcon">🌡️</div>
+        <div class="temp" id="temperature">—°C</div>
+        <p class="desc" id="description">—</p>
+
+        <div class="details">
+          <div class="detail-item">
+            <span>💧 Namlik</span>
+            <strong id="humidity">—%</strong>
+          </div>
+          <div class="detail-item">
+            <span>💨 Shamol</span>
+            <strong id="wind">— m/s</strong>
+          </div>
+          <div class="detail-item">
+            <span>🌡️ His qilinadi</span>
+            <strong id="feelsLike">—°C</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

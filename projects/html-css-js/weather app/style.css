@@ -1,0 +1,214 @@
+/* ===== ASOSIY ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 22px;
+  font-size: 24px;
+}
+
+/* ===== JOYLASHUV TUGMASI ===== */
+.location-btn {
+  width: 100%;
+  padding: 14px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.15s;
+}
+
+.location-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.location-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.location-btn:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+/* ===== AJRATUVCHI ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+  color: #999;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.divider span {
+  padding: 0 12px;
+}
+
+/* ===== QIDIRUV ===== */
+.search-box {
+  display: flex;
+  gap: 10px;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#cityInput:focus {
+  border-color: #667eea;
+}
+
+#searchBtn {
+  padding: 12px 22px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#searchBtn:hover {
+  background: #5568d3;
+}
+
+#searchBtn:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+/* ===== OB-HAVO KARTASI ===== */
+.weather-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weather-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  font-size: 60px;
+  margin: 10px 0;
+}
+
+.temp {
+  font-size: 44px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.desc {
+  font-size: 16px;
+  text-transform: capitalize;
+  margin-bottom: 18px;
+  opacity: 0.92;
+}
+
+/* ===== QO'SHIMCHA MA'LUMOTLAR ===== */
+.details {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  flex: 1;
+}
+
+.detail-item strong {
+  font-size: 16px;
+}
+
+/* ===== XATO VA LOADING ===== */
+.error {
+  color: #c0392b;
+  background: #ffe5e5;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.loading {
+  color: #667eea;
+  background: #eef1ff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* ===== YASHIRISH ===== */
+.hidden {
+  display: none !important;
+}
