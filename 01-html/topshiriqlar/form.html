@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input va Placeholder</title>
+  </head>
+  <body>
+    <h1>Ro‘yxatdan o‘tish</h1>
+
+    <p>Quyidagi formani to‘ldiring:</p>
+
+    <form>
+      <h2>Shaxsiy ma'lumotlar</h2>
+
+      <label for="ism">Ismingiz:</label>
+      <br />
+      <input
+        type="text"
+        id="ism"
+        name="ism"
+        placeholder="Ismingizni kiriting"
+      />
+      <br /><br />
+
+      <label for="familiya">Familiyangiz:</label>
+      <br />
+      <input
+        type="text"
+        id="familiya"
+        name="familiya"
+        placeholder="Familiyangizni kiriting"
+      />
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@gmail.com"
+      />
+      <br /><br />
+
+      <label for="telefon">Telefon raqam:</label>
+      <br />
+      <input
+        type="tel"
+        id="telefon"
+        name="telefon"
+        placeholder="+998 90 123 45 67"
+      />
+      <br /><br />
+
+      <label for="parol">Parol:</label>
+      <br />
+      <input
+        type="password"
+        id="parol"
+        name="parol"
+        placeholder="Parolingizni kiriting"
+      />
+      <br /><br />
+
+      <h2>Tug‘ilgan sana</h2>
+
+      <label for="sana">Sana:</label>
+      <br />
+      <input type="date" id="sana" name="sana" />
+      <br /><br />
+
+      <h2>Qo‘shimcha ma'lumot</h2>
+
+      <label for="yosh">Yoshingiz:</label>
+      <br />
+      <input type="number" id="yosh" name="yosh" placeholder="Masalan: 25" />
+      <br /><br />
+
+      <label for="manzil">Manzilingiz:</label>
+      <br />
+      <input
+        type="text"
+        id="manzil"
+        name="manzil"
+        placeholder="Viloyat, tuman, ko‘cha"
+      />
+      <br /><br />
+
+      <label for="sayt">Web-saytingiz:</label>
+      <br />
+      <input
+        type="url"
+        id="sayt"
+        name="sayt"
+        placeholder="https://example.com"
+      />
+      <br /><br />
+
+      <h2>Qidiruv</h2>
+
+      <label for="qidiruv">Ma'lumot qidiring:</label>
+      <br />
+      <input
+        type="search"
+        id="qidiruv"
+        name="qidiruv"
+        placeholder="Qidiruv so‘zini kiriting"
+      />
+      <br /><br />
+
+      <h2>Tanlash</h2>
+
+      <p>Jinsingiz:</p>
+
+      <input type="radio" id="erkak" name="jins" value="erkak" />
+      <label for="erkak">Erkak</label>
+
+      <input type="radio" id="ayol" name="jins" value="ayol" />
+      <label for="ayol">Ayol</label>
+
+      <br /><br />
+
+      <p>Qiziqishlaringiz:</p>
+
+      <input type="checkbox" id="dasturlash" name="qiziqish" />
+      <label for="dasturlash">Dasturlash</label>
+
+      <br />
+
+      <input type="checkbox" id="sport" name="qiziqish" />
+      <label for="sport">Sport</label>
+
+      <br />
+
+      <input type="checkbox" id="kitob" name="qiziqish" />
+      <label for="kitob">Kitob o‘qish</label>
+
+      <br /><br />
+
+      <h2>Fayl yuklash</h2>
+
+      <label for="fayl">Rasm yoki hujjat:</label>
+      <br />
+      <input type="file" id="fayl" name="fayl" />
+      <br /><br />
+
+      <h2>Izoh</h2>
+
+      <label for="izoh">O‘zingiz haqingizda:</label>
+      <br />
+      <textarea
+        id="izoh"
+        name="izoh"
+        rows="6"
+        cols="40"
+        placeholder="O‘zingiz haqingizda ma'lumot yozing..."
+      ></textarea>
+
+      <br /><br />
+
+      <input type="submit" value="Ro‘yxatdan o‘tish" />
+
+      <input type="reset" value="Tozalash" />
+    </form>
+  </body>
+</html>
