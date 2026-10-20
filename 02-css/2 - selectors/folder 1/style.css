@@ -1,0 +1,26 @@
+h2 {
+    color: rgb(86, 95, 9);
+}
+
+.birinchi-p {
+    color: red;
+}
+
+.ikkinchi-p {
+    color: rgb(159, 190, 159);
+    background-color: red;
+}
+
+.uchinchi-p {
+    color: magenta;
+}
+
+#tortinchi-p {
+    color: aqua;
+}
+
+input {
+    background-color: rgb(235, 197, 147);
+    color: red;
+}
+
