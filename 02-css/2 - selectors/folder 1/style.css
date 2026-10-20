@@ -1,4 +1,4 @@
-h2 {
+/* h2 {
     color: rgb(86, 95, 9);
 }
 
@@ -22,5 +22,24 @@ h2 {
 input {
     background-color: rgb(235, 197, 147);
     color: red;
+} */
+
+
+
+.main {
+    background-color: aqua;
+    width: 500px;
+    height: 600px;
+    border: 20px solid rgb(242, 255, 0);
+    /* border: 20px groove red; */
+    /* border: 20px dotted red; */
+    /* border: 20px dashed red; */
+}
+
+.main-2 {
+    background-color: gray;
+    width: 500px;
+    height: 400px;
+    overflow: scroll;
 }
 
