@@ -4,8 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Redaction+50:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        .shadow {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid black;
+            margin: 30px auto;
+        }
+        .shadow:hover {
+            box-shadow: 10px 5px 20px rgb(0,0,0, 0.4);
+            background-color: antiquewhite;
+            border-radius: 30px;
+            transition: 1s;
+        }
+        .shadow p {
+            font-size: 90px;
+            /* text-transform: lowercase; */
+            text-transform: uppercase;
+            text-align: center;
+            /* font-weight: 900; */
+            font-weight: bold;
+            margin: 100px;
+            text-shadow: 4px 5px 6px rgb(0,0,0, 0.5);
+            font-family: "Redaction 50", serif;
+        }
+        .shadow p:hover {
+            color: rgb(255, 242, 0);
+            transition: 1s;
+        }
+        .shadow button {
+            width: 200px;
+            height: 80px;
+            margin: 20px;
+            border-radius: 12px;
+            border: none;
+            background-color: green;
+            font-size: 32px;
+            color: white;
+        }
+        .shadow button:hover {
+            box-shadow: 4px 2px 6px rgb(0,0,0, 0.6);
+            transition: 0.5s;
+        }
+        .shadow button:active {
+            box-shadow: 0px 0px 0px rgb(0,0,0, 0.6);
+            background-color: rgb(1, 84, 1);
+        }
+        .main {
+            width: 1440px;
+            height: 600px;
+            background-color: green;
+            margin: 50px auto;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid aqua;
+            background-color: rgb(0,0,0, 0.1);
+            display: inline-block;
+            margin: 20px;
+
+        }
+
+
+    </style>
   </head>
   <body>
-    
+
+    <div class="shadow">
+        <p>Lorem ipsum dolor sit.</p>
+        <button>Kirish</button>
+    </div>
+
+    <div class="main">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <span>Lorem ipsum dolor sit amet.</span>
+    <span>Lorem ipsum dolor sit amet.</span>
+
+
+
+
+
+
   </body>
 </html>
