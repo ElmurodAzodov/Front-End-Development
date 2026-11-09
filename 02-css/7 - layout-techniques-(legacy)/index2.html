@@ -56,8 +56,15 @@
         .main {
             width: 1440px;
             height: 600px;
-            background-color: green;
             margin: 50px auto;
+            border: 1px solid black;
+        }
+        .main:hover {
+            transition: 1s;
+            background-image: url(./img2.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .box {
             width: 100px;
@@ -67,6 +74,11 @@
             display: inline-block;
             margin: 20px;
 
+        }
+        .box:hover {
+            width: 150px;
+            height: 150px;
+            transition: 1s;
         }
 
 
