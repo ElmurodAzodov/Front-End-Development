@@ -62,3 +62,39 @@
     background-repeat: no-repeat;
 }
 
+.main {
+    width: 1200px;
+    height: 900px;
+    margin: 50px auto;
+    /* border: 1px solid black; */
+    /* background-image: url(./img.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    border-radius: 20px;
+
+
+}
+.main:hover {
+    width: 1740px;
+    height: 1000px;
+    transition: 0.5s;
+    box-shadow: 5px 4px 10px 10px rgb(0, 0, 0, 0.1);
+
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin: 10px 10px;
+    /* background-color: green; */
+    border-radius: 20px;
+}
+
+.box:hover {
+    background-color: red;
+    transition: 0.5s;
+    width: 300px;
+    height: 300px;
+}
