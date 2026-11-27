@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Katta Forma - Barcha Input Turlari</title>
+  </head>
+  <body>
+    <h1>Ro'yxatdan o'tish formasi</h1>
+    <p>Barcha HTML input turlari namoyishi</p>
+
+    <form action="/submit" method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>1. Matnli maydonlar</legend>
+
+        <p>
+          <label for="text">Text (oddiy matn):</label><br />
+          <input
+            type="text"
+            id="text"
+            name="text"
+            placeholder="Ismingizni kiriting"
+            maxlength="50"
+            required
+          />
+        </p>
+
+        <p>
+          <label for="password">Password (parol):</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Parolingiz"
+            minlength="6"
+            required
+          />
+        </p>
+
+        <p>
+          <label for="email">Email (elektron pochta):</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@mail.com"
+            required
+          />
+        </p>
+
+        <p>
+          <label for="tel">Tel (telefon raqam):</label><br />
+          <input
+            type="tel"
+            id="tel"
+            name="tel"
+            placeholder="+998 90 123 45 67"
+            pattern="[+0-9 ]{9,15}"
+          />
+        </p>
+
+        <p>
+          <label for="url">URL (veb manzil):</label><br />
+          <input
+            type="url"
+            id="url"
+            name="url"
+            placeholder="https://example.com"
+          />
+        </p>
+
+        <p>
+          <label for="search">Search (qidiruv):</label><br />
+          <input
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Qidirish..."
+          />
+        </p>
+
+        <p>
+          <label for="textarea">Textarea (katta matn):</label><br />
+          <textarea
+            id="textarea"
+            name="textarea"
+            rows="5"
+            cols="40"
+            placeholder="Izohingizni yozing..."
+          ></textarea>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Raqamli maydonlar</legend>
+
+        <p>
+          <label for="number">Number (son):</label><br />
+          <input
+            type="number"
+            id="number"
+            name="number"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+          />
+        </p>
+
+        <p>
+          <label for="range">Range (oralig'i):</label><br />
+          <input
+            type="range"
+            id="range"
+            name="range"
+            min="0"
+            max="100"
+            step="5"
+            value="50"
+          />
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Sana va vaqt</legend>
+
+        <p>
+          <label for="date">Date (sana):</label><br />
+          <input type="date" id="date" name="date" />
+        </p>
+
+        <p>
+          <label for="time">Time (vaqt):</label><br />
+          <input type="time" id="time" name="time" />
+        </p>
+
+        <p>
+          <label for="datetime-local">Datetime-local (sana va vaqt):</label
+          ><br />
+          <input
+            type="datetime-local"
+            id="datetime-local"
+            name="datetime-local"
+          />
+        </p>
+
+        <p>
+          <label for="month">Month (oy):</label><br />
+          <input type="month" id="month" name="month" />
+        </p>
+
+        <p>
+          <label for="week">Week (hafta):</label><br />
+          <input type="week" id="week" name="week" />
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Tanlash elementlari</legend>
+
+        <p>
+          <label for="color">Color (rang tanlash):</label><br />
+          <input type="color" id="color" name="color" value="#ff0000" />
+        </p>
+
+        <p>
+          <label for="file">File (fayl yuklash):</label><br />
+          <input type="file" id="file" name="file" accept="image/*,.pdf" />
+        </p>
+
+        <p>
+          <label for="select">Select (ro'yxatdan tanlash):</label><br />
+          <select id="select" name="select">
+            <option value="">-- Tanlang --</option>
+            <option value="uz">O'zbekiston</option>
+            <option value="kz">Qozog'iston</option>
+            <option value="ru">Rossiya</option>
+            <option value="tr">Turkiya</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="datalist-input">Datalist (avtomatik to'ldirish):</label
+          ><br />
+          <input
+            type="text"
+            id="datalist-input"
+            name="datalist-input"
+            list="shaharlar"
+            placeholder="Shahar nomi"
+          />
+          <datalist id="shaharlar">
+            <option value="Toshkent"></option>
+            <option value="Samarqand"></option>
+            <option value="Buxoro"></option>
+            <option value="Andijon"></option>
+            <option value="Namangan"></option>
+          </datalist>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Radio tugmalar (faqat bittasini tanlash)</legend>
+
+        <p>Jinsingiz:</p>
+        <p>
+          <input type="radio" id="male" name="jins" value="erkak" checked />
+          <label for="male">Erkak</label><br />
+
+          <input type="radio" id="female" name="jins" value="ayol" />
+          <label for="female">Ayol</label><br />
+
+          <input type="radio" id="other" name="jins" value="boshqa" />
+          <label for="other">Boshqa</label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Checkbox (belgilash)</legend>
+
+        <p>
+          <input type="checkbox" id="sport" name="qiziqish" value="sport" />
+          <label for="sport">Sport</label><br />
+
+          <input type="checkbox" id="musiqa" name="qiziqish" value="musiqa" />
+          <label for="musiqa">Musiqa</label><br />
+
+          <input
+            type="checkbox"
+            id="kitob"
+            name="qiziqish"
+            value="kitob"
+            checked
+          />
+          <label for="kitob">Kitob o'qish</label>
+        </p>
+
+        <p>
+          <input type="checkbox" id="shartlar" name="shartlar" required />
+          <label for="shartlar">Foydalanish shartlariga roziman</label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Maxsus tugmalar</legend>
+
+        <p>
+          <input type="submit" value="Yuborish (Submit)" />
+          <input type="reset" value="Tozalash (Reset)" />
+          <input
+            type="button"
+            value="Oddiy tugma (Button)"
+            onclick="alert('Tugma bosildi!')"
+          />
+          <button type="button">Button elementi (button)</button>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>8. Yashirin va boshqa elementlar</legend>
+
+        <input type="hidden" name="session_id" value="abc123xyz" />
+
+        <p>
+          <label for="image-submit">Image (rasmli tugma):</label><br />
+          <input
+            type="image"
+            id="image-submit"
+            src="https://via.placeholder.com/80x30?text=Yuborish"
+            alt="Yuborish"
+            width="80"
+            height="30"
+          />
+        </p>
+
+        <p>
+          <label for="output">Output (natija ko'rsatish):</label><br />
+          <output name="natija" for="number range">Natija bu yerda</output>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Boshqa foydali atributlar</legend>
+
+        <p>
+          <label for="readonly">Readonly (o'qish uchun):</label><br />
+          <input
+            type="text"
+            id="readonly"
+            name="readonly"
+            value="Bu matnni o'zgartirib bo'lmaydi"
+            readonly
+          />
+        </p>
+
+        <p>
+          <label for="disabled">Disabled (o'chirilgan):</label><br />
+          <input
+            type="text"
+            id="disabled"
+            name="disabled"
+            value="Bu maydon faolsiz"
+            disabled
+          />
+        </p>
+
+        <p>
+          <label for="disabled-select">Disabled select:</label><br />
+          <select id="disabled-select" name="disabled-select" disabled>
+            <option>Tanlanmaydi</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Formani yuborish</button>
+      </p>
+    </form>
+
+    <hr />
+    <h2>Forma haqida</h2>
+    <p>Bu formada HTML input turlarining deyarli barchasi ishlatilgan:</p>
+    <ul>
+      <li>text, password, email, tel, url, search</li>
+      <li>number, range</li>
+      <li>date, time, datetime-local, month, week</li>
+      <li>color, file, select, datalist</li>
+      <li>radio, checkbox</li>
+      <li>submit, reset, button, image</li>
+      <li>hidden, output, textarea</li>
+    </ul>
+  </body>
+</html>
